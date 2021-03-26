@@ -1,0 +1,10 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- link:
+    ~/.config/fish/:
+      glob: true
+      path: fish/*
+    

@@ -4,49 +4,35 @@
       create: true
 
 - link:
-    #[WIN/LINUX] fish
-    ~/.config/fish/:
-      glob: true
-      path: fish/*
-    
-    #[WIN] PowerShell
     ~/Documents/PowerShell/:
       glob: true
       path: PowerShell/*
-    
-    #[WIN] AutoHotkey
+
     ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/:
       glob: true
       path: AutoHotkey/*
     
-    #[WIN] qBitTorrent
     ~/AppData/Roaming/qBittorrent/:
       glob: true
       path: qBitTorrent/*
     
-    #[WIN] Code
     ~/AppData/Roaming/Code/User/:
       glob: true
       path: Code/*
     
-    #[WIN] Vivaldi MODS
     ~/AppData/Local/Vivaldi/MODS/:
       glob: true
       path: Vivaldi/MODS/*
     
-    #[WIN] Vivaldi mainmenu
     ~/AppData/Local/Vivaldi/User Data/Default/mainmenu.json:
       path: Vivaldi/mainmenu.json
     
-    #[WIN] Windows Terminal Preview
     ~/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
       path: Windows Terminal Preview/settings.json
     
-    #[WIN] mpv
     ~/AppData/Roaming/mpv/mpv.conf:
       path: mpv/mpv.conf
     
-    #[WIN] ShareX
     ~/Documents/ShareX/:
       glob: true
       path: ShareX/*
