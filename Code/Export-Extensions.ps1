@@ -1,0 +1,1 @@
+Set-Content -Path $PSScriptRoot\extensions -Value (code --list-extensions)

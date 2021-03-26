@@ -1,0 +1,13 @@
+- shell:
+  -
+    command: powershell.exe -noexit -file .\chocolatey\Export-Chocolatey.ps1
+    stdin: false
+    stdout: false
+    description: Backing up chocolatey packages
+    quiet: true
+  -
+    command: powershell.exe -noexit -file .\Code\Export-Extensions.ps1
+    stdin: false
+    stdout: false
+    description: Backing up Code extensions
+    quiet: true
