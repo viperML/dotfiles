@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/* Minimum-height top tab bar */
+.tabs-top #tabs-container,
+.tabs-bottom #tabs-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.tabs-top .vivaldi {
+    padding-top: 0;
+    height: 30px;
+}
+.tabs-top .vivaldi .application-icon {
+    margin-bottom: 5px;
+}
+.tabs-top .tab-group-indicator {
+    top: 0;
+}
+.tabs-top .tab-group .tab-header {
+    padding-top: 8px !important;
+}
+.tabs-top .tab-indicator {
+    border-top-width: 0;
+    height: 7px;
+}

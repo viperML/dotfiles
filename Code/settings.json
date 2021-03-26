@@ -1,0 +1,193 @@
+{
+  // General config
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.tabCompletion": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "type",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "terminal.integrated.shellArgs.windows": "-nologo",
+  "update.mode": "none",
+  "workbench.startupEditor": "none",
+  
+  // Git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreWindowsGit27Warning": true,
+  
+  // Theme
+  "workbench.iconTheme": "helium-icon-theme",
+  "workbench.colorTheme": "Panda Syntax",
+  "editor.fontSize": 17,
+  "editor.fontFamily": "'Inconsolata Regular' ,Consolas, monospace",
+  "terminal.integrated.fontFamily": "'MesloLGS NF'",
+  "bracket-pair-colorizer-2.showVerticalScopeLine": false,
+  "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+  "workbench.productIconTheme": "material-product-icons",
+  
+  
+  // Latex
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.outDir": "%DIR%/_build",
+  "latex-workshop.latex.tools": [
+    {
+      
+      "name": "latexmk-pvc",
+      "command": "latexmk",
+      "args": [
+        "-auxdir=_build",
+        "-pvc",
+        "-xelatex",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=_build",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      
+      "name": "xelatex-wsl",
+      "command": "wsl",
+      "args": [
+        "xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=_build",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "biber-wsl",
+      "command": "wsl",
+      "args": [
+        "biber",
+        "_build/%DOCFILE%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk 🔁",
+      "tools": [
+        "latexmk-pvc"
+      ]
+    },
+    {
+      "name": "xelatex",
+      "tools": [
+        "xelatex"
+      ]
+    },
+    {
+      "name": "[WSL] xelatex",
+      "tools": [
+        "xelatex-wsl"
+      ]
+    },
+    {
+      "name": "[WSL] xelatex ➞ biber ➞ xelatex × 2",
+      "tools": [
+        "xelatex-wsl",
+        "biber-wsl",
+        "xelatex-wsl",
+        "xelatex-wsl"
+      ]
+    }
+  ],
+  
+  // Associations
+  "files.associations": {
+    "*.m": "matlab",
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  
+  
+  // Web
+  "prettier.tabWidth": 2,
+  "[json]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  
+  // Python
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,    
+  "python.jediEnabled": false,
+  "python.languageServer": "Microsoft",
+  "vsintellicode.python.completionsEnabled": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  
+  // Powershell
+  "powershell.powerShellAdditionalExePaths": [
+    {
+      "versionName": "PowerShell 7",
+      "exePath": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"   
+    }
+  ],
+  "powershell.powerShellDefaultVersion": "PowerShell 7",
+  
+  // Discord
+  "discord.detailsEditing": "Editing {lang}",
+  "discord.detailsDebugging": "Debugging {lang}",
+  "discord.lowerDetailsEditing": "{total_lines} lines",
+  "discord.lowerDetailsDebugging": "{total_lines} lines",
+  "discord.suppressNotifications": true,
+  
+  "tabnine.experimentalAutoImports": true
+  // Unsorted
+
+}
