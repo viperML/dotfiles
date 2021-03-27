@@ -15,3 +15,12 @@
     ~/.config/Code/User/:
       glob: true
       path: Code/*
+    
+    ~/.config/picom/picom.conf: picom/picom.conf
+
+    ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
+
+    ~/.config/vivaldi-MODS/:
+      glob: true
+      path: Vivaldi/MODS/*
+  
