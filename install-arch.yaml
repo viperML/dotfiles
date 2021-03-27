@@ -8,3 +8,10 @@
       glob: true
       path: fish/*
     
+    ~/.config/oh-my-posh/:
+      glob: true
+      path: oh-my-posh/*
+
+    ~/.config/Code/User/:
+      glob: true
+      path: Code/*

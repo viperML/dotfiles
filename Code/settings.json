@@ -172,13 +172,14 @@
   },
   
   // Powershell
-  "powershell.powerShellAdditionalExePaths": [
-    {
-      "versionName": "PowerShell 7",
-      "exePath": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"   
-    }
-  ],
-  "powershell.powerShellDefaultVersion": "PowerShell 7",
+  // TODO Arch compatible
+  // "powershell.powerShellAdditionalExePaths": [
+  //   {
+  //     "versionName": "PowerShell 7",
+  //     "exePath": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"   
+  //   }
+  // ],
+  // "powershell.powerShellDefaultVersion": "PowerShell 7",
   
   // Discord
   "discord.detailsEditing": "Editing {lang}",
