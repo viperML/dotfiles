@@ -24,3 +24,6 @@
       glob: true
       path: Vivaldi/MODS/*
   
+    ~/.config/neofetch/:
+      glob: true
+      path: neofetch/*
