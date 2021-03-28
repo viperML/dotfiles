@@ -27,3 +27,9 @@
     ~/.config/neofetch/:
       glob: true
       path: neofetch/*
+    
+    ~/.Xresources: X11/Xresources
+    ~/.config/user-dirs.dirs: X11/user-dirs.dirs
+    ~/.config/user-dirs.locale: X11/user-dirs.locale
+    
+    ~/.config/emptty: emptty

@@ -1,0 +1,10 @@
+#!/bin/sh
+Selection=true
+
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+xrdb $HOME/.Xresources
+
+export EMPTTY_LOADED=true
+
+exec dbus-launch $@
