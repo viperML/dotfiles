@@ -7,27 +7,24 @@
 
 # i3 config file (v4)
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
-
-exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
 
-# ███████╗████████╗ █████╗ ██████╗ ████████╗██╗   ██╗██████╗     ██████╗ ██████╗  ██████╗  ██████╗ ██████╗  █████╗ ███╗   ███╗███████╗
-# ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝██║   ██║██╔══██╗    ██╔══██╗██╔══██╗██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗████╗ ████║██╔════╝
-# ███████╗   ██║   ███████║██████╔╝   ██║   ██║   ██║██████╔╝    ██████╔╝██████╔╝██║   ██║██║  ███╗██████╔╝███████║██╔████╔██║███████╗
-# ╚════██║   ██║   ██╔══██║██╔══██╗   ██║   ██║   ██║██╔═══╝     ██╔═══╝ ██╔══██╗██║   ██║██║   ██║██╔══██╗██╔══██║██║╚██╔╝██║╚════██║
-# ███████║   ██║   ██║  ██║██║  ██║   ██║   ╚██████╔╝██║         ██║     ██║  ██║╚██████╔╝╚██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║███████║
-# ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝         ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝                                                                                                                                    
-# dex looks in /etc/xdg/autostart
-#              $HOME/.local/autostart
-exec --no-startup-id dex -e i3 -a
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
 
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
 
 #  ██████╗  █████╗ ██████╗ ███████╗
 # ██╔════╝ ██╔══██╗██╔══██╗██╔════╝
@@ -36,54 +33,41 @@ exec --no-startup-id dex -e i3 -a
 # ╚██████╔╝██║  ██║██║     ███████║
 #  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝
 for_window [class=".*"] border pixel 0                 
-gaps vertical 10
+gaps inner 10
+gaps outer 5
 
-
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# exec "feh --bg-fill /mnt/c/Users/ayats/Pictures/GENERIC/1613725144586.png"
+exec_always --no-startup-id "nitrogen --restore"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym Print exec xfce4-screenshooter
+
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
 bindsym $mod+d exec "rofi -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# For use with xfce4 whisker popup menu in Mint XFCE:
+# bindsym $mod+Shift+d exec dmenu_run
+# bindsym $mod+d exec --no-startup-id xfce4-popup-whiskermenu
+
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -95,7 +79,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -171,7 +155,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#-old-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec xfce4-session-logout
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -184,7 +169,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -192,16 +177,19 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command py3status
-# }
+
+
+#-old-#bar {
+#-old-#       status_command i3status
+#-old-#}
+#exec --no-startup-id nitrogen --restore
+#exec --no-startup-id synergy

@@ -6,7 +6,6 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
-  "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.inheritEnv": false,
