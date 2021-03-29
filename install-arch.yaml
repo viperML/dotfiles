@@ -36,6 +36,4 @@
       glob: true
       path: i3/*
     
-    ~/.config/polybar/:
-      glob: true
-      path: polybar/*
+    ~/.config/redshift.conf: redshift/redshift.conf
