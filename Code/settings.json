@@ -118,7 +118,9 @@
     "**/*.html": "html",
     "**/templates/**/*.html": "django-html",
     "**/templates/**/*": "django-txt",
-    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+    "**/.i3/config": "i3",
+    "**/i3/config": "i3"
   },
   "workbench.editorAssociations": [
     {
@@ -126,6 +128,7 @@
       "filenamePattern": "*.ipynb"
     }
   ],
+
   
   
   // Web
@@ -165,7 +168,7 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,    
   "python.jediEnabled": false,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "vsintellicode.python.completionsEnabled": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
@@ -190,5 +193,7 @@
   
   "tabnine.experimentalAutoImports": true
   // Unsorted
+
+  
 
 }

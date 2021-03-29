@@ -29,7 +29,13 @@
       path: neofetch/*
     
     ~/.Xresources: X11/Xresources
-    ~/.config/user-dirs.dirs: X11/user-dirs.dirs
-    ~/.config/user-dirs.locale: X11/user-dirs.locale
     
     ~/.config/emptty: emptty
+
+    ~/.config/i3/:
+      glob: true
+      path: i3/*
+    
+    ~/.config/polybar/:
+      glob: true
+      path: polybar/*
