@@ -119,8 +119,8 @@
     "**/templates/**/*.html": "django-html",
     "**/templates/**/*": "django-txt",
     "**/requirements{/**,*}.{txt,in}": "pip-requirements",
-    "**/.i3/config": "i3",
-    "**/i3/config": "i3"
+    "**/i3/config": "i3",
+    "**/polybar/config": "ini"
   },
   "workbench.editorAssociations": [
     {

@@ -1,6 +1,7 @@
 [bar/mybar]
 modules-right = date
 modules-left = i3
+tray-position = right
 
 [module/date]
 type = internal/date
