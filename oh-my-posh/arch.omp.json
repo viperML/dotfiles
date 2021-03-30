@@ -1,0 +1,93 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"final_space": true,
+	"osc99": true,
+	"console_title": true,
+	"console_title_style": "path",
+	"console_title_template": "{{ .Shell }}",
+	"blocks": [
+		{
+			"type": "prompt",
+			"alignment": "left",
+			"horizontal_offset": 0,
+			"vertical_offset": 0,
+			"segments": [
+				{
+					"type": "path",
+					"style": "plain",
+					"foreground": "#60bde9",
+					"properties": {
+						"prefix": "╭ ",
+						"style": "agnoster_full",
+						"home_icon": "~",
+						"folder_separator_icon": "/",
+						"mapped_locations": [ [ "C:\\Users\\ayats\\Documents\\aurea_test1\\", "\uf1d8/" ] ]
+					}
+				},
+				{
+					"type": "git",
+					"style": "plain",
+					"foreground": "#65dd75"
+				},
+				{
+					"type": "python",
+					"style": "plain",
+					"foreground": "#4b49b1",
+					"properties": {
+						"prefix": " \uE235 ",
+						"postfix": " ",
+						"display_mode": "environment",
+						"display_version": false
+					}
+				},
+				{
+					"type": "exit",
+					"style": "powerline",
+					"powerline_symbol": "\ue0ba",
+					"invert_powerline": true,
+					"foreground": "#a52626",
+					"background": "#ffffff",
+					"properties": {
+						"prefix": " "
+					}
+				},
+				{
+					"type": "text",
+					"style": "powerline",
+					"powerline_symbol": "\ue0bc",
+					"invert_powerline": false,
+					"background": "#181818",
+					"foreground": "#ffffff",
+					"properties": {
+						"text": "",
+						"prefix": "",
+						"postfix": ""
+					}
+				}
+			]
+		},
+		{
+			"type": "newline"
+		},
+		{
+			"type": "prompt",
+			"alignment": "left",
+			"horizontal_offset": 0,
+			"vertical_offset": 0,
+			"segments": [
+				{
+					"type": "text",
+					"style": "plain",
+					"leading_diamond": ">",
+					"trailing_diamond": "",
+					"foreground": "#64da74",
+					"properties": {
+						"text": "╰",
+						"prefix": "",
+						"postfix": ""
+					}
+				}
+			]
+		}
+	]
+}

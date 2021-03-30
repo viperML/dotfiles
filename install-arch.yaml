@@ -37,3 +37,7 @@
       path: i3/*
     
     ~/.config/redshift.conf: redshift/redshift.conf
+
+    ~/.config/gtk-3.0/:
+      glob: true
+      path: gtk-3.0/*

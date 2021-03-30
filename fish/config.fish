@@ -1,5 +1,5 @@
 set -g -x fish_greeting ''
-oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper_mod.omp.json | source
+oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/arch.omp.json | source
 export GREP_OPTIONS='--color=always'
 export DOTFILES_DIR=$HOME/.dotfiles
 
