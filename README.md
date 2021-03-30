@@ -5,7 +5,7 @@ to set up symlinks.
 - Windows/Linux, dotbot detects OS and uses required dotfiles
 
 TODO:
-- [ ] oh-my-posh prompt
+- [x] oh-my-posh prompt
 - [ ] Android emulator
 - [ ] Backslash ahk
 - [ ] Razer mouse

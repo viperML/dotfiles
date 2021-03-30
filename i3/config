@@ -27,6 +27,10 @@ for_window [class=".*"] border pixel 0
 gaps inner 10
 gaps outer 5
 
+# Float xfce
+for_window [class="Xfce-*"] floating enable
+for_window [class="^Genymotion$"] floating enable
+
 
 
 
@@ -49,7 +53,8 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -show drun"
+# bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+d exec "xfce4-popup-whiskermenu"
 
 # For use with xfce4 whisker popup menu in Mint XFCE:
 # bindsym $mod+Shift+d exec dmenu_run
@@ -147,6 +152,9 @@ bindsym $mod+F7 move container to workspace number $ws7, workspace number $ws7
 bindsym $mod+F8 move container to workspace number $ws8, workspace number $ws8
 bindsym $mod+F9 move container to workspace number $ws9, workspace number $ws9
 
+# Automoves
+for_window [class="Genymotion Player"] move to workspace $ws8
+for_window [class="discord"] move to workspace $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
