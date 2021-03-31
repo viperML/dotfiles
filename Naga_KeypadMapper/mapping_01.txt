@@ -1,6 +1,6 @@
 1 - key=1
-2 - key=2
-3 - key=3
+2 - key=Shift+b
+3 - key=Shift+w
 4 - key=4
 5 - key=5
 6 - key=6

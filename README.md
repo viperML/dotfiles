@@ -8,9 +8,10 @@ TODO:
 - [x] oh-my-posh prompt
 - [x] Android emulator
 - [x] Backslash ahk
-- [ ] Razer mouse
-- [ ] i3 keybinds
+- [x] Razer mouse
+- [x] i3 keybinds
 - [ ] VSCode theme
 - [ ] terminal colors
 - [ ] xfce-panels
 - [ ] Theme & icons
+- [ ] DDG login

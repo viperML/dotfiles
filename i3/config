@@ -5,17 +5,22 @@ set $mod Mod4
 floating_modifier $mod
 
 
-# ███████╗ ██████╗ ███╗   ██╗████████╗███████╗
-# ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝
-# █████╗  ██║   ██║██╔██╗ ██║   ██║   ███████╗
-# ██╔══╝  ██║   ██║██║╚██╗██║   ██║   ╚════██║
-# ██║     ╚██████╔╝██║ ╚████║   ██║   ███████║
-# ╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝
-                                            
-font pango:monospace 8
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# ███████╗████████╗██╗   ██╗██╗     ███████╗
+# ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝
+# ███████╗   ██║    ╚████╔╝ ██║     █████╗  
+# ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  
+# ███████║   ██║      ██║   ███████╗███████╗
+# ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝                          
+font pango:Noto Sans Regular 10
+title_align center
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 
 
 
@@ -25,9 +30,16 @@ font pango:monospace 8
 # ██║   ██║██╔══██║██╔═══╝ ╚════██║
 # ╚██████╔╝██║  ██║██║     ███████║
 #  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝
-for_window [class=".*"] border pixel 0    
-gaps inner 10
-gaps outer 5
+gaps inner 5
+gaps outer 0
+bindsym $mod+plus gaps outer all plus 1
+bindsym $mod+minus gaps outer all minus 1
+bindsym $mod+Control+plus gaps inner all plus 1
+bindsym $mod+Control+minus gaps inner all minus 1
+# border
+default_border          none
+default_floating_border none
+#for_window [class=".*"] border none
 
 
 # ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
@@ -48,6 +60,7 @@ for_window [class=".*"] split toggle #toggles split at each new window
 # Automoves
 for_window [class="Genymotion Player"] move to workspace $ws8
 for_window [class="discord"] move to workspace $ws9
+no_focus [tiling]
 
 
 # ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
@@ -62,7 +75,7 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym Control+Print exec --no-startup-id peek
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+q kill
-bindsym $mod+d exec "xfce4-popup-whiskermenu"
+bindsym $mod+space exec "xfce4-popup-whiskermenu"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -76,25 +89,17 @@ bindsym $mod+Up move up
 bindsym $mod+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+s layout toggle split
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-#bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+f floating toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -105,9 +110,8 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws8 ""
+set $ws9 "ﭮ"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
