@@ -6,10 +6,11 @@ to set up symlinks.
 
 TODO:
 - [x] oh-my-posh prompt
-- [ ] Android emulator
-- [ ] Backslash ahk
+- [x] Android emulator
+- [x] Backslash ahk
 - [ ] Razer mouse
 - [ ] i3 keybinds
 - [ ] VSCode theme
 - [ ] terminal colors
 - [ ] xfce-panels
+- [ ] Theme & icons

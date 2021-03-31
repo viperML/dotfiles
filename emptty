@@ -4,6 +4,7 @@ Selection=true
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrdb $HOME/.Xresources
+xmodmap $HOME/.Xmodmap
 
 export EMPTTY_LOADED=true
 

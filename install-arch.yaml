@@ -41,3 +41,7 @@
     ~/.config/gtk-3.0/:
       glob: true
       path: gtk-3.0/*
+    
+    ~/.naga/:
+      glob: true
+      path: Naga_KeypadMapper/*
