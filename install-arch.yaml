@@ -34,7 +34,7 @@
     
     ~/.Xresources: X11/Xresources
     
-    ~/.config/emptty: emptty
+    ~/.config/emptty: emptty/emptty
 
     ~/.config/i3/:
       glob: true

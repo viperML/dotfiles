@@ -42,4 +42,4 @@
       glob: true
       path: ShareX/*
     
-    ~/.condarc: condarc
+    ~/.condarc: conda/condarc

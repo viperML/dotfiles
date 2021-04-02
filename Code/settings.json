@@ -190,7 +190,8 @@
   "discord.lowerDetailsDebugging": "{total_lines} lines",
   "discord.suppressNotifications": true,
   
-  "tabnine.experimentalAutoImports": true
+  "tabnine.experimentalAutoImports": true,
+  "files.autoSave": "afterDelay"
   // Unsorted
 
   

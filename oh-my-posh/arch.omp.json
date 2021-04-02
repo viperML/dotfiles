@@ -36,32 +36,17 @@
 					"properties": {
 						"prefix": " \uE235 ",
 						"postfix": " ",
-						"display_mode": "environment",
-						"display_version": false
+						"display_mode": "context",
+						"display_version": true
 					}
 				},
 				{
 					"type": "exit",
-					"style": "powerline",
-					"powerline_symbol": "\ue0ba",
-					"invert_powerline": true,
+					"style": "plain",
 					"foreground": "#a52626",
-					"background": "#ffffff",
 					"properties": {
-						"prefix": " "
-					}
-				},
-				{
-					"type": "text",
-					"style": "powerline",
-					"powerline_symbol": "\ue0bc",
-					"invert_powerline": false,
-					"background": "#181818",
-					"foreground": "#ffffff",
-					"properties": {
-						"text": "",
-						"prefix": "",
-						"postfix": ""
+						"prefix": " ",
+						"always_enabled": false
 					}
 				}
 			]

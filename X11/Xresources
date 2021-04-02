@@ -5,5 +5,35 @@ Xcursor.theme:
 Xcursor.size:	0
 Xcursor.theme_core:	1
 
+! XTerm config
 ! Allow sixel graphics. (Try: "convert -colors 16 foo.jpg sixel:-").
 xterm*decTerminalID	:	vt340
+xterm.termName: xterm-256color
+xterm.vt100.locale: false
+xterm.vt100.utf8: true
+xterm.vt100.metaSendsEscape: true
+xterm.vt100.saveLines: 4096
+xterm.vt100.scrollBar: true
+xterm.vt100.scrollbar.width: 3
+xterm*faceName: Hack Nerd Font Mono, monospace
+xterm*faceSize: 14
+xterm.letterSpacing: 0
+xterm.vt100.scaleHeight: 1.3
+xterm*foreground: rgb:a8/a8/a8
+xterm*background: rgb:00/00/00
+*color0: rgb:00/00/00
+*color1: rgb:a8/00/00
+*color2: rgb:00/a8/00
+*color3: rgb:a8/54/00
+*color4: rgb:00/00/a8
+*color5: rgb:a8/00/a8
+*color6: rgb:00/a8/a8
+*color7: rgb:a8/a8/a8
+*color8: rgb:54/54/54
+*color9: rgb:fc/54/54
+*color10: rgb:54/fc/54
+*color11: rgb:fc/fc/54
+*color12: rgb:54/54/fc
+*color13: rgb:fc/54/fc
+*color14: rgb:54/fc/fc
+*color15: rgb:fc/fc/fc
