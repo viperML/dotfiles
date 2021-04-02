@@ -23,25 +23,6 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 
-
-#  ██████╗  █████╗ ██████╗ ███████╗
-# ██╔════╝ ██╔══██╗██╔══██╗██╔════╝
-# ██║  ███╗███████║██████╔╝███████╗
-# ██║   ██║██╔══██║██╔═══╝ ╚════██║
-# ╚██████╔╝██║  ██║██║     ███████║
-#  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝
-gaps inner 5
-gaps outer 0
-bindsym $mod+plus gaps outer all plus 1
-bindsym $mod+minus gaps outer all minus 1
-bindsym $mod+Control+plus gaps inner all plus 1
-bindsym $mod+Control+minus gaps inner all minus 1
-# border
-default_border          none
-default_floating_border none
-#for_window [class=".*"] border none
-
-
 # ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
 # ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
 # ██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
@@ -53,14 +34,36 @@ for_window [class="^Genymotion$"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Wrapper-2.0"] floating enable
+for_window [class="polychromatic-controller"] floating enable
 
-default_orientation vertical #start in opposite orientation from your monitor
-for_window [class=".*"] split toggle #toggles split at each new window
+#default_orientation vertical #start in opposite orientation from your monitor
+#for_window [class=".*"] split toggle #toggles split at each new window
+exec_always --no-startup-id autotiling
 
 # Automoves
 for_window [class="Genymotion Player"] move to workspace $ws8
 for_window [class="discord"] move to workspace $ws9
-no_focus [tiling]
+# no_focus [tiling]
+
+
+
+#  ██████╗  █████╗ ██████╗ ███████╗
+# ██╔════╝ ██╔══██╗██╔══██╗██╔════╝
+# ██║  ███╗███████║██████╔╝███████╗
+# ██║   ██║██╔══██║██╔═══╝ ╚════██║
+# ╚██████╔╝██║  ██║██║     ███████║
+#  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝
+smart_gaps on
+gaps inner 15
+gaps outer 0
+bindsym $mod+plus gaps inner all plus 1
+bindsym $mod+minus gaps inner all minus 1
+bindsym $mod+Control+plus gaps outer all plus 1
+bindsym $mod+Control+minus gaps outer all minus 1
+# border
+default_border          none
+default_floating_border none
+#for_window [class=".*"] border none
 
 
 # ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
@@ -76,6 +79,7 @@ bindsym Control+Print exec --no-startup-id peek
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+q kill
 bindsym $mod+space exec "xfce4-popup-whiskermenu"
+bindsym $mod+e exec thunar
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -110,8 +114,8 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 ""
-set $ws9 "ﭮ"
+set $ws8 "8:"
+set $ws9 "9:ﭮ"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1

@@ -5,3 +5,5 @@ Xcursor.theme:
 Xcursor.size:	0
 Xcursor.theme_core:	1
 
+! Allow sixel graphics. (Try: "convert -colors 16 foo.jpg sixel:-").
+xterm*decTerminalID	:	vt340

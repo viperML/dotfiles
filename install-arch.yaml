@@ -3,6 +3,9 @@
       relink: true
       create: true
 
+- shell:
+    - xrdb -merge $HOME/.Xresources
+
 - link:
     ~/.config/fish/:
       glob: true
@@ -16,7 +19,8 @@
       glob: true
       path: Code/*
     
-    ~/.config/picom/picom.conf: picom/picom-git.conf
+    ~/.config/picom/picom.conf: picom/picom-ibhagwan.conf
+    #~/.config/picom/picom.conf: picom/picom-jonaburg.conf
 
     ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
 

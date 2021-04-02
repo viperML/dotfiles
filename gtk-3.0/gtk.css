@@ -1,3 +1,11 @@
+/* 
+██╗  ██╗███████╗ ██████╗███████╗    ██████╗  █████╗ ███╗   ██╗███████╗██╗     
+╚██╗██╔╝██╔════╝██╔════╝██╔════╝    ██╔══██╗██╔══██╗████╗  ██║██╔════╝██║     
+ ╚███╔╝ █████╗  ██║     █████╗      ██████╔╝███████║██╔██╗ ██║█████╗  ██║     
+ ██╔██╗ ██╔══╝  ██║     ██╔══╝      ██╔═══╝ ██╔══██║██║╚██╗██║██╔══╝  ██║     
+██╔╝ ██╗██║     ╚██████╗███████╗    ██║     ██║  ██║██║ ╚████║███████╗███████╗
+╚═╝  ╚═╝╚═╝      ╚═════╝╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
+*/
 .xfce4-panel {
 	font-size: 14px;
 	border-color: transparent;
@@ -6,21 +14,18 @@
 	border-bottom-right-radius: 10px;
 }
 
-VteTerminal,
-vte-terminal {
-	padding: 20px;
-}
-
 .xfce4-panel button {
-	padding: 0 0px;
+	padding: 0px;
 	transition: 0.2s;
 	box-shadow: none;
 	background-image: none;
-	margin: 0px;
-	border-radius: 3px;
+	margin: 0px 0px;
+	border-radius: 8px;
 }
 .xfce4-panel.background .tasklist button {
-	padding: 0 0px;
+	padding: 0px 5px;
+	/* Fix height */
+	margin: -1px 0px;
 }
 
 .xfce4-panel.background button:active,
@@ -29,15 +34,37 @@ vte-terminal {
 .xfce4-panel.background .tasklist button:active,
 .xfce4-panel.background .tasklist button:hover,
 .xfce4-panel.background .tasklist button:active:hover {
-	background-color: rgba(255, 255, 255, 0.05);
+	background-color: rgba(255, 255, 255, 0.07);
 }
 .xfce4-panel button:checked {
-	background-color: rgba(255, 255, 255, 0.07);
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 .tasklist {
 	-XfceTasklist-max-button-length: 200;
 }
+
+/* 
+████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗     
+╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██║     
+   ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║     
+   ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║     
+   ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗
+   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
+*/
+VteTerminal,
+vte-terminal {
+	padding: 20px;
+}
+
+/*
+████████╗██╗  ██╗██╗   ██╗███╗   ██╗ █████╗ ██████╗ 
+╚══██╔══╝██║  ██║██║   ██║████╗  ██║██╔══██╗██╔══██╗
+   ██║   ███████║██║   ██║██╔██╗ ██║███████║██████╔╝
+   ██║   ██╔══██║██║   ██║██║╚██╗██║██╔══██║██╔══██╗
+   ██║   ██║  ██║╚██████╔╝██║ ╚████║██║  ██║██║  ██║
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝
+*/
 
 * {
 	-ThunarAbstractIconView-row-spacing: 10;
@@ -58,12 +85,6 @@ vte-terminal {
 }
 .thunar .standard-view {
 	background-color: #242321;
-}
-
-* {
-	-XfdesktopIconView-ellipsize-icon-labels: 10;
-	-XfdesktopIconView-cell-spacing: 10;
-	-XfdesktopIconView-cell-padding: 10;
 }
 
 #XfceNotifyWindow progressbar {
