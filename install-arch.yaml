@@ -49,3 +49,7 @@
     ~/.naga/:
       glob: true
       path: Naga_KeypadMapper/*
+    
+    ~/.config/kitty/:
+      glob: true
+      path: kitty/*

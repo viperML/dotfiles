@@ -7,11 +7,12 @@
 ╚═╝  ╚═╝╚═╝      ╚═════╝╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
 */
 .xfce4-panel {
-	font-size: 14px;
-	border-color: transparent;
+	font-size: 15px;
+	font-family: 'Roboto';
+	border-style: none;
 	/* background-rgba: #00000000; */
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 .xfce4-panel button {
@@ -20,14 +21,21 @@
 	box-shadow: none;
 	background-image: none;
 	margin: 0px 0px;
-	border-radius: 8px;
+	border-radius: 10px;
+	padding-bottom: 0px;
 }
 .xfce4-panel.background .tasklist button {
-	padding: 0px 5px;
 	/* Fix height */
 	margin: -1px 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+}
+.xfce4-panel.background .tasklist label {
+	padding-bottom: 0px;
 }
 
+#i3-workspaces-26 button:hover,
 .xfce4-panel.background button:active,
 .xfce4-panel.background button:hover,
 .xfce4-panel.background button:active:hover,
@@ -36,12 +44,16 @@
 .xfce4-panel.background .tasklist button:active:hover {
 	background-color: rgba(255, 255, 255, 0.07);
 }
-.xfce4-panel button:checked {
-	background-color: rgba(255, 255, 255, 0.1);
-}
-
+.xfce4-panel button:checked,
 .tasklist {
 	-XfceTasklist-max-button-length: 200;
+}
+
+#i3-workspaces-26 button {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 2px;
+	font-size: 15px;
 }
 
 /* 

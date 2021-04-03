@@ -15,9 +15,9 @@
 				{
 					"type": "path",
 					"style": "plain",
-					"foreground": "#60bde9",
+					"foreground": "blue",
 					"properties": {
-						"prefix": "╭ ",
+						"prefix": "🔥 ",
 						"style": "agnoster_full",
 						"home_icon": "~",
 						"folder_separator_icon": "/",
@@ -27,14 +27,17 @@
 				{
 					"type": "git",
 					"style": "plain",
-					"foreground": "#65dd75"
+					"foreground": "green",
+					"properties": {
+						"branch_icon": " "
+					}
 				},
 				{
 					"type": "python",
 					"style": "plain",
-					"foreground": "#4b49b1",
+					"foreground": "lightBlue",
 					"properties": {
-						"prefix": " \uE235 ",
+						"prefix": " \uE235  ",
 						"postfix": " ",
 						"display_mode": "context",
 						"display_version": true
@@ -43,7 +46,7 @@
 				{
 					"type": "exit",
 					"style": "plain",
-					"foreground": "#a52626",
+					"foreground": "red",
 					"properties": {
 						"prefix": " ",
 						"always_enabled": false
@@ -63,11 +66,9 @@
 				{
 					"type": "text",
 					"style": "plain",
-					"leading_diamond": ">",
-					"trailing_diamond": "",
-					"foreground": "#64da74",
+					"foreground": "white",
 					"properties": {
-						"text": "╰",
+						"text": "➜",
 						"prefix": "",
 						"postfix": ""
 					}

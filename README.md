@@ -10,8 +10,8 @@ TODO:
 - [x] Backslash ahk
 - [x] Razer mouse
 - [x] i3 keybinds
-- [ ] VSCode theme
-- [ ] terminal colors
+- [x] VSCode theme
+- [x] terminal colors
 - [ ] xfce-panels
 - [ ] Theme & icons
-- [ ] DDG login
+- [x] DDG login

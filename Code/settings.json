@@ -1,19 +1,30 @@
 {
   // General config
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
+  "editor.quickSuggestionsDelay": 0,
   "editor.tabCompletion": "on",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
   "files.autoSaveDelay": 500,
-  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
-  "terminal.integrated.inheritEnv": false,
-  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "terminal.integrated.shellArgs.windows": "-nologo",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
   "update.mode": "none",
   "workbench.startupEditor": "none",
+
   
+  // integrated terminal
+  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontFamily": "'Fira Code', 'monospace",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.shell.linux": "/usr/bin/fish",
+  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "terminal.integrated.shellArgs.windows": "-nologo",
+
+
   // Git
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -23,13 +34,19 @@
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": 17,
-  "editor.fontFamily": "'Inconsolata Regular' ,Consolas, monospace",
-  "terminal.integrated.fontFamily": "'MesloLGS NF'",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'Fira Code Retina', 'Font Awesome 5 Free', 'Font Awesome 5 Brands' , 'monospace'",
+  "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
+  //                        <!--     >=       &      @       =~ 
+  "workbench.colorCustomizations": {
+        "editor.background": "#222222",
+		    "editor.lineHighlightBackground": "#272727"
+  },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
-  "workbench.productIconTheme": "material-product-icons",
+  "workbench.productIconTheme": "fluent-icons",
   
+
   
   // Latex
   "latex-workshop.view.pdf.viewer": "tab",
@@ -189,10 +206,12 @@
   "discord.lowerDetailsEditing": "{total_lines} lines",
   "discord.lowerDetailsDebugging": "{total_lines} lines",
   "discord.suppressNotifications": true,
-  
-  "tabnine.experimentalAutoImports": true,
-  "files.autoSave": "afterDelay"
+
   // Unsorted
+  "tabnine.experimentalAutoImports": true,
+  "files.autoSave": "afterDelay",
+  "glassit.alpha": 230
+  
 
   
 

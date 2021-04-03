@@ -1,8 +1,11 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+exec_always --no-startup-id autotiling
+# exec --no-startup-id megasync & # TODO fix
+exec_always --no-startup-id /usr/bin/i3wsr
 
 
 # ███████╗████████╗██╗   ██╗██╗     ███████╗
@@ -11,16 +14,27 @@ floating_modifier $mod
 # ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  
 # ███████║   ██║      ██║   ███████╗███████╗
 # ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝                          
-font pango:Noto Sans Regular 10
+font pango:Roboto Regular 10
 title_align center
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
+# class                 border  backgr. text    indicator child_border
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.background       #ffffff
+#                          V        V       V      V
+client.focused          #303030 #303030 #ffffff #444444   #222222
+client.focused_inactive #222222 #222222 #ffffff #222222   #222222
+client.unfocused        #222222 #222222 #888888 #222222   #222222
+client.urgent           #222222 #222222 #ffffff #ff0000   #ff0000
+client.placeholder      #222222 #222222 #ffffff #000000   #222222
 client.background       #ffffff
+
+default_border          pixel 3
+default_floating_border none
+#for_window [class=".*"] border none
 
 
 # ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
@@ -35,15 +49,17 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Wrapper-2.0"] floating enable
 for_window [class="polychromatic-controller"] floating enable
-
-#default_orientation vertical #start in opposite orientation from your monitor
-#for_window [class=".*"] split toggle #toggles split at each new window
-exec_always --no-startup-id autotiling
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 # Automoves
 for_window [class="Genymotion Player"] move to workspace $ws8
 for_window [class="discord"] move to workspace $ws9
-# no_focus [tiling]
+
 
 
 
@@ -60,10 +76,7 @@ bindsym $mod+plus gaps inner all plus 1
 bindsym $mod+minus gaps inner all minus 1
 bindsym $mod+Control+plus gaps outer all plus 1
 bindsym $mod+Control+minus gaps outer all minus 1
-# border
-default_border          none
-default_floating_border none
-#for_window [class=".*"] border none
+
 
 
 # ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
@@ -76,14 +89,12 @@ default_floating_border none
 # General keybinds
 bindsym Print exec --no-startup-id flameshot gui
 bindsym Control+Print exec --no-startup-id peek
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec "kitty"
 bindsym $mod+q kill
 bindsym $mod+space exec "xfce4-popup-whiskermenu"
 bindsym $mod+e exec thunar
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# reload the configuration file & restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r reload; restart
 
 
 # Layout keybinds
@@ -93,31 +104,43 @@ bindsym $mod+Up move up
 bindsym $mod+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+bindsym $mod+h split h
 # split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+s layout toggle split
+bindsym $mod+x layout toggle split
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+z floating toggle
+# sticky window toggle
+bindsym $mod+s sticky toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8:"
-set $ws9 "9:ﭮ"
+set $ws1 "1:🢒1"
+set $ws2 "2:🢒2"
+set $ws3 "3:🢒3"
+set $ws4 "4:🢒4"
+set $ws5 "5:🢒5"
+set $ws6 "6:🢒6"
+set $ws7 "7:🢒7"
+set $ws8 "8:🢒
+set $ws9 "9:🢒
 
 # switch to workspace
+bindsym KP_1 workspace number $ws1
+bindsym KP_2 workspace number $ws2
+bindsym KP_3 workspace number $ws3
+bindsym KP_4 workspace number $ws4
+bindsym KP_5 workspace number $ws5
+bindsym KP_6 workspace number $ws6
+bindsym KP_7 workspace number $ws7
+bindsym KP_8 workspace number $ws8
+bindsym KP_9 workspace number $ws9
+
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
