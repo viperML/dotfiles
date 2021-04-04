@@ -15,15 +15,29 @@
 	border-bottom-right-radius: 20px;
 }
 
+/* Applies to all buttons including whisker menu, applets, etc */
 .xfce4-panel button {
 	padding: 0px;
+	margin: 0px 0px;
 	transition: 0.2s;
 	box-shadow: none;
 	background-image: none;
-	margin: 0px 0px;
-	border-radius: 10px;
-	padding-bottom: 0px;
+	border-radius: 15px;
 }
+
+/* Only applies to i3-workspaces */
+#i3-workspaces-26 button {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	font-size: 15px;
+	margin-top: 3px;
+}
+#i3-workspaces-26 button:hover {
+	background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Only applies to tasklist, currently not used */
 .xfce4-panel.background .tasklist button {
 	/* Fix height */
 	margin: -1px 0px;
@@ -34,8 +48,6 @@
 .xfce4-panel.background .tasklist label {
 	padding-bottom: 0px;
 }
-
-#i3-workspaces-26 button:hover,
 .xfce4-panel.background button:active,
 .xfce4-panel.background button:hover,
 .xfce4-panel.background button:active:hover,
@@ -49,26 +61,6 @@
 	-XfceTasklist-max-button-length: 200;
 }
 
-#i3-workspaces-26 button {
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 2px;
-	font-size: 15px;
-}
-
-/* 
-████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗     
-╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██║     
-   ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║     
-   ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║     
-   ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗
-   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
-*/
-VteTerminal,
-vte-terminal {
-	padding: 20px;
-}
-
 /*
 ████████╗██╗  ██╗██╗   ██╗███╗   ██╗ █████╗ ██████╗ 
 ╚══██╔══╝██║  ██║██║   ██║████╗  ██║██╔══██╗██╔══██╗
@@ -78,7 +70,7 @@ vte-terminal {
    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝
 */
 
-* {
+/* * {
 	-ThunarAbstractIconView-row-spacing: 10;
 	-ThunarAbstractIconView-column-spacing: 20;
 }
@@ -107,29 +99,4 @@ vte-terminal {
 }
 #XfceNotifyWindow progressbar trough {
 	min-height: 4px;
-}
-
-menu,
-.context-menu {
-}
-menu menuitem,
-.menu menuitem,
-.context-menu menuitem {
-	padding: 6px 26px;
-}
-menu menuitem:hover,
-.menu menuitem:hover,
-.context-menu menuitem:hover {
-	background-color: rgba(255, 255, 255, 0.1);
-}
-.csd.popup decoration {
-}
-
-button {
-	animation: none;
-}
-button,
-entry {
-	border: none;
-	margin: 1px;
-}
+} */

@@ -17,7 +17,7 @@
 					"style": "plain",
 					"foreground": "blue",
 					"properties": {
-						"prefix": "🔥 ",
+						"prefix": "in ",
 						"style": "agnoster_full",
 						"home_icon": "~",
 						"folder_separator_icon": "/",
@@ -29,6 +29,7 @@
 					"style": "plain",
 					"foreground": "green",
 					"properties": {
+						"prefix": "at ",
 						"branch_icon": " "
 					}
 				},
@@ -37,7 +38,7 @@
 					"style": "plain",
 					"foreground": "lightBlue",
 					"properties": {
-						"prefix": " \uE235  ",
+						"prefix": " using \uE235  ",
 						"postfix": " ",
 						"display_mode": "context",
 						"display_version": true

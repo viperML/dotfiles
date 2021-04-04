@@ -130,16 +130,16 @@ set $ws7 "7:🢒7"
 set $ws8 "8:🢒
 set $ws9 "9:🢒
 
-# switch to workspace
-bindsym KP_1 workspace number $ws1
-bindsym KP_2 workspace number $ws2
-bindsym KP_3 workspace number $ws3
-bindsym KP_4 workspace number $ws4
-bindsym KP_5 workspace number $ws5
-bindsym KP_6 workspace number $ws6
-bindsym KP_7 workspace number $ws7
-bindsym KP_8 workspace number $ws8
-bindsym KP_9 workspace number $ws9
+# switch to workspace TODO
+# bindsym KP_1 workspace number $ws1
+# bindsym KP_2 workspace number $ws2
+# bindsym KP_3 workspace number $ws3
+# bindsym KP_4 workspace number $ws4
+# bindsym KP_5 workspace number $ws5
+# bindsym KP_6 workspace number $ws6
+# bindsym KP_7 workspace number $ws7
+# bindsym KP_8 workspace number $ws8
+# bindsym KP_9 workspace number $ws9
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
