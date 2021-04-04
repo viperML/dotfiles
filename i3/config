@@ -55,6 +55,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [class="dolphin"] floating enable
 
 # Automoves
 for_window [class="Genymotion Player"] move to workspace $ws8
@@ -92,7 +93,7 @@ bindsym Control+Print exec --no-startup-id peek
 bindsym $mod+Return exec "kitty"
 bindsym $mod+q kill
 bindsym $mod+space exec "xfce4-popup-whiskermenu"
-bindsym $mod+e exec thunar
+bindsym $mod+e exec dolphin
 # reload the configuration file & restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r reload; restart
 

@@ -40,6 +40,7 @@ If there is anything missing, either I forgot to add it, I don't use it anymore 
 - [x] terminal colors
 - [ ] xfce-panels
 - [ ] Theme & icons
+- [ ] Dolphin color themes
 
 ## Atribution
 

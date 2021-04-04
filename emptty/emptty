@@ -7,5 +7,8 @@ xrdb $HOME/.Xresources
 xmodmap $HOME/.Xmodmap
 
 export EMPTTY_LOADED=true
+export QT_QPA_PLATFORMTHEME=qt5ct
+export GTK_USE_PORTAL=1
+export QT_STYLE_OVERRIDE=kvantum
 
 exec dbus-launch $@
