@@ -21,6 +21,7 @@
     
     ~/.config/picom/picom.conf: picom/picom-ibhagwan.conf
     #~/.config/picom/picom.conf: picom/picom-jonaburg.conf
+    #~/.config/picom/picom.conf: picom/picom-git.conf
 
     ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
 
@@ -53,3 +54,11 @@
     ~/.config/kitty/:
       glob: true
       path: kitty/*
+
+    ~/.config/herbstluftwm/:
+      glob: true
+      path: herbstluftwm/*
+    
+    ~/.config/polybar/:
+      glob: true
+      path: polybar/*

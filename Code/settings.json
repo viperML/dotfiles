@@ -209,8 +209,7 @@
 
   // Unsorted
   "tabnine.experimentalAutoImports": true,
-  "files.autoSave": "afterDelay",
-  "glassit.alpha": 225,
+  "glassit.alpha": 250,
   "colorize.enable_search_variables": false,
   "colorize.include": [
     "*",
@@ -219,7 +218,8 @@
     "**/*.sass",
     "**/*.less",
     "**/*.styl"
-  ]
+  ],
+  "files.autoSave": "afterDelay"
   
 
   
