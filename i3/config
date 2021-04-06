@@ -5,7 +5,7 @@ floating_modifier $mod
 
 exec_always --no-startup-id autotiling
 # exec --no-startup-id megasync & # TODO fix
-exec_always --no-startup-id /usr/bin/i3wsr
+# exec_always --no-startup-id i3wsr --config ~/.config/i3/i3wsr.toml
 
 
 # ███████╗████████╗██╗   ██╗██╗     ███████╗
@@ -64,6 +64,7 @@ for_window [class="discord"] move to workspace $ws9
 
 
 
+
 #  ██████╗  █████╗ ██████╗ ███████╗
 # ██╔════╝ ██╔══██╗██╔══██╗██╔════╝
 # ██║  ███╗███████║██████╔╝███████╗
@@ -95,7 +96,9 @@ bindsym $mod+q kill
 bindsym $mod+space exec "xfce4-popup-whiskermenu"
 bindsym $mod+e exec dolphin
 # reload the configuration file & restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r reload; restart
+bindsym $mod+Shift+r reload; 
+bindsym $mod+Shift+e restart;
+bindsym $mod+Escape exec --no-startup-id autorandr -c
 
 
 # Layout keybinds
@@ -103,6 +106,17 @@ bindsym $mod+Left move left
 bindsym $mod+Down move down
 bindsym $mod+Up move up
 bindsym $mod+Right move right
+
+# Monitor keybinds
+bindsym $mod+Shift+Left  move workspace to output left
+bindsym $mod+Shift+Down  move workspace to output down
+bindsym $mod+Shift+Up    move workspace to output up
+bindsym $mod+Shift+Right move workspace to output right
+
+bindsym $mod+Control+Left  move container to output left
+bindsym $mod+Control+Down  move container to output down
+bindsym $mod+Control+Up    move container to output up
+bindsym $mod+Control+Right move container to output right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -121,26 +135,16 @@ bindsym $mod+s sticky toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:🢒1"
-set $ws2 "2:🢒2"
-set $ws3 "3:🢒3"
-set $ws4 "4:🢒4"
-set $ws5 "5:🢒5"
-set $ws6 "6:🢒6"
-set $ws7 "7:🢒7"
-set $ws8 "8:🢒
-set $ws9 "9:🢒
+set $ws1 "1:1"
+set $ws2 "2:2"
+set $ws3 "3:3"
+set $ws4 "4:4"
+set $ws5 "5:5"
+set $ws6 "6:6"
+set $ws7 "7:7"
+set $ws8 "8:8"
+set $ws9 "9:9"
 
-# switch to workspace TODO
-# bindsym KP_1 workspace number $ws1
-# bindsym KP_2 workspace number $ws2
-# bindsym KP_3 workspace number $ws3
-# bindsym KP_4 workspace number $ws4
-# bindsym KP_5 workspace number $ws5
-# bindsym KP_6 workspace number $ws6
-# bindsym KP_7 workspace number $ws7
-# bindsym KP_8 workspace number $ws8
-# bindsym KP_9 workspace number $ws9
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -164,3 +168,14 @@ bindsym $mod+F8 move container to workspace number $ws8, workspace number $ws8
 bindsym $mod+F9 move container to workspace number $ws9, workspace number $ws9
 
 
+# Workspaces
+# workspace number $ws1 output primary
+# workspace number $ws2 output DP-0
+# workspace number $ws3 output primary
+# workspace number $ws4 output DP-0
+# workspace number $ws5 output primary
+# workspace number $ws6 output DP-0
+# workspace number $ws7 output primary
+# workspace number $ws8 output DP-0
+# workspace number $ws7 output primary
+# workspace number $ws9 output DP- 0

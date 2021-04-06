@@ -18,7 +18,7 @@
   // integrated terminal
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'monospace",
+  "terminal.integrated.fontFamily": "'Fira Code Retina', 'la-brands-400', 'la-regular-400 ,'monospace",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -35,12 +35,12 @@
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
   "editor.fontSize": 16,
-  "editor.fontFamily": "'Fira Code Retina', 'Font Awesome 5 Free', 'Font Awesome 5 Brands' , 'monospace'",
+  "editor.fontFamily": "'Fira Code'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~ 
   "workbench.colorCustomizations": {
-        "editor.background": "#222222",
-		    "editor.lineHighlightBackground": "#272727"
+        "editor.background": "#111111",
+		    "editor.lineHighlightBackground": "#141414"
   },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
@@ -210,7 +210,16 @@
   // Unsorted
   "tabnine.experimentalAutoImports": true,
   "files.autoSave": "afterDelay",
-  "glassit.alpha": 230
+  "glassit.alpha": 225,
+  "colorize.enable_search_variables": false,
+  "colorize.include": [
+    "*",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "**/*.styl"
+  ]
   
 
   
