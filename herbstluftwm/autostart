@@ -149,6 +149,7 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 20
 hc set frame_gap 20
 hc set frame_normal_opacity 100
+hc set frame_active_opacity 100
 
 hc attr theme.title_height 17
 hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'  # example using Xft
@@ -172,6 +173,8 @@ hc set frame_padding 0
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
+
+hc set snap_gap 30
 
 # rules
 hc unrule -F

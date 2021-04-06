@@ -29,10 +29,10 @@ margin-bottom = 5
 
 [bar/mainbar-herbstluftwm]
 ;monitor = HDMI-0
-width = 2520px
-height = 35
-offset-x = 1300px
-offset-y = 2px
+width = 200px
+height = 35px
+offset-x = 0px
+offset-y = 0px
 ;radius = 22
 fixed-center = true
 bottom = false
