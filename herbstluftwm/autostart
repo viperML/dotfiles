@@ -1,76 +1,24 @@
 #!/usr/bin/env bash
-
-# this is a simple config for herbstluftwm
-
 hc() {
     herbstclient "$@"
 }
-
 hc emit_hook reload
-
-
-
-# xsetroot -solid '#5A8E3A'
-
-# remove all existing keybindings
 hc keyunbind --all
 
-# keybindings
-# if you have a super key you will be much happier with Mod set to Mod4
-#Mod=Mod1    # Use alt as the main modifier
-Mod=Mod4   # Use the super key as the main modifier
-
-# hc keybind $Mod-q quit
-hc keybind $Mod-Shift-r reload
-hc keybind $Mod-q close
-hc keybind $Mod-Return spawn kitty # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-space  spawn rofi -show drun
-
-# basic movement in tiling and floating mode
-# focusing clients
-# hc keybind $Mod-Left  focus left
-# hc keybind $Mod-Down  focus down
-# hc keybind $Mod-Up    focus up
-# hc keybind $Mod-Right focus right
-# hc keybind $Mod-h     focus left
-# hc keybind $Mod-j     focus down
-# hc keybind $Mod-k     focus up
-# hc keybind $Mod-l     focus right
+Mod=Mod4
 hc set focus_follows_mouse true
 
-# moving clients in tiling and floating mode
-# moving clients
-hc keybind $Mod-Shift-Left or / shift left / \
-    chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
-hc keybind $Mod-Shift-Down  or / shift down / \
-    chain , lock , shift_to_monitor -d , focus_monitor -d , unlock
-hc keybind $Mod-Shift-Up    or / shift up / \
-    chain , lock , shift_to_monitor -u , focus_monitor -u , unlock
-hc keybind $Mod-Shift-Right or / shift right / \
-    chain , lock , shift_to_monitor -r , focus_monitor -r , unlock
 
-# splitting frames
-# create an empty frame at the specified direction
-hc keybind $Mod-u       split   bottom  0.5
-hc keybind $Mod-o       split   right   0.5
-# let the current frame explode into subframes
-hc keybind $Mod-Control-space split explode
-
-# resizing frames and floating clients
-resizestep=0.05
-hc keybind $Mod-Control-h       resize left +$resizestep
-hc keybind $Mod-Control-j       resize down +$resizestep
-hc keybind $Mod-Control-k       resize up +$resizestep
-hc keybind $Mod-Control-l       resize right +$resizestep
-hc keybind $Mod-Control-Left    resize left +$resizestep
-hc keybind $Mod-Control-Down    resize down +$resizestep
-hc keybind $Mod-Control-Up      resize up +$resizestep
-hc keybind $Mod-Control-Right   resize right +$resizestep
-
-# tags
+# ████████╗ █████╗  ██████╗ ███████╗
+# ╚══██╔══╝██╔══██╗██╔════╝ ██╔════╝
+#    ██║   ███████║██║  ███╗███████╗
+#    ██║   ██╔══██║██║   ██║╚════██║
+#    ██║   ██║  ██║╚██████╔╝███████║
+#    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 tag_names=( {1..9} )
-tag_keys=( {1..9} 0 )
+tag_keys=( {1..9} 0 )     
 
+# Names
 hc rename default "${tag_names[0]}" || true
 for i in "${!tag_names[@]}" ; do
     hc add "${tag_names[$i]}"
@@ -81,33 +29,54 @@ for i in "${!tag_names[@]}" ; do
     fi
 done
 
-# cycle through tags
-hc keybind $Mod-period use_index +1 --skip-visible
-hc keybind $Mod-comma  use_index -1 --skip-visible
 
-# layouting
-hc keybind $Mod-r remove
-hc keybind $Mod-s floating toggle
+# ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
+# ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔══██╗██║████╗  ██║██╔══██╗██╔════╝
+# █████╔╝ █████╗   ╚████╔╝ ██████╔╝██║██╔██╗ ██║██║  ██║███████╗
+# ██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
+# ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
+# ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+hc keybind $Mod-Shift-r reload
+
+# Apps
+hc keybind $Mod-Return spawn kitty
+hc keybind $Mod-space  spawn rofi -show drun
+
+# Clients
+hc keybind $Mod-q close
+hc keybind $Mod-z set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-z floating toggle
 hc keybind $Mod-f fullscreen toggle
-
-hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
-hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
-
-# restore all minimized windows of the focused tag
-# hc keybind $Mod-Ctrl-m foreach CLIENT clients. \
-#      sprintf MINATT "%c.minimized" CLIENT \
-#      sprintf TAGATT "%c.tag" CLIENT and \
-#        , compare MINATT "=" "true" \
-#        , substitute FOCUS "tags.focus.name" compare TAGATT "=" FOCUS \
-#        , set_attr MINATT false
 hc keybind $Mod-p pseudotile toggle
+# Move clients
+hc keybind $Mod-Shift-Left or / shift left / \
+    chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
+hc keybind $Mod-Shift-Down  or / shift down / \
+    chain , lock , shift_to_monitor -d , focus_monitor -d , unlock
+hc keybind $Mod-Shift-Up    or / shift up / \
+    chain , lock , shift_to_monitor -u , focus_monitor -u , unlock
+hc keybind $Mod-Shift-Right or / shift right / \
+    chain , lock , shift_to_monitor -r , focus_monitor -r , unlock
+
+# Frames
+hc keybind $Mod-r remove
+# Split frames
+hc keybind $Mod-u       split   bottom  0.5
+hc keybind $Mod-o       split   right   0.5
+hc keybind $Mod-Control-space split explode
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Mod-Shift-space                                                     \
+hc keybind $Mod-x                                                  \
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
+
+
+# Tags
+hc keybind $Mod-period use_index +1 --skip-visible
+hc keybind $Mod-comma  use_index -1 --skip-visible
+
 
 # mouse
 hc mouseunbind --all
@@ -115,14 +84,16 @@ hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
-# focus
-hc keybind $Mod-BackSpace   cycle_monitor
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
-hc keybind $Mod-i jumpto urgent
 
-# theme
+# ████████╗██╗  ██╗███████╗███╗   ███╗███████╗
+# ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
+#    ██║   ███████║█████╗  ██╔████╔██║█████╗  
+#    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  
+#    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗
+#    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+
 # inner_color/inner_width
 #       ╻        outer_color/outer_width
 #       │                  ╻
@@ -137,23 +108,29 @@ hc keybind $Mod-i jumpto urgent
 # │  └────────────────────────┘  │ ⎱ border_width +
 # └──────────────────────────────┘ ⎰ padding_bottom
 
-hc attr theme.tiling.reset 1
-hc attr theme.floating.reset 1
+# Outer border
+hc set frame_border_width 0
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
 hc set frame_bg_normal_color '#565656'
 hc set frame_bg_active_color '#345F0C'
-hc set frame_border_width 0
+
+# Inner border
+
+
+# Frame
 hc set always_show_frame on
 hc set frame_bg_transparent on
-hc set frame_transparent_width 20
+hc set frame_transparent_width 40
 hc set frame_gap 20
-hc set frame_normal_opacity 100
-hc set frame_active_opacity 100
+hc set frame_normal_opacity 50
+hc set frame_active_opacity 50
 
+
+# Title
 hc attr theme.title_height 17
-hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'  # example using Xft
-# hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'
+
 hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth)
 hc attr theme.active.color '#9fbc00'
 hc attr theme.normal.color '#454545'
@@ -169,7 +146,7 @@ hc attr theme.active.outer_color '#3E4A00'
 hc attr theme.background_color '#000000'
 
 hc set window_gap 10
-hc set frame_padding 0
+hc set frame_padding 10
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
