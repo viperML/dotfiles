@@ -18,19 +18,15 @@ alert = #bd2c40
 ;background = #222
 ;foreground = #dfdfdf
 
-;==================== WM
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ;================================
 ;================================ HL bar
 ;================================
 
-[bar/mainbar-herbstluftwm]
-;monitor = HDMI-0
-width = 200px
-height = 35px
+[bar/herbstluftwm_0]
+monitor = ${env:MONITOR}
+width = 100%
+height = 30px
 offset-x = 0px
 offset-y = 0px
 ;radius = 22
@@ -61,7 +57,7 @@ module-margin-left = 2
 module-margin-right = 2
  
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Misc Tamsyn:style=Regular:pixelsize=16;3"
+font-0 = "Roboto:style=Regular:pixelsize=16;3"
 font-1 = "Font Awesome 5 Free Solid:style=Solid;3"
 font-2 = "Siji:style=Regular"
 ;font-2 = "Unifont:style=Sans-Serif:size=8:antialias=false;0"
@@ -69,7 +65,7 @@ font-2 = "Siji:style=Regular"
 ;font-3 = "DejaVu Sans=12;0"
 ;font-2 = "Noto Color Emoji:scale=10;3"
  
-modules-left = info-hlwm-workspaces
+modules-left = herbstluftwm-tags
 ;modules-center = hlwm-monitor0
 ;modules-right = monitor_aspect follows_mouse cpu memory temperature gputemp volume date powermenu
  
@@ -85,16 +81,18 @@ tray-background = ${colors.background}
 scroll-up = herbstclient use_index -1
 scroll-down = herbstclient use_index +1
 
-[module/info-hlwm-workspaces]
+
+
+
+[module/herbstluftwm-tags]
 type = custom/script
-exec = /home/jan/.config/polybar/polybar-scripts/info-hlwm-workspaces/info-hlwm-workspaces.sh
+exec = $XDG_CONFIG_HOME/polybar/hlwm-monitor-tag.sh
 tail = true
-scroll-up = herbstclient use_index -1 --skip-visible &
-scroll-down = herbstclient use_index +1 --skip-visible &
 label-active-font=1
+
 [module/hlwm-monitor0]
 type = custom/script
-exec = /home/jan/.config/polybar/hlwm-monitor0.sh
+exec = $XDG_CONFIG_HOME/polybar/hlwm-monitor0.sh
 tail = true
 scroll-up = herbstclient use_index -1 --skip-visible &
 scroll-down = herbstclient use_index +1 --skip-visible &

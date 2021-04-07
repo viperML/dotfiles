@@ -7,43 +7,43 @@
     - xrdb -merge $HOME/.Xresources
 
 - link:
-    ~/.config/fish/:
+    $XDG_CONFIG_HOME/fish/:
       glob: true
       path: fish/*
     
-    ~/.config/oh-my-posh/:
+    $XDG_CONFIG_HOME/oh-my-posh/:
       glob: true
       path: oh-my-posh/*
 
-    ~/.config/Code/User/:
+    $XDG_CONFIG_HOME/Code/User/:
       glob: true
       path: Code/*
     
-    ~/.config/picom/picom.conf: picom/picom-ibhagwan.conf
-    #~/.config/picom/picom.conf: picom/picom-jonaburg.conf
-    #~/.config/picom/picom.conf: picom/picom-git.conf
+    $XDG_CONFIG_HOME/picom/picom.conf: picom/picom-ibhagwan.conf
+    #$XDG_CONFIG_HOME/picom/picom.conf: picom/picom-jonaburg.conf
+    #$XDG_CONFIG_HOME/picom/picom.conf: picom/picom-git.conf
 
-    ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
+    $XDG_CONFIG_HOME/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
 
-    ~/.config/vivaldi-MODS/:
+    $XDG_CONFIG_HOME/vivaldi-MODS/:
       glob: true
       path: Vivaldi/MODS/*
   
-    ~/.config/neofetch/:
+    $XDG_CONFIG_HOME/neofetch/:
       glob: true
       path: neofetch/*
     
     ~/.Xresources: X11/Xresources
     
-    ~/.config/emptty: emptty/emptty
+    $XDG_CONFIG_HOME/emptty: emptty/emptty
 
-    ~/.config/i3/:
+    $XDG_CONFIG_HOME/i3/:
       glob: true
       path: i3/*
     
-    ~/.config/redshift.conf: redshift/redshift.conf
+    $XDG_CONFIG_HOME/redshift.conf: redshift/redshift.conf
 
-    ~/.config/gtk-3.0/:
+    $XDG_CONFIG_HOME/gtk-3.0/:
       glob: true
       path: gtk-3.0/*
     
@@ -51,14 +51,14 @@
       glob: true
       path: Naga_KeypadMapper/*
     
-    ~/.config/kitty/:
+    $XDG_CONFIG_HOME/kitty/:
       glob: true
       path: kitty/*
 
-    ~/.config/herbstluftwm/:
+    $XDG_CONFIG_HOME/herbstluftwm/:
       glob: true
       path: herbstluftwm/*
     
-    ~/.config/polybar/:
+    $XDG_CONFIG_HOME/polybar/:
       glob: true
       path: polybar/*

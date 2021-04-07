@@ -1,6 +1,6 @@
 # Style
 set -g -x fish_greeting ''
-oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/arch.omp.json | source
+oh-my-posh --init --shell fish --config $XDG_CONFIG_HOME/oh-my-posh/arch.omp.json | source
 
 # Variables
 export GREP_OPTIONS='--color=always'

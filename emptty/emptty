@@ -13,7 +13,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export GTK_USE_PORTAL=1
 export QT_STYLE_OVERRIDE=kvantum
 
-# echo $@ > /home/ayats/emptty.log
 dex -a -e $@
 
 exec dbus-launch $@

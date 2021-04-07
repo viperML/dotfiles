@@ -4,8 +4,6 @@ set $mod Mod4
 floating_modifier $mod
 
 exec_always --no-startup-id autotiling
-# exec --no-startup-id megasync & # TODO fix
-# exec_always --no-startup-id i3wsr --config ~/.config/i3/i3wsr.toml
 
 
 # ███████╗████████╗██╗   ██╗██╗     ███████╗
