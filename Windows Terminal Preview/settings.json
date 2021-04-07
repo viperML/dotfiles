@@ -52,11 +52,11 @@
         {
             "acrylicOpacity": 0.90000000000000002,
             "antialiasingMode": "cleartype",
-            "backgroundImage": "C:\\Users\\ayats\\Pictures\\AVATARES\\AVATAR NEW\\test_down.png",
+            // "backgroundImage": "C:\\Users\\ayats\\Pictures\\AVATARES\\AVATAR NEW\\test_down.png",
             "backgroundImageOpacity": 0.20000000000000001,
             "backgroundImageStretchMode": "none",
-            "fontFace": "MesloLGS NF",
-            "fontSize": 10,
+            "fontFace": "FiraCode NF",
+            "fontSize": 11,
             "fontWeight": "black",
             "useAcrylic": true
         },

@@ -18,7 +18,7 @@
   // integrated terminal
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'monospace",
+  "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode NF', 'monospace",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -34,7 +34,7 @@
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.fontFamily": "'Fira Code'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~ 
@@ -200,7 +200,9 @@
 
   // Action Buttons
   "actionButtons": {
-    "reloadButton": "🔁"
+    "defaultColor": "#ffffff",
+    "loadNpmCommands":true,
+    "reloadButton": "Actions"
   },
 
 
@@ -217,6 +219,11 @@
     "**/*.styl"
   ],
   "files.autoSave": "afterDelay",
-  "powershell.integratedConsole.showOnStartup": false
+  "powershell.integratedConsole.showOnStartup": false,
+  "extensions.ignoreRecommendations": true,
+
+  
+
+  
 
 }
