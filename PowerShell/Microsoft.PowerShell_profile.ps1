@@ -1,5 +1,5 @@
 Import-Module oh-my-posh
-Set-PoshPrompt -Theme "~\.config\oh-my-posh\viper_mod.omp.json"
+Set-PoshPrompt -Theme "~\.config\oh-my-posh\arch.omp.json"
 Set-PSReadLineOption -predictionsource history
 Function Function1 {Set-Location ~\Documents\aurea_test1\jsbsim\ && conda activate aurea && Clear-Host}
 Set-Alias -Name pyaurea -Value Function1

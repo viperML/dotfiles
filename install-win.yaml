@@ -5,9 +5,13 @@
 
 
 - link:
-    ~/Documents/PowerShell/:
+    X:/Documents/PowerShell/:
       glob: true
       path: PowerShell/*
+
+    X:/Documents/ShareX/:
+      glob: true
+      path: ShareX/*
     
     ~/.config/oh-my-posh/:
       glob: true
@@ -34,12 +38,10 @@
     
     ~/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
       path: Windows Terminal Preview/settings.json
+      force: true
     
     ~/AppData/Roaming/mpv/mpv.conf:
       path: mpv/mpv.conf
     
-    ~/Documents/ShareX/:
-      glob: true
-      path: ShareX/*
     
     ~/.condarc: conda/condarc
