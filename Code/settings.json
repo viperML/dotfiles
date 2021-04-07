@@ -18,7 +18,7 @@
   // integrated terminal
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code Retina', 'la-brands-400', 'la-regular-400 ,'monospace",
+  "terminal.integrated.fontFamily": "'Fira Code', 'monospace",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -190,15 +190,6 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   
-  // Powershell
-  // TODO Arch compatible
-  // "powershell.powerShellAdditionalExePaths": [
-  //   {
-  //     "versionName": "PowerShell 7",
-  //     "exePath": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"   
-  //   }
-  // ],
-  // "powershell.powerShellDefaultVersion": "PowerShell 7",
   
   // Discord
   "discord.detailsEditing": "Editing {lang}",
@@ -206,6 +197,12 @@
   "discord.lowerDetailsEditing": "{total_lines} lines",
   "discord.lowerDetailsDebugging": "{total_lines} lines",
   "discord.suppressNotifications": true,
+
+  // Action Buttons
+  "actionButtons": {
+    "reloadButton": "🔁"
+  },
+
 
   // Unsorted
   "tabnine.experimentalAutoImports": true,
@@ -219,7 +216,9 @@
     "**/*.less",
     "**/*.styl"
   ],
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "powershell.integratedConsole.showOnStartup": false,
+
   
 
   
