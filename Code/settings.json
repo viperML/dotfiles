@@ -200,7 +200,9 @@
 
   // Action Buttons
   "actionButtons": {
-    "reloadButton": "🔁"
+    "defaultColor": "#ffffff",
+    "loadNpmCommands":true,
+    "reloadButton": "Actions"
   },
 
 
