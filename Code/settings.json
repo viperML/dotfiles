@@ -18,7 +18,7 @@
   // integrated terminal
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'monospace",
+  "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode NF', 'monospace",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -218,6 +218,7 @@
   ],
   "files.autoSave": "afterDelay",
   "powershell.integratedConsole.showOnStartup": false,
+  "extensions.ignoreRecommendations": true,
 
   
 
