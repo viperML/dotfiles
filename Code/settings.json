@@ -221,6 +221,7 @@
   "files.autoSave": "afterDelay",
   "powershell.integratedConsole.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
+  "powershell.startAutomatically": false
 
   
 
