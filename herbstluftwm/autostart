@@ -4,7 +4,7 @@ hc() {
 }
 hc emit_hook reload
 hc keyunbind --all
-hc detect_monitors
+
 
 Mod=Mod4
 hc set focus_follows_mouse true
@@ -37,12 +37,16 @@ done
 # ██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
 # ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
 # ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
-hc keybind $Mod-Shift-r reload
+hc keybind $Mod-Shift-r         reload
+hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
+
 
 # Apps
 hc keybind $Mod-Return spawn kitty
-hc keybind $Mod-space  spawn rofi -show drun
-hc keybind $Mod-e      spawn dolphin
+hc keybind $Mod-space spawn rofi -show drun
+hc keybind $Mod-e spawn dolphin
+hc keybind Print spawn flameshot gui
+hc keybind Control+Print spawn  peek
 
 # Clients
 hc keybind $Mod-q close
@@ -76,8 +80,8 @@ hc keybind $Mod-x                                                  \
 
 
 # Tags
-hc keybind $Mod-period use_index +1 --skip-visible
-hc keybind $Mod-comma  use_index -1 --skip-visible
+#hc keybind $Mod-period use_index +1 --skip-visible
+#hc keybind $Mod-comma  use_index -1 --skip-visible
 
 
 # mouse
@@ -183,8 +187,24 @@ hc rule floatplacement=smart
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule class~'Xfce4-(.+)' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
 
 hc unlock
+
+hc detect_monitors
+autorandr -c
+
+if hc silent new_attr bool my_not_first_autostart ; then
+    hc reload
+    python ~/.config/polybar/launch.py &
+    picom &
+    discord-canary --start-minimized &
+    flameshot &
+    bash /usr/local/bin/nagastart.sh &
+    nitrogen --restore
+    redshift-gtk &
+fi
+

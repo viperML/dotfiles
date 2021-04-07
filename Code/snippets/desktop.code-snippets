@@ -20,14 +20,14 @@
         "body": [
           "[Desktop Entry]",
           "Type=Application",
-          "Name='$1'",
+          "Name=$1",
           "Comment=",
-          "Exec='$2'",
+          "Exec=$2",
           "RunHook=0",
           "StartupNotify=false",
           "Terminal=false",
           "Hidden=false",
-          "OnlyShowIn=${0:herbstluft}"
+          "OnlyShowIn=${0:herbstluftwm};"
         ]
       }
     }
