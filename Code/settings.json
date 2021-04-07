@@ -34,7 +34,7 @@
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.fontFamily": "'Fira Code'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~ 
