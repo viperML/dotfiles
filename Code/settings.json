@@ -217,10 +217,6 @@
     "**/*.styl"
   ],
   "files.autoSave": "afterDelay",
-  "powershell.integratedConsole.showOnStartup": false,
-
-  
-
-  
+  "powershell.integratedConsole.showOnStartup": false
 
 }
