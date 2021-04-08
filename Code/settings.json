@@ -14,15 +14,18 @@
   "update.mode": "none",
   "workbench.startupEditor": "none",
 
-  
+
   // integrated terminal
-  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode NF', 'monospace",
-  "terminal.integrated.inheritEnv": false,
-  "terminal.integrated.shell.linux": "/usr/bin/fish",
+  "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode NF', 'la-regular-400','monospace",
+  // WIndows
+  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terminal.integrated.shellArgs.windows": "-nologo",
+  // Linux
+  "terminal.integrated.shell.linux": "/usr/bin/fish",
+  "terminal.integrated.shellArgs.linux": ["-l","-d 3"],
+
 
 
   // Git
@@ -30,30 +33,31 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
-  
+
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
   "editor.fontSize": 15,
   "editor.fontFamily": "'Fira Code'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-  //                        <!--     >=       &      @       =~ 
+  //                        <!--     >=       &      @       =~
   "workbench.colorCustomizations": {
         "editor.background": "#111111",
-		    "editor.lineHighlightBackground": "#141414"
+		    "editor.lineHighlightBackground": "#141414",
+        "minimap.background": "#12121280"
   },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
   "workbench.productIconTheme": "fluent-icons",
-  
 
-  
+
+
   // Latex
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/_build",
   "latex-workshop.latex.tools": [
     {
-      
+
       "name": "latexmk-pvc",
       "command": "latexmk",
       "args": [
@@ -64,7 +68,7 @@
       ]
     },
     {
-      
+
       "name": "xelatex",
       "command": "xelatex",
       "args": [
@@ -76,7 +80,7 @@
       ]
     },
     {
-      
+
       "name": "xelatex-wsl",
       "command": "wsl",
       "args": [
@@ -127,7 +131,7 @@
       ]
     }
   ],
-  
+
   // Associations
   "files.associations": {
     "*.m": "matlab",
@@ -145,8 +149,8 @@
     }
   ],
 
-  
-  
+
+
   // Web
   "prettier.tabWidth": 2,
   "[json]": {
@@ -179,18 +183,18 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
-  
+
   // Python
   "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true,    
+  "python.linting.enabled": true,
   "python.jediEnabled": false,
   "python.languageServer": "Pylance",
   "vsintellicode.python.completionsEnabled": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
-  
-  
+
+
   // Discord
   "discord.detailsEditing": "Editing {lang}",
   "discord.detailsDebugging": "Debugging {lang}",
@@ -221,10 +225,13 @@
   "powershell.integratedConsole.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
   "powershell.startAutomatically": false,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "scm.diffDecorations": "gutter",
+  "editor.minimap.renderCharacters": false
 
-  
 
-  
+
+
 
 }

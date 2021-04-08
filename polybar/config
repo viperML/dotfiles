@@ -1,4 +1,10 @@
-;==================== COLORS
+; ███████╗████████╗██╗   ██╗██╗     ███████╗
+; ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝
+; ███████╗   ██║    ╚████╔╝ ██║     █████╗
+; ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝
+; ███████║   ██║      ██║   ███████╗███████╗
+; ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝
+
 [colors]
 white = #d1d1d1
 gray = #585858
@@ -8,55 +14,45 @@ blue = #95aec7
 yellow = #c7ae95
 green = #aec795
 
-background = #80000000
+background = #aa000000
 foreground = ${colors.white}
 background-alt = #AA223536
 foreground-alt = #55
 primary = #f8941f
 secondary = #f8941f
-alert = #bd2c40
-
-
-
+alert = #e8796d
 
 [bar/_style]
-width = 100%
+width = 95%
 height = 30px
-offset-x = 0px
-offset-y = 2px
-fixed-center = true
-bottom = false
-separator =
+offset-x = 2.5%
+offset-y = 3px
+radius = 15.0
+padding-left = 5px
+module-margin-left = 2
+module-margin-right = 2
+padding-right = 5px
+
+
+separator = 
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 1
-line-color = #f00
-override-redirect = true
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
-enable-ipc = true
-;border-size = 1
-;border-left-size = 0
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
-;border-color = #a16b1c
-;padding-left = 2
-padding-right = 10
-padding-left = 10
-module-margin-left = 10
-module-margin-right = 2
+
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Roboto:style=Regular:pixelsize=16;3"
-font-1 = "Font Awesome 5 Free Solid:style=Solid;3"
-font-2 = "Siji:style=Regular"
-;font-2 = "Unifont:style=Sans-Serif:size=8:antialias=false;0"
-;font-2 = "Bauhaus:size=12;0"
-;font-3 = "DejaVu Sans=12;0"
-;font-2 = "Noto Color Emoji:scale=10;3"
+font-0 = "Roboto:style=Regular:pixelsize=15;4"
+font-1 = "Font Awesome 5 Free Solid:style=Solid:pixelsize=11;3"
+font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=11;3"
+
+override-redirect = true
+enable-ipc = true
 
 
-
+; ██████╗  █████╗ ██████╗ ███████╗
+; ██╔══██╗██╔══██╗██╔══██╗██╔════╝
+; ██████╔╝███████║██████╔╝███████╗
+; ██╔══██╗██╔══██║██╔══██╗╚════██║
+; ██████╔╝██║  ██║██║  ██║███████║
+; ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 
 [bar/herbstluftwm_0]
 inherit = bar/_style
@@ -65,19 +61,33 @@ modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
 ;modules-center = hlwm-monitor0
-;modules-right = monitor_aspect follows_mouse cpu memory temperature gputemp volume date powermenu
+modules-right =  pulseaudio date
+
+padding-right = 19px
 tray-detached = true
-tray-offset-x = -50
-tray-offset-y = 0
-tray-padding = 2
+tray-offset-x = -1.4%
+tray-padding = 1
 tray-maxsize = 20
-tray-scale = 1.0
 tray-position = right
 tray-background = ${colors.background}
- 
+
+[bar/herbstluftwm_1]
+inherit = bar/_style
+monitor = ${env:MONITOR}
+modules-left = herbstluftwm-tags
+scroll-up = herbstclient use_index -1 --skip-visible
+scroll-down = herbstclient use_index +1 --skip-visible
+;modules-center = hlwm-monitor0
+modules-right = pulseaudio date
 
 
 
+; ███╗   ███╗ ██████╗ ██████╗ ██╗   ██╗██╗     ███████╗███████╗
+; ████╗ ████║██╔═══██╗██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
+; ██╔████╔██║██║   ██║██║  ██║██║   ██║██║     █████╗  ███████╗
+; ██║╚██╔╝██║██║   ██║██║  ██║██║   ██║██║     ██╔══╝  ╚════██║
+; ██║ ╚═╝ ██║╚██████╔╝██████╔╝╚██████╔╝███████╗███████╗███████║
+; ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
 
 
 [module/herbstluftwm-tags]
@@ -93,3 +103,16 @@ exec = ~/.config/polybar/hlwm-monitor0.sh
 tail = true
 scroll-up = herbstclient use_index -1 --skip-visible &
 scroll-down = herbstclient use_index +1 --skip-visible &
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %A %e of %B
+time = %H:%M:%S
+label = %date% - %time%

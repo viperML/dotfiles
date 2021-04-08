@@ -16,8 +16,8 @@ hc set focus_follows_mouse true
 #    ██║   ██╔══██║██║   ██║╚════██║
 #    ██║   ██║  ██║╚██████╔╝███████║
 #    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-tag_names=( {1..9} )
-tag_keys=( {1..9} 0 )     
+tag_names=( "" "" "3" "4" "5" "6" "7" "8" "" )
+tag_keys=( {1..9} 0 )
 
 # Names
 hc rename default "${tag_names[0]}" || true
@@ -37,10 +37,6 @@ done
 # ██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
 # ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
 # ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
-hc keybind $Mod-Shift-r         reload
-hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
-
-
 # Apps
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-space spawn rofi -show drun
@@ -48,12 +44,20 @@ hc keybind $Mod-e spawn dolphin
 hc keybind Print spawn flameshot gui
 hc keybind Control+Print spawn  peek
 
+# Other
+hc keybind $Mod-Shift-r         reload
+hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
+hc keybind F7 spawn pactl set-sink-volume @DEFAULT_SINK@ -2%
+hc keybind F8 spawn pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+
 # Clients
 hc keybind $Mod-q close
 hc keybind $Mod-z set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-z floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-Shift-m spawn withlock LOCK-window termite --name "window" -e "~/.config/herbstluftwm/scripts/hidden_list.sh" #Unminimize all windows on current tag
 # Move clients
 hc keybind $Mod-Shift-Left or / shift left / \
     chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
@@ -67,9 +71,9 @@ hc keybind $Mod-Shift-Right or / shift right / \
 # Frames
 hc keybind $Mod-r remove
 # Split frames
-hc keybind $Mod-u       split   bottom  0.5
-hc keybind $Mod-o       split   right   0.5
-hc keybind $Mod-Control-space split explode
+hc keybind $Mod-u       split   bottom  0.7
+hc keybind $Mod-o       split   right   0.7
+hc keybind $Mod-i split explode
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -95,15 +99,15 @@ hc set mouse_recenter_gap 0
 
 # ████████╗██╗  ██╗███████╗███╗   ███╗███████╗
 # ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
-#    ██║   ███████║█████╗  ██╔████╔██║█████╗  
-#    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  
+#    ██║   ███████║█████╗  ██╔████╔██║█████╗
+#    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝
 #    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗
 #    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
 hc lock
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc pad 1 30 0 0 0
-hc pad 0  0 0 0 0
+hc pad 1 31 0 0 0
+hc pad 0 31 0 0 0
 
 # inner_color/inner_width
 #       ╻        outer_color/outer_width
@@ -119,10 +123,10 @@ hc pad 0  0 0 0 0
 # │  └────────────────────────┘  │ ⎱ border_width +
 # └──────────────────────────────┘ ⎰ padding_bottom
 
-hc attr theme.active.color '#9fbc00'
-hc attr theme.normal.color '#454545'
-hc attr theme.urgent.color red
-hc attr theme.background_color '#000000'
+hc attr theme.active.color '#6DE879'
+hc attr theme.normal.color '#869485'
+hc attr theme.urgent.color '#F53F58'
+hc attr theme.background_color '#000'
 
 hc set window_gap 5
 
@@ -132,24 +136,24 @@ hc attr theme.active.outer_color '#3E4A00'
 
 # Inner border
 hc attr theme.inner_width 0
-hc attr theme.inner_color black
+hc attr theme.inner_color #F00
 hc attr theme.active.inner_color '#3E4A00'
 
 
 # Floating
 hc attr theme.floating.border_width 5
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.outer_color black
+hc attr theme.floating.outer_color '#6DE879'
 
 # Frame
 hc set frame_padding 7
-hc set frame_normal_opacity 70
-hc set frame_active_opacity 70
+hc set frame_normal_opacity 50
+hc set frame_active_opacity 50
 hc set frame_transparent_width 40
 hc set frame_gap 5
 
 hc set smart_window_surroundings off
-hc set smart_frame_surroundings onO
+hc set smart_frame_surroundings off
 hc set always_show_frame on
 hc set frame_bg_transparent on
 
@@ -158,13 +162,15 @@ hc set frame_bg_transparent on
 hc set frame_border_width 0
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
-hc set frame_bg_normal_color '#565656'
-hc set frame_bg_active_color '#345F0C'
+hc set frame_bg_normal_color '#B3BFAC'
+hc set frame_bg_active_color '#9EE376'
 
 
 # Title
 hc attr theme.title_height 17
 hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'
+hc attr theme.active.title_color '#000'
+hc attr theme.normal.title_color '#141414'
 hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth)
 
 
@@ -176,7 +182,7 @@ hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth
 # ██╔══██╗██║   ██║██║     ██╔══╝  ╚════██║
 # ██║  ██║╚██████╔╝███████╗███████╗███████║
 # ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
-                                         
+
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
@@ -188,6 +194,11 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule class~'Xfce4-(.+)' floating=on
+hc rule class='Code' tag=${tag_names[1]}
+hc rule class='Code' switchtag=on
+hc rule class='Vivaldi-stable' tag=${tag_names[0]}
+hc rule class='Vivaldi-stable' switchtag=on
+hc rule class='discord' tag=${tag_names[8]}
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -205,6 +216,9 @@ if hc silent new_attr bool my_not_first_autostart ; then
     flameshot &
     bash /usr/local/bin/nagastart.sh &
     nitrogen --restore
-    redshift-gtk &
+    redshift &
+    emote &
+    nm-applet &
+    # polychromatic-tray-applet &
 fi
 
