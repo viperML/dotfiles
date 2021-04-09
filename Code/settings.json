@@ -228,7 +228,8 @@
   "files.trimTrailingWhitespace": true,
   "scm.diffDecorations": "gutter",
   "editor.minimap.renderCharacters": false,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "python.pythonPath": "/home/ayats/main_venv/bin/python"
 
 
 

@@ -6,16 +6,8 @@
 ; ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝
 
 [colors]
-white = #d1d1d1
-gray = #585858
-black = #090909
-red = #c795ae
-blue = #95aec7
-yellow = #c7ae95
-green = #aec795
-
 background = #af000000
-foreground = ${colors.white}
+foreground = #FFF
 background-alt = #AA223536
 foreground-alt = #55
 primary = #f8941f
@@ -29,7 +21,7 @@ offset-x = 2.5%
 offset-y = 4px
 radius = 0.0
 padding-left = 2px
-padding-right = 3px
+padding-right = 4px
 module-margin-left = 2
 module-margin-right = 2
 
@@ -62,7 +54,7 @@ modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
 ;modules-center = hlwm-monitor0
-modules-right =  pulseaudio updates date
+modules-right =  disks pulseaudio updates date
 
 padding-right = 17px
 tray-detached = true
@@ -123,3 +115,12 @@ type = custom/script
 interval = 2700
 exec = ~/.config/polybar/updates.sh
 label = Updates: %output%
+
+[module/disks]
+type = internal/fs
+mount-0 = /
+mount-1 = /mnt/x
+interval = 900
+format-mounted = <label-mounted>
+label-unmounted = %mountpoint%: n/a
+label-mounted = %mountpoint%: %percentage_free%%
