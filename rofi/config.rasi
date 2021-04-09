@@ -5,7 +5,3 @@ configuration {
     show-icons: true;
     icon-theme: "Vimix Dark";
 }
-
-* {
-  width: 800px;
-}

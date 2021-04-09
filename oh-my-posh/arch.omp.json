@@ -17,7 +17,7 @@
 					"style": "plain",
 					"foreground": "blue",
 					"properties": {
-						"prefix": "in ",
+						"prefix": "  ",
 						"style": "agnoster_full",
 						"home_icon": "~",
 						"folder_separator_icon": "/",
@@ -29,16 +29,16 @@
 					"style": "plain",
 					"foreground": "green",
 					"properties": {
-						"prefix": "at ",
+						"prefix": "  ",
 						"branch_icon": " "
 					}
 				},
 				{
 					"type": "python",
 					"style": "plain",
-					"foreground": "lightBlue",
+					"foreground": "magenta",
 					"properties": {
-						"prefix": " using \uE235  ",
+						"prefix": "\uE235  ",
 						"postfix": " ",
 						"display_mode": "context",
 						"display_version": true

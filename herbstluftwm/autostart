@@ -16,7 +16,7 @@ hc set focus_follows_mouse true
 #    ██║   ██╔══██║██║   ██║╚════██║
 #    ██║   ██║  ██║╚██████╔╝███████║
 #    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-tag_names=( "" "" "3" "4" "5" "6" "7" "8" "" )
+tag_names=( "" "" "3" "4" "5" "6" "7" "" "" )
 tag_keys=( {1..9} 0 )
 
 # Names
@@ -49,6 +49,17 @@ hc keybind $Mod-Shift-r         reload
 hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
 hc keybind F7 spawn pactl set-sink-volume @DEFAULT_SINK@ -2%
 hc keybind F8 spawn pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+# hlwm-utils
+hc keybind $Mod-m sh ~/.config/herbstluftwm/hlwm-utils/hlwm-menu/hlwm-menu.sh
+# layout bindings (control or Control)
+hc keybind $Mod-Control-v  spawn sh ~/.config/herbstluftwm/hlwm-utils/layouts/centered-master
+hc keybind $Mod-Control-b  spawn sh ~/.config/herbstluftwm/hlwm-utils/layouts/dwindle
+hc keybind $Mod-Control-n  spawn sh ~/.config/herbstluftwm/hlwm-utils/layouts/master-stack
+hc keybind $Mod-Control-m  spawn sh ~/.config/herbstluftwm/hlwm-utils/layouts/vertical
+
+# Reset to default
+hc keybind $Mod-Control-c  sh ~/.config/herbstluftwm/hlwm-utils/layouts/reset
 
 
 # Clients
@@ -202,6 +213,7 @@ hc rule class='discord' tag=${tag_names[8]}
 hc rule class='Nm-connection-editor' floating=on
 hc rule class='Seahorse' floating=on
 hc rule class~'(.+).exe' floating=on
+hc rule class='Genymotion Player' tag=${tag_names[7]}
 
 hc set tree_style '╾│ ├└╼─┐'
 

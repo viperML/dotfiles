@@ -11,8 +11,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 alias dot_install="pwsh $DOTFILES_DIR/dotbot.ps1 -c $DOTFILES_DIR/install-arch.yaml"
 alias ccat="highlight -O ansi"
 alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
-alias updates='bash $DOTFILES_DIR/updates.sh'
-alias hc='herbstclient'
+
+if status --is-interactive
+    abbr --add --global hc herbstclient
+end
 
 # pyenv init
 if command -v pyenv 1>/dev/null 2>&1
