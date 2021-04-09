@@ -5,3 +5,6 @@
 [submodule "herbstluftwm/hlwm-utils"]
 	path = herbstluftwm/hlwm-utils
 	url = https://github.com/branwright1/hlwm-utils.git
+[submodule "dotfiles_priv"]
+	path = dotfiles_priv
+	url = git@github.com:viperML/dotfiles_priv.git
