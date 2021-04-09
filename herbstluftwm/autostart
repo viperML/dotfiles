@@ -200,6 +200,7 @@ hc rule class='Vivaldi-stable' tag=${tag_names[0]}
 hc rule class='Vivaldi-stable' switchtag=on
 hc rule class='discord' tag=${tag_names[8]}
 hc rule class='Nm-connection-editor' floating=on
+hc rule class='Seahorse' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
