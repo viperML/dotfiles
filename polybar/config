@@ -34,7 +34,7 @@ module-margin-right = 2
 padding-right = 5px
 
 
-separator = 
+separator =
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -61,7 +61,7 @@ modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
 ;modules-center = hlwm-monitor0
-modules-right =  pulseaudio date
+modules-right =  pulseaudio updates date
 
 padding-right = 19px
 tray-detached = true
@@ -116,3 +116,9 @@ interval = 1.0
 date = %A %e of %B
 time = %H:%M:%S
 label = %date% - %time%
+
+[module/updates]
+type = custom/script
+interval = 2700
+exec = ~/.config/polybar/updates.sh
+label = Updates: %output%

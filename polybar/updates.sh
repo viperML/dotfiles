@@ -3,7 +3,7 @@ checkupdates > /dev/null 2>&1
 CHK=`checkupdates`
 CHKAUR="$(yay -Qu)"
 
-if [ ${#CHKAUR} -gt 0 ]; then 
+if [ ${#CHKAUR} -gt 0 ]; then
   if [ "$CHK" = "" ]; then
     CHK="${CHKAUR}"
   else
