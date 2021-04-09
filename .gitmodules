@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "herbstluftwm/hlwm-utils"]
+	path = herbstluftwm/hlwm-utils
+	url = https://github.com/branwright1/hlwm-utils.git
