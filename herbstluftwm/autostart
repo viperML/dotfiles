@@ -106,8 +106,8 @@ hc set mouse_recenter_gap 0
 hc lock
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc pad 1 31 0 0 0
-hc pad 0 31 0 0 0
+hc pad 1 30 0 0 0
+hc pad 0 30 0 0 0
 
 # inner_color/inner_width
 #       ╻        outer_color/outer_width
@@ -168,10 +168,10 @@ hc set frame_bg_active_color '#9EE376'
 
 # Title
 hc attr theme.title_height 17
+hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth)
 hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'
 hc attr theme.active.title_color '#000'
 hc attr theme.normal.title_color '#141414'
-hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth)
 
 
 
@@ -201,6 +201,7 @@ hc rule class='Vivaldi-stable' switchtag=on
 hc rule class='discord' tag=${tag_names[8]}
 hc rule class='Nm-connection-editor' floating=on
 hc rule class='Seahorse' floating=on
+hc rule class~'(.+).exe' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 

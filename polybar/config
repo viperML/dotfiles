@@ -14,7 +14,7 @@ blue = #95aec7
 yellow = #c7ae95
 green = #aec795
 
-background = #aa000000
+background = #af000000
 foreground = ${colors.white}
 background-alt = #AA223536
 foreground-alt = #55
@@ -24,14 +24,15 @@ alert = #e8796d
 
 [bar/_style]
 width = 95%
-height = 30px
+height = 26px
 offset-x = 2.5%
-offset-y = 3px
-radius = 15.0
-padding-left = 5px
+offset-y = 4px
+radius = 0.0
+padding-left = 2px
+padding-right = 3px
 module-margin-left = 2
 module-margin-right = 2
-padding-right = 5px
+
 
 
 separator =
@@ -39,7 +40,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Roboto:style=Regular:pixelsize=15;4"
+font-0 = "Roboto:style=Regular:pixelsize=13;3"
 font-1 = "Font Awesome 5 Free Solid:style=Solid:pixelsize=11;3"
 font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=11;3"
 
@@ -63,9 +64,9 @@ scroll-down = herbstclient use_index +1 --skip-visible
 ;modules-center = hlwm-monitor0
 modules-right =  pulseaudio updates date
 
-padding-right = 19px
+padding-right = 17px
 tray-detached = true
-tray-offset-x = -1.4%
+tray-offset-x = -12px
 tray-padding = 1
 tray-maxsize = 20
 tray-position = right
