@@ -10,7 +10,7 @@
     ~/.config/fish/:
       glob: true
       path: fish/*
-    
+
     ~/.config/oh-my-posh/:
       glob: true
       path: oh-my-posh/*
@@ -18,7 +18,7 @@
     ~/.config/Code/User/:
       glob: true
       path: Code/*
-    
+
     ~/.config/picom/picom.conf: picom/picom-ibhagwan.conf
     #~/.config/picom/picom.conf: picom/picom-jonaburg.conf
     #~/.config/picom/picom.conf: picom/picom-git.conf
@@ -28,29 +28,29 @@
     ~/.config/vivaldi-MODS/:
       glob: true
       path: Vivaldi/MODS/*
-  
+
     ~/.config/neofetch/:
       glob: true
       path: neofetch/*
-    
+
     ~/.Xresources: X11/Xresources
-    
+
     ~/.config/emptty: emptty/emptty
 
     ~/.config/i3/:
       glob: true
       path: i3/*
-    
+
     ~/.config/redshift.conf: redshift/redshift.conf
 
     ~/.config/gtk-3.0/:
       glob: true
       path: gtk-3.0/*
-    
+
     ~/.naga/:
       glob: true
       path: Naga_KeypadMapper/*
-    
+
     ~/.config/kitty/:
       glob: true
       path: kitty/*
@@ -58,7 +58,11 @@
     ~/.config/herbstluftwm/:
       glob: true
       path: herbstluftwm/*
-    
+
     ~/.config/polybar/:
       glob: true
       path: polybar/*
+
+    ~/.config/rofi/:
+      glob: true
+      path: rofi/*

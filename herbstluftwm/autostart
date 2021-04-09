@@ -39,7 +39,7 @@ done
 # ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
 # Apps
 hc keybind $Mod-Return spawn kitty
-hc keybind $Mod-space spawn rofi -show drun
+hc keybind $Mod-space spawn rofi -show combi
 hc keybind $Mod-e spawn dolphin
 hc keybind Print spawn flameshot gui
 hc keybind Control+Print spawn  peek

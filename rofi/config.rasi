@@ -1,0 +1,11 @@
+configuration {
+    modi: "combi";
+    combi-modi: "window,drun,run,ssh";
+    font: "Roboto 14";
+    show-icons: true;
+    icon-theme: "Vimix Dark";
+}
+
+* {
+  width: 800px;
+}

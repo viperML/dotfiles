@@ -42,7 +42,7 @@
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~
   "workbench.colorCustomizations": {
-        "editor.background": "#111111",
+        "editor.background": "#151515",
 		    "editor.lineHighlightBackground": "#141414",
         "minimap.background": "#12121280"
   },
@@ -225,10 +225,10 @@
   "powershell.integratedConsole.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
   "powershell.startAutomatically": false,
-  "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
   "scm.diffDecorations": "gutter",
-  "editor.minimap.renderCharacters": false
+  "editor.minimap.renderCharacters": false,
+  "files.autoSave": "afterDelay"
 
 
 
