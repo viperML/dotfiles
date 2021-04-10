@@ -4,6 +4,7 @@ Xft.rgba:	none
 Xcursor.theme:	
 Xcursor.size:	0
 Xcursor.theme_core:	1
+Xft.dpi: 96
 
 ! XTerm config
 ! Allow sixel graphics. (Try: "convert -colors 16 foo.jpg sixel:-").

@@ -8,12 +8,12 @@ export DOTFILES_DIR=$HOME/.dotfiles
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias dot_install="pwsh $DOTFILES_DIR/dotbot.ps1 -c $DOTFILES_DIR/install-arch.yaml"
 alias ccat="highlight -O ansi"
 alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
+    abbr --add --global dot_install ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
 end
 
 # pyenv init

@@ -17,7 +17,7 @@
 
   // integrated terminal
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode NF', 'la-regular-400','monospace",
+  "terminal.integrated.fontFamily": "'Fira Code', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'FiraCode NF', 'Symbols Nerd Font','monospace",
   // WIndows
   "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",

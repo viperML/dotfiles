@@ -35,7 +35,7 @@ foreground = ${colors.foreground}
 font-0 = "Roboto:style=Regular:pixelsize=13;3"
 font-1 = "Font Awesome 5 Free Solid:style=Solid:pixelsize=10;2"
 font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=10;2"
-font-3 = "Fira Code:style=Bold:pixelsize=13;4"
+font-3 = "Fira Code:style=Bold:pixelsize=12;4"
 
 override-redirect = true
 enable-ipc = true
@@ -55,7 +55,7 @@ modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
 modules-center = date
-modules-right =  disks pulseaudio updates
+modules-right =  covid disks pulseaudio updates
 
 padding-right = 49px
 tray-detached = true
@@ -130,3 +130,9 @@ interval = 900
 format-mounted = <label-mounted>
 label-unmounted = %mountpoint%: n/a
 label-mounted = %mountpoint%: %percentage_free%%
+
+[module/covid]
+type = custom/script
+exec = python ~/.config/polybar/covid.py
+interval = 14400
+label = %output%
