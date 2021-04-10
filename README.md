@@ -3,7 +3,7 @@
 ![](_img/2021_04_8.jpg)
 
 
-These are my personal configuration files formy Linux and Windows machines. Feel free to grab anything that you find interesting.
+These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
 ## Installation
 I am using a dotfile boostrapper: [anishathalye/dotbot](https://github.com/anishathalye/dotbot) which

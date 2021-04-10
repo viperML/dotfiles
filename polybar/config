@@ -54,8 +54,8 @@ monitor = ${env:MONITOR}
 modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
-;modules-center = hlwm-monitor0
-modules-right =  disks pulseaudio updates date
+modules-center = date
+modules-right =  disks pulseaudio updates
 
 padding-right = 49px
 tray-detached = true
@@ -71,8 +71,8 @@ monitor = ${env:MONITOR}
 modules-left = herbstluftwm-tags
 scroll-up = herbstclient use_index -1 --skip-visible
 scroll-down = herbstclient use_index +1 --skip-visible
-;modules-center = hlwm-monitor0
-modules-right = pulseaudio date
+modules-center = date
+modules-right = pulseaudio
 
 
 
