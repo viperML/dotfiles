@@ -44,8 +44,16 @@
 
 .vivaldi {
 	height: 28px;
+      fill: var(--colorAccentBg);
+    /* opacity: 100%; */
+    filter: brightness(1.6);
 }
 
 #browser .window-buttongroup {
 	display: none;
 }
+
+.button-toolbar {
+	filter: grayscale(100%) contrast(1.4);
+}
+

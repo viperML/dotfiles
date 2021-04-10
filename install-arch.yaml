@@ -36,8 +36,7 @@
       path: neofetch/*
 
     ~/.Xresources: X11/Xresources
-
-    ~/.config/emptty: emptty/emptty
+    ~/.xprofile: X11/.xprofile
 
     ~/.config/i3/:
       glob: true
