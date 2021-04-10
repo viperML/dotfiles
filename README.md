@@ -7,7 +7,7 @@ These are my personal configuration files formy Linux and Windows machines. Feel
 
 ## Installation
 I am using a dotfile boostrapper: [anishathalye/dotbot](https://github.com/anishathalye/dotbot) which
-sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh -c config.yaml`. Only requires python 3 and powershell/bash.
+sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh -c config.yaml`. It only requires python 3 and powershell/bash.
 
 
 
@@ -28,7 +28,6 @@ sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh 
 - [ibhagwan/picom](https://github.com/ibhagwan/picom/) - Compositor, providing transparency, shadows, rounded corners and borders.
 - [fish](https://fishshell.com) - Shell
 - [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal emulator
-- GTK/Icon theme in the neofetch screenshot above
 
 ### Deprecated config files:
 

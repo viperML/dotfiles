@@ -17,7 +17,9 @@ def screens():
 
 current_screens = screens()
 os.system('pkill polybar')
+os.system('pkill multiload-ng-sy')
 
 for screen in current_screens:
     os.system('MONITOR=' + screen + ' polybar herbstluftwm_' +
               current_screens[screen] + ' &')
+os.system('multiload-ng-systray')

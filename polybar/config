@@ -56,7 +56,7 @@ scroll-down = herbstclient use_index +1 --skip-visible
 ;modules-center = hlwm-monitor0
 modules-right =  disks pulseaudio updates date
 
-padding-right = 17px
+padding-right = 49px
 tray-detached = true
 tray-offset-x = -12px
 tray-padding = 1

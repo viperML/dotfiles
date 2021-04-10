@@ -1,11 +1,51 @@
+@charset "UTF-8";
+
 /* https://forum.vivaldi.net/topic/48027/autohide-panels-switch-when-you-don-t-need-it?lang=en-US */
-#panels {overflow:visible;}
-:not(.resizing)#panels-container.overlay .panel-group {transition: width .1s linear !important;}
-#panels-container.overlay {width:0 !important;}
-#panels-container.right.overlay > .SlideBar--FullHeight.alternate, #panels-container.right.icons:not(.overlay) {margin-left:-34px;}
-#panels-container.left.overlay > .SlideBar--FullHeight.alternate, #panels-container.left.icons:not(.overlay) {margin-right: -34px;}
-#panels-container #switch {height: 100%; max-width: 34px; visibility:visible !important; z-index:1;}
-#panels-container.icons:not(:hover) #switch, #panels-container.switcher:not(:hover) #switch {height:200px; max-width:8px; opacity:0; transition: .1s .9s, opacity 0s 1s !important;}
+#panels {
+	overflow: visible;
+}
+:not(.resizing)#panels-container.overlay .panel-group {
+	transition: width .1s linear !important;
+}
+#panels-container.overlay {
+	width: 0 !important;
+}
+#panels-container.right.overlay > .SlideBar--FullHeight.alternate,
+#panels-container.right.icons:not(.overlay) {
+	margin-left: -34px;
+}
+#panels-container.left.overlay > .SlideBar--FullHeight.alternate,
+#panels-container.left.icons:not(.overlay) {
+	margin-right: -34px;
+}
+#panels-container #switch {
+	height: 100%;
+	max-width: 34px;
+	visibility: visible !important;
+	z-index: 1;
+}
+#panels-container.icons:not(:hover) #switch,
+#panels-container.switcher:not(:hover) #switch {
+	height: 200px;
+	max-width: 8px;
+	opacity: 0;
+	transition: .1s .9s, opacity 0s 1s !important;
+}
 
 /* https://forum.vivaldi.net/topic/37367/disable-or-remove-trash-sync-icons/4 */
-.sync-and-trash-container {display: none;}
+.sync-and-trash-container {
+	display: none;
+}
+
+.win.normal #tabs-tabbar-container.top,
+.linux.normal #tabs-tabbar-container.top {
+	padding-top: 0px;
+}
+
+.vivaldi {
+	height: 28px;
+}
+
+#browser .window-buttongroup {
+	display: none;
+}
