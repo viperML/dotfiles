@@ -215,6 +215,7 @@ hc rule class='Seahorse' floating=on
 hc rule class~'(.+).exe' floating=on
 hc rule class='Genymotion Player' tag=${tag_names[7]}
 hc rule class='dolphin' floating=on
+hc rule class~'MEGAsync' floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -225,16 +226,20 @@ hc detect_monitors
 autorandr -c
 
 if hc silent new_attr bool my_not_first_autostart ; then
+    # Window Manager
     hc reload
     python ~/.config/polybar/launch.py &
     picom &
-    discord-canary --start-minimized &
-    flameshot &
-    bash /usr/local/bin/nagastart.sh &
     nitrogen --restore
-    redshift &
-    emote &
+
+    # General Apps
+    discord-canary --start-minimized &
+    # flameshot &
+    bash /usr/local/bin/nagastart.sh &
+    # redshift &
+    # emote &
     nm-applet &
     # polychromatic-tray-applet &
+    megasync &
 fi
 
