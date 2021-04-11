@@ -5,8 +5,8 @@
 
 - shell:
     - xrdb -merge $HOME/.Xresources
-    - sh -c "comm -23 <(pacman -Qqe | sort) <(expac -l '\n' '%E' base | sort)" > $DOTFILES_DIR/dotfiles_priv/packages
     - code --list-extensions > $DOTFILES_DIR/Code/extensions
+    - python $DOTFILES_DIR/dotfiles_priv/packages.py
 
 - link:
     ~/.config/fish/:

@@ -44,9 +44,9 @@
 
 .vivaldi {
 	height: 28px;
-      fill: var(--colorAccentBg);
-    /* opacity: 100%; */
-    filter: brightness(1.6);
+	fill: var(--colorAccentBg);
+	/* opacity: 100%; */
+	filter: brightness(1.6);
 }
 
 #browser .window-buttongroup {
@@ -54,6 +54,5 @@
 }
 
 .button-toolbar {
-	filter: grayscale(100%) contrast(1.4);
+	filter: grayscale(100%) contrast(1.6);
 }
-
