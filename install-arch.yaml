@@ -66,3 +66,5 @@
     ~/.config/rofi/:
       glob: true
       path: rofi/*
+
+    ~/.config/dunst/dunstrc: dunst/dunstrc
