@@ -6,8 +6,8 @@
 ; ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝
 
 [colors]
-background = #af000000
-foreground = #d8caac
+background = #af111111
+foreground = #d8d1c3
 background-alt = #AA223536
 foreground-alt = #55
 primary = #f8941f

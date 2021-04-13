@@ -120,6 +120,8 @@ hc attr theme.floating.reset 1
 hc pad 1 30 0 0 0
 hc pad 0 30 0 0 0
 hc set default_frame_layout 2
+hc set_layout grid
+hc set window_gap 15
 
 # inner_color/inner_width
 #       ╻        outer_color/outer_width
@@ -136,14 +138,21 @@ hc set default_frame_layout 2
 # └──────────────────────────────┘ ⎰ padding_bottom
 
 hc attr theme.active.color '#6DE879'
-hc attr theme.normal.color '#869485'
+hc attr theme.normal.color '#151515'
 hc attr theme.urgent.color '#F53F58'
 hc attr theme.background_color '#000'
 
-hc set window_gap 5
+
+
+# Title
+hc attr theme.title_height 17
+hc attr theme.padding_top 5
+hc attr theme.title_font 'Roboto:pixelsize=12'
+hc attr theme.active.title_color '#000'
+hc attr theme.normal.title_color '#d8d1c3'
 
 # Outer border
-hc attr theme.border_width 5
+hc attr theme.border_width 2
 hc attr theme.active.outer_color '#3E4A00'
 
 # Inner border
@@ -158,9 +167,9 @@ hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color '#6DE879'
 
 # Frame
-hc set frame_padding 7
-hc set frame_normal_opacity 50
-hc set frame_active_opacity 50
+hc set frame_padding 0
+hc set frame_normal_opacity 40
+hc set frame_active_opacity 40
 hc set frame_transparent_width 40
 hc set frame_gap 5
 
@@ -174,16 +183,11 @@ hc set frame_bg_transparent on
 hc set frame_border_width 0
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
-hc set frame_bg_normal_color '#B3BFAC'
-hc set frame_bg_active_color '#9EE376'
+hc set frame_bg_normal_color '#353834'
+hc set frame_bg_active_color '#697c5d'
 
 
-# Title
-hc attr theme.title_height 17
-hc attr theme.padding_top 4  # space below the title's baseline (i.e. text depth)
-hc attr theme.title_font 'Sarasa Gothic J:pixelsize=12'
-hc attr theme.active.title_color '#000'
-hc attr theme.normal.title_color '#141414'
+
 
 
 

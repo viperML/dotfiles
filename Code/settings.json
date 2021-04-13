@@ -36,7 +36,7 @@
 
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
-  "workbench.colorTheme": "Panda Syntax",
+  "workbench.colorTheme": "Nord Wave",
   "editor.fontSize": 15,
   // "editor.fontFamily": "'Fira Code', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   "editor.fontFamily": "'Operator Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
@@ -45,9 +45,9 @@
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~
   "workbench.colorCustomizations": {
-        "editor.background": "#151515",
-		    "editor.lineHighlightBackground": "#141414",
-        "minimap.background": "#12121280"
+        "editor.background": "#181818",
+		    //"editor.lineHighlightBackground": "#141414",
+        "minimap.background": "#22222244"
   },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,

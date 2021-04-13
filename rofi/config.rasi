@@ -1,6 +1,6 @@
 configuration {
     modi: "combi";
-    combi-modi: "window,drun,run,ssh";
+    combi-modi: "drun,run,ssh";
     font: "Roboto 14";
     show-icons: true;
     icon-theme: "Vimix Dark";

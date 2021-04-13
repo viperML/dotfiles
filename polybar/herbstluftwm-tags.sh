@@ -21,7 +21,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                     ':')
                         # : the tag is not empty
                         # TODO Add your formatting tags for occupied workspaces
-												echo "%{F#d8caac}"
+												echo "%{F#d8d1c3}"
                         ;;
                     '!')
                         # ! the tag contains an urgent window
@@ -36,7 +36,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                     *)
                         # . the tag is empty
                         # There are also other possible prefixes but they won't appear here
-                        echo "%{F#868d80}" # Add your formatting tags for empty workspaces
+                        echo "%{F#6a7066}" # Add your formatting tags for empty workspaces
                         ;;
                 esac
 
