@@ -5,7 +5,7 @@
 
 - shell:
     - xrdb -merge $HOME/.Xresources
-    - code --list-extensions > $DOTFILES_DIR/Code/extensions
+    - vscodium --list-extensions > $DOTFILES_DIR/Code/extensions
     - python $DOTFILES_DIR/dotfiles_priv/packages.py
 
 - link:
@@ -17,7 +17,7 @@
       glob: true
       path: oh-my-posh/*
 
-    ~/.config/Code/User/:
+    ~/.config/VSCodium/User/:
       glob: true
       path: Code/*
 
@@ -68,3 +68,5 @@
       path: rofi/*
 
     ~/.config/dunst/dunstrc: dunst/dunstrc
+
+    ~/.config/nano/nanorc: nano/nanorc
