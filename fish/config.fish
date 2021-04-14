@@ -1,5 +1,4 @@
-
-
+set -g -x fish_greeting ''
 
 # Variables
 export GREP_OPTIONS='--color=always'
