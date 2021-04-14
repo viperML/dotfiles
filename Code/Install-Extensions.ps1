@@ -1,1 +1,1 @@
-Get-Content $PSScriptRoot\extensions | ForEach-Object { vscodium --install-extension $_}
+Get-Content $PSScriptRoot\extensions | ForEach-Object { code --install-extension $_}

@@ -11,7 +11,7 @@
 
     X:/Documents/ShareX/:
       glob: true
-      path: ShareX/*
+      path: dotfiles_priv/ShareX/*
 
     ~/.config/oh-my-posh/:
       glob: true
@@ -43,5 +43,3 @@
     ~/AppData/Roaming/mpv/mpv.conf:
       path: mpv/mpv.conf
 
-
-    ~/.condarc: conda/condarc

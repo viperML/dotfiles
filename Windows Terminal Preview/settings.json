@@ -3,13 +3,13 @@
     // Add custom actions and keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
     // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
-    "actions": 
+    "actions":
     [
         // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -30,7 +30,7 @@
         // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
         // To learn more about panes, visit https://aka.ms/terminal-panes
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -46,9 +46,9 @@
     "initialCols": 160,
     "initialRows": 40,
     "keybindings": null,
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "acrylicOpacity": 0.90000000000000002,
             "antialiasingMode": "cleartype",
@@ -56,11 +56,11 @@
             "backgroundImageOpacity": 0.20000000000000001,
             "backgroundImageStretchMode": "none",
             "fontFace": "FiraCode NF",
-            "fontSize": 11,
+            "fontSize": 10,
             "fontWeight": "black",
             "useAcrylic": true
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "pwsh.exe -NoLogo",
@@ -101,7 +101,7 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
