@@ -39,15 +39,18 @@
   "workbench.colorTheme": "Nord Wave",
   "editor.fontSize": 15,
   // "editor.fontFamily": "'Fira Code', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  // "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
+    //                        <!--     >=       &      @       =~
   "editor.fontFamily": "'Operator Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  //"editor.fontFamily": "JetBrains Mono",
   //  
-  "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-  //                        <!--     >=       &      @       =~
+
   "workbench.colorCustomizations": {
         "editor.background": "#181818",
-		    //"editor.lineHighlightBackground": "#141414",
-        "minimap.background": "#22222244"
+		    // "editor.lineHighlightBackground": "#141414",
+        "minimap.background": "#22222244",
+        "sideBar.foreground": "#999999",
+        "scrollbarSlider.background": "#333333",
+        "scrollbarSlider.hoverBackground": "#444444"
   },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
@@ -233,7 +236,8 @@
   "editor.minimap.renderCharacters": false,
   "files.autoSave": "afterDelay",
   "python.pythonPath": "/home/ayats/main_venv/bin/python",
-  "editor.minimap.size": "fit"
+  "editor.minimap.size": "fit",
+  "editor.minimap.enabled": false
 
 
 
