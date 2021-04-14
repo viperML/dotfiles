@@ -186,6 +186,8 @@ hc set frame_border_normal_color '#101010'
 hc set frame_bg_normal_color '#353834'
 hc set frame_bg_active_color '#697c5d'
 
+hc attr theme.tight_decoration f
+
 
 
 
