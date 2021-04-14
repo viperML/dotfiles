@@ -7,15 +7,17 @@
     - xrdb -merge $HOME/.Xresources
     - vscodium --list-extensions > $DOTFILES_DIR/Code/extensions
     - python $DOTFILES_DIR/dotfiles_priv/packages.py
+    -
+      command: find ~/.config -xtype l
+      stdout: true
+      stderr: true
+      quiet: true
+      description: Broken symlinks in .config
 
 - link:
     ~/.config/fish/:
       glob: true
       path: fish/*
-
-    ~/.config/oh-my-posh/:
-      glob: true
-      path: oh-my-posh/*
 
     ~/.config/VSCodium/User/:
       glob: true
@@ -26,9 +28,7 @@
     #~/.config/picom/picom.conf: picom/picom-git.conf
 
     ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
-    ~/.config/vivaldi-MODS/:
-      glob: true
-      path: Vivaldi/MODS/*
+    ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
 
     ~/.config/neofetch/:
       glob: true

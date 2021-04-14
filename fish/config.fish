@@ -6,7 +6,6 @@ export DOTFILES_DIR=$HOME/.dotfiles
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias ccat="highlight -O ansi"
 alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
 
 if status --is-interactive
