@@ -50,7 +50,8 @@
         "minimap.background": "#22222244",
         "sideBar.foreground": "#999999",
         "scrollbarSlider.background": "#333333",
-        "scrollbarSlider.hoverBackground": "#444444"
+        "scrollbarSlider.hoverBackground": "#444444",
+        "statusBar.foreground": "#999999"
   },
   "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
@@ -210,7 +211,7 @@
 
   // Action Buttons
   "actionButtons": {
-    "defaultColor": "#ffffff",
+    "defaultColor": "#999999",
     "loadNpmCommands":true,
     "reloadButton": "Actions"
   },
