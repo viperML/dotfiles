@@ -29,9 +29,7 @@
       glob: true
       path: Code/*
 
-    ~/AppData/Local/Vivaldi/MODS/:
-      glob: true
-      path: Vivaldi/MODS/*
+    ~/AppData/Local/Vivaldi/MODS/custom.css: Vivaldi/MODS/custom-win.css
 
     ~/AppData/Local/Vivaldi/User Data/Default/mainmenu.json:
       path: Vivaldi/mainmenu.json

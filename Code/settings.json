@@ -238,7 +238,8 @@
   "python.pythonPath": "/home/ayats/main_venv/bin/python",
   "editor.minimap.size": "fit",
   "editor.minimap.enabled": false,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "files.autoSave": "afterDelay"
 
 
 
