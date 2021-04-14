@@ -222,6 +222,7 @@ hc rule class='Genymotion Player' tag=${tag_names[7]}
 hc rule class='dolphin' floating=on
 hc rule class~'MEGAsync' floating=on
 # hc rule class~'main.py' floating=on
+hc rule class~'Spotify' tag=${tag_names[9]}
 
 hc set tree_style '╾│ ├└╼─┐'
 

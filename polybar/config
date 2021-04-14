@@ -24,6 +24,7 @@ padding-left = 2px
 padding-right = 4px
 module-margin-left = 3
 module-margin-right = 3
+locale = es_ES.UTF-8
 
 
 
@@ -58,15 +59,13 @@ scroll-down = herbstclient use_index +1 --skip-visible
 modules-center = date
 modules-right = disks pulseaudio updates battery
 
-padding-right = 58px
+padding-right = 64px
 tray-detached = true
 tray-offset-x = -12px
 tray-padding = 1
 tray-maxsize = 20
 tray-position = right
 tray-background = ${colors.background}
-
-locale = es_ES.UTF-8
 
 [bar/herbstluftwm_1]
 inherit = bar/_style
