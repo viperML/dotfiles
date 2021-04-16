@@ -76,6 +76,9 @@ scroll-down = herbstclient use_index +1 --skip-visible
 modules-center = date
 modules-right = pulseaudio battery
 
+[bar/awesome]
+inherit = bar/_style
+modules-center = date
 
 
 ; ███╗   ███╗ ██████╗ ██████╗ ██╗   ██╗██╗     ███████╗███████╗
@@ -141,7 +144,6 @@ label = %output%
 
 [module/battery]
 type = internal/battery
-full-at = 99
 battery = BAT0
 adapter = ADP1
 label-discharging =  %percentage%%
