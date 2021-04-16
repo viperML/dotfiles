@@ -70,3 +70,5 @@
     ~/.config/dunst/dunstrc: dunst/dunstrc
 
     ~/.config/nano/nanorc: nano/nanorc
+
+    ~/.config/oh-my-posh/viper.omp.json: oh-my-posh/viper.omp.json

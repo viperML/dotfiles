@@ -37,12 +37,18 @@
   // Theme
   "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Nord Wave",
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
+
+  // Fira Code Style
   // "editor.fontFamily": "'Fira Code', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   // "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-    //                        <!--     >=       &      @       =~
-  "editor.fontFamily": "'Operator Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  //  
+  //                           <!--     >=       &      @       =~
+
+  // Operator Mono Lig
+  "editor.fontFamily": "'Operator Mono SSm Lig Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  "editor.fontLigatures": "'dlig'",
+
+  //   __ |> <->  == >=>
 
   "workbench.colorCustomizations": {
         "editor.background": "#181818",

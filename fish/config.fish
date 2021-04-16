@@ -1,4 +1,6 @@
 set -g -x fish_greeting ''
+oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
+
 
 # Variables
 export GREP_OPTIONS='--color=always'
