@@ -1,1 +1,1 @@
-Get-Content $PSScriptRoot\extensions | ForEach-Object { code --install-extension $_}
+Get-Content $PSScriptRoot\extensions | ForEach-Object { codium --install-extension $_}
