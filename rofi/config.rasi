@@ -4,4 +4,9 @@ configuration {
     font: "Roboto 14";
     show-icons: true;
     icon-theme: "Vimix Dark";
+    theme: "material";
+}
+
+* {
+    width: 300px;
 }

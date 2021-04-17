@@ -40,7 +40,7 @@
   "editor.fontSize": 14,
 
   // Fira Code Style
-  "editor.fontFamily": "'Fira Code Medium', 'la-solid-900', 'la-brands-400'",
+  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
   //                        <!--     >=       &      @       =~
 
@@ -277,8 +277,8 @@
   "editor.minimap.size": "fit",
   "editor.minimap.enabled": false,
   "redhat.telemetry.enabled": false,
-  "files.autoSave": "afterDelay",
-  "helium-icon-theme.folders.color": "#90a4ae"
+  "helium-icon-theme.folders.color": "#90a4ae",
+  "files.autoSave": "afterDelay"
 
 
 
