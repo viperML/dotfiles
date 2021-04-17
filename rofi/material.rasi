@@ -44,19 +44,8 @@ inputbar {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 8;
+  lines: 5;
 }
 
-mainbox {
-  background-color: @bg;
-  children: [inputbar, listview];
-}
 
-prompt {
-  background-color: @bg-alt;
-  enabled: true;
-  font: "FontAwesome 12";
-  padding: 12 0 0 12;
-  text-color: @fg;
-}
 

@@ -1,12 +1,12 @@
 configuration {
     modi: "combi";
     combi-modi: "drun,run,ssh";
-    font: "Roboto 14";
+    font: "Roboto 17";
     show-icons: true;
     icon-theme: "Vimix Dark";
     theme: "material";
 }
 
 * {
-    width: 300px;
+    width: 350px;
 }
