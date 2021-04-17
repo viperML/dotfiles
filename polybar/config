@@ -34,10 +34,10 @@ foreground = ${colors.foreground}
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Roboto:style=Regular:pixelsize=13;3"
-font-1 = "Font Awesome 5 Free Solid:style=Solid:pixelsize=10;2"
-font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=10;2"
-font-3 = "Fira Code:style=Bold:pixelsize=12;3"
-font-4 = "Symbols Nerd Font:style=2048-em:pixelsize=12;3"
+font-1 = "la\-solid\-900:style=Regular:pixelsize=15;4"
+font-2 = "la\-brands\-400:style=Regular:pixelsize=15;4"
+;font-3 = "Fira Code:style=Bold:pixelsize=12;3"
+;font-4 = "Symbols Nerd Font:style=2048-em:pixelsize=12;3"
 
 override-redirect = true
 enable-ipc = true
@@ -125,7 +125,8 @@ label = %date%   %time%
 type = custom/script
 interval = 2700
 exec = ~/.config/polybar/updates.sh
-label = ⟳ %output%
+label =  %output%
+exec-if = ping -c 1 1.1.1.1
 
 [module/disks]
 type = internal/fs
