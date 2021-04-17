@@ -47,8 +47,8 @@ hc keybind Control+Print spawn  peek
 # Other
 hc keybind $Mod-Shift-r         reload
 hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
-hc keybind F7 spawn pactl set-sink-volume @DEFAULT_SINK@ -2%
-hc keybind F8 spawn pactl set-sink-volume @DEFAULT_SINK@ +2%
+hc keybind F7 spawn python ~/.config/dunst/volume.py down
+hc keybind F8 spawn python ~/.config/dunst/volume.py up
 
 # hlwm-utils
 hc keybind $Mod-m sh ~/.config/herbstluftwm/hlwm-utils/hlwm-menu/hlwm-menu.sh

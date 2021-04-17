@@ -68,6 +68,7 @@
       path: rofi/*
 
     ~/.config/dunst/dunstrc: dunst/dunstrc
+    ~/.config/dunst/volume.py: dunst/volume.py
 
     ~/.config/nano/nanorc: nano/nanorc
 
