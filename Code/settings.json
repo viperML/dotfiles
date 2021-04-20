@@ -2,7 +2,6 @@
   // General config
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
   "editor.quickSuggestionsDelay": 0,
   "editor.tabCompletion": "on",
   "explorer.confirmDelete": false,
@@ -17,14 +16,13 @@
 
   // integrated terminal
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'FiraCode NF', 'Symbols Nerd Font','monospace",
+  "terminal.integrated.fontFamily": "'Fira Code', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF', 'monospace",
   // WIndows
-  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminalPreview_1.6.10412.0_x64__8wekyb3d8bbwe\\wt.exe",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terminal.integrated.shellArgs.windows": "-nologo",
   // Linux
   "terminal.integrated.shell.linux": "/usr/bin/fish",
-  "terminal.integrated.shellArgs.linux": ["-l","-d 3"],
+  "terminal.integrated.shellArgs.linux": ["-l","-d 3"], // ["-l","-d 3"]
 
 
 
@@ -40,21 +38,23 @@
   "editor.fontSize": 14,
 
   // Fira Code Style
-  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
+  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-  //                        <!--     >=       &      @       =~
 
   // Operator Mono Lig
   //"editor.fontFamily": "'Operator Mono SSm Lig Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   //"editor.fontLigatures": true,
 
+  // Result
   //   __ |> <->  == >=>
+
+  // Custom italic fonts
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "scope": [
           //following will be in italic (=FlottFlott)
-          "comment",
+          "comment"
           // "entity.name.type.class", //class names
           // "keyword", //import, export, return…
           // "constant", //String, Number, Boolean…, this, super
@@ -91,9 +91,6 @@
         "scrollbarSlider.hoverBackground": "#444444",
         "statusBar.foreground": "#999999"
   },
-  "bracket-pair-colorizer-2.showVerticalScopeLine": false,
-  "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
-  "workbench.productIconTheme": "fluent-icons",
 
 
 
@@ -228,12 +225,18 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "[xml]": {
+    // "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
 
   // Python
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  "python.jediEnabled": false,
-  "python.languageServer": "Pylance",
+  // "python.jediEnabled": false,
+  // "python.languageServer": "Pylance",
   "vsintellicode.python.completionsEnabled": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
@@ -278,7 +281,8 @@
   "editor.minimap.enabled": false,
   "redhat.telemetry.enabled": false,
   "helium-icon-theme.folders.color": "#90a4ae",
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "workbench.productIconTheme": "material-product-icons"
 
 
 
