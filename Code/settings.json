@@ -22,18 +22,13 @@
   "terminal.integrated.shellArgs.windows": "-nologo",
   // Linux
   "terminal.integrated.shell.linux": "/usr/bin/fish",
-  "terminal.integrated.shellArgs.linux": ["-l","-d 3"], // ["-l","-d 3"]
-
-
+  "terminal.integrated.shellArgs.linux": ["-l"], // ["-l","-d 3"]
 
   // Git
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
-
-  // Theme
-  "workbench.iconTheme": "helium-icon-theme",
   "workbench.colorTheme": "Panda Syntax",
   "editor.fontSize": 14,
 
@@ -282,7 +277,10 @@
   "redhat.telemetry.enabled": false,
   "helium-icon-theme.folders.color": "#90a4ae",
   "files.autoSave": "afterDelay",
-  "workbench.productIconTheme": "material-product-icons"
+  "workbench.productIconTheme": "material-product-icons",
+  "material-icon-theme.opacity": 1,
+  "material-icon-theme.saturation": 1,
+  "workbench.iconTheme": "material-icon-theme"
 
 
 

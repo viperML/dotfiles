@@ -1,7 +1,6 @@
 BitBelt.converttoasciiart
 cschleiden.vscode-github-actions
 dsznajder.es7-react-js-snippets
-helgardrichard.helium-icon-theme
 icrawl.discord-vscode
 James-Yu.latex-workshop
 kamikillerto.vscode-colorize
@@ -9,6 +8,7 @@ ms-python.python
 ms-toolsai.jupyter
 ms-vscode.cpptools
 njpwerner.autodocstring
+PKief.material-icon-theme
 PKief.material-product-icons
 redhat.vscode-commons
 redhat.vscode-xml

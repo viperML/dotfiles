@@ -5,7 +5,7 @@
 
 - shell:
     - xrdb -merge $HOME/.Xresources
-    - vscodium --list-extensions > $DOTFILES_DIR/Code/extensions
+    - codium --list-extensions > $DOTFILES_DIR/Code/extensions
     - python $DOTFILES_DIR/dotfiles_priv/packages.py
     -
       command: find ~/.config -xtype l
@@ -20,6 +20,10 @@
       path: fish/*
 
     ~/.config/VSCodium/User/:
+      glob: true
+      path: Code/*
+
+    ~/.config/Code/User/:
       glob: true
       path: Code/*
 
