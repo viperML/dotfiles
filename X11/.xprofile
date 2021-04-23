@@ -10,3 +10,5 @@ export GTK_USE_PORTAL=1
 export QT_STYLE_OVERRIDE=kvantum
 
 export XPROFILE_LOADED=1
+
+export SXHKD_SHELL=sh

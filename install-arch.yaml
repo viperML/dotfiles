@@ -77,3 +77,9 @@
     ~/.config/nano/nanorc: nano/nanorc
 
     ~/.config/oh-my-posh/viper.omp.json: oh-my-posh/viper.omp.json
+
+    ~/.config/sxhkd/sxhkdrc: sxhkd/sxhkdrc
+
+    ~/.config/awesome/:
+      glob: true
+      path: awesome/*

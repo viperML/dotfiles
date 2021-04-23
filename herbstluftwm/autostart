@@ -38,17 +38,17 @@ done
 # ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
 # ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
 # Apps
-hc keybind $Mod-Return spawn kitty
-hc keybind $Mod-space spawn rofi -show combi
-hc keybind $Mod-e spawn dolphin
-hc keybind Print spawn flameshot gui
-hc keybind Control+Print spawn  peek
+hc keybind $Mod-Control-Return spawn kitty
+# hc keybind $Mod-space spawn rofi -show combi
+# hc keybind $Mod-e spawn dolphin
+#hc keybind Print spawn flameshot gui
+#hc keybind Control+Print spawn  peek
+#hc keybind F7 spawn python ~/.config/dunst/volume.py down
+#hc keybind F8 spawn python ~/.config/dunst/volume.py up
 
 # Other
 hc keybind $Mod-Shift-r         reload
 hc keybind $Mod-Control-r       spawn polybar-msg cmd restart
-hc keybind F7 spawn python ~/.config/dunst/volume.py down
-hc keybind F8 spawn python ~/.config/dunst/volume.py up
 
 # hlwm-utils
 hc keybind $Mod-m sh ~/.config/herbstluftwm/hlwm-utils/hlwm-menu/hlwm-menu.sh
@@ -251,5 +251,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
     nm-applet &
     # polychromatic-tray-applet &
     megasync &
+    sxhkd &
 fi
 

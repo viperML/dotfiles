@@ -276,11 +276,11 @@
   "editor.minimap.enabled": false,
   "redhat.telemetry.enabled": false,
   "helium-icon-theme.folders.color": "#90a4ae",
-  "files.autoSave": "afterDelay",
   "workbench.productIconTheme": "material-product-icons",
   "material-icon-theme.opacity": 1,
   "material-icon-theme.saturation": 1,
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "files.autoSave": "afterDelay"
 
 
 
