@@ -409,6 +409,8 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
+
+--[[
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
@@ -455,6 +457,66 @@ for i = 1, 9 do
                   {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
+--]]
+
+function bind_tag(tag_i, keysim)
+    globalkeys = gears.table.join(globalkeys,
+        -- View tag only.
+        awful.key({ modkey }, keysim,
+                  function ()
+                        local screen = awful.screen.focused()
+                        local tag = tags[tag_i]
+                        if tag then
+                           sharedtags.viewonly(tag, screen)
+                        end
+                  end,
+                  {description = "view tag #"..tag_i, group = "tag"}),
+        -- Toggle tag display.
+        awful.key({ modkey, "Control" }, keysim,
+                  function ()
+                      local screen = awful.screen.focused()
+                      local tag = tags[tag_i]
+                      if tag then
+                         sharedtags.viewtoggle(tag, screen)
+                      end
+                  end,
+                  {description = "toggle tag #" .. tag_i, group = "tag"}),
+        -- Move client to tag.
+        awful.key({ modkey, "Shift" }, keysim,
+                  function ()
+                      if client.focus then
+                          local tag = tags[tag_i]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                     end
+                  end,
+                  {description = "move focused client to tag #"..tag_i, group = "tag"}),
+        -- Toggle tag on focused client.
+        awful.key({ modkey, "Control", "Shift" }, keysim,
+                  function ()
+                      if client.focus then
+                          local tag = tags[tag_i]
+                          if tag then
+                              client.focus:toggle_tag(tag)
+                          end
+                      end
+                  end,
+                  {description = "toggle focused client on tag #" .. tag_i, group = "tag"})
+    )
+end
+
+bind_tag(1, "1")
+bind_tag(2, "2")
+bind_tag(3, "3")
+bind_tag(4, "4")
+bind_tag(5, "5")
+bind_tag(6, "6")
+bind_tag(7, "7")
+bind_tag(8, "8")
+bind_tag(9, "9")
+bind_tag(10, "0")
+
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
