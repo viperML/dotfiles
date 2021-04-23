@@ -243,14 +243,14 @@ if hc silent new_attr bool my_not_first_autostart ; then
     nitrogen --restore
 
     # General Apps
-    discord-canary --start-minimized &
+    #discord-canary --start-minimized &
     # flameshot &
-    bash /usr/local/bin/nagastart.sh &
+    #bash /usr/local/bin/nagastart.sh &
     # redshift &
     # emote &
-    nm-applet &
+    #nm-applet &
     # polychromatic-tray-applet &
-    megasync &
-    sxhkd &
+    #megasync &
+    #sxhkd &
 fi
 

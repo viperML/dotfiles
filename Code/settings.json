@@ -280,7 +280,9 @@
   "material-icon-theme.opacity": 1,
   "material-icon-theme.saturation": 1,
   "workbench.iconTheme": "material-icon-theme",
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "editor.semanticHighlighting.enabled": true,
+  "Lua.telemetry.enable": false
 
 
 

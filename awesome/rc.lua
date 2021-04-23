@@ -20,7 +20,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -178,13 +178,16 @@ local tasklist_buttons = gears.table.join(
 
 
 local tags = sharedtags({
-    { name = "1", layout = awful.layout.layouts[2] },
-    { name = "2", layout = awful.layout.layouts[10] },
-    { name = "3", layout = awful.layout.layouts[1] },
-    { name = "4", layout = awful.layout.layouts[2] },
-    { name = "5", screen = 2, layout = awful.layout.layouts[2] },
-    { layout = awful.layout.layouts[2] },
-    { screen = 2, layout = awful.layout.layouts[2] }
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "﬏", layout = awful.layout.layouts[2]},
+    { name = "3", layout = awful.layout.layouts[2]},
+    { name = "4", layout = awful.layout.layouts[2]},
+    { name = "5", layout = awful.layout.layouts[2]},
+    { name = "6", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[1]},
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "H", layout = awful.layout.layouts[2]},
 })
 
 awful.screen.connect_for_each_screen(function(s)
@@ -524,8 +527,12 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Vivaldi-stable" },
+       properties = { tag = "1", switch_to_tags = true } },
+    {
+        rule = { class = "VSCodium" },
+        properties = { tag = "2", switch_to_tags = true }
+    }
 }
 -- }}}
 
@@ -598,6 +605,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("sxhkd")
+-- awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
