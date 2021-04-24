@@ -11,3 +11,6 @@
 [submodule "awesome/sharedtags"]
 	path = awesome/sharedtags
 	url = https://github.com/Drauthius/awesome-sharedtags
+[submodule "awesome/awesome-wm-widgets"]
+	path = awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets
