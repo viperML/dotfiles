@@ -28,6 +28,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local sharedtags = require("sharedtags")
 
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -68,9 +71,22 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.useless_gap = 5
 beautiful.border_width = 3
 beautiful.wibar_height = 20
-beautiful.wibar_bg = "#00FF0000"
+
 beautiful.wibar_shape = gears.shape.rounded_rect
 
+beautiful.wibar_bg = "#111111CC"
+
+beautiful.taglist_fg_focus = "#6DE879"
+beautiful.taglist_fg_empty = "#6a7066"
+
+-- beautiful.taglist_bg_focus = beautiful.wibar_bg
+-- beautiful.taglist_bg_empty = beautiful.wibar_bg
+-- beautiful.taglist_bg_urgent   = beautiful.wibar_bg
+-- beautiful.taglist_bg_occupied = beautiful.wibar_bg
+-- beautiful.taglist_bg_volatile = beautiful.wibar_bg
+-- beautiful.bg_systray = beautiful.wibar_bg
+
+-- beautiful.systray_icon_spacing = 5
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -145,9 +161,20 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- ╚███╔███╔╝██║██████╔╝██║  ██║██║  ██║
 --  ╚══╝╚══╝ ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget {
+    format = '%A %e %B - %H:%M:%S',
+    refresh = 1,
+    align = 'center',
+    widget = wibox.widget.textclock
+}
 
 widget_spacer = wibox.widget.textbox('      ')
+
+widget_updates = awful.widget.watch('bash -c "~/.dotfiles/polybar/updates.sh"', 1800, function(widget, stdout)
+    widget:set_text(" "..stdout)
+end)
+
+-- widget_volume = awful.widget.watch('bash -c \"amixer sget Master | grep -o "[[:digit:]]*\\%"\"', 1)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -222,24 +249,31 @@ awful.screen.connect_for_each_screen(function(s)
     })
 
     -- Add widgets to the wibox
+    local layout =
     s.mywibox:setup {
+
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 widget_spacer,
                 layout = wibox.layout.fixed.horizontal,
-                mylauncher,
                 s.mytaglist,
-                s.mypromptbox,
             },
-            widget_spacer,
+
+            mytextclock,
             -- s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+                spacing = 10,
+                fs_widget({ mounts = { '/', '/mnt/x' } }), -- multiple mounts
+                widget_updates,
+                volume_widget{
+                    widget_type = 'icon_and_text'
+                },
                 s.mylayoutbox,
                 wibox.widget.systray(),
-                mytextclock,
                 widget_spacer
             },
+            expand = 'none',
     }
     s.mywibox.y = 4
 end)
@@ -320,7 +354,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Up", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey,           }, "Down", function () awful.layout.inc(-1)                end,
-              {description = "select previous", group = "layout"})
+              {description = "select previous", group = "layout"}),
+
+    -- Volume
+    awful.key({ modkey }, "F8", function() volume_widget:inc() end),
+    awful.key({ modkey }, "F7", function() volume_widget:dec() end),
+    awful.key({ modkey }, "F6", function() volume_widget:toggle() end)
 )
 
 clientkeys = gears.table.join(
@@ -462,7 +501,8 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer",
+          "MEGAsync"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
