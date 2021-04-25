@@ -83,3 +83,5 @@
     ~/.config/awesome/:
       glob: true
       path: awesome/*
+
+    ~/.environment.env: X11/environment.env

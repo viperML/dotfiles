@@ -65,37 +65,45 @@ end
 --  ╚████╔╝ ██║  ██║██║  ██║██║██║  ██║██████╔╝███████╗███████╗███████║
 --   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝╚══════╝
 
--- Themes define colours, icons, font and wallpapers.
+-- Beautiful
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
+-- Layout
 beautiful.useless_gap = 5
-beautiful.border_width = 3
-beautiful.wibar_height = 20
-
+beautiful.wibar_height = 25
 beautiful.wibar_shape = gears.shape.rounded_rect
-
-beautiful.wibar_bg = "#111111CC"
-
-beautiful.taglist_fg_focus = "#6DE879"
-beautiful.taglist_fg_empty = "#6a7066"
-
--- beautiful.taglist_bg_focus = beautiful.wibar_bg
--- beautiful.taglist_bg_empty = beautiful.wibar_bg
--- beautiful.taglist_bg_urgent   = beautiful.wibar_bg
--- beautiful.taglist_bg_occupied = beautiful.wibar_bg
--- beautiful.taglist_bg_volatile = beautiful.wibar_bg
--- beautiful.bg_systray = beautiful.wibar_bg
-
+beautiful.border_width = 0
 -- beautiful.systray_icon_spacing = 5
+beautiful.taglist_squares_sel = nil
+beautiful.taglist_squares_unsel = nil
 
--- This is used later as the default terminal and editor to run.
+
+-- Text
+beautiful.font = "Roboto 11"
+beautiful.wibar_fg = '#d8d1c3'
+beautiful.titlebar_fg_focus = '#d8d1c3'
+beautiful.titlebar_fg_normal = '#d8d1c3'
+beautiful.taglist_fg_focus = "#d35d6e"
+beautiful.taglist_fg_empty = "#6a7066"
+beautiful.taglist_fg_urgent = "#000"
+
+
+
+-- Background
+beautiful.titlebar_bg_focus = "#562639"
+beautiful.titlebar_bg_normal = '#151515'
+beautiful.wibar_bg = "#111111aa"
+beautiful.taglist_bg_focus = "#00000000"
+beautiful.taglist_bg_urgent   = "#d35d6e"
+
+
+
+-- Other
 terminal = "kitty"
 menubar.utils.terminal = terminal
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
-
--- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -122,7 +130,7 @@ local tags = sharedtags({
     { name = "4", layout = awful.layout.layouts[2]},
     { name = "5", layout = awful.layout.layouts[2]},
     { name = "6", layout = awful.layout.layouts[2]},
-    { name = "7", layout = awful.layout.layouts[2]},
+    { name = "7", layout = awful.layout.layouts[2], screen = 2},
     { name = "", layout = awful.layout.layouts[1]},
     { name = "", layout = awful.layout.layouts[2]},
     { name = "", layout = awful.layout.layouts[2]},
@@ -142,15 +150,12 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
-
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal }
                                   }
                         })
-
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
-
 
 
 
@@ -232,6 +237,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
+
     }
 
     -- Create a tasklist widget
@@ -249,6 +255,10 @@ awful.screen.connect_for_each_screen(function(s)
     })
 
     -- Add widgets to the wibox
+    local systray = wibox.widget.systray()
+    -- systray.forced_height = 100
+    -- systray.forced_width = 180
+    systray : set_base_size(25)
     local layout =
     s.mywibox:setup {
 
@@ -270,7 +280,7 @@ awful.screen.connect_for_each_screen(function(s)
                     widget_type = 'icon_and_text'
                 },
                 s.mylayoutbox,
-                wibox.widget.systray(),
+                systray,
                 widget_spacer
             },
             expand = 'none',
@@ -468,8 +478,13 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
--- Rules to apply to new clients (through the "manage" signal).
+
+-- ██████╗ ██╗   ██╗██╗     ███████╗███████╗
+-- ██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
+-- ██████╔╝██║   ██║██║     █████╗  ███████╗
+-- ██╔══██╗██║   ██║██║     ██╔══╝  ╚════██║
+-- ██║  ██║╚██████╔╝███████╗███████╗███████║
+-- ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -563,9 +578,12 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
+    awful.titlebar(c, {
+        size = 25
+    }) : setup {
         { -- Left
-            awful.titlebar.widget.iconwidget(c),
+            wibox.widget.textbox('  '),
+            -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
@@ -578,11 +596,13 @@ client.connect_signal("request::titlebars", function(c)
             layout  = wibox.layout.flex.horizontal
         },
         { -- Right
+
             awful.titlebar.widget.floatingbutton (c),
             -- awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton   (c),
             awful.titlebar.widget.ontopbutton    (c),
             awful.titlebar.widget.closebutton    (c),
+            wibox.widget.textbox('  '),
             layout = wibox.layout.fixed.horizontal()
         },
         layout = wibox.layout.align.horizontal
@@ -605,3 +625,4 @@ awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
+awful.spawn.with_shell("[ -f ~/.xprofile ] && . ~/.xprofile")
