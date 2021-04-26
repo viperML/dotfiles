@@ -14,3 +14,6 @@
 [submodule "awesome/awesome-wm-widgets"]
 	path = awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets
+[submodule "awesome/lain"]
+	path = awesome/lain
+	url = https://github.com/lcpz/lain
