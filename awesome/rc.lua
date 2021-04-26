@@ -295,9 +295,9 @@ end)
 -- ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝███████║███████╗
 -- ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 
 
@@ -564,7 +564,14 @@ client.connect_signal("manage", function (c)
     end
 end)
 
--- Add a titlebar if titlebars_enabled is set to true in the rules.
+
+
+-- ████████╗██╗████████╗██╗     ███████╗██████╗  █████╗ ██████╗
+-- ╚══██╔══╝██║╚══██╔══╝██║     ██╔════╝██╔══██╗██╔══██╗██╔══██╗
+--    ██║   ██║   ██║   ██║     █████╗  ██████╔╝███████║██████╔╝
+--    ██║   ██║   ██║   ██║     ██╔══╝  ██╔══██╗██╔══██║██╔══██╗
+--    ██║   ██║   ██║   ███████╗███████╗██████╔╝██║  ██║██║  ██║
+--    ╚═╝   ╚═╝   ╚═╝   ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = gears.table.join(
@@ -583,15 +590,19 @@ client.connect_signal("request::titlebars", function(c)
     }) : setup {
         { -- Left
             wibox.widget.textbox('  '),
+            { -- Title
+                align  = "left",
+                widget = awful.titlebar.widget.titlewidget(c)
+            },
             -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
         { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
+            -- { -- Title
+            --     align  = "center",
+            --     widget = awful.titlebar.widget.titlewidget(c)
+            -- },
             buttons = buttons,
             layout  = wibox.layout.flex.horizontal
         },
@@ -625,4 +636,4 @@ awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
-awful.spawn.with_shell("[ -f ~/.xprofile ] && . ~/.xprofile")
+awful.spawn.with_shell("autorandr -c")

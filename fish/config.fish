@@ -9,6 +9,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
 alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
+alias icat="kitty +kitten icat"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
@@ -18,4 +19,10 @@ end
 # pyenv init
 if command -v pyenv 1>/dev/null 2>&1
   pyenv init - | source
+end
+
+function lsimg
+  for file in (ls $argv)
+    kitty +kitten icat $argv/$file
+  end
 end
