@@ -31,6 +31,8 @@ local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 
+local lain = require("lain")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -96,6 +98,7 @@ beautiful.wibar_bg = "#111111aa"
 beautiful.taglist_bg_focus = "#00000000"
 beautiful.taglist_bg_urgent   = "#d35d6e"
 
+beautiful.bg_systray = '#111111aa'
 
 
 -- Other
@@ -145,13 +148,15 @@ local tags = sharedtags({
 -- ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   --{ "manual", terminal .. " -e man awesome" },
+   -- { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
+   -- { "quit", function() awesome.quit() end },
 }
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "open terminal", terminal },
+                                    { "restart", "sudo reboot" },
+                                    { "shutdown", "sudo shutdown now" },
                                   }
                         })
 -- Keyboard map indicator and switcher
@@ -180,6 +185,7 @@ widget_updates = awful.widget.watch('bash -c "~/.dotfiles/polybar/updates.sh"', 
 end)
 
 -- widget_volume = awful.widget.watch('bash -c \"amixer sget Master | grep -o "[[:digit:]]*\\%"\"', 1)
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -258,7 +264,10 @@ awful.screen.connect_for_each_screen(function(s)
     local systray = wibox.widget.systray()
     -- systray.forced_height = 100
     -- systray.forced_width = 180
-    systray : set_base_size(25)
+    systray : set_base_size(20)
+    local widget_systray = wibox.container.margin(systray, 0, 0, 2, 0)
+
+
     local layout =
     s.mywibox:setup {
 
@@ -274,13 +283,14 @@ awful.screen.connect_for_each_screen(function(s)
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 spacing = 10,
-                fs_widget({ mounts = { '/', '/mnt/x' } }), -- multiple mounts
+
+                -- fs_widget({ mounts = { '/', '/mnt/x' } }), -- multiple mounts
                 widget_updates,
                 volume_widget{
                     widget_type = 'icon_and_text'
                 },
                 s.mylayoutbox,
-                systray,
+                widget_systray,
                 widget_spacer
             },
             expand = 'none',
@@ -346,9 +356,6 @@ globalkeys = gears.table.join(
     --     {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey, "Control"  }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
 
@@ -501,35 +508,22 @@ awful.rules.rules = {
 
     -- Floating clients.
     { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-          "pinentry",
-        },
         class = {
           "Arandr",
-          "Blueman-manager",
           "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-          "Wpa_gui",
-          "veromix",
-          "xtightvncviewer",
-          "MEGAsync"},
-
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
-        name = {
-          "Event Tester",  -- xev.
-        },
+          "MEGAsync",
+          "explorer.exe",
+          "photoshop.exe"},
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = {
+          floating = true,
+          ontop = true,
+      }
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }

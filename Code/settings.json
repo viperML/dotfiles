@@ -1,7 +1,4 @@
 {
-  // General config
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
   "editor.quickSuggestionsDelay": 0,
   "editor.tabCompletion": "on",
   "explorer.confirmDelete": false,
@@ -282,7 +279,9 @@
   "workbench.iconTheme": "material-icon-theme",
   "editor.semanticHighlighting.enabled": true,
   "Lua.telemetry.enable": false,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.currentLine.enabled": false
 
 
 

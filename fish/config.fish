@@ -14,6 +14,7 @@ alias icat="kitty +kitten icat"
 if status --is-interactive
     abbr --add --global hc herbstclient
     abbr --add --global dot_install ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
+    abbr --add --global p python
 end
 
 # pyenv init
