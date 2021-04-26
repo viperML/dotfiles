@@ -281,7 +281,8 @@
   "Lua.telemetry.enable": false,
   "files.autoSave": "afterDelay",
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.currentLine.enabled": false
+  "gitlens.currentLine.enabled": false,
+  "window.menuBarVisibility": "compact"
 
 
 

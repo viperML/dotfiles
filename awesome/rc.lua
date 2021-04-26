@@ -71,9 +71,10 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- Layout
+corner_radius = 15
 beautiful.useless_gap = 5
 beautiful.wibar_height = 25
-beautiful.wibar_shape = gears.shape.rounded_rect
+
 beautiful.border_width = 0
 -- beautiful.systray_icon_spacing = 5
 beautiful.taglist_squares_sel = nil
@@ -233,6 +234,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
+    local m = 3
+    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, m, m, m, m)
     s.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
@@ -259,6 +262,10 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         width = s.geometry.width - 100,
     })
+    s.mywibox.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,corner_radius)
+    end
+
 
     -- Add widgets to the wibox
     local systray = wibox.widget.systray()
@@ -277,8 +284,7 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
             },
-
-            mytextclock,
+            wibox.container.margin(mytextclock,0,0,0,2),
             -- s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
@@ -546,10 +552,12 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
+    c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,corner_radius)
+    end
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
-
     if awesome.startup
       and not c.size_hints.user_position
       and not c.size_hints.program_position then
@@ -578,16 +586,16 @@ client.connect_signal("request::titlebars", function(c)
             awful.mouse.client.resize(c)
         end)
     )
+    local title = awful.titlebar.widget.titlewidget(c)
+    local widget_title =  wibox.container.margin(title, 0, 0, 0, 2)
 
     awful.titlebar(c, {
         size = 25
     }) : setup {
         { -- Left
+            align  = "left",
             wibox.widget.textbox('  '),
-            { -- Title
-                align  = "left",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
+            widget_title,
             -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
@@ -627,7 +635,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom")
+awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 awful.spawn.with_shell("autorandr -c")
