@@ -85,10 +85,11 @@ beautiful.taglist_squares_unsel = nil
 
 
 -- Text
-beautiful.font = "Roboto 11"
-beautiful.wibar_fg = '#d8d1c3'
-beautiful.titlebar_fg_focus = '#d8d1c3'
-beautiful.titlebar_fg_normal = '#d8d1c3'
+beautiful.font = "Roboto 10"
+local text_color = '#bbbbbb'
+beautiful.wibar_fg = text_color
+beautiful.titlebar_fg_focus = text_color
+beautiful.titlebar_fg_normal =text_color
 beautiful.taglist_fg_focus = "#d35d6e"
 beautiful.taglist_fg_empty = "#6a7066"
 beautiful.taglist_fg_urgent = "#000"
@@ -96,8 +97,8 @@ beautiful.taglist_fg_urgent = "#000"
 
 
 -- Background
-beautiful.titlebar_bg_focus = "#562639"
-beautiful.titlebar_bg_normal = '#151515'
+beautiful.titlebar_bg_focus = "#191919"
+beautiful.titlebar_bg_normal = '#000000'
 beautiful.wibar_bg = "#111111aa"
 beautiful.taglist_bg_focus = "#00000000"
 beautiful.taglist_bg_urgent   = "#d35d6e"
@@ -120,7 +121,7 @@ awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
@@ -129,23 +130,23 @@ awful.layout.layouts = {
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
 
 local tags = sharedtags({
-    { name = "", layout = awful.layout.layouts[4]},
-    { name = "﬏", layout = awful.layout.layouts[4]},
-    { name = "3", layout = awful.layout.layouts[4]},
-    { name = "4", layout = awful.layout.layouts[4]},
-    { name = "5", layout = awful.layout.layouts[4]},
-    { name = "6", layout = awful.layout.layouts[4]},
-    { name = "7", layout = awful.layout.layouts[4], screen = 2},
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "﬏", layout = awful.layout.layouts[2]},
+    { name = "3", layout = awful.layout.layouts[2]},
+    { name = "4", layout = awful.layout.layouts[2]},
+    { name = "5", layout = awful.layout.layouts[2]},
+    { name = "6", layout = awful.layout.layouts[2]},
+    { name = "7", layout = awful.layout.layouts[2], screen = 2},
     { name = "", layout = awful.layout.layouts[1]},
-    { name = "", layout = awful.layout.layouts[4]},
-    { name = "", layout = awful.layout.layouts[4]},
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[2]},
 })
 
 
@@ -418,14 +419,14 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey            }, "z",  awful.client.floating.toggle                     ,
+    awful.key({ modkey            }, "z",  function(c) c.floating = not c.floating end,
               {description = "toggle floating", group = "client"}),
     -- awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
     --           {description = "move to master", group = "client"}),
     -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
     --           {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
+    -- awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+    --           {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "s",      function (c) c.sticky = not c.sticky            end,
               {description = "toggle sticky", group = "client"})
 
@@ -551,8 +552,13 @@ awful.rules.rules = {
         }
       }, properties = {
           floating = true,
-          ontop = true,
+          ontop = true
       }
+    },
+
+    {
+        rule =  { floating = true },
+        properties = { ontop = true }
     },
 
     -- Add titlebars to normal clients and dialogs
@@ -562,8 +568,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "Vivaldi-stable" },
-       properties = { tag = tags[1], switch_to_tags = true }
-    },
+       properties = { tag = tags[1], switch_to_tags = true } },
     { rule = { class = "VSCodium" },
         properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
@@ -592,6 +597,11 @@ client.connect_signal("manage", function (c)
     end
 end)
 
+-- Always floating ontop
+client.connect_signal("property::floating", function(c)
+    c.ontop= c.floating
+end)
+
 
 
 -- ████████╗██╗████████╗██╗     ███████╗██████╗  █████╗ ██████╗
@@ -615,12 +625,15 @@ client.connect_signal("request::titlebars", function(c)
     local title = awful.titlebar.widget.titlewidget(c)
     local widget_title =  wibox.container.margin(title, 0, 0, 0, 2)
 
+
+    local icon_padding = 4
+
     awful.titlebar(c, {
         size = 25
     }) : setup {
         { -- Left
             align  = "left",
-            wibox.widget.textbox('  '),
+            wibox.widget.textbox('   '),
             widget_title,
             -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
@@ -636,12 +649,14 @@ client.connect_signal("request::titlebars", function(c)
         },
         { -- Right
 
-            awful.titlebar.widget.floatingbutton (c),
             -- awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            wibox.widget.textbox('  '),
+
+            -- awful.titlebar.widget.ontopbutton    (c),
+            wibox.container.margin(awful.titlebar.widget.stickybutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
+            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
+
+            wibox.widget.textbox(' '),
             layout = wibox.layout.fixed.horizontal()
         },
         layout = wibox.layout.align.horizontal
