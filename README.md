@@ -1,7 +1,4 @@
 # viperML/dotfiles
-
-![](_img/2021_04_8.jpg)
-
 # About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
@@ -18,10 +15,8 @@ sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh 
 
 
 ## Arch Linux dependencies
-- [herbstluftwm](https://herbstluftwm.org) - Tiling window manager
-- [polybar](https://github.com/polybar/polybar/wiki) - System status bar
-- [ibhagwan/picom](https://github.com/ibhagwan/picom/) - Compositor, providing transparency, shadows, rounded corners and borders.
-- [fish](https://fishshell.com) - Shell
+![](_img/neofetch.png)
+- [yshui/picom](https://github.com/yshui/picom/) - Compositor, providing transparency, shadows, rounded corners and borders.
 - [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal emulator
 - [dunst](https://dunst-project.org) - Notification daemon
 - [Rofi](https://github.com/davatorium/rofi) - Application launcher
@@ -33,6 +28,9 @@ sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh 
   - [i3wsr](https://github.com/roosta/i3wsr) - Change the name of a workspace based on its contents
   - [xfce4-i3-workspaces-plugin](https://github.com/denesb/xfce4-i3-workspaces-plugin) - Show workspaces in xfce4-panel
 - [xfce4](https://xfce.org) - Window Manager and Desktop are disabled, provides session, settings daemon, power daemon, notifications and volume control.
+- [herbstluftwm](https://herbstluftwm.org) - Tiling window manager
+- [polybar](https://github.com/polybar/polybar/wiki) - System status bar
+
 
 
 > NOTE: If there is anything missing, either I forgot to add it, I don't use it anymore or it is not interesting to merge into your config files.
