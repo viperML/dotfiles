@@ -17,3 +17,6 @@
 [submodule "awesome/lain"]
 	path = awesome/lain
 	url = https://github.com/lcpz/lain
+[submodule "awesome/freedesktop"]
+	path = awesome/freedesktop
+	url = https://github.com/lcpz/awesome-freedesktop
