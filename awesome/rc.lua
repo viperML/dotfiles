@@ -33,6 +33,8 @@ local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 
 local lain = require("lain")
 
+local freedesktop = require("freedesktop")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -60,12 +62,13 @@ end
 
 
 
--- ██╗   ██╗ █████╗ ██████╗ ██╗ █████╗ ██████╗ ██╗     ███████╗███████╗
--- ██║   ██║██╔══██╗██╔══██╗██║██╔══██╗██╔══██╗██║     ██╔════╝██╔════╝
--- ██║   ██║███████║██████╔╝██║███████║██████╔╝██║     █████╗  ███████╗
--- ╚██╗ ██╔╝██╔══██║██╔══██╗██║██╔══██║██╔══██╗██║     ██╔══╝  ╚════██║
---  ╚████╔╝ ██║  ██║██║  ██║██║██║  ██║██████╔╝███████╗███████╗███████║
---   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝╚══════╝
+-- ██████╗ ███████╗ █████╗ ██╗   ██╗████████╗██╗███████╗██╗   ██╗██╗        ██╗    ██████╗ ██████╗
+-- ██╔══██╗██╔════╝██╔══██╗██║   ██║╚══██╔══╝██║██╔════╝██║   ██║██║        ██║   ██╔════╝██╔═══██╗
+-- ██████╔╝█████╗  ███████║██║   ██║   ██║   ██║█████╗  ██║   ██║██║     ████████╗██║     ██║   ██║
+-- ██╔══██╗██╔══╝  ██╔══██║██║   ██║   ██║   ██║██╔══╝  ██║   ██║██║     ██╔═██╔═╝██║     ██║   ██║
+-- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
+-- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
+
 
 -- Beautiful
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -101,6 +104,11 @@ beautiful.taglist_bg_urgent   = "#d35d6e"
 
 beautiful.bg_systray = '#111111aa'
 
+-- Menu
+beautiful.menu_width = 200
+beautiful.menu_height = 20
+beautiful.menu_submenu_icon = nil
+
 
 -- Other
 terminal = "kitty"
@@ -128,16 +136,16 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "", layout = awful.layout.layouts[2]},
-    { name = "﬏", layout = awful.layout.layouts[2]},
-    { name = "3", layout = awful.layout.layouts[2]},
-    { name = "4", layout = awful.layout.layouts[2]},
-    { name = "5", layout = awful.layout.layouts[2]},
-    { name = "6", layout = awful.layout.layouts[2]},
-    { name = "7", layout = awful.layout.layouts[2], screen = 2},
+    { name = "", layout = awful.layout.layouts[4]},
+    { name = "﬏", layout = awful.layout.layouts[4]},
+    { name = "3", layout = awful.layout.layouts[4]},
+    { name = "4", layout = awful.layout.layouts[4]},
+    { name = "5", layout = awful.layout.layouts[4]},
+    { name = "6", layout = awful.layout.layouts[4]},
+    { name = "7", layout = awful.layout.layouts[4], screen = 2},
     { name = "", layout = awful.layout.layouts[1]},
-    { name = "", layout = awful.layout.layouts[2]},
-    { name = "", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[4]},
+    { name = "", layout = awful.layout.layouts[4]},
 })
 
 
@@ -147,22 +155,38 @@ local tags = sharedtags({
 -- ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║
 -- ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝
 -- ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝
-myawesomemenu = {
+local menu_awesome = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    --{ "manual", terminal .. " -e man awesome" },
    -- { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    -- { "quit", function() awesome.quit() end },
 }
+
+local menu_system = {
+    { "restart", "sudo reboot" },
+    { "shutdown", "sudo shutdown now" }
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "system", menu_system },
                                     { "open terminal", terminal },
-                                    { "restart", "sudo reboot" },
-                                    { "shutdown", "sudo shutdown now" },
+
                                   }
                         })
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+-- mykeyboardlayout = awful.widget.keyboardlayout()
 
+menu = freedesktop.menu.build({
+    before = {
+        { "Awesome", menu_awesome, beautiful.awesome_icon },
+        { "System", menu_system },
+        { "Terminal", terminal }
+    },
+    after = {
+
+    }
+})
 
 
 -- ██╗    ██╗██╗██████╗  █████╗ ██████╗
@@ -311,7 +335,7 @@ end)
 -- ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝███████║███████╗
 -- ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    awful.button({ }, 3, function () menu:toggle() end)
     --awful.button({ }, 4, awful.tag.viewnext),
     --awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -545,7 +569,9 @@ awful.rules.rules = {
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
     { rule = { class = "Genymotion Player" },
-        properties = { tag = tags[8] } }
+        properties = { tag = tags[8] } },
+    { rule = { class = "Lollypop" },
+        properties = { tag = tags[10] } }
 }
 -- }}}
 
