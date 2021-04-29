@@ -74,7 +74,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- Layout
-corner_radius = 15
+corner_radius = 14
 beautiful.useless_gap = 5
 beautiful.wibar_height = 25
 
@@ -387,8 +387,20 @@ globalkeys = gears.table.join(
     --     {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey, "Shift" }, "r", awesome.restart,
+    awful.key({ modkey, "Shift" }, "r", function () awful.spawn("autorandr -c") awesome.restart() end,
               {description = "reload awesome", group = "awesome"}),
+
+    awful.key({ modkey }, "Return", function () awful.spawn(terminal) end,
+              {description = "terminal", group = "launcher"}),
+
+    awful.key({ modkey }, "space", function () awful.spawn("rofi -show combi") end,
+              {description = "rofi", group = "launcher"}),
+
+    awful.key({ modkey }, "e", function () awful.spawn("dolphin") end,
+              {description = "file explorer", group = "launcher"}),
+
+    awful.key({ "Any" }, "Print", function () awful.spawn("flameshot gui") end,
+              {description = "take screenshot", group = "launcher"}),
 
 
     awful.key({ modkey, "Shift"   }, "Up",     function () awful.tag.incnmaster( 1, nil, true) end,
