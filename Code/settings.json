@@ -9,6 +9,8 @@
   "telemetry.enableTelemetry": false,
   "update.mode": "none",
   "workbench.startupEditor": "none",
+  "editor.rulers": [160],
+
 
 
   // integrated terminal
@@ -27,7 +29,7 @@
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
 
   // Fira Code Style
   "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
@@ -231,7 +233,8 @@
   // "python.languageServer": "Pylance",
   "vsintellicode.python.completionsEnabled": true,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.rulers": [90]
   },
 
 

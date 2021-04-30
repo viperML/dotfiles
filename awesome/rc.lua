@@ -11,54 +11,24 @@ modkey = "Mod4"
 -- ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
 -- ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
 -- ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
--- Standard awesome library
+
+-- Built-in
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
--- local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-local sharedtags = require("sharedtags")
 
+-- External
+local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
-
 local lain = require("lain")
-
 local freedesktop = require("freedesktop")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
-        in_error = false
-    end)
-end
--- }}}
 
 
 
@@ -68,47 +38,36 @@ end
 -- ██╔══██╗██╔══╝  ██╔══██║██║   ██║   ██║   ██║██╔══╝  ██║   ██║██║     ██╔═██╔═╝██║     ██║   ██║
 -- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
 -- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
-
-
--- Beautiful
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-
--- Layout
 corner_radius = 14
 beautiful.useless_gap = 5
-beautiful.wibar_height = 25
-
 beautiful.border_width = 0
--- beautiful.systray_icon_spacing = 5
-beautiful.taglist_squares_sel = nil
-beautiful.taglist_squares_unsel = nil
-
-
--- Text
 beautiful.font = "Roboto 10"
 local text_color = '#bbbbbb'
-beautiful.wibar_fg = text_color
+
+-- Titlebars
 beautiful.titlebar_fg_focus = text_color
 beautiful.titlebar_fg_normal =text_color
-beautiful.taglist_fg_focus = "#d35d6e"
-beautiful.taglist_fg_empty = "#6a7066"
-beautiful.taglist_fg_urgent = "#000"
-
-
-
--- Background
 beautiful.titlebar_bg_focus = "#191919"
 beautiful.titlebar_bg_normal = '#000000'
-beautiful.wibar_bg = "#111111aa"
-beautiful.taglist_bg_focus = "#00000000"
-beautiful.taglist_bg_urgent   = "#d35d6e"
-
-beautiful.bg_systray = '#111111aa'
 
 -- Menu
 beautiful.menu_width = 200
 beautiful.menu_height = 20
 beautiful.menu_submenu_icon = nil
+
+-- Wibox
+beautiful.taglist_squares_sel = nil
+beautiful.taglist_squares_unsel = nil
+-- beautiful.systray_icon_spacing = 5
+beautiful.wibar_fg = text_color
+beautiful.wibar_bg = "#111111aa"
+beautiful.bg_systray = '#111111aa'
+beautiful.taglist_fg_focus = "#d35d6e"
+beautiful.taglist_bg_focus = "#00000000"
+beautiful.taglist_fg_empty = "#6a7066"
+beautiful.taglist_fg_urgent = "#000"
+beautiful.taglist_bg_urgent   = "#d35d6e"
 
 
 -- Other
@@ -158,10 +117,7 @@ local tags = sharedtags({
 -- ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝
 local menu_awesome = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   --{ "manual", terminal .. " -e man awesome" },
-   -- { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
-   -- { "quit", function() awesome.quit() end },
 }
 
 local menu_system = {
@@ -169,12 +125,11 @@ local menu_system = {
     { "shutdown", "sudo shutdown now" }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "system", menu_system },
-                                    { "open terminal", terminal },
-
-                                  }
-                        })
+mymainmenu = awful.menu({ items = {
+    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "system", menu_system },
+    { "open terminal", terminal },
+}})
 -- Keyboard map indicator and switcher
 -- mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -210,10 +165,10 @@ widget_updates = awful.widget.watch('bash -c "~/.dotfiles/polybar/updates.sh"', 
     widget:set_text(" "..stdout)
 end)
 
--- widget_volume = awful.widget.watch('bash -c \"amixer sget Master | grep -o "[[:digit:]]*\\%"\"', 1)
 
 
--- Create a wibox for each screen and add it
+
+-- Idk where this is from
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
@@ -254,10 +209,10 @@ local tasklist_buttons = gears.table.join(
                                           end))
 
 awful.screen.connect_for_each_screen(function(s)
-    -- Create a promptbox for each screen
+
     s.mypromptbox = awful.widget.prompt()
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
+
+    -- Layout Icon
     s.mylayoutbox = awful.widget.layoutbox(s)
     local m = 3
     s.mylayoutbox = wibox.container.margin(s.mylayoutbox, m, m, m, m)
@@ -266,7 +221,8 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-    -- Create a taglist widget
+
+    -- Tag list
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
@@ -274,43 +230,58 @@ awful.screen.connect_for_each_screen(function(s)
 
     }
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
+    -- Task list
+    -- s.mytasklist = awful.widget.tasklist {
+    --     screen  = s,
+    --     filter  = awful.widget.tasklist.filter.currenttags,
+    --     buttons = tasklist_buttons
+    -- }
 
-    -- Create the wibox
-    s.mywibox = awful.wibar({
-        position = "top",
+    local wibox_gap_x = 100
+    local wibox_gap_y1 = 5
+    local wibox_gap_y2 = -2
+    local height = 25
+
+    -- Manually create wibox (no awfulw.wibar)
+    s.mywibox = wibox({
         screen = s,
-        width = s.geometry.width - 100,
+        type = 'dock',
+        width = s.geometry.width - wibox_gap_x*2,
+        height = height,
+        visible = true,
+        bg = beautiful.wibar_bg,
+        fg = beautiful.wibar_fg
+    })
+    s.mywibox.y = s.geometry.y + wibox_gap_y1
+    s.mywibox.x = s.geometry.x + wibox_gap_x
+
+    s.mywibox:struts({
+        --bottom =  50,
+        top = wibox_gap_y1 + height + wibox_gap_y2
     })
     s.mywibox.shape = function(cr,w,h)
         gears.shape.rounded_rect(cr,w,h,corner_radius)
     end
 
 
-    -- Add widgets to the wibox
+    -- Systreay
     local systray = wibox.widget.systray()
-    -- systray.forced_height = 100
-    -- systray.forced_width = 180
     systray : set_base_size(20)
     local widget_systray = wibox.container.margin(systray, 0, 0, 2, 0)
 
 
-    local layout =
     s.mywibox:setup {
-
             layout = wibox.layout.align.horizontal,
+
             { -- Left widgets
                 widget_spacer,
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
             },
+
+            -- Middle Widget
             wibox.container.margin(mytextclock,0,0,0,2),
-            -- s.mytasklist, -- Middle widget
+
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 spacing = 10,
@@ -326,7 +297,6 @@ awful.screen.connect_for_each_screen(function(s)
             },
             expand = 'none',
     }
-    s.mywibox.y = 4
 end)
 
 -- ███╗   ███╗ ██████╗ ██╗   ██╗███████╗███████╗
@@ -387,7 +357,7 @@ globalkeys = gears.table.join(
     --     {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey, "Shift" }, "r", function () awful.spawn("autorandr -c") awesome.restart() end,
+    awful.key({ modkey, "Shift" }, "r", function ()  awesome.restart() end,
               {description = "reload awesome", group = "awesome"}),
 
     awful.key({ modkey }, "Return", function () awful.spawn(terminal) end,
@@ -687,8 +657,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 
-awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom --experimental-backends")
+awful.spawn("nitrogen --restore")
+awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 -- awful.spawn.with_shell("autorandr -c")
