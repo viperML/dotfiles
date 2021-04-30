@@ -125,18 +125,18 @@ local menu_system = {
     { "shutdown", "sudo shutdown now" }
 }
 
-mymainmenu = awful.menu({ items = {
-    { "awesome", myawesomemenu, beautiful.awesome_icon },
-    { "system", menu_system },
-    { "open terminal", terminal },
-}})
--- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
+local menu_screens = {
+    { "autorandr -c", "autorandr -c" },
+    { "autorandr -l horizontal", "autorandr -l horizontal"},
+    { "arandr", "arandr" }
+}
+
 
 menu = freedesktop.menu.build({
     before = {
         { "Awesome", menu_awesome, beautiful.awesome_icon },
         { "System", menu_system },
+        { "Screens", menu_screens },
         { "Terminal", terminal }
     },
     after = {
@@ -661,4 +661,3 @@ awful.spawn("nitrogen --restore")
 awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
--- awful.spawn.with_shell("autorandr -c")
