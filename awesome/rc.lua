@@ -26,7 +26,6 @@ require("awful.hotkeys_popup.keys")
 local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
-local lain = require("lain")
 local freedesktop = require("freedesktop")
 
 
@@ -165,6 +164,13 @@ widget_updates = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/updates
     widget:set_text(" "..stdout)
 end)
 
+widget_fs = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/disks.py"', 1800, function(widget, stdout)
+    widget:set_text(stdout)
+end)
+
+widget_battery = awful.widget.watch('bash -c "~/.dotfiles/awesome/battery.sh"', 30, function(widget, stdout)
+    widget:set_text(stdout)
+end)
 
 
 
@@ -286,11 +292,12 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.layout.fixed.horizontal,
                 spacing = 10,
 
-                -- fs_widget({ mounts = { '/', '/mnt/x' } }), -- multiple mounts
+                widget_fs,
                 widget_updates,
                 volume_widget{
                     widget_type = 'icon_and_text'
                 },
+                widget_battery,
                 s.mylayoutbox,
                 widget_systray,
                 widget_spacer
