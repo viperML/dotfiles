@@ -161,7 +161,7 @@ mytextclock = wibox.widget {
 
 widget_spacer = wibox.widget.textbox('      ')
 
-widget_updates = awful.widget.watch('bash -c "~/.dotfiles/polybar/updates.sh"', 1800, function(widget, stdout)
+widget_updates = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/updates.py"', 1800, function(widget, stdout)
     widget:set_text(" "..stdout)
 end)
 
