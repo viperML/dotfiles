@@ -29,15 +29,11 @@
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": 15,
+  "editor.fontSize": "15px",
 
   // Fira Code Style
-  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
+  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-
-  // Operator Mono Lig
-  //"editor.fontFamily": "'Operator Mono SSm Lig Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  //"editor.fontLigatures": true,
 
   // Result
   //   __ |> <->  == >=>
@@ -271,7 +267,6 @@
   "files.trimTrailingWhitespace": true,
   "scm.diffDecorations": "gutter",
   "editor.minimap.renderCharacters": false,
-  "python.pythonPath": "/home/ayats/main_venv/bin/python",
   "editor.minimap.size": "fit",
   "editor.minimap.enabled": false,
   "redhat.telemetry.enabled": false,
@@ -285,7 +280,8 @@
   "files.autoSave": "afterDelay",
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.currentLine.enabled": false,
-  "window.menuBarVisibility": "compact"
+  "window.menuBarVisibility": "compact",
+  "python.defaultInterpreterPath": "/home/ayats/main_venv/bin/python"
 
 
 

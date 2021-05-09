@@ -5,11 +5,11 @@
 
 
 - link:
-    X:/Documents/PowerShell/:
+    D:/Documents/PowerShell/:
       glob: true
       path: PowerShell/*
 
-    X:/Documents/ShareX/:
+    D:/Documents/ShareX/:
       glob: true
       path: dotfiles_priv/ShareX/*
 
