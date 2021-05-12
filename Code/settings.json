@@ -1,16 +1,35 @@
 {
-  "editor.quickSuggestionsDelay": 0,
-  "editor.tabCompletion": "on",
+  // Telemetry
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "redhat.telemetry.enabled": false,
+  "Lua.telemetry.enable": false,
+
+
+  // editor.
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
-  "files.autoSaveDelay": 500,
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "extensions.ignoreRecommendations": true,
   "update.mode": "none",
+  "window.menuBarVisibility": "compact",
   "workbench.startupEditor": "none",
-  "editor.rulers": [160],
 
+
+  // editor.
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fit",
+  "editor.quickSuggestionsDelay": 0,
+  "editor.rulers": [160],
+  "editor.semanticHighlighting.enabled": true,
+  "editor.tabCompletion": "on",
+
+
+  // files.
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+  "files.trimTrailingWhitespace": true,
 
 
   // integrated terminal
@@ -23,13 +42,27 @@
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shellArgs.linux": ["-l"], // ["-l","-d 3"]
 
+
   // Git
+  "editor.fontSize": "15px",
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.enabled": false,
+  "scm.diffDecorations": "gutter",
   "workbench.colorTheme": "Panda Syntax",
-  "editor.fontSize": "15px",
+
+
+  // Icons
+  "workbench.productIconTheme": "material-product-icons",
+  "material-icon-theme.opacity": 1,
+  "material-icon-theme.saturation": 1,
+  "workbench.iconTheme": "material-icon-theme",
+  "helium-icon-theme.folders.color": "#90a4ae",
+
 
   // Fira Code Style
   "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF'",
@@ -79,7 +112,8 @@
         "sideBar.foreground": "#999999",
         "scrollbarSlider.background": "#333333",
         "scrollbarSlider.hoverBackground": "#444444",
-        "statusBar.foreground": "#999999"
+        "statusBar.foreground": "#999999",
+        "editorRuler.foreground": "#292929"
   },
 
 
@@ -87,80 +121,43 @@
   // Latex
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/_build",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex.server.autoDownload": true,
   "latex-workshop.latex.tools": [
     {
-
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-auxdir=%OUTDIR%",
+        "-outdir=%OUTDIR%",
+        "-synctex=1",
+        "%DOC_EXT%"
+      ]
+    },
+    {
       "name": "latexmk-pvc",
       "command": "latexmk",
       "args": [
-        "-auxdir=_build",
         "-pvc",
-        "-xelatex",
-        "%DOCFILE%"
-      ]
-    },
-    {
-
-      "name": "xelatex",
-      "command": "xelatex",
-      "args": [
+        "-pdf",
+        "-auxdir=%OUTDIR%",
+        "-outdir=%OUTDIR%",
         "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-output-directory=_build",
-        "%DOCFILE%"
+        "%DOC_EXT%"
       ]
-    },
-    {
-
-      "name": "xelatex-wsl",
-      "command": "wsl",
-      "args": [
-        "xelatex",
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-output-directory=_build",
-        "%DOCFILE%"
-      ]
-    },
-    {
-      "name": "biber-wsl",
-      "command": "wsl",
-      "args": [
-        "biber",
-        "_build/%DOCFILE%"
-      ],
-      "env": {}
     }
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk 🔁",
+      "name": "latexmk",
       "tools": [
-        "latexmk-pvc"
+        "latexmk"
       ]
     },
     {
-      "name": "xelatex",
-      "tools": [
-        "xelatex"
-      ]
-    },
-    {
-      "name": "[WSL] xelatex",
-      "tools": [
-        "xelatex-wsl"
-      ]
-    },
-    {
-      "name": "[WSL] xelatex ➞ biber ➞ xelatex × 2",
-      "tools": [
-        "xelatex-wsl",
-        "biber-wsl",
-        "xelatex-wsl",
-        "xelatex-wsl"
-      ]
+      "name": "latexmk 🔄",
+      "tools": ["latexmk-pvc"]
     }
   ],
 
@@ -222,11 +219,11 @@
     "editor.insertSpaces": true
   },
 
+
+
   // Python
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  // "python.jediEnabled": false,
-  // "python.languageServer": "Pylance",
   "vsintellicode.python.completionsEnabled": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.python",
@@ -237,9 +234,11 @@
   // Discord
   "discord.detailsEditing": "Editing {lang}",
   "discord.detailsDebugging": "Debugging {lang}",
-  "discord.lowerDetailsEditing": "{total_lines} lines",
-  "discord.lowerDetailsDebugging": "{total_lines} lines",
+  "discord.lowerDetailsEditing": "In line {current_line} / {total_lines}",
+  "discord.lowerDetailsDebugging": "In line {current_line} / {total_lines}",
   "discord.suppressNotifications": true,
+  "discord.removeRemoteRepository": true,
+
 
   // Action Buttons
   "actionButtons": {
@@ -249,9 +248,12 @@
   },
 
 
+  // Powershell
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.startAutomatically": false,
+
+
   // Unsorted
-  "tabnine.experimentalAutoImports": true,
-  "glassit.alpha": 250,
   "colorize.enable_search_variables": false,
   "colorize.include": [
     "*",
@@ -260,31 +262,5 @@
     "**/*.sass",
     "**/*.less",
     "**/*.styl"
-  ],
-  "powershell.integratedConsole.showOnStartup": false,
-  "extensions.ignoreRecommendations": true,
-  "powershell.startAutomatically": false,
-  "files.trimTrailingWhitespace": true,
-  "scm.diffDecorations": "gutter",
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.size": "fit",
-  "editor.minimap.enabled": false,
-  "redhat.telemetry.enabled": false,
-  "helium-icon-theme.folders.color": "#90a4ae",
-  "workbench.productIconTheme": "material-product-icons",
-  "material-icon-theme.opacity": 1,
-  "material-icon-theme.saturation": 1,
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.semanticHighlighting.enabled": true,
-  "Lua.telemetry.enable": false,
-  "files.autoSave": "afterDelay",
-  "gitlens.hovers.currentLine.over": "line",
-  "gitlens.currentLine.enabled": false,
-  "window.menuBarVisibility": "compact",
-  "python.defaultInterpreterPath": "/home/ayats/main_venv/bin/python"
-
-
-
-
-
+  ]
 }

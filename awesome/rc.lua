@@ -60,7 +60,7 @@ beautiful.taglist_squares_sel = nil
 beautiful.taglist_squares_unsel = nil
 -- beautiful.systray_icon_spacing = 5
 beautiful.wibar_fg = text_color
-beautiful.wibar_bg = "#111111aa"
+beautiful.wibar_bg = "#070707aa"
 beautiful.bg_systray = '#111111aa'
 beautiful.taglist_fg_focus = "#d35d6e"
 beautiful.taglist_bg_focus = "#00000000"
@@ -668,3 +668,4 @@ awful.spawn("nitrogen --restore")
 awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
+awful.spawn("xset s off -dpms")
