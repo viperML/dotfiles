@@ -120,6 +120,7 @@ local menu_awesome = {
 }
 
 local menu_system = {
+    { "restart naga", "systemctl --user restart nagastart.service" },
     { "restart", "sudo reboot" },
     { "shutdown", "sudo shutdown now" }
 }

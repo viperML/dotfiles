@@ -24,10 +24,6 @@
   "editor.rulers": [160],
   "editor.semanticHighlighting.enabled": true,
   "editor.tabCompletion": "on",
-
-
-  // files.
-  "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": true,
 
@@ -36,15 +32,15 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.fontFamily": "'Fira Code', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF', 'monospace",
   // WIndows
-  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "terminal.integrated.shellArgs.windows": "-nologo",
+  // "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // "terminal.integrated.shellArgs.windows": "-nologo",
   // Linux
-  "terminal.integrated.shell.linux": "/usr/bin/fish",
-  "terminal.integrated.shellArgs.linux": ["-l"], // ["-l","-d 3"]
+  // "terminal.integrated.shell.linux": "/usr/bin/fish",
+  // "terminal.integrated.shellArgs.linux": ["-l"], // ["-l","-d 3"]
 
 
   // Git
-  "editor.fontSize": "15px",
+  "editor.fontSize": "15",
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
@@ -119,6 +115,9 @@
 
 
   // Latex
+  "[latex]": {
+    "editor.rulers": [100]
+  },
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/_build",
   "latex-workshop.synctex.afterBuild.enabled": true,
@@ -262,5 +261,6 @@
     "**/*.sass",
     "**/*.less",
     "**/*.styl"
-  ]
+  ],
+  "spellright.suggestionsInHints": false
 }

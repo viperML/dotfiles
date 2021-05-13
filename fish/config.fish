@@ -10,6 +10,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 # Aliases
 alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
 alias icat="kitty +kitten icat"
+alias ip="ip -c=auto"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
