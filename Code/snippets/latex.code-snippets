@@ -82,11 +82,11 @@
 		]
 	},
 
-  "Python Listing": {
-    "prefix": "python",
+  "Code listing": {
+    "prefix": "code",
     "body": [
-      "\\begin{lstlisting}[language=Python, caption=Python example]",
-      "$0",
+      "\\begin{lstlisting}[language=Python]",
+      "    $0",
       "\\end{lstlisting}",
     ]
   }

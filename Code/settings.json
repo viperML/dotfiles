@@ -26,7 +26,7 @@
   "editor.tabCompletion": "on",
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": true,
-
+  "files.autoSave": "afterDelay",
 
   // integrated terminal
   "terminal.integrated.cursorStyle": "line",
@@ -40,7 +40,7 @@
 
 
   // Git
-  "editor.fontSize": "15",
+  "editor.fontSize": 15,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
@@ -116,7 +116,7 @@
 
   // Latex
   "[latex]": {
-    "editor.rulers": [100]
+    "editor.rulers": [100],
   },
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/_build",
@@ -262,5 +262,18 @@
     "**/*.less",
     "**/*.styl"
   ],
-  "spellright.suggestionsInHints": false
+  "spellright.suggestionsInHints": false,
+
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+  ],
+  "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "python.showStartPage": false,
+  "bracket-pair-colorizer-2.colors": [
+    "White",
+    "Orchid",
+    "Gold",
+    "LightSkyBlue"
+  ]
 }

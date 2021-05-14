@@ -531,13 +531,10 @@ awful.rules.rules = {
     { rule_any = {
         class = {
           "Arandr",
-          "Gpick",
           "MEGAsync",
           "explorer.exe",
           "photoshop.exe"},
         role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = {
@@ -565,7 +562,7 @@ awful.rules.rules = {
         properties = { tag = tags[9] } },
     { rule = { class = "Genymotion Player" },
         properties = { tag = tags[8] } },
-    { rule = { class = "Lollypop" },
+    { rule_any = { class = "Lollypop", "Spotify" },
         properties = { tag = tags[10] } }
 }
 -- }}}
