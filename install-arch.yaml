@@ -84,3 +84,5 @@
       path: awesome/*
 
     ~/.environment.env: X11/environment.env
+
+    ~/.config/lsd/config.yaml: lsd/config.yaml

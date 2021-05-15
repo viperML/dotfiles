@@ -41,3 +41,4 @@
     ~/AppData/Roaming/mpv/mpv.conf:
       path: mpv/mpv.conf
 
+    ~/AppData/Roaming/lsd/config.yaml: lsd/config.yaml
