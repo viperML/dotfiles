@@ -78,7 +78,7 @@ editor_cmd = terminal .. " -e " .. editor
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
+    awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
@@ -640,6 +640,7 @@ client.connect_signal("request::titlebars", function(c)
 
             -- awful.titlebar.widget.ontopbutton    (c),
             wibox.container.margin(awful.titlebar.widget.stickybutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
+            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
             wibox.container.margin(awful.titlebar.widget.floatingbutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
             wibox.container.margin(awful.titlebar.widget.closebutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
 
