@@ -26,7 +26,6 @@
   "editor.tabCompletion": "on",
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": true,
-  "files.autoSave": "afterDelay",
 
   // integrated terminal
   "terminal.integrated.cursorStyle": "line",
@@ -275,5 +274,6 @@
     "Orchid",
     "Gold",
     "LightSkyBlue"
-  ]
+  ],
+  "files.autoSave": "afterDelay"
 }
