@@ -56,7 +56,7 @@
             "backgroundImageOpacity": 0.20000000000000001,
             "backgroundImageStretchMode": "none",
             "fontFace": "FiraCode NF",
-            "fontSize": 12,
+            "fontSize": 11,
             "fontWeight": "black",
             "useAcrylic": true
         },
