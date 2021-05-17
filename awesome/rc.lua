@@ -126,9 +126,8 @@ local menu_system = {
 }
 
 local menu_screens = {
-    { "autorandr -c", "autorandr -c" },
-    { "autorandr -l horizontal", "autorandr -l horizontal"},
-    { "arandr", "arandr" }
+    { "autorandr -c", "systemctl --user restart autorandr.service" },
+    { "autorandr -l horizontal", "systemctl --user restart autorandr-l.service" },
 }
 
 
@@ -381,9 +380,9 @@ globalkeys = gears.table.join(
               {description = "take screenshot", group = "launcher"}),
 
 
-    awful.key({ modkey, "Shift"   }, "Up",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "Right",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "Down",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "Left",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     -- awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
     --           {description = "increase the number of columns", group = "layout"}),
@@ -403,6 +402,8 @@ globalkeys = gears.table.join(
 clientkeys = gears.table.join(
     awful.key({ modkey,           }, "f",
         function (c)
+            --
+            c.maximized = not c.maximized
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
@@ -587,6 +588,19 @@ end)
 -- Always floating ontop
 client.connect_signal("property::floating", function(c)
     c.ontop= c.floating
+end)
+
+-- No corners on fullscreen apps
+client.connect_signal("property::fullscreen", function(c)
+    if c.fullscreen == true then
+        c.shape = function(cr,w,h)
+            gears.shape.rounded_rect(cr,w,h,0)
+        end
+    else
+        c.shape = function(cr,w,h)
+            gears.shape.rounded_rect(cr,w,h,corner_radius)
+        end
+    end
 end)
 
 

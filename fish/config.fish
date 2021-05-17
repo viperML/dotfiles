@@ -30,3 +30,7 @@ function lsimg
     kitty +kitten icat $argv/$file
   end
 end
+
+function ssh
+  begin; set -lx TERM xterm-256color; command ssh $argv; end
+end
