@@ -71,14 +71,14 @@
 	},
 
 	"Figura en Latex":{
-		"prefix": "figura",
+		"prefix": "figure",
 		"body": [
-			"\\begin{figure}[H]",
-    		"  \\centering",
-            "  %\\caption{}",
-    		"  \\includegraphics[width=${2:0.7}\\textwidth]{$1}",
-    		"  \\label{fig:${3:foo}}",
-            "\\end{figure}"
+      "\\begin{figure}[H]",
+      "    \\centering",
+      "    \\includegraphics[width=0.95\\textwidth]{$1}",
+      "    \\label{fig:$2}",
+      "    \\caption{$3}",
+      "\\end{figure}",
 		]
 	},
 

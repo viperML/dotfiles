@@ -86,3 +86,5 @@
     ~/.environment.env: X11/environment.env
 
     ~/.config/lsd/config.yaml: lsd/config.yaml
+
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml

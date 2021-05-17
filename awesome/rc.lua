@@ -70,7 +70,7 @@ beautiful.taglist_bg_urgent   = "#d35d6e"
 
 
 -- Other
-terminal = "kitty"
+terminal = "alacritty"
 menubar.utils.terminal = terminal
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor

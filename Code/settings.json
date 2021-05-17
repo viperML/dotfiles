@@ -223,6 +223,7 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
   "vsintellicode.python.completionsEnabled": true,
+  "python.defaultInterpreterPath": "/usr/bin/python",
   "[python]": {
     "editor.defaultFormatter": "ms-python.python",
     "editor.rulers": [90]
@@ -275,5 +276,6 @@
     "Gold",
     "LightSkyBlue"
   ],
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+
 }
