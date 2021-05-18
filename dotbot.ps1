@@ -11,7 +11,7 @@ git -C $DOTBOT_DIR submodule sync --quiet --recursive
 git submodule update --init --recursive $DOTBOT_DIR
 
 
-Invoke-Expression $(Join-Path -Path $Env:DOTFILES_DIR -ChildPath 'dotfiles_priv\chocolatey\Export-Chocolatey.ps1')
+Invoke-Expression $(Join-Path -Path $Env:DOTFILES_DIR -ChildPath 'dotfiles_priv\Export-Chocolatey.ps1')
 
 foreach ($PYTHON in ('python', 'python3', 'python2')) {
     # Python redirects to Microsoft Store in Windows 10 when not installed

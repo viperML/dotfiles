@@ -41,3 +41,5 @@
       path: mpv/mpv.conf
 
     ~/AppData/Roaming/lsd/config.yaml: lsd/config.yaml
+
+    ~/AppData/Roaming/alacritty/alacritty.yml: alacritty/alacritty-win.yml
