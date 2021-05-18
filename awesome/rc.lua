@@ -28,7 +28,7 @@ local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local freedesktop = require("freedesktop")
 
-
+local config_dir = "~/.config/awesome/"
 
 
 -- ██████╗ ███████╗ █████╗ ██╗   ██╗████████╗██╗███████╗██╗   ██╗██╗        ██╗    ██████╗ ██████╗
@@ -37,9 +37,12 @@ local freedesktop = require("freedesktop")
 -- ██╔══██╗██╔══╝  ██╔══██║██║   ██║   ██║   ██║██╔══╝  ██║   ██║██║     ██╔═██╔═╝██║     ██║   ██║
 -- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
 -- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(config_dir.."theme.lua")
+
+
 corner_radius = 14
-beautiful.useless_gap = 5
+-- beautiful.useless_gap = 5
 beautiful.border_width = 0
 beautiful.font = "Roboto 10"
 local text_color = '#bbbbbb'
@@ -49,6 +52,7 @@ beautiful.titlebar_fg_focus = text_color
 beautiful.titlebar_fg_normal =text_color
 beautiful.titlebar_bg_focus = "#191919"
 beautiful.titlebar_bg_normal = '#000000'
+-- beautiful.titlebar_close_button_normal = res_dir.."icons8-macos-close-24.png"
 
 -- Menu
 beautiful.menu_width = 200
@@ -106,6 +110,8 @@ local tags = sharedtags({
     { name = "", layout = awful.layout.layouts[2]},
     { name = "", layout = awful.layout.layouts[2]},
 })
+
+
 
 
 -- ███╗   ███╗███████╗███╗   ██╗██╗   ██╗

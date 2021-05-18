@@ -12,12 +12,16 @@ alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fis
 alias icat="kitty +kitten icat"
 alias ip="ip -c=auto"
 alias ls="lsd"
+alias svim="sudoedit"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
     abbr --add --global dot_install ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
     abbr --add --global p python
     abbr --add --global n nvim
+    abbr --add --global x xdg-open
+    abbr --add --global ss sudo systemctl
+    abbr --add --global us systemctl --user
 end
 
 # pyenv init

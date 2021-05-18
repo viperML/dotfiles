@@ -86,7 +86,7 @@
     "prefix": "code",
     "body": [
       "\\begin{lstlisting}[language=Python]",
-      "    $0",
+      "$0",
       "\\end{lstlisting}",
     ]
   }

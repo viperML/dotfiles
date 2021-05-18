@@ -47,7 +47,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 30
-    y: 20
+    y: 25
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -390,7 +390,7 @@ cursor:
   thickness: 0.25
 
 # Live config reload (changes require restart)
-live_config_reload: true
+live_config_reload: false
 
 # Shell
 #

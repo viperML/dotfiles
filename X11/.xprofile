@@ -2,7 +2,7 @@
 #xrandr --setprovideroutputsource modesetting NVIDIA-0
 #xrandr --auto
 xrdb -merge $HOME/.Xresources
-xmodmap $HOME/.Xmodmap
+#xmodmap $HOME/.Xmodmap
 
 # QT5 themes to GNOME
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -12,3 +12,6 @@ export QT_STYLE_OVERRIDE=kvantum
 export XPROFILE_LOADED=1
 
 export SXHKD_SHELL=sh
+
+export EDITOR=nvim
+export PAGER=nvimpager
