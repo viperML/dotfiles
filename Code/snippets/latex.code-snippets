@@ -85,7 +85,7 @@
   "Code listing": {
     "prefix": "code",
     "body": [
-      "\\begin{lstlisting}[language=Python]",
+      "\\begin{lstlisting}",
       "$0",
       "\\end{lstlisting}",
     ]
