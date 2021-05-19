@@ -545,8 +545,7 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "MEGAsync",
-          "explorer.exe",
-          "photoshop.exe"},
+          ".exe"},
         role = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
