@@ -35,9 +35,7 @@
     ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
     ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
 
-    ~/.config/neofetch/:
-      glob: true
-      path: neofetch/*
+    ~/.config/neofetch/config.conf: neofetch/config-arch.conf
 
     ~/.Xresources: X11/Xresources
     ~/.xprofile: X11/.xprofile

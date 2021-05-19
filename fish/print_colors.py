@@ -1,5 +1,18 @@
 # Python program to print
 # colored text and background
+import sys
+
+try:
+    tabs = int(sys.argv[1])
+except IndexError:
+    tabs = 0
+try:
+    spaces = int(sys.argv[2])
+except IndexError:
+    spaces = 0
+
+sp = '\t'*tabs + ' '*spaces
+
 class c:
 
     """Colors class:reset all colors with colors.reset; two
@@ -55,26 +68,26 @@ class c:
         brwhite = '\033[107m'
 
 
-print(c.bg.black + c.fg.brwhite + "black        " + c.reset, end=' ')
+print(sp + c.bg.black + c.fg.brwhite + "black        " + c.reset, end=' ')
 print(c.bg.brblack + c.fg.brwhite + "brblack      " + c.reset)
 
-print(c.bg.red + c.fg.black + "red          " + c.reset, end=' ')
+print(sp + c.bg.red + c.fg.black + "red          " + c.reset, end=' ')
 print(c.bg.brred + c.fg.black + "brred        " + c.reset)
 
-print(c.bg.green + c.fg.black + "green        " + c.reset, end=' ')
+print(sp + c.bg.green + c.fg.black + "green        " + c.reset, end=' ')
 print(c.bg.brgreen + c.fg.black + "brgreen      " + c.reset)
 
-print(c.bg.yellow + c.fg.black + "yellow       " + c.reset, end=' ')
+print(sp + c.bg.yellow + c.fg.black + "yellow       " + c.reset, end=' ')
 print(c.bg.bryellow + c.fg.black + "bryellow     " + c.reset)
 
-print(c.bg.blue + c.fg.black + "blue         " + c.reset, end=' ')
+print(sp + c.bg.blue + c.fg.black + "blue         " + c.reset, end=' ')
 print(c.bg.brblue + c.fg.black + "brblue       " + c.reset)
 
-print(c.bg.magenta + c.fg.black + "magenta      " + c.reset, end=' ')
+print(sp + c.bg.magenta + c.fg.black + "magenta      " + c.reset, end=' ')
 print(c.bg.brmagenta + c.fg.black+"brmagenta    " + c.reset)
 
-print(c.bg.cyan + c.fg.black + "cyan         " + c.reset, end=' ')
+print(sp + c.bg.cyan + c.fg.black + "cyan         " + c.reset, end=' ')
 print(c.bg.brcyan + c.fg.black + "brcyan       " + c.reset)
 
-print(c.bg.white + c.fg.black + "white        " + c.reset, end=' ')
+print(sp + c.bg.white + c.fg.black + "white        " + c.reset, end=' ')
 print(c.bg.brwhite + c.fg.black + "brwhite      " + c.reset,)
