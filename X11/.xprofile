@@ -3,6 +3,8 @@
 #xrandr --auto
 xrdb -merge $HOME/.Xresources
 #xmodmap $HOME/.Xmodmap
+setxkbmap -option compose:rctrl
+xset r rate 200 40
 
 # QT5 themes to GNOME
 export QT_QPA_PLATFORMTHEME=qt5ct

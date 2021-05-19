@@ -66,9 +66,9 @@
       glob: true
       path: polybar/*
 
-    ~/.config/rofi/:
-      glob: true
-      path: rofi/*
+    ~/.config/rofi/config.rasi: rofi/config.rasi
+    ~/.config/rofi/theme.rasi: rofi/theme.rasi
+    ~/bin/rofiman: rofi/man.sh
 
     ~/.config/dunst/dunstrc: dunst/dunstrc
     ~/.config/dunst/volume.py: dunst/volume.py

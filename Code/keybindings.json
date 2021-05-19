@@ -9,5 +9,21 @@
     "key": "ctrl+shift+`",
     "command": "-workbench.action.terminal.new",
     "when": "terminalProcessSupported"
-  }
+  },
+  {
+    "key": "ctrl+shift+B",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == latex && editorTextFocus",
+    "args": {
+        "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+    }
+  },
+  {
+    "key": "ctrl+shift+I",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == latex && editorTextFocus",  // chained clause
+    "args": {
+        "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+    }
+}
 ]

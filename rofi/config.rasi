@@ -4,7 +4,7 @@ configuration {
     font: "Roboto 17";
     show-icons: true;
     icon-theme: "Vimix Dark";
-    theme: "material";
+    theme: "theme";
 }
 
 * {

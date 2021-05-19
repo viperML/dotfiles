@@ -89,5 +89,14 @@
       "$0",
       "\\end{lstlisting}",
     ]
+  },
+
+  "Tikz": {
+    "prefix": "tikz",
+    "body":[
+      "\\begin{tikzpicture}[node distance = 2cm, auto]",
+      "$0",
+      "\\end{tikzpicture}"
+    ]
   }
 }

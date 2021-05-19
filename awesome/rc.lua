@@ -136,10 +136,16 @@ local menu_screens = {
     { "autorandr -l horizontal", "systemctl --user restart autorandr-l.service" },
 }
 
+local menu_keyboard = {
+    { "us", "setxkbmap -layout us" },
+    { "es", "setxkbmap -layout es" }
+}
+
 
 menu = freedesktop.menu.build({
     before = {
         { "Awesome", menu_awesome, beautiful.awesome_icon },
+        { "Keyboard", menu_keyboard },
         { "System", menu_system },
         { "Screens", menu_screens },
         { "Terminal", terminal }
