@@ -279,5 +279,6 @@
     "Gold",
     "LightSkyBlue"
   ],
+  "files.autoSave": "afterDelay",
 
 }

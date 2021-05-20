@@ -3,7 +3,7 @@
 #xrandr --auto
 xrdb -merge $HOME/.Xresources
 #xmodmap $HOME/.Xmodmap
-setxkbmap -option compose:rctrl
+#setxkbmap -option compose:rctrl
 xset r rate 200 40
 
 # QT5 themes to GNOME

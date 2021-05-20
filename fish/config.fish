@@ -16,7 +16,7 @@ alias svim="sudoedit"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
-    abbr --add --global dot_install ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
+    abbr --add --global dotinstall ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
     abbr --add --global p python
     abbr --add --global n nvim
     abbr --add --global x xdg-open

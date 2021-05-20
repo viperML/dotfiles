@@ -406,9 +406,13 @@ globalkeys = gears.table.join(
               {description = "select previous", group = "layout"}),
 
     -- Volume
-    awful.key({ modkey }, "F8", function() volume_widget:inc() end),
-    awful.key({ modkey }, "F7", function() volume_widget:dec() end),
-    awful.key({ modkey }, "F6", function() volume_widget:toggle() end)
+    -- awful.key({ modkey }, "F8", function() volume_widget:inc() end),
+    -- awful.key({ modkey }, "F7", function() volume_widget:dec() end),
+    -- awful.key({ modkey }, "F6", function() volume_widget:toggle() end)
+
+    awful.key({      }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
+    awful.key({      }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
+    awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end)
 )
 
 clientkeys = gears.table.join(
