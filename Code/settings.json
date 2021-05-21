@@ -133,6 +133,7 @@
         "-auxdir=%OUTDIR%",
         "-outdir=%OUTDIR%",
         "-synctex=1",
+        "--shell-escape",
         "%DOC_EXT%"
       ]
     },
@@ -279,6 +280,5 @@
     "Gold",
     "LightSkyBlue"
   ],
-  "files.autoSave": "afterDelay",
 
 }
