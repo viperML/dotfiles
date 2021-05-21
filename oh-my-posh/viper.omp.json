@@ -12,16 +12,16 @@
 			"horizontal_offset": 0,
 			"vertical_offset": 0,
 			"segments": [
-        {
-            "type": "session",
-            "style": "plain",
-            "foreground": "lightMagenta",
-            "properties": {
-                "default_user_name": "ayats",
-                "display_default": false,
-                "ssh_icon": " "
-            }
-        },
+				{
+					"type": "session",
+					"style": "plain",
+					"foreground": "lightMagenta",
+					"properties": {
+						"default_user_name": "ayats",
+						"display_default": false,
+						"ssh_icon": " "
+					}
+				},
 				{
 					"type": "path",
 					"style": "plain",
