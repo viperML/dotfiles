@@ -8,7 +8,7 @@ except subprocess.CalledProcessError as e:
     output = e.output
 output = output.decode('utf-8').splitlines()
 
-UUID = ['69a71c2d-8182-466c-a5a5-d84d615e7d9b']
+UUID = ['7a0abe38-85d5-4221-bfed-f696f1802798', 'C0AF-1964']
 
 to_print = []
 for line in output:
