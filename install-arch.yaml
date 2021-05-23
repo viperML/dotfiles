@@ -13,7 +13,7 @@
       stderr: true
       quiet: true
       description: Broken symlinks in .config
-    - bash -c 'convert -font Roboto-Medium label:"$(neofetch --config $DOTFILES_DIR/neofetch/config_dotfiles.conf)" $DOTFILES_DIR/_img/neofetch.png'
+    #- bash -c 'convert -font Roboto-Medium label:"$(neofetch --config $DOTFILES_DIR/neofetch/config_dotfiles.conf)" $DOTFILES_DIR/_img/neofetch.png'
     - cp -r /etc/X11/xorg.conf.d $DOTFILES_DIR/X11
 
 - link:
@@ -25,56 +25,55 @@
       glob: true
       path: Code/*
 
-    ~/.config/Code/User/:
-      glob: true
-      path: Code/*
+      #~/.config/Code/User/:
+      #glob: true
+      #path: Code/*
 
     #~/.config/picom/picom.conf: picom/picom-ibhagwan.conf
     ~/.config/picom/picom.conf: picom/picom-jonaburg.conf
     #~/.config/picom/picom.conf: picom/picom-git.conf
 
-    ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
-    ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
+    #~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
+    #~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
 
-    ~/.config/neofetch/config.conf: neofetch/config-arch.conf
+    # ~/.config/neofetch/config.conf: neofetch/config-arch.conf
 
     ~/.Xresources: X11/Xresources
     ~/.xprofile: X11/.xprofile
 
-    ~/.config/i3/:
-      glob: true
-      path: i3/*
+    #~/.config/i3/:
+    # glob: true
+    # path: i3/*
 
     ~/.config/redshift.conf: redshift/redshift.conf
 
-    ~/.config/gtk-3.0/:
-      glob: true
-      path: gtk-3.0/*
+    #~/.config/gtk-3.0/:
+    #  glob: true
+    #  path: gtk-3.0/*
 
-    ~/.naga/:
-      glob: true
-      path: Naga_KeypadMapper/*
+    #~/.naga/:
+    #  glob: true
+    # path: Naga_KeypadMapper/*
 
-    ~/.config/kitty/:
-      glob: true
-      path: kitty/*
+    #~/.config/kitty/:
+    #  glob: true
+    #  path: kitty/*
 
-    ~/.config/herbstluftwm/:
-      glob: true
-      path: herbstluftwm/*
+    #~/.config/herbstluftwm/:
+    # glob: true
+    # path: herbstluftwm/*
 
-    ~/.config/polybar/:
-      glob: true
-      path: polybar/*
+    #~/.config/polybar/:
+    # glob: true
+    # path: polybar/*
 
     ~/.config/rofi/config.rasi: rofi/config.rasi
     ~/.config/rofi/theme.rasi: rofi/theme.rasi
     ~/bin/rofiman: rofi/man.sh
 
     ~/.config/dunst/dunstrc: dunst/dunstrc
-    ~/.config/dunst/volume.py: dunst/volume.py
 
-    ~/.config/nano/nanorc: nano/nanorc
+    #~/.config/nano/nanorc: nano/nanorc
 
     ~/.config/oh-my-posh/viper.omp.json: oh-my-posh/viper.omp.json
 
@@ -82,7 +81,7 @@
       glob: true
       path: awesome/*
 
-    ~/.environment.env: X11/environment.env
+      # ~/.environment.env: X11/environment.env
 
     ~/.config/lsd/config.yaml: lsd/config.yaml
 

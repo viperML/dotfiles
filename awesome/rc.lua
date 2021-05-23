@@ -693,7 +693,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 awful.spawn("nitrogen --restore")
-awful.spawn("picom --experimental-backends")
+-- awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
-awful.spawn("xset s off -dpms")
