@@ -116,8 +116,10 @@
   // Latex
   "[latex]": {
     "editor.rulers": [
-      100
+      80
     ],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 75,
     "editor.defaultFormatter": "nickfode.latex-formatter",
   },
   "latex-workshop.view.pdf.viewer": "tab",
@@ -146,6 +148,7 @@
         "-auxdir=%OUTDIR%",
         "-outdir=%OUTDIR%",
         "-synctex=1",
+        "--shell-escape",
         "%DOC_EXT%"
       ]
     }
