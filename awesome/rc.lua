@@ -645,7 +645,8 @@ client.connect_signal("request::titlebars", function(c)
     local widget_title =  wibox.container.margin(title, 0, 0, 0, 2)
 
 
-    local icon_padding = 4
+    local vertical_icon_padding = 6
+    local horizontal_icon_padding = 4
 
     awful.titlebar(c, {
         size = 25
@@ -671,10 +672,10 @@ client.connect_signal("request::titlebars", function(c)
             -- awful.titlebar.widget.maximizedbutton(c),
 
             -- awful.titlebar.widget.ontopbutton    (c),
-            wibox.container.margin(awful.titlebar.widget.stickybutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
-            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
-            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), icon_padding, icon_padding, icon_padding, icon_padding),
+            wibox.container.margin(awful.titlebar.widget.stickybutton(c),   horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c),    horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
 
             wibox.widget.textbox(' '),
             layout = wibox.layout.fixed.horizontal()

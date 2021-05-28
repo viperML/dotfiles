@@ -121,24 +121,23 @@ theme.icon_theme = nil
 -- ██║╚██╗██║██║   ██║██║╚██╗██║╚════╝██║  ██║██╔══╝  ██╔══╝  ██╔══██║██║   ██║██║     ██║
 -- ██║ ╚████║╚██████╔╝██║ ╚████║      ██████╔╝███████╗██║     ██║  ██║╚██████╔╝███████╗██║
 -- ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝      ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝
-theme.titlebar_close_button_normal = res_dir.."macos-red.png"
-theme.titlebar_close_button_focus  = res_dir.."macos-red.png"
+theme.titlebar_close_button_normal = res_dir.."btn/close.png"
+theme.titlebar_close_button_focus  = res_dir.."btn/close.png"
 
-theme.titlebar_ontop_button_normal_inactive = res_dir.."macos-green.png"
-theme.titlebar_ontop_button_focus_inactive  = res_dir.."macos-green.png"
-theme.titlebar_ontop_button_normal_active = res_dir.."macos-green.png"
-theme.titlebar_ontop_button_focus_active  = res_dir.."macos-green.png"
+theme.titlebar_floating_button_normal_inactive = res_dir.."btn/retr.png"
+theme.titlebar_floating_button_focus_inactive  = res_dir.."btn/retr.png"
+theme.titlebar_floating_button_normal_active = res_dir.."btn/retr2.png"
+theme.titlebar_floating_button_focus_active  = res_dir.."btn/retr2.png"
 
-theme.titlebar_maximized_button_normal_inactive = res_dir.."macos-green.png"
-theme.titlebar_maximized_button_focus_inactive  = res_dir.."macos-green.png"
-theme.titlebar_maximized_button_normal_active = res_dir.."macos-green.png"
-theme.titlebar_maximized_button_focus_active  = res_dir.."macos-green.png"
+theme.titlebar_maximized_button_normal_inactive = res_dir.."btn/exp.png"
+theme.titlebar_maximized_button_focus_inactive  = res_dir.."btn/exp.png"
+theme.titlebar_maximized_button_normal_active = res_dir.."btn/exp2.png"
+theme.titlebar_maximized_button_focus_active  = res_dir.."btn/exp2.png"
 
-
-theme.titlebar_floating_button_normal_inactive = res_dir.."macos-yellow.png"
-theme.titlebar_floating_button_focus_inactive  = res_dir.."macos-yellow.png"
-theme.titlebar_floating_button_normal_active = res_dir.."macos-yellow.png"
-theme.titlebar_floating_button_focus_active  = res_dir.."macos-yellow.png"
+theme.titlebar_sticky_button_normal_inactive = res_dir.."btn/pin.png"
+theme.titlebar_sticky_button_focus_inactive  = res_dir.."btn/pin.png"
+theme.titlebar_sticky_button_normal_active   = res_dir.."btn/pin2.png"
+theme.titlebar_sticky_button_focus_active    = res_dir.."btn/pin2.png"
 
 
 theme.useless_gap = 10
