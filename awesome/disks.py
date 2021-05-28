@@ -15,7 +15,7 @@ for line in output:
     split = line.split()
     try:
         if split[3] in UUID:
-            to_print = ['  ' + split[0][2:] + ': ' + split[5], *to_print]
+            to_print = ['  ' + split[6] + ': ' + split[5], *to_print]
     except IndexError:
         pass
 

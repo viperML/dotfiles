@@ -104,11 +104,11 @@ local tags = sharedtags({
     { name = "3", layout = awful.layout.layouts[2]},
     { name = "4", layout = awful.layout.layouts[2]},
     { name = "5", layout = awful.layout.layouts[2]},
-    { name = "6", layout = awful.layout.layouts[2]},
+    { name = "6", layout = awful.layout.layouts[2], screen = 2},
     { name = "7", layout = awful.layout.layouts[2], screen = 2},
     { name = "", layout = awful.layout.layouts[1]},
-    { name = "", layout = awful.layout.layouts[2]},
-    { name = "", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[2], screen = 2},
+    { name = "", layout = awful.layout.layouts[2], screen = 2},
 })
 
 
@@ -173,7 +173,7 @@ mytextclock = wibox.widget {
 widget_spacer = wibox.widget.textbox('      ')
 
 widget_updates = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/updates.py"', 1800, function(widget, stdout)
-    widget:set_text(" "..stdout)
+    widget:set_text(" "..stdout)
 end)
 
 widget_fs = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/disks.py"', 1800, function(widget, stdout)
@@ -549,10 +549,13 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "MEGAsync",
-          ".exe"},
+          ".exe",
+          "qemu-system-x86_64",
+          "Blueman-manager"
+        },
         role = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
+        },
       }, properties = {
           floating = true,
           ontop = true
@@ -576,9 +579,9 @@ awful.rules.rules = {
         properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
-    { rule = { class = "Genymotion Player" },
+    { rule_any = { class = {"Genymotion Player", "Lutris", "Steam"} },
         properties = { tag = tags[8] } },
-    { rule_any = { class = "Lollypop", "Spotify" },
+    { rule_any = { class = {"Lollypop", "Spotify"} },
         properties = { tag = tags[10] } }
 }
 -- }}}

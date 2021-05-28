@@ -39,3 +39,5 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " dashboard + fzf
 let g:dashboard_default_executive ='fzf'
+
+

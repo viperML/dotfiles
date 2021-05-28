@@ -116,10 +116,9 @@
   // Latex
   "[latex]": {
     "editor.rulers": [
-      80
+      70
     ],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 75,
+    "rewrap.autoWrap.enabled": true,
     "editor.defaultFormatter": "nickfode.latex-formatter",
   },
   "latex-workshop.view.pdf.viewer": "tab",

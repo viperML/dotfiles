@@ -4,6 +4,7 @@
 #setxkbmap -option compose:rctrl
 xset r rate 200 40
 xset s off -dpms
+xset b off
 
 # QT5 themes to GNOME
 export QT_QPA_PLATFORMTHEME=qt5ct
