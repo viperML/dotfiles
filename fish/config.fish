@@ -24,11 +24,6 @@ if status --is-interactive
     abbr --add --global us systemctl --user
 end
 
-# pyenv init
-if command -v pyenv 1>/dev/null 2>&1
-  pyenv init - | source
-end
-
 function lsimg
   for file in (ls $argv)
     kitty +kitten icat $argv/$file

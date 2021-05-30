@@ -61,7 +61,9 @@
 
     ~/.config/lsd/config.yaml: lsd/config.yaml
 
-    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.config/alacritty/:
+        glob: true
+        path: alacritty/*
 
     ~/.config/nvim:
       glob: true

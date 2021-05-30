@@ -232,8 +232,9 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Layout Icon
     s.mylayoutbox = awful.widget.layoutbox(s)
-    local m = 3
-    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, m, m, m, m)
+    local h_margin = 2
+    local v_vargin = 5
+    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, h_margin, h_margin, v_vargin, v_vargin)
     s.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
