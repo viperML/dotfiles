@@ -66,7 +66,7 @@ beautiful.taglist_squares_unsel = nil
 beautiful.wibar_fg = text_color
 beautiful.wibar_bg = "#111111"
 beautiful.bg_systray = '#111111'
-beautiful.taglist_fg_focus = "#d35d6e"
+beautiful.taglist_fg_focus = "#9AEDFE"
 beautiful.taglist_bg_focus = "#00000000"
 beautiful.taglist_fg_empty = "#6a7066"
 beautiful.taglist_fg_urgent = "#000"
@@ -127,6 +127,7 @@ local menu_awesome = {
 
 local menu_system = {
     { "restart naga", "systemctl --user restart nagastart.service" },
+    { "restart logid", "sudo systemctl restart logid.service" },
     { "restart", "sudo reboot" },
     { "shutdown", "sudo shutdown now" }
 }
@@ -257,8 +258,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- }
 
     local wibox_gap_x = 100
-    local wibox_gap_y1 = 5
-    local wibox_gap_y2 = -2
+    local wibox_gap_y1 = 9
+    local wibox_gap_y2 = -4
     local height = 25
 
     -- Manually create wibox (no awfulw.wibar)
@@ -413,7 +414,10 @@ globalkeys = gears.table.join(
 
     awful.key({      }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
     awful.key({      }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
-    awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end)
+    awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end),
+    awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
+    awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
+    awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end)
 )
 
 clientkeys = gears.table.join(
@@ -576,8 +580,8 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "Vivaldi-stable" },
        properties = { tag = tags[1], switch_to_tags = true } },
-    { rule = { class = "VSCodium" },
-        properties = { tag = tags[2], switch_to_tags = true } },
+ --   { rule = { class = "VSCodium" },
+ --       properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
     { rule_any = { class = {"Genymotion Player", "Lutris", "Steam"} },
@@ -701,3 +705,54 @@ awful.spawn("nitrogen --restore")
 -- awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
+
+
+
+
+-- ████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗         ███████╗██╗    ██╗ █████╗ ██╗     ██╗      ██████╗ ██╗    ██╗
+-- ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██║         ██╔════╝██║    ██║██╔══██╗██║     ██║     ██╔═══██╗██║    ██║
+--    ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║         ███████╗██║ █╗ ██║███████║██║     ██║     ██║   ██║██║ █╗ ██║
+--    ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║         ╚════██║██║███╗██║██╔══██║██║     ██║     ██║   ██║██║███╗██║
+--    ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗    ███████║╚███╔███╔╝██║  ██║███████╗███████╗╚██████╔╝╚███╔███╔╝
+--    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝
+---- https://www.reddit.com/r/awesomewm/comments/h07f5y/does_awesome_support_window_swallowing/
+--
+--function is_terminal(c)
+--    return (c.class and c.class:match("Alacritty")) and true or false
+--end
+--
+--function copy_size(c, parent_client)
+--    if not c or not parent_client then
+--        return
+--    end
+--    if not c.valid or not parent_client.valid then
+--        return
+--    end
+--    c.x=parent_client.x;
+--    c.y=parent_client.y;
+--    c.width=parent_client.width;
+--    c.height=parent_client.height;
+--end
+--function check_resize_client(c)
+--    if(c.child_resize) then
+--        copy_size(c.child_resize, c)
+--    end
+--end
+--
+--client.connect_signal("property::size", check_resize_client)
+--client.connect_signal("property::position", check_resize_client)
+--client.connect_signal("manage", function(c)
+--    if is_terminal(c) then
+--        return
+--    end
+--    local parent_client=awful.client.focus.history.get(c.screen, 1)
+--    if parent_client and is_terminal(parent_client) then
+--        parent_client.child_resize=c
+--        parent_client.minimized = true
+--
+--        c:connect_signal("unmanage", function() parent_client.minimized = false end)
+--
+--        -- c.floating=true
+--        copy_size(c, parent_client)
+--    end
+--end)

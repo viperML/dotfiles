@@ -48,7 +48,7 @@
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.hovers.enabled": false,
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Panda Syntax",
+  "workbench.colorTheme": "Hyper Dracula",
 
 
   // Icons
@@ -281,6 +281,12 @@
     "Orchid",
     "Gold",
     "LightSkyBlue"
+  ],
+  "colorize.colorized_colors": [
+    "HEXA",
+    "RGB",
+    "ARGB",
+    "HSL"
   ],
 
 }

@@ -2,11 +2,12 @@
 let mapleader="\<SPACE>"
 
 call plug#begin()
-Plug 'mg979/vim-visual-multi'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-Plug 'vim-airline/vim-airline'
-Plug 'glepnir/dashboard-nvim'
-Plug 'junegunn/fzf.vim'
+    Plug 'mg979/vim-visual-multi'
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+    Plug 'vim-airline/vim-airline'
+    Plug 'glepnir/dashboard-nvim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'chrisbra/Colorizer'
 call plug#end()
 
 " 4 spaces tabs and indentation

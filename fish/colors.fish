@@ -3,7 +3,7 @@
 # Syntax Highlighting Colors
 set fish_color_normal brwhite
 set fish_color_command cyan
-set fish_color_keyword brmagenta
+set fish_color_keyword brblue
 set fish_color_quote yellow
 set fish_color_redirection brwhite
 set fish_color_end brred
@@ -15,7 +15,7 @@ set fish_color_selection --background=brblack
 # set fish_color_search_match cyan
 set fish_color_search_match --background=brblack
 set fish_color_operator green
-set fish_color_escape brmagenta
+set fish_color_escape brblue
 set fish_color_autosuggestion brblack
 
 # Completion Pager Colors

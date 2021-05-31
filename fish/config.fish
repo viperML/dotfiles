@@ -8,8 +8,7 @@ export DOTFILES_DIR=$HOME/.dotfiles
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias alas="adb devices && source $HOME/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/AzurLaneAutoScript/alas_en.pyw"
-alias icat="kitty +kitten icat"
+alias alas="source $HOME/Documents/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw"
 alias ip="ip -c=auto"
 alias ls="lsd"
 alias svim="sudoedit"
@@ -22,14 +21,11 @@ if status --is-interactive
     abbr --add --global x xdg-open
     abbr --add --global ss sudo systemctl
     abbr --add --global us systemctl --user
+    abbr --add --global c codium
 end
 
-function lsimg
-  for file in (ls $argv)
-    kitty +kitten icat $argv/$file
-  end
-end
 
 function ssh
   begin; set -lx TERM xterm-256color; command ssh $argv; end
 end
+
