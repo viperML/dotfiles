@@ -13,7 +13,7 @@
       stderr: true
       quiet: true
       description: Broken symlinks in .config
-    # - bash -c 'convert -font Roboto-Medium label:"$(neofetch --config $DOTFILES_DIR/neofetch/config_dotfiles.conf)" $DOTFILES_DIR/_img/neofetch.png'
+    - bash -c 'convert -font "Noto Sans" label:"$(neofetch --config $DOTFILES_DIR/neofetch/config_dotfiles.conf)" $DOTFILES_DIR/_img/neofetch.png'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish

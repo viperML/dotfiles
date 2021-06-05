@@ -7,7 +7,7 @@ except subprocess.CalledProcessError:
     updates_sys = []
 
 try:
-    updates_aur = subprocess.check_output(['yay', '-Qu']).decode('utf-8').splitlines()
+    updates_aur = subprocess.check_output(['paru', '-Qu']).decode('utf-8').splitlines()
 except subprocess.CalledProcessError:
     updates_aur = []
 
