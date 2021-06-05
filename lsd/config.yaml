@@ -64,7 +64,7 @@ icons:
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
 # Possible values: false, true
-indicators: false
+indicators: true
 
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
@@ -111,5 +111,5 @@ total-size: false
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
-symlink-arrow: ➜
+symlink-arrow: ->
 

@@ -15,12 +15,7 @@
 
 import:
     - ~/.config/alacritty/theme-dracula.yml
-
-colors:
-  # Default colors
-  primary:
-    background: '#111111'
-    # foreground: '#f0f0f0'
+    - ~/.config/alacritty/font.yml
 
 
 # Any items in the `env` entry below will be added as
@@ -59,8 +54,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 30
-    y: 25
+    x: 20
+    y: 20
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -74,7 +69,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -113,78 +108,6 @@ window:
 
   # Scrolling distance multiplier.
   #multiplier: 3
-
-# Font configuration
-font:
-  ligatures: true
-  # Normal (roman) font face
-  normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    family: Fira Code
-
-    # The `style` can be specified to pick a specific face.
-    style: Retina
-
-  # Bold font face
-  bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Fira Code
-
-    # The `style` can be specified to pick a specific face.
-    style: Medium
-
-  # Italic font face
-  italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Fira Code
-
-    # The `style` can be specified to pick a specific face.
-    style: SemiBold
-
-  # Bold italic font face
-  bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Fira Code
-
-    # The `style` can be specified to pick a specific face.
-    style: SemiBold
-
-  # Point size
-  size: 11.5
-
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
-
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
-
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -354,7 +277,7 @@ font:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.93
+background_opacity: 0.7
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -404,7 +327,7 @@ cursor:
   thickness: 0.25
 
 # Live config reload (changes require restart)
-live_config_reload: false
+live_config_reload: true
 
 # Shell
 #

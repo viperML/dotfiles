@@ -74,7 +74,7 @@ beautiful.taglist_bg_urgent   = "#d35d6e"
 
 
 -- Other
-terminal = "alacritty"
+terminal = "st"
 menubar.utils.terminal = terminal
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
@@ -171,7 +171,7 @@ mytextclock = wibox.widget {
     widget = wibox.widget.textclock
 }
 
-widget_spacer = wibox.widget.textbox('      ')
+widget_spacer = wibox.widget.textbox('  ')
 
 widget_updates = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/updates.py"', 1800, function(widget, stdout)
     widget:set_text(" "..stdout)
@@ -294,7 +294,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.align.horizontal,
 
             { -- Left widgets
-                widget_spacer,
+                wibox.widget.textbox('  '),
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
             },
@@ -314,7 +314,7 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_battery,
                 s.mylayoutbox,
                 widget_systray,
-                widget_spacer
+                wibox.widget.textbox(' '),
             },
             expand = 'none',
     }
@@ -715,7 +715,7 @@ awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 --    ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║         ╚════██║██║███╗██║██╔══██║██║     ██║     ██║   ██║██║███╗██║
 --    ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗    ███████║╚███╔███╔╝██║  ██║███████╗███████╗╚██████╔╝╚███╔███╔╝
 --    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝
----- https://www.reddit.com/r/awesomewm/comments/h07f5y/does_awesome_support_window_swallowing/
+-- https://www.reddit.com/r/awesomewm/comments/h07f5y/does_awesome_support_window_swallowing/
 --
 --function is_terminal(c)
 --    return (c.class and c.class:match("Alacritty")) and true or false

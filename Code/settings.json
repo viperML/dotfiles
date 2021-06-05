@@ -25,7 +25,6 @@
   "editor.semanticHighlighting.enabled": true,
   "editor.tabCompletion": "on",
   "files.autoSaveDelay": 500,
-  "files.trimTrailingWhitespace": true,
 
   // integrated terminal
   "terminal.integrated.cursorStyle": "line",
@@ -39,7 +38,6 @@
 
 
   // Git
-  "editor.fontSize": 15,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
@@ -48,7 +46,7 @@
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.hovers.enabled": false,
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Hyper Dracula",
+  "workbench.colorTheme": "Dark Material Dracula",
 
 
   // Icons
@@ -60,11 +58,14 @@
 
 
   // Fira Code Style
-  "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF'",
+  "editor.fontSize": 14,
+  // "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
+  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
   "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
+  // "editor.letterSpacing": -0.55,
 
   // Result
-  //   __ |> <->  == >=>
+  //   __ |> <->  == >=> @
 
   // Custom italic fonts
   "editor.tokenColorCustomizations": {
@@ -101,14 +102,14 @@
   },
 
   "workbench.colorCustomizations": {
-        "editor.background": "#181818",
+        "editor.background": "#121212",
 		    // "editor.lineHighlightBackground": "#141414",
         "minimap.background": "#22222244",
         "sideBar.foreground": "#999999",
         "scrollbarSlider.background": "#333333",
         "scrollbarSlider.hoverBackground": "#444444",
         "statusBar.foreground": "#999999",
-        "editorRuler.foreground": "#292929"
+        "editorRuler.foreground": "#202020"
   },
 
 
@@ -127,10 +128,22 @@
   "latex.server.autoDownload": true,
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk",
+      "name": "latexmk-pdf",
       "command": "latexmk",
       "args": [
         "-pdf",
+        "-auxdir=%OUTDIR%",
+        "-outdir=%OUTDIR%",
+        "-synctex=1",
+        "--shell-escape",
+        "%DOC_EXT%"
+      ]
+    },
+    {
+      "name": "latexmk-xelatex",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
         "-auxdir=%OUTDIR%",
         "-outdir=%OUTDIR%",
         "-synctex=1",
@@ -154,15 +167,21 @@
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk",
+      "name": "latexmk (pdftex backend)",
       "tools": [
-        "latexmk"
+        "latexmk-pdf"
       ]
     },
     {
-      "name": "latexmk 🔄",
-      "tools": ["latexmk-pvc"]
-    }
+      "name": "latexmk (xelatex backend)",
+      "tools": [
+        "latexmk-xelatex"
+      ]
+    },
+    // {
+    //   "name": "latexmk 🔄",
+    //   "tools": ["latexmk-pvc"]
+    // }
   ],
 
   // Associations
@@ -186,31 +205,7 @@
 
   // Web
   "prettier.tabWidth": 2,
-  "[json]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[css]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[html]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[jsonc]": {
+  "[json,javascript,css,html,jsonc]": {
     "editor.defaultFormatter": "remimarsal.prettier-now",
     "editor.detectIndentation": false,
     "editor.tabSize": 2,
@@ -246,11 +241,11 @@
 
 
   // Action Buttons
-  "actionButtons": {
-    "defaultColor": "#999999",
-    "loadNpmCommands":true,
-    "reloadButton": "Actions"
-  },
+  // "actionButtons": {
+  //   "defaultColor": "#999999",
+  //   "loadNpmCommands":true,
+  //   "reloadButton": "Actions"
+  // },
 
 
   // Powershell
@@ -288,5 +283,12 @@
     "ARGB",
     "HSL"
   ],
+  "editor.lineNumbers": "relative",
 
+  "arduino.path": "/usr/bin",
+  "arduino.useArduinoCli": true,
+  "arduino.commandPath": "arduino-cli",
+  "files.trimTrailingWhitespace": true,
+  "tabnine.experimentalAutoImports": true,
+  "files.autoSave": "afterDelay",
 }

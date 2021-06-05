@@ -8,6 +8,9 @@ call plug#begin()
     Plug 'glepnir/dashboard-nvim'
     Plug 'junegunn/fzf.vim'
     Plug 'chrisbra/Colorizer'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " 4 spaces tabs and indentation
@@ -25,7 +28,11 @@ set relativenumber
 set scrolloff=4
 
 " use system clipboard ?
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 " mouse support
 set mouse=a
@@ -41,4 +48,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " dashboard + fzf
 let g:dashboard_default_executive ='fzf'
 
+" Reset cursor after leaving vim
+au VimLeave * set guicursor=a:ver100
 
+" Plugin highlight yank
+" Change highlight duration
+let g:highlightedyank_highlight_duration = -1

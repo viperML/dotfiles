@@ -8,10 +8,11 @@ export DOTFILES_DIR=$HOME/.dotfiles
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias alas="source $HOME/Documents/AzurLaneAutoScript/venv/bin/activate.fish && GTK_THEME=Adwaita python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw"
+alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw"
 alias ip="ip -c=auto"
 alias ls="lsd"
 alias svim="sudoedit"
+alias pat="$PAGER"
 
 if status --is-interactive
     abbr --add --global hc herbstclient
