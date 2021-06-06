@@ -1,4 +1,4 @@
-set -g -x fish_greeting ''
+set -g -x fish_greeting 'Hello viper!'
 oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
 
 
@@ -13,19 +13,23 @@ alias ip="ip -c=auto"
 alias ls="lsd"
 alias svim="sudoedit"
 alias pat="$PAGER"
+#alias pp="paru"
+#alias n="nvim"
 
+# Abbreviations
 if status --is-interactive
-    abbr --add --global hc herbstclient
+    # abbr --add --global hc herbstclient
     abbr --add --global dotinstall ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
     abbr --add --global p python
     abbr --add --global n nvim
-    abbr --add --global x xdg-open
+    # abbr --add --global x xdg-open
     abbr --add --global ss sudo systemctl
     abbr --add --global us systemctl --user
-    abbr --add --global c codium
+    # abbr --add --global c codium
+    abbr --add --global pp paru
 end
 
-
+# Fix ssh passing wrong $TERM
 function ssh
   begin; set -lx TERM xterm-256color; command ssh $argv; end
 end

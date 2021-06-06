@@ -27,8 +27,8 @@
     ~/.config/picom/picom.conf: picom/picom-jonaburg.conf
     #~/.config/picom/picom.conf: picom/picom-git.conf
 
-    ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
-    ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
+    # ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
+    # ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
 
     ~/.config/neofetch/config.conf: neofetch/config.conf
 

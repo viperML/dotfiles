@@ -578,7 +578,7 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule = { class = "Vivaldi-stable" },
+    { rule_any = { class = {"Vivaldi-stable", "Firefox Beta"} },
        properties = { tag = tags[1], switch_to_tags = true } },
  --   { rule = { class = "VSCodium" },
  --       properties = { tag = tags[2], switch_to_tags = true } },
