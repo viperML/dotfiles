@@ -290,5 +290,4 @@
   "arduino.commandPath": "arduino-cli",
   "files.trimTrailingWhitespace": true,
   "tabnine.experimentalAutoImports": true,
-  "files.autoSave": "afterDelay",
 }

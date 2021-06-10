@@ -20,3 +20,6 @@
 [submodule "awesome/freedesktop"]
 	path = awesome/freedesktop
 	url = https://github.com/lcpz/awesome-freedesktop
+[submodule "zsh/zsh-snap"]
+	path = zsh/zsh-snap
+	url = https://github.com/marlonrichert/zsh-snap.git

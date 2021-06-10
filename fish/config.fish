@@ -1,4 +1,4 @@
-set -g -x fish_greeting 'Hello viper!'
+set -g -x fish_greeting ''
 oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
 
 
@@ -22,7 +22,7 @@ if status --is-interactive
     abbr --add --global dotinstall ~/.dotfiles/dotbot.sh -c ~/.dotfiles/install-arch.yaml
     abbr --add --global p python
     abbr --add --global n nvim
-    # abbr --add --global x xdg-open
+    abbr --add --global x xdg-open
     abbr --add --global ss sudo systemctl
     abbr --add --global us systemctl --user
     # abbr --add --global c codium

@@ -68,3 +68,8 @@
     ~/.config/nvim:
       glob: true
       path: neovim/*
+    
+    ~/.config/zsh/.zshrc: zsh/.zshrc
+    ~/.config/zsh:
+      glob: true
+      path: zsh/*

@@ -75,7 +75,7 @@
 		"body": [
       "\\begin{figure}[H]",
       "    \\centering",
-      "    \\includegraphics[width=0.95\\textwidth]{$1}",
+      "    \\includegraphics[width=0.75\\textwidth]{$1}",
       "    \\label{fig:$2}",
       "    \\caption{$3}",
       "\\end{figure}",
