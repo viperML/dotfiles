@@ -269,5 +269,6 @@
     "RGB",
     "ARGB",
     "HSL"
-  ]
+  ],
+  "files.autoSave": "afterDelay"
 }

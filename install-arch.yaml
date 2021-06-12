@@ -17,7 +17,7 @@
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/print_colors.fish: fish/print_colors.py
+    # ~/.config/fish/print_colors.fish: fish/print_colors.py
 
     ~/.config/VSCodium/User/:
       glob: true

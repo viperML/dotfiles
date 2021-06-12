@@ -49,7 +49,8 @@
                         "status_separator_icon": " | ",
                         "local_working_icon": " ",
                         "local_staged_icon": "",
-                        "stash_count_icon": " "
+                        "stash_count_icon": " ",
+                        "commit_icon": " "
 					}
 				},
 				{

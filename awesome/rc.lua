@@ -99,8 +99,8 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "", layout = awful.layout.layouts[2]},
-    { name = "", layout = awful.layout.layouts[2]},
+    { name = "", layout = awful.layout.layouts[2]},
+    { name = "﬏", layout = awful.layout.layouts[2]},
     { name = "3", layout = awful.layout.layouts[2]},
     { name = "4", layout = awful.layout.layouts[2]},
     { name = "5", layout = awful.layout.layouts[2]},
@@ -173,15 +173,15 @@ mytextclock = wibox.widget {
 
 widget_spacer = wibox.widget.textbox('  ')
 
-widget_updates = awful.widget.watch('sh -c "paru -Qu | sed \'/ignored/,+1 d\' | wc -l"', 1800, function(widget, stdout)
+widget_updates = awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
     widget:set_text(" "..stdout)
 end)
 
-widget_fs = awful.widget.watch('bash -c "python ~/.dotfiles/awesome/disks.py"', 1800, function(widget, stdout)
+widget_fs = awful.widget.watch('sh -c "python ~/.dotfiles/bin/disks.py"', 1800, function(widget, stdout)
     widget:set_text(stdout)
 end)
 
-widget_battery = awful.widget.watch([[ sh -c \"echo -e \"$(checkupdates)\n$(paru -Qua | sed \'/ignored/,+1 d\')\" | sed \'/^\s*$/ d\' | wc -l\"" ]], 30, function(widget, stdout)
+widget_battery = awful.widget.watch([[ sh -c "$HOME/.dotfiles/bin/battery.sh" ]], 30, function(widget, stdout)
     widget:set_text(stdout)
 end)
 
@@ -720,7 +720,7 @@ awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 -- function is_terminal(c)
 --     return (c.class and c.class:match("st-256color")) and true or false
 -- end
--- 
+--
 -- function copy_size(c, parent_client)
 --     if not c or not parent_client then
 --         return
@@ -738,7 +738,7 @@ awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 --         copy_size(c.child_resize, c)
 --     end
 -- end
--- 
+--
 -- client.connect_signal("property::size", check_resize_client)
 -- client.connect_signal("property::position", check_resize_client)
 -- client.connect_signal("manage", function(c)
@@ -749,9 +749,9 @@ awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 --     if parent_client and is_terminal(parent_client) then
 --         parent_client.child_resize=c
 --         parent_client.minimized = true
--- 
+--
 --         c:connect_signal("unmanage", function() parent_client.minimized = false end)
--- 
+--
 --         -- c.floating=true
 --         copy_size(c, parent_client)
 --     end
