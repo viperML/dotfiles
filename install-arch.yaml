@@ -56,10 +56,6 @@
 
     ~/.config/lsd/config.yaml: lsd/config.yaml
 
-    ~/.config/alacritty/:
-        glob: true
-        path: alacritty/*
-
     ~/.config/nvim:
       glob: true
       path: neovim/*
