@@ -27,9 +27,6 @@
     ~/.config/picom/picom.conf: picom/picom-jonaburg.conf
     #~/.config/picom/picom.conf: picom/picom-git.conf
 
-    # ~/.config/vivaldi/Default/mainmenu.json: Vivaldi/mainmenu.json
-    # ~/.config/vivaldi-MODS/custom.css: Vivaldi/MODS/custom.css
-
     ~/.config/neofetch/config.conf: neofetch/config.conf
 
     ~/.Xresources: X11/Xresources
@@ -51,13 +48,11 @@
 
     ~/.config/dunst/dunstrc: dunst/dunstrc
 
-
     ~/.config/oh-my-posh/viper.omp.json: oh-my-posh/viper.omp.json
 
     ~/.config/awesome/:
       glob: true
       path: awesome/*
-
 
     ~/.config/lsd/config.yaml: lsd/config.yaml
 
@@ -68,8 +63,3 @@
     ~/.config/nvim:
       glob: true
       path: neovim/*
-    
-    ~/.config/zsh/.zshrc: zsh/.zshrc
-    ~/.config/zsh:
-      glob: true
-      path: zsh/*

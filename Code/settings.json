@@ -6,17 +6,10 @@
   "Lua.telemetry.enable": false,
 
 
-  // editor.
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.sortOrder": "type",
-  "extensions.ignoreRecommendations": true,
-  "update.mode": "none",
-  "window.menuBarVisibility": "compact",
-  "workbench.startupEditor": "none",
-
-
-  // editor.
+  // Basic
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fit",
@@ -24,17 +17,17 @@
   "editor.rulers": [160],
   "editor.semanticHighlighting.enabled": true,
   "editor.tabCompletion": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "type",
+  "extensions.ignoreRecommendations": true,
   "files.autoSaveDelay": 500,
-
-  // integrated terminal
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'Fira Code', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font', 'FiraCode NF', 'monospace",
-  // WIndows
-  // "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  // "terminal.integrated.shellArgs.windows": "-nologo",
-  // Linux
-  // "terminal.integrated.shell.linux": "/usr/bin/fish",
-  // "terminal.integrated.shellArgs.linux": ["-l"], // ["-l","-d 3"]
+  "files.trimTrailingWhitespace": true,
+  "update.mode": "none",
+  "window.menuBarVisibility": "compact",
+  "workbench.startupEditor": "none",  "editor.tabSize": 4,
 
 
   // Git
@@ -56,17 +49,10 @@
   "workbench.iconTheme": "material-icon-theme",
   "helium-icon-theme.folders.color": "#90a4ae",
 
-
-  // Fira Code Style
+  // Fonts
   "editor.fontSize": 14,
-  // "editor.fontFamily": "'Fira Code Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
   "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
-  "editor.fontLigatures": "'dlig', 'ss02', 'ss03', 'ss05', 'ss07'",
-  // "editor.letterSpacing": -0.55,
-
-  // Result
   //   __ |> <->  == >=> @
-
   // Custom italic fonts
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -100,7 +86,10 @@
       }
     ]
   },
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
 
+  // Colors
   "workbench.colorCustomizations": {
         "editor.background": "#121212",
 		    // "editor.lineHighlightBackground": "#141414",
@@ -252,6 +241,10 @@
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.startAutomatically": false,
 
+  // Arduino
+  "arduino.path": "/usr/bin",
+  "arduino.useArduinoCli": true,
+  "arduino.commandPath": "arduino-cli",
 
   // Unsorted
   "colorize.enable_search_variables": false,
@@ -262,12 +255,6 @@
     "**/*.sass",
     "**/*.less",
     "**/*.styl"
-  ],
-  "spellright.suggestionsInHints": false,
-
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
   ],
   "bracket-pair-colorizer-2.showBracketsInGutter": true,
   "python.showStartPage": false,
@@ -282,12 +269,5 @@
     "RGB",
     "ARGB",
     "HSL"
-  ],
-  "editor.lineNumbers": "relative",
-
-  "arduino.path": "/usr/bin",
-  "arduino.useArduinoCli": true,
-  "arduino.commandPath": "arduino-cli",
-  "files.trimTrailingWhitespace": true,
-  "tabnine.experimentalAutoImports": true,
+  ]
 }

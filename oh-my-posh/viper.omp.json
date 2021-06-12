@@ -30,8 +30,7 @@
 						"prefix": "  ",
 						"style": "agnoster_full",
 						"home_icon": "~",
-						"folder_separator_icon": "/",
-						"mapped_locations": [ [ "C:\\Users\\ayats\\Documents\\aurea_test1\\", "\uf1d8/" ] ]
+						"folder_separator_icon": "/"
 					}
 				},
 				{
@@ -39,8 +38,18 @@
 					"style": "plain",
 					"foreground": "green",
 					"properties": {
-						"prefix": "  ",
-						"branch_icon": " "
+						"prefix": " ",
+						"branch_icon": " ",
+                        "display_status": true,
+                        "branch_identical_icon": "",
+                        "branch_ahead_icon": "▲ ",
+                        "branch_behind_icon": "▼ ",
+                        "branch_gone_icon": "≠",
+                        "display_stash_count": true,
+                        "status_separator_icon": " | ",
+                        "local_working_icon": " ",
+                        "local_staged_icon": "",
+                        "stash_count_icon": " "
 					}
 				},
 				{
@@ -53,24 +62,13 @@
 						"display_mode": "context",
 						"display_version": true
 					}
-				},
-				{
-					"type": "exit",
-					"style": "plain",
-					"foreground": "red",
-					"properties": {
-						"prefix": " ",
-						"always_enabled": false
-					}
 				}
 			]
 		},
 		{
-			"type": "newline"
-		},
-		{
 			"type": "prompt",
-			"alignment": "left",
+            "newline": true,
+            "alignment": "left",
 			"horizontal_offset": 0,
 			"vertical_offset": 0,
 			"segments": [
