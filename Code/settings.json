@@ -28,6 +28,8 @@
   "update.mode": "none",
   "window.menuBarVisibility": "compact",
   "workbench.startupEditor": "none",  "editor.tabSize": 4,
+  "editor.suggest.preview": true,
+  "files.autoSave": "afterDelay",
 
 
   // Git
@@ -91,14 +93,16 @@
 
   // Colors
   "workbench.colorCustomizations": {
-        "editor.background": "#121212",
-		    // "editor.lineHighlightBackground": "#141414",
-        "minimap.background": "#22222244",
-        "sideBar.foreground": "#999999",
-        "scrollbarSlider.background": "#333333",
-        "scrollbarSlider.hoverBackground": "#444444",
-        "statusBar.foreground": "#999999",
-        "editorRuler.foreground": "#202020"
+    "editor.background": "#121212",
+    "minimap.background": "#22222244",
+    "sideBar.foreground": "#999999",
+    "scrollbarSlider.background": "#333333",
+    "scrollbarSlider.hoverBackground": "#444444",
+    "statusBar.foreground": "#999999",
+    "editorRuler.foreground": "#202020",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
   },
 
 
@@ -115,6 +119,7 @@
   "latex-workshop.latex.outDir": "%DIR%/_build",
   "latex-workshop.synctex.afterBuild.enabled": true,
   "latex.server.autoDownload": true,
+  "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk-pdf",
@@ -183,12 +188,9 @@
     "**/i3/config": "i3",
     "**/polybar/config": "ini"
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
 
 
 
@@ -246,6 +248,15 @@
   "arduino.useArduinoCli": true,
   "arduino.commandPath": "arduino-cli",
 
+  // Vim
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": " ",
+  "vim.neovimPath": "/usr/bin/nvim",
+  "vim.showMarksInGutter": true,
+  "vim.statusBarColorControl": true,
+
   // Unsorted
   "colorize.enable_search_variables": false,
   "colorize.include": [
@@ -270,5 +281,5 @@
     "ARGB",
     "HSL"
   ],
-  "files.autoSave": "afterDelay"
+
 }

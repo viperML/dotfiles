@@ -4,41 +4,33 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 # Installation
 I am using a dotfile boostrapper: [anishathalye/dotbot](https://github.com/anishathalye/dotbot) which
-sets up symlinks by calling `pwsh dotbot.ps1 -c config.yaml` or `bash dotbot.sh -c config.yaml`. It only requires python 3 and powershell/bash.
-
+sets up symlinks by calling `sh dotbot.sh -c install-arch.yaml`. For windows, `powershell dotbot.ps1 -c install-win.yaml` (Windows related config files are deprecated and may be removed in the future).
 
 
 # Dependencies
-- [Visual Studio Code](https://code.visualstudio.com) Installed extensions should be in [extensions](Code/extensions).
-- [oh-my-posh](https://ohmyposh.dev) Theme engine, used both for my Linux and Windows shell.
-- Fonts in neofetch
+- [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility.
+- [VSCodium](https://vscodium.com/) - IDE/Text editor of choice. Installed extensios are located in [extensions](Code/extensions)
+- [Neovim](https://neovim.io/) - Text editor, for the moments when opening a new VSC windows is overkill. Used as the pagination program thanks to [nvimpager](https://github.com/lucc/nvimpager)
+- [fish](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box, among many other things
+- [oh-my-posh](https://ohmyposh.dev) - Shell prompt. It can be installed both in linux and windows machines and it is easily configurable via a JSON file
+- Fonts:
+  - JetBrains Mono - Monospaced font
+  - Noto Sans - Sans serif font
 
-
-## Arch Linux dependencies
-![](_img/neofetch.png)
-- [yshui/picom](https://github.com/yshui/picom/) - Compositor, providing transparency, shadows, rounded corners and borders.
-- [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal emulator
-- [dunst](https://dunst-project.org) - Notification daemon
+- [jonaburg/picom](https://github.com/jonaburg/picom) - Compositor, providing transparency, shadows and rounded corners. Jonaburg's fork includes animations.
+- [viperML/st](https://github.com/viperML/st) - Terminal emulator. Automatically patched thanks to the Arch Build System.
 - [Rofi](https://github.com/davatorium/rofi) - Application launcher
-- [multiload-ng](https://udda.github.io/multiload-ng/) - System monitors
-
-### Deprecated config files:
-
-- [i3-gaps](https://github.com/Airblader/i3) - Tiling window manager
-  - [i3wsr](https://github.com/roosta/i3wsr) - Change the name of a workspace based on its contents
-  - [xfce4-i3-workspaces-plugin](https://github.com/denesb/xfce4-i3-workspaces-plugin) - Show workspaces in xfce4-panel
-- [xfce4](https://xfce.org) - Window Manager and Desktop are disabled, provides session, settings daemon, power daemon, notifications and volume control.
-- [herbstluftwm](https://herbstluftwm.org) - Tiling window manager
-- [polybar](https://github.com/polybar/polybar/wiki) - System status bar
+- [dunst](https://dunst-project.org) - Notification daemon
+- [multiload-ng](https://udda.github.io/multiload-ng/) - System tray load monitors
+- [Orchis Dark](https://github.com/vinceliuice/Orchis-theme) - GTK 2.0 / GTK 3.0 / QT Theme
+- [Vimix](https://github.com/vinceliuice/vimix-icon-theme) - Icon pack
 
 
+> Last updated: June 2021
 
-> NOTE: If there is anything missing, either I forgot to add it, I don't use it anymore or it is not interesting to merge into your config files.
+Screenshot:
+
+![](_img/2021_06_17_08_54_28.png)
 
 
-
-## Atribution
-
-- [qualia.conf](kitty/qualia.conf) terminal color palette by [u/starlig-ht](https://www.reddit.com/r/unixporn/comments/hjzw5f/oc_qualitative_color_palette_for_ansi_terminal/)
-- Some parts in [gtk.css](gtk-3.0/gtk.css) from [Mehedirm/dotfiles_v2](https://github.com/Mehedirm/dotfiles_v2)
-- Base config for [polybar](polybar/config) and [hlwm](herbstluftwm/autostart) from [wlard/dotfiles](https://github.com/wlard/dotfiles)
+> If there is anything missing, either I forgot to add it, I don't use it anymore or it is not interesting enough to show it off

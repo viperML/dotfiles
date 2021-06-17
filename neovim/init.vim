@@ -11,6 +11,8 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'
     Plug 'machakann/vim-highlightedyank'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'easymotion/vim-easymotion'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " 4 spaces tabs and indentation
@@ -54,3 +56,7 @@ au VimLeave * set guicursor=a:ver100
 " Plugin highlight yank
 " Change highlight duration
 let g:highlightedyank_highlight_duration = -1
+
+" Dracula theme, no background
+colorscheme dracula
+highlight Normal ctermbg=black

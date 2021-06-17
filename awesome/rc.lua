@@ -573,18 +573,18 @@ awful.rules.rules = {
     },
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
+    { rule_any = { type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule_any = { class = {"Vivaldi-stable", "Firefox Beta"} },
-       properties = { tag = tags[1], switch_to_tags = true } },
- --   { rule = { class = "VSCodium" },
- --       properties = { tag = tags[2], switch_to_tags = true } },
+    { rule = { class = "Firefox Beta" },
+        properties = { tag = tags[1], switch_to_tags = true } },
+    { rule = { class = "VSCodium" },
+        properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
-    { rule_any = { class = {"Genymotion Player", "Lutris", "Steam"} },
+    { rule_any = { class = {"Lutris", "Steam"} },
         properties = { tag = tags[8] } },
     { rule_any = { class = {"Lollypop", "Spotify"} },
         properties = { tag = tags[10] } }
