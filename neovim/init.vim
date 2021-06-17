@@ -3,7 +3,7 @@ let mapleader="\<SPACE>"
 
 call plug#begin()
     Plug 'mg979/vim-visual-multi'
-    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+    " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
     Plug 'vim-airline/vim-airline'
     Plug 'glepnir/dashboard-nvim'
     Plug 'junegunn/fzf.vim'
@@ -13,6 +13,7 @@ call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'easymotion/vim-easymotion'
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'preservim/nerdtree'
 call plug#end()
 
 " 4 spaces tabs and indentation
@@ -39,9 +40,12 @@ imap <C-v> <C-r><C-o>+
 " mouse support
 set mouse=a
 
+" NERDTree default keybinds
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
-" CUSTOM MAPPINGS
-nnoremap <leader>v <cmd>CHADopen<cr>
 
 " vim-airline config
 let g:airline#extensions#tabline#left_sep = ''

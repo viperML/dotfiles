@@ -25,6 +25,7 @@ if status --is-interactive
     abbr --add --global x xdg-open
     abbr --add --global ss sudo systemctl
     abbr --add --global us systemctl --user
+    abbr --add --global se sudo -E systemctl edit
     # abbr --add --global c codium
     abbr --add --global pp paru
 end
@@ -34,3 +35,14 @@ function ssh
   begin; set -lx TERM xterm-256color; command ssh $argv; end
 end
 
+switch $TERM
+    case 'st-*' # suckless' simple terminal
+                # Enable keypad, do it once before fish_postexec ever fires
+        tput smkx
+        function st_smkx --on-event fish_postexec
+            tput smkx
+        end
+        function st_rmkx --on-event fish_preexec
+            tput rmkx
+        end
+end
