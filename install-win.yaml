@@ -4,42 +4,16 @@
       create: true
 
 - link:
-    D:/Documents/PowerShell/:
+    ~/AppData/Roaming/alacritty/alacritty.yml: alacritty/alacritty-win.yml
+
+    C:/Users/ayats/Documents/PowerShell/:
       glob: true
       path: PowerShell/*
 
-    D:/Documents/ShareX/:
+    ~/Appdata/Local/nvim/:
       glob: true
-      path: dotfiles_priv/ShareX/*
-
-    ~/.config/oh-my-posh/:
-      glob: true
-      path: oh-my-posh/*
+      path: neovim/*
 
     ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/:
       glob: true
       path: AutoHotkey/*
-
-    ~/AppData/Roaming/qBittorrent/:
-      glob: true
-      path: dotfiles_priv/qBitTorrent/*
-
-    ~/AppData/Roaming/Code/User/:
-      glob: true
-      path: Code/*
-
-    ~/AppData/Local/Vivaldi/MODS/custom.css: Vivaldi/MODS/custom-win.css
-
-    ~/AppData/Local/Vivaldi/User Data/Default/mainmenu.json:
-      path: Vivaldi/mainmenu.json
-
-    ~/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
-      path: Windows Terminal Preview/settings.json
-      force: true
-
-    ~/AppData/Roaming/mpv/mpv.conf:
-      path: mpv/mpv.conf
-
-    ~/AppData/Roaming/lsd/config.yaml: lsd/config.yaml
-
-    ~/AppData/Roaming/alacritty/alacritty.yml: alacritty/alacritty-win.yml
