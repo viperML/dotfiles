@@ -11,6 +11,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw"
 alias ip="ip -c=auto"
 alias ls="lsd"
+alias lt="lsd -t"
 alias svim="sudoedit"
 alias pat="$PAGER"
 #alias pp="paru"

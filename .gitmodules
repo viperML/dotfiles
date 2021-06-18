@@ -23,3 +23,6 @@
 [submodule "zsh/zsh-snap"]
 	path = zsh/zsh-snap
 	url = https://github.com/marlonrichert/zsh-snap.git
+[submodule "awesome/bling"]
+	path = awesome/bling
+	url = https://github.com/BlingCorp/bling

@@ -25,8 +25,9 @@ require("awful.hotkeys_popup.keys")
 -- External
 local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
-local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+-- local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local freedesktop = require("freedesktop")
+local bling = require('bling')
 
 local config_dir = "~/.config/awesome/"
 
