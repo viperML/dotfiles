@@ -27,7 +27,7 @@ local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 -- local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local freedesktop = require("freedesktop")
-local bling = require('bling')
+local lain = require("lain")
 
 local config_dir = "~/.config/awesome/"
 
@@ -97,6 +97,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    lain.layout.centerwork,
 }
 
 local tags = sharedtags({

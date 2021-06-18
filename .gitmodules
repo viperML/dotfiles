@@ -2,9 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "herbstluftwm/hlwm-utils"]
-	path = herbstluftwm/hlwm-utils
-	url = https://github.com/branwright1/hlwm-utils.git
 [submodule "dotfiles_priv"]
 	path = dotfiles_priv
 	url = git@github.com:viperML/dotfiles_priv.git
@@ -20,9 +17,3 @@
 [submodule "awesome/freedesktop"]
 	path = awesome/freedesktop
 	url = https://github.com/lcpz/awesome-freedesktop
-[submodule "zsh/zsh-snap"]
-	path = zsh/zsh-snap
-	url = https://github.com/marlonrichert/zsh-snap.git
-[submodule "awesome/bling"]
-	path = awesome/bling
-	url = https://github.com/BlingCorp/bling
