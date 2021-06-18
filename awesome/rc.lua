@@ -21,6 +21,9 @@ local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
+local naughty = require('naughty')
+local nconf = naughty.config
+local helpers = require("helpers")
 
 -- External
 local sharedtags = require("sharedtags")
@@ -76,7 +79,7 @@ beautiful.taglist_bg_urgent   = "#d35d6e"
 -- Other
 terminal = "st"
 menubar.utils.terminal = terminal
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 
 awful.layout.layouts = {
@@ -116,6 +119,21 @@ local tags = sharedtags({
     { name = "", layout = awful.layout.layouts[2], screen = 2},
 })
 
+-- Naughty
+nconf.defaults.border_width = 0
+nconf.defaults.margin = 16
+nconf.defaults.shape = helpers.rrect(corner_radius)
+nconf.defaults.text = "Boo!"
+nconf.defaults.timeout = 5
+nconf.padding = 8
+nconf.presets.critical.bg = "#FE634E"
+nconf.presets.critical.timeout = 0
+nconf.presets.critical.fg = "#000000"
+nconf.presets.low.bg = "#191919"
+nconf.presets.normal.bg = "#191919"
+nconf.defaults.icon_size = 64
+nconf.spacing = 8
+beautiful.notification_font = "Verdana 13"
 
 
 

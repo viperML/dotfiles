@@ -12,6 +12,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
+local gears = require("gears")
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
@@ -142,6 +143,13 @@ theme.titlebar_sticky_button_focus_active    = res_dir.."btn/pin2.png"
 
 theme.useless_gap = 10
 
+
+-- ██████╗ ██╗     ██╗███╗   ██╗ ██████╗
+-- ██╔══██╗██║     ██║████╗  ██║██╔════╝
+-- ██████╔╝██║     ██║██╔██╗ ██║██║  ███╗
+-- ██╔══██╗██║     ██║██║╚██╗██║██║   ██║
+-- ██████╔╝███████╗██║██║ ╚████║╚██████╔╝
+-- ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝
 -- For tabbed only
 theme.tabbed_spawn_in_tab = false           -- whether a new client should spawn into the focused tabbing container
 

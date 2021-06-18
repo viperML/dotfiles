@@ -13,10 +13,21 @@
       stderr: true
       quiet: true
       description: Broken symlinks in .config
+    -
+      command: find ~/bin -xtype l
+      stdout: true
+      stderr: true
+      quiet: true
+      description: Broken symlinks in bin
+    -
+      command: find ~ -xtype l -maxdepth 1
+      stdout: true
+      stderr: true
+      quiet: true
+      description: Broken symlinks in ~
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
-    # ~/.config/fish/print_colors.fish: fish/print_colors.py
 
     ~/.config/VSCodium/User/:
       glob: true
@@ -43,9 +54,6 @@
 
     ~/.config/rofi/config.rasi: rofi/config.rasi
     ~/.config/rofi/theme.rasi: rofi/theme.rasi
-    ~/bin/rofiman: rofi/man.sh
-
-    ~/.config/dunst/dunstrc: dunst/dunstrc
 
     ~/.config/oh-my-posh/viper.omp.json: oh-my-posh/viper.omp.json
 
