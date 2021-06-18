@@ -17,3 +17,6 @@
 [submodule "awesome/freedesktop"]
 	path = awesome/freedesktop
 	url = https://github.com/lcpz/awesome-freedesktop
+[submodule "awesome/bling"]
+	path = awesome/bling
+	url = https://github.com/BlingCorp/bling

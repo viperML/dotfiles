@@ -25,9 +25,7 @@ require("awful.hotkeys_popup.keys")
 -- External
 local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
--- local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local freedesktop = require("freedesktop")
-local lain = require("lain")
 
 local config_dir = "~/.config/awesome/"
 
@@ -38,14 +36,16 @@ local config_dir = "~/.config/awesome/"
 -- ██╔══██╗██╔══╝  ██╔══██║██║   ██║   ██║   ██║██╔══╝  ██║   ██║██║     ██╔═██╔═╝██║     ██║   ██║
 -- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
 -- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(config_dir.."theme.lua")
+
+local lain = require("lain")
+local bling = require("bling")
 
 
 corner_radius = 14
 -- beautiful.useless_gap = 5
 beautiful.border_width = 0
-beautiful.font = "Roboto 10"
+beautiful.font = "Verdana 10"
 local text_color = '#bbbbbb'
 
 -- Titlebars
@@ -53,7 +53,6 @@ beautiful.titlebar_fg_focus = text_color
 beautiful.titlebar_fg_normal =text_color
 beautiful.titlebar_bg_focus = "#191919"
 beautiful.titlebar_bg_normal = '#000000'
--- beautiful.titlebar_close_button_normal = res_dir.."icons8-macos-close-24.png"
 
 -- Menu
 beautiful.menu_width = 200
@@ -83,13 +82,13 @@ editor_cmd = terminal .. " -e " .. editor
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
@@ -97,7 +96,11 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
-    lain.layout.centerwork,
+    bling.layout.mstab,
+    bling.layout.centered,
+    -- bling.layout.vertical,
+    -- bling.layout.horizontal,
+    bling.layout.equalarea,
 }
 
 local tags = sharedtags({
@@ -306,15 +309,19 @@ awful.screen.connect_for_each_screen(function(s)
 
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                spacing = 10,
+                spacing = 12,
 
                 widget_fs,
                 widget_updates,
-                volume_widget{
-                    widget_type = 'icon_and_text'
-                },
                 widget_battery,
                 s.mylayoutbox,
+                volume_widget{
+                    widget_type = 'horizontal_bar',
+                    width = 100,
+                    mute_color = '#ffffff11',
+                    margins = 7,
+                    shape = 'rounded_bar'
+                },
                 widget_systray,
                 wibox.widget.textbox(' '),
             },
@@ -343,32 +350,22 @@ root.buttons(gears.table.join(
 -- ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
 
 globalkeys = gears.table.join(
-    awful.key({ modkey,           }, "h",      hotkeys_popup.show_help,
+    awful.key({ modkey }, "h", hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
+    awful.key({ modkey }, "Right", function () awful.client.focus.byidx( 1) end,
+        {description = "focus next by index", group = "client"} ),
+    awful.key({ modkey }, "Left", function () awful.client.focus.byidx(-1) end,
+        {description = "focus previous by index", group = "client"} ),
+    awful.key({ modkey }, "Tab", function () awful.screen.focus_relative( 1) end,
+              {description = "focus the next screen", group = "screen"}),
 
     -- Layout manipulation
-    awful.key({ modkey,           }, "Left", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey, "Shift" }, "Right", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey,           }, "Right", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey, "Shift" }, "Left", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Shift" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Shift" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
+    awful.key({ modkey }, "u", awful.client.urgent.jumpto,
                {description = "jump to urgent client", group = "client"}),
     -- awful.key({ modkey,           }, "Tab",
     --     function ()
@@ -396,17 +393,17 @@ globalkeys = gears.table.join(
               {description = "take screenshot", group = "launcher"}),
 
 
-    awful.key({ modkey, "Shift"   }, "Right",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey }, "Up", function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "Left",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey }, "Down", function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     -- awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
     --           {description = "increase the number of columns", group = "layout"}),
     -- awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
     --           {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "Up", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey }, "l", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey,           }, "Down", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Shift" }, "l", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     -- Volume
@@ -419,7 +416,11 @@ globalkeys = gears.table.join(
     awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end),
     awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
     awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
-    awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end)
+    awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end),
+
+    -- On the fly useless gaps change
+    awful.key({ modkey }, "g", function () lain.util.useless_gaps_resize(1) end),
+    awful.key({ modkey, "Shift"}, "g", function () lain.util.useless_gaps_resize(-1) end)
 )
 
 clientkeys = gears.table.join(

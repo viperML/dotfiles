@@ -7,14 +7,17 @@ except subprocess.CalledProcessError as e:
     output = e.output
 output = output.decode('utf-8').splitlines()
 
-UUID = ['7a0abe38-85d5-4221-bfed-f696f1802798', 'C0AF-1964']
+CODES = {
+    '7a0abe38-85d5-4221-bfed-f696f1802798': 'data',
+    'C0AF-1964': 'EFI'
+}
 
 to_print = []
 for line in output:
     split = line.split()
     try:
-        if split[3] in UUID:
-            to_print = ['  ' + split[6] + ': ' + split[5], *to_print]
+        if split[3] in CODES:
+            to_print = ['  ' + CODES[split[3]] + ': ' + split[5], *to_print]
     except IndexError:
         pass
 

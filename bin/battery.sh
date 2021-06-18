@@ -3,11 +3,11 @@ CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 
 if [ `cat /sys/class/power_supply/ADP1/online` -eq 1 ]
 then
-    state=CHG
+    state=
 else
-    state=DCH
+    state="⚠ "
 fi
 
-echo  $CAPACITY% $state
+echo $state $CAPACITY%
 
 exit

@@ -142,5 +142,41 @@ theme.titlebar_sticky_button_focus_active    = res_dir.."btn/pin2.png"
 
 theme.useless_gap = 10
 
+-- For tabbed only
+theme.tabbed_spawn_in_tab = false           -- whether a new client should spawn into the focused tabbing container
+
+-- For tabbar in general
+theme.tabbar_ontop  = true
+theme.tabbar_radius = 12                     -- border radius of the tabbar
+theme.tabbar_style = "default"              -- style of the tabbar ("default", "boxes" or "modern")
+theme.tabbar_font = "Verdana 10"               -- font of the tabbar
+theme.tabbar_size = 25                      -- size of the tabbar
+theme.tabbar_position = "top"               -- position of the tabbar
+theme.tabbar_bg_normal = "#000000"          -- background color of the focused client on the tabbar
+theme.tabbar_fg_normal = "#bbbbbb"          -- foreground color of the focused client on the tabbar
+theme.tabbar_bg_focus  = "#121212"          -- background color of unfocused clients on the tabbar
+theme.tabbar_fg_focus  = "#bbbbbb"          -- foreground color of unfocused clients on the tabbar
+
+-- the following variables are currently only for the "modern" tabbar style
+theme.tabbar_color_close = "#f9929b"        -- chnges the color of the close button
+theme.tabbar_color_min   = "#fbdf90"        -- chnges the color of the minimize button
+theme.tabbar_color_float = "#ccaced"        -- chnges the color of the float button
+
+-- mstab
+theme.mstab_bar_ontop = true               -- whether you want to allow the bar to be ontop of clients
+theme.mstab_dont_resize_slaves = false      -- whether the tabbed stack windows should be smaller than the
+                                            -- currently focused stack window (set it to true if you use
+                                            -- transparent terminals. False if you use shadows on solid ones
+theme.mstab_bar_padding = 10         -- how much padding there should be between clients and your tabbar
+                                            -- by default it will adjust based on your useless gaps.
+                                            -- If you want a custom value. Set it to the number of pixels (int)
+theme.mstab_border_radius = 12               -- border radius of the tabbar
+theme.mstab_bar_height = 25                 -- height of the tabbar
+theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
+theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
+                                            -- defaults to the tabbar_style so only change if you want a
+                                            -- different style for mstab and tabbed
+
+
 return theme
 

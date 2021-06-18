@@ -53,7 +53,7 @@
 
   // Fonts
   "editor.fontSize": 14,
-  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
+  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Font Awesome 5 Free Solid'",
   //   __ |> <->  == >=> @
   // Custom italic fonts
   "editor.tokenColorCustomizations": {
