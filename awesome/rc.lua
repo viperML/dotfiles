@@ -29,6 +29,7 @@ local helpers = require("helpers")
 local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local freedesktop = require("freedesktop")
+local revelation = require("revelation")
 
 local config_dir = "~/.config/awesome/"
 
@@ -40,6 +41,7 @@ local config_dir = "~/.config/awesome/"
 -- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
 -- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
 beautiful.init(config_dir.."theme.lua")
+revelation.init()
 
 local lain = require("lain")
 local bling = require("bling")
@@ -334,7 +336,7 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_battery,
                 s.mylayoutbox,
                 volume_widget{
-                    widget_type = 'horizontal_bar',
+                    widget_type = 'icon_and_text',
                     width = 100,
                     mute_color = '#ffffff11',
                     margins = 7,
@@ -429,8 +431,10 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey }, "F7", function() volume_widget:dec() end),
     -- awful.key({ modkey }, "F6", function() volume_widget:toggle() end)
 
-    awful.key({      }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
-    awful.key({      }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
+    -- awful.key({      }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
+    -- awful.key({      }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
+    awful.key({      }, "XF86AudioRaiseVolume", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_volume +4 ]]) end),
+    awful.key({      }, "XF86AudioLowerVolume", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_volume -4 ]]) end),
     awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end),
     awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
     awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
@@ -438,7 +442,11 @@ globalkeys = gears.table.join(
 
     -- On the fly useless gaps change
     awful.key({ modkey }, "g", function () lain.util.useless_gaps_resize(1) end),
-    awful.key({ modkey, "Shift"}, "g", function () lain.util.useless_gaps_resize(-1) end)
+    awful.key({ modkey, "Shift"}, "g", function () lain.util.useless_gaps_resize(-1) end),
+
+    -- Revelation
+    awful.key({ modkey }, "r", revelation),
+    awful.key({ modkey }, "Escape", awful.tag.history.restore)
 )
 
 clientkeys = gears.table.join(

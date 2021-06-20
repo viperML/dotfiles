@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# pactl list | grep -oP 'Sink #\K([0-9]+)' | while read -r i ; do pactl -- set-sink-volume $i $1% ; done
+echo -e "51\n48" | while read -r i ; do pactl -- set-sink-volume $i $1% ; done

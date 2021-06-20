@@ -53,7 +53,10 @@
 
   // Fonts
   "editor.fontSize": 14,
-  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Font Awesome 5 Free Solid'",
+  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  "terminal.integrated.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  "editor.fontLigatures": true,
+
   //   __ |> <->  == >=> @
   // Custom italic fonts
   "editor.tokenColorCustomizations": {
@@ -61,11 +64,11 @@
       {
         "scope": [
           //following will be in italic (=FlottFlott)
-          "comment"
-          // "entity.name.type.class", //class names
-          // "keyword", //import, export, return…
+          "comment",
+          "entity.name.type.class", //class names
+          "keyword", //import, export, return…
           // "constant", //String, Number, Boolean…, this, super
-          // "storage.modifier", //static keyword
+          "storage.modifier", //static keyword
           // "storage.type.class.js" //class keyword
         ],
         "settings": {
@@ -89,7 +92,6 @@
     ]
   },
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands', 'Symbols Nerd Font'",
 
   // Colors
   "workbench.colorCustomizations": {

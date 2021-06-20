@@ -20,3 +20,6 @@
 [submodule "awesome/bling"]
 	path = awesome/bling
 	url = https://github.com/BlingCorp/bling
+[submodule "awesome/revelation"]
+	path = awesome/revelation
+	url = https://github.com/guotsuan/awesome-revelation
