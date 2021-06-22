@@ -44,7 +44,7 @@
                         "branch_identical_icon": "",
                         "branch_ahead_icon": "▲ ",
                         "branch_behind_icon": "▼ ",
-                        "branch_gone_icon": "≠",
+                        "branch_gone_icon": "≠ ",
                         "display_stash_count": true,
                         "status_separator_icon": " | ",
                         "local_working_icon": " ",

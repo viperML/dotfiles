@@ -55,6 +55,7 @@
   "editor.fontSize": 14,
   "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   "terminal.integrated.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  "debug.console.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @

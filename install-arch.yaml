@@ -68,3 +68,5 @@
       path: neovim/*
 
     ~/.config/nvimpager/init.vim: nvimpager/init.vim
+
+    ~/bin/rofiman: bin/rofiman

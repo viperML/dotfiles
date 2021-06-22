@@ -50,7 +50,7 @@ local bling = require("bling")
 corner_radius = 14
 -- beautiful.useless_gap = 5
 beautiful.border_width = 0
-beautiful.font = "Verdana 10"
+beautiful.font = "Verdana 10, Font Awesome 5 Free Solid 10"
 local text_color = '#bbbbbb'
 
 -- Titlebars
