@@ -70,6 +70,22 @@
 		]
 	},
 
+	"Tabla en Latex, ahora de verdad": {
+		"prefix": "tabular",
+		"body": [
+			"\\begin{table}[H]",
+  		    "  \\label{tab:foo}",
+  			"  \\centering",
+			"  \\begin{tabular*}{.8\\linewidth}{@{\\extracolsep{\\fill}}|l|c|c|}",
+            "    $0",
+			"  \\end{tabular*}",
+			"  %\\caption{  }",
+			"\\end{table}",
+		]
+
+	},
+
+
 	"Figura en Latex":{
 		"prefix": "figure",
 		"body": [
