@@ -5,8 +5,8 @@
 
 - shell:
     - xrdb -merge $HOME/.Xresources
-    - codium --list-extensions > $DOTFILES_DIR/Code/extensions
-    - python $DOTFILES_DIR/dotfiles_priv/packages.py
+    - codium --list-extensions > $DOTDIR/Code/extensions
+    - python $DOTDIR/dotfiles_priv/packages.py
     -
       command: find ~/.config -xtype l
       stdout: true

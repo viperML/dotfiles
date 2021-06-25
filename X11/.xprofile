@@ -16,5 +16,6 @@ export QT_STYLE_OVERRIDE=kvantum
 
 export EDITOR=nvim
 export PAGER=nvimpager
-export SHELL=fish
-
+export SHELL=zsh
+export DOTDIR=/home/ayats/.dotfiles
+export ZDOTDIR=/home/ayats/.dotfiles/zsh

@@ -1,0 +1,7 @@
+abbr dotinstall="/home/ayats/.dotfiles/dotbot.sh -c /home/ayats/.dotfiles/install-arch.yaml"
+abbr n="nvim"
+abbr p="python"
+abbr se="sudo -E systemctl edit"
+abbr ss="sudo systemctl"
+abbr us="systemctl --user"
+abbr x="xdg-open"
