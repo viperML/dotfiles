@@ -7,6 +7,7 @@
     - xrdb -merge $HOME/.Xresources
     - codium --list-extensions > $DOTDIR/Code/extensions
     - python $DOTDIR/dotfiles_priv/packages.py
+    - python $DOTDIR/dotfiles_priv/optional_deps.py
     -
       command: find ~/.config -xtype l
       stdout: true
@@ -70,3 +71,7 @@
     ~/.config/nvimpager/init.vim: nvimpager/init.vim
 
     ~/bin/rofiman: bin/rofiman
+
+    ~/.doom.d/config.el: doom/config.el
+    ~/.doom.d/init.el: doom/init.el
+    ~/.doom.d/packages.el: doom/packages.el

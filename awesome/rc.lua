@@ -254,6 +254,19 @@ local tasklist_buttons = gears.table.join(
 
 awful.screen.connect_for_each_screen(function(s)
 
+ --   -- Bling Wallpaper
+ --   bling.module.tiled_wallpaper("", s, {        -- call the actual function ("x" is the string that will be tiled)
+ --       fg = "#27382A",  -- define the foreground color
+ --       bg = "#212326",  -- define the background color
+ --       offset_y = 15,   -- set a y offset
+ --       offset_x = 15,   -- set a x offset
+ --       font = "Font Awesome 5 Free Solid",   -- set the font (without the size)
+ --       font_size = 10,  -- set the font size
+ --       padding = 50,   -- set padding (default is 100)
+ --       zickzack = true  -- rectangular pattern or criss cross
+ --   })
+
+
     s.mypromptbox = awful.widget.prompt()
 
     -- Layout Icon
@@ -675,10 +688,9 @@ client.connect_signal("request::titlebars", function(c)
             awful.mouse.client.resize(c)
         end)
     )
+
     local title = awful.titlebar.widget.titlewidget(c)
     local widget_title =  wibox.container.margin(title, 0, 0, 0, 2)
-
-
     local vertical_icon_padding = 6
     local horizontal_icon_padding = 4
 
@@ -688,7 +700,7 @@ client.connect_signal("request::titlebars", function(c)
         { -- Left
             align  = "left",
             wibox.widget.textbox('   '),
-            widget_title,
+            widget_title, 
             -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
