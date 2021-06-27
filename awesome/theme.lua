@@ -122,23 +122,24 @@ theme.icon_theme = nil
 -- ██║╚██╗██║██║   ██║██║╚██╗██║╚════╝██║  ██║██╔══╝  ██╔══╝  ██╔══██║██║   ██║██║     ██║
 -- ██║ ╚████║╚██████╔╝██║ ╚████║      ██████╔╝███████╗██║     ██║  ██║╚██████╔╝███████╗██║
 -- ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝      ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝
-theme.titlebar_close_button_normal = res_dir.."btn/close.png"
-theme.titlebar_close_button_focus  = res_dir.."btn/close.png"
+local btn_dir = res_dir.."btn2/"
+theme.titlebar_close_button_normal = btn_dir.."close.png"
+theme.titlebar_close_button_focus  = btn_dir.."close.png"
 
-theme.titlebar_floating_button_normal_inactive = res_dir.."btn/retr.png"
-theme.titlebar_floating_button_focus_inactive  = res_dir.."btn/retr.png"
-theme.titlebar_floating_button_normal_active = res_dir.."btn/retr2.png"
-theme.titlebar_floating_button_focus_active  = res_dir.."btn/retr2.png"
+theme.titlebar_floating_button_normal_inactive = btn_dir.."retr.png"
+theme.titlebar_floating_button_focus_inactive  = btn_dir.."retr.png"
+theme.titlebar_floating_button_normal_active = btn_dir.."retr2.png"
+theme.titlebar_floating_button_focus_active  = btn_dir.."retr2.png"
 
-theme.titlebar_maximized_button_normal_inactive = res_dir.."btn/exp.png"
-theme.titlebar_maximized_button_focus_inactive  = res_dir.."btn/exp.png"
-theme.titlebar_maximized_button_normal_active = res_dir.."btn/exp2.png"
-theme.titlebar_maximized_button_focus_active  = res_dir.."btn/exp2.png"
+theme.titlebar_maximized_button_normal_inactive = btn_dir.."exp.png"
+theme.titlebar_maximized_button_focus_inactive  = btn_dir.."exp.png"
+theme.titlebar_maximized_button_normal_active = btn_dir.."exp2.png"
+theme.titlebar_maximized_button_focus_active  = btn_dir.."exp2.png"
 
-theme.titlebar_sticky_button_normal_inactive = res_dir.."btn/pin.png"
-theme.titlebar_sticky_button_focus_inactive  = res_dir.."btn/pin.png"
-theme.titlebar_sticky_button_normal_active   = res_dir.."btn/pin2.png"
-theme.titlebar_sticky_button_focus_active    = res_dir.."btn/pin2.png"
+theme.titlebar_sticky_button_normal_inactive = btn_dir.."pin.png"
+theme.titlebar_sticky_button_focus_inactive  = btn_dir.."pin.png"
+theme.titlebar_sticky_button_normal_active   = btn_dir.."pin2.png"
+theme.titlebar_sticky_button_focus_active    = btn_dir.."pin2.png"
 
 
 theme.useless_gap = 10

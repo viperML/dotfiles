@@ -1,9 +1,17 @@
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 " leader key
 let mapleader="\<SPACE>"
 
 call plug#begin()
     Plug 'mg979/vim-visual-multi'
-    " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+    " use normal easymotion when in vim mode
+    Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
+    " use vscode easymotion when in vscode mode
+    Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
     Plug 'vim-airline/vim-airline'
     Plug 'glepnir/dashboard-nvim'
     Plug 'junegunn/fzf.vim'
@@ -11,7 +19,6 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'
     Plug 'machakann/vim-highlightedyank'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'easymotion/vim-easymotion'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'preservim/nerdtree'
 call plug#end()
@@ -64,3 +71,5 @@ let g:highlightedyank_highlight_duration = -1
 " Dracula theme, no background
 colorscheme dracula
 highlight Normal ctermbg=black
+
+" endif
