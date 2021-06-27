@@ -7,7 +7,7 @@ endfunction
 let mapleader="\<SPACE>"
 
 call plug#begin()
-    Plug 'mg979/vim-visual-multi'
+    Plug 'mg979/vim-visual-multi', Cond(!exists('g:vscode'))
     " use normal easymotion when in vim mode
     Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
     " use vscode easymotion when in vscode mode

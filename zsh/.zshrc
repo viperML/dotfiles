@@ -61,6 +61,7 @@ alias lt="ls -t"
 alias la="ls -a -l"
 alias ll="ls -l"
 alias ip="ip -c=auto"
+alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw & disown"
 
 # Git aliases
 zplug "mdumitru/git-aliases", defer:2

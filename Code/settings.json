@@ -295,7 +295,6 @@
     "HSL"
   ],
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.logLevel": "debug",
   "vscode-neovim.logPath": "/tmp/nvimlog",
   "vscode-neovim.neovimInitVimPaths.linux": "/home/ayats/.config/nvim/init.vim"
