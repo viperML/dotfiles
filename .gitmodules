@@ -2,9 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "dotfiles_priv"]
-	path = dotfiles_priv
-	url = git@github.com:viperML/dotfiles_priv.git
 [submodule "awesome/sharedtags"]
 	path = awesome/sharedtags
 	url = https://github.com/Drauthius/awesome-sharedtags

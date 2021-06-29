@@ -1,4 +1,4 @@
-set -g -x fish_greeting ''
+set -g -x fish_greeting (echo -n "Welcome to "; set_color cyan; echo "Arch"; set_color normal)
 oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
 
 
@@ -8,10 +8,10 @@ export DOTFILES_DIR=$HOME/.dotfiles
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw"
+alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw & disown"
 alias ip="ip -c=auto"
 alias ls="lsd"
-alias lt="lsd -t"
+alias lt="lsd -t -r"
 alias svim="sudoedit"
 alias pat="$PAGER"
 #alias pp="paru"
@@ -47,3 +47,29 @@ switch $TERM
             tput rmkx
         end
 end
+
+function set_colorscheme
+    set fish_color_normal brwhite
+    set fish_color_command green
+    set fish_color_keyword brblue
+    set fish_color_quote yellow
+    set fish_color_redirection brwhite
+    set fish_color_end brred
+    set fish_color_error -o red
+    set fish_color_param white
+    set fish_color_comment brblack
+    set fish_color_selection --background=brblack
+    # set fish_color_selection cyan
+    # set fish_color_search_match cyan
+    set fish_color_search_match --background=brblack
+    set fish_color_operator green
+    set fish_color_escape brblue
+    set fish_color_autosuggestion brblack
+
+    # Completion Pager Colors
+    set fish_pager_color_progress brblack
+    set fish_pager_color_prefix green
+    set fish_pager_color_completion white
+    set fish_pager_color_description brblack
+end
+

@@ -33,7 +33,8 @@
       description: Broken symlinks in ~
 
 - link:
-    #~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/fish_plugins: fish/fish_plugins
 
     ~/.config/VSCodium/User/:
       glob: true
@@ -45,8 +46,9 @@
 
     ~/.config/neofetch/config.conf: neofetch/config.conf
 
-    ~/.Xresources: X11/Xresources
-    ~/.xprofile: X11/.xprofile
+    ~/.Xresources: misc/Xresources
+    ~/.xprofile: misc/xprofile
+    ~/.bashrc: misc/bashrc
 
     ~/.config/redshift.conf: redshift/redshift.conf
 
