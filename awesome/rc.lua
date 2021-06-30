@@ -47,36 +47,8 @@ local lain = require("lain")
 local bling = require("bling")
 
 
-corner_radius = 14
--- beautiful.useless_gap = 5
-beautiful.border_width = 0
-beautiful.font = "Verdana 10, Font Awesome 5 Free Solid 10"
-local text_color = '#bbbbbb'
-
--- Titlebars
-beautiful.titlebar_fg_focus = text_color
-beautiful.titlebar_fg_normal =text_color
-beautiful.titlebar_bg_focus = "#191919"
-beautiful.titlebar_bg_normal = '#000000'
-
--- Menu
-beautiful.menu_width = 200
-beautiful.menu_height = 20
-beautiful.menu_submenu_icon = nil
-
--- Wibox
-beautiful.taglist_squares_sel = nil
-beautiful.taglist_squares_unsel = nil
--- beautiful.systray_icon_spacing = 5
-beautiful.wibar_fg = text_color
-beautiful.wibar_bg = "#111111"
-beautiful.bg_systray = '#111111'
-beautiful.taglist_fg_focus = "#9AEDFE"
-beautiful.taglist_bg_focus = "#00000000"
-beautiful.taglist_fg_empty = "#6a7066"
-beautiful.taglist_fg_urgent = "#000"
-beautiful.taglist_bg_urgent   = "#d35d6e"
-
+local corner_radius = 8
+local bar_height = 30
 
 -- Other
 terminal = "st"
@@ -272,7 +244,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Layout Icon
     s.mylayoutbox = awful.widget.layoutbox(s)
     local h_margin = 2
-    local v_vargin = 5
+    local v_vargin = 7
     s.mylayoutbox = wibox.container.margin(s.mylayoutbox, h_margin, h_margin, v_vargin, v_vargin)
     s.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
@@ -298,7 +270,7 @@ awful.screen.connect_for_each_screen(function(s)
     local wibox_gap_x = 100
     local wibox_gap_y1 = 9
     local wibox_gap_y2 = -4
-    local height = 25
+    local height = bar_height
 
     -- Manually create wibox (no awfulw.wibar)
     s.mywibox = wibox({
@@ -325,7 +297,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Systreay
     local systray = wibox.widget.systray()
     systray : set_base_size(20)
-    local widget_systray = wibox.container.margin(systray, 0, 0, 2, 0)
+    local widget_systray = wibox.container.margin(systray, 0, 0, (height-20)/2, 0)
 
 
     s.mywibox:setup {
@@ -689,44 +661,34 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    local title = awful.titlebar.widget.titlewidget(c)
-    local widget_title =  wibox.container.margin(title, 0, 0, 0, 2)
-    local vertical_icon_padding = 6
+    local vertical_icon_padding = 8
     local horizontal_icon_padding = 4
 
     awful.titlebar(c, {
-        size = 25
+        size = bar_height
     }) : setup {
         { -- Left
-            align  = "left",
-            wibox.widget.textbox('   '),
-            widget_title, 
-            -- awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
+            wibox.widget {
+                widget = wibox.widget.separator,
+                forced_width = vertical_icon_padding,
+                thickness = 0,
+            },
+            wibox.container.margin(awful.titlebar.widget.closebutton(c),    horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.stickybutton(c),   horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
             layout  = wibox.layout.fixed.horizontal
         },
-        { -- Middle
-            -- { -- Title
-            --     align  = "center",
-            --     widget = awful.titlebar.widget.titlewidget(c)
-            -- },
+        {
+            align = 'center',
+            widget = awful.titlebar.widget.titlewidget(c),
             buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
         },
-        { -- Right
-
-            -- awful.titlebar.widget.maximizedbutton(c),
-
-            -- awful.titlebar.widget.ontopbutton    (c),
-            wibox.container.margin(awful.titlebar.widget.stickybutton(c),   horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c),    horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-
-            wibox.widget.textbox(' '),
-            layout = wibox.layout.fixed.horizontal()
+        {
+            buttons = buttons,
+            layout = wibox.layout.fixed.horizontal
         },
-        layout = wibox.layout.align.horizontal
+        layout = wibox.layout.align.horizontal,
     }
 end)
 

@@ -6,13 +6,6 @@
 - shell:
     - xrdb -merge $HOME/.Xresources
     - codium --list-extensions > $DOTDIR/Code/extensions
-    - python $DOTDIR/dotfiles_priv/packages.py
-    -
-      command: python $DOTDIR/dotfiles_priv/optional_deps.py
-      stdout: true
-      stderr: true
-      quiet: false
-      description: Lingering optional dependencies
     -
       command: find ~/.config -xtype l
       stdout: true
@@ -46,18 +39,11 @@
 
     ~/.config/neofetch/config.conf: neofetch/config.conf
 
-    ~/.Xresources: misc/Xresources
-    ~/.xprofile: misc/xprofile
-    ~/.bashrc: misc/bashrc
-
     ~/.config/redshift.conf: redshift/redshift.conf
 
     #~/.config/gtk-3.0/:
     #  glob: true
     #  path: gtk-3.0/*
-
-    #~/.naga/:
-    #  glob: true
 
     ~/.config/rofi/config.rasi: rofi/config.rasi
     ~/.config/rofi/theme.rasi: rofi/theme.rasi

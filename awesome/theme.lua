@@ -116,12 +116,48 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
--- ███╗   ██╗ ██████╗ ███╗   ██╗      ██████╗ ███████╗███████╗ █████╗ ██╗   ██╗██╗  ████████╗
--- ████╗  ██║██╔═══██╗████╗  ██║      ██╔══██╗██╔════╝██╔════╝██╔══██╗██║   ██║██║  ╚══██╔══╝
--- ██╔██╗ ██║██║   ██║██╔██╗ ██║█████╗██║  ██║█████╗  █████╗  ███████║██║   ██║██║     ██║
--- ██║╚██╗██║██║   ██║██║╚██╗██║╚════╝██║  ██║██╔══╝  ██╔══╝  ██╔══██║██║   ██║██║     ██║
--- ██║ ╚████║╚██████╔╝██║ ╚████║      ██████╔╝███████╗██║     ██║  ██║╚██████╔╝███████╗██║
--- ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝      ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝
+
+-- ███╗   ███╗██╗███████╗ ██████╗
+-- ████╗ ████║██║██╔════╝██╔════╝
+-- ██╔████╔██║██║███████╗██║
+-- ██║╚██╔╝██║██║╚════██║██║
+-- ██║ ╚═╝ ██║██║███████║╚██████╗
+-- ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
+theme.border_width = 0
+theme.font = "Verdana 10, Font Awesome 5 Free Solid 10"
+local text_color = '#bbbbbb'
+
+-- Menu
+theme.menu_width = 200
+theme.menu_height = 20
+theme.menu_submenu_icon = nil
+
+-- Wibox
+theme.taglist_squares_sel = nil
+theme.taglist_squares_unsel = nil
+theme.wibar_fg = text_color
+theme.wibar_bg = "#191919"
+theme.bg_systray = '#191919'
+theme.taglist_fg_focus = "#9AEDFE"
+theme.taglist_bg_focus = "#00000000"
+theme.taglist_fg_empty = "#6a7066"
+theme.taglist_fg_urgent = "#000"
+theme.taglist_bg_urgent   = "#d35d6e"
+
+-- ████████╗██╗████████╗██╗     ███████╗██████╗  █████╗ ██████╗ ███████╗
+-- ╚══██╔══╝██║╚══██╔══╝██║     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝
+--    ██║   ██║   ██║   ██║     █████╗  ██████╔╝███████║██████╔╝███████╗
+--    ██║   ██║   ██║   ██║     ██╔══╝  ██╔══██╗██╔══██║██╔══██╗╚════██║
+--    ██║   ██║   ██║   ███████╗███████╗██████╔╝██║  ██║██║  ██║███████║
+--    ╚═╝   ╚═╝   ╚═╝   ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+
+-- Titlebars
+theme.titlebar_fg_focus = text_color
+theme.titlebar_fg_normal =text_color
+theme.titlebar_bg_focus = "#252729"
+theme.titlebar_bg_normal = '#191919'
+
+
 local btn_dir = res_dir.."btn2/"
 theme.titlebar_close_button_normal          = btn_dir.."close.png"
 theme.titlebar_close_button_normal_hover    = btn_dir.."close2.png"
@@ -219,6 +255,8 @@ theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab cur
 theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
                                             -- defaults to the tabbar_style so only change if you want a
                                             -- different style for mstab and tabbed
+
+
 
 
 return theme
