@@ -48,7 +48,9 @@ local bling = require("bling")
 
 
 local corner_radius = 8
-local bar_height = 30
+local bar_height = 29
+
+-- beautiful.taglist_shape_focus = helpers.rrect(3)
 
 -- Other
 terminal = "st"
@@ -81,16 +83,16 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "", layout = awful.layout.layouts[2]},
-    { name = "﬏", layout = awful.layout.layouts[2]},
-    { name = "3", layout = awful.layout.layouts[2]},
-    { name = "4", layout = awful.layout.layouts[2]},
-    { name = "5", layout = awful.layout.layouts[2]},
-    { name = "6", layout = awful.layout.layouts[2], screen = 2},
-    { name = "7", layout = awful.layout.layouts[2], screen = 2},
-    { name = "", layout = awful.layout.layouts[1]},
-    { name = "", layout = awful.layout.layouts[2], screen = 2},
-    { name = "", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = awful.layout.layouts[2]},
+    { name = " ﬏ ", layout = awful.layout.layouts[2]},
+    { name = " 3 ", layout = awful.layout.layouts[2]},
+    { name = " 4 ", layout = awful.layout.layouts[2]},
+    { name = " 5 ", layout = awful.layout.layouts[2]},
+    { name = " 6 ", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = awful.layout.layouts[1]},
+    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
 })
 
 -- Naughty
@@ -161,26 +163,110 @@ menu = freedesktop.menu.build({
 -- ╚███╔███╔╝██║██████╔╝██║  ██║██║  ██║
 --  ╚══╝╚══╝ ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
-mytextclock = wibox.widget {
-    format = '%A %e %B - %H:%M:%S',
-    refresh = 1,
-    align = 'center',
-    widget = wibox.widget.textclock
+widget_clock = wibox.widget {
+    layout = wibox.layout.fixed.horizontal,
+    widget = wibox.container.background,
+    {
+        markup = helpers.colorize_text('  ', '#ff92d0'),
+        widget = wibox.widget.textbox,
+    },
+    {
+        format = '%A %e %B - %H:%M:%S',
+        refresh = 1,
+        align = 'center',
+        widget = wibox.widget.textclock
+    }
+
 }
 
-widget_spacer = wibox.widget.textbox('  ')
+widget_updates = wibox.widget {
+    layout = wibox.layout.fixed.horizontal,
+    widget = wibox.container.background,
+    {
+        markup = helpers.colorize_text(' ', '#5af78e'),
+        widget = wibox.widget.textbox,
+    },
+    {
+        awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
+            widget:set_text(stdout)
+        end),
+        layout = wibox.layout.fixed.horizontal
+    },
+}
 
-widget_updates = awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
-    widget:set_text(" "..stdout)
-end)
 
-widget_fs = awful.widget.watch('sh -c "python ~/.dotfiles/bin/disks.py"', 1800, function(widget, stdout)
-    widget:set_text(stdout)
-end)
+widget_fs_color = '#caa9fa'
+widget_fs = wibox.widget {
+    layout = wibox.layout.fixed.horizontal,
+    widget = wibox.container.background,
+    {
+        markup = helpers.colorize_text(' ', widget_fs_color),
+        widget = wibox.widget.textbox,
+    },
+    {
+        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sdb1/p' | awk '{print $6}'" ]], 1800, function(widget, stdout)
+            widget:set_text('data: '..stdout)
+        end),
+        layout = wibox.layout.fixed.horizontal
+    },
+    {
+        markup = helpers.colorize_text('   ', widget_fs_color),
+        widget = wibox.widget.textbox,
+    },
+    {
+        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sda1/p' | awk '{print $6}'" ]], 1800, function(widget, stdout)
+            widget:set_text('efi:'..stdout)
+        end),
+        layout = wibox.layout.fixed.horizontal
+    },
+}
 
-widget_battery = awful.widget.watch([[ sh -c "$HOME/.dotfiles/bin/battery.sh" ]], 30, function(widget, stdout)
-    widget:set_text(stdout)
-end)
+
+widget_battery = wibox.widget {
+    layout = wibox.layout.fixed.horizontal,
+    widget = wibox.container.background,
+    {
+        markup = helpers.colorize_text(' ', '#ff6e67'),
+        widget = wibox.widget.textbox,
+    },
+    {
+        awful.widget.watch([[ sh -c "$DOTDIR/bin/battery.sh" ]], 30, function(widget, stdout)
+            widget:set_text(stdout)
+        end),
+        layout = wibox.layout.fixed.horizontal
+    },
+}
+
+widget_spacer = wibox.widget {
+    widget = wibox.widget.separator,
+    forced_width = 10,
+    thickness = 0,
+}
+widget_spacer_small = wibox.widget {
+    widget = wibox.widget.separator,
+    forced_width = 0,
+    thickness = 0,
+}
+
+widget_test = wibox.widget {
+    {
+        markup = helpers.colorize_text('Hola', '#FF0000'),
+        align  = 'center',
+        valign = 'center',
+        widget = wibox.widget.textbox,
+    },
+    bg = '#ffffff',
+    shape_border_width = 3,
+    shape_border_color = '#121212',
+    shape = helpers.rrect(5),
+    widget = wibox.container.background
+}
+
+
+-- Systreay
+local systray = wibox.widget.systray()
+systray : set_base_size(20)
+widget_systray = wibox.container.margin(systray, 0, 0, (bar_height-20)/2, 0)
 
 
 
@@ -267,8 +353,8 @@ awful.screen.connect_for_each_screen(function(s)
     --     buttons = tasklist_buttons
     -- }
 
-    local wibox_gap_x = 100
-    local wibox_gap_y1 = 9
+    local wibox_gap_x = beautiful.useless_gap*2
+    local wibox_gap_y1 = 20
     local wibox_gap_y2 = -4
     local height = bar_height
 
@@ -282,35 +368,35 @@ awful.screen.connect_for_each_screen(function(s)
         bg = beautiful.wibar_bg,
         fg = beautiful.wibar_fg
     })
-    s.mywibox.y = s.geometry.y + wibox_gap_y1
+    s.mywibox.y = s.geometry.y + beautiful.useless_gap*2
     s.mywibox.x = s.geometry.x + wibox_gap_x
 
     s.mywibox:struts({
         --bottom =  50,
-        top = wibox_gap_y1 + height + wibox_gap_y2
+        top = beautiful.useless_gap*2 + height
     })
     s.mywibox.shape = function(cr,w,h)
         gears.shape.rounded_rect(cr,w,h,corner_radius)
     end
 
 
-    -- Systreay
-    local systray = wibox.widget.systray()
-    systray : set_base_size(20)
-    local widget_systray = wibox.container.margin(systray, 0, 0, (height-20)/2, 0)
 
 
     s.mywibox:setup {
             layout = wibox.layout.align.horizontal,
 
             { -- Left widgets
-                wibox.widget.textbox('  '),
+            -- {
+            --     widget = wibox.widget.separator,
+            --     forced_width = 5,
+            --     thickness = 0,
+            -- },
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
             },
 
             -- Middle Widget
-            wibox.container.margin(mytextclock,0,0,0,2),
+            widget_clock,
 
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
@@ -328,7 +414,7 @@ awful.screen.connect_for_each_screen(function(s)
                     shape = 'rounded_bar'
                 },
                 widget_systray,
-                wibox.widget.textbox(' '),
+                widget_spacer_small,
             },
             expand = 'none',
     }
@@ -594,14 +680,16 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "Firefox Beta" },
         properties = { tag = tags[1], switch_to_tags = true } },
-    { rule = { class = "VSCodium" },
+    { rule = { class = "Code" },
         properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
     { rule_any = { class = {"Lutris", "Steam"} },
         properties = { tag = tags[8] } },
     { rule_any = { class = {"Lollypop", "Spotify"} },
-        properties = { tag = tags[10] } }
+        properties = { tag = tags[10] } },
+    { rule = { class = "Thunderbird" },
+        properties = { tag = tags[7], sticky = true } }
 }
 -- }}}
 
@@ -661,8 +749,8 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    local vertical_icon_padding = 8
-    local horizontal_icon_padding = 4
+    local vpad = 8
+    local hpad = 4
 
     awful.titlebar(c, {
         size = bar_height
@@ -670,19 +758,19 @@ client.connect_signal("request::titlebars", function(c)
         { -- Left
             wibox.widget {
                 widget = wibox.widget.separator,
-                forced_width = vertical_icon_padding,
+                forced_width = vpad,
                 thickness = 0,
             },
-            wibox.container.margin(awful.titlebar.widget.closebutton(c),    horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
-            wibox.container.margin(awful.titlebar.widget.stickybutton(c),   horizontal_icon_padding, horizontal_icon_padding, vertical_icon_padding, vertical_icon_padding),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c),    hpad, hpad, vpad, vpad),
+            wibox.container.margin(awful.titlebar.widget.floatingbutton(c), hpad, hpad, vpad, vpad),
+            wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),hpad, hpad, vpad, vpad),
+            wibox.container.margin(awful.titlebar.widget.stickybutton(c),   hpad, hpad, vpad, vpad),
             layout  = wibox.layout.fixed.horizontal
         },
-        {
+        { -- Middle
+            buttons = buttons,
             align = 'center',
             widget = awful.titlebar.widget.titlewidget(c),
-            buttons = buttons,
         },
         {
             buttons = buttons,

@@ -26,7 +26,7 @@
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": true,
   "update.mode": "none",
-  "window.menuBarVisibility": "compact",
+  "window.menuBarVisibility": "toggle",
   "workbench.startupEditor": "none",  "editor.tabSize": 4,
   "editor.suggest.preview": true,
   "files.autoSave": "afterDelay",
@@ -106,7 +106,9 @@
     "statusBar.foreground": "#121212",
     "statusBar.background": "#A8D5E0",
     "statusBar.noFolderBackground": "#BDBDBD",
-    "statusBar.debuggingBackground": "#A8E0AB"
+    "statusBar.debuggingBackground": "#A8E0AB",
+    "statusBarItem.remoteBackground": "#A8D5E0",
+    "statusBarItem.remoteForeground": "#121212"
   },
 
 
@@ -299,5 +301,7 @@
   "vscode-neovim.logLevel": "debug",
   "vscode-neovim.logPath": "/tmp/nvimlog",
   "vscode-neovim.neovimInitVimPaths.linux": "/home/ayats/.config/nvim/init.vim",
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
+  "security.workspace.trust.untrustedFiles": "open",
 }

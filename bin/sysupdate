@@ -1,0 +1,4 @@
+#!/bin/sh
+paru -Syu
+sudo etc-update
+sudo lostfiles | $PAGER

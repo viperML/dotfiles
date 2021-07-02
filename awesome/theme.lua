@@ -15,6 +15,8 @@ local gfs = require("gears.filesystem")
 local gears = require("gears")
 local themes_path = gfs.get_themes_dir()
 
+local helpers = require("helpers")
+
 local theme = {}
 
 theme.font          = "sans 8"
@@ -124,7 +126,7 @@ theme.icon_theme = nil
 -- ██║ ╚═╝ ██║██║███████║╚██████╗
 -- ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
 theme.border_width = 0
-theme.font = "Verdana 10, Font Awesome 5 Free Solid 10"
+theme.font = "Verdana,Font Awesome 5 Free Solid 10"
 local text_color = '#bbbbbb'
 
 -- Menu
@@ -138,11 +140,16 @@ theme.taglist_squares_unsel = nil
 theme.wibar_fg = text_color
 theme.wibar_bg = "#191919"
 theme.bg_systray = '#191919'
-theme.taglist_fg_focus = "#9AEDFE"
-theme.taglist_bg_focus = "#00000000"
+theme.taglist_fg_focus = "#121212"
+theme.taglist_bg_focus = "#A8D5E0"
 theme.taglist_fg_empty = "#6a7066"
-theme.taglist_fg_urgent = "#000"
-theme.taglist_bg_urgent   = "#d35d6e"
+theme.taglist_fg_urgent = "#121212"
+theme.taglist_bg_urgent = "#d35d6e"
+theme.taglist_spacing = 0
+theme.taglist_shape_focus = helpers.rrect(5)
+-- theme.taglist_shape_border_width = 10
+
+
 
 -- ████████╗██╗████████╗██╗     ███████╗██████╗  █████╗ ██████╗ ███████╗
 -- ╚══██╔══╝██║╚══██╔══╝██║     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝
@@ -154,7 +161,7 @@ theme.taglist_bg_urgent   = "#d35d6e"
 -- Titlebars
 theme.titlebar_fg_focus = text_color
 theme.titlebar_fg_normal =text_color
-theme.titlebar_bg_focus = "#252729"
+theme.titlebar_bg_focus = "#1F2021"
 theme.titlebar_bg_normal = '#191919'
 
 
@@ -212,7 +219,7 @@ theme.titlebar_sticky_button_focus_inactive_hover    = btn_dir.."pin2.png"
 theme.titlebar_sticky_button_focus_inactive_press    = btn_dir.."pin3.png"
 
 
-theme.useless_gap = 10
+theme.useless_gap = 8
 
 
 -- ██████╗ ██╗     ██╗███╗   ██╗ ██████╗

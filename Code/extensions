@@ -13,6 +13,8 @@ mhutchie.git-graph
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
 ms-vscode.cpptools
 njpwerner.autodocstring
 PKief.material-icon-theme
@@ -27,5 +29,4 @@ streetsidesoftware.code-spell-checker-spanish
 sumneko.lua
 tinkertrain.theme-panda
 vsciot-vscode.vscode-arduino
-vscodevim.vim
 yzhang.markdown-all-in-one

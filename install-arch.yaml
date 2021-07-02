@@ -5,7 +5,7 @@
 
 - shell:
     - xrdb -merge $HOME/.Xresources
-    - codium --list-extensions > $DOTDIR/Code/extensions
+    - code --list-extensions > $DOTDIR/Code/extensions
     -
       command: find ~/.config -xtype l
       stdout: true
@@ -29,7 +29,7 @@
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/fish_plugins: fish/fish_plugins
 
-    ~/.config/VSCodium/User/:
+    ~/.config/Code/User/:
       glob: true
       path: Code/*
 
@@ -63,3 +63,4 @@
     ~/.config/nvimpager/init.vim: nvimpager/init.vim
 
     ~/bin/rofiman: bin/rofiman
+    ~/bin/sysupdate: bin/sysupdate

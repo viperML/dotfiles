@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import subprocess
+import sys
 
 try:
     output = subprocess.check_output(['lsblk -f'], shell=True, stderr=subprocess.STDOUT)
