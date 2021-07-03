@@ -163,11 +163,14 @@ menu = freedesktop.menu.build({
 -- ╚███╔███╔╝██║██████╔╝██║  ██║██║  ██║
 --  ╚══╝╚══╝ ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
+muted_icon_color = '#707070'
+
 widget_clock = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
-        markup = helpers.colorize_text('  ', '#ff92d0'),
+        -- markup = helpers.colorize_text('  ', '#ff92d0'),
+        markup = helpers.colorize_text(' ', muted_icon_color),
         widget = wibox.widget.textbox,
     },
     {
@@ -183,7 +186,8 @@ widget_updates = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
-        markup = helpers.colorize_text(' ', '#5af78e'),
+        -- markup = helpers.colorize_text(' ', '#5af78e'),
+        markup = helpers.colorize_text(' ', muted_icon_color),
         widget = wibox.widget.textbox,
     },
     {
@@ -200,7 +204,8 @@ widget_fs = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
-        markup = helpers.colorize_text(' ', widget_fs_color),
+        -- markup = helpers.colorize_text(' ', widget_fs_color),
+        markup = helpers.colorize_text(' ', muted_icon_color),
         widget = wibox.widget.textbox,
     },
     {
@@ -210,7 +215,8 @@ widget_fs = wibox.widget {
         layout = wibox.layout.fixed.horizontal
     },
     {
-        markup = helpers.colorize_text('   ', widget_fs_color),
+        -- markup = helpers.colorize_text('   ', widget_fs_color),
+        markup = helpers.colorize_text('   ', muted_icon_color),
         widget = wibox.widget.textbox,
     },
     {
@@ -226,7 +232,8 @@ widget_battery = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
-        markup = helpers.colorize_text(' ', '#ff6e67'),
+        -- markup = helpers.colorize_text(' ', '#ff6e67'),
+        markup = helpers.colorize_text(' ', muted_icon_color),
         widget = wibox.widget.textbox,
     },
     {

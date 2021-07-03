@@ -108,7 +108,8 @@
     "statusBar.noFolderBackground": "#BDBDBD",
     "statusBar.debuggingBackground": "#A8E0AB",
     "statusBarItem.remoteBackground": "#A8D5E0",
-    "statusBarItem.remoteForeground": "#121212"
+    "statusBarItem.remoteForeground": "#121212",
+    "statusBar.border": "#ffffff00"
   },
 
 

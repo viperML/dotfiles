@@ -143,10 +143,14 @@ theme.bg_systray = '#191919'
 theme.taglist_fg_focus = "#121212"
 theme.taglist_bg_focus = "#A8D5E0"
 theme.taglist_fg_empty = "#6a7066"
+theme.taglist_bg_empty = "#12121200"
+theme.taglist_bg_occupied = theme.taglist_bg_empty
 theme.taglist_fg_urgent = "#121212"
 theme.taglist_bg_urgent = "#d35d6e"
 theme.taglist_spacing = 0
 theme.taglist_shape_focus = helpers.rrect(5)
+theme.taglist_shape_empty = helpers.rrect(5)
+theme.taglist_shape = helpers.rrect(5)
 -- theme.taglist_shape_border_width = 10
 
 

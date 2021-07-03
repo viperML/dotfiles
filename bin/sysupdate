@@ -1,4 +1,5 @@
 #!/bin/sh
 paru -Syu
+paru -Qdtq | paru -Rns -
 sudo etc-update
 sudo lostfiles | $PAGER
