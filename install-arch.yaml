@@ -3,27 +3,27 @@
       relink: true
       create: true
 
-- shell:
-    - xrdb -merge $HOME/.Xresources
-    - code --list-extensions > $DOTDIR/Code/extensions
-    -
-      command: find ~/.config -xtype l
-      stdout: true
-      stderr: true
-      quiet: true
-      description: Broken symlinks in .config
-    -
-      command: find ~/bin -xtype l
-      stdout: true
-      stderr: true
-      quiet: true
-      description: Broken symlinks in bin
-    -
-      command: find ~ -xtype l -maxdepth 1
-      stdout: true
-      stderr: true
-      quiet: true
-      description: Broken symlinks in ~
+        #- shell:
+        #- xrdb -merge $HOME/.Xresources
+        #- code --list-extensions > $DOTDIR/Code/extensions
+        # -
+    #   command: find ~/.config -xtype l
+    #   stdout: true
+    #   stderr: true
+    #   quiet: true
+    #  description: Broken symlinks in .config
+    #-
+    #  command: find ~/bin -xtype l
+    #  stdout: true
+    #   stderr: true
+    #  quiet: true
+    #  description: Broken symlinks in bin
+    #    -
+    #    command: find ~ -xtype l -maxdepth 1
+    #    stdout: true
+    #    stderr: true
+    #    quiet: true
+    #   description: Broken symlinks in ~
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish

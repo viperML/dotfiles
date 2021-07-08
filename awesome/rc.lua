@@ -89,7 +89,7 @@ local tags = sharedtags({
     { name = " 4 ", layout = awful.layout.layouts[2]},
     { name = " 5 ", layout = awful.layout.layouts[2]},
     { name = " 6 ", layout = awful.layout.layouts[2], screen = 2},
-    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = awful.layout.layouts[2]},
     { name = "  ", layout = awful.layout.layouts[1]},
     { name = "  ", layout = awful.layout.layouts[2], screen = 2},
     { name = "  ", layout = awful.layout.layouts[2], screen = 2},
@@ -128,7 +128,8 @@ local menu_system = {
     { "restart naga", "systemctl --user restart nagastart.service" },
     { "restart logid", "sudo systemctl restart logid.service" },
     { "restart", "sudo reboot" },
-    { "shutdown", "sudo shutdown now" }
+    { "shutdown", "sudo shutdown now" },
+    { "logout", function() awesome.quit() end },
 }
 
 local menu_screens = {
@@ -209,8 +210,8 @@ widget_fs = wibox.widget {
         widget = wibox.widget.textbox,
     },
     {
-        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sdb1/p' | awk '{print $6}'" ]], 1800, function(widget, stdout)
-            widget:set_text('data: '..stdout)
+        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sdb1/p' | grep -o '[0-9]*%'" ]], 1800, function(widget, stdout)
+            widget:set_text('sdb1: '..stdout)
         end),
         layout = wibox.layout.fixed.horizontal
     },
@@ -220,7 +221,7 @@ widget_fs = wibox.widget {
         widget = wibox.widget.textbox,
     },
     {
-        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sda1/p' | awk '{print $6}'" ]], 1800, function(widget, stdout)
+        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sda1/p' | grep -o '[0-9]*%'" ]], 1800, function(widget, stdout)
             widget:set_text('efi:'..stdout)
         end),
         layout = wibox.layout.fixed.horizontal
@@ -385,6 +386,37 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox.shape = function(cr,w,h)
         gears.shape.rounded_rect(cr,w,h,corner_radius)
     end
+
+    s.wibox_splash = wibox({
+        screen = s,
+        type = 'splash',
+        width = 200,
+        height = 200,
+        visible = true,
+        bg = '#12121200',
+        opacity = 1,
+    })
+    s.wibox_splash.y = s.geometry.y + s.geometry.height/2 - s.wibox_splash.height/2
+    s.wibox_splash.x = s.geometry.width/2 + s.geometry.x - s.wibox_splash.width/2
+
+    s.wibox_splash:setup {
+        layout = wibox.layout.align.horizontal,
+        {
+            widget = wibox.widget.textbox,
+        },
+        -- {
+        --     markup = helpers.colorize_text('I use arch btw', '#121212'),
+        --     align  = 'center',
+        --     valign = 'center',
+        --     font = 'Noto Sans Bold 30',
+        --     widget = wibox.widget.textbox,
+        -- },
+        {
+            widget = wibox.widget.imagebox,
+            resize = true,
+            image = '/home/ayats/.dotfiles/neofetch/arch-round-mod.png',
+        }
+    }
 
 
 
