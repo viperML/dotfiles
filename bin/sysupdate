@@ -3,3 +3,6 @@ paru -Syu
 paru -Qdtq | paru -Rns -
 sudo etc-update
 sudo lostfiles | $PAGER
+sudo dkms autoinstall
+sudo mkinitcpio -P
+# sudo grub-mkconfig -o /boot/grub/grub.cfg

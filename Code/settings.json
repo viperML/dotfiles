@@ -15,7 +15,12 @@
   "editor.minimap.size": "fit",
   "editor.quickSuggestionsDelay": 0,
   "editor.rulers": [160],
+  "editor.scrollbar.horizontal": "auto",
+  "editor.scrollbar.horizontalScrollbarSize": 5,
+  "editor.scrollbar.vertical": "visible",
+  "editor.scrollbar.verticalScrollbarSize": 8,
   "editor.semanticHighlighting.enabled": true,
+  "editor.suggest.preview": true,
   "editor.tabCompletion": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
@@ -28,7 +33,7 @@
   "update.mode": "none",
   "window.menuBarVisibility": "toggle",
   "workbench.startupEditor": "none",  "editor.tabSize": 4,
-  "editor.suggest.preview": true,
+  "workbench.sideBar.location": "left",
 
 
   // Git
@@ -306,4 +311,13 @@
   "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
   "security.workspace.trust.untrustedFiles": "open",
   "files.autoSave": "afterDelay",
+  "editor.inlineSuggest.enabled": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": false
+  },
+
 }
