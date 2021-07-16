@@ -414,7 +414,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             widget = wibox.widget.imagebox,
             resize = true,
-            image = '/home/ayats/.dotfiles/neofetch/arch-round-mod.png',
+            image = '/home/ayats/.dotfiles/neofetch/gentoo-round.png',
         }
     }
 

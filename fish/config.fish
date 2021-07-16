@@ -1,4 +1,17 @@
-set -g -x fish_greeting (echo -n "Welcome to "; set_color cyan; echo "Arch"; set_color normal)
+function os_greeter
+    set os (cat /etc/os-release | sed -n '/^NAME/p' | sed 's/NAME=//;s/"//g')
+    echo 'Welcome to'
+    if [ $os = 'Arch Linux' ];
+        set_color cyan
+    else if [ $os = 'Gentoo' ];
+        set_color brmagenta
+    end
+    echo $os
+    set_color normal
+end
+set -g -x fish_greeting (os_greeter)
+
+# Prompt theme
 oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
 
 
@@ -70,6 +83,8 @@ if status --is-interactive
     abbr -a gtd "git log --tags --simplify-by-decoration --pretty=\"format:%ai %d\""
     # list stats for the repo
     abbr -a grs "git shortlog -s -n --all --no-merges"
+
+    abbr -a gss "git status --short"
 end
 
 # Fix ssh passing wrong $TERM
@@ -78,8 +93,23 @@ function ssh
 end
 
 function dotinstall
-  $DOTDIR/dotbot.sh -c $DOTDIR/install-arch.yaml
-  $PRIVDIR/dotbot.sh -c $PRIVDIR/install-arch.yaml
+  $DOTDIR/dotbot.sh -c $DOTDIR/install-linux.yaml
+
+  if test -f /usr/bin/emerge
+    set_color brmagenta
+    echo "Running Gentoo's privinstall"
+    set_color reset
+  else if test -f /usr/bin/pacman
+    set_color cyan
+    echo "Running Arch Linux's privinstall"
+    set_color reset
+    $PRIVDIR/dotbot.sh -c $PRIVDIR/install-arch.yaml
+  else
+    set_color red
+    echo "No privinstall found"
+    set_color reset
+  end
+
 end
 
 switch $TERM
