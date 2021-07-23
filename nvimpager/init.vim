@@ -5,8 +5,8 @@ let mapleader="\<SPACE>"
 
 
 " line numbers
-set number
-set relativenumber
+"set number
+"set relativenumber
 
 " spacing when scrolling
 set scrolloff=4
@@ -31,3 +31,5 @@ let g:highlightedyank_highlight_duration = -1
 " Dracula theme, no background
 " colorscheme dracula
 highlight Normal ctermbg=black
+
+" colorscheme dracula

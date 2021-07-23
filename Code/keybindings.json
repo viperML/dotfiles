@@ -33,5 +33,15 @@
     "args": {
         "snippet": "\\_\\_${TM_SELECTED_TEXT}$0\\_\\_"
     }
+  },
+  {
+    "key": "ctrl+numpad_add",
+    "command": "editor.toggleFold",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+k ctrl+l",
+    "command": "-editor.toggleFold",
+    "when": "editorTextFocus && foldingEnabled"
   }
 ]

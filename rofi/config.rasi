@@ -1,7 +1,7 @@
 configuration {
     modi: "combi";
     combi-modi: "drun,run,ssh";
-    font: "Roboto 17";
+    font: "Verdana 17";
     show-icons: true;
     icon-theme: "Vimix Dark";
     theme: "theme";

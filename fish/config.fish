@@ -20,7 +20,7 @@ oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | so
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
-alias alas="GTK_THEME=Adwaita $HOME/Documents/AzurLaneAutoScript/venv/bin/python $HOME/Documents/AzurLaneAutoScript/alas_en.pyw & disown"
+#alias alas="GTK_THEME=Adwaita $HOME/.local/share/AzurLaneAutoScript/venv/bin/python $HOME/.local/share/AzurLaneAutoScript/alas_en.pyw & disown"
 alias ip="ip -c=auto"
 alias ls="lsd"
 alias lt="lsd -t -r"
@@ -35,6 +35,8 @@ if status --is-interactive
     abbr --add --global ss sudo systemctl
     abbr --add --global us systemctl --user
     abbr --add --global se sudo -E systemctl edit
+    abbr --add --global eq equery
+    abbr --add --global em emerge
 
     # Git abbreviations
     # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
@@ -94,21 +96,7 @@ end
 
 function dotinstall
   $DOTDIR/dotbot.sh -c $DOTDIR/install-linux.yaml
-
-  if test -f /usr/bin/emerge
-    set_color brmagenta
-    echo "Running Gentoo's privinstall"
-    set_color reset
-  else if test -f /usr/bin/pacman
-    set_color cyan
-    echo "Running Arch Linux's privinstall"
-    set_color reset
-    $PRIVDIR/dotbot.sh -c $PRIVDIR/install-arch.yaml
-  else
-    set_color red
-    echo "No privinstall found"
-    set_color reset
-  end
+  $PRIVDIR/dotbot.sh -c $PRIVDIR/install-linux.yaml
 
 end
 
@@ -149,4 +137,10 @@ function set_colorscheme
     set fish_pager_color_completion white
     set fish_pager_color_description brblack
 end
+
+
+# Configure FZF keybinds
+# https://github.com/PatrickF1/fzf.fish
+fzf_configure_bindings --directory=\cf
+
 

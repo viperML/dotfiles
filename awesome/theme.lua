@@ -269,6 +269,12 @@ theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "
 
 
 
+-- REVELATION not working
+theme.revelation_fg_normal = text_color
+theme.revelation_bg_normal = '#191919'
+theme.revelation_border_width = 0
+
+
 
 return theme
 

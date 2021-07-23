@@ -60,7 +60,7 @@
       glob: true
       path: neovim/*
 
-    ~/.config/nvimpager/init.vim: nvimpager/init.vim
+    # ~/.config/nvimpager/init.vim: nvimpager/init.vim
+    ~/.config/bat/config: bat/config
 
     ~/bin/rofiman: bin/rofiman
-    ~/bin/sysupdate: bin/sysupdate

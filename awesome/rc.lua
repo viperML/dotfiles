@@ -41,13 +41,18 @@ local config_dir = "~/.config/awesome/"
 -- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
 -- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
 beautiful.init(config_dir.."theme.lua")
-revelation.init()
+
+revelation.init{
+    charorder = "1234567890jkluiopyhnmfdsatgvcewqzx",
+}
+
 
 local lain = require("lain")
 local bling = require("bling")
 
 
-local corner_radius = 8
+local corner_radius = 14
+-- local bar_height = 29
 local bar_height = 29
 
 -- beautiful.taglist_shape_focus = helpers.rrect(3)
@@ -183,21 +188,21 @@ widget_clock = wibox.widget {
 
 }
 
-widget_updates = wibox.widget {
-    layout = wibox.layout.fixed.horizontal,
-    widget = wibox.container.background,
-    {
-        -- markup = helpers.colorize_text(' ', '#5af78e'),
-        markup = helpers.colorize_text(' ', muted_icon_color),
-        widget = wibox.widget.textbox,
-    },
-    {
-        awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
-            widget:set_text(stdout)
-        end),
-        layout = wibox.layout.fixed.horizontal
-    },
-}
+--widget_updates = wibox.widget {
+--    layout = wibox.layout.fixed.horizontal,
+--    widget = wibox.container.background,
+--    {
+--        -- markup = helpers.colorize_text(' ', '#5af78e'),
+--        markup = helpers.colorize_text(' ', muted_icon_color),
+--        widget = wibox.widget.textbox,
+--    },
+--    {
+--        awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
+--            widget:set_text(stdout)
+--        end),
+--        layout = wibox.layout.fixed.horizontal
+--    },
+--}
 
 
 widget_fs_color = '#caa9fa'
@@ -415,6 +420,7 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.widget.imagebox,
             resize = true,
             image = '/home/ayats/.dotfiles/neofetch/gentoo-round.png',
+            -- image = '/home/ayats/Downloads/gif.gif'
         }
     }
 
@@ -442,7 +448,7 @@ awful.screen.connect_for_each_screen(function(s)
                 spacing = 12,
 
                 widget_fs,
-                widget_updates,
+                --widget_updates,
                 widget_battery,
                 s.mylayoutbox,
                 volume_widget{
@@ -550,12 +556,17 @@ globalkeys = gears.table.join(
     awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
     awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end),
 
+
+    awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_brightness +5 ]]) end),
+    awful.key({      }, "XF86MonBrightnessDown", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_brightness -5 ]]) end),
+
     -- On the fly useless gaps change
     awful.key({ modkey }, "g", function () lain.util.useless_gaps_resize(1) end),
     awful.key({ modkey, "Shift"}, "g", function () lain.util.useless_gaps_resize(-1) end),
 
     -- Revelation
     awful.key({ modkey }, "r", revelation),
+    awful.key({ modkey }, "p", revelation),
     awful.key({ modkey }, "Escape", awful.tag.history.restore)
 )
 
@@ -723,10 +734,10 @@ awful.rules.rules = {
         properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
+    { rule = { class = "Spotify" },
+        properties = { tag = tags[10] } },
     { rule_any = { class = {"Lutris", "Steam"} },
         properties = { tag = tags[8] } },
-    { rule_any = { class = {"Lollypop", "Spotify"} },
-        properties = { tag = tags[10] } },
     { rule = { class = "Thunderbird" },
         properties = { tag = tags[7], sticky = true } }
 }
@@ -835,6 +846,11 @@ awful.spawn("nitrogen --restore")
 -- awful.spawn("picom --experimental-backends")
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
+
+awful.spawn("xset r rate 200 40")
+awful.spawn("xset s off -dpms")
+awful.spawn("xset b off")
+
 
 
 

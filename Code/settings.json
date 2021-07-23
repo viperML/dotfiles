@@ -201,7 +201,7 @@
     "**/polybar/config": "ini"
   },
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
 
 
@@ -318,6 +318,10 @@
     "yaml": false,
     "plaintext": true,
     "markdown": false
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
   },
 
 }

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+BRIGHTNESS=$(cat /sys/class/backlight/nvidia_0/brightness)
+
+# Add the brightness received as parameter to the current brightness
+BRIGHTNESS=$(($BRIGHTNESS + $1))
+
+# Check if the brightness is between 0 and 100
+if [ $BRIGHTNESS -lt 0 ]; then
+    BRIGHTNESS=0
+elif [ $BRIGHTNESS -gt 100 ]; then
+    BRIGHTNESS=100
+fi
+
+echo $BRIGHTNESS
+
+# Set the new brightness
+echo $BRIGHTNESS > /sys/class/backlight/nvidia_0/brightness
