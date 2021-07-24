@@ -557,8 +557,8 @@ globalkeys = gears.table.join(
     awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end),
 
 
-    awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_brightness +5 ]]) end),
-    awful.key({      }, "XF86MonBrightnessDown", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_brightness -5 ]]) end),
+    awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ xbacklight -inc +5 ]]) end),
+    awful.key({      }, "XF86MonBrightnessDown", function() awful.spawn([[ xbacklight -inc -5 ]]) end),
 
     -- On the fly useless gaps change
     awful.key({ modkey }, "g", function () lain.util.useless_gaps_resize(1) end),
