@@ -254,7 +254,7 @@ theme.tabbar_color_float = "#ccaced"        -- chnges the color of the float but
 
 -- mstab
 theme.mstab_bar_ontop = true               -- whether you want to allow the bar to be ontop of clients
-theme.mstab_dont_resize_slaves = false      -- whether the tabbed stack windows should be smaller than the
+theme.mstab_dont_resize_slaves = true      -- whether the tabbed stack windows should be smaller than the
                                             -- currently focused stack window (set it to true if you use
                                             -- transparent terminals. False if you use shadows on solid ones
 theme.mstab_bar_padding = 10         -- how much padding there should be between clients and your tabbar

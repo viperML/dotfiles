@@ -43,5 +43,13 @@
     "key": "ctrl+k ctrl+l",
     "command": "-editor.toggleFold",
     "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "meta+f1",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "f1",
+    "command": "-workbench.action.showCommands"
   }
 ]

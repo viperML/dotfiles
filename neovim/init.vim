@@ -7,21 +7,31 @@ endfunction
 let mapleader="\<SPACE>"
 
 call plug#begin()
-    Plug 'mg979/vim-visual-multi', Cond(!exists('g:vscode'))
-    " use normal easymotion when in vim mode
-    Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
-    " use vscode easymotion when in vscode mode
-    Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
-    Plug 'vim-airline/vim-airline'
-    Plug 'glepnir/dashboard-nvim'
-    Plug 'junegunn/fzf.vim'
-    Plug 'chrisbra/Colorizer'
-    Plug 'jiangmiao/auto-pairs'
+    
+    if exists('g:vscode')
+        " VSCode - only extensions
+        Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
+    else
+        " Nvim - only extensions
+        Plug 'mg979/vim-visual-multi'
+        Plug 'easymotion/vim-easymotion'
+        Plug 'vim-airline/vim-airline'
+        Plug 'glepnir/dashboard-nvim'
+        Plug 'junegunn/fzf.vim'
+        Plug 'chrisbra/Colorizer'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'dracula/vim', { 'as': 'dracula' }
+        " Plug 'preservim/nerdtree'
+    endif
+
+    " Common extensions
     Plug 'machakann/vim-highlightedyank'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'preservim/nerdtree'
+    Plug 'terrortylor/nvim-comment'
 call plug#end()
+
+" nvim-comment setup
+lua require'nvim_comment'.setup()
 
 " 4 spaces tabs and indentation
 set smartindent
@@ -48,10 +58,10 @@ imap <C-v> <C-r><C-o>+
 set mouse=a
 
 " NERDTree default keybinds
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 
 " vim-airline config

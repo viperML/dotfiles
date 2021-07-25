@@ -88,16 +88,16 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "  ", layout = awful.layout.layouts[2]},
-    { name = " ﬏ ", layout = awful.layout.layouts[2]},
-    { name = " 3 ", layout = awful.layout.layouts[2]},
-    { name = " 4 ", layout = awful.layout.layouts[2]},
-    { name = " 5 ", layout = awful.layout.layouts[2]},
-    { name = " 6 ", layout = awful.layout.layouts[2], screen = 2},
-    { name = "  ", layout = awful.layout.layouts[2]},
-    { name = "  ", layout = awful.layout.layouts[1]},
-    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
-    { name = "  ", layout = awful.layout.layouts[2], screen = 2},
+    { name = "  ", layout = bling.layout.mstab},
+    { name = " ﬏ ", layout = awful.layout.suit.tile},
+    { name = " 3 ", layout = awful.layout.suit.tile},
+    { name = " 4 ", layout = awful.layout.suit.tile},
+    { name = " 5 ", layout = awful.layout.suit.tile},
+    { name = " 6 ", layout = awful.layout.suit.tile, screen = 2},
+    { name = "  ", layout = awful.layout.suit.tile},
+    { name = "  ", layout = awful.layout.suit.floating},
+    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
+    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
 
 -- Naughty
@@ -278,8 +278,9 @@ widget_test = wibox.widget {
 
 -- Systreay
 local systray = wibox.widget.systray()
-systray : set_base_size(20)
-widget_systray = wibox.container.margin(systray, 0, 0, (bar_height-20)/2, 0)
+local systray_h = 18
+systray : set_base_size(systray_h)
+widget_systray = wibox.container.margin(systray, 0, 0, (bar_height-systray_h)/2, 0)
 
 
 
@@ -421,6 +422,7 @@ awful.screen.connect_for_each_screen(function(s)
             resize = true,
             image = '/home/ayats/.dotfiles/neofetch/gentoo-round.png',
             -- image = '/home/ayats/Downloads/gif.gif'
+            -- image = '/home/ayats/Downloads/logo_gentoo.png'
         }
     }
 
@@ -739,7 +741,11 @@ awful.rules.rules = {
     { rule_any = { class = {"Lutris", "Steam"} },
         properties = { tag = tags[8] } },
     { rule = { class = "Thunderbird" },
-        properties = { tag = tags[7], sticky = true } }
+        properties = { tag = tags[7], sticky = true } },
+
+    -- Fix st using even/odd proportions
+    { rule = { class = "st-256color" },
+        properties = {  size_hints_honor = true } },
 }
 -- }}}
 
@@ -751,7 +757,8 @@ client.connect_signal("manage", function (c)
     end
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+    if not awesome.startup then awful.client.setslave(c) end
+
     if awesome.startup
       and not c.size_hints.user_position
       and not c.size_hints.program_position then
