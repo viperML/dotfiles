@@ -28,10 +28,13 @@ call plug#begin()
     " Common extensions
     Plug 'machakann/vim-highlightedyank'
     Plug 'terrortylor/nvim-comment'
+
 call plug#end()
 
 " nvim-comment setup
 lua require'nvim_comment'.setup()
+
+
 
 " 4 spaces tabs and indentation
 set smartindent

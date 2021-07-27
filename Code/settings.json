@@ -328,5 +328,8 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now"
   }
 }

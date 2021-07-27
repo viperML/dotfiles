@@ -51,7 +51,7 @@ local lain = require("lain")
 local bling = require("bling")
 
 
-local corner_radius = 14
+local corner_radius = 11
 -- local bar_height = 29
 local bar_height = 29
 
@@ -88,7 +88,7 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "  ", layout = bling.layout.mstab},
+    { name = "  ", layout = awful.layout.suit.tile},
     { name = " ﬏ ", layout = awful.layout.suit.tile},
     { name = " 3 ", layout = awful.layout.suit.tile},
     { name = " 4 ", layout = awful.layout.suit.tile},
@@ -185,7 +185,6 @@ widget_clock = wibox.widget {
         align = 'center',
         widget = wibox.widget.textclock
     }
-
 }
 
 --widget_updates = wibox.widget {
@@ -203,6 +202,23 @@ widget_clock = wibox.widget {
 --        layout = wibox.layout.fixed.horizontal
 --    },
 --}
+
+widget_ip = wibox.widget {
+    layout = wibox.layout.fixed.horizontal,
+    widget = wibox.container.background,
+    {
+        -- markup = helpers.colorize_text(' ', widget_fs_color),
+        markup = helpers.colorize_text('︁ ', muted_icon_color),
+        widget = wibox.widget.textbox,
+    },
+    {
+        awful.widget.watch([[ sh -c "ip -4 a | sed -n '/global/p' | awk '{print $2}'" ]], 1800, function(widget, stdout)
+            widget:set_text(stdout)
+        end),
+        layout = wibox.layout.fixed.horizontal
+    },
+}
+
 
 
 widget_fs_color = '#caa9fa'
@@ -275,6 +291,20 @@ widget_test = wibox.widget {
     widget = wibox.container.background
 }
 
+widget_logo = wibox.widget {
+    image = '/home/ayats/.dotfiles/neofetch/gentoo-signet-small.png',
+    widget = wibox.widget.imagebox,
+    resize = true,
+    horizontal_fit_policy = 'fit',
+    vertical_fit_policy = 'fit',
+    forced_height = bar_height,
+    forced_width = bar_height,
+    scaling_quality = 'bilinear',
+}
+widget_logo = wibox.container.margin(widget_logo, 14,-6,7,6)
+
+
+
 
 -- Systreay
 local systray = wibox.widget.systray()
@@ -326,17 +356,17 @@ local tasklist_buttons = gears.table.join(
 
 awful.screen.connect_for_each_screen(function(s)
 
- --   -- Bling Wallpaper
- --   bling.module.tiled_wallpaper("", s, {        -- call the actual function ("x" is the string that will be tiled)
- --       fg = "#27382A",  -- define the foreground color
- --       bg = "#212326",  -- define the background color
- --       offset_y = 15,   -- set a y offset
- --       offset_x = 15,   -- set a x offset
- --       font = "Font Awesome 5 Free Solid",   -- set the font (without the size)
- --       font_size = 10,  -- set the font size
- --       padding = 50,   -- set padding (default is 100)
- --       zickzack = true  -- rectangular pattern or criss cross
- --   })
+   -- -- Bling Wallpaper
+   -- bling.module.tiled_wallpaper("", s, {        -- call the actual function ("x" is the string that will be tiled)
+   --     fg = "#27382A",  -- define the foreground color
+   --     bg = "#00000000",  -- define the background color
+   --     offset_y = 15,   -- set a y offset
+   --     offset_x = 15,   -- set a x offset
+   --     font = "Font Awesome 5 Free Solid",   -- set the font (without the size)
+   --     font_size = 10,  -- set the font size
+   --     padding = 50,   -- set padding (default is 100)
+   --     zickzack = true  -- rectangular pattern or criss cross
+   -- })
 
 
     s.mypromptbox = awful.widget.prompt()
@@ -396,8 +426,8 @@ awful.screen.connect_for_each_screen(function(s)
     s.wibox_splash = wibox({
         screen = s,
         type = 'splash',
-        width = 200,
-        height = 200,
+        width = 400,
+        height = 400,
         visible = true,
         bg = '#12121200',
         opacity = 1,
@@ -420,9 +450,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             widget = wibox.widget.imagebox,
             resize = true,
-            image = '/home/ayats/.dotfiles/neofetch/gentoo-round.png',
-            -- image = '/home/ayats/Downloads/gif.gif'
-            -- image = '/home/ayats/Downloads/logo_gentoo.png'
+            image = '/home/ayats/Pictures/splash_target',
         }
     }
 
@@ -438,6 +466,7 @@ awful.screen.connect_for_each_screen(function(s)
             --     forced_width = 5,
             --     thickness = 0,
             -- },
+                widget_logo,
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
             },
@@ -449,6 +478,7 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.layout.fixed.horizontal,
                 spacing = 12,
 
+                widget_ip,
                 widget_fs,
                 --widget_updates,
                 widget_battery,
