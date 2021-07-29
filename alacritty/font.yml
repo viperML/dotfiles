@@ -2,16 +2,16 @@
 font:
   ligatures: true
   normal:
-    family: JetBrains Mono
+    family: FiraCode NF
     style: Regular
   bold:
-    family: JetBrains Mono
+    family: FiraCode NF
     style: Bold
   italic:
-    family: JetBrains Mono
+    family: FiraCode NF
     style: Bold
   bold_italic:
-    family: JetBrains Mono
+    family: FiraCode NF
     style: Bold
 
   # Point size
@@ -21,7 +21,7 @@ font:
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
-    x: -1
+    x: 0
     y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with

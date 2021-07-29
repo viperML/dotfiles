@@ -14,8 +14,8 @@
 # COLORS
 
 import:
-    - ~/.dotfiles/alacritty/theme-dracula.yml
-    - ~/.dotfiles/alacritty/font.yml
+    - ~/dotfiles/alacritty/theme-dracula.yml
+    - ~/dotfiles/alacritty/font.yml
 
 
 # Any items in the `env` entry below will be added as
