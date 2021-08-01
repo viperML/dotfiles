@@ -824,9 +824,13 @@ client.connect_signal("request::titlebars", function(c)
             wibox.container.margin(awful.titlebar.widget.floatingbutton(c), hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.stickybutton(c),   hpad, hpad, vpad, vpad),
-            layout  = wibox.layout.fixed.horizontal
+            layout  = wibox.layout.fixed.horizontal,
+            buttons = buttons,
         },
-        awful.titlebar.widget.titlewidget(c),
+        {
+            widget = awful.titlebar.widget.titlewidget(c),
+            buttons = buttons,
+        },
         {
             buttons = buttons,
             layout = wibox.layout.fixed.horizontal,
