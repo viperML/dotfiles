@@ -159,6 +159,7 @@ theme.tasklist_bg_focus = "#303030"
 theme.tasklist_shape = helpers.rrect(5)
 theme.tasklist_disable_task_name = true
 theme.tasklist_shape_border_width = 0
+theme.tasklist_bg_urgent = theme.taglist_bg_urgent
 
 
 
