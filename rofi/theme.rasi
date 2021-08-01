@@ -49,7 +49,7 @@ inputbar {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 5;
+  lines: 7;
 }
 
 

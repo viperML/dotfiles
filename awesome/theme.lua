@@ -1,4 +1,5 @@
 local gears = require("gears")
+local wibox = require("wibox")
 
 local config_dir = "~/.config/awesome/"
 local res_dir = config_dir.."res/"
@@ -19,7 +20,7 @@ local helpers = require("helpers")
 
 local theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "Roboto"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
@@ -126,7 +127,7 @@ theme.icon_theme = nil
 -- ██║ ╚═╝ ██║██║███████║╚██████╗
 -- ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
 theme.border_width = 0
-theme.font = "Verdana,Font Awesome 5 Free Solid 10"
+theme.font = "Roboto,Font Awesome 5 Free Solid 11"
 local text_color = '#bbbbbb'
 
 -- Menu
@@ -143,15 +144,20 @@ theme.bg_systray = '#191919'
 theme.taglist_fg_focus = "#121212"
 theme.taglist_bg_focus = "#A8D5E0"
 theme.taglist_fg_empty = "#6a7066"
-theme.taglist_bg_empty = "#12121200"
+-- theme.taglist_bg_empty = "#12121200"
+theme.taglist_bg_empty = "#191919"
 theme.taglist_bg_occupied = theme.taglist_bg_empty
 theme.taglist_fg_urgent = "#121212"
 theme.taglist_bg_urgent = "#d35d6e"
-theme.taglist_spacing = 2
+theme.taglist_spacing = 0
 theme.taglist_shape_focus = helpers.rrect(5)
 theme.taglist_shape_empty = helpers.rrect(5)
 theme.taglist_shape = helpers.rrect(5)
 -- theme.taglist_shape_border_width = 10
+theme.tasklist_bg_normal = "#191919"
+theme.tasklist_bg_focus = "#191919"
+theme.tasklist_disable_task_name = true
+theme.tasklist_shape_border_width = 0
 
 
 

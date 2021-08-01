@@ -1,18 +1,11 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
+-- ██╗███╗   ██╗██╗████████╗
+-- ██║████╗  ██║██║╚══██╔══╝
+-- ██║██╔██╗ ██║██║   ██║
+-- ██║██║╚██╗██║██║   ██║
+-- ██║██║ ╚████║██║   ██║
+-- ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝
 
--- Default modkey.
-modkey = "Mod4"
-
--- ██╗     ██╗██████╗ ██████╗  █████╗ ██████╗ ██╗   ██╗
--- ██║     ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝
--- ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝
--- ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
--- ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
--- ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
-
--- Built-in
+-- Built-in lib
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -23,45 +16,38 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local naughty = require('naughty')
 local nconf = naughty.config
-local helpers = require("helpers")
 
--- External
+-- External lib
+local helpers = require("helpers")
 local sharedtags = require("sharedtags")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local freedesktop = require("freedesktop")
 local revelation = require("revelation")
 
-local config_dir = "~/.config/awesome/"
-
-
--- ██████╗ ███████╗ █████╗ ██╗   ██╗████████╗██╗███████╗██╗   ██╗██╗        ██╗    ██████╗ ██████╗
--- ██╔══██╗██╔════╝██╔══██╗██║   ██║╚══██╔══╝██║██╔════╝██║   ██║██║        ██║   ██╔════╝██╔═══██╗
--- ██████╔╝█████╗  ███████║██║   ██║   ██║   ██║█████╗  ██║   ██║██║     ████████╗██║     ██║   ██║
--- ██╔══██╗██╔══╝  ██╔══██║██║   ██║   ██║   ██║██╔══╝  ██║   ██║██║     ██╔═██╔═╝██║     ██║   ██║
--- ██████╔╝███████╗██║  ██║╚██████╔╝   ██║   ██║██║     ╚██████╔╝███████╗██████║  ╚██████╗╚██████╔╝██╗
--- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝╚═╝      ╚═════╝ ╚══════╝╚═════╝   ╚═════╝ ╚═════╝ ╚═╝
-beautiful.init(config_dir.."theme.lua")
+beautiful.init("~/.config/awesome/theme.lua")
 
 revelation.init{
     charorder = "1234567890jkluiopyhnmfdsatgvcewqzx",
 }
 
-
+-- Need import after beautiful init
 local lain = require("lain")
 local bling = require("bling")
 
+modkey = "Mod4"
 
 local corner_radius = 11
--- local bar_height = 29
 local bar_height = 29
 
--- beautiful.taglist_shape_focus = helpers.rrect(3)
+local terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
+for _, term in ipairs(terminals) do
+    local f=io.open(term,"r")
+    if not f~=nil then
+        terminal = term
+        break
+    end
+end
 
--- Other
-terminal = "st"
-menubar.utils.terminal = terminal
-editor = os.getenv("EDITOR")
-editor_cmd = terminal .. " -e " .. editor
 
 awful.layout.layouts = {
     awful.layout.suit.floating,
@@ -89,7 +75,8 @@ awful.layout.layouts = {
 
 local tags = sharedtags({
     { name = "  ", layout = awful.layout.suit.tile},
-    { name = " ﬏ ", layout = awful.layout.suit.tile},
+    -- { name = " ﬏ ", layout = awful.layout.suit.tile},
+    { name = "  ", layout = awful.layout.suit.tile},
     { name = " 3 ", layout = awful.layout.suit.tile},
     { name = " 4 ", layout = awful.layout.suit.tile},
     { name = " 5 ", layout = awful.layout.suit.tile},
@@ -100,7 +87,29 @@ local tags = sharedtags({
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
 
--- Naughty
+bling.widget.tag_preview.enable {
+    show_client_content = false,  -- Whether or not to show the client content
+    x = 10,                       -- The x-coord of the popup
+    y = 10,                       -- The y-coord of the popup
+    scale = 0.25,                 -- The scale of the previews compared to the screen
+    honor_padding = false,        -- Honor padding when creating widget size
+    honor_workarea = false,       -- Honor work area when creating widget size
+    placement_fn = function(c)    -- Place the widget using awful.placement (this overrides x & y)
+        awful.placement.top_left(c, {
+            margins = {
+                top = 30,
+                left = 30
+            }
+        })
+    end
+}
+
+-- ███╗   ██╗ ██████╗ ████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
+-- ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+-- ██╔██╗ ██║██║   ██║   ██║   ██║█████╗  ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+-- ██║╚██╗██║██║   ██║   ██║   ██║██╔══╝  ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+-- ██║ ╚████║╚██████╔╝   ██║   ██║██║     ██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
+-- ╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚═╝╚═╝     ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 nconf.defaults.border_width = 0
 nconf.defaults.margin = 16
 nconf.defaults.shape = helpers.rrect(corner_radius)
@@ -118,28 +127,19 @@ beautiful.notification_font = "Verdana 13"
 
 
 
+
 -- ███╗   ███╗███████╗███╗   ██╗██╗   ██╗
 -- ████╗ ████║██╔════╝████╗  ██║██║   ██║
 -- ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║
 -- ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║
 -- ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝
 -- ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝
-local menu_awesome = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "restart", awesome.restart },
-}
-
 local menu_system = {
-    { "restart naga", "systemctl --user restart nagastart.service" },
-    { "restart logid", "sudo systemctl restart logid.service" },
-    { "restart", "sudo reboot" },
-    { "shutdown", "sudo shutdown now" },
-    { "logout", function() awesome.quit() end },
-}
-
-local menu_screens = {
-    { "autorandr -c", "systemctl --user restart autorandr.service" },
-    { "autorandr -l horizontal", "systemctl --user restart autorandr-l.service" },
+    { "Hotkeys manual", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+    { "Restart Awesome", awesome.restart },
+    { "Quit Awesome", function() awesome.quit() end },
+    { "Restart PC", "sudo reboot" },
+    { "Shutdown PC", "sudo shutdown now" },
 }
 
 local menu_keyboard = {
@@ -150,11 +150,9 @@ local menu_keyboard = {
 
 menu = freedesktop.menu.build({
     before = {
-        { "Awesome", menu_awesome, beautiful.awesome_icon },
-        { "Keyboard", menu_keyboard },
         { "System", menu_system },
-        { "Screens", menu_screens },
-        { "Terminal", terminal }
+        { "Keymap", menu_keyboard },
+        { ""}
     },
     after = {
 
@@ -162,16 +160,15 @@ menu = freedesktop.menu.build({
 })
 
 
--- ██╗    ██╗██╗██████╗  █████╗ ██████╗
--- ██║    ██║██║██╔══██╗██╔══██╗██╔══██╗
--- ██║ █╗ ██║██║██████╔╝███████║██████╔╝
--- ██║███╗██║██║██╔══██╗██╔══██║██╔══██╗
--- ╚███╔███╔╝██║██████╔╝██║  ██║██║  ██║
---  ╚══╝╚══╝ ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+-- ██╗    ██╗██╗██████╗  ██████╗ ███████╗████████╗███████╗
+-- ██║    ██║██║██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝██╔════╝
+-- ██║ █╗ ██║██║██║  ██║██║  ███╗█████╗     ██║   ███████╗
+-- ██║███╗██║██║██║  ██║██║   ██║██╔══╝     ██║   ╚════██║
+-- ╚███╔███╔╝██║██████╔╝╚██████╔╝███████╗   ██║   ███████║
+--  ╚══╝╚══╝ ╚═╝╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝
+local muted_icon_color = '#707070'
 
-muted_icon_color = '#707070'
-
-widget_clock = wibox.widget {
+local widget_clock = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
@@ -187,23 +184,8 @@ widget_clock = wibox.widget {
     }
 }
 
---widget_updates = wibox.widget {
---    layout = wibox.layout.fixed.horizontal,
---    widget = wibox.container.background,
---    {
---        -- markup = helpers.colorize_text(' ', '#5af78e'),
---        markup = helpers.colorize_text(' ', muted_icon_color),
---        widget = wibox.widget.textbox,
---    },
---    {
---        awful.widget.watch([[ sh -c "echo -e \"$(checkupdates)\n$(paru -Qua)\" | sed '/ignored/ d;/^\s*$/ d' | wc -l" ]], 1800, function(widget, stdout)
---            widget:set_text(stdout)
---        end),
---        layout = wibox.layout.fixed.horizontal
---    },
---}
 
-widget_ip = wibox.widget {
+local widget_ip = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
@@ -220,9 +202,7 @@ widget_ip = wibox.widget {
 }
 
 
-
-widget_fs_color = '#caa9fa'
-widget_fs = wibox.widget {
+local widget_fs = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
@@ -250,7 +230,7 @@ widget_fs = wibox.widget {
 }
 
 
-widget_battery = wibox.widget {
+local widget_battery = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
     widget = wibox.container.background,
     {
@@ -292,7 +272,8 @@ widget_test = wibox.widget {
 }
 
 widget_logo = wibox.widget {
-    image = '/home/ayats/.dotfiles/neofetch/gentoo-signet-small.png',
+    -- image = '/home/ayats/.dotfiles/.img/gentoo-signet-small.png',
+    image = os.getenv('DOTDIR')..'/.img/gentoo-signet-small.png',
     widget = wibox.widget.imagebox,
     resize = true,
     horizontal_fit_policy = 'fit',
@@ -301,7 +282,8 @@ widget_logo = wibox.widget {
     forced_width = bar_height,
     scaling_quality = 'bilinear',
 }
-widget_logo = wibox.container.margin(widget_logo, 14,-6,7,6)
+local wlsize = 6
+widget_logo = wibox.container.margin(widget_logo, 15,0,wlsize+1,wlsize)
 
 
 
@@ -314,7 +296,6 @@ widget_systray = wibox.container.margin(systray, 0, 0, (bar_height-systray_h)/2,
 
 
 
--- Idk where this is from
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
@@ -332,42 +313,36 @@ local taglist_buttons = gears.table.join(
                     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
                 )
 
-local tasklist_buttons = gears.table.join(
-                     awful.button({ }, 1, function (c)
-                                              if c == client.focus then
-                                                  c.minimized = true
-                                              else
-                                                  c:emit_signal(
-                                                      "request::activate",
-                                                      "tasklist",
-                                                      {raise = true}
-                                                  )
-                                              end
-                                          end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
+-- local tasklist_buttons = gears.table.join(
+--                      awful.button({ }, 1, function (c)
+--                                               if c == client.focus then
+--                                                   c.minimized = true
+--                                               else
+--                                                   c:emit_signal(
+--                                                       "request::activate",
+--                                                       "tasklist",
+--                                                       {raise = true}
+--                                                   )
+--                                               end
+--                                           end),
+--                      awful.button({ }, 3, function()
+--                                               awful.menu.client_list({ theme = { width = 250 } })
+--                                           end),
+--                      awful.button({ }, 4, function ()
+--                                               awful.client.focus.byidx(1)
+--                                           end),
+--                      awful.button({ }, 5, function ()
+--                                               awful.client.focus.byidx(-1)
+--                                           end))
+
+-- ███████╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗    ███████╗███████╗████████╗██╗   ██╗██████╗
+-- ██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝████╗  ██║    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
+-- ███████╗██║     ██████╔╝█████╗  █████╗  ██╔██╗ ██║    ███████╗█████╗     ██║   ██║   ██║██████╔╝
+-- ╚════██║██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║    ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝
+-- ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║    ███████║███████╗   ██║   ╚██████╔╝██║
+-- ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝    ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝
 
 awful.screen.connect_for_each_screen(function(s)
-
-   -- -- Bling Wallpaper
-   -- bling.module.tiled_wallpaper("", s, {        -- call the actual function ("x" is the string that will be tiled)
-   --     fg = "#27382A",  -- define the foreground color
-   --     bg = "#00000000",  -- define the background color
-   --     offset_y = 15,   -- set a y offset
-   --     offset_x = 15,   -- set a x offset
-   --     font = "Font Awesome 5 Free Solid",   -- set the font (without the size)
-   --     font_size = 10,  -- set the font size
-   --     padding = 50,   -- set padding (default is 100)
-   --     zickzack = true  -- rectangular pattern or criss cross
-   -- })
-
 
     s.mypromptbox = awful.widget.prompt()
 
@@ -387,15 +362,15 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
-
     }
 
     -- Task list
-    -- s.mytasklist = awful.widget.tasklist {
-    --     screen  = s,
-    --     filter  = awful.widget.tasklist.filter.currenttags,
-    --     buttons = tasklist_buttons
-    -- }
+    s.mytasklist = awful.widget.tasklist {
+        screen  = s,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons,
+        shape = gears.shape.rounded_rect
+    }
 
     local wibox_gap_x = beautiful.useless_gap*2
     local wibox_gap_y1 = 20
@@ -469,6 +444,7 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_logo,
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
+                -- s.mytasklist
             },
 
             -- Middle Widget
@@ -497,17 +473,6 @@ awful.screen.connect_for_each_screen(function(s)
     }
 end)
 
--- ███╗   ███╗ ██████╗ ██╗   ██╗███████╗███████╗
--- ████╗ ████║██╔═══██╗██║   ██║██╔════╝██╔════╝
--- ██╔████╔██║██║   ██║██║   ██║███████╗█████╗
--- ██║╚██╔╝██║██║   ██║██║   ██║╚════██║██╔══╝
--- ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝███████║███████╗
--- ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () menu:toggle() end)
-    --awful.button({ }, 4, awful.tag.viewnext),
-    --awful.button({ }, 5, awful.tag.viewprev)
-))
 
 
 -- ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
@@ -516,6 +481,11 @@ root.buttons(gears.table.join(
 -- ██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
 -- ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
 -- ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+root.buttons(gears.table.join(
+    awful.button({ }, 3, function () menu:toggle() end)
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
+))
 
 globalkeys = gears.table.join(
     awful.key({ modkey }, "h", hotkeys_popup.show_help,
@@ -824,7 +794,7 @@ end)
 --    ██║   ██║   ██║   ███████╗███████╗██████╔╝██║  ██║██║  ██║
 --    ╚═╝   ╚═╝   ╚═╝   ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 client.connect_signal("request::titlebars", function(c)
-    -- buttons for the titlebar
+    -- Mouse keybinds
     local buttons = gears.table.join(
         awful.button({ }, 1, function()
             c:emit_signal("request::activate", "titlebar", {raise = true})
@@ -841,29 +811,27 @@ client.connect_signal("request::titlebars", function(c)
 
     awful.titlebar(c, {
         size = bar_height
-    }) : setup {
-        { -- Left
+        }) : setup {
+        layout = wibox.layout.align.horizontal,
+        {
             wibox.widget {
                 widget = wibox.widget.separator,
                 forced_width = vpad,
                 thickness = 0,
             },
+            -- Looks awful but works
             wibox.container.margin(awful.titlebar.widget.closebutton(c),    hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.floatingbutton(c), hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.stickybutton(c),   hpad, hpad, vpad, vpad),
             layout  = wibox.layout.fixed.horizontal
         },
-        { -- Middle
-            buttons = buttons,
-            align = 'center',
-            widget = awful.titlebar.widget.titlewidget(c),
-        },
+        awful.titlebar.widget.titlewidget(c),
         {
             buttons = buttons,
-            layout = wibox.layout.fixed.horizontal
+            layout = wibox.layout.fixed.horizontal,
         },
-        layout = wibox.layout.align.horizontal,
+        expand = 'none',
     }
 end)
 
@@ -871,25 +839,25 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
-
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
 
-
-
+--  █████╗ ██╗   ██╗████████╗ ██████╗ ██╗      █████╗ ██╗   ██╗███╗   ██╗ ██████╗██╗  ██╗
+-- ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██║     ██╔══██╗██║   ██║████╗  ██║██╔════╝██║  ██║
+-- ███████║██║   ██║   ██║   ██║   ██║██║     ███████║██║   ██║██╔██╗ ██║██║     ███████║
+-- ██╔══██║██║   ██║   ██║   ██║   ██║██║     ██╔══██║██║   ██║██║╚██╗██║██║     ██╔══██║
+-- ██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║
+-- ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 awful.spawn("nitrogen --restore")
--- awful.spawn("picom --experimental-backends")
+-- Lauch systemd user custom files
 awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 
+-- Increase keyboard tick rate and disable screen blanking
 awful.spawn("xset r rate 200 40")
 awful.spawn("xset s off -dpms")
 awful.spawn("xset b off")
-
-
-
 
 
 -- ████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗         ███████╗██╗    ██╗ █████╗ ██╗     ██╗      ██████╗ ██╗    ██╗
@@ -899,43 +867,4 @@ awful.spawn("xset b off")
 --    ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗    ███████║╚███╔███╔╝██║  ██║███████╗███████╗╚██████╔╝╚███╔███╔╝
 --    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝
 -- https://www.reddit.com/r/awesomewm/comments/h07f5y/does_awesome_support_window_swallowing/
---
--- function is_terminal(c)
---     return (c.class and c.class:match("st-256color")) and true or false
--- end
---
--- function copy_size(c, parent_client)
---     if not c or not parent_client then
---         return
---     end
---     if not c.valid or not parent_client.valid then
---         return
---     end
---     c.x=parent_client.x;
---     c.y=parent_client.y;
---     c.width=parent_client.width;
---     c.height=parent_client.height;
--- end
--- function check_resize_client(c)
---     if(c.child_resize) then
---         copy_size(c.child_resize, c)
---     end
--- end
---
--- client.connect_signal("property::size", check_resize_client)
--- client.connect_signal("property::position", check_resize_client)
--- client.connect_signal("manage", function(c)
---     if is_terminal(c) then
---         return
---     end
---     local parent_client=awful.client.focus.history.get(c.screen, 1)
---     if parent_client and is_terminal(parent_client) then
---         parent_client.child_resize=c
---         parent_client.minimized = true
---
---         c:connect_signal("unmanage", function() parent_client.minimized = false end)
---
---         -- c.floating=true
---         copy_size(c, parent_client)
---     end
--- end)
+-- Not used

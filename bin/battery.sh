@@ -5,7 +5,7 @@ if [ `cat /sys/class/power_supply/ADP1/online` -eq 1 ]
 then
     state=
 else
-    state="⚠"
+    state=" "
 fi
 
 echo $state $CAPACITY%
