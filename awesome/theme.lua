@@ -155,7 +155,8 @@ theme.taglist_shape_empty = helpers.rrect(5)
 theme.taglist_shape = helpers.rrect(5)
 -- theme.taglist_shape_border_width = 10
 theme.tasklist_bg_normal = "#191919"
-theme.tasklist_bg_focus = "#191919"
+theme.tasklist_bg_focus = "#303030"
+theme.tasklist_shape = helpers.rrect(5)
 theme.tasklist_disable_task_name = true
 theme.tasklist_shape_border_width = 0
 
@@ -273,12 +274,18 @@ theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "
                                             -- defaults to the tabbar_style so only change if you want a
                                             -- different style for mstab and tabbed
 
+theme.tag_preview_widget_border_radius = 10          -- Border radius of the widget (With AA)
+theme.tag_preview_client_border_radius = 10          -- Border radius of each client in the widget (With AA)
+theme.tag_preview_client_opacity = 0.9              -- Opacity of each client
+theme.tag_preview_client_bg = "#000000"             -- The bg color of each client
+theme.tag_preview_client_border_color = "#00ff00"   -- The border color of each client
+theme.tag_preview_client_border_width = 0           -- The border width of each client
+theme.tag_preview_widget_bg = "#000000"             -- The bg color of the widget
+theme.tag_preview_widget_border_color = "#ff0000"   -- The border color of the widget
+theme.tag_preview_widget_border_width = 0           -- The border width of the widget
+theme.tag_preview_widget_margin = 0                 -- The margin of the widget
 
 
--- REVELATION not working
-theme.revelation_fg_normal = text_color
-theme.revelation_bg_normal = '#191919'
-theme.revelation_border_width = 0
 
 
 

@@ -88,20 +88,12 @@ local tags = sharedtags({
 })
 
 bling.widget.tag_preview.enable {
-    show_client_content = false,  -- Whether or not to show the client content
-    x = 10,                       -- The x-coord of the popup
-    y = 10,                       -- The y-coord of the popup
+    show_client_content = true,  -- Whether or not to show the client content
+    x = bar_height * 2,                       -- The x-coord of the popup
+    y = bar_height * 2,                       -- The y-coord of the popup
     scale = 0.25,                 -- The scale of the previews compared to the screen
     honor_padding = false,        -- Honor padding when creating widget size
     honor_workarea = false,       -- Honor work area when creating widget size
-    placement_fn = function(c)    -- Place the widget using awful.placement (this overrides x & y)
-        awful.placement.top_left(c, {
-            margins = {
-                top = 30,
-                left = 30
-            }
-        })
-    end
 }
 
 -- ███╗   ██╗ ██████╗ ████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
@@ -361,15 +353,71 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        buttons = taglist_buttons,
+        widget_template = {
+            {
+                {
+                    {
+                        id     = 'text_role',
+                        widget = wibox.widget.textbox,
+                    },
+                    margins = 5,
+                    widget  = wibox.container.margin,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            id = 'background_role',
+            widget = wibox.container.background,
+            -- shape = helpers.rrect(5)
+            --
+                    -- Add support for hover colors and an index label
+        create_callback = function(self, c3, index, objects) --luacheck: no unused args
+            -- self:get_children_by_id('index_role')[1].markup = '<b> '..index..' </b>'
+            self:connect_signal('mouse::enter', function()
+
+                -- BLING: Only show widget when there are clients in the tag
+                if #c3:clients() > 0 then
+                    -- BLING: Update the widget with the new tag
+                    awesome.emit_signal("bling::tag_preview::update", c3)
+                    -- BLING: Show the widget
+                    awesome.emit_signal("bling::tag_preview::visibility", s, true)
+                end
+
+            end)
+            self:connect_signal('mouse::leave', function()
+
+                -- BLING: Turn the widget off
+                awesome.emit_signal("bling::tag_preview::visibility", s, false)
+
+            end)
+        end,
+        -- update_callback = function(self, c3, index, objects) --luacheck: no unused args
+        --     self:get_children_by_id('index_role')[1].markup = '<b> '..index..' </b>'
+        -- end,
+        },
     }
 
     -- Task list
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
+        filter  = awful.widget.tasklist.filter.alltags,
         buttons = tasklist_buttons,
-        shape = gears.shape.rounded_rect
+        shape = gears.shape.rounded_rect,
+        widget_template = {
+            {
+                {
+                    {
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
+                    },
+                    margins = 5,
+                    widget  = wibox.container.margin,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            id     = 'background_role',
+            widget = wibox.container.background,
+        },
     }
 
     local wibox_gap_x = beautiful.useless_gap*2
@@ -444,7 +492,8 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_logo,
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
-                -- s.mytasklist
+                widget_spacer,
+                s.mytasklist
             },
 
             -- Middle Widget
@@ -486,6 +535,13 @@ root.buttons(gears.table.join(
     --awful.button({ }, 4, awful.tag.viewnext),
     --awful.button({ }, 5, awful.tag.viewprev)
 ))
+
+-- Enable sloppy focus, so that focus follows mouse.
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 globalkeys = gears.table.join(
     awful.key({ modkey }, "h", hotkeys_popup.show_help,
@@ -825,7 +881,7 @@ client.connect_signal("request::titlebars", function(c)
             wibox.container.margin(awful.titlebar.widget.maximizedbutton(c),hpad, hpad, vpad, vpad),
             wibox.container.margin(awful.titlebar.widget.stickybutton(c),   hpad, hpad, vpad, vpad),
             layout  = wibox.layout.fixed.horizontal,
-            buttons = buttons,
+            -- buttons = buttons,
         },
         {
             widget = awful.titlebar.widget.titlewidget(c),
@@ -839,12 +895,6 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
--- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 
 --  █████╗ ██╗   ██╗████████╗ ██████╗ ██╗      █████╗ ██╗   ██╗███╗   ██╗ ██████╗██╗  ██╗
