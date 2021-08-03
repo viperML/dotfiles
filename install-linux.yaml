@@ -13,12 +13,6 @@
     quiet: true
     description: Broken symlinks in .config
   -
-    command: find ~/bin -xtype l
-    stdout: true
-    stderr: true
-    quiet: true
-    description: Broken symlinks in bin
-  -
     command: find ~ -xtype l -maxdepth 1
     stdout: true
     stderr: true
@@ -64,3 +58,7 @@
     ~/.config/bat/config: bat/config
 
     ~/bin/rofiman: bin/rofiman
+
+    ~/.doom.d/:
+      glob: true
+      path: doom/*

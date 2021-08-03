@@ -13,6 +13,7 @@ CODES = {
     'C0AF-1964': 'EFI'
 }
 
+
 to_print = []
 for line in output:
     split = line.split()

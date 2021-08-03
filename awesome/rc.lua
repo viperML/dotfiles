@@ -83,7 +83,7 @@ local tags = sharedtags({
     { name = " 6 ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile},
     { name = "  ", layout = awful.layout.suit.floating},
-    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
+    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
 
