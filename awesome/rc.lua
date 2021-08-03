@@ -790,6 +790,8 @@ awful.rules.rules = {
         properties = { tag = tags[1], switch_to_tags = true } },
     { rule = { class = "Code" },
         properties = { tag = tags[2], switch_to_tags = true } },
+    { rule = { class = "Emacs" },
+        properties = { tag = tags[2], switch_to_tags = true } },
     { rule = { class = "discord" },
         properties = { tag = tags[9] } },
     { rule = { class = "Spotify" },

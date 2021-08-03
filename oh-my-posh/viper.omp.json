@@ -28,8 +28,9 @@
 					"foreground": "blue",
 					"properties": {
 						"prefix": "  ",
-						"style": "agnoster_full",
-						"home_icon": "~",
+						// "style": "agnoster_full",
+						"style": "full",
+						"home_icon": "/home/ayats",
 						"folder_separator_icon": "/"
 					}
 				},
@@ -78,7 +79,8 @@
 					"style": "plain",
 					"foreground": "white",
 					"properties": {
-						"text": "➜",
+						// "text": "➜",
+						"text": " λ",
 						"prefix": "",
 						"postfix": ""
 					}
