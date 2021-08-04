@@ -77,17 +77,12 @@
 (setq fancy-splash-image "/home/ayats/.dotfiles/.img/emacs.png")
 
 
-;; https://stackoverflow.com/questions/534307/set-emacs-defaut-font-face-per-buffer-mode#534961
-; (dolist (hook '(erc-mode-hook
-;         LaTeX-mode-hook
-;         org-mode-hook
-;         ;; edit-server-start-hook
-;         markdown-mode-hook))
-;   (add-hook hook (lambda () (variable-pitch-mode t) )))
-
-; (add-hook 'org-mode-hook 'variable-pitch-mode)
+;; Mixed pitch package for only-text modes
 (use-package mixed-pitch
   :hook
   ;; If you want it in all text modes:
   (text-mode . mixed-pitch-mode))
 
+
+;; Monday as first day
+(setq calendar-week-start-day 1)
