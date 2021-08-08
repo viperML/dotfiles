@@ -79,8 +79,8 @@
 					"style": "plain",
 					"foreground": "white",
 					"properties": {
-						// "text": "➜",
-						"text": " λ",
+						"text": "➜",
+						//"text": " λ",
 						"prefix": "",
 						"postfix": ""
 					}
