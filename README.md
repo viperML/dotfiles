@@ -1,6 +1,6 @@
 # viperML/dotfiles
 
-> Last updated: July 2021
+> Last update of this README: July 2021
 # About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
