@@ -1,4 +1,4 @@
-Invoke-Expression (oh-my-posh --init --shell pwsh --config ~\dotfiles\oh-my-posh\viper.omp.json)
+Invoke-Expression (oh-my-posh --init --shell pwsh --config ~\.dotfiles\oh-my-posh\viper.omp.json)
 Set-PSReadLineOption -predictionsource history
 Function FnLSD {lsd}
 Function FnLSA {lsd -a}
