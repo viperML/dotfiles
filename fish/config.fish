@@ -3,12 +3,18 @@ function os_greeter
     echo 'Welcome to'
     if [ $os = 'Arch Linux' ];
         set_color cyan
+        echo $os
     else if [ $os = 'Gentoo' ];
         set_color brmagenta
+        echo -e "Gentoo\t"
+        set_color normal
+        $DOTDIR/bin/eix-timestamp.sh
+    else
+        echo $os
     end
-    echo $os
     set_color normal
 end
+
 set -g -x fish_greeting (os_greeter)
 
 # Prompt theme
