@@ -126,7 +126,10 @@ theme.icon_theme = nil
 -- ██║╚██╔╝██║██║╚════██║██║
 -- ██║ ╚═╝ ██║██║███████║╚██████╗
 -- ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
+local main_bg = "#131313"
 theme.border_width = 0
+theme.border_focus = "#A8D5E0"
+theme.border_normal = main_bg
 theme.font = "Roboto,Font Awesome 5 Free Solid 11"
 local text_color = '#bbbbbb'
 
@@ -139,13 +142,13 @@ theme.menu_submenu_icon = nil
 theme.taglist_squares_sel = nil
 theme.taglist_squares_unsel = nil
 theme.wibar_fg = text_color
-theme.wibar_bg = "#191919"
-theme.bg_systray = '#191919'
+theme.wibar_bg = main_bg
+theme.bg_systray = main_bg
 theme.taglist_fg_focus = "#121212"
 theme.taglist_bg_focus = "#A8D5E0"
 theme.taglist_fg_empty = "#6a7066"
 -- theme.taglist_bg_empty = "#12121200"
-theme.taglist_bg_empty = "#191919"
+theme.taglist_bg_empty = main_bg
 theme.taglist_bg_occupied = theme.taglist_bg_empty
 theme.taglist_fg_urgent = "#121212"
 theme.taglist_bg_urgent = "#d35d6e"
@@ -154,7 +157,7 @@ theme.taglist_shape_focus = helpers.rrect(5)
 theme.taglist_shape_empty = helpers.rrect(5)
 theme.taglist_shape = helpers.rrect(5)
 -- theme.taglist_shape_border_width = 10
-theme.tasklist_bg_normal = "#191919"
+theme.tasklist_bg_normal = main_bg
 theme.tasklist_bg_focus = "#303030"
 theme.tasklist_shape = helpers.rrect(5)
 theme.tasklist_disable_task_name = true
@@ -174,7 +177,7 @@ theme.tasklist_bg_urgent = theme.taglist_bg_urgent
 theme.titlebar_fg_focus = text_color
 theme.titlebar_fg_normal =text_color
 theme.titlebar_bg_focus = "#1F2021"
-theme.titlebar_bg_normal = '#191919'
+theme.titlebar_bg_normal = main_bg
 
 
 local btn_dir = res_dir.."btn2/"

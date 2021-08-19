@@ -31,7 +31,7 @@
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": true,
   "update.mode": "none",
-  "window.menuBarVisibility": "toggle",
+  "window.menuBarVisibility": "compact",
   "workbench.startupEditor": "none",  "editor.tabSize": 4,
   "workbench.sideBar.location": "left",
 
@@ -257,9 +257,7 @@
   "powershell.startAutomatically": false,
 
   // Arduino
-  // "arduino.path": "/usr/bin",
-  // "arduino.useArduinoCli": true,
-  // "arduino.commandPath": "arduino-cli",
+  "arduino.path": "/usr/bin",
 
   // Vim
   "vim.easymotion": true,
@@ -311,7 +309,6 @@
   "diffEditor.renderSideBySide": false,
   "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
   "security.workspace.trust.untrustedFiles": "open",
-  "files.autoSave": "afterDelay",
   "editor.inlineSuggest.enabled": true,
   "workbench.editor.untitled.hint": "hidden",
   "github.copilot.enable": {
@@ -332,5 +329,6 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "remimarsal.prettier-now"
-  }
+  },
+  "files.autoSave": "afterDelay"
 }

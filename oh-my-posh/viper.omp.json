@@ -29,9 +29,9 @@
 					"properties": {
 						"prefix": "  ",
 						// "style": "agnoster_full",
-						"style": "full",
-						"home_icon": "/home/ayats",
-						"folder_separator_icon": "/"
+						"home_icon": "~",
+						"style": "agnoster_full"
+						// "folder_separator_icon": "/"
 					}
 				},
 				{

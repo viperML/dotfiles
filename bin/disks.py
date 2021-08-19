@@ -1,26 +1,52 @@
 #!/usr/bin/python
+from os import sep
 import subprocess
 import sys
+import json
 
-try:
-    output = subprocess.check_output(['lsblk -f'], shell=True, stderr=subprocess.STDOUT)
-except subprocess.CalledProcessError as e:
-    output = e.output
-output = output.decode('utf-8').splitlines()
+def awesome_format(data: str) -> str:
+    icon = ' '
+    icon_color = '#707070'
 
-CODES = {
-    '7a0abe38-85d5-4221-bfed-f696f1802798': 'data',
-    'C0AF-1964': 'EFI'
-}
+    return "<span foreground='" + icon_color + "'>" + icon + "</span>" + data
 
 
-to_print = []
-for line in output:
-    split = line.split()
+def get_disks() -> list:
+    result = []
+
     try:
-        if split[3] in CODES:
-            to_print = ['  ' + CODES[split[3]] + ': ' + split[5], *to_print]
-    except IndexError:
-        pass
+        output = subprocess.check_output(['lsblk -f -J'], shell=True, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+        output = e.output
+    output = output.decode('utf-8')
 
-print('    '.join(to_print))
+    disks = json.loads(output)
+
+
+    # Detect mounted devices
+    for block in disks['blockdevices']:
+        for partition in block['children']:
+            if partition['fsuse%'] is not None:
+                # Get data to print
+
+                fsusage_percent = float(partition['fsuse%'].strip('%'))/100
+
+                units = partition['fsavail'][-1]
+                fstotal = float(partition['fsavail'][:-1])
+                fsusage = round(fstotal * fsusage_percent, 1)
+
+                if partition['label'] is not None:
+                    name = partition['label']
+                else:
+                    name = partition['name']
+
+                result.append(name + ' ' + str(fsusage) + units + '/' + str(fstotal) + units)
+
+    return result
+
+if __name__ == '__main__':
+    entries = get_disks()
+    # Format each entry element
+    results = [awesome_format(entry) for entry in entries]
+
+    print(*results, sep='  ')

@@ -36,7 +36,7 @@ local bling = require("bling")
 
 modkey = "Mod4"
 
-local corner_radius = 11
+local corner_radius = 10
 local bar_height = 29
 
 local terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
@@ -194,49 +194,34 @@ local widget_ip = wibox.widget {
 }
 
 
-local widget_fs = wibox.widget {
-    layout = wibox.layout.fixed.horizontal,
-    widget = wibox.container.background,
-    {
-        -- markup = helpers.colorize_text(' ', widget_fs_color),
-        markup = helpers.colorize_text(' ', muted_icon_color),
-        widget = wibox.widget.textbox,
-    },
-    {
-        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sdb1/p' | grep -o '[0-9]*%'" ]], 1800, function(widget, stdout)
-            widget:set_text('sdb1: '..stdout)
-        end),
-        layout = wibox.layout.fixed.horizontal
-    },
-    {
-        -- markup = helpers.colorize_text('   ', widget_fs_color),
-        markup = helpers.colorize_text('   ', muted_icon_color),
-        widget = wibox.widget.textbox,
-    },
-    {
-        awful.widget.watch([[ sh -c "lsblk -f | sed -n '/sda1/p' | grep -o '[0-9]*%'" ]], 1800, function(widget, stdout)
-            widget:set_text('efi:'..stdout)
-        end),
-        layout = wibox.layout.fixed.horizontal
-    },
-}
+local widget_fs = awful.widget.watch(
+    [[ sh -c "$DOTDIR/bin/disks.py" ]],
+    1800,
+    function(widget, stdout)
+        widget:set_markup_silently(stdout)
+    end
+)
 
+local battery_exists=io.open("/sys/class/power_supply/BAT0/capacity","r")
+if battery_exists~=nil then
+    io.close(battery_exists)
+    widget_battery = wibox.widget {
+        layout = wibox.layout.fixed.horizontal,
+        widget = wibox.container.background,
+        {
+            -- markup = helpers.colorize_text(' ', '#ff6e67'),
+            markup = helpers.colorize_text(' ', muted_icon_color),
+            widget = wibox.widget.textbox,
+        },
+        {
+            awful.widget.watch([[ sh -c "$DOTDIR/bin/battery.sh" ]], 30, function(widget, stdout)
+                widget:set_text(stdout)
+            end),
+            layout = wibox.layout.fixed.horizontal
+        },
+    }
+end
 
-local widget_battery = wibox.widget {
-    layout = wibox.layout.fixed.horizontal,
-    widget = wibox.container.background,
-    {
-        -- markup = helpers.colorize_text(' ', '#ff6e67'),
-        markup = helpers.colorize_text(' ', muted_icon_color),
-        widget = wibox.widget.textbox,
-    },
-    {
-        awful.widget.watch([[ sh -c "$DOTDIR/bin/battery.sh" ]], 30, function(widget, stdout)
-            widget:set_text(stdout)
-        end),
-        layout = wibox.layout.fixed.horizontal
-    },
-}
 
 widget_spacer = wibox.widget {
     widget = wibox.widget.separator,
@@ -280,7 +265,7 @@ widget_logo = wibox.container.margin(widget_logo, 15,0,wlsize+1,wlsize)
 
 
 
--- Systreay
+-- Systray
 local systray = wibox.widget.systray()
 local systray_h = 18
 systray : set_base_size(systray_h)
