@@ -186,7 +186,7 @@ local widget_ip = wibox.widget {
         widget = wibox.widget.textbox,
     },
     {
-        awful.widget.watch([[ sh -c "sleep 5 && ip -4 a | sed -n '/global/p' | awk '{print $2}'" ]], 1800, function(widget, stdout)
+        awful.widget.watch([[ sh -c "sleep 15 && ip -4 a | sed -n '/global/p' | awk '{print $2}' | cut -d'/' -f1" ]], 1800, function(widget, stdout)
             widget:set_text(stdout)
         end),
         layout = wibox.layout.fixed.horizontal
