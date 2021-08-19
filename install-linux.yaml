@@ -56,3 +56,5 @@
     ~/.doom.d/:
       glob: true
       path: doom/*
+
+    ~/.config/multiload-ng/systray.conf: multiload-ng/systray.conf
