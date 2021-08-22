@@ -146,6 +146,7 @@ theme.wibar_bg = main_bg
 theme.bg_systray = main_bg
 theme.taglist_fg_focus = "#121212"
 theme.taglist_bg_focus = "#A8D5E0"
+theme.taglist_bg_focus2 = "#bcd7dd"
 theme.taglist_fg_empty = "#6a7066"
 -- theme.taglist_bg_empty = "#12121200"
 theme.taglist_bg_empty = main_bg

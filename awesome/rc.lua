@@ -265,9 +265,9 @@ widget_logo = wibox.widget {
     forced_width = bar_height,
     scaling_quality = 'bilinear',
 }
-local wlsize = 6
-widget_logo = wibox.container.margin(widget_logo, 15,0,wlsize+1,wlsize)
-
+widget_logo:connect_signal('button::press', function()
+   menu:toggle()
+end)
 
 
 
@@ -361,7 +361,8 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background,
             -- shape = helpers.rrect(5)
             --
-                    -- Add support for hover colors and an index label
+
+            -- Add support for hover colors and an index label
         create_callback = function(self, c3, index, objects) --luacheck: no unused args
             -- self:get_children_by_id('index_role')[1].markup = '<b> '..index..' </b>'
             self:connect_signal('mouse::enter', function()
@@ -374,11 +375,27 @@ awful.screen.connect_for_each_screen(function(s)
                     awesome.emit_signal("bling::tag_preview::visibility", s, true)
                 end
 
+                if c3.selected then
+                    self.bg = beautiful.taglist_bg_focus2
+                else
+                    self.bg = beautiful.tasklist_bg_focus
+                end
+
             end)
             self:connect_signal('mouse::leave', function()
 
                 -- BLING: Turn the widget off
                 awesome.emit_signal("bling::tag_preview::visibility", s, false)
+
+
+                -- If tag is active, change the background color
+                if c3.selected == true then
+                    self.bg = beautiful.taglist_bg_focus
+                else
+                    self.bg = beautiful.taglist_bg_empty
+                end
+
+
 
             end)
         end,
@@ -480,8 +497,10 @@ awful.screen.connect_for_each_screen(function(s)
             --     forced_width = 5,
             --     thickness = 0,
             -- },
-                widget_logo,
+                wibox.container.margin(widget_logo, 15,5,6+1,6),
                 layout = wibox.layout.fixed.horizontal,
+                s.mylayoutbox,
+                widget_spacer,
                 s.mytaglist,
                 widget_spacer,
                 s.mytasklist
@@ -498,7 +517,6 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_fs,
                 --widget_updates,
                 widget_battery,
-                s.mylayoutbox,
                 volume_widget{
                     widget_type = 'icon_and_text',
                     width = 100,

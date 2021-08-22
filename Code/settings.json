@@ -330,5 +330,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "remimarsal.prettier-now"
   },
+  "glassit.alpha": 245,
   "files.autoSave": "afterDelay"
 }
