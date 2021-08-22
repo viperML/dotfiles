@@ -34,8 +34,6 @@ call plug#end()
 " nvim-comment setup
 lua require'nvim_comment'.setup()
 
-
-
 " 4 spaces tabs and indentation
 set smartindent
 set expandtab
@@ -83,6 +81,7 @@ let g:highlightedyank_highlight_duration = -1
 
 " Dracula theme, no background
 colorscheme dracula
-highlight Normal ctermbg=black
+" No background color
+highlight Normal ctermbg=NONE
 
-" endif
+

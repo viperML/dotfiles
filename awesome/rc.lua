@@ -34,12 +34,18 @@ revelation.init{
 local lain = require("lain")
 local bling = require("bling")
 
-modkey = "Mod4"
+
+if os.getenv('SSH_CLIENT') then
+    modkey = "Mod1"
+    terminals = {'/usr/bin/konsole'}
+else
+    modkey = "Mod4"
+    terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
+end
 
 local corner_radius = 10
 local bar_height = 29
 
-local terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
 for _, term in ipairs(terminals) do
     local f=io.open(term,"r")
     if not f~=nil then
