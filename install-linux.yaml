@@ -5,7 +5,7 @@
 
 - shell:
   - xrdb -merge $HOME/.Xresources
-    # - vscode --list-extensions > $DOTDIR/Code/extensions
+  - vscode --list-extensions > $DOTDIR/Code/extensions
   -
     command: find ~/.config -xtype l
     stdout: true

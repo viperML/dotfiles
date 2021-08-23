@@ -10,7 +10,6 @@ esbenp.prettier-vscode
 GitHub.copilot
 GrapeCity.gc-excelviewer
 haskell.haskell
-icrawl.discord-vscode
 James-Yu.latex-workshop
 justusadam.language-haskell
 kamikillerto.vscode-colorize
@@ -26,6 +25,7 @@ njpwerner.autodocstring
 octref.vetur
 PKief.material-icon-theme
 PKief.material-product-icons
+platformio.platformio-ide
 redhat.vscode-commons
 Renan-MsV.nasal-lang
 stkb.rewrap
@@ -33,5 +33,4 @@ streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-spanish
 sumneko.lua
 tinkertrain.theme-panda
-vsciot-vscode.vscode-arduino
 yzhang.markdown-all-in-one
