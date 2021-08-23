@@ -88,7 +88,7 @@ local tags = sharedtags({
     { name = " 5 ", layout = awful.layout.suit.tile},
     { name = " 6 ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile},
-    { name = "  ", layout = awful.layout.suit.floating},
+    { name = "  ", layout = bling.layout.mstab},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
