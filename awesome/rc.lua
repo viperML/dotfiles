@@ -81,7 +81,6 @@ awful.layout.layouts = {
 
 local tags = sharedtags({
     { name = "  ", layout = awful.layout.suit.tile},
-    -- { name = " ﬏ ", layout = awful.layout.suit.tile},
     { name = "  ", layout = awful.layout.suit.tile},
     { name = " 3 ", layout = awful.layout.suit.tile},
     { name = " 4 ", layout = awful.layout.suit.tile},
@@ -92,6 +91,8 @@ local tags = sharedtags({
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
+
+tags[8].master_count = 0
 
 bling.widget.tag_preview.enable {
     show_client_content = true,  -- Whether or not to show the client content
