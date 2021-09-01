@@ -85,8 +85,8 @@ local tags = sharedtags({
     { name = " 3 ", layout = awful.layout.suit.tile},
     { name = " 4 ", layout = awful.layout.suit.tile},
     { name = " 5 ", layout = awful.layout.suit.tile},
-    { name = " 6 ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile},
+    { name = "  ", layout = awful.layout.suit.tile},
     { name = "  ", layout = bling.layout.mstab},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
@@ -809,7 +809,11 @@ awful.rules.rules = {
     { rule_any = { class = {"Lutris", "Steam"} },
         properties = { tag = tags[8] } },
     { rule = { class = "Thunderbird" },
-        properties = { tag = tags[7], sticky = true } },
+        properties = { tag = tags[6], sticky = true } },
+    { rule = { class = "Virt-manager" },
+        properties = { tag = tags[7] } },
+    { rule = { class = "looking-glass-client" },
+        properties = { tag = tags[7] } },
 
     -- Fix st using even/odd proportions
     { rule = { class = "st-256color" },
