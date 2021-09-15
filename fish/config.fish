@@ -9,6 +9,10 @@ function os_greeter
         echo -e "Gentoo\t"
         set_color normal
         $DOTDIR/bin/eix-timestamp.sh
+    else if [ $os = 'Fedora' ];
+        set_color cyan
+        echo $os
+        set_color normal
     else
         echo $os
     end
