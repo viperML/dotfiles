@@ -288,14 +288,8 @@
     "**/*.less",
     "**/*.styl"
   ],
-  "bracket-pair-colorizer-2.showBracketsInGutter": true,
   "python.showStartPage": false,
-  "bracket-pair-colorizer-2.colors": [
-    "White",
-    "Orchid",
-    "Gold",
-    "LightSkyBlue"
-  ],
+  "editor.bracketPairColorization.enabled": true,
   "colorize.colorized_colors": [
     "HEXA",
     "RGB",

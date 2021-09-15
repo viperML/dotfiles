@@ -39,6 +39,8 @@ quiet
 splash
 vt.global_cursor_default=0
 nvidia-drm.modeset=1
+zswap.enabled=1
+zswap.compressor=lz4
 """.replace("\n", " ").strip()
 
     name = VENDOR + "_" + date.today().strftime("%Y%m%d") + "_" + datetime.now().strftime("%H%M")
