@@ -36,6 +36,7 @@ alias ls="lsd"
 alias lt="lsd -t -r"
 alias svim="sudoedit"
 alias pat="$PAGER"
+alias cpuinfo="watch -n.1 'cat /proc/cpuinfo | grep \'^[c]pu MHz\''"
 
 # Abbreviations
 if status --is-interactive

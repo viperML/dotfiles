@@ -70,6 +70,24 @@
 		{
 			"type": "prompt",
             "newline": true,
+            "alignment": "right",
+			"horizontal_offset": 0,
+			"vertical_offset": -1,
+			"segments": [
+				{
+					"type": "executiontime",
+					"style": "plain",
+					"foreground": "gray",
+					"properties": {
+                        "style": "round",
+                        "threshold": 60000
+					}
+				}
+			]
+		},
+		{
+			"type": "prompt",
+            "newline": true,
             "alignment": "left",
 			"horizontal_offset": 0,
 			"vertical_offset": 0,
