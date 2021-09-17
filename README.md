@@ -1,6 +1,6 @@
 # viperML/dotfiles
 
-> Last update of this README: July 2021
+> Last update of this README: September 2021
 # About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
@@ -13,16 +13,13 @@ sets up symlinks by calling `sh dotbot.sh -c install-arch.yaml`. For windows, `p
 I don't recommend pulling the whole repository, but instead copy snippets in particular.
 
 
-# Main applications
+# Config files provided
 - [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility
 - [Visual Studio Code](https://code.visualstudio.com/) - IDE/Text editor of choice. Installed extensions are located in [extensions](Code/extensions)
 - [Neovim](https://neovim.io/) - Terminal text editor
 - [fish](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box.
 - [oh-my-posh](https://ohmyposh.dev) - Shell prompt. It can be installed both in linux and windows machines and it is easily configurable via a JSON file
-- Fonts:
-  - JetBrains Mono - Monospaced font
-  - Verdana - Sans serif font
-
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Monospaced font
 - [jonaburg/picom](https://github.com/jonaburg/picom) - Compositor, providing transparency, shadows and rounded corners. Jonaburg's fork includes animations
 - [viperML/st](https://github.com/viperML/st) - Terminal emulator
 - [Rofi](https://github.com/davatorium/rofi) - Application launcher
