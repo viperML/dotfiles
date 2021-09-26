@@ -48,6 +48,7 @@ if status --is-interactive
     abbr --add --global se sudo -E systemctl edit
     abbr --add --global eq equery
     abbr --add --global em emerge
+    abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 
     # Git abbreviations
     # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

@@ -58,3 +58,6 @@
       path: doom/*
 
     ~/.config/multiload-ng/systray.conf: multiload-ng/systray.conf
+
+    ~/.local/share/konsole/Main.profile: konsole/Main.profile
+    ~/.local/share/konsole/Dracula.colorscheme: konsole/Dracula.colorscheme
