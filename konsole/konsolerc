@@ -1,0 +1,30 @@
+StatusBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=Main.profile
+
+[KonsoleWindow]
+SaveGeometryOnExit=false
+
+[MainWindow]
+MenuBar=Disabled
+RestorePositionForNextInstance=false
+State=AAAA/wAAAAD9AAAAAAAABMoAAAVJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAHABzAGUAcwBzAGkAbwBuAFQAbwBvAGwAYgBhAHIBAAAB5/////8AAAAAAAAAAA==
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+
+[Notification Messages]
+CloseAllEmptyTabs=true
+CloseAllTabs=true
+CloseSingleTab=true
+ShowPasteHugeTextWarning=false
+
+[TabBar]
+CloseTabOnMiddleMouseButton=true
+ExpandTabWidth=true
+NewTabButton=true
+TabBarPosition=Top
+TabBarVisibility=AlwaysShowTabBar
+
+[ThumbnailsSettings]
+ThumbnailShift=true
