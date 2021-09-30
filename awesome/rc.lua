@@ -43,7 +43,7 @@ else
     terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
 end
 
-local corner_radius = 10
+local corner_radius = 0
 local bar_height = 29
 
 for _, term in ipairs(terminals) do
@@ -515,21 +515,34 @@ awful.screen.connect_for_each_screen(function(s)
                 spacing = 12,
 
                 widget_ip,
-                widget_fs,
+                --widget_fs,
                 --widget_updates,
-                widget_battery,
-                volume_widget{
-                    widget_type = 'icon_and_text',
-                    width = 100,
-                    mute_color = '#ffffff11',
-                    margins = 7,
-                    shape = 'rounded_bar'
-                },
+                --widget_battery,
+                -- volume_widget{
+                --     widget_type = 'icon_and_text',
+                --     width = 100,
+                --     mute_color = '#ffffff11',
+                --     margins = 7,
+                --     shape = 'rounded_bar'
+                -- },
                 widget_systray,
                 widget_spacer_small,
             },
             expand = 'none',
     }
+
+    bling.module.tiled_wallpaper("*", s, {        -- call the actual function ("x" is the string that will be tiled)
+        fg = "#45747d",  -- define the foreground color
+        bg = "#000000",  -- define the background color
+        offset_y = 25,   -- set a y offset
+        offset_x = 25,   -- set a x offset
+        font = "Sans",   -- set the font (without the size)
+        font_size = 30,  -- set the font size
+        padding = 50,   -- set padding (default is 100)
+        zickzack = true  -- rectangular pattern or criss cross
+    })
+
+
 end)
 
 
@@ -921,8 +934,8 @@ end)
 -- ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 awful.spawn("nitrogen --restore")
 -- Lauch systemd user custom files
-awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
-awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
+-- awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
+-- awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 
 -- Increase keyboard tick rate and disable screen blanking
 awful.spawn("xset r rate 200 40")

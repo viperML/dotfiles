@@ -27,11 +27,10 @@
 					"style": "plain",
 					"foreground": "blue",
 					"properties": {
+                        "stack_count_enabled": true,
 						"prefix": "  ",
-						// "style": "agnoster_full",
 						"home_icon": "~",
-						"style": "agnoster_full"
-						// "folder_separator_icon": "/"
+						"style": "full"
 					}
 				},
 				{
