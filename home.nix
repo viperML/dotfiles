@@ -17,16 +17,12 @@
   
   programs.neovim = {
       enable = true;
-      extraConfig = ''
-        colorscheme gruvbox
-        let g:context_nvim_no_redraw = 1
-        set mouse=a
-        set number
-        set termguicolors
-      '';
       plugins = with pkgs.vimPlugins; [
         dracula-vim
       ];
+      extraConfig = ''
+        ${builtins.readFile ./neovim/base.vim}
+      '';
 
 
       #   let
