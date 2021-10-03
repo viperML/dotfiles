@@ -309,7 +309,7 @@
     "*": true,
     "yaml": false,
     "plaintext": true,
-    "markdown": false
+    "markdown": true
   },
   "notebook.cellToolbarLocation": {
     "default": "right",
