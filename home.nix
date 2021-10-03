@@ -47,15 +47,16 @@
               sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
             };
           };
-          nvim-comment = pkgs.vimUtils.buildVimPlugin {
-            name = "nvim-comment";
-            src = pkgs.fetchFromGitHub {
-              owner = "terrortylor";
-              repo = "nvim-comment";
-              rev = "6363118acf86824ed11c2238292b72dc5ef8bdde";
-              sha256 = "039fznaldf6lzk0yp51wi7p1j3l5rvhwryvk5s3lrq78lxq2rzn2";
-            };
-          };
+  nvim-comment = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "nvim-comment";
+    version = "2021-04-26";
+    src = pkgs.fetchFromGitHub {
+      owner = "terrortylor";
+      repo = "nvim-comment";
+      rev = "e7de7abf17204424065b926a9031f44b47efbf4a";
+      sha256 = "19m31sjmpn590y5rzs2mgkgqij5hr6v5hnvw30qfh3fjgm3j7fdi";
+    };
+  };
 
         in [
           nvim-transparent
