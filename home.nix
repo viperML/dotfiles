@@ -37,6 +37,16 @@
               sha256 = "0l0fj2ifxl9p7z7cyn64a64wihl1ypddxsxdbgym5f2akjdbcqsr";
             };
           };
+          context-vim = pkgs.vimUtils.buildVimPlugin {
+            name = "context-vim";
+            src = pkgs.fetchFromGitHub {
+              owner = "wellle";
+              repo = "context.vim";
+              rev = "e38496f1eb5bb52b1022e5c1f694e9be61c3714c";
+              sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
+            };
+          };
+
         in [
           nvim-transparent
           dracula-vim
