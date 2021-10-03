@@ -29,7 +29,7 @@
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
   "files.autoSaveDelay": 500,
-  "files.trimTrailingWhitespace": true,
+  "files.trimTrailingWhitespace": false,
   "update.mode": "none",
   "window.menuBarVisibility": "compact",
   "workbench.startupEditor": "none",  "editor.tabSize": 4,
