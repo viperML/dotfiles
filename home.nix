@@ -19,7 +19,11 @@
   programs.neovim = {
       enable = true;
       extraConfig = ''
+        " Vanilla configs
         ${builtins.readFile ./neovim/base.vim}
+
+        " Plugins configs
+        ${builtins.readFile ./neovim/plugins.vim}
       '';
       
 
