@@ -7,6 +7,7 @@
 
   home.packages = [
     /* pkgs.fortune */
+    nix-prefetch-scripts
   ];
 
 
@@ -23,6 +24,17 @@
       extraConfig = ''
         ${builtins.readFile ./neovim/base.vim}
       '';
+      
+#      let
+#        nvim-transparent = pkgs.vimUtils.buildVimPlugin {
+#          name = "nvim-transparent";
+#          src = pkgs.fetchFromGitHub {
+#            owner = "xiyaowong";
+#            repo = "nvim-transparent";
+#            rev = "9441bc7b03a31ccf301b984e36f0c4b4db4974a5";
+#
+#          };
+#        };
 
 
       #   let
