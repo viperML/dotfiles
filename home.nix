@@ -68,6 +68,7 @@
           auto-pairs
           vim-highlightedyank
           nvim-comment
+          coc-nvim
         ];
 
     };
