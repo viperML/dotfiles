@@ -1,11 +1,11 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.homeManager.url = "github:nix-community/home-manager";
-  inputs.homeManager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, homeManager }: {
-    homeManagerConfigurations = {
-      ayats = homeManager.lib.homeManagerConfiguration {
+  outputs = { self, nixpkgs, home-manager }: {
+    home-managerConfigurations = {
+      ayats = home-manager.lib.home-managerConfiguration {
         configuration = { pkgs, lib, ... }: {
           imports = [ ./home.nix ];
           nixpkgs = {
