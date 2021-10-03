@@ -1,8 +1,3 @@
-function! Cond(cond, ...)
-  let opts = get(a:000, 0, {})
-  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
-
 " leader key
 let mapleader="\<SPACE>"
 
@@ -33,7 +28,5 @@ set mouse=a
 " Reset cursor after leaving vim
 au VimLeave * set guicursor=a:ver100
 
-" Dracula theme, no background
+" Dracula theme
 colorscheme dracula
-" No background color
-highlight Normal ctermbg=NONE
