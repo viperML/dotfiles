@@ -49,6 +49,7 @@
           };
           nvim-comment = pkgs.vimUtils.buildVimPluginFrom2Nix {
             pname = "nvim-comment";
+            version = "2021-08-01";
             src = pkgs.fetchFromGitHub {
               owner = "terrortylor";
               repo = "nvim-comment";
