@@ -7,7 +7,6 @@
 
   home.packages = [
     pkgs.fortune
-    pkgs.neovim
   ];
 
 
