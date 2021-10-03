@@ -7,7 +7,7 @@
     homeManagerConfigurations = {
       ayats = homeManager.lib.homeManagerConfiguration {
         configuration = { pkgs, lib, ... }: {
-          imports = [ ./ayats/home.nix ];
+          imports = [ ./home.nix ];
           nixpkgs = {
             config = { allowUnfree = true; };
           };
