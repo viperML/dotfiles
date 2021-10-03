@@ -26,7 +26,7 @@
       '';
       plugins = with pkgs.vimPlugins; [
         dracula-vim
-      ]
+      ];
 
 
       #   let
