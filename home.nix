@@ -7,6 +7,7 @@
 
   home.packages = [
     pkgs.nix-prefetch-scripts
+    pkgs.luajitPackages.luacheck
   ];
 
 
