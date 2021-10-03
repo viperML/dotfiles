@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
+  /* programs.home-manager.enable = true; */
 
   home.username = "ayats";
   home.homeDirectory = "/home/ayats";
