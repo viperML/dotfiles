@@ -4,8 +4,8 @@
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { self, nixpkgs, home-manager }: {
-    home-managerConfigurations = {
-      ayats = home-manager.lib.home-managerConfiguration {
+    homeManagerConfigurations = {
+      ayats = home-manager.lib.homeManagerConfiguration {
         configuration = { pkgs, lib, ... }: {
           imports = [ ./home.nix ];
           nixpkgs = {
