@@ -7,7 +7,7 @@
 
   home.packages = [
     /* pkgs.fortune */
-    nix-prefetch-scripts
+    nix-prefetch
   ];
 
 
