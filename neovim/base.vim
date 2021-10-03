@@ -38,4 +38,5 @@ colorscheme dracula
 " No background color
 highlight Normal ctermbg=NONE
 
-
+let g:clear_background=0
+execute 'colorscheme ' . g:colors_name
