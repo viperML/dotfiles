@@ -22,7 +22,7 @@
 
   programs.fish = {
     enable = true;
-    plugins = with pkgs.fishPlugins; [ 
+    plugins = [ 
         {
           name = "z";
           src = pkgs.fetchFromGitHub {
