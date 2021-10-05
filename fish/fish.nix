@@ -6,6 +6,8 @@
     starship
   ];
 
+  home.file.".config/starship.toml"
+
   programs.fish = {
     enable = true;
     promptInit = "starship init fish | source";
