@@ -11,7 +11,12 @@
     luajitPackages.luacheck
     nodejs
 
-    # Fish dependencies
+    fzf
+    lsd
+    bat
+    ripgrep
+    fd
+    starship
   ];
 
 
@@ -22,6 +27,7 @@
 
   programs.fish = {
     enable = true;
+    promptInit = "starship init fish | source";
     plugins = [ 
         {
           name = "z";
@@ -42,12 +48,21 @@
           };
         }
         {
-          name = "autopair";
+          name = "autopair.fish";
           src = pkgs.fetchFromGitHub {
               owner = "jorgebucaran";
               repo = "autopair.fish";
               rev = "1222311994a0730e53d8e922a759eeda815fcb62";
               sha256 = "0lxfy17r087q1lhaz5rivnklb74ky448llniagkz8fy393d8k9cp";
+          };
+        }
+        {
+          name = "fzf.fish";
+          src = pkgs.fetchFromGitHub {
+              owner = "PatrickF1";
+              repo = "fzf.fish";
+              rev = "176c8465b0fad2d5c30aacafff6eb5accb7e3826";
+              sha256 = "16mdfyznxjhv7x561srl559misn37a35d2q9fspxa7qg1d0sc3x9";
           };
         }
      ];
@@ -57,10 +72,10 @@
       enable = true;
       extraConfig = ''
         " Vanilla configs
-        ${builtins.readFile ./neovim/base.vim}
+        ${builtins.readFile ../neovim/base.vim}
 
         " Plugins configs
-        ${builtins.readFile ./neovim/plugins.vim}
+        ${builtins.readFile ../neovim/plugins.vim}
       '';
       
 
