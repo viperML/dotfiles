@@ -5,10 +5,10 @@
   home.username = "ayats";
   home.homeDirectory = "/home/ayats";
 
-  home.packages = [
+  home.packages = with pkgs; [
     # Neovim dependencies
-    pkgs.nix-prefetch-scripts
-    pkgs.luajitPackages.luacheck
+    nix-prefetch-scripts
+    luajitPackages.luacheck
     nodejs
 
     # Fish dependencies
