@@ -2,8 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # Neovim dependencies
-    nix-prefetch-scripts
     luajitPackages.luacheck
     nodejs
   ];
@@ -12,10 +10,10 @@
       enable = true;
       extraConfig = ''
         " Vanilla configs
-        ${builtins.readFile ../neovim/base.vim}
+        ${builtins.readFile ./base.vim}
 
         " Plugins configs
-        ${builtins.readFile ../neovim/plugins.vim}
+        ${builtins.readFile ./plugins.vim}
       '';
       
 

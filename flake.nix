@@ -9,7 +9,8 @@
         configuration = { pkgs, lib, ... }: {
           imports = [
             ./home-manager/home.nix
-            ./home-manager/nvim.nix
+            ./neovim/nvim.nix
+            ./fish/fish.nix
           ];
           nixpkgs = {
             config = { allowUnfree = true; };
