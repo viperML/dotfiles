@@ -20,3 +20,4 @@ else
     echo -n "Skipping Nix install"
 fi
 
+ "${HOME}/.nix-profile/bin/nix" build https://github.com/viperML/dotfiles/archive/master.tar.gz#homeManagerConfigurations.ayats.activationPackage
