@@ -1,10 +1,14 @@
 # ~/.config/starship.toml
 
 # Use custom format
-format = """
-[┌───────────────────>](bold green)
-[│](bold green)$directory$rust$package
-[└─>](bold green) """
+format = """$directory\
+$python\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$cmd_duration
+[➜](bold white) """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -12,3 +16,33 @@ scan_timeout = 10
 # Disable the blank line at the start of the prompt
 add_newline = false
 
+[directory]
+style = "bold blue"
+read_only = " "
+truncate_to_repo = false
+truncation_length = 0
+
+[git_status]
+format = '([\[$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind \]]($style) )'
+conflicted = "="
+ahead =" ⇡$count"
+behind = " ⇣$count"
+diverged = " ⇕$count"
+up_to_date = ""
+untracked = " ?$count"
+stashed = " $$count"
+modified = " !$count"
+staged = " +$count"
+renamed = " »$count"
+deleted = " ✘$count"
+style = "bold cyan"
+
+[git_metrics]
+disabled = false
+format = '\[ ([+$added]($added_style) )([-$deleted]($deleted_style) \] )'
+
+[python]
+symbol = ' '
+
+[cmd_duration]
+min_time = 60_000
