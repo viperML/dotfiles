@@ -28,8 +28,26 @@
           src = pkgs.fetchFromGitHub {
               owner = "jethrokuan";
               repo = "z";
-              rev = "ddeb28a7b6a1f0ec6dae40c636e5ca4908ad160a";
-              sha256 = "0c5i7sdrsp0q3vbziqzdyqn4fmp235ax4mn4zslrswvn8g3fvdyh";
+              rev = "45a9ff6d0932b0e9835cbeb60b9794ba706eef10";
+              sha256 = "1kjyl4gx26q8175wcizvsm0jwhppd00rixdcr1p7gifw6s308sd5";
+          };
+        }
+        {
+          name = "done";
+          src = pkgs.fetchFromGitHub {
+              owner = "franciscolourenco";
+              repo = "done";
+              rev = "a328d3a747cb47fdbee27e04f54221ed7d639a86";
+              sha256 = "1m11nsdmd82x0l3i8zqw8z3ba77nxanrycv93z25rmghw1wjyk0k";
+          };
+        }
+        {
+          name = "autopair";
+          src = pkgs.fetchFromGitHub {
+              owner = "jorgebucaran";
+              repo = "autopair.fish";
+              rev = "1222311994a0730e53d8e922a759eeda815fcb62";
+              sha256 = "0lxfy17r087q1lhaz5rivnklb74ky448llniagkz8fy393d8k9cp";
           };
         }
      ];
