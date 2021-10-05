@@ -23,8 +23,8 @@
   programs.fish = {
     enable = true;
     
-    plugins = with pkgs.fishPlugins; [
-      fzf-fish
+    plugins = [
+      pkgs.fishPlugins.fzf-fish
     ];
   };
   
