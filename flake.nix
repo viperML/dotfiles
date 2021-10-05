@@ -9,6 +9,7 @@
         configuration = { pkgs, lib, ... }: {
           imports = [
             ./home-manager/home.nix
+            ./home-manager/nvim.nix
           ];
           nixpkgs = {
             config = { allowUnfree = true; };
