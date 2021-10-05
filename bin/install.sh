@@ -11,7 +11,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     nix-channel --update
     nix-env -iA nixpkgs.nixUnstable
     mkdir -p ~/.config/nix
-    echo "experimental-features = nix-command flakes" > tee ~/.config/nix/nix.conf
+    echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
     echo "source ${HOME}/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
 else
     echo -n "Skipping Nix install"
