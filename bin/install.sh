@@ -19,7 +19,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo "Please reload your environment"
     exit 0
 else
-    echo -n "Skipping Nix install"
+    echo "Skipping Nix install"
 fi
 
 echo "Creating activation package at ${HOME}"
