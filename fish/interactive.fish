@@ -21,9 +21,6 @@ end
 
 set -g -x fish_greeting (os_greeter)
 
-# Prompt theme
-oh-my-posh --init --shell fish --config ~/.config/oh-my-posh/viper.omp.json | source
-
 
 # Variables
 # export GREP_OPTIONS='--color=always'
@@ -154,5 +151,3 @@ end
 # Configure FZF keybinds
 # https://github.com/PatrickF1/fzf.fish
 fzf_configure_bindings --directory=\cf
-
-

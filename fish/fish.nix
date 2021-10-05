@@ -10,7 +10,7 @@
     enable = true;
     promptInit = "starship init fish | source";
     interactiveShellInit = ''
-      ${builtins.readFile ./config.fish}
+      ${builtins.readFile ./interactive.fish}
     '';
     plugins = [ 
         {
