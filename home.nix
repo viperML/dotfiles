@@ -6,14 +6,26 @@
   home.homeDirectory = "/home/ayats";
 
   home.packages = [
+    # Neovim dependencies
     pkgs.nix-prefetch-scripts
     pkgs.luajitPackages.luacheck
+    nodejs
+
+    # Fish dependencies
   ];
 
 
   programs.home-manager = {
     enable = true;
     path = "…";
+  };
+
+  programs.fish = {
+    enable = true;
+    
+    plugins = with pkgs.fishPlugins; [
+      fzf-fish
+    ];
   };
   
   programs.neovim = {
