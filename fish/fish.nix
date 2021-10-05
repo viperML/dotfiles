@@ -1,24 +1,17 @@
 { config, pkgs, ... }:
 
 {
-
-  home.username = "ayats";
-  home.homeDirectory = "/home/ayats";
-
   home.packages = with pkgs; [
     fzf
     starship
   ];
 
-
-  programs.home-manager = {
-    enable = true;
-    path = "…";
-  };
-
   programs.fish = {
     enable = true;
     promptInit = "starship init fish | source";
+    interactiveShellInit = ''
+      ${builtins.readFile ./config.fish}
+    '';
     plugins = [ 
         {
           name = "z";
