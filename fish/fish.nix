@@ -6,11 +6,14 @@
     starship
   ];
 
+  # Starship can be managed with nix but gives no advantages
   home.file.".config/starship.toml".source = ./starship.toml;
 
   programs.fish = {
     enable = true;
     promptInit = "starship init fish | source";
+    # Standard config file when shell is interactive
+    # Instead of using nix lang, in case I want to ditch Nix
     interactiveShellInit = ''
       ${builtins.readFile ./interactive.fish}
     '';

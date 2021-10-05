@@ -2,7 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    # Needed to compile nvim-comment
     luajitPackages.luacheck
+
+    # COC runtime dependency
     nodejs
   ];
   
@@ -18,6 +21,7 @@
       
 
       plugins = with pkgs.vimPlugins;
+        # Some pkgs must be derivated from source
         let
           nvim-transparent = pkgs.vimUtils.buildVimPlugin {
             name = "nvim-transparent";
