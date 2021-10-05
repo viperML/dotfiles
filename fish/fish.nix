@@ -6,7 +6,7 @@
     starship
   ];
 
-  home.file.".config/starship.toml";
+  home.file.".config/starship.toml" = ./starship.toml;
 
   programs.fish = {
     enable = true;
