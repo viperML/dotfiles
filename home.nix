@@ -22,10 +22,7 @@
 
   programs.fish = {
     enable = true;
-    
-    plugins = [
-      pkgs.fishPlugins.fzf-fish
-    ];
+    plugins = with pkgs.fishPlugins; [ clownfish ];
   };
   
   programs.neovim = {
