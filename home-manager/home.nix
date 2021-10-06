@@ -11,6 +11,8 @@
     fd
     tealdeer
     cpufetch
+    onefetch
+    freshfetch
   ];
 
 
