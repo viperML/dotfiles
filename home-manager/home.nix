@@ -12,7 +12,7 @@
     tealdeer
     cpufetch
     onefetch
-    neofetch
+    freshfetch
   ];
 
 
