@@ -5,5 +5,5 @@
     bat
   ];
 
-  home.file.".confg/bat/config".source = ./config;
+  home.file.".config/bat/config".source = ./config;
 }
