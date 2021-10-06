@@ -18,8 +18,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Aliases
 alias ip="ip -c=auto"
-alias ls="lsd"
-alias lt="lsd -t -r"
 alias svim="sudoedit"
 alias cpuinfo="watch -n.1 'cat /proc/cpuinfo | grep \'^[c]pu MHz\''"
 
