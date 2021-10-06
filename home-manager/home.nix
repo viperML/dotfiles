@@ -7,7 +7,6 @@
   # Generic programs
   home.packages = with pkgs; [
     nix-prefetch-scripts
-    lsd
     ripgrep
     fd
   ];

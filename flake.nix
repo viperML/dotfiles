@@ -17,6 +17,7 @@
             ./neovim/nvim.nix
             ./fish/fish.nix
             ./bat/bat.nix
+            ./lsd/lsd.nix
           ];
           nixpkgs = {
             config = { allowUnfree = true; };
