@@ -11,8 +11,7 @@
     fd
     tealdeer
     cpufetch
-    onefetch
-    bfetch
+    neofetch
   ];
 
 
