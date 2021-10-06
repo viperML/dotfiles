@@ -4,9 +4,7 @@
     programs.lsd = {
         enable = true;
         enableAliases = true;
-        settings = ''
-            ${builtins.readFile ./config.yaml}
-        '';
     };
 
+    home.file.".config/lsd/config.yaml".source = ./config.yaml;
 }
