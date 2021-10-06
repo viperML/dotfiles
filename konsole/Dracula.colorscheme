@@ -1,11 +1,17 @@
 [Background]
 Color=18,18,18
+RandomHueRange=360
+RandomSaturationRange=100
 
 [BackgroundFaint]
 Color=18,18,18
+RandomHueRange=360
+RandomSaturationRange=100
 
 [BackgroundIntense]
 Color=18,18,18
+RandomHueRange=360
+RandomSaturationRange=100
 
 [Color0]
 Color=33,34,44
@@ -81,16 +87,22 @@ Color=255,255,255
 
 [Foreground]
 Color=248,248,242
+RandomHueRange=360
+RandomSaturationRange=100
 
 [ForegroundFaint]
 Color=248,248,242
+RandomHueRange=360
+RandomSaturationRange=100
 
 [ForegroundIntense]
 Color=255,255,255
+RandomHueRange=360
+RandomSaturationRange=100
 
 [General]
-Blur=false
+Blur=true
 ColorRandomization=false
 Description=Dracula-mod
-Opacity=1
+Opacity=0.91
 Wallpaper=
