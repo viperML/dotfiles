@@ -18,6 +18,7 @@
             ./fish/fish.nix
             ./bat/bat.nix
             ./lsd/lsd.nix
+            ./neofetch/neofetch.nix
           ];
           nixpkgs = {
             config = { allowUnfree = true; };

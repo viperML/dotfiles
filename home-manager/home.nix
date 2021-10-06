@@ -10,8 +10,6 @@
     ripgrep
     fd
     tealdeer
-    cpufetch
-    neofetch
   ];
 
 
