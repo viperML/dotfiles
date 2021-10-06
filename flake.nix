@@ -16,6 +16,7 @@
             ./home-manager/home.nix
             ./neovim/nvim.nix
             ./fish/fish.nix
+            ./bat/bat.nix
           ];
           nixpkgs = {
             config = { allowUnfree = true; };

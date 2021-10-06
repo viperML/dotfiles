@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     nix-prefetch-scripts
     lsd
-    bat
     ripgrep
     fd
   ];
