@@ -9,6 +9,7 @@
     nix-prefetch-scripts
     ripgrep
     fd
+    tldr
   ];
 
 
