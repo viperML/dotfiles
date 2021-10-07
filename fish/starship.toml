@@ -7,6 +7,7 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
+$nix_shell\
 $cmd_duration
 [➜](bold white) """
 
@@ -46,3 +47,6 @@ symbol = ' '
 
 [cmd_duration]
 min_time = 60_000
+
+[nix_shell]
+symbol = " "
