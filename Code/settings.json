@@ -304,6 +304,50 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  }
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        "vspacecode.space"
+      ]
+    },
+    {
+      "before": [
+        ","
+      ],
+      "commands": [
+        "vspacecode.space",
+        {
+          "command": "whichkey.triggerKey",
+          "args": "m"
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        "vspacecode.space"
+      ]
+    },
+    {
+      "before": [
+        ","
+      ],
+      "commands": [
+        "vspacecode.space",
+        {
+          "command": "whichkey.triggerKey",
+          "args": "m"
+        }
+      ]
+    }
+  ]
 
 }
