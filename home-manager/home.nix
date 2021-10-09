@@ -11,6 +11,7 @@
     fd
     tealdeer
     unar
+    nixpkgs-fmt
   ];
 
 
