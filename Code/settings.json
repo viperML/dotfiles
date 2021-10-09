@@ -33,7 +33,9 @@
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
-  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
   "security.workspace.trust.enabled": false,
   "update.mode": "none",
   "window.menuBarVisibility": "compact",
@@ -278,6 +280,7 @@
   "vim.statusBarColors.visualline": "#a8a8e0",
   "vim.statusBarColors.insert": "#a8e0ba",
   "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
+  "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
 
   // Spell check
   "cSpell.language": "en,es",
@@ -295,6 +298,5 @@
     "default": "right",
     "jupyter-notebook": "left"
   }
-
 
 }
