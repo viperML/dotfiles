@@ -2,7 +2,7 @@
 let mapleader="\<SPACE>"
 
 call plug#begin()
-    
+
     if exists('g:vscode')
         " VSCode - only extensions
         Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
@@ -78,5 +78,3 @@ let g:highlightedyank_highlight_duration = -1
 colorscheme dracula
 " No background color
 highlight Normal ctermbg=NONE
-
-

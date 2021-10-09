@@ -33,6 +33,7 @@ abbr --add --global de doas systemctl edit
 abbr --add --global dvim doas nvim
 abbr --add --global eq equery
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
+abbr --add --global ns nix-shell --run fish --package
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

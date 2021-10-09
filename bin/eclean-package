@@ -41,9 +41,9 @@ lines = []
 
 with open(args.infile, 'r') as f:
     lines = f.readlines()
- 
+
 with getOutFile(args) as out:
-    for line in lines: 
+    for line in lines:
         if line.lstrip().startswith("#"):
             commentBuffer.append(line)
         else:

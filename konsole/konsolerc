@@ -7,9 +7,8 @@ DefaultProfile=Main.profile
 SaveGeometryOnExit=false
 
 [MainWindow]
-DP-2 XPosition 2560x1440=1260
-DP-2 YPosition 2560x1440=759
 MenuBar=Disabled
+RestorePositionForNextInstance=false
 State=AAAA/wAAAAD9AAAAAAAABQkAAAJ3AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAHABzAGUAcwBzAGkAbwBuAFQAbwBvAGwAYgBhAHIBAAAB5/////8AAAAAAAAAAA==
 StatusBar=Disabled
 ToolBarsMovable=Disabled

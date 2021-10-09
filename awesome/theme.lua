@@ -296,4 +296,3 @@ theme.tag_preview_widget_margin = 10                 -- The margin of the widget
 
 
 return theme
-

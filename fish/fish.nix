@@ -17,7 +17,7 @@
     interactiveShellInit = ''
       ${builtins.readFile ./interactive.fish}
     '';
-    plugins = [ 
+    plugins = [
         {
           name = "z";
           src = pkgs.fetchFromGitHub {
@@ -65,7 +65,7 @@
         }
      ];
   };
-  
+
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;

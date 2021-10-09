@@ -98,6 +98,3 @@
   (dap-python-debugger 'debugpy)
   :config
   (require 'dap-python))
-
-
-

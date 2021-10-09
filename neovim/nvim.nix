@@ -8,7 +8,7 @@
     # COC runtime dependency
     nodejs
   ];
-  
+
   programs.neovim = {
       enable = true;
       extraConfig = ''
@@ -18,7 +18,7 @@
         " Plugins configs
         ${builtins.readFile ./plugins.vim}
       '';
-      
+
 
       plugins = with pkgs.vimPlugins;
         # Some pkgs must be derivated from source
