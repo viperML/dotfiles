@@ -222,6 +222,11 @@
     "editor.insertSpaces": true
   },
 
+  "[nix]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
 
 
   // Python
@@ -234,37 +239,16 @@
     "editor.rulers": [90]
   },
 
-
-  // Discord
-  "discord.detailsEditing": "Editing {lang}",
-  "discord.detailsDebugging": "Debugging {lang}",
-  "discord.lowerDetailsEditing": "In line {current_line} / {total_lines}",
-  "discord.lowerDetailsDebugging": "In line {current_line} / {total_lines}",
-  "discord.suppressNotifications": true,
-  "discord.removeRemoteRepository": true,
-
-
-  // Action Buttons
-  // "actionButtons": {
-  //   "defaultColor": "#999999",
-  //   "loadNpmCommands":true,
-  //   "reloadButton": "Actions"
-  // },
-
-
   // Powershell
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.startAutomatically": false,
 
-  // Arduino
-  "arduino.path": "/usr/bin",
 
   // Vim
   "vim.easymotion": true,
-  "vim.enableNeovim": true,
+  "vim.enableNeovim": false,
   "vim.highlightedyank.enable": true,
-  "vim.leader": " ",
-  "vim.neovimPath": "/usr/bin/nvim",
+  "vim.leader": ",",
   "vim.showMarksInGutter": true,
   "vim.statusBarColorControl": true,
 
