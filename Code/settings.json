@@ -109,9 +109,9 @@
     "scrollbarSlider.hoverBackground": "#444444",
     "editorRuler.foreground": "#202020",
     "statusBar.foreground": "#121212",
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.background": "#A8D5E0",
+    "statusBar.noFolderBackground": "#A8D5E0",
+    "statusBar.debuggingBackground": "#A8D5E0",
     "statusBarItem.remoteBackground": "#A8D5E0",
     "statusBarItem.remoteForeground": "#121212",
     "statusBar.border": "#ffffff00"
@@ -309,5 +309,9 @@
     "editor.defaultFormatter": "remimarsal.prettier-now"
   },
   "glassit.alpha": 255,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "vim.statusBarColors.normal": "#A8D5E0",
+  "vim.statusBarColors.visual": "#a8a8e0",
+  "vim.statusBarColors.insert": "#a8e0ba",
+
 }
