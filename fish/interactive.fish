@@ -26,8 +26,11 @@ abbr --add --global p python
 abbr --add --global n nvim
 abbr --add --global x xdg-open
 abbr --add --global ss sudo systemctl
+abbr --add --global ds doas systemctl
 abbr --add --global us systemctl --user
 abbr --add --global se sudo -E systemctl edit
+abbr --add --global de doas systemctl edit
+abbr --add --global dvim doas nvim
 abbr --add --global eq equery
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 

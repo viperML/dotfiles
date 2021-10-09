@@ -7,12 +7,15 @@
 
 
   // Basic
+  "diffEditor.renderSideBySide": false,
+  "editor.bracketPairColorization.enabled": true,
   "editor.cursorStyle": "line",
+  "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "relative",
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
-  "editor.minimap.size": "fit",
+  "editor.minimap.size": "proportional",
   "editor.quickSuggestionsDelay": 0,
   "editor.rulers": [160],
   "editor.scrollbar.horizontal": "auto",
@@ -28,12 +31,31 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
+  "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "files.trimTrailingWhitespace": false,
+  "security.workspace.trust.enabled": false,
   "update.mode": "none",
   "window.menuBarVisibility": "compact",
-  "workbench.startupEditor": "none",  "editor.tabSize": 4,
+  "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
+  "workbench.editor.untitled.hint": "hidden",
   "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "none",  "editor.tabSize": 4,
+
+
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+
+  // Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": true
+  },
 
 
   // Git
@@ -103,7 +125,7 @@
   // Colors
   "workbench.colorCustomizations": {
     "editor.background": "#121212",
-    "minimap.background": "#22222244",
+    "minimap.background": "#1212125e",
     "sideBar.foreground": "#999999",
     "scrollbarSlider.background": "#333333",
     "scrollbarSlider.hoverBackground": "#444444",
@@ -243,7 +265,6 @@
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.startAutomatically": false,
 
-
   // Vim
   "vim.easymotion": true,
   "vim.enableNeovim": false,
@@ -251,6 +272,12 @@
   "vim.leader": ",",
   "vim.showMarksInGutter": true,
   "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": "#A8D5E0",
+  "vim.statusBarColors.visual": "#a8a8e0",
+  "vim.statusBarColors.visualblock": "#a8a8e0",
+  "vim.statusBarColors.visualline": "#a8a8e0",
+  "vim.statusBarColors.insert": "#a8e0ba",
+  "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
 
   // Spell check
   "cSpell.language": "en,es",
@@ -263,55 +290,11 @@
   "cSpell.words": [],
 
   // Unsorted
-  "colorize.enable_search_variables": false,
-  "colorize.include": [
-    "*",
-    "**/*.css",
-    "**/*.scss",
-    "**/*.sass",
-    "**/*.less",
-    "**/*.styl"
-  ],
-  "python.showStartPage": false,
-  "editor.bracketPairColorization.enabled": true,
-  "colorize.colorized_colors": [
-    "HEXA",
-    "RGB",
-    "ARGB",
-    "HSL"
-  ],
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.logLevel": "debug",
-  "vscode-neovim.logPath": "/tmp/nvimlog",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/ayats/.config/nvim/init.vim",
-  "diffEditor.renderSideBySide": false,
-  "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
-  "security.workspace.trust.untrustedFiles": "open",
-  "editor.inlineSuggest.enabled": true,
-  "workbench.editor.untitled.hint": "hidden",
-  "github.copilot.enable": {
-    "*": false,
-    "yaml": false,
-    "plaintext": true,
-    "markdown": true
-  },
+
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  },
+  }
 
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now"
-  },
-  "glassit.alpha": 255,
-  "files.autoSave": "afterDelay",
-  "vim.statusBarColors.normal": "#A8D5E0",
-  "vim.statusBarColors.visual": "#a8a8e0",
-  "vim.statusBarColors.insert": "#a8e0ba",
 
 }
