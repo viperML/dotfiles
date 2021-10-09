@@ -7,7 +7,7 @@
   ];
 
   # Starship can be managed with nix but gives no advantages
-  home.file.".config/starship.toml".source = ./starship.toml;
+    home.file.".config/starship.toml".source = ./starship.toml;
 
   programs.fish = {
     enable = true;
