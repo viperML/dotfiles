@@ -133,9 +133,9 @@
     "scrollbarSlider.hoverBackground": "#444444",
     "editorRuler.foreground": "#202020",
     "statusBar.foreground": "#121212",
-    "statusBar.background": "#A8D5E0",
-    "statusBar.noFolderBackground": "#A8D5E0",
-    "statusBar.debuggingBackground": "#A8D5E0",
+    "statusBar.background": "#a8a8e0",
+    "statusBar.noFolderBackground": "#a8a8e0",
+    "statusBar.debuggingBackground": "#a8a8e0",
     "statusBarItem.remoteBackground": "#A8D5E0",
     "statusBarItem.remoteForeground": "#121212",
     "statusBar.border": "#ffffff00"
@@ -274,7 +274,6 @@
   "vim.easymotion": true,
   "vim.enableNeovim": false,
   "vim.highlightedyank.enable": true,
-  "vim.leader": ",",
   "vim.showMarksInGutter": true,
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
@@ -287,23 +286,6 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  },
-
-  // Spell check
-  "cSpell.language": "en,es",
-  "cSpell.enabledLanguageIds": [
-      "markdown",
-      "latex"
-  ],
-  "cSpell.enabled": true,
-  "cSpell.showStatus": true,
-  "cSpell.words": [],
-
-  // Unsorted
-
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -348,6 +330,23 @@
         }
       ]
     }
-  ]
+  ],
+
+  // Spell check
+  "cSpell.language": "en,es",
+  "cSpell.enabledLanguageIds": [
+      "markdown",
+      "latex"
+  ],
+  "cSpell.enabled": true,
+  "cSpell.showStatus": true,
+  "cSpell.words": [],
+
+  // Unsorted
+
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 
 }
