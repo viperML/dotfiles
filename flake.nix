@@ -9,17 +9,8 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  # We take nixpkgs and home-manager as input
   outputs = inputs @ { self, nixpkgs, home-manager, nur }:
     let
-    inherit (nixpkgs) lib;
-    inherit (lib) attrValues;
-
-
-    inherit (util) host;
-    inherit (util) user;
-    inherit (util) shell;
-    inherit (util) app;
 
       pkgs = import nixpkgs {
         inherit system;
@@ -34,6 +25,7 @@
     in {
       homeManagerConfigurations = {
         ayats = home-manager.lib.homeManagerConfiguration {
+          inherit system pkgs;
           configuration = { pkgs, lib, ... }: {
             imports = [
               # Split configs per package
@@ -44,11 +36,7 @@
               ./lsd/lsd.nix
               ./neofetch/neofetch.nix
             ];
-            nixpkgs = {
-              config = { allowUnfree = true; };
-            };
           };
-          system = "x86_64-linux";
           homeDirectory = "/home/ayats";
           username = "ayats";
         };
