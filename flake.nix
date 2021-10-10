@@ -42,6 +42,7 @@
               ./bat/bat.nix
               ./lsd/lsd.nix
               ./neofetch/neofetch.nix
+              ./vscode/vscode.nix
             ];
             home.username = username;
             home.homeDirectory = "/home/" + username;
