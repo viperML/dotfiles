@@ -15,15 +15,14 @@ else
 fi
 
 echo "Adjusting the user name..."
-sed -i "s/username = .*/username = \"$(whoami)\";/g" flake.nix
+sed -i "s/ username = .*/ username = \"$(whoami)\";/g" flake.nix
 
 echo "Pulling the latest version..."
 git fetch
 git merge
 
 echo "Creating activation package"
-nix-shell
-nix build .#mkHM.default.activationPackage
+nix-shell --run "nix build .#mkHM.default.activationPackage"
 
 echo "Activating..."
 ./result/activate
