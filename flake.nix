@@ -5,12 +5,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Overlays
     nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nur }:
     let
 
+      # Enable custom overlays here
       pkgs = import nixpkgs {
         inherit system;
         config = { allowBroken = true; allowUnfree = true; };
@@ -19,6 +22,7 @@
         ];
       };
 
+      # Change your platform here
       system = "x86_64-linux";
 
       # Change your username here
@@ -27,17 +31,24 @@
     in {
       mkHM = {
         default = home-manager.lib.homeManagerConfiguration rec {
+          # Home Manager shenaningans to pass the username down
           inherit system pkgs username;
-          configuration = { pkgs, lib, ... }: {
+          configuration = {
             imports = [
               # Split configs per package
-              ./home-manager/home.nix
+              ./nix/home.nix
               ./neovim/nvim.nix
               ./fish/fish.nix
               ./bat/bat.nix
               ./lsd/lsd.nix
               ./neofetch/neofetch.nix
             ];
+            home.username = username;
+            home.homeDirectory = "/home/" + username;
+            programs.home-manager = {
+              enable = true;
+              path = "…";
+            };
           };
           homeDirectory = "/home/" + username;
         };
