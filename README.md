@@ -6,22 +6,19 @@
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
 
-<!-- Create a image note -->
-<p style="text-align: center">
-    <img src=".img/20211010.png" alt="viperML" width="100%">
-    <small>
-    KDE Plasma 5.22, Latte Dock, Multiload-ng, VS Code, Konsole, Dolphin
-    </small>
-</p>
+<div align="center">
+  <div style="display: flex; align-items: flex-start;">
+    <img alt="Desktop screenshot" src=".img/20211010.png" width="100%"/>
+  </div>
+</div>
 
 # Installation
 
-<!-- Put the logo centered -->
-
-
-<p style="text-align: center">
-    <img src="https://nixos.org/logo/nixos-logo-only-hires.png" width="20%">
-</p>
+<div align="center">
+  <div style="display: flex; align-items: flex-start;">
+    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="118" height="104">
+  </div>
+</div>
 
 Most of the configuration files are managed with a [Nix Flake](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager), which is self-contained, distro-agnostic and doesn't require any additional software apart from the [nix package manager](https://nixos.org/download.html).
 
@@ -31,6 +28,8 @@ nix-shell
 nix build .#homeManagerConfigurations.ayats.activationPackage
 ./result/activate
 ```
+
+That is how I install it myself, but I don't recommend it for you. Instead, pick any specific files or snippets of code.
 
 
 # Resources
