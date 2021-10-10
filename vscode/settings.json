@@ -5,7 +5,6 @@
   "redhat.telemetry.enabled": false,
   "Lua.telemetry.enable": false,
 
-
   // Basic
   "diffEditor.renderSideBySide": false,
   "editor.bracketPairColorization.enabled": true,
@@ -42,8 +41,8 @@
   "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.sideBar.location": "left",
-  "workbench.startupEditor": "none",  "editor.tabSize": 4,
-
+  "workbench.startupEditor": "none",
+  "editor.tabSize": 4,
 
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -59,7 +58,6 @@
     "markdown": true
   },
 
-
   // Git
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -71,7 +69,6 @@
   "scm.diffDecorations": "gutter",
   "workbench.colorTheme": "Dark Material Dracula",
 
-
   // Icons
   "workbench.productIconTheme": "material-product-icons",
   "material-icon-theme.opacity": 1,
@@ -81,9 +78,9 @@
 
   // Fonts
   "editor.fontSize": 14,
-  "editor.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  //"editor.fontFamily": "'Roboto', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  "terminal.integrated.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
+  "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
+  // "editor.fontFamily": "",
+  // "editor.fontFamily": "'JetBrainsMono Nerd Font'",
   "debug.console.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
   "debug.toolBarLocation": "docked",
   "editor.fontLigatures": true,
@@ -99,7 +96,7 @@
           "entity.name.type.class", //class names
           "keyword", //import, export, return…
           // "constant", //String, Number, Boolean…, this, super
-          "storage.modifier", //static keyword
+          "storage.modifier" //static keyword
           // "storage.type.class.js" //class keyword
         ],
         "settings": {
@@ -141,15 +138,11 @@
     "statusBar.border": "#ffffff00"
   },
 
-
-
   // Latex
   "[latex]": {
-    "editor.rulers": [
-      70
-    ],
+    "editor.rulers": [70],
     "rewrap.autoWrap.enabled": true,
-    "editor.defaultFormatter": "nickfode.latex-formatter",
+    "editor.defaultFormatter": "nickfode.latex-formatter"
   },
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/_build",
@@ -199,16 +192,12 @@
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (pdftex backend)",
-      "tools": [
-        "latexmk-pdf"
-      ]
+      "tools": ["latexmk-pdf"]
     },
     {
       "name": "latexmk (xelatex backend)",
-      "tools": [
-        "latexmk-xelatex"
-      ]
-    },
+      "tools": ["latexmk-xelatex"]
+    }
     // {
     //   "name": "latexmk 🔄",
     //   "tools": ["latexmk-pvc"]
@@ -229,12 +218,10 @@
     "*.ipynb": "jupyter-notebook"
   },
 
-
-
   // Web
   "prettier.tabWidth": 2,
   "[json,javascript,css,html,jsonc]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.detectIndentation": false,
     "editor.tabSize": 2,
     "editor.insertSpaces": true
@@ -251,7 +238,6 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
-
 
   // Python
   "python.linting.pylintEnabled": true,
@@ -289,17 +275,11 @@
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<space>"
-      ],
-      "commands": [
-        "vspacecode.space"
-      ]
+      "before": ["<space>"],
+      "commands": ["vspacecode.space"]
     },
     {
-      "before": [
-        ","
-      ],
+      "before": [","],
       "commands": [
         "vspacecode.space",
         {
@@ -311,17 +291,11 @@
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<space>"
-      ],
-      "commands": [
-        "vspacecode.space"
-      ]
+      "before": ["<space>"],
+      "commands": ["vspacecode.space"]
     },
     {
-      "before": [
-        ","
-      ],
+      "before": [","],
       "commands": [
         "vspacecode.space",
         {
@@ -334,10 +308,7 @@
 
   // Spell check
   "cSpell.language": "en,es",
-  "cSpell.enabledLanguageIds": [
-      "markdown",
-      "latex"
-  ],
+  "cSpell.enabledLanguageIds": ["markdown", "latex"],
   "cSpell.enabled": true,
   "cSpell.showStatus": true,
   "cSpell.words": [],
@@ -347,6 +318,5 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  }
-
+  },
 }
