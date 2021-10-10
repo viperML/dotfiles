@@ -1,31 +1,57 @@
-# viperML/dotfiles
 
-> Last update of this README: September 2021
+<!-- Create a centered title -->
+<h1 style="text-align: center">viperML/dotfiles</h1>
+
 # About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
-![](.img/2021_07_27.png)
+
+<!-- Create a image note -->
+<p style="text-align: center">
+    <img src=".img/20211010.png" alt="viperML" width="100%">
+    <small>
+    KDE Plasma 5.22, Latte Dock, Multiload-ng, VS Code, Konsole, Dolphin
+    </small>
+</p>
 
 # Installation
-I am using a dotfiles boostrapper: [anishathalye/dotbot](https://github.com/anishathalye/dotbot) which
-sets up symlinks by calling `sh dotbot.sh -c install-arch.yaml`. For windows, `powershell dotbot.ps1 -c install-win.yaml` (Windows related config files are deprecated and may be removed in the future).
 
-I don't recommend pulling the whole repository, but instead copy snippets in particular.
+<!-- Put the logo centered -->
 
 
-# Config files provided
-- [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility
+<p style="text-align: center">
+    <img src="https://nixos.org/logo/nixos-logo-only-hires.png" width="20%">
+</p>
+
+Most of the configuration files are managed with a [Nix Flake](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager), which is self-contained, distro-agnostic and doesn't require any additional software apart from the [nix package manager](https://nixos.org/download.html).
+
+```
+git clone https://github.com/viperML/dotfiles && cd dotfiles
+nix-shell
+nix build .#homeManagerConfigurations.ayats.activationPackage
+./result/activate
+```
+
+
+# Resources
 - [Visual Studio Code](https://code.visualstudio.com/) - IDE/Text editor of choice. Installed extensions are located in [extensions](Code/extensions)
-- [Neovim](https://neovim.io/) - Terminal text editor
+- [Neovim](https://neovim.io/) - Vim fork which aims to improve the extensibility and maintainability.
 - [fish](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box.
-- [oh-my-posh](https://ohmyposh.dev) - Shell prompt. It can be installed both in linux and windows machines and it is easily configurable via a JSON file
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Monospaced font
-- [jonaburg/picom](https://github.com/jonaburg/picom) - Compositor, providing transparency, shadows and rounded corners. Jonaburg's fork includes animations
-- [viperML/st](https://github.com/viperML/st) - Terminal emulator
-- [Rofi](https://github.com/davatorium/rofi) - Application launcher
+- [starship](https://starship.rs/) - Shell prompt with powerful customization.
+- [Konsole](https://konsole.kde.org/) - Modern terminal emulator
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Monospaced font with ligatures support.
 - [multiload-ng](https://udda.github.io/multiload-ng/) - System tray load monitors
-- [Orchis Dark](https://github.com/vinceliuice/Orchis-theme) - GTK 2.0 / GTK 3.0 / QT Theme
-- [Vimix](https://github.com/vinceliuice/vimix-icon-theme) - Icon pack
+- [WhiteSur](https://github.com/vinceliuice/WhiteSur-kde) - GTK 2.0 / GTK 3.0 / QT Theme
+- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - Icon theme
+- [Lightly](https://github.com/Luwx/Lightly) - Titlebar decorations
+- [Latte Dock](https://github.com/KDE/latte-dock) - Panel/dock replacement for KDE
+- [bat](https://github.com/sharkdp/bat) - Cat clone with syntax highlighting
 
+- Deprecated configurations:
+- [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility
+- [Rofi](https://github.com/davatorium/rofi) - Application launcher
+- [viperML/st](https://github.com/viperML/st) - Terminal emulator
+- [jonaburg/picom](https://github.com/jonaburg/picom) - Compositor, providing transparency, shadows and rounded corners for Awesome. Jonaburg's fork includes animations
+- [oh-my-posh](https://ohmyposh.dev) - Shell prompt with powerful customization. Deprecated use in favor of starship.
 
-> If there is anything missing, either I forgot to add it, I don't use it anymore or it is not interesting enough to show it off
+> Last update of this README: November 2021
