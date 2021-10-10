@@ -16,10 +16,12 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="118" height="104">
+    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="30%">
   </div>
 </div>
 
+<br>
+<br>
 Most of the configuration files are managed with a [Nix Flake](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager), which is self-contained, distro-agnostic and doesn't require any additional software apart from the [nix package manager](https://nixos.org/download.html).
 
 ```
