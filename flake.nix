@@ -2,7 +2,6 @@
   description = "Fernando Ayats's system configuraion";
 
   inputs = {
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,10 +21,13 @@
 
       system = "x86_64-linux";
 
+      # Change your username here
+      username = "ayats";
+
     in {
-      homeManagerConfigurations = {
-        ayats = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
+      mkHM = {
+        default = home-manager.lib.homeManagerConfiguration rec {
+          inherit system pkgs username;
           configuration = { pkgs, lib, ... }: {
             imports = [
               # Split configs per package
@@ -37,8 +39,7 @@
               ./neofetch/neofetch.nix
             ];
           };
-          homeDirectory = "/home/ayats";
-          username = "ayats";
+          homeDirectory = "/home/" + username;
         };
       };
 
