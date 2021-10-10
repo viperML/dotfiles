@@ -16,7 +16,7 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="30%">
+    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="20%">
   </div>
 </div>
 
