@@ -2,6 +2,15 @@
   description = "Fernando Ayats's system configuraion";
 
   inputs = {
+    inherit (nixpkgs) lib;
+    inherit (lib) attrValues;
+
+
+    inherit (util) host;
+    inherit (util) user;
+    inherit (util) shell;
+    inherit (util) app;
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
