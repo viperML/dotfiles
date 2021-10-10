@@ -44,7 +44,7 @@
               ./neofetch/neofetch.nix
               ./vscode/vscode.nix
             ];
-            home.username = username;
+            home.username = "ayats";
             home.homeDirectory = "/home/" + username;
             programs.home-manager = {
               enable = true;

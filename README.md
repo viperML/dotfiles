@@ -24,9 +24,7 @@ Most of the configuration files are managed with a [Nix Flake](https://nixos.wik
 
 ```
 $ git clone https://github.com/viperML/dotfiles .dotfiles && cd .dotfiles
-$ nix-shell
-$ nix build .#mkHM.default.activationPackage
-$ ./result/activate
+$ sh bin/install.sh
 ```
 
 That is how I install it myself, but I don't recommend it for you. Instead, pick any specific files or snippets of code.
