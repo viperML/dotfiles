@@ -4,10 +4,15 @@
   inputs.home-manager.url = "github:nix-community/home-manager";
   # Home-manager input should match nixpkgs
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.nur.url = "github:nix-community/NUR";
+
+  inputs.nixpkgs.config.packagesOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
 
   # We take nixpkgs and home-manager as input
-  outputs = { self, nixpkgs, home-manager, nur }: {
+  outputs = { self, nixpkgs, home-manager }: {
     # With that we export homeManagerConfigurations.user
     homeManagerConfigurations = {
       ayats = home-manager.lib.homeManagerConfiguration {
