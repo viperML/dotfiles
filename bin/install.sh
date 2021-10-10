@@ -22,7 +22,12 @@ git fetch
 git merge
 
 echo "Creating activation package"
+nix-shell
 nix build .#mkHM.default.activationPackage
 
 echo "Activating..."
-exec ./result/activate
+./result/activate
+
+echo ">>> To fininish the installation for..."
+echo "  >> fish: add  'exec fish' to your login shell or terminal emulator"
+echo "  >> VS Code: run vscode/install.sh to get the plugins"
