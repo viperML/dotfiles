@@ -13,6 +13,7 @@
     tealdeer
     unar
     nixpkgs-fmt
+    nur.repos.xe.comma
   ];
 
 
