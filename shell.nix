@@ -1,3 +1,4 @@
+# Simple shell which provides flakes support until it becomes a stable feature
 { pkgs ? import <nixpkgs> { } }:
 pkgs.mkShell {
   name = "nixflakes";
