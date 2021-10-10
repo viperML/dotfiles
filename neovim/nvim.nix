@@ -63,6 +63,7 @@
           vim-highlightedyank
           nvim-comment
           coc-nvim
+          editorconfig-vim
         ];
 
     };

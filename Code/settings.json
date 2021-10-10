@@ -133,9 +133,9 @@
     "scrollbarSlider.hoverBackground": "#444444",
     "editorRuler.foreground": "#202020",
     "statusBar.foreground": "#121212",
-    "statusBar.background": "#a8a8e0",
-    "statusBar.noFolderBackground": "#a8a8e0",
-    "statusBar.debuggingBackground": "#a8a8e0",
+    "statusBar.background": "#A8D5E0",
+    "statusBar.noFolderBackground": "#A8D5E0",
+    "statusBar.debuggingBackground": "#A8D5E0",
     "statusBarItem.remoteBackground": "#A8D5E0",
     "statusBarItem.remoteForeground": "#121212",
     "statusBar.border": "#ffffff00"
