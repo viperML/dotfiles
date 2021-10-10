@@ -37,6 +37,7 @@
             imports = [
               # Split configs per package
               ./nix/home.nix
+              ./nix/fonts.nix
               ./neovim/nvim.nix
               ./fish/fish.nix
               ./bat/bat.nix
