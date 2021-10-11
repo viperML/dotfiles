@@ -116,6 +116,35 @@
         "settings": {
           "fontStyle": ""
         }
+      },
+      // Markdown colored titles
+      {
+        "scope": "heading.1.markdown entity.name.section.markdown, heading.1.markdown punctuation.definition.heading.markdown",
+        "settings": {
+          "fontStyle": "bold underline",
+          "foreground": "#9cecfb"
+        }
+      },
+      {
+        "scope": "heading.2.markdown entity.name.section.markdown, heading.2.markdown punctuation.definition.heading.markdown",
+        "settings": {
+          "fontStyle": "bold underline",
+          "foreground": "#83a4d4"
+        }
+      },
+      {
+        "scope": "heading.3.markdown entity.name.section.markdown, heading.3.markdown punctuation.definition.heading.markdown",
+        "settings": {
+          "fontStyle": "bold underline",
+          "foreground": "#2bc0e4"
+        }
+      },
+      {
+        "scope": "heading.4.markdown entity.name.section.markdown, heading.4.markdown punctuation.definition.heading.markdown",
+        "settings": {
+          "fontStyle": "bold underline",
+          "foreground": "#1fa2ff"
+        }
       }
     ]
   },
@@ -318,5 +347,5 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  },
+  }
 }

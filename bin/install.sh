@@ -8,7 +8,6 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     curl -L https://nixos.org/nix/install | sh
     wait 1
     echo "source ${HOME}/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
-    echo "Please close this shell"
     exit 0
 else
     echo "Skipping Nix install"
