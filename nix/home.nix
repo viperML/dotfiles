@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+  xdg = {
+   enable = true;
+   mime.enable=true;
+  };
+
   # Generic programs
   home.packages = with pkgs; [
     nix-prefetch-scripts
