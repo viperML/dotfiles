@@ -24,21 +24,19 @@ alias cpuinfo="watch -n.1 'cat /proc/cpuinfo | grep \'^[c]pu MHz\''"
 # Abbreviations
 abbr --add --global p python
 abbr --add --global n nvim
-abbr --add --global x xdg-open
-abbr --add --global ss sudo systemctl
-abbr --add --global ds doas systemctl
-abbr --add --global us systemctl --user
-abbr --add --global se sudo -E systemctl edit
-abbr --add --global de doas systemctl edit
-abbr --add --global dvim doas nvim
-abbr --add --global eq equery
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 abbr --add --global ns nix-shell --run fish --packages
-abbr --add --global d doas
+
+# Admin
+abbr --add --global s sudo
+abbr --add --global ss sudo systemctl
+abbr --add --global us systemctl --user
+abbr --add --global se sudo -E systemctl edit
 
 # Gentoo abbreviations
-abbr --add --global duse doas nvim /etc/portage/package.use/my-use
-abbr --add --global dacc doas nvim /etc/portage/package.accept_keywords
+abbr --add --global eq equery
+abbr --add --global nuse sudo nvim /etc/portage/package.use/my-use
+abbr --add --global nacc sudo nvim /etc/portage/package.accept_keywords
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
