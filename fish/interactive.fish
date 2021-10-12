@@ -36,6 +36,10 @@ abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master qui
 abbr --add --global ns nix-shell --run fish --packages
 abbr --add --global d doas
 
+# Gentoo abbreviations
+abbr --add --global duse doas nvim /etc/portage/package.use/my-use
+abbr --add --global dacc doas nvim /etc/portage/package.accept_keywords
+
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
 # tj git aliases

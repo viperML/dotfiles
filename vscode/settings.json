@@ -43,6 +43,7 @@
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
   "editor.tabSize": 4,
+  "debug.toolBarLocation": "docked",
 
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -79,10 +80,6 @@
   // Fonts
   "editor.fontSize": 14,
   "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
-  // "editor.fontFamily": "",
-  // "editor.fontFamily": "'JetBrainsMono Nerd Font'",
-  "debug.console.fontFamily": "'JetBrains Mono Medium', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Free Regular', 'Font Awesome 5 Brands'",
-  "debug.toolBarLocation": "docked",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @
@@ -117,33 +114,46 @@
           "fontStyle": ""
         }
       },
-      // Markdown colored titles
       {
-        "scope": "heading.1.markdown entity.name.section.markdown, heading.1.markdown punctuation.definition.heading.markdown",
+        "scope": "markup.heading.markdown punctuation.definition.heading.markdown",
         "settings": {
-          "fontStyle": "bold underline",
-          "foreground": "#9cecfb"
+          "foreground": "#8a8888"
         }
       },
       {
-        "scope": "heading.2.markdown entity.name.section.markdown, heading.2.markdown punctuation.definition.heading.markdown",
+        "scope": "heading.1.markdown entity.name.section",
         "settings": {
-          "fontStyle": "bold underline",
-          "foreground": "#83a4d4"
+          "foreground": "#4d85c3"
         }
       },
       {
-        "scope": "heading.3.markdown entity.name.section.markdown, heading.3.markdown punctuation.definition.heading.markdown",
+        "scope": "heading.2.markdown entity.name.section",
         "settings": {
-          "fontStyle": "bold underline",
-          "foreground": "#2bc0e4"
+          "foreground": "#389674"
         }
       },
       {
-        "scope": "heading.4.markdown entity.name.section.markdown, heading.4.markdown punctuation.definition.heading.markdown",
+        "scope": "heading.3.markdown entity.name.section",
         "settings": {
-          "fontStyle": "bold underline",
-          "foreground": "#1fa2ff"
+          "foreground": "#b0be1e"
+        }
+      },
+      {
+        "scope": "heading.4.markdown entity.name.section",
+        "settings": {
+          "foreground": "#8594c8"
+        }
+      },
+      {
+        "scope": "heading.5.markdown entity.name.section",
+        "settings": {
+          "foreground": "#f76328"
+        }
+      },
+      {
+        "scope": "heading.6.markdown entity.name.section",
+        "settings": {
+          "foreground": "#fccf3e"
         }
       }
     ]
@@ -347,5 +357,6 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  }
+  },
+  "gitlens.codeLens.enabled": false
 }
