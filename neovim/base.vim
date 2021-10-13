@@ -8,6 +8,12 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Per language
+augroup indentation
+    autocmd!
+    au FileType vimrc echom "test"
+augroup END
+
 " line numbers
 set number
 set relativenumber
@@ -28,5 +34,3 @@ set mouse=a
 " Reset cursor after leaving vim
 au VimLeave * set guicursor=a:ver100
 
-" Dracula theme
-colorscheme dracula
