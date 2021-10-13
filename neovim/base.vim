@@ -10,8 +10,8 @@ set shiftwidth=4
 
 " Per language
 augroup indentation
-    autocmd!
-    au FileType vimrc echom "test"
+  autocmd!
+  autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " line numbers
