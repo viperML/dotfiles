@@ -31,7 +31,7 @@ That is how I install it myself, but I don't recommend it for you. Instead, pick
 
 
 # Resources
-- [Visual Studio Code](https://code.visualstudio.com/) - IDE/Text editor of choice. Installed extensions are located in [extensions](Code/extensions)
+- [Visual Studio Code](https://code.visualstudio.com/) - IDE/Text editor of choice. Installed extensions are located in [extensions](vscode/extensions)
 - [Neovim](https://neovim.io/) - Vim fork which aims to improve the extensibility and maintainability.
 - [fish](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box.
 - [starship](https://starship.rs/) - Shell prompt with powerful customization.
