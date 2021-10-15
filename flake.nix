@@ -35,14 +35,16 @@
           inherit system pkgs username;
           configuration = {
             imports = [
-              # Split configs per package
+              # Basic cli
               ./nix/home.nix
-              ./nix/fonts.nix
               ./neovim/nvim.nix
               ./fish/fish.nix
               ./bat/bat.nix
               ./lsd/lsd.nix
               ./neofetch/neofetch.nix
+
+              # Gui
+              ./nix/fonts.nix
               ./vscode/vscode.nix
             ];
             home.username = username;
