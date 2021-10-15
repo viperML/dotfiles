@@ -44,7 +44,7 @@ That is how I install it myself, but I don't recommend it for you. Instead, pick
 - [Latte Dock](https://github.com/KDE/latte-dock) - Panel/dock replacement for KDE
 - [bat](https://github.com/sharkdp/bat) - Cat clone with syntax highlighting
 
-- Deprecated configurations:
+### Deprecated configurations:
 - [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility
 - [Rofi](https://github.com/davatorium/rofi) - Application launcher
 - [viperML/st](https://github.com/viperML/st) - Terminal emulator
