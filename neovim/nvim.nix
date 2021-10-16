@@ -10,6 +10,8 @@
     rnix-lsp
   ];
 
+  home.file.".config/nvim/coc-settings.json".source = ./coc-settings.json;
+
   programs.neovim = {
       enable = true;
       extraConfig = ''
