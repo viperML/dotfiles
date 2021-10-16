@@ -54,7 +54,6 @@
 
         in [
           nvim-transparent
-          dracula-vim
           editorconfig-nvim
           context-vim
           vim-airline
@@ -64,7 +63,7 @@
           nvim-comment
           coc-nvim
           editorconfig-vim
-          gruvbox-nvim
+          gruvbox
         ];
 
     };

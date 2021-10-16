@@ -1,4 +1,3 @@
-set background=dark
 colorscheme gruvbox
 
 " https://github.com/xiyaowong/nvim-transparent
