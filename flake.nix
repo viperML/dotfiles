@@ -46,6 +46,7 @@
               # Gui
               ./nix/fonts.nix
               ./vscode/vscode.nix
+              ./emacs/emacs.nix
             ];
             home.username = username;
             home.homeDirectory = "/home/" + username;
