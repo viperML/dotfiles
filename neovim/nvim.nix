@@ -7,6 +7,7 @@
 
     # COC runtime dependency
     nodejs
+    rnix-lsp
   ];
 
   programs.neovim = {

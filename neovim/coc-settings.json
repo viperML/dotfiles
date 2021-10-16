@@ -1,4 +1,8 @@
 {
-    "python.pythonPath": "/usr/bin/python",
-    "python.linting.enabled": true
+  "languageserver": {
+      "nix": {
+        "command": "rnix-lsp",
+        "filetypes": ["nix"]
+      }
+  }
 }
