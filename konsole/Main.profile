@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Dracula
+ColorScheme=Gruvbox
 Font=JetBrains Mono,11,-1,5,57,0,0,0,0,0,Medium
 LineSpacing=0
 

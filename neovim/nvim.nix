@@ -64,6 +64,7 @@
           nvim-comment
           coc-nvim
           editorconfig-vim
+          gruvbox-nvim
         ];
 
     };

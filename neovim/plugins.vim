@@ -1,4 +1,5 @@
-colorscheme dracula
+set background=dark
+colorscheme gruvbox
 
 " https://github.com/xiyaowong/nvim-transparent
 let g:transparent_enabled = v:true
