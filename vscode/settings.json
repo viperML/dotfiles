@@ -68,7 +68,7 @@
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.hovers.enabled": false,
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Dark Material Dracula",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",
