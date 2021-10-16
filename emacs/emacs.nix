@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    programs.emacs.init = {
+    programs.emacs = {
         enable = true;
     };
 }
