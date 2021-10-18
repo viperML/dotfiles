@@ -14,5 +14,6 @@
     unar
     nixpkgs-fmt
     nur.repos.xe.comma
+    htop
   ];
 }
