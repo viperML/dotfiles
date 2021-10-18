@@ -1,6 +1,6 @@
 [Appearance]
-ColorScheme=Gruvbox
-Font=JetBrains Mono,11,-1,5,57,0,0,0,0,0,Medium
+ColorScheme=Dracula
+Font=JetBrains Mono Medium,11,-1,5,57,0,0,0,0,0,Regular
 LineSpacing=0
 
 [Cursor Options]

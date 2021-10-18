@@ -66,7 +66,7 @@
           nvim-comment
           coc-nvim
           editorconfig-vim
-          gruvbox
+          dracula-vim
         ];
 
     };
