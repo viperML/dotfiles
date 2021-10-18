@@ -64,7 +64,7 @@ icons:
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
 # Possible values: false, true
-indicators: false
+indicators: true
 
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
@@ -102,7 +102,7 @@ sorting:
 # == No Symlink ==
 # Whether to omit showing symlink targets
 # Possible values: false, true
-no-symlink: true
+no-symlink: false
 
 # == Total size ==
 # Whether to display the total size of directories.
