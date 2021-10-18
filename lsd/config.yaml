@@ -30,7 +30,7 @@ color:
 # accepts an strftime like string.
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, +<date_format>
-date: '+%Y-%m-%dT%H:%m:%S%z'
+#date: '+%Y-%m-%dT%H:%m:%S%z'
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -64,7 +64,7 @@ icons:
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
 # Possible values: false, true
-indicators: true
+indicators: false
 
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
@@ -79,7 +79,7 @@ recursion:
   enabled: false
   # How deep the recursion should go. This has to be a positive integer. Leave
   # it unspecified for (virtually) infinite.
-  depth: 10
+  depth: 1
 
 # == Size ==
 # Specifies the format of the size column.
@@ -107,7 +107,7 @@ no-symlink: true
 # == Total size ==
 # Whether to display the total size of directories.
 # Possible values: false, true
-total-size: true
+total-size: false
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
