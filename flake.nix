@@ -47,6 +47,9 @@
               ./nix/fonts.nix
               ./vscode/vscode.nix
               # ./emacs/emacs.nix
+
+              # Personal
+              ./nix/git.nix
             ];
             home.username = username;
             home.homeDirectory = "/home/" + username;
