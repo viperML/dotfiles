@@ -295,7 +295,7 @@
   // Vim
   "vim.hlsearch": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
+  "vim.useSystemClipboard": false,
   "vim.easymotion": true,
   "vim.enableNeovim": false,
   "vim.highlightedyank.enable": true,

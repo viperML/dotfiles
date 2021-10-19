@@ -1,5 +1,4 @@
 arrterian.nix-env-selector
-BitBelt.converttoasciiart
 bmalehorn.vscode-fish
 bodil.file-browser
 CarlosHenrique.dark-material-dracula
@@ -8,17 +7,16 @@ eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
 GitHub.copilot
-GrapeCity.gc-excelviewer
 jacobdufault.fuzzy-search
 James-Yu.latex-workshop
 jnoortheen.nix-ide
-justusadam.language-haskell
 kahole.magit
 mhutchie.git-graph
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode.cpptools
@@ -28,12 +26,9 @@ njpwerner.autodocstring
 PKief.material-icon-theme
 PKief.material-product-icons
 redhat.vscode-commons
-Renan-MsV.nasal-lang
 stkb.rewrap
 streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-spanish
-sumneko.lua
-tinkertrain.theme-panda
 vscodevim.vim
 VSpaceCode.vspacecode
 VSpaceCode.whichkey
