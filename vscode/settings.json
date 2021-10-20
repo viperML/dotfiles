@@ -32,7 +32,7 @@
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
-  "files.insertFinalNewline": true,
+  "files.insertFinalNewline": false, // editorconfig collision
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "security.workspace.trust.enabled": false,
@@ -278,6 +278,12 @@
     "editor.insertSpaces": true
   },
 
+  "[diff]": {
+    "files.insertFinalNewline": false,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false,
+  },
+
   // Python
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
@@ -361,5 +367,6 @@
   "gitlens.codeLens.enabled": false,
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": false
 }
