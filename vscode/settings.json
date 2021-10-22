@@ -12,9 +12,9 @@
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "relative",
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
-  "editor.minimap.size": "proportional",
+  "editor.minimap.size": "fill",
   "editor.quickSuggestionsDelay": 0,
   "editor.rulers": [160],
   "editor.scrollbar.horizontal": "auto",
@@ -32,7 +32,7 @@
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
-  "files.insertFinalNewline": false, // editorconfig collision
+  "files.insertFinalNewline": true, // editorconfig collision
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "security.workspace.trust.enabled": false,
@@ -114,6 +114,7 @@
           "fontStyle": ""
         }
       },
+      // Dracula colored titles
       {
         "scope": "markup.heading.markdown punctuation.definition.heading.markdown",
         "settings": {
@@ -123,37 +124,37 @@
       {
         "scope": "heading.1.markdown entity.name.section",
         "settings": {
-          "foreground": "#4d85c3"
+          "foreground": "#8be9fd"
         }
       },
       {
         "scope": "heading.2.markdown entity.name.section",
         "settings": {
-          "foreground": "#389674"
+          "foreground": "#50fa7b"
         }
       },
       {
         "scope": "heading.3.markdown entity.name.section",
         "settings": {
-          "foreground": "#b0be1e"
+          "foreground": "#f1fa8c"
         }
       },
       {
         "scope": "heading.4.markdown entity.name.section",
         "settings": {
-          "foreground": "#8594c8"
+          "foreground": "#bd93f9"
         }
       },
       {
         "scope": "heading.5.markdown entity.name.section",
         "settings": {
-          "foreground": "#f76328"
+          "foreground": "#ff5555"
         }
       },
       {
         "scope": "heading.6.markdown entity.name.section",
         "settings": {
-          "foreground": "#fccf3e"
+          "foreground": "#ffb86c"
         }
       }
     ]
@@ -282,6 +283,9 @@
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": false,
     "files.trimTrailingWhitespace": false,
+  },
+  "[shellscript]": {
+    "editor.rulers": [80]
   },
 
   // Python

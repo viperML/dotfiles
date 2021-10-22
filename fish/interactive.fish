@@ -32,6 +32,7 @@ abbr --add --global s sudo
 abbr --add --global ss sudo systemctl
 abbr --add --global us systemctl --user
 abbr --add --global se sudo -E systemctl edit
+abbr --add --global sf sudo --preserve-env=PATH (which fish)
 
 # Gentoo abbreviations
 abbr --add --global eq equery
