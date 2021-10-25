@@ -169,5 +169,10 @@
 	"key": "ctrl+l",
 	"command": "file-browser.stepIn",
 	"when": "inFileBrowser"
+},
+{
+	"key": "tab",
+	"command": "-markdown.extension.onTabKey",
+	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
 }
 ]
