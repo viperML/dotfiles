@@ -11,7 +11,6 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = "starship init fish | source";
     # Standard config file when shell is interactive
     # Instead of using nix lang, in case I want to ditch Nix
     interactiveShellInit = ''
