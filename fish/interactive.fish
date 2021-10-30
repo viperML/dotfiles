@@ -23,6 +23,12 @@ alias ip="ip -c=auto"
 alias svim="sudoedit"
 alias cpuinfo="watch -n.1 'cat /proc/cpuinfo | grep \'^[c]pu MHz\''"
 
+# LSD
+alias ls="lsd"
+alias la="lsd -A"
+alias ll="lsd -A -l"
+alias lt="lsd -A -t -r"
+
 # Abbreviations
 abbr --add --global p python
 abbr --add --global n nvim
