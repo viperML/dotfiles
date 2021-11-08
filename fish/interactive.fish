@@ -13,6 +13,9 @@ end
 
 set -g -x fish_greeting (os_greeter)
 
+# Bindings
+bind \cH backward-kill-path-component
+bind \e\[3\;5~ kill-word
 
 # Variables
 # export GREP_OPTIONS='--color=always'
