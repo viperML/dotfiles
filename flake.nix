@@ -44,8 +44,8 @@
               ./neofetch/neofetch.nix
 
               # Gui
-              ./nix/fonts.nix
-              ./vscode/vscode.nix
+              # ./nix/fonts.nix
+              # ./vscode/vscode.nix
               # ./emacs/emacs.nix
 
               # Personal
