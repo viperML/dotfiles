@@ -370,7 +370,23 @@
   },
   "gitlens.codeLens.enabled": false,
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "autoClosingPairs": [
+      {
+        "open": "`",
+        "close": "a"
+      }
+    ],
+    "brackets": [
+      [
+        "`",
+        "`"
+      ]
+    ]
+
   },
-  "diffEditor.ignoreTrimWhitespace": false
+  "editor.autoClosingQuotes": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "remote.containers.dockerPath": "podman",
+  "remote.containers.dockerComposePath": "podman-compose"
 }
