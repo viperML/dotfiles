@@ -3,7 +3,7 @@ starship init fish | source
 function os_greeter
     echo 'Welcome to'
     set_color cyan
-    echo (sed -n '/^NAME=/p' /etc/os-release | sed 's/NAME=//g;s/"//g')
+    echo (grep "PRETTY_NAME" /etc/os-release | sed 's/PRETTY_NAME=//g;s/"//g')
     set_color normal
     echo 'powered by'
     set_color brcyan
