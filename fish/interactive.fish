@@ -37,6 +37,7 @@ abbr --add --global p python
 abbr --add --global n nvim
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 abbr --add --global ns nix-shell --run fish --packages
+abbr --add --global x xdg-open
 
 # Admin
 abbr --add --global s sudo

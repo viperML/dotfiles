@@ -388,5 +388,6 @@
   "editor.autoClosingQuotes": "always",
   "diffEditor.ignoreTrimWhitespace": false,
   "remote.containers.dockerPath": "podman",
-  "remote.containers.dockerComposePath": "podman-compose"
+  "remote.containers.dockerComposePath": "podman-compose",
+  "terminal.integrated.defaultProfile.linux": "fish"
 }
