@@ -1,19 +1,21 @@
 { config, pkgs, ... }:
 {
-  xdg = {
-   enable = true;
-   mime.enable=true;
-  };
-
   # Generic programs
   home.packages = with pkgs; [
+    # Nix management
     nix-prefetch-scripts
+    nixpkgs-fmt
+    nur.repos.xe.comma
+
+    # Misc utils
     ripgrep
     fd
     tealdeer
     unar
-    nixpkgs-fmt
-    nur.repos.xe.comma
+
+    # System monitor
     htop
+    pstree
+    sysstat
   ];
 }

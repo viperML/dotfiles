@@ -3,8 +3,6 @@
 pkgs.mkShell {
   name = "nixflakes";
   nativeBuildInputs = with pkgs; [
-    git
-    git-crypt
     nixUnstable
   ];
 

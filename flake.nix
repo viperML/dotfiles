@@ -44,6 +44,7 @@
               ./neofetch/neofetch.nix
 
               # Gui
+              # ./nix/gui.nix
               # ./nix/fonts.nix
               # ./vscode/vscode.nix
               # ./emacs/emacs.nix
