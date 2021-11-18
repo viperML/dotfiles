@@ -31,8 +31,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "franciscolourenco";
           repo = "done";
-          rev = "a328d3a747cb47fdbee27e04f54221ed7d639a86";
-          sha256 = "1m11nsdmd82x0l3i8zqw8z3ba77nxanrycv93z25rmghw1wjyk0k";
+          rev = "d6abb267bb3fb7e987a9352bc43dcdb67bac9f06";
+          sha256 = "1h8v5jg9kkali50qq0jn0i1w68wp4c2l0fapnglnnpg0v4vv51za";
         };
       }
       {
@@ -49,8 +49,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "PatrickF1";
           repo = "fzf.fish";
-          rev = "176c8465b0fad2d5c30aacafff6eb5accb7e3826";
-          sha256 = "16mdfyznxjhv7x561srl559misn37a35d2q9fspxa7qg1d0sc3x9";
+          rev = "a07e175e5b9c581d042c96cbd0bea8296a0d34f8";
+          sha256 = "1sacnf7jq5nzr4h4lk8igpf7h0zf2jwg3brnrgc9bsvqga23yhzg";
         };
       }
       {
