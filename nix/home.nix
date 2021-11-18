@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # Nix management
     nix-prefetch-scripts
+    update-nix-fetchgit
     nixpkgs-fmt
     nur.repos.xe.comma
 
