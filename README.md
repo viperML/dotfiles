@@ -1,18 +1,18 @@
 
 <!-- Create a centered title -->
-<h1 style="text-align: center">viperML/dotfiles</h1>
+<h1 style="text-align: center">🌠 viperML/dotfiles</h1>
 
-# About
+# 🗒 About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src=".img/20211010.png" width="100%"/>
+    <img alt="Desktop screenshot" src=".img/20211118.png" width="100%"/>
   </div>
 </div>
 
-# Installation
+# ❄ Installation
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
@@ -30,19 +30,17 @@ $ sh bin/install.sh
 That is how I install it myself, but I don't recommend it for you. Instead, pick any specific files or snippets of code.
 
 
-# Resources
+# 💾 Resources
 - [Visual Studio Code](https://code.visualstudio.com/) - IDE/Text editor of choice. Installed extensions are located in [extensions](vscode/extensions)
 - [Neovim](https://neovim.io/) - Vim fork which aims to improve the extensibility and maintainability.
-- [fish](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box.
-- [starship](https://starship.rs/) - Shell prompt with powerful customization.
+- [Fish Shell](https://fishshell.com/) - Interactive shell, providing automatic completion and syntax highlight out of the box.
+- [Starship](https://starship.rs/) - Shell prompt with powerful customization.
 - [Konsole](https://konsole.kde.org/) - Modern terminal emulator
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Monospaced font with ligatures support.
-- [multiload-ng](https://udda.github.io/multiload-ng/) - System tray load monitors
-- [WhiteSur](https://github.com/vinceliuice/WhiteSur-kde) - GTK 2.0 / GTK 3.0 / QT Theme
-- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - Icon theme
-- [Lightly](https://github.com/Luwx/Lightly) - Titlebar decorations
+- [Multiload-ng](https://udda.github.io/multiload-ng/) - System tray load monitors
 - [Latte Dock](https://github.com/KDE/latte-dock) - Panel/dock replacement for KDE
 - [bat](https://github.com/sharkdp/bat) - Cat clone with syntax highlighting
+- [lsd](https://github.com/Peltoche/lsd) - `ls` but with colors and icons (and more)
 
 ### Deprecated configurations:
 - [Awesome WM](https://awesomewm.org/doc/api/index.html) - Dynamic window manager configured in Lua, whith a good balance between minimalism and extensibility
