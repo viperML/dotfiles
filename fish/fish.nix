@@ -62,6 +62,15 @@
           sha256 = "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs";
         };
       }
+      {
+        name = "fish-abbreviation-tips";
+        src = pkgs.fetchFromGitHub {
+          owner = "Gazorby";
+          repo = "fish-abbreviation-tips";
+          rev = "e877e28835681e387e55ea2bfa5003271b036a00";
+          sha256 = "1kj4x63ivsjdlw715qygdh4y5fhl0hx33bwm0jr35a8a3jbniviq";
+        };
+      }
     ];
   };
 
