@@ -1,7 +1,6 @@
 {
   // Telemetry
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "Lua.telemetry.enable": false,
 
@@ -12,20 +11,23 @@
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "relative",
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fill",
   "editor.quickSuggestionsDelay": 0,
   "editor.rulers": [160],
   "editor.scrollbar.horizontal": "auto",
-  "editor.scrollbar.horizontalScrollbarSize": 5,
+  "editor.scrollbar.horizontalScrollbarSize": 20,
   "editor.scrollbar.vertical": "visible",
-  "editor.scrollbar.verticalScrollbarSize": 8,
+  "editor.scrollbar.verticalScrollbarSize": 20,
   "editor.semanticHighlighting.enabled": true,
   "editor.suggest.preview": true,
   "editor.tabCompletion": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
+  "editor.autoClosingQuotes": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.defaultProfile.linux": "fish",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
@@ -55,7 +57,7 @@
   "github.copilot.enable": {
     "*": true,
     "yaml": false,
-    "plaintext": true,
+    "plaintext": false,
     "markdown": true
   },
 
@@ -258,7 +260,7 @@
     "*.ipynb": "jupyter-notebook"
   },
 
-  // Web
+  // Langs
   "prettier.tabWidth": 2,
   "[json,javascript,css,html,jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -278,7 +280,6 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
-
   "[diff]": {
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": false,
@@ -363,31 +364,10 @@
   "cSpell.words": [],
 
   // Unsorted
-
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "gitlens.codeLens.enabled": false,
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-    "autoClosingPairs": [
-      {
-        "open": "`",
-        "close": "a"
-      }
-    ],
-    "brackets": [
-      [
-        "`",
-        "`"
-      ]
-    ]
+  "gitlens.codeLens.enabled": false
 
-  },
-  "editor.autoClosingQuotes": "always",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "remote.containers.dockerPath": "podman",
-  "remote.containers.dockerComposePath": "podman-compose",
-  "terminal.integrated.defaultProfile.linux": "fish"
 }
