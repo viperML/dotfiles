@@ -66,9 +66,7 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,
-  "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.hovers.enabled": false,
   "scm.diffDecorations": "gutter",
   "workbench.colorTheme": "Dark Material Dracula",
 
@@ -368,6 +366,8 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "workbench.enableExperiments": false,
+  "gitlens.currentLine.enabled": false
 
 }
