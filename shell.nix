@@ -1,14 +1,17 @@
-# Simple shell which provides flakes support until it becomes a stable feature
-{ pkgs ? import <nixpkgs> { } }:
-pkgs.mkShell {
-  name = "nixflakes";
-  nativeBuildInputs = with pkgs; [
-    nixUnstable
-  ];
+# Simple shell to allow nix flakes
+{ pkgs ? import <nixpkgs> {} }:
 
+with pkgs;
+let nixBin =
+      writeShellScriptBin "nix" ''
+        ${nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
+      '';
+in mkShell {
+  buildInputs = [
+    git
+  ];
   shellHook = ''
-    PATH=${pkgs.writeShellScriptBin "nix" ''
-      ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
-    ''}/bin:$PATH
+    export FLAKE="$(pwd)"
+    export PATH="$FLAKE/bin:${nixBin}/bin:$PATH"
   '';
 }

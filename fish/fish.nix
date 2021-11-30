@@ -77,5 +77,12 @@
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
+    nix-direnv.enable = true;
+    nix-direnv.enableFlakes = true;
+    config = ''
+      [whitelist]
+      prefix = [ "/home/ayats" ]
+    '';
+
   };
 }
