@@ -78,10 +78,9 @@
     enable = true;
     enableFishIntegration = true;
     nix-direnv.enable = true;
-    config = ''
-      [whitelist]
-      prefix = [ "/home/ayats" ]
-    '';
+    config.whitelist.prefix = [
+      "/home"
+    ];
 
   };
 }
