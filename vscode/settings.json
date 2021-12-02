@@ -55,7 +55,7 @@
 
   // Copilot
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "yaml": false,
     "plaintext": false,
     "markdown": true
@@ -288,7 +288,12 @@
   },
 
   // Python
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=90",
+    "--ignore=E501",
+  ],
   "python.linting.enabled": true,
   "vsintellicode.python.completionsEnabled": true,
   "python.defaultInterpreterPath": "/usr/bin/python",

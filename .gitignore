@@ -2,3 +2,4 @@
 .directory
 .vscode
 result
+.direnv

@@ -38,7 +38,7 @@ if [[ ! -z "$REPLY" ]] && [[ ! "$REPLY" =~ ^[yY]$ ]]; then
     die
 fi
 
-
+prun "zfs snap zroot/gen6/gentoo@updatekernel"
 prun "genkernel --kerneldir=$KDIR --kernel-config=/proc/config.gz kernel" || die
 
 if [[ -f "/boot/initramfs-$KVER.img" ]]; then
