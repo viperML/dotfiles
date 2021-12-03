@@ -3,6 +3,8 @@
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
+    nixFlakes
+    nix-index
     nix-prefetch-scripts
     update-nix-fetchgit
     nixpkgs-fmt
