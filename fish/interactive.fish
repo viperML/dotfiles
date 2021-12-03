@@ -38,7 +38,7 @@ abbr --add --global n nvim
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 abbr --add --global ns nix-shell --run fish --packages
 abbr --add --global x xdg-open
-abbr --add --global nf nix --option experimental-features "nix-command flakes"
+abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
 
 # Admin
 abbr --add --global s sudo
