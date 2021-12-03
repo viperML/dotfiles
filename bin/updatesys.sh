@@ -9,6 +9,11 @@ prun() {
     eval " $1" || die
 }
 
+prun_continue() {
+    pprint "$1"
+    eval " $1" || true
+}
+
 die() {
     echo -e "\n==> \e[31mEXIT!\e[39m"
     exit 1
@@ -16,6 +21,8 @@ die() {
 
 pprint "Welcome to updatesys.sh 🐧"
 
+prun_continue "zfs destroy zroot/gen6/gentoo@updatesys-old"
+prun "zfs rename zroot/gen6/gentoo@updatesys zroot/gen6/gentoo@updatesys-old"
 prun "zfs snap zroot/gen6/gentoo@updatesys"
 
 prun "eix-sync"
