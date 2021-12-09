@@ -1,0 +1,1 @@
+execx($(starship init xonsh))
