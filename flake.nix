@@ -42,6 +42,7 @@
               ./bat/bat.nix
               ./lsd/lsd.nix
               ./neofetch/neofetch.nix
+              ./xonsh/xonsh.nix
 
               # Gui
               # ./nix/gui.nix
