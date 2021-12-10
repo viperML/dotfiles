@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  targets.genericLinux.enable = true;
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
