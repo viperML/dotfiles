@@ -13,19 +13,17 @@ else
     echo "Skipping Nix install"
 fi
 
-echo "Adjusting the user name..."
+echo "Changing the username in flake.nix"
 sed -i "s/ username = .*/ username = \"$(whoami)\";/g" flake.nix
+echo "Changing the hostname in flake.nix"
+sed -i "s/ hostname = .*/ username = \"$(cat /etc/hostname)\";/g" flake.nix
 
 echo "Pulling the latest version..."
 git fetch
 git merge
 
 echo "Creating activation package"
-nix-shell --run "nix build .#mkHM.default.activationPackage"
+nix-shell --run "nix build"
 
 echo "Activating..."
 ./result/activate
-
-echo ">>> To fininish the installation for..."
-echo "  >> fish: add  'exec fish' to your login shell or terminal emulator"
-echo "  >> VS Code: run vscode/install.sh to get the plugins"

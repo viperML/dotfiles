@@ -22,10 +22,18 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 Most of the configuration files are managed with a [Nix Flake](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager), which is self-contained, distro-agnostic and doesn't require any additional software apart from the [nix package manager](https://nixos.org/download.html).
 
+First install, with no nix installed can be done with:
 ```bash
-$ git clone https://github.com/viperML/dotfiles .dotfiles && cd .dotfiles
-$ sh bin/install.sh
+$ git clone https://github.com/viperML/dotfiles ~/.dotfiles && cd ~/.dotfiles
+~/.dotfiles $ sh bin/install.sh
 ```
+
+Any subsequent updates can be done with:
+```bash
+~/.dotfiles $ git fetch && git pull
+<at any dir> $ home-manager switch --flake ~/.dotfiles
+```
+
 
 That is how I install it myself, but I don't recommend it for you. Instead, pick any specific files or snippets of code.
 
