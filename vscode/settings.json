@@ -373,6 +373,10 @@
   },
   "gitlens.codeLens.enabled": false,
   "workbench.enableExperiments": false,
-  "gitlens.currentLine.enabled": false
+  "gitlens.currentLine.enabled": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true
 
 }

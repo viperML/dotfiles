@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  targets.genericLinux.enable = true;
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
@@ -10,6 +9,8 @@
     update-nix-fetchgit
     nixpkgs-fmt
     nur.repos.xe.comma
+    nix-bundle
+    # nix-index
 
     # Misc utils
     ripgrep
