@@ -13,4 +13,7 @@
   fi
   '';
 
+  home.packages = with packages; [
+    
+  ]
 }
