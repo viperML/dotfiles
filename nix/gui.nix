@@ -10,10 +10,12 @@
   home.extraProfileCommands = ''
   if [[ -d "$out/share/applications" ]] ; then
     ${pkgs.desktop-file-utils}/bin/update-desktop-database $out/share/applications
+    echo "Updating desktop database..."
   fi
   '';
 
-  home.packages = with packages; [
-    postman
-  ]
+  home.packages = with pkgs; [
+    desktop-file-utils
+    atom
+  ];
 }
