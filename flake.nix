@@ -16,7 +16,10 @@
       # Enable custom overlays here
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowBroken = true; allowUnfree = true; };
+        config = {
+          # allowBroken = true;
+          allowUnfree = true;
+        };
         overlays = [
           nur.overlay
         ];
@@ -61,6 +64,8 @@
           homeDirectory = "/home/" + username;
         };
       };
+
+      defaultPackage."${system}" = self.homeConfigurations."${username}@${hostname}".activationPackage;
 
     };
 }

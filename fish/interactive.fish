@@ -54,7 +54,7 @@ abbr --add --global nacc sudo nvim /etc/portage/package.accept_keywords
 abbr --add --global ns nix-shell --run fish --packages
 abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
 abbr --add --global he $EDITOR $HOME/.dotfiles/nix/gui.nix
-abbr --add --global hs home-manager switch --flake ~/.dotfiles && update-desktop-database
+abbr --add --global hs "home-manager switch --flake ~/.dotfiles && update-desktop-database"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

@@ -25,4 +25,5 @@
   ];
 
   home.file.".config/nix/nix.conf".source = ./nix.conf;
+  home.file.".config/nixpkgs/config.nix".source = ./config.nix;
 }
