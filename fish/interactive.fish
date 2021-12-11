@@ -36,9 +36,7 @@ alias lt="lsd -A -t -r"
 abbr --add --global p python
 abbr --add --global n nvim
 abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
-abbr --add --global ns nix-shell --run fish --packages
 abbr --add --global x xdg-open
-abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
 
 # Admin
 abbr --add --global s sudo
@@ -51,6 +49,12 @@ abbr --add --global sf sudo --preserve-env=PATH (which fish)
 abbr --add --global eq equery
 abbr --add --global nuse sudo nvim /etc/portage/package.use/my-use
 abbr --add --global nacc sudo nvim /etc/portage/package.accept_keywords
+
+# Nix abbreviations
+abbr --add --global ns nix-shell --run fish --packages
+abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
+abbr --add --global he $EDITOR $HOME/.dotfiles/nix/gui.nix
+abbr --add --global hs home-manager switch --flake ~/.dotfiles && update-desktop-database
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

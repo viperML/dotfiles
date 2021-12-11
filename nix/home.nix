@@ -23,4 +23,6 @@
     pstree
     sysstat
   ];
+
+  home.file.".config/nix/nix.conf".source = ./nix.conf;
 }

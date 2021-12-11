@@ -25,12 +25,13 @@
       # Change your platform here
       system = "x86_64-linux";
 
-      # Change your username here
+      # Change your system info here
       username = "ayats";
+      hostname = "gen6";
 
     in {
-      mkHM = {
-        default = home-manager.lib.homeManagerConfiguration rec {
+      homeConfigurations = {
+        "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration rec {
           # Home Manager shenaningans to pass the username down
           inherit system pkgs username;
           configuration = {
@@ -46,9 +47,6 @@
 
               # Gui
               ./nix/gui.nix
-              # ./nix/fonts.nix
-              # ./vscode/vscode.nix
-              # ./emacs/emacs.nix
 
               # Personal
               ./nix/git.nix
