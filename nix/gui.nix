@@ -14,6 +14,6 @@
   '';
 
   home.packages = with packages; [
-    
+    postman
   ]
 }
