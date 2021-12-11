@@ -1,10 +1,12 @@
 { config, pkgs, ... }:
 {
+  # Broken
   home.packages = with pkgs; [
     xonsh
-    python3Packages.requests
+    (python39.withPackages (ps: with ps; [
+      requests
+    ]))
   ];
-
 
   home.file.".xonshrc".source = ./xonshrc;
 }
