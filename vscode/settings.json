@@ -58,7 +58,8 @@
     "*": false,
     "yaml": false,
     "plaintext": false,
-    "markdown": true
+    "markdown": true,
+    "nix": false
   },
 
   // Git
@@ -377,6 +378,7 @@
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
-  "workbench.list.smoothScrolling": true
+  "workbench.list.smoothScrolling": true,
+  "jupyter.askForKernelRestart": false
 
 }
