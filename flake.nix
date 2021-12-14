@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    utils.url = github:gytis-ivaskevicius/flake-utils-plus;
+    utils.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.0;
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
