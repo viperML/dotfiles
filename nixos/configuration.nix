@@ -50,6 +50,7 @@
     vscode-fhs
     papirus-icon-theme
     jetbrains-mono
+    flameshot
   ];
 
   nixpkgs.config.allowUnfree = true;

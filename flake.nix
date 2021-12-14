@@ -12,32 +12,61 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = inputs @ { self,
-                       nixpkgs,
-                       utils,
-                       home-manager,
-                       nur
-                      }: utils.lib.mkFlake {
+  outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
 
     inherit self inputs;
 
     channelsConfig.allowUnfree = true;
     sharedOverlays = [
-      nur.overlay
+      inputs.nur.overlay
     ];
 
     hostDefaults.modules = [
       ./nixos/configuration.nix
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModule
+      # {
+      #   home-manager = {
+      #     inherit inputs self;
+      #     useGlobalPkgs = true;
+      #   };
+      # }
     ];
 
-    hosts.gen6.modules = [
-      ./nixos/hosts/gen6.nix
-    ];
+    hosts = {
+      gen6.modules = [
+        ./nixos/hosts/gen6.nix
+      ];
+    };
 
+    homeConfigurations = {
+      "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
+        system = "x86_64-linux";
+        username = "ayats";
+        homeDirectory = "/home/ayats";
+        pkgs = self.pkgs.x86_64-linux.nixpkgs;
+        configuration = {};
+        extraModules = [
+              ./nix/home.nix
+              ./neovim/nvim.nix
+              ./fish/fish.nix
+              ./bat/bat.nix
+              ./lsd/lsd.nix
+              ./neofetch/neofetch.nix
+              # ./xonsh/xonsh.nix
 
+              # Gui
+              ./nix/gui.nix
+
+              # Personal
+              ./nix/git.nix
+        ];
+      };
+    };
+
+    # outputsBuilder = channels: {
+    #   packages = utils.lib.exportPackages channels;
+    # };
 
   };
-
 
 }
