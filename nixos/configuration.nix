@@ -50,16 +50,21 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
+  security.sudo = {
+    wheelNeedsPassword = false;
+  };
+
   environment.systemPackages = with pkgs; [
     brave
     latte-dock
-    kitty
     libsForQt5.bismuth
     vscode-fhs
     papirus-icon-theme
     jetbrains-mono
     flameshot
   ];
+
+  networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

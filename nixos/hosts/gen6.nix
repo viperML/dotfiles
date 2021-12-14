@@ -29,8 +29,8 @@
   networking = {
     hostName = "gen6";
     hostId = "01017f00";
-    useDHCP = true;
-    interfaces.eno1.useDHCP = true;
+    # useDHCP = true;
+    # interfaces.eno1.useDHCP = true;
   };
 
   services = {
