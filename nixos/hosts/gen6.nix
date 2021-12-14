@@ -33,7 +33,12 @@
     interfaces.eno1.useDHCP = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services = {
+    xserver = {
+      layout = "us";
+      videoDrivers = [ "nvidia" ];
+    };
+  };
 
   fileSystems."/" =
     {

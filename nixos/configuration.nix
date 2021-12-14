@@ -17,8 +17,12 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
+      displayManager = {
+        sddm.enable = true;
+        autoLogin.user = "ayats";
+        autoLogin.enable = true;
+      };
     };
 
     pipewire = {
@@ -28,7 +32,6 @@
   };
 
   # Configure keymap in X11
-  # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
