@@ -29,6 +29,11 @@
       enable = true;
       pulse.enable = true;
     };
+
+    gnome3 = {
+        gnome-keyring.enable = true;
+        seahorse.enable = true;
+    };
   };
 
   # Configure keymap in X11
@@ -63,8 +68,6 @@
     papirus-icon-theme
     jetbrains-mono
     flameshot
-    gnome.gnome-keyring
-    gnome.seahorse
   ];
 
   networking.networkmanager.enable = true;
