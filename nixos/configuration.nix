@@ -78,6 +78,7 @@
     brave
     latte-dock
     kitty
+    libsForQt5.bismuth
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

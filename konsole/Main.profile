@@ -7,7 +7,7 @@ LineSpacing=0
 CursorShape=1
 
 [General]
-Command=/bin/env fish
+Command=fish
 LocalTabTitleFormat=%w
 Name=Main
 Parent=FALLBACK/
