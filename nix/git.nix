@@ -7,9 +7,9 @@
 
     extraConfig = {
       init.defaultBranch = "master";
-      # pull.ff = "only";
-      # pull.rebase = "false";
-      # push.default = "simple";
+      pull.ff = "only";
+      pull.rebase = "false";
+      push.default = "simple";
     };
   };
 }

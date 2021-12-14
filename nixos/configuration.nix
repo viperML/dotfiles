@@ -60,7 +60,7 @@
     libsForQt5.plasma-pa
     vscode-fhs
     papirus-icon-theme
-    jetbrains-mono
+    # jetbrains-mono
     flameshot
     gnome.seahorse
     file

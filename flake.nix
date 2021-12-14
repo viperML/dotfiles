@@ -27,6 +27,7 @@
 
     hostDefaults.modules = [
       ./nixos/configuration.nix
+      ./nix/nix.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -59,6 +60,7 @@
 
               # Gui
               ./nix/gui.nix
+              ./nix/fonts.nix
 
               # Personal
               ./nix/git.nix
