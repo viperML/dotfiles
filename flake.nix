@@ -24,7 +24,10 @@
       #     nur.overlay
       #   ];
       # };
-      pkgs = nixpkgs;
+    # pkgs = import nixpkgs {
+    #     inherit system;
+    # };
+    pkgs = nixpkgs;
 
       # Change your platform here
       system = "x86_64-linux";
@@ -34,6 +37,15 @@
       hostname = "gen6";
 
     in {
+      nixosConfigurations = {
+        gen6 = pkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./nixos/configuration.nix
+            ./nixos/hosts/gen6.nix
+          ];
+          specialArgs = { inherit inputs; };
+        };
       # defaultPackage."${system}" = self.homeConfigurations."${username}@${hostname}".activationPackage;
 
       # homeConfigurations = {
@@ -68,15 +80,7 @@
       #   };
       # };
 
-      nixosConfigurations = {
-        gen6 = pkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./nixos/configuration.nix
-            ./nixos/hosts/gen6.nix
-          ];
-          specialArgs = { inherit inputs; };
-        };
+
 
         # vm = inputs.nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
