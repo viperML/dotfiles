@@ -10,6 +10,7 @@
     nixpkgs-fmt
     nur.repos.xe.comma
     nix-bundle
+    rnix-lsp
     # nix-index
 
     # Misc utils

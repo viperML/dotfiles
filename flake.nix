@@ -10,6 +10,7 @@
     };
     # Overlays
     nur.url = github:nix-community/NUR;
+    devshell.url = github:numtide/devshell;
   };
 
   outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
@@ -19,6 +20,7 @@
     channelsConfig.allowUnfree = true;
     sharedOverlays = [
       inputs.nur.overlay
+      inputs.devshell.overlay
     ];
 
     hostDefaults.modules = [
@@ -60,6 +62,14 @@
               # Personal
               ./nix/git.nix
         ];
+      };
+    };
+
+    outputsBuilder = channels: {
+      devShell = channels.nixpkgs.devshell.mkShell {
+        # packages = with channels.nixpkgs; [
+        # ];
+        name = "devshell";
       };
     };
 

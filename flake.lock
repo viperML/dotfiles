@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "devshell": {
+      "locked": {
+        "lastModified": 1639394192,
+        "narHash": "sha256-7dUGVdAc87JlICmO76U6QoEdB9MQSnWAklVuGeQP9ac=",
+        "owner": "numtide",
+        "repo": "devshell",
+        "rev": "1bab0c819bd962f76885868bc57bced1657e29b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "devshell",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1638122382,
@@ -68,6 +83,7 @@
     },
     "root": {
       "inputs": {
+        "devshell": "devshell",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
