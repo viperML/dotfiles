@@ -80,7 +80,7 @@
 
   // Fonts
   "editor.fontSize": 14,
-  "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
+  // "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @
