@@ -63,6 +63,7 @@
     papirus-icon-theme
     jetbrains-mono
     flameshot
+    gnome.gnome-keyring
   ];
 
   networking.networkmanager.enable = true;
