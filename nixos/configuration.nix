@@ -79,6 +79,7 @@
     latte-dock
     kitty
     libsForQt5.bismuth
+    vscode-fhs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
