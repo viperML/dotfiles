@@ -10,12 +10,13 @@
     };
     # Overlays
     nur.url = github:nix-community/NUR;
-    devshell.url = github:numtide/devshell;
   };
 
   outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
 
     inherit self inputs;
+
+    supportedSystems = [ "x86_64-linux" ];
 
     channelsConfig.allowUnfree = true;
     sharedOverlays = [
@@ -23,22 +24,23 @@
       inputs.devshell.overlay
     ];
 
+    ### NIXOS Hosts
+
     hostDefaults.modules = [
       ./nixos/configuration.nix
-      inputs.home-manager.nixosModule
-      # {
-      #   home-manager = {
-      #     inherit inputs self;
-      #     useGlobalPkgs = true;
-      #   };
-      # }
+      inputs.home-manager.nixosModules.home-manager
     ];
 
     hosts = {
       gen6.modules = [
         ./nixos/hosts/gen6.nix
       ];
+      vm.modules = [
+        ./nixos/hosts/vm.nix
+      ];
     };
+
+    ### Home-manager exports
 
     homeConfigurations = {
       "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
@@ -64,18 +66,6 @@
         ];
       };
     };
-
-    outputsBuilder = channels: {
-      devShell = channels.nixpkgs.devshell.mkShell {
-        # packages = with channels.nixpkgs; [
-        # ];
-        name = "devshell";
-      };
-    };
-
-    # outputsBuilder = channels: {
-    #   packages = utils.lib.exportPackages channels;
-    # };
 
   };
 

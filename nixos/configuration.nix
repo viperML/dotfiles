@@ -46,7 +46,7 @@
   users.users.ayats = {
     isNormalUser = true;
     initialPassword = "1234";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
   };
 
   security.sudo = {
