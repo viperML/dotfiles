@@ -58,6 +58,7 @@
     brave
     latte-dock
     libsForQt5.bismuth
+    libsForQt5.plasma-pa
     vscode-fhs
     papirus-icon-theme
     jetbrains-mono
