@@ -82,7 +82,8 @@
     vscode-fhs
   ];
 
-  environment.etc."nixpkgs/config.nix".source = ../nix/config.nix;
+  # environment.etc."nixpkgs/config.nix".source = ../nix/config.nix;
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
