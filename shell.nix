@@ -9,6 +9,8 @@ let nixBin =
 in mkShell {
   buildInputs = [
     git
+    nixos-install-tools
+    nixUnstable
   ];
   shellHook = ''
     export FLAKE="$(pwd)"
