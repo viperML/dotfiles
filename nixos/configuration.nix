@@ -20,6 +20,11 @@
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
     };
+
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
   };
 
   # Configure keymap in X11
