@@ -21,7 +21,6 @@
     channelsConfig.allowUnfree = true;
     sharedOverlays = [
       inputs.nur.overlay
-      inputs.devshell.overlay
     ];
 
     ### NIXOS Hosts
