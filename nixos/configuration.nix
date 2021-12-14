@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -34,11 +30,6 @@
         gnome-keyring.enable = true;
     };
   };
-
-  programs = {
-      seahorse.enable = true;
-  };
-
   # Configure keymap in X11
   # services.xserver.xkbOptions = "eurosign:e";
 
@@ -71,6 +62,8 @@
     papirus-icon-theme
     jetbrains-mono
     flameshot
+    gnome.seahorse
+    file
   ];
 
   networking.networkmanager.enable = true;

@@ -20,7 +20,11 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
 
-    zfs.enableUnstable = true;
+    zfs = {
+      enableUnstable = true;
+      forceImportAll = false;
+      forceImportRoot = false;
+    };
 
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
