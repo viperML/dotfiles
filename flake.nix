@@ -2,33 +2,42 @@
   description = "Fernando Ayats's system configuraion";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    flake-utils.url = "github:numtide/flake-utils";
-
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    utils.url = github:gytis-ivaskevicius/flake-utils-plus;
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Overlays
-    nur.url = "github:nix-community/NUR";
+    nur.url = github:nix-community/NUR;
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, nur, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {};
-      in {
+  outputs = inputs @ { self,
+                       nixpkgs,
+                       utils,
+                       home-manager,
+                       nur
+                      }: utils.lib.mkFlake {
 
-        nixosConfigurations = {
-          gen6 = pkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              ./nixos/configuration.nix
-              ./nixos/hosts/gen6.nix
-            ];
-            specialArgs = { inherit inputs; };
-          };
-        };
+    inherit self inputs;
 
-      }
-    );
+    channelsConfig.allowUnfree = true;
+    sharedOverlays = [
+      nur.overlay
+    ];
+
+    hostDefaults.modules = [
+      ./nixos/configuration.nix
+      home-manager.nixosModules.home-manager
+    ];
+
+    hosts.gen6.modules = [
+      ./nixos/hosts/gen6.nix
+    ];
+
+
+
+  };
+
 
 }
