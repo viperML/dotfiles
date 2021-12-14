@@ -30,10 +30,13 @@
       pulse.enable = true;
     };
 
-    gnome3 = {
+    gnome = {
         gnome-keyring.enable = true;
-        seahorse.enable = true;
     };
+  };
+
+  programs = {
+      seahorse.enable = true;
   };
 
   # Configure keymap in X11
