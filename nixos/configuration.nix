@@ -64,6 +64,7 @@
     jetbrains-mono
     flameshot
     gnome.gnome-keyring
+    gnome.seahorse
   ];
 
   networking.networkmanager.enable = true;
