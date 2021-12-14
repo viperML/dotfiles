@@ -379,6 +379,7 @@
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
   "workbench.list.smoothScrolling": true,
-  "jupyter.askForKernelRestart": false
+  "jupyter.askForKernelRestart": false,
+  "nix.enableLanguageServer": true
 
 }
