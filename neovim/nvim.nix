@@ -55,7 +55,7 @@
           };
           copilot-vim = pkgs.vimUtils.buildVimPlugin {
             name = "copilot-vim";
-            src = pkgs.fetchFromGithub {
+            src = pkgs.fetchFromGitHub {
               owner = "github";
               repo = "copilot.vim";
               rev = "c01314840b94da0b9767b52f8a4bbc579214e509";
