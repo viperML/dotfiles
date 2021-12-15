@@ -8,6 +8,10 @@
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-on-droid = {
+      url = github:t184256/nix-on-droid;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Overlays
     nur.url = github:nix-community/NUR;
   };
@@ -66,6 +70,10 @@
               ./nix/git.nix
         ];
       };
+    };
+
+    nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
+      config = ./nix-on-droid/configuration.nix;
     };
 
   };
