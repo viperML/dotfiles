@@ -4,6 +4,7 @@ let
     ./neofetch
     ./neovim
     ./fish
+    ./starship
   ];
 in {
   inherit nixosModules;

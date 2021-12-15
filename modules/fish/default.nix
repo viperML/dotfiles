@@ -1,13 +1,8 @@
 { config, pkgs, ... }:
-
 {
   home.packages = with pkgs; [
     fzf
-    starship
   ];
-
-  # Starship can be managed with nix but gives no advantages
-  home.file.".config/starship.toml".source = ./starship.toml;
 
   programs.fish = {
     enable = true;

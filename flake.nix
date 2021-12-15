@@ -66,6 +66,7 @@
               ./nix/home.nix
           neovim
           fish
+          starship
               ./bat/bat.nix
               ./lsd/lsd.nix
               # ./neofetch/neofetch.nix
