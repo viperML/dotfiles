@@ -64,7 +64,7 @@
         # ];
         extraModules = [
               ./nix/home.nix
-              ./neovim/nvim.nix
+              neovim
               ./fish/fish.nix
               ./bat/bat.nix
               ./lsd/lsd.nix
@@ -77,8 +77,8 @@
 
               # Personal
               ./nix/git.nix
-          self.nixosModules.neofetch
-        ];
+              neofetch
+        ] ;
       };
     };
 
