@@ -59,7 +59,7 @@
               ./fish/fish.nix
               ./bat/bat.nix
               ./lsd/lsd.nix
-              ./neofetch/neofetch.nix
+              # ./neofetch/neofetch.nix
               # ./xonsh/xonsh.nix
 
               # Gui
