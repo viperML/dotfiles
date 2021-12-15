@@ -74,6 +74,7 @@
             # Gui
             ./nix/gui.nix
             ./nix/fonts.nix
+            konsole
 
             # Personal
             ./nix/git.nix

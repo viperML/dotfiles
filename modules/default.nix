@@ -8,6 +8,7 @@ let
     ./lsd
     ./bat
     ./nix-on-droid
+    ./konsole
   ];
 in
 {
