@@ -22,7 +22,7 @@ set relativenumber
 " spacing when scrolling
 set scrolloff=4
 
-" use system clipboard ?
+" use system clipboard via xsel
 " set clipboard+=unnamedplus
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -32,5 +32,5 @@ imap <C-v> <C-r><C-o>+
 " mouse support
 set mouse=a
 
-" Reset cursor after leaving vim
+" Set the cursor to a line after leaving
 au VimLeave * set guicursor=a:ver100

@@ -64,17 +64,21 @@
           };
 
         in [
+          # Visual
           nvim-transparent
-          editorconfig-nvim
           context-vim
           vim-airline
+          vim-highlightedyank
+          dracula-vim
+
+          # Misc
           vim-easymotion
           auto-pairs
-          vim-highlightedyank
           nvim-comment
-          coc-nvim
           editorconfig-vim
-          dracula-vim
+
+          # Completion and syntax
+          coc-nvim
           coc-json
           vim-nix
           nvim-lspconfig

@@ -12,7 +12,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Plugin highlight yank
 " Change highlight duration
-let g:highlightedyank_highlight_duration = -1
+let g:highlightedyank_highlight_duration = 3
 
 " coc config
 " Use tab for completion
