@@ -68,7 +68,7 @@
           fish
           starship
               ./bat/bat.nix
-              ./lsd/lsd.nix
+          lsd.nix
               # ./neofetch/neofetch.nix
               # ./xonsh/xonsh.nix
 
