@@ -68,6 +68,7 @@
           dracula-vim
           coc-json
           vim-nix
+          nvim-lspconfig
         ];
 
     };
