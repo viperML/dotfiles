@@ -1,11 +1,8 @@
 { config, pkgs, ... }:
-
 {
+  home.packages = with pkgs; [
+    neofetch
+  ];
 
-    home.packages = with pkgs; [
-        cpufetch
-        neofetch
-    ];
-
-    home.file.".config/neofetch/config.conf".source = ./config.conf;
+  home.file.".config/neofetch/config.conf".source = ./config.conf;
 }

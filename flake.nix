@@ -59,6 +59,9 @@
         homeDirectory = "/home/ayats";
         pkgs = self.pkgs.x86_64-linux.nixpkgs;
         configuration = {};
+        # modules = [
+        #   self.nixosModules.neofetch
+        # ];
         extraModules = [
               ./nix/home.nix
               ./neovim/nvim.nix
@@ -74,6 +77,7 @@
 
               # Personal
               ./nix/git.nix
+          self.nixosModules.neofetch
         ];
       };
     };
