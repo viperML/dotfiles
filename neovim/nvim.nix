@@ -7,7 +7,8 @@
 
     # COC runtime dependency
     nodejs
-    rnix-lsp
+    nodePackages.coc-json
+    nodePackages.coc-tsserver
   ];
 
   home.file.".config/nvim/coc-settings.json".source = ./coc-settings.json;
