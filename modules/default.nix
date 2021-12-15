@@ -6,6 +6,7 @@ let
     ./fish
     ./starship
     ./lsd
+    ./bat
   ];
 in {
   inherit nixosModules;

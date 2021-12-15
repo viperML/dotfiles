@@ -67,7 +67,7 @@
           neovim
           fish
           starship
-              ./bat/bat.nix
+          bat
           lsd
               # ./neofetch/neofetch.nix
               # ./xonsh/xonsh.nix
