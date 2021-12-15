@@ -40,7 +40,7 @@
   };
   nix = {
     extraOptions = ''
-      build-max-jobs=8
+      max-jobs=8
     '';
   };
 
