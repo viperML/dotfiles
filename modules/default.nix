@@ -8,6 +8,7 @@ let
     ./lsd
     ./bat
   ];
-in {
+in
+{
   inherit nixosModules;
 }

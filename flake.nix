@@ -23,70 +23,70 @@
     with mods.nixosModules;
     utils.lib.mkFlake {
 
-    inherit self inputs;
-    inherit (mods) nixosModules;
+      inherit self inputs;
+      inherit (mods) nixosModules;
 
-    supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = [ "x86_64-linux" ];
 
-    channelsConfig.allowUnfree = true;
-    sharedOverlays = [
-      inputs.nur.overlay
-    ];
-
-    ### NIXOS Hosts
-
-    hostDefaults.modules = [
-      ./nixos/configuration.nix
-      ./nix/nix.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
-
-    hosts = {
-      gen6.modules = [
-        ./nixos/hosts/gen6.nix
+      channelsConfig.allowUnfree = true;
+      sharedOverlays = [
+        inputs.nur.overlay
       ];
-      vm.modules = [
-        ./nixos/hosts/vm.nix
+
+      ### NIXOS Hosts
+
+      hostDefaults.modules = [
+        ./nixos/configuration.nix
+        ./nix/nix.nix
+        inputs.home-manager.nixosModules.home-manager
       ];
-    };
 
-    ### Home-manager exports
-
-    homeConfigurations = {
-      "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
-        system = "x86_64-linux";
-        username = "ayats";
-        homeDirectory = "/home/ayats";
-        pkgs = self.pkgs.x86_64-linux.nixpkgs;
-        configuration = {};
-        # modules = [
-        #   self.nixosModules.neofetch
-        # ];
-        extraModules = [
-              ./nix/home.nix
-          neovim
-          fish
-          starship
-          bat
-          lsd
-              # ./neofetch/neofetch.nix
-              # ./xonsh/xonsh.nix
-
-              # Gui
-              ./nix/gui.nix
-              ./nix/fonts.nix
-
-              # Personal
-              ./nix/git.nix
-              neofetch
-        ] ;
+      hosts = {
+        gen6.modules = [
+          ./nixos/hosts/gen6.nix
+        ];
+        vm.modules = [
+          ./nixos/hosts/vm.nix
+        ];
       };
-    };
 
-    nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
-      config = ./nix-on-droid/configuration.nix;
-    };
+      ### Home-manager exports
 
-  };
+      homeConfigurations = {
+        "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
+          system = "x86_64-linux";
+          username = "ayats";
+          homeDirectory = "/home/ayats";
+          pkgs = self.pkgs.x86_64-linux.nixpkgs;
+          configuration = { };
+          # modules = [
+          #   self.nixosModules.neofetch
+          # ];
+          extraModules = [
+            ./nix/home.nix
+            neovim
+            fish
+            starship
+            bat
+            lsd
+            # ./neofetch/neofetch.nix
+            # ./xonsh/xonsh.nix
+
+            # Gui
+            ./nix/gui.nix
+            ./nix/fonts.nix
+
+            # Personal
+            ./nix/git.nix
+            neofetch
+          ];
+        };
+      };
+
+      nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
+        config = ./nix-on-droid/configuration.nix;
+      };
+
+    };
 
 }
