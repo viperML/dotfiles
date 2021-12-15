@@ -67,6 +67,7 @@
           editorconfig-vim
           dracula-vim
           coc-json
+          vim-nix
         ];
 
     };
