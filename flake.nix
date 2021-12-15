@@ -37,7 +37,7 @@
 
       hostDefaults.modules = [
         ./nixos/configuration.nix
-        ./nix/nix.nix
+        base
         inputs.home-manager.nixosModules.home-manager
       ];
 
@@ -64,23 +64,17 @@
           #   self.nixosModules.neofetch
           # ];
           extraModules = [
-            home-base
-            neovim
-            fish
-            starship
             bat
-            lsd
-            # ./neofetch/neofetch.nix
-            # ./xonsh/xonsh.nix
-
-            # Gui
-            home-gui
-            home-fonts
-            konsole
-
-            # Personal
+            fish
             git
+            home-base
+            home-fonts
+            home-gui
+            konsole
+            lsd
             neofetch
+            neovim
+            starship
           ];
         };
       };

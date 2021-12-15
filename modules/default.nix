@@ -11,6 +11,7 @@ let
     ./nix-on-droid
     ./starship
 
+    ./base.nix
     ./git.nix
     ./home-base.nix
     ./home-fonts.nix
