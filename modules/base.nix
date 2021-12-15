@@ -6,6 +6,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
       http-connections = 50
+      max-jobs = 8
     '';
 
     # (from flake-utils-plus)

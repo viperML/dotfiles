@@ -38,11 +38,12 @@
     # useDHCP = true;
     # interfaces.eno1.useDHCP = true;
   };
-  nix = {
-    extraOptions = ''
-      max-jobs=8
-    '';
-  };
+
+  # nix = {
+  #   extraOptions = ''
+  #     max-jobs=8
+  #   '';
+  # };
 
 
   services = {
