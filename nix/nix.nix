@@ -1,27 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   nix = {
     package = pkgs.nixFlakes;
 
     extraOptions = ''
-      experimental-features = nix-command flakes ca-references
+      experimental-features = nix-command flakes
       http-connections = 50
     '';
 
-    generateRegistryFromInputs = true; # (1) (from flake-utils-plus)
-    registry = {
-      from = {
-        id = "nixpkgs";
-        type = "indirect";
-      };
-      to = {
-        owner = "NixOS";
-        repo = "nixpkgs";
-        rev = inputs.nixpkgs.rev;
-        type = "github";
-      };
-    };
-
+    # (from flake-utils-plus)
+    generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
