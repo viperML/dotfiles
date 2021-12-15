@@ -16,9 +16,15 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
+  outputs = inputs @ { self, nixpkgs, utils, ... }:
+    let
+      mods = import ./modules { inherit utils; };
+    in
+    with mods.nixosModules;
+    utils.lib.mkFlake {
 
     inherit self inputs;
+    inherit (mods) nixosModules;
 
     supportedSystems = [ "x86_64-linux" ];
 
