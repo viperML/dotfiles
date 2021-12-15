@@ -4,7 +4,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  
+
 
   imports =
     [
@@ -38,6 +38,12 @@
     # useDHCP = true;
     # interfaces.eno1.useDHCP = true;
   };
+  nix = {
+    extraOptions = ''
+      build-max-jobs=8
+    '';
+  };
+
 
   services = {
     xserver = {
