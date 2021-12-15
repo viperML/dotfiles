@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
   boot = {
@@ -21,17 +22,26 @@
 
   networking = {
     hostName = "vm";
-    # useDHCP = true;
-    # interfaces.enp1s0.useDHCP = true;
+  };
+
+  services = {
+    xserver = {
+      layout = "us";
+    };
+
+    spice-vdagentd.enable = true;
+    qemuGuest.enable = true;
   };
 
   fileSystems."/" =
-    { device = "/dev/vda2";
+    {
+      device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/vda1";
+    {
+      device = "/dev/disk/by-label/NIXEFI";
       fsType = "vfat";
     };
 
