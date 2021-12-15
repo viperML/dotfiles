@@ -1,18 +1,18 @@
-[submodule "awesome/sharedtags"]
-	path = awesome/sharedtags
-	url = https://github.com/Drauthius/awesome-sharedtags
-[submodule "awesome/awesome-wm-widgets"]
-	path = awesome/awesome-wm-widgets
-	url = https://github.com/streetturtle/awesome-wm-widgets
-[submodule "awesome/lain"]
-	path = awesome/lain
+[submodule "modules/awesome/sharedtags"]
+	path = modules/awesome/sharedtags
+	url = https://github.com/Drauthius/modules/awesome-sharedtags
+[submodule "modules/awesome/modules/awesome-wm-widgets"]
+	path = modules/awesome/modules/awesome-wm-widgets
+	url = https://github.com/streetturtle/modules/awesome-wm-widgets
+[submodule "modules/awesome/lain"]
+	path = modules/awesome/lain
 	url = https://github.com/lcpz/lain
-[submodule "awesome/freedesktop"]
-	path = awesome/freedesktop
-	url = https://github.com/lcpz/awesome-freedesktop
-[submodule "awesome/bling"]
-	path = awesome/bling
+[submodule "modules/awesome/freedesktop"]
+	path = modules/awesome/freedesktop
+	url = https://github.com/lcpz/modules/awesome-freedesktop
+[submodule "modules/awesome/bling"]
+	path = modules/awesome/bling
 	url = https://github.com/BlingCorp/bling
-[submodule "awesome/revelation"]
-	path = awesome/revelation
+[submodule "modules/awesome/revelation"]
+	path = modules/awesome/revelation
 	url = https://github.com/guotsuan/awesome-revelation
