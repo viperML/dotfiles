@@ -82,12 +82,12 @@
         };
       };
 
-      nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
-        config = {};
-        extraModules = with mods.nixosModules; [
-          nix-on-droid
-        ];
-      };
+      # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
+      #   config = {};
+      #   extraModules = with mods.nixosModules; [
+      #     nix-on-droid
+      #   ];
+      # };
 
     };
 
