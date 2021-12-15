@@ -75,7 +75,7 @@
 
             # Gui
             ./nix/gui.nix
-            ./nix/fonts.nix
+            home-fonts
             konsole
 
             # Personal

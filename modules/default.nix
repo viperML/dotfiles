@@ -10,6 +10,7 @@ let
     ./nix-on-droid
     ./konsole
     ./kvm
+    ./home-fonts.nix
   ];
 in
 {
