@@ -64,8 +64,8 @@
         # ];
         extraModules = [
               ./nix/home.nix
-              neovim
-              ./fish/fish.nix
+          neovim
+          fish
               ./bat/bat.nix
               ./lsd/lsd.nix
               # ./neofetch/neofetch.nix
