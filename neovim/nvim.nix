@@ -53,6 +53,15 @@
               sha256 = "039fznaldf6lzk0yp51wi7p1j3l5rvhwryvk5s3lrq78lxq2rzn2";
             };
           };
+          copilot-vim = pkgs.vimUtils.buildVimPlugin {
+            name = "copilot-vim";
+            src = pkgs.fetchFromGithub {
+              owner = "github";
+              repo = "copilot.vim";
+              rev = "c01314840b94da0b9767b52f8a4bbc579214e509";
+              sha256 = "10vw2hjrg20i8id5wld8c5b1m96fnxvkb5qhbdf9w5sagawn4wc2";
+            };
+          };
 
         in [
           nvim-transparent
@@ -69,6 +78,7 @@
           coc-json
           vim-nix
           nvim-lspconfig
+          copilot-vim
         ];
 
     };
