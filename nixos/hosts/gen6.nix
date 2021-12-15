@@ -2,9 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
-
 {
-
 
   imports =
     [
@@ -44,7 +42,6 @@
   #     max-jobs=8
   #   '';
   # };
-
 
   services = {
     xserver = {
