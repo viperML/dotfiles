@@ -5,6 +5,7 @@ let
     ./neovim
     ./fish
     ./starship
+    ./lsd
   ];
 in {
   inherit nixosModules;
