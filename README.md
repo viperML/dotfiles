@@ -14,28 +14,27 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 # ❄ Installation
 
-<div align="center">
-  <div style="display: flex; align-items: flex-start;">
-    <img alt="Nix logo" src="https://nixos.org/logo/nixos-logo-only-hires.png" width="20%">
-  </div>
-</div>
 
-Most of the configuration files are managed with a [Nix Flake](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager), which is self-contained, distro-agnostic and doesn't require any additional software apart from the [nix package manager](https://nixos.org/download.html).
+Everything is managed by nix, using flakes and home manager. Generic Linux installs can be bootstraped using only the home-manager flake output, and there are also NixOS outputs.
 
-First install, with no nix installed can be done with:
-```bash
-$ git clone https://github.com/viperML/dotfiles ~/.dotfiles && cd ~/.dotfiles
-~/.dotfiles $ sh bin/install.sh
+To bootstrap generic Linux machine, under `ayats` user, I run:
+
+```sh
+export FLAKE=~/.dotfiles # currently hardcoded into this path
+git clone https://github.com/viperML/dotfiles $FLAKE
+cd $FLAKE
+nix-shell --command "nix build"
+./result/activate
 ```
 
-Any subsequent updates can be done with:
-```bash
-~/.dotfiles $ git fetch && git pull
-<at any dir> $ home-manager switch --flake ~/.dotfiles
+To update to the latest version:
+
+```sh
+cd $FLAKE
+git fetch
+git pull
+home-manager switch --flake $FLAKE
 ```
-
-
-That is how I install it myself, but I don't recommend it for you. Instead, pick any specific files or snippets of code.
 
 
 # 💾 Resources

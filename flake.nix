@@ -54,7 +54,7 @@
       ### Home-manager exports
 
       homeConfigurations = {
-        "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
+        ayats = inputs.home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           username = "ayats";
           homeDirectory = "/home/ayats";
@@ -79,12 +79,18 @@
         };
       };
 
+
       # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
       #   config = {};
       #   extraModules = with mods.nixosModules; [
       #     nix-on-droid
       #   ];
       # };
+      outputsBuilder = channels: {
+
+        defaultPackage = self.homeConfigurations.ayats.activationPackage;
+
+      };
 
     };
 
