@@ -21,8 +21,8 @@
 
   networking = {
     hostName = "vm";
-    useDHCP = true;
-    interfaces.enp1s0.useDHCP = true;
+    # useDHCP = true;
+    # interfaces.enp1s0.useDHCP = true;
   };
 
   fileSystems."/" =
