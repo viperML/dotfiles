@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
 {
-  environment.packages = [ pkgs.vim ];
+  environment.packages = with pkgs; [
+    vim
+    fish
+    neofetch
+  ];
 }
