@@ -9,6 +9,7 @@ let
     ./bat
     ./nix-on-droid
     ./konsole
+    ./kvm
   ];
 in
 {

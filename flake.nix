@@ -20,6 +20,7 @@
     let
       mods = import ./modules { inherit utils; };
     in
+    with mods.nixosModules;
     utils.lib.mkFlake {
 
       inherit self inputs;
@@ -43,6 +44,7 @@
       hosts = {
         gen6.modules = [
           ./nixos/hosts/gen6.nix
+          kvm
         ];
         vm.modules = [
           ./nixos/hosts/vm.nix
@@ -61,7 +63,7 @@
           # modules = [
           #   self.nixosModules.neofetch
           # ];
-          extraModules = with mods.nixosModules; [
+          extraModules = [
             ./nix/home.nix
             neovim
             fish
