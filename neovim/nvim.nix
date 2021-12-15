@@ -7,8 +7,6 @@
 
     # COC runtime dependency
     nodejs
-    nodePackages.coc-json
-    nodePackages.coc-tsserver
   ];
 
   home.file.".config/nvim/coc-settings.json".source = ./coc-settings.json;
@@ -68,6 +66,7 @@
           coc-nvim
           editorconfig-vim
           dracula-vim
+          coc-json
         ];
 
     };

@@ -64,6 +64,7 @@
     flameshot
     gnome.seahorse
     file
+    xsel
   ];
 
   networking.networkmanager.enable = true;
