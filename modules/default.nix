@@ -7,6 +7,7 @@ let
     ./starship
     ./lsd
     ./bat
+    ./nix-on-droid
   ];
 in
 {

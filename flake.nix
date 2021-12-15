@@ -20,7 +20,6 @@
     let
       mods = import ./modules { inherit utils; };
     in
-    with mods.nixosModules;
     utils.lib.mkFlake {
 
       inherit self inputs;
@@ -62,7 +61,7 @@
           # modules = [
           #   self.nixosModules.neofetch
           # ];
-          extraModules = [
+          extraModules = with mods.nixosModules; [
             ./nix/home.nix
             neovim
             fish
@@ -84,7 +83,10 @@
       };
 
       nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
-        config = ./nix-on-droid/configuration.nix;
+        config = {};
+        extraModules = with mods.nixosModules; [
+          nix-on-droid
+        ];
       };
 
     };
