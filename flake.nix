@@ -64,7 +64,7 @@
           #   self.nixosModules.neofetch
           # ];
           extraModules = [
-            ./nix/home.nix
+            home-base
             neovim
             fish
             starship
@@ -74,12 +74,12 @@
             # ./xonsh/xonsh.nix
 
             # Gui
-            ./nix/gui.nix
+            home-gui
             home-fonts
             konsole
 
             # Personal
-            ./nix/git.nix
+            git
             neofetch
           ];
         };

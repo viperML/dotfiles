@@ -1,16 +1,20 @@
 { utils }:
 let
   nixosModules = utils.lib.exportModules [
-    ./neofetch
-    ./neovim
-    ./fish
-    ./starship
-    ./lsd
     ./bat
-    ./nix-on-droid
+    ./fish
     ./konsole
     ./kvm
+    ./lsd
+    ./neofetch
+    ./neovim
+    ./nix-on-droid
+    ./starship
+
+    ./git.nix
+    ./home-base.nix
     ./home-fonts.nix
+    ./home-gui.nix
   ];
 in
 {
