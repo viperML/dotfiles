@@ -10,6 +10,7 @@ let
     ./neovim
     ./nix-on-droid
     ./starship
+    ./vscode
 
     ./base.nix
     ./cachix.nix

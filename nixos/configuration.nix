@@ -30,6 +30,9 @@
         gnome-keyring.enable = true;
     };
   };
+
+  hardware.pulseaudio.enable = false; # replaces pipewire
+
   # Configure keymap in X11
   # services.xserver.xkbOptions = "eurosign:e";
 
@@ -58,7 +61,7 @@
     latte-dock
     libsForQt5.bismuth
     libsForQt5.plasma-pa
-    vscode-fhs
+    # vscode-fhs
     papirus-icon-theme
     # jetbrains-mono
     flameshot

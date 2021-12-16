@@ -1,8 +1,8 @@
-
 { config, pkgs, ... }:
+
 {
   programs.vscode.enable = true;
-  # programs.vscode.package = pkgs.vscode-fhs;
+  programs.vscode.package = pkgs.vscode-fhs;
 
   # Using symlinks to .dotdir instead of the nix store
   # VSCode is a pain to configure in declarative way

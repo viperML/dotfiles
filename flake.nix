@@ -77,6 +77,7 @@
             neofetch
             neovim
             starship
+            vscode
           ];
         };
       };
