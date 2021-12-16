@@ -39,6 +39,7 @@
       hostDefaults.modules = [
         ./nixos/configuration.nix
         base
+        cachix
         inputs.home-manager.nixosModules.home-manager
       ];
 
@@ -69,7 +70,6 @@
             fish
             git
             home-base
-            home-cachix
             home-fonts
             home-gui
             konsole

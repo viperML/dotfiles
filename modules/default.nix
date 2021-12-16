@@ -12,9 +12,9 @@ let
     ./starship
 
     ./base.nix
+    ./cachix.nix
     ./git.nix
     ./home-base.nix
-    ./home-cachix.nix
     ./home-fonts.nix
     ./home-gui.nix
   ];
