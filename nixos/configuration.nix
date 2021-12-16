@@ -69,6 +69,7 @@
     element-for-poor-people
     sierrabreezeenhanced
     lightly
+    thunderbird
   ];
 
   networking.networkmanager.enable = true;

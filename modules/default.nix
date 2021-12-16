@@ -14,6 +14,7 @@ let
     ./base.nix
     ./git.nix
     ./home-base.nix
+    ./home-cachix.nix
     ./home-fonts.nix
     ./home-gui.nix
   ];

@@ -69,6 +69,7 @@
             fish
             git
             home-base
+            home-cachix
             home-fonts
             home-gui
             konsole
