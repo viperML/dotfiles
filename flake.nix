@@ -88,9 +88,16 @@
       #     nix-on-droid
       #   ];
       # };
-      outputsBuilder = channels: {
+      outputsBuilder = channels:  with channels.nixpkgs;{
 
         defaultPackage = self.homeConfigurations.ayats.activationPackage;
+
+        packages = {
+          inherit
+            lightly
+            sierrabreezeenhanced
+            ;
+        };
 
       };
 
