@@ -67,6 +67,7 @@
     xsel
 
     element-for-poor-people
+    sierrabreezeenhanced
   ];
 
   networking.networkmanager.enable = true;

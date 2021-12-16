@@ -1,5 +1,19 @@
-{ stdenv, srcs, pkgs }:
-stdenv.mkDerivation rec {
+{ lib
+, mkDerivation
+, fetchFromGithub
+, cmake
+, cmake-extra-modules
+, kdecoration
+, qtdeclarative
+, qtx11extras
+, plasma-desktop
+, kcoreaddons
+, kguiaddons
+, kconfigwidgets
+, kwindowsystem
+, kiconthemes
+}:
+mkDerivation rec {
   pname = "sierrabreezeenhanced";
   version = "V1.0.3";
 
@@ -13,15 +27,15 @@ stdenv.mkDerivation rec {
   buildInputs = [
     cmake
     extra-cmake-modules
-    plasma5.kdecoration
-    qt5.qtdeclarative
-    qt5.qtx11extras
+    kdecoration
+    qtdeclarative
+    qtx11extras
     plasma-desktop
-    libsForQt5.kcoreaddons
-    libsForQt5.kguiaddons
-    libsForQt5.kconfigwidgets
-    libsForQt5.kwindowsystem
-    libsForQt5.kiconthemes
+    kcoreaddons
+    kguiaddons
+    kconfigwidgets
+    kwindowsystem
+    kiconthemes
   ];
 
   installPhase = ''
@@ -30,7 +44,7 @@ stdenv.mkDerivation rec {
     		make install
     	'';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A fork of Breeze theme that resembles Max OS X.";
     homepage = "https://github.com/kupiqu/sierrabreezeenhanced";
     license = licenses.gpl3;

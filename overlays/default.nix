@@ -1,6 +1,6 @@
 final: prev: {
 
-  SierraBreezeEnhanced = prev.callPackage ./SierraBreezeEnhanced { };
+  sierrabreezeenhanced = prev.callPackage ./sierrabreezeenhanced { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";
