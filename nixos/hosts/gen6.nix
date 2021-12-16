@@ -16,9 +16,11 @@
       supportedFilesystems = [ "zfs" ];
       # extraFiles."/etc/zfs/keys/zroot.key".source = /etc/zfs/keys/zroot.key;
     };
-    supportedFilesystems = [ "zfs" ];
+
+    kernelPackages = pkgs.linuxKernel.kernels.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
+    supportedFilesystems = [ "zfs" ];
 
     zfs = {
       enableUnstable = true;
