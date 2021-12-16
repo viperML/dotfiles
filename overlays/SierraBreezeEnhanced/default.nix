@@ -1,8 +1,6 @@
 { lib
 , stdenv
 , fetchFromGitHub
-, cmake
-, extra-cmake-modules
 , pkgs
 , qtbase
 , wrapQtAppsHook
