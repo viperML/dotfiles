@@ -70,6 +70,9 @@
     sierrabreezeenhanced
     lightly
     thunderbird
+    masterpdfeditor4
+    spotify-for-poor-people
+    word-for-poor-people
   ];
 
   networking.networkmanager.enable = true;
