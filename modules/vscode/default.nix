@@ -12,4 +12,7 @@
   home.file.".config/Code/User/snippets/bibtex.code-snippets".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/vscode/snippets/bibtex.code-snippets";
   home.file.".config/Code/User/snippets/latex.code-snippets".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/vscode/snippets/latex.code-snippets";
   home.file.".config/Code/User/snippets/service.code-snippets".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/vscode/snippets/service.code-snippets";
+
+  programs.vscode.extensions = [ builtins.fromJSON (builtins.readFile ./extensions.json) ];
+  # programs.vscode.extensions = arrterian.nix-env-selector;
 }

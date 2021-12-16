@@ -380,6 +380,9 @@
   "editor.smoothScrolling": true,
   "workbench.list.smoothScrolling": true,
   "jupyter.askForKernelRestart": false,
-  "nix.enableLanguageServer": true
+  "nix.enableLanguageServer": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 
 }
