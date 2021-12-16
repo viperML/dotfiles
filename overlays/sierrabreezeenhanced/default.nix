@@ -19,6 +19,10 @@ stdenv.mkDerivation rec {
     sha256 = "0kqbfn1jqsbii3hqcqlb93x8cg8dyh5mf66i9r237w41knks5mnw";
   };
 
+  patches = [
+    ./no-blur.patch
+  ];
+
   buildInputs = with pkgs; [
     qtbase
     cmake
