@@ -3,3 +3,4 @@
 .vscode
 result
 .direnv
+*.qcow2
