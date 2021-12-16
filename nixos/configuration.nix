@@ -68,6 +68,7 @@
 
     element-for-poor-people
     sierrabreezeenhanced
+    lightly
   ];
 
   networking.networkmanager.enable = true;

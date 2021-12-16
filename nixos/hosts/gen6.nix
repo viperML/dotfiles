@@ -32,6 +32,8 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
+  systemd.services.systemd-remount-fs.wantedBy = lib.mkForce [];
+
   networking = {
     hostName = "gen6";
     hostId = "01017f00";
