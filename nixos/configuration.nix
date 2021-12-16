@@ -65,6 +65,8 @@
     gnome.seahorse
     file
     xsel
+
+    element-for-poor-people
   ];
 
   networking.networkmanager.enable = true;
