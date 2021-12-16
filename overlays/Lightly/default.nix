@@ -17,9 +17,9 @@ stdenv.mkDerivation rec {
     sha256 = "0qkjzgjplgwczhk6959iah4ilvazpprv7yb809jy75kkp1jw8mwk";
   };
 
-  # patches = [
-  #   ./no-blur.patch
-  # ];
+  patches = [
+    ./no-blur.patch
+  ];
 
   buildInputs = with pkgs; [
     qtbase
@@ -38,11 +38,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ wrapQtAppsHook ];
 
-  installPhase = ''
-		cmake .. -DCMAKE_INSTALL_PREFIX=$out -DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
-		make
-		make install
-	'';
+  cmakeFlags = "-DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON";
 
   meta = with lib; {
     description = "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.";

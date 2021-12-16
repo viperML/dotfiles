@@ -38,15 +38,19 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ wrapQtAppsHook ];
 
-  installPhase = ''
-		cmake .. -DCMAKE_INSTALL_PREFIX=$out -DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
-		make
-		make install
-	'';
+  cmakeFlags = "-DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON";
+
+  # buildPhase = ''
+  #   make
+  # '';
+
+  # installPhase = ''
+	# 	make install
+	# '';
 
   meta = with lib; {
-    description = "A port of the arc theme for Plasma";
-    homepage = "https://git.io/arc-kde";
+    description = "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative";
+    homepage = "https://github.com/kupiqu/SierraBreezeEnhanced";
     license = licenses.gpl3;
     platforms = platforms.linux;
   };
