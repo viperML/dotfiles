@@ -1,5 +1,5 @@
 # home-manager module
-{ config, pkgs, lib, ... }:
+args @ { config, pkgs, lib, inputs, ... }:
 
 {
   # Generic programs
@@ -39,8 +39,10 @@
   # genericLinux is useful, but sets up channels which will be done using this flake
   # so I override NIX_PATH
   targets.genericLinux.enable = true;
-  systemd.user.sessionVariables = lib.mkForce {
-    NIX_PATH = "$NIX_PATH";
-  };
+  # systemd.user.sessionVariables = lib.mkForce {
+  #   NIX_PATH = "$NIX_PATH";
+  # };
+
+  # xdg.configFile."nix-test".source = "${args}";
 
 }

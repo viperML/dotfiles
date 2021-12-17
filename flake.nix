@@ -19,6 +19,7 @@
   outputs = inputs @ { self, nixpkgs, utils, ... }:
     let
       mods = import ./modules { inherit utils; };
+      lib = nixpkgs.lib;
     in
     with mods.nixosModules;
     utils.lib.mkFlake {
@@ -67,6 +68,13 @@
           #   self.nixosModules.neofetch
           # ];
           extraModules = [
+            {
+              xdg.configFile = lib.mapAttrs' (name: value: { name = "nix/inputs/${name}"; value = { source = value.outPath; }; }) inputs;
+              systemd.user.sessionVariables = lib.mkForce {
+                NIX_PATH = "nixpkgs=~/.config/nix/inputs/nixpkgs";
+              };
+
+            }
             base-home
             bat
             fish
