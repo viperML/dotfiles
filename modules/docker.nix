@@ -4,8 +4,8 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "zfs";
-    enableOnBoot = "false";
-    enableNvidia = "true";
+    enableOnBoot = false;
+    enableNvidia = true;
   };
   users.users.ayats.extraGroups = [ "docker" ];
 }
