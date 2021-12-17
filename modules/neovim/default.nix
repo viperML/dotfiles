@@ -10,7 +10,7 @@
 
   home.file.".config/nvim/coc-settings.json".source = ./coc-settings.json;
 
-  systemd.user.sessionVariables.EDITOR = "neovim";
+  home.sessionVariables.EDITOR = "neovim";
 
   programs.neovim = {
     enable = true;
