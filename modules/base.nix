@@ -4,11 +4,7 @@
   nix = {
     package = pkgs.nixFlakes;
 
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      http-connections = 50
-      max-jobs = 8
-    '';
+    extraOptions = ''${builtins.readFile ./nix.conf}'';
 
     # (from flake-utils-plus)
     generateRegistryFromInputs = true;
