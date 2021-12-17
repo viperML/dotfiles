@@ -4,7 +4,6 @@ let
     ./bat
     ./fish
     ./konsole
-    ./kvm
     ./lsd
     ./neofetch
     ./neovim
@@ -18,6 +17,8 @@ let
     ./home-base.nix
     ./home-fonts.nix
     ./home-gui.nix
+    ./kvm.nix
+    ./docker.nix
   ];
 in
 {

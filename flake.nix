@@ -47,6 +47,7 @@
         gen6.modules = [
           ./nixos/hosts/gen6.nix
           kvm
+          docker
         ];
         vm.modules = [
           ./nixos/hosts/vm.nix

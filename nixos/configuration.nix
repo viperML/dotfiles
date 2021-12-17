@@ -76,6 +76,7 @@
     masterpdfeditor4
     spotify-for-poor-people
     word-for-poor-people
+    libsForQt5.qtstyleplugin-kvantum
   ];
 
   networking.networkmanager.enable = true;
