@@ -16,7 +16,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "L + /etc/nixpkgs/channels - - - - ${pkgs}"
+    "L /etc/nixpkgs/channels - - - - ${pkgs}"
   ];
 
   # home.file.".config/nix/nix.conf".source = ./nix.conf;
