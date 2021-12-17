@@ -71,7 +71,7 @@
             {
               xdg.configFile = lib.mapAttrs' (name: value: { name = "nix/inputs/${name}"; value = { source = value.outPath; }; }) inputs;
               systemd.user.sessionVariables = lib.mkForce {
-                NIX_PATH = "nixpkgs=~/.config/nix/inputs/nixpkgs";
+                NIX_PATH = "nixpkgs=~/.config/nix/inputs/nixpkgs:$NIX_PATH";
               };
 
             }

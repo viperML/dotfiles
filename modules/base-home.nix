@@ -13,6 +13,7 @@ args @ { config, pkgs, lib, inputs, ... }:
     nur.repos.xe.comma
     nix-bundle
     rnix-lsp
+    fup-repl
     # nix-index
 
     # Misc utils
