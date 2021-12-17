@@ -48,7 +48,6 @@
           ./nixos/hosts/gen6.nix
           kvm
           docker
-          android-emulation
         ];
         vm.modules = [
           ./nixos/hosts/vm.nix
