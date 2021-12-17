@@ -1,4 +1,6 @@
+# home-manager module
 { config, pkgs, ... }:
+
 {
   # Generic programs
   home.packages = with pkgs; [
@@ -31,8 +33,12 @@
     path = "…";
   };
 
-  # systemd.user.sessionVariables ={
-  #   NIX_PATH = "$NIX_PATH";
-  # };
   home.file.".config/nix/nix.conf".source = ./nix.conf;
+
+  targets.genericLinux.enable = true;
+
+  systemd.user.sessionVariables ={
+    NIX_PATH = "$NIX_PATH";
+  };
+
 }

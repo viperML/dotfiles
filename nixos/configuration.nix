@@ -81,6 +81,7 @@
     spotify-for-poor-people
     word-for-poor-people
     libsForQt5.qtstyleplugin-kvantum
+    mpv
   ];
 
   networking.networkmanager.enable = true;
