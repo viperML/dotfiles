@@ -30,4 +30,8 @@
     enable = true;
     path = "…";
   };
+
+  # systemd.user.sessionVariables ={
+  #   NIX_PATH = "$NIX_PATH";
+  # };
 }
