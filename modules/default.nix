@@ -19,6 +19,7 @@ let
     ./home-gui.nix
     ./kvm.nix
     ./docker.nix
+    ./android-emulation.nix
   ];
 in
 {
