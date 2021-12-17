@@ -10,5 +10,6 @@
   home.packages = with pkgs; [
     discord
     postman
+    android-studio
   ];
 }

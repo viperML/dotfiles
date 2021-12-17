@@ -18,6 +18,7 @@
     fd
     tealdeer
     unar
+    jq
 
     # System monitor
     htop
