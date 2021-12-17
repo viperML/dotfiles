@@ -14,9 +14,9 @@
     generateNixPathFromInputs = true;
     linkInputs = true;
 
-    # nixPath = [
-    #   "nixpkgs=/etc/nixpkgs"
-    # ];
+    nixPath = [
+      # "nixpkgs=/etc/nixpkgs"
+    ];
   };
 
 # 
