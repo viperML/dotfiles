@@ -1,4 +1,5 @@
 { config, pkgs, inputs, ... }:
+
 {
   nix = {
     package = pkgs.nixFlakes;
@@ -19,7 +20,7 @@
     ];
   };
 
-# 
+#
 #   systemd.tmpfiles.rules = [
 #     "L /etc/nixpkgs - - - - ${inputs.nixpkgs}"
 #   ];

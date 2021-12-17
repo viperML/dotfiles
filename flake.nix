@@ -67,10 +67,10 @@
           #   self.nixosModules.neofetch
           # ];
           extraModules = [
+            base-home
             bat
             fish
             git
-            home-base
             home-fonts
             home-gui
             konsole

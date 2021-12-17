@@ -56,7 +56,8 @@ abbr --add --global nacc sudo nvim /etc/portage/package.accept_keywords
 abbr --add --global ns nix shell nixpkgs#
 # abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
 # abbr --add --global he $EDITOR $HOME/.dotfiles/nix/gui.nix
-# abbr --add --global hs "home-manager switch --flake \$FLAKE"
+abbr --add --global hs "home-manager switch --flake \$FLAKE"
+abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

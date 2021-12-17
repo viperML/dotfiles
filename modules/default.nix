@@ -12,9 +12,9 @@ let
     ./vscode
 
     ./base.nix
+    ./base-home.nix
     ./cachix.nix
     ./git.nix
-    ./home-base.nix
     ./home-fonts.nix
     ./home-gui.nix
     ./kvm.nix

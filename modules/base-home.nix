@@ -34,4 +34,5 @@
   # systemd.user.sessionVariables ={
   #   NIX_PATH = "$NIX_PATH";
   # };
+  home.file.".config/nix/nix.conf".source = ./nix.conf;
 }
