@@ -78,7 +78,10 @@
     [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
+
+  hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    video.hidpi.enable = lib.mkDefault true;
+    opengl.driSupport32Bit = true;
+  };
 }
