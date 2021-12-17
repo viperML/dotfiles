@@ -29,6 +29,10 @@
     gnome = {
         gnome-keyring.enable = true;
     };
+
+    journald.extraConfig = ''
+      Storage=volatile
+    '';
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire
