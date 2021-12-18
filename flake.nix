@@ -58,7 +58,7 @@
 
 
       homeConfigurations = {
-        ayats = inputs.home-manager.lib.homeManagerConfiguration {
+        "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           username = "ayats";
           homeDirectory = "/home/ayats";

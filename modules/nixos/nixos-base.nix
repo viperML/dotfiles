@@ -1,14 +1,7 @@
-args @ { config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   time.timeZone = "Europe/Madrid";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
 
   services = {
     xserver = {
@@ -27,7 +20,7 @@ args @ { config, pkgs, lib, ... }:
     };
 
     gnome = {
-        gnome-keyring.enable = true;
+      gnome-keyring.enable = true;
     };
 
     journald.extraConfig = ''
@@ -37,19 +30,6 @@ args @ { config, pkgs, lib, ... }:
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
-  # Configure keymap in X11
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   users.users.mainUser = {
     name = "ayats";
     description = "Fernando Ayats";
@@ -58,19 +38,6 @@ args @ { config, pkgs, lib, ... }:
     initialPassword = "1234";
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
   };
-
-  home-manager =
-    let
-      base-home = import ../base-home.nix { inherit config pkgs lib; };
-    in {
-      useUserPackages = true;
-      useGlobalPkgs = true;
-      users.mainUser = base-home // { ... }: {
-        home.username = "ayats";
-      };
-
-  };
-
 
   security.sudo = {
     wheelNeedsPassword = false;
@@ -104,16 +71,6 @@ args @ { config, pkgs, lib, ... }:
 
   nixpkgs.config.allowUnfree = true;
 
-  # environment.variables = {
-  #   FLAKE = "/home/ayats/.dotfiles";
-  # };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # system.stateVersion = "21.11"; # Did you read the comment?
   nix = {
     package = pkgs.nixFlakes;
@@ -124,17 +81,6 @@ args @ { config, pkgs, lib, ... }:
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;
-
-    nixPath = [
-      # "nixpkgs=/etc/nixpkgs"
-    ];
   };
 
-#
-#   systemd.tmpfiles.rules = [
-#     "L /etc/nixpkgs - - - - ${inputs.nixpkgs}"
-#   ];
-
-  # home.file.".config/nix/nix.conf".source = ./nix.conf;
-  # home.file.".config/nixpkgs/config.nix".source = ./config.nix;
 }

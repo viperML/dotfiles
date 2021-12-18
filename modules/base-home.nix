@@ -1,4 +1,3 @@
-# home-manager module
 { config, pkgs, lib, ... }:
 
 {
@@ -35,7 +34,4 @@
   };
 
   home.file.".config/nix/nix.conf".source = ./nix.conf;
-
-  # To use channels from the flake inputs, I remove the channels created by
-  # nix-channel -add ...
 }
