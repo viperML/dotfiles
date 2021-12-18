@@ -39,7 +39,7 @@ args @ { config, pkgs, lib, inputs, ... }:
   # https://github.com/nix-community/home-manager/blob/master/modules/targets/generic-linux.nix
   # genericLinux is useful, but sets up channels which will be done using this flake
   # so I override NIX_PATH
-  targets.genericLinux.enable = true;
+  # targets.genericLinux.enable = true;
   # systemd.user.sessionVariables = lib.mkForce {
   #   NIX_PATH = "$NIX_PATH";
   # };
