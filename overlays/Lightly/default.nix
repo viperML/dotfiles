@@ -8,11 +8,11 @@
 
 stdenv.mkDerivation rec {
   pname = "lightly";
-  version = "v0.4.1";
+  version = "0.4.1";
 
   src = fetchFromGitHub {
     owner = "Luwx";
-    repo = pname;
+    repo = "v" + pname;
     rev = version;
     sha256 = "0qkjzgjplgwczhk6959iah4ilvazpprv7yb809jy75kkp1jw8mwk";
   };

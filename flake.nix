@@ -1,18 +1,21 @@
 {
-  description = "Fernando Ayats's system configuraion";
+  description = "Fernando Ayats's personal flake";
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+
     utils.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.1;
+
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nix-on-droid = {
       url = github:t184256/nix-on-droid;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Overlays
+
     nur.url = github:nix-community/NUR;
   };
 
@@ -31,8 +34,8 @@
 
       channelsConfig.allowUnfree = true;
       sharedOverlays = [
-        inputs.nur.overlay
         self.overlay
+        inputs.nur.overlay
       ];
 
       ### NIXOS Hosts
@@ -100,19 +103,16 @@
       #     nix-on-droid
       #   ];
       # };
+
       outputsBuilder = channels:  with channels.nixpkgs;{
-
         defaultPackage = self.homeConfigurations.ayats.activationPackage;
-
         packages = {
           inherit
             lightly
             sierrabreezeenhanced
             ;
         };
-
       };
-
     };
 
 }
