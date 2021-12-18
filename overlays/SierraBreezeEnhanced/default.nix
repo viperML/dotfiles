@@ -8,12 +8,12 @@
 
 stdenv.mkDerivation rec {
   pname = "sierrabreezeenhanced";
-  version = "V1.0.3";
+  version = "1.0.3";
 
   src = fetchFromGitHub {
     owner = "kupiqu";
     repo = pname;
-    rev = version;
+    rev = "V" + version;
     sha256 = "0kqbfn1jqsbii3hqcqlb93x8cg8dyh5mf66i9r237w41knks5mnw";
   };
 
