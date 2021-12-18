@@ -58,10 +58,10 @@
 
 
       homeConfigurations = {
-        genericUser = inputs.home-manager.lib.homeManagerConfiguration rec {
+        ayats = inputs.home-manager.lib.homeManagerConfiguration rec {
           system = "x86_64-linux";
-          username = "genericUser";
-          homeDirectory = "/home/genericUser";
+          username = "ayats";
+          homeDirectory = "/home/ayats";
           pkgs = self.pkgs.x86_64-linux.nixpkgs;
           configuration = {
             # This home-manager module links the flake inputs into ~/.nix-inputs
@@ -97,9 +97,10 @@
           ];
         };
 
-        ayats = self.homeConfigurations.genericUser // {
-          username = "ayats";
-          homeDirectory = "/home/ayats";
+        user = self.homeConfigurations.genericUser // inputs.home-manager.lib.homeManagerConfiguration {
+          username = "user";
+          homeDirectory = "/home/user";
+          configuration = { };
         };
       };
 
