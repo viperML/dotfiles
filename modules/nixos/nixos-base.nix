@@ -26,6 +26,9 @@
     journald.extraConfig = ''
       Storage=volatile
     '';
+
+    ananicy.eable = true;
+    thermald.enable = true;
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire
@@ -64,6 +67,23 @@
     thunderbird
     word-for-poor-people
     xsel
+    onlyoffice-bin
+    libsForQt5.ark
+    libsForQt5.ffmpegthumbs
+    libsForQt5.filelight
+    libsForQt5.gwenview
+    libsForQt5.kdenlive
+    libsForQt5.kwalletmanager
+    libsForQt5.kdegraphics-thumbnailers
+    ahoviewer
+    krita-beta
+    obs-studio
+    nmap
+    qbittorrent
+    birdtray
+    caffeine-ng
+    syncthingtray
+
   ];
 
   networking.networkmanager.enable = true;
