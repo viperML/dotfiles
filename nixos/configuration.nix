@@ -88,9 +88,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables = {
-    FLAKE = "/home/ayats/.dotfiles";
-  };
+  # environment.variables = {
+  #   FLAKE = "/home/ayats/.dotfiles";
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
