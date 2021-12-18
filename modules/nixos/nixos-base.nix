@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+args @ { config, pkgs, lib, ... }:
 
 {
   time.timeZone = "Europe/Madrid";
@@ -58,6 +58,19 @@
     initialPassword = "1234";
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
   };
+
+  home-manager =
+    let
+      base-home = import ../base-home.nix { inherit config pkgs lib; };
+    in {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users.mainUser = base-home // { ... }: {
+        home.username = "ayats";
+      };
+
+  };
+
 
   security.sudo = {
     wheelNeedsPassword = false;
