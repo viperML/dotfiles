@@ -44,27 +44,26 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # jetbrains-mono
+    # vscode-fhs
     brave
+    element-for-poor-people
+    file
+    flameshot
+    gnome.seahorse
     latte-dock
     libsForQt5.bismuth
     libsForQt5.plasma-pa
-    # vscode-fhs
-    papirus-icon-theme
-    # jetbrains-mono
-    flameshot
-    gnome.seahorse
-    file
-    xsel
-
-    element-for-poor-people
-    sierrabreezeenhanced
-    lightly
-    thunderbird
-    masterpdfeditor4
-    spotify-for-poor-people
-    word-for-poor-people
     libsForQt5.qtstyleplugin-kvantum
+    lightly
+    masterpdfeditor4
     mpv
+    papirus-icon-theme
+    sierrabreezeenhanced
+    spotify-for-poor-people
+    thunderbird
+    word-for-poor-people
+    xsel
   ];
 
   networking.networkmanager.enable = true;
