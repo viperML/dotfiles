@@ -71,14 +71,22 @@
           #   self.nixosModules.neofetch
           # ];
           extraModules = [
+            # This home-manager module links the flake inputs into ~/.nix-inputs
+            # Set the nix path into the channels from the flake
+            # And then deletes the channels created with nix-channel --add ...
             {
               home = {
                 file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
-                file.".nix-defexpr".source = "/dev/null";
                 sessionVariables = lib.mkForce {
-                  NIX_PATH = "nixpkgs=$HOME/.nix-inputs/nixpkgs";
+                  NIX_PATH = "nixpkgs=$HOME/.nix-inputs";
                   FLAKE = "$HOME/.dotfiles";
                 };
+                activation.use-flake-channels = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+                  $DRY_RUN_CMD rm -rf $VERBOSE_ARG ~/.nix-defexpr
+                  $DRY_RUN_CMD ln -s $VERBOSE_ARG /dev/null $HOME/.nix-defexpr
+                  $DRY_RUN_CMD rm -rf $VERBOSE_ARG ~/.nix-channels
+                  $DRY_RUN_CMD ln -s $VERBOSE_ARG /dev/null $HOME/.nix-channels
+                '';
               };
             }
             base-home
@@ -106,7 +114,7 @@
       #   ];
       # };
 
-      outputsBuilder = channels:  with channels.nixpkgs;{
+      outputsBuilder = channels: with channels.nixpkgs;{
         defaultPackage = self.homeConfigurations.ayats.activationPackage;
         packages = {
           inherit

@@ -1,5 +1,5 @@
 # home-manager module
-args @ { config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Generic programs
@@ -36,14 +36,6 @@ args @ { config, pkgs, lib, inputs, ... }:
 
   home.file.".config/nix/nix.conf".source = ./nix.conf;
 
-  # https://github.com/nix-community/home-manager/blob/master/modules/targets/generic-linux.nix
-  # genericLinux is useful, but sets up channels which will be done using this flake
-  # so I override NIX_PATH
-  # targets.genericLinux.enable = true;
-  # systemd.user.sessionVariables = lib.mkForce {
-  #   NIX_PATH = "$NIX_PATH";
-  # };
-
-  # xdg.configFile."nix-test".source = "${args}";
-
+  # To use channels from the flake inputs, I remove the channels created by
+  # nix-channel -add ...
 }
