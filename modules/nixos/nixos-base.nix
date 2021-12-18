@@ -99,5 +99,26 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # system.stateVersion = "21.11"; # Did you read the comment?
+  nix = {
+    package = pkgs.nixFlakes;
 
+    extraOptions = ''${builtins.readFile ./nix.conf}'';
+
+    # (from flake-utils-plus)
+    generateRegistryFromInputs = true;
+    generateNixPathFromInputs = true;
+    linkInputs = true;
+
+    nixPath = [
+      # "nixpkgs=/etc/nixpkgs"
+    ];
+  };
+
+#
+#   systemd.tmpfiles.rules = [
+#     "L /etc/nixpkgs - - - - ${inputs.nixpkgs}"
+#   ];
+
+  # home.file.".config/nix/nix.conf".source = ./nix.conf;
+  # home.file.".config/nixpkgs/config.nix".source = ./config.nix;
 }

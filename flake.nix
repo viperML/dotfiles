@@ -21,14 +21,14 @@
 
   outputs = inputs @ { self, nixpkgs, utils, ... }:
     let
-      mods = import ./modules { inherit utils; };
+      modules = import ./modules { inherit utils; };
       lib = nixpkgs.lib;
     in
-    with mods.nixosModules;
+    # with modules.homeModules;
     utils.lib.mkFlake {
 
       inherit self inputs;
-      inherit (mods) nixosModules;
+      inherit (modules) homeModules nixosModules;
 
       supportedSystems = [ "x86_64-linux" ];
 
@@ -40,25 +40,22 @@
 
       ### NIXOS Hosts
 
-      hostDefaults.modules = [
-        ./nixos/configuration.nix
-        base
-        # cachix
+      hostDefaults.modules = with modules.nixosModules; [
+        nixos-base
         inputs.home-manager.nixosModules.home-manager
       ];
 
-      hosts = {
+      hosts = with modules.nixosModules; {
         gen6.modules = [
-          ./nixos/hosts/gen6.nix
+          nixos-gen6
           kvm
           docker
         ];
         vm.modules = [
-          ./nixos/hosts/vm.nix
+          nixos-vm
         ];
       };
 
-      ### Home-manager exports
 
       homeConfigurations = {
         ayats = inputs.home-manager.lib.homeManagerConfiguration {
@@ -70,7 +67,7 @@
           # modules = [
           #   self.nixosModules.neofetch
           # ];
-          extraModules = [
+          extraModules = with modules.homeModules; [
             # This home-manager module links the flake inputs into ~/.nix-inputs
             # Set the nix path into the channels from the flake
             # And then deletes the channels created with nix-channel --add ...

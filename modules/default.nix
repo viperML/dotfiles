@@ -1,8 +1,14 @@
 { utils }:
+
 let
-  nixosModules = utils.lib.exportModules [
+  homeModules = utils.lib.exportModules [
+    ./base-home.nix
     ./bat
+    ./cachix.nix
     ./fish
+    ./git.nix
+    ./home-fonts.nix
+    ./home-gui.nix
     ./konsole
     ./lsd
     ./neofetch
@@ -10,18 +16,18 @@ let
     ./nix-on-droid
     ./starship
     ./vscode
+  ];
 
-    ./base.nix
-    ./base-home.nix
-    ./cachix.nix
-    ./git.nix
-    ./home-fonts.nix
-    ./home-gui.nix
+  nixosModules = utils.lib.exportModules [
+    ./nixos/nixos-base.nix
+    ./nixos/nixos-gen6.nix
+    ./nixos/nixos-vm.nix
+
     ./kvm.nix
     ./docker.nix
     ./android-emulation.nix
   ];
 in
 {
-  inherit nixosModules;
+  inherit homeModules nixosModules;
 }
