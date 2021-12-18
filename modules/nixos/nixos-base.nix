@@ -102,7 +102,7 @@
   nix = {
     package = pkgs.nixFlakes;
 
-    extraOptions = ''${builtins.readFile ./nix.conf}'';
+    extraOptions = ''${builtins.readFile ../nix.conf}'';
 
     # (from flake-utils-plus)
     generateRegistryFromInputs = true;
