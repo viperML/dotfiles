@@ -7,5 +7,6 @@
     enableOnBoot = false;
     enableNvidia = true;
   };
-  users.users.ayats.extraGroups = [ "docker" ];
+
+  users.users.mainUser.extraGroups = [ "docker" ];
 }

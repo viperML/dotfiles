@@ -1,10 +1,9 @@
 { utils }:
 
 let
-  homeModules = utils.lib.exportModules [
+  nixosModules = utils.lib.exportModules [
     ./base-home.nix
     ./bat
-    ./cachix.nix
     ./fish
     ./git.nix
     ./home-fonts.nix
@@ -16,9 +15,7 @@ let
     ./nix-on-droid
     ./starship
     ./vscode
-  ];
 
-  nixosModules = utils.lib.exportModules [
     ./nixos/nixos-base.nix
     ./nixos/nixos-gen6.nix
     ./nixos/nixos-vm.nix
@@ -29,5 +26,5 @@ let
   ];
 in
 {
-  inherit homeModules nixosModules;
+  inherit nixosModules;
 }

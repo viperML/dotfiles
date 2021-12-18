@@ -4,7 +4,7 @@
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [ virt-manager ];
 
-  users.users.ayats.extraGroups = [
+  users.users.mainUser.extraGroups = [
     "libvirtd"
   ];
 }

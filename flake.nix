@@ -24,11 +24,11 @@
       modules = import ./modules { inherit utils; };
       lib = nixpkgs.lib;
     in
-    # with modules.homeModules;
+    with modules.nixosModules;
     utils.lib.mkFlake {
 
       inherit self inputs;
-      inherit (modules) homeModules nixosModules;
+      inherit (modules) nixosModules;
 
       supportedSystems = [ "x86_64-linux" ];
 
@@ -40,12 +40,12 @@
 
       ### NIXOS Hosts
 
-      hostDefaults.modules = with modules.nixosModules; [
+      hostDefaults.modules = [
         nixos-base
         inputs.home-manager.nixosModules.home-manager
       ];
 
-      hosts = with modules.nixosModules; {
+      hosts =  {
         gen6.modules = [
           nixos-gen6
           kvm
@@ -58,7 +58,7 @@
 
 
       homeConfigurations = {
-        ayats = inputs.home-manager.lib.homeManagerConfiguration rec {
+        ayats = inputs.home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           username = "ayats";
           homeDirectory = "/home/ayats";
@@ -81,7 +81,7 @@
               '';
             };
           };
-          extraModules = with modules.homeModules; [
+          extraModules = [
             base-home
             bat
             fish
@@ -97,7 +97,7 @@
           ];
         };
 
-        user = self.homeConfigurations.genericUser // inputs.home-manager.lib.homeManagerConfiguration {
+        user = self.homeConfigurations.ayats // inputs.home-manager.lib.homeManagerConfiguration {
           username = "user";
           homeDirectory = "/home/user";
           configuration = { };

@@ -16,7 +16,7 @@
       desktopManager.plasma5.enable = true;
       displayManager = {
         sddm.enable = true;
-        autoLogin.user = "ayats";
+        autoLogin.user = "${config.users.users.mainUser.name}";
         autoLogin.enable = true;
       };
     };
@@ -50,7 +50,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.users.ayats = {
+  users.users.mainUser = {
+    name = "ayats";
+    description = "Fernando Ayats";
+    home = "/home/ayats";
     isNormalUser = true;
     initialPassword = "1234";
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
