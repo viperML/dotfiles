@@ -27,7 +27,7 @@
       Storage=volatile
     '';
 
-    ananicy.eable = true;
+    ananicy.enable = true;
     thermald.enable = true;
   };
 
@@ -82,7 +82,6 @@
     qbittorrent
     birdtray
     caffeine-ng
-    syncthingtray
 
   ];
 

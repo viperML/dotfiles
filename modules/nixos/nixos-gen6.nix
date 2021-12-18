@@ -41,16 +41,21 @@
     # interfaces.eno1.useDHCP = true;
   };
 
-  # nix = {
-  #   extraOptions = ''
-  #     max-jobs=8
-  #   '';
-  # };
+  programs = {
+    steam.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    lutris
+    syncthingtray
+    syncthing
+  ];
 
   services = {
     xserver = {
       layout = "us";
       videoDrivers = [ "nvidia" ];
+      xkbOptions = "compose:rctrl";
     };
   };
 
