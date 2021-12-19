@@ -58,11 +58,11 @@
 
 
       homeConfigurations = {
-        "ayats@gen6" = inputs.home-manager.lib.homeManagerConfiguration {
+        "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
           system = "x86_64-linux";
           username = "ayats";
-          homeDirectory = "/home/ayats";
-          pkgs = self.pkgs.x86_64-linux.nixpkgs;
+          homeDirectory = "/home/${username}";
+          pkgs = self.pkgs.${system}.nixpkgs;
           configuration = {
             # This home-manager module links the flake inputs into ~/.nix-inputs
             # Set the nix path into the channels from the flake
@@ -99,7 +99,7 @@
       # };
 
       outputsBuilder = channels: with channels.nixpkgs;{
-        defaultPackage = self.homeConfigurations.ayats.activationPackage;
+        defaultPackage = self.homeConfigurations."ayats".activationPackage;
         packages = {
           inherit
             lightly
