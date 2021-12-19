@@ -32,7 +32,16 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  systemd.services.systemd-remount-fs.wantedBy = lib.mkForce [ ];
+  systemd = {
+    services.systemd-remount-fs.wantedBy = lib.mkForce [ ];
+    services.sanoid = {
+      serviceConfig =  {
+        DynamicUser = lib.mkForce false;
+        Group = lib.mkForce "root";
+        User = lib.mkForce "root";
+      };
+    };
+  };
 
   networking = {
     hostName = "gen6";
@@ -112,7 +121,7 @@
       autoScrub = {
         enable = true;
         pools = [ "zroot" ];
-        interval = [ "weekly" ];
+        interval =  "weekly";
       };
     };
   };
