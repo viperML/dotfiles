@@ -50,6 +50,11 @@ nix-shell --run "nix build"
       "name": "lightly-0.4.1",
       "type": "derivation"
     },
+    "multiload-ng": {
+      "description": "Modern graphical system monitor for any panel",
+      "name": "multiload-ng-20210103",
+      "type": "derivation"
+    },
     "sierrabreezeenhanced": {
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
