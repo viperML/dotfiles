@@ -20,13 +20,30 @@ stdenv.mkDerivation rec {
     cairo
     intltool
     gettext
-    bash
   ];
 
   nativeBuildInputs = with pkgs; [
     autoreconfHook
     pkgconfig
+    bash
   ];
+
+  preBuild = ''
+    chmod +x data/generate-about-data.sh
+    patchShebangs data/generate-about-data.sh
+    chmod +x data/generate-binary-data.sh
+    patchShebangs data/generate-binary-data.sh
+    chmod +x data/generate-color-scheme-icons.sh
+    patchShebangs data/generate-color-scheme-icons.sh
+  '';
+
+  configureFlags = [
+    "--disable-autostart"
+  ];
+
+  # buildPhase = ''
+  #   make all-recursive
+  # '';
 
 
   meta = with lib; {
