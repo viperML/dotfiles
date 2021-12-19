@@ -106,44 +106,45 @@
           "use_template" = "slow";
         };
       };
-
-      zfs = {
-        autoScrub = {
-          enable = true;
-          pools = [ "zroot" ];
-          interval = [ "weekly" ];
-        };
-      };
     };
 
-    fileSystems."/" =
-      {
-        device = "zroot/gen6/nixos";
-        fsType = "zfs";
-        options = [ "zfsutil" ];
+    zfs = {
+      autoScrub = {
+        enable = true;
+        pools = [ "zroot" ];
+        interval = [ "weekly" ];
       };
-
-    fileSystems."/nix" =
-      {
-        device = "zroot/nix";
-        fsType = "zfs";
-        options = [ "zfsutil" ];
-      };
-
-    fileSystems."/boot" =
-      {
-        device = "/dev/disk/by-label/LINUXBOOT";
-        fsType = "vfat";
-      };
-
-    swapDevices =
-      [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
-
-    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-
-    hardware = {
-      cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-      video.hidpi.enable = lib.mkDefault true;
-      opengl.driSupport32Bit = true;
     };
-  }
+  };
+
+  fileSystems."/" =
+    {
+      device = "zroot/gen6/nixos";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/nix" =
+    {
+      device = "zroot/nix";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-label/LINUXBOOT";
+      fsType = "vfat";
+    };
+
+  swapDevices =
+    [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
+
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    video.hidpi.enable = lib.mkDefault true;
+    opengl.driSupport32Bit = true;
+  };
+}
