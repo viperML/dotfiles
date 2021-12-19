@@ -32,7 +32,7 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  systemd.services.systemd-remount-fs.wantedBy = lib.mkForce [];
+  systemd.services.systemd-remount-fs.wantedBy = lib.mkForce [ ];
 
   networking = {
     hostName = "gen6";
@@ -60,46 +60,90 @@
 
     sanoid = {
       enable = true;
-      settings = "${builtins.readFile ./gen6-sanoid.conf}";
-    };
+      templates = {
+        "normal" = {
+          "frequently" = 0;
+          "hourly" = 1;
+          "daily" = 1;
+          "monthly" = 4;
+          "yearly" = 0;
+          "autosnap" = true;
+          "autoprune" = true;
+        };
+        "slow" = {
+          "frequently" = 0;
+          "hourly" = 0;
+          "daily" = 0;
+          "monthly" = 4;
+          "yearly" = 0;
+          "autosnap" = true;
+          "autoprune" = true;
+        };
+      };
+      settings = {
+        "zroot/data" = {
+          "recursive" = true;
+          "process_children_only" = true;
+          "use_template" = "normal";
+        };
+        "zroot/gen6" = {
+          "recursive" = true;
+          "process_children_only" = true;
+          "use_template" = "normal";
+        };
+        "zroot/var" = {
+          "recursive" = true;
+          "process_children_only" = true;
+          "use_template" = "slow";
+        };
+        "zroot/data/games" = {
+          "use_template" = "slow";
+        };
+        "zroot/data/wine" = {
+          "use_template" = "slow";
+        };
+        "zroot/data/steam" = {
+          "use_template" = "slow";
+        };
+      };
 
-    zfs = {
-      autoScrub = {
-        enable = true;
-        pools = [ "zroot" ];
-        interval = [ "weekly" ];
+      zfs = {
+        autoScrub = {
+          enable = true;
+          pools = [ "zroot" ];
+          interval = [ "weekly" ];
+        };
       };
     };
-  };
 
-  fileSystems."/" =
-    {
-      device = "zroot/gen6/nixos";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+    fileSystems."/" =
+      {
+        device = "zroot/gen6/nixos";
+        fsType = "zfs";
+        options = [ "zfsutil" ];
+      };
+
+    fileSystems."/nix" =
+      {
+        device = "zroot/nix";
+        fsType = "zfs";
+        options = [ "zfsutil" ];
+      };
+
+    fileSystems."/boot" =
+      {
+        device = "/dev/disk/by-label/LINUXBOOT";
+        fsType = "vfat";
+      };
+
+    swapDevices =
+      [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
+
+    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+    hardware = {
+      cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+      video.hidpi.enable = lib.mkDefault true;
+      opengl.driSupport32Bit = true;
     };
-
-  fileSystems."/nix" =
-    {
-      device = "zroot/nix";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/LINUXBOOT";
-      fsType = "vfat";
-    };
-
-  swapDevices =
-    [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-
-  hardware = {
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    video.hidpi.enable = lib.mkDefault true;
-    opengl.driSupport32Bit = true;
-  };
-}
+  }
