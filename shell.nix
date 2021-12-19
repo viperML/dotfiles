@@ -12,9 +12,10 @@ mkShell {
     git
     nixos-install-tools
     nixUnstable
+    gnumake
+    jq
   ];
   shellHook = ''
     export FLAKE="$(pwd)"
-    export PATH="$FLAKE/bin:${nixBin}/bin:$PATH"
   '';
 }
