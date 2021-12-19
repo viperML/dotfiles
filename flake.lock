@@ -52,10 +52,7 @@
     },
     "home-manager_2": {
       "inputs": {
-        "nixpkgs": [
-          "nix-on-droid",
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1639774225,
@@ -97,6 +94,19 @@
       "locked": {
         "lastModified": 1639525045,
         "narHash": "sha256-z4GXFNzO+5V4CAUm2DDMAryLOWUKEbQif2ifvv1Ypg4=",
+        "path": "/nix/store/ydkfjk5v61jw0xvlzxcsfw7x59shzp4y-source",
+        "rev": "a2e281f5770247855b85d70c43454ba5bff34613",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1639525045,
+        "narHash": "sha256-z4GXFNzO+5V4CAUm2DDMAryLOWUKEbQif2ifvv1Ypg4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "a2e281f5770247855b85d70c43454ba5bff34613",
@@ -128,7 +138,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nix-on-droid": "nix-on-droid",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "utils": "utils"
       }
