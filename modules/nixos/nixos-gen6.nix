@@ -57,6 +57,19 @@
       videoDrivers = [ "nvidia" ];
       xkbOptions = "compose:rctrl";
     };
+
+    sanoid = {
+      enable = true;
+      settings = builtins.readFile ./gen6-sanoid.conf;
+    };
+
+    zfs = {
+      autoscrub = {
+        enable = true;
+        pools = [ "zroot" ];
+        interval = [ "weekly" ];
+      };
+    };
   };
 
   fileSystems."/" =
