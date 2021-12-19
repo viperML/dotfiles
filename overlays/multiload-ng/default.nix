@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
 
 
   meta = with lib; {
-    description = "Modern graphical system monitor for any panel";
+    description = "Modern graphical system monitor for any panel (only systray and standalone builds)";
     homepage = "https://github.com/udda/multiload-ng";
     license = licenses.gpl2;
     platforms = platforms.linux;
