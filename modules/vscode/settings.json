@@ -79,8 +79,8 @@
   "helium-icon-theme.folders.color": "#90a4ae",
 
   // Fonts
-  "editor.fontSize": 14,
-  // "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
+  "editor.fontSize": 15,
+  "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @
