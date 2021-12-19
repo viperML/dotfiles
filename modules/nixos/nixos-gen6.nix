@@ -126,6 +126,8 @@
     };
   };
 
+  virtualisation.docker.storageDriver = "zfs";
+
   fileSystems."/" =
     {
       device = "zroot/gen6/nixos";

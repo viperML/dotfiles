@@ -3,9 +3,9 @@
 {
   virtualisation.docker = {
     enable = true;
-    storageDriver = "zfs";
     enableOnBoot = false;
     enableNvidia = true;
+    extraOptions = "--registry-mirror=https://mirror.gcr.io --add-runtime crun=${pkgs.crun}/bin/crun --default-runtime=crun";
   };
 
   users.users.mainUser.extraGroups = [ "docker" ];
