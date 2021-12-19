@@ -51,7 +51,7 @@ nix-shell --run "nix build"
       "type": "derivation"
     },
     "multiload-ng": {
-      "description": "Modern graphical system monitor for any panel",
+      "description": "Modern graphical system monitor for any panel (only systray and standalone builds)",
       "name": "multiload-ng-20210103",
       "type": "derivation"
     },
