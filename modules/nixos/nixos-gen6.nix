@@ -60,7 +60,7 @@
 
     sanoid = {
       enable = true;
-      settings = builtins.readFile ./gen6-sanoid.conf;
+      settings = "${builtins.readFile ./gen6-sanoid.conf}";
     };
 
     zfs = {
