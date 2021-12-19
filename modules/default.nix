@@ -23,6 +23,7 @@ let
     ./kvm.nix
     ./docker.nix
     ./android-emulation.nix
+    ./plex
   ];
 in
 {

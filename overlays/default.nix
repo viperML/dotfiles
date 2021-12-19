@@ -2,6 +2,7 @@ final: prev: {
 
   sierrabreezeenhanced = prev.libsForQt5.callPackage ./SierraBreezeEnhanced { };
   lightly = prev.libsForQt5.callPackage ./Lightly { };
+  multiload-ng = prev.callPackage ./multiload-ng { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

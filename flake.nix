@@ -104,6 +104,7 @@
           inherit
             lightly
             sierrabreezeenhanced
+            multiload-ng
             ;
         };
       };
