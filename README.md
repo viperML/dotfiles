@@ -39,8 +39,23 @@ nix-shell --run "nix build"
 
 > Last update of this README: December 2021
 
-# Exported packages
+# 📦 Exported packages
 
-<!-- BEGIN -->
-
-<!-- END -->
+<!--BEGIN-->
+```json
+{
+  "x86_64-linux": {
+    "lightly": {
+      "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
+      "name": "lightly-0.4.1",
+      "type": "derivation"
+    },
+    "sierrabreezeenhanced": {
+      "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
+      "name": "sierrabreezeenhanced-1.0.3",
+      "type": "derivation"
+    }
+  }
+}
+```
+<!--END-->
