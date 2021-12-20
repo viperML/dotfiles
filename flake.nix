@@ -108,6 +108,16 @@
             ;
         };
       };
+
+      templates = {
+        poetry-nix = {
+          path = ./templates/poetry-nix;
+          description = "Flake for reproducible environments with poetry";
+        };
+      };
+
+      defaultTemplate = self.templates.poetry-nix;
+
     };
 
 }
