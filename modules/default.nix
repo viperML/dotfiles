@@ -22,7 +22,6 @@ let
     ./kvm.nix
     ./docker.nix
     ./android-emulation.nix
-    ./cachix.nix
   ];
 in
 {

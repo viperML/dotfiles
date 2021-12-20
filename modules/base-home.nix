@@ -14,6 +14,7 @@
     rnix-lsp
     fup-repl
     # nix-index
+    cachix
 
     # Misc utils
     ripgrep
