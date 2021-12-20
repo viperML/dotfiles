@@ -43,6 +43,9 @@
       hostDefaults.modules = [
         nixos-base
         inputs.home-manager.nixosModules.home-manager
+        {
+          system.configurationRevision = self.rev;
+        }
       ];
 
       hosts =  {
