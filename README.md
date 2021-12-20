@@ -64,7 +64,7 @@ nix-shell --run "nix build"
       "type": "derivation"
     },
     "papirus-icon-theme": {
-      "description": "Papirus icon theme",
+      "description": "Papirus icon theme, patched with folder colorscheme",
       "name": "papirus-icon-theme-20211201",
       "type": "derivation"
     },
