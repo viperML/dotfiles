@@ -4,7 +4,7 @@
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
-    nixFlakes
+    nixUnstable
     nix-index
     nix-prefetch-scripts
     update-nix-fetchgit

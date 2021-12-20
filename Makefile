@@ -7,3 +7,7 @@ readme:
 	nix flake show --json | jq -r ".packages" >> ./README.md
 	echo -e "\`\`\`" >> ./README.md
 	echo -e "<!--END-->" >> ./README.md
+
+install:
+	sudo nixos-rebuild switch --flake ${FLAKE} || true
+	home-manager switch --flake ${FLAKE}

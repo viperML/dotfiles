@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  system.stateVersion = "21.11";
   time.timeZone = "Europe/Madrid";
 
   services = {
@@ -90,9 +91,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # system.stateVersion = "21.11"; # Did you read the comment?
+
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixUnstable;
 
     extraOptions = ''${builtins.readFile ../nix.conf}'';
 

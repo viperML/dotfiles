@@ -82,7 +82,6 @@
             lsd
             neofetch
             neovim
-            starship
             vscode
           ];
         };
@@ -105,6 +104,7 @@
             lightly
             sierrabreezeenhanced
             multiload-ng
+            any-nix-shell
             ;
         };
       };

@@ -4,11 +4,21 @@
     fzf
   ];
 
+  home.file.".config/starship.toml".text = ''
+    ${builtins.readFile ../starship/starship.toml}
+    [custom.nix]
+    command = "${pkgs.any-nix-shell}/bin/nix-shell-info"
+    when = "${pkgs.any-nix-shell}/bin/nix-shell-info"
+    symbol = ""
+    style = "bold cyan"
+    format = "[$symbol]($style) [$output]($style)"
+  '';
+
   programs.fish = {
     enable = true;
-    # Standard config file when shell is interactive
-    # Instead of using nix lang, in case I want to ditch Nix
     interactiveShellInit = ''
+      ${pkgs.starship}/bin/starship init fish | source
+
       ${builtins.readFile ./interactive.fish}
     '';
     plugins = [
@@ -72,7 +82,7 @@
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
-    nix-direnv.enable = true;
+    nix-direnv.enable = false;
     config.whitelist.prefix = [
       "/home"
     ];

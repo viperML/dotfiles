@@ -1,7 +1,3 @@
-export SHELL=fish
-
-starship init fish | source
-
 function os_greeter
     echo 'Welcome to'
     set_color cyan
