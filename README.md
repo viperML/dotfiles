@@ -63,6 +63,11 @@ nix-shell --run "nix build"
       "name": "multiload-ng-20210103",
       "type": "derivation"
     },
+    "papirus-icon-theme": {
+      "description": "Papirus icon theme",
+      "name": "papirus-icon-theme-20211201",
+      "type": "derivation"
+    },
     "sierrabreezeenhanced": {
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
