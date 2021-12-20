@@ -32,4 +32,6 @@ papirus-icon-theme.overrideAttrs (prev: {
       done
     done
   '';
+
+  meta.description = "Papirus icon theme, patched with folder colorscheme";
 })
