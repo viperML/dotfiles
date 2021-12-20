@@ -1,9 +1,0 @@
-#!/bin/sh
-
-
-if [[ -e /tmp/volume_sinks ]]; then
-    cat /tmp/volume_sinks | while read -r i; do pactl -- set-sink-volume $i $1%; done
-else
-    pactl list | grep -oP 'Sink #\K([0-9]+)' > /tmp/volume_sinks
-    cat /tmp/volume_sinks | while read -r i; do pactl -- set-sink-volume $i $1%; done
-fi
