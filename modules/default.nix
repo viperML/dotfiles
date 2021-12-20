@@ -13,7 +13,6 @@ let
     ./neofetch
     ./neovim
     ./nix-on-droid
-    ./starship
     ./vscode
 
     ./nixos/nixos-base.nix
