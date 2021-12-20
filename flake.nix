@@ -44,7 +44,7 @@
         nixos-base
         inputs.home-manager.nixosModules.home-manager
         {
-          system.configurationRevision = self.rev;
+          system.configurationRevision = (if self ? rev then self.rev else null);
         }
       ];
 
