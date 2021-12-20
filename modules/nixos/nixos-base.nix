@@ -96,6 +96,11 @@
 
     extraOptions = ''${builtins.readFile ../nix.conf}'';
 
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
+
     # (from flake-utils-plus)
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
