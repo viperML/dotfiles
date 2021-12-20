@@ -4,6 +4,9 @@
   <h1>viperML/dotfiles</h1>
 </p>
 
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20Check/master?label=flake%20check)
+
 # 🗒 About
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
