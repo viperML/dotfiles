@@ -23,7 +23,7 @@ let
     ./kvm.nix
     ./docker.nix
     ./android-emulation.nix
-    ./plex
+    ./cachix.nix
   ];
 in
 {

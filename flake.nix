@@ -42,6 +42,7 @@
 
       hostDefaults.modules = [
         nixos-base
+        cachix
         inputs.home-manager.nixosModules.home-manager
       ];
 
