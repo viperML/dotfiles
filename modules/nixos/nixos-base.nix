@@ -1,7 +1,8 @@
-{ config, pkgs, lib, ... }:
+inputs@{ config, pkgs, lib, ... }:
 
 {
   system.stateVersion = "21.11";
+  system.configurationRevision = inputs.self.rev;
   time.timeZone = "Europe/Madrid";
 
   services = {
