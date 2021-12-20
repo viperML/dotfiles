@@ -108,6 +108,7 @@
             sierrabreezeenhanced
             multiload-ng
             any-nix-shell
+            papirus-icon-theme
             ;
         };
       };
