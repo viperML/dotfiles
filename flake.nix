@@ -110,13 +110,13 @@
       };
 
       templates = {
-        poetry-nix = {
-          path = ./templates/poetry-nix;
+        poetry-flake = {
+          path = ./templates/poetry-flake;
           description = "Flake for reproducible environments with poetry";
         };
       };
 
-      defaultTemplate = self.templates.poetry-nix;
+      defaultTemplate = self.templates.poetry-flake;
 
     };
 
