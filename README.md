@@ -45,6 +45,11 @@ nix-shell --run "nix build"
 ```json
 {
   "x86_64-linux": {
+    "any-nix-shell": {
+      "description": "fish and zsh support for nix-shell",
+      "name": "any-nix-shell-1.2.1",
+      "type": "derivation"
+    },
     "lightly": {
       "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
       "name": "lightly-0.4.1",
