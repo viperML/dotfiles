@@ -28,7 +28,10 @@
       forceImportRoot = false;
     };
 
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 1;
+    };
     loader.efi.canTouchEfiVariables = true;
   };
 
