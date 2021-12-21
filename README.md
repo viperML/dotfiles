@@ -4,7 +4,7 @@
   <h1>viperML/dotfiles</h1>
 </p>
 
-![](https://img.shields.io/badge/-%E2%9D%84%20built%20with%20nix-blue)
+![https://app.cachix.org/cache/viperml](https://img.shields.io/badge/-%E2%9D%84%20built%20with%20nix-blue)
 ![![GitHub Workflow Status (branch)](https://github.com/viperML/dotfiles/actions/workflows/flake-check.yaml)](https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20Check/master?label=flake%20check)
 ![![GitHub Workflow Status (branch)](https://github.com/viperML/dotfiles/actions/workflows/cachix.yaml)](https://img.shields.io/github/workflow/status/viperML/dotfiles/Cachix/master?label=cachix)
 
@@ -31,7 +31,8 @@ export FLAKE=~/.dotfiles # currently hardcoded into this path
 git clone https://github.com/viperML/dotfiles $FLAKE
 cd $FLAKE
 # build the default package, which is home-manager activation package for user "ayats"
-nix-shell --run "nix build"
+nix-shell
+nix build
 ./result/activate
 ```
 
