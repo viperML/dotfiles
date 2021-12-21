@@ -62,7 +62,7 @@
     lightly
     masterpdfeditor4
     mpv
-    papirus-icon-theme
+    (papirus-icon-theme.override { color = "yaru"; })
     sierrabreezeenhanced
     spotify-for-poor-people
     thunderbird
