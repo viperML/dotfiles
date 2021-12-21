@@ -8,6 +8,6 @@ readme:
 	echo -e "\`\`\`" >> ./README.md
 	echo -e "<!--END-->" >> ./README.md
 
-install:
+switch:
 	sudo nixos-rebuild switch --flake ${FLAKE} || true
-	home-manager switch --flake ${FLAKE}
+	home-manager switch --flake ${FLAKE} || true
