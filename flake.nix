@@ -17,6 +17,7 @@
     };
 
     nur.url = github:nix-community/NUR;
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
   };
 
   outputs = inputs @ { self, nixpkgs, utils, ... }:
@@ -36,6 +37,7 @@
       sharedOverlays = [
         self.overlay
         inputs.nur.overlay
+        inputs.powercord-overlay.overlay
       ];
 
       ### NIXOS Hosts
@@ -91,7 +93,7 @@
       };
 
 
-      overlay = import ./overlays;
+      overlay = import ./overlay;
 
       # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
       #   config = {};

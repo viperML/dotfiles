@@ -44,6 +44,23 @@ nix-shell --run "nix build"
 
 # 📦 Exported packages
 
+To grab the whole overlay into your flake:
+
+#### flake.nix
+```nix
+{
+  inputs.viperML-dotfiles.url = github:viperML/dotfiles;
+  # ...
+}
+```
+
+#### \<wherever you configure your overlays>
+```nix
+{
+  nixpkgs.overlays = [ inputs.viperML-dotfiles.overlay ];
+}
+```
+
 <!--BEGIN-->
 ```json
 {
