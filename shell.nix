@@ -14,6 +14,8 @@ mkShell {
     nixUnstable
     gnumake
     jq
+    update-nix-fetchgit
+    ripgrep
   ];
   shellHook = ''
     export FLAKE="$(pwd)"

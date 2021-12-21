@@ -11,3 +11,7 @@ readme:
 switch:
 	sudo nixos-rebuild switch --flake ${FLAKE} || true
 	home-manager switch --flake ${FLAKE} || true
+
+update:
+	nix flake update
+	rg -l fetchFromGitHub | update-nix-fetchgit
