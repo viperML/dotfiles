@@ -14,4 +14,4 @@ switch:
 
 update:
 	nix flake update
-	rg -l fetchFromGitHub | update-nix-fetchgit
+	rg -l fetchFromGitHub | sed '/Makefile/d' | xargs -n1 update-nix-fetchgit

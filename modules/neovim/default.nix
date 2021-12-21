@@ -31,8 +31,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "xiyaowong";
             repo = "nvim-transparent";
-            rev = "9441bc7b03a31ccf301b984e36f0c4b4db4974a5";
-            sha256 = "0l0fj2ifxl9p7z7cyn64a64wihl1ypddxsxdbgym5f2akjdbcqsr";
+            rev = "d171ca7ab4215e0276899b19fd808afa84acc9ab";
+            sha256 = "1fh1klw89i8hs5y2xfbyf6nmc9j4f70jhgd09j5cyciz6zidq0sj";
           };
         };
         context-vim = pkgs.vimUtils.buildVimPlugin {
