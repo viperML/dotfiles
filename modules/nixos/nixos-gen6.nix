@@ -28,11 +28,24 @@
       forceImportRoot = false;
     };
 
-    loader.systemd-boot = {
-      enable = true;
-      configurationLimit = 1;
+    loader = {
+      systemd-boot = {
+        enable = false;
+        configurationLimit = 10;
+      };
+
+      grub = {
+        device = "nodev";
+        enable = true;
+        efiSupport = true;
+        zfsSupport = true;
+      };
+
+      efi = {
+        efiSysMountPoint = "/boot";
+        canTouchEfiVariables = true;
+      };
     };
-    loader.efi.canTouchEfiVariables = true;
   };
 
   systemd = {
@@ -62,6 +75,7 @@
     syncthingtray
     syncthing
     libsForQt5.kdenlive
+    ffmpeg
   ];
 
   services = {
@@ -136,19 +150,19 @@
     {
       device = "zroot/gen6/nixos";
       fsType = "zfs";
-      options = [ "zfsutil" ];
+      # options = [ "zfsutil" ];
     };
 
   fileSystems."/nix" =
     {
       device = "zroot/nix";
       fsType = "zfs";
-      options = [ "zfsutil" ];
+      # options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-label/LINUXBOOT";
+      device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
     };
 
