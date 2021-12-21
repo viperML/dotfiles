@@ -67,7 +67,10 @@
     },
     "home-manager_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nix-on-droid",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1640037534,
@@ -107,19 +110,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1639525045,
-        "narHash": "sha256-z4GXFNzO+5V4CAUm2DDMAryLOWUKEbQif2ifvv1Ypg4=",
-        "path": "/nix/store/ydkfjk5v61jw0xvlzxcsfw7x59shzp4y-source",
-        "rev": "a2e281f5770247855b85d70c43454ba5bff34613",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1639966735,
         "narHash": "sha256-FmVGFiyqE+pjQUTCTY0H75hqrnBnbEf3VVRB4dsd4KI=",
         "owner": "NixOS",
@@ -134,7 +124,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1634782485,
         "narHash": "sha256-psfh4OQSokGXG0lpq3zKFbhOo3QfoeudRcaUnwMRkQo=",
@@ -183,7 +173,7 @@
     },
     "powercord-overlay": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "powercord": "powercord",
         "utils": "utils"
       },
@@ -205,7 +195,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nix-on-droid": "nix-on-droid",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "utils": "utils_2"
