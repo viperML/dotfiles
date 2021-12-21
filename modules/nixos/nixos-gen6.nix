@@ -17,7 +17,7 @@
       # extraFiles."/etc/zfs/keys/zroot.key".source = /etc/zfs/keys/zroot.key;
     };
 
-    # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "zfs" ];
@@ -29,16 +29,14 @@
     };
 
     loader = {
-      systemd-boot = {
-        enable = false;
-        configurationLimit = 10;
-      };
 
       grub = {
         device = "nodev";
         enable = true;
         efiSupport = true;
         zfsSupport = true;
+        gfxmodeEfi = "2560x1440";
+        configurationLimit = 20;
       };
 
       efi = {
