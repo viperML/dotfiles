@@ -58,6 +58,7 @@
     lutris
     syncthingtray
     syncthing
+    libsForQt5.kdenlive
   ];
 
   services = {
