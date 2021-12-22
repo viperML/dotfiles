@@ -111,6 +111,7 @@
             multiload-ng
             any-nix-shell
             papirus-icon-theme
+            netboot-xyz-images
             ;
         };
       };

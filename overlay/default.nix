@@ -5,6 +5,7 @@ final: prev: {
   multiload-ng = prev.callPackage ./multiload-ng { };
   any-nix-shell = prev.callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
   papirus-icon-theme = prev.callPackage ./papirus-icon-theme { papirus-icon-theme = prev.papirus-icon-theme; };
+  netboot-xyz-images = prev.callPackage ./netboot-xyz-images { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

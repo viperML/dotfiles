@@ -12,4 +12,6 @@
       push.default = "simple";
     };
   };
+
+  home.packages = [ pkgs.git-extras ];
 }

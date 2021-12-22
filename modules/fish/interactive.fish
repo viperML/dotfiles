@@ -104,6 +104,7 @@ abbr -a gtd "git log --tags --simplify-by-decoration --pretty=\"format:%ai %d\""
 abbr -a grs "git shortlog -s -n --all --no-merges"
 
 abbr -a gss "git status --short"
+abbr -a gr "cd (git-root)"
 
 # Fix ssh passing wrong $TERM
 function ssh
