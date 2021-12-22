@@ -15,6 +15,9 @@
       kernelModules = [ ];
       supportedFilesystems = [ "zfs" ];
       # extraFiles."/etc/zfs/keys/zroot.key".source = /etc/zfs/keys/zroot.key;
+      postDeviceCommands = lib.mkAfter ''
+        zfs rollback -r zroot/gen6/nixos2@empty
+      '';
     };
 
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
@@ -111,11 +114,11 @@
           "process_children_only" = true;
           "use_template" = "normal";
         };
-        "zroot/gen6" = {
-          "recursive" = true;
-          "process_children_only" = true;
-          "use_template" = "normal";
-        };
+        # "zroot/gen6" = {
+        #   "recursive" = true;
+        #   "process_children_only" = true;
+        #   "use_template" = "normal";
+        # };
         "zroot/var" = {
           "recursive" = true;
           "process_children_only" = true;
@@ -146,7 +149,7 @@
 
   fileSystems."/" =
     {
-      device = "zroot/gen6/nixos";
+      device = "zroot/gen6/nixos2";
       fsType = "zfs";
       # options = [ "zfsutil" ];
     };

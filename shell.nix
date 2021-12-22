@@ -2,11 +2,6 @@
 { pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
-# let nixBin =
-#   writeShellScriptBin "nix" ''
-#     ${nixUnstable}/bin/nix --option experimental-features "nix-command flakes" "$@"
-#   '';
-# in
 mkShell {
   buildInputs = [
     git
