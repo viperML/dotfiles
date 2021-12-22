@@ -21,6 +21,7 @@
       script = ''
         ${pkgs.docker}/bin/docker system prune --all --force
       '';
+      requires = [ "docker.service" ];
     };
   };
 }
