@@ -14,9 +14,8 @@
       availableKernelModules = [ "ahci" "nvme" "usbhid" ];
       kernelModules = [ ];
       supportedFilesystems = [ "zfs" ];
-      # extraFiles."/etc/zfs/keys/zroot.key".source = /etc/zfs/keys/zroot.key;
       postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r zroot/gen6/nixos2@empty
+        zfs rollback -r zroot/gen6/nixos@empty
       '';
     };
 
@@ -149,16 +148,14 @@
 
   fileSystems."/" =
     {
-      device = "zroot/gen6/nixos2";
+      device = "zroot/gen6/nixos";
       fsType = "zfs";
-      # options = [ "zfsutil" ];
     };
 
   fileSystems."/nix" =
     {
       device = "zroot/nix";
       fsType = "zfs";
-      # options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
