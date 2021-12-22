@@ -82,6 +82,11 @@ To grab the whole overlay into your flake:
       "name": "multiload-ng-20210103",
       "type": "derivation"
     },
+    "netboot-xyz-images": {
+      "description": "netboot.xyz bootloader images, uefi and legacy.",
+      "name": "netboot-xyz-images-2.0.54",
+      "type": "derivation"
+    },
     "papirus-icon-theme": {
       "description": "Papirus icon theme, patched with folder colorscheme",
       "name": "papirus-icon-theme-20211201",

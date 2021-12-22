@@ -40,14 +40,12 @@
         gfxmodeEfi = "2560x1440";
         configurationLimit = 20;
         extraFiles = {
-          "netboot.xyz.efi" = "${pkgs.stdenv.fetchurlBoot {
-            url="https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.53/netboot.xyz.efi";
-            sha256="00a94sl9d8f9ahh4fk68xxg18153w8s6phrilk9i5q5x26pfmddz";}}";
+          "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
         };
         extraEntries = ''
           ### Start netboot.xyz
-          menuentry "[b] netboot.xyz" --hotkey=b {
-		          chainloader /netboot.xyz.efi
+          menuentry "netboot.xyz" {
+		        chainloader /netboot.xyz.efi
           }
           ### End netboot.xyz
         '';
