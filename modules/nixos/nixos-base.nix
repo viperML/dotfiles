@@ -30,6 +30,8 @@
 
     ananicy.enable = true;
     thermald.enable = true;
+
+    udev.packages = with pkgs; [ android-udev-rules ];
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire

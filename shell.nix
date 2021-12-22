@@ -2,23 +2,24 @@
 { pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
-let nixBin =
-  writeShellScriptBin "nix" ''
-    ${nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
-  '';
-in
+# let nixBin =
+#   writeShellScriptBin "nix" ''
+#     ${nixUnstable}/bin/nix --option experimental-features "nix-command flakes" "$@"
+#   '';
+# in
 mkShell {
   buildInputs = [
     git
-    nixos-install-tools
-    nixUnstable
     gnumake
     jq
-    update-nix-fetchgit
+    nixos-install-tools
+    nixUnstable
     ripgrep
+    update-nix-fetchgit
   ];
   shellHook = ''
-    export FLAKE="$(pwd)"
+    export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
+    export FLAKE="/home/ayats/.dotfiles"
     echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
     echo "Last flake update:"
     git log -1 --pretty="format:%ch" flake.lock
