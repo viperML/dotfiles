@@ -1,0 +1,3 @@
+#!/bin/sh
+make readme
+git add README.md

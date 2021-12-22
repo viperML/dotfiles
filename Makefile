@@ -15,3 +15,6 @@ switch:
 update:
 	nix flake update
 	rg -l fetchFromGitHub | sed '/Makefile/d' | xargs -n1 update-nix-fetchgit
+
+hooks:
+	ln -sf ${PWD}/.github/hooks/* .git/hooks
