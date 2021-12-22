@@ -9,4 +9,18 @@
   };
 
   users.users.mainUser.extraGroups = [ "docker" ];
+
+  systemd = {
+    timers.docker-prune = {
+      wantedBy = [ "timers.target" ];
+      partOf = [ "docker-prune.service" ];
+      timersConfig.OnCalendar = "weekly";
+    };
+    services.docker-prune = {
+      serviceConfig.Type = "oneshot";
+      script = ''
+        ${pkgs.docker}/bin/docker system prune --all --force
+      '';
+    };
+  };
 }
