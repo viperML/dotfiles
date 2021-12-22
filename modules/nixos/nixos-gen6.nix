@@ -39,6 +39,18 @@
         zfsSupport = true;
         gfxmodeEfi = "2560x1440";
         configurationLimit = 20;
+        extraFiles = {
+          "netboot.xyz.efi" = "${pkgs.stdenv.fetchurlBoot {
+            url="https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.53/netboot.xyz.efi";
+            sha256="00a94sl9d8f9ahh4fk68xxg18153w8s6phrilk9i5q5x26pfmddz";}}";
+        };
+        extraEntries = ''
+          ### Start netboot.xyz
+          menuentry "[b] netboot.xyz" --hotkey=b {
+		          chainloader /netboot.xyz.efi
+          }
+          ### End netboot.xyz
+        '';
       };
 
       efi = {
@@ -108,20 +120,8 @@
         };
       };
       settings = {
-        "zroot/data" = {
-          "recursive" = true;
-          "process_children_only" = true;
+        "zroot/data/home" = {
           "use_template" = "normal";
-        };
-        # "zroot/gen6" = {
-        #   "recursive" = true;
-        #   "process_children_only" = true;
-        #   "use_template" = "normal";
-        # };
-        "zroot/var" = {
-          "recursive" = true;
-          "process_children_only" = true;
-          "use_template" = "slow";
         };
         "zroot/data/games" = {
           "use_template" = "slow";
