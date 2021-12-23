@@ -35,6 +35,7 @@
   };
 
   home.file.".config/nix/nix.conf".source = ./nix.conf;
+  home.file.".config/nixpkgs/config.nix".source = ./nixpkgs.conf;
 
   home.sessionVariables = lib.mkForce {
     NIX_PATH = "nixpkgs=$HOME/.nix-inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";

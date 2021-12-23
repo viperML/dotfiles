@@ -97,7 +97,7 @@
   nix = {
     package = pkgs.nixUnstable;
 
-    extraOptions = ''${builtins.readFile ../nix.conf}'';
+    extraOptions = "${builtins.readFile ../nix.conf}";
 
     gc = {
       automatic = true;
@@ -109,5 +109,7 @@
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
+
+  nixpkgs.config = "${builtins.readFile ../nixpkgs.conf}";
 
 }
