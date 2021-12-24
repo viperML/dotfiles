@@ -1,8 +1,6 @@
 name: "Cachix"
 
 on:
-  # pull_request:
-  # push:
   workflow_dispatch:
   workflow_run:
     workflows: ["Flake Check"]
@@ -26,5 +24,6 @@ jobs:
     - uses: cachix/cachix-action@v10
       with:
         name: viperml
+        extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build .#homeConfigurations.ayats.activationPackage -L
