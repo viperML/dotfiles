@@ -3,6 +3,7 @@
 
 with pkgs;
 mkShell {
+  name = "dotfiles";
   buildInputs = [
     git
     gnumake

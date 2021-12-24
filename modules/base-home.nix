@@ -5,15 +5,9 @@
   home.packages = with pkgs; [
     # Nix management
     nixUnstable
-    nix-index
     nix-prefetch-scripts
     update-nix-fetchgit
-    nixpkgs-fmt
-    nur.repos.xe.comma
-    nix-bundle
-    rnix-lsp
     fup-repl
-    # nix-index
     cachix
 
     # Misc utils

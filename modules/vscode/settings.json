@@ -179,6 +179,12 @@
     "statusBar.border": "#ffffff00"
   },
 
+  // Smoothing
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+
   // Latex
   "[latex]": {
     "editor.rulers": [70],
@@ -375,14 +381,7 @@
   "gitlens.codeLens.enabled": false,
   "workbench.enableExperiments": false,
   "gitlens.currentLine.enabled": false,
-  "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.smoothScrolling": true,
-  "workbench.list.smoothScrolling": true,
   "jupyter.askForKernelRestart": false,
-  "nix.enableLanguageServer": true,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  "nix.enableLanguageServer": true
 
 }

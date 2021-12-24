@@ -50,7 +50,7 @@
         }
       ];
 
-      hosts =  {
+      hosts = {
         gen6.modules = [
           nixos-gen6
           kvm
@@ -114,6 +114,7 @@
             netboot-xyz-images
             ;
         };
+        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
       };
 
       templates = {

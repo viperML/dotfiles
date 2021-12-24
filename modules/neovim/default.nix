@@ -6,6 +6,9 @@
 
     # COC runtime dependency
     nodejs
+
+    nixpkgs-fmt
+    rnix-lsp
   ];
 
   home.file.".config/nvim/coc-settings.json".source = ./coc-settings.json;
