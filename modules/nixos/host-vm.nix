@@ -24,27 +24,27 @@
   };
 
   services = {
-    xserver = {
-      layout = "us";
-    };
+    # xserver = {
+    #   layout = "us";
+    # };
 
     spice-vdagentd.enable = true;
     qemuGuest.enable = true;
   };
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-label/NIXROOT";
-      fsType = "ext4";
-    };
+  # fileSystems."/" =
+  #   {
+  #     device = "/dev/disk/by-label/NIXROOT";
+  #     fsType = "ext4";
+  #   };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/NIXEFI";
-      fsType = "vfat";
-    };
+  # fileSystems."/boot" =
+  #   {
+  #     device = "/dev/disk/by-label/NIXEFI";
+  #     fsType = "vfat";
+  #   };
 
-  swapDevices = [ ];
+  # swapDevices = [ ];
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

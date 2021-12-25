@@ -28,8 +28,8 @@
     path = "…";
   };
 
-  home.file.".config/nix/nix.conf".source = ./nix.conf;
-  home.file.".config/nixpkgs/config.nix".source = ./nixpkgs.conf;
+  home.file.".config/nix/nix.conf".source = ../nix.conf;
+  home.file.".config/nixpkgs/config.nix".source = ../nixpkgs.conf;
 
   # A standard Nix install will set legacy nix-channels
   # With this section, these channels are wiped, and nixpkgs

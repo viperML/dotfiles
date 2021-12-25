@@ -74,6 +74,7 @@
     hostId = "01017f00";
     # useDHCP = true;
     # interfaces.eno1.useDHCP = true;
+    networkmanager.enable = true;
   };
 
   programs = {

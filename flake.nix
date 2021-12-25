@@ -23,76 +23,88 @@
   outputs = inputs @ { self, nixpkgs, utils, ... }:
     let
       modules = import ./modules { inherit utils; };
-      lib = nixpkgs.lib;
+      # lib = nixpkgs.lib;
     in
-    with modules.nixosModules;
     utils.lib.mkFlake {
 
       inherit self inputs;
-      inherit (modules) nixosModules;
+      inherit (modules) nixosModules homeModules; # Place into flake outputs
 
       supportedSystems = [ "x86_64-linux" ];
 
       channelsConfig.allowUnfree = true;
+      overlay = import ./overlay;
       sharedOverlays = [
         self.overlay
         inputs.nur.overlay
         inputs.powercord-overlay.overlay
       ];
 
-      ### NIXOS Hosts
-
-      hostDefaults.modules = [
-        nixos-base
+      hostDefaults.modules = with modules.nixosModules; [
+        base
         inputs.home-manager.nixosModules.home-manager
+        home-manager
+      ] ++ [
         {
-          # Set NixOS revision = flake revision
-          system.configurationRevision = (if self ? rev then self.rev else null); 
-        }
-      ];
+          home-manager.sharedModules = with modules.homeModules; [
+            base
+            fonts
+            gui
 
-      hosts = {
-        gen6.modules = [
-          nixos-gen6
-          kvm
-          docker
-        ];
-        vm.modules = [
-          nixos-vm
-        ];
-      };
-
-
-      homeConfigurations = {
-        "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
-          system = "x86_64-linux";
-          username = "ayats";
-          homeDirectory = "/home/${username}";
-          pkgs = self.pkgs.${system}.nixpkgs;
-          configuration = {
-            # see modules/base-home.nix for information about this
-            home = {
-              file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
-            };
-          };
-          extraModules = [
-            base-home
             bat
             fish
-            git
-            home-fonts
-            home-gui
             konsole
             lsd
             neofetch
             neovim
+            # starship
             vscode
           ];
-        };
+        }
+      ];
+
+      hosts = {
+        gen6.modules = with modules.nixosModules; [
+          host-gen6
+          kvm
+          docker
+        ];
+        # vm.modules = [
+        #   nixos-vm
+        #   "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        # ];
       };
 
 
-      overlay = import ./overlay;
+      # homeConfigurations = {
+      #   "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
+      #     system = "x86_64-linux";
+      #     username = "ayats";
+      #     homeDirectory = "/home/${username}";
+      #     pkgs = self.pkgs.${system}.nixpkgs;
+      #     configuration = {
+      #       # see modules/base-home.nix for information about this
+      #       home = {
+      #         file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
+      #       };
+      #     };
+      #     extraModules = [
+      #       base-home
+      #       bat
+      #       fish
+      #       git
+      #       home-fonts
+      #       home-gui
+      #       konsole
+      #       lsd
+      #       neofetch
+      #       neovim
+      #       vscode
+      #     ];
+      #   };
+      # };
+
+
 
       # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
       #   config = {};
@@ -101,8 +113,9 @@
       #   ];
       # };
 
-      outputsBuilder = channels: with channels.nixpkgs;{
-        defaultPackage = self.homeConfigurations."ayats".activationPackage;
+      outputsBuilder = channels: with channels.nixpkgs; {
+        # defaultPackage = self.homeConfigurations."ayats".activationPackage;
+        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
         packages = {
           inherit
             lightly
@@ -113,13 +126,16 @@
             netboot-xyz-images
             ;
         };
-        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
       };
 
       templates = {
         poetry-flake = {
           path = ./templates/poetry-flake;
           description = "Flake for reproducible environments with poetry";
+        };
+        latex-flake = {
+          path = ./templates/latex-flake;
+          description = "Flake for reproducible latex documents";
         };
       };
 

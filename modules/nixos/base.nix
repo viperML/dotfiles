@@ -1,7 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   system.stateVersion = "21.11";
+  system.configurationRevision = (if inputs.self ? rev then inputs.self.rev else null);
   time.timeZone = "Europe/Madrid";
 
   services = {
@@ -55,7 +56,6 @@
     # jetbrains-mono
     # vscode-fhs
     brave
-    element-for-poor-people
     file
     flameshot
     gnome.seahorse
@@ -77,7 +77,6 @@
     libsForQt5.ffmpegthumbs
     libsForQt5.filelight
     libsForQt5.gwenview
-    libsForQt5.kdenlive
     libsForQt5.kwalletmanager
     libsForQt5.kdegraphics-thumbnailers
     ahoviewer
@@ -91,7 +90,6 @@
 
   ];
 
-  networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
