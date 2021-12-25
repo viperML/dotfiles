@@ -1,5 +1,3 @@
-.PHONY: readme
-
 readme:
 	sed -i "/<!--BEGIN-->/,/<!--END-->/d" ./README.md
 	echo -e "<!--BEGIN-->" >> ./README.md

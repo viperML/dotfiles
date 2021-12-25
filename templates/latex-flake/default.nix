@@ -4,7 +4,7 @@
 }:
 
 stdenv.mkDerivation {
-  name = "resume_cv";
+  name = "my-latex-document";
   meta = with lib; {
     description = "My latex document";
     license = lib.licenses.cc-by-nc-sa-40;

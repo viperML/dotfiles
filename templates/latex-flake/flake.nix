@@ -1,5 +1,5 @@
 {
-  description = "Latex document template";
+  description = "Nix boilerplate for building latex documents";
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
@@ -13,7 +13,7 @@
 
     outputsBuilder = channels: {
       packages = {
-        document = channels.nixpkgs.callPackage ./default.nix { };
+        my-latex-document = channels.nixpkgs.callPackage ./default.nix { };
       };
     };
 
