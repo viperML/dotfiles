@@ -3,8 +3,5 @@
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [ virt-manager ];
-
-  users.users.mainUser.extraGroups = [
-    "libvirtd"
-  ];
+  users.groups.libvirtd.members = config.users.groups.wheel.members;
 }

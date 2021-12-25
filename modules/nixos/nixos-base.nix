@@ -10,6 +10,7 @@
       desktopManager.plasma5.enable = true;
       displayManager = {
         sddm.enable = true;
+        sddm.autoLogin.relogin = true;
         autoLogin.user = "${config.users.users.mainUser.name}";
         autoLogin.enable = true;
       };
@@ -38,12 +39,13 @@
 
   users.users.mainUser = {
     name = "ayats";
-    description = "Fernando Ayats";
     home = "/home/ayats";
+    description = "Fernando Ayats";
     isNormalUser = true;
     initialPassword = "1234";
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
   };
+
 
   security.sudo = {
     wheelNeedsPassword = false;
