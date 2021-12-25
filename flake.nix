@@ -48,6 +48,7 @@
         {
           home-manager.sharedModules = with modules.homeModules; [
             base
+            flake-channels
             fonts
             gui
             git

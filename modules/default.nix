@@ -22,6 +22,7 @@ let
     ./home-manager/fonts.nix
     ./home-manager/git.nix
     ./home-manager/gui.nix
+    ./home-manager/flake-channels.nix
   ];
 in
 {
