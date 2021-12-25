@@ -1,8 +1,6 @@
 # templates
 
-Flake templates for different project
-
-Usage:
+Flake templates for different projects. Usage:
 
 ```bash
 cd <your project root>
