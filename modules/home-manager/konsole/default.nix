@@ -5,8 +5,7 @@
       libsForQt5.konsole
     ];
 
-    # TODO use flake path
-    file.".local/share/konsole/Dracula.colorscheme".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/konsole/Dracula.colorscheme";
-    file.".local/share/konsole/Main.profile".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/konsole/Main.profile";
+    file.".local/share/konsole/Dracula.colorscheme".source = ./Dracula.colorscheme;
+    file.".local/share/konsole/Main.profile".source = ./Main.profile;
   };
 }

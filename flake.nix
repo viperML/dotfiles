@@ -50,6 +50,7 @@
             base
             fonts
             gui
+            git
 
             bat
             fish
