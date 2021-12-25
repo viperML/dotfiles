@@ -30,8 +30,8 @@
         (fetchFromGitHub {
           owner = "LuckFire";
           repo = "amoled-cord";
-          rev = "db701debef4012bf401c329af59306c156fbbd01";
-          sha256 = "1ar8b5k67xhvmhfikpc6wcs28lm6z5jg19l17im9n219wrnv408s";
+          rev = "d008cdab7ca89212016901d3e9f939470c2e2fa7";
+          sha256 = "0sb8d9jnqc0qqsf86jbxj51b445ln6080dvdndq8qk8pgd9fd3k6";
         })
       ];
     })

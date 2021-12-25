@@ -13,8 +13,12 @@ switch:
 	home-manager switch --flake ${FLAKE} || true
 
 update:
+	git stash
 	nix flake update
 	rg -l fetchFromGitHub | sed '/Makefile/d' | xargs -n1 update-nix-fetchgit
+	git add .
+	git commit -m "nix: automatic update"
+	git stash pop
 
 hooks:
 	ln -sf ${PWD}/.github/hooks/* .git/hooks
