@@ -31,12 +31,16 @@
   home.file.".config/nix/nix.conf".source = ./nix.conf;
   home.file.".config/nixpkgs/config.nix".source = ./nixpkgs.conf;
 
+  # A standard Nix install will set legacy nix-channels
+  # With this section, these channels are wiped, and nixpkgs
+  # are replaced with the nixpkgs coming from the flake
+  # This setting affectes non-nixos, see modules/nixos/nixos-base.nix for nixos settings
   home.sessionVariables = lib.mkForce {
     NIX_PATH = "nixpkgs=$HOME/.nix-inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";
     FLAKE = "$HOME/.dotfiles";
   };
 
-  home.activation.use-flake-channels = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.useFlakeChannels = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD rm -rf $VERBOSE_ARG ~/.nix-defexpr
     $DRY_RUN_CMD ln -s $VERBOSE_ARG /dev/null $HOME/.nix-defexpr
     $DRY_RUN_CMD rm -rf $VERBOSE_ARG ~/.nix-channels

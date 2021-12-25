@@ -46,7 +46,8 @@
         nixos-base
         inputs.home-manager.nixosModules.home-manager
         {
-          system.configurationRevision = (if self ? rev then self.rev else null);
+          # Set NixOS revision = flake revision
+          system.configurationRevision = (if self ? rev then self.rev else null); 
         }
       ];
 
@@ -69,9 +70,7 @@
           homeDirectory = "/home/${username}";
           pkgs = self.pkgs.${system}.nixpkgs;
           configuration = {
-            # This home-manager module links the flake inputs into ~/.nix-inputs
-            # Set the nix path into the channels from the flake
-            # And then deletes the channels created with nix-channel --add ...
+            # see modules/base-home.nix for information about this
             home = {
               file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
             };

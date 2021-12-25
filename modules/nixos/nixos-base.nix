@@ -106,6 +106,8 @@
     };
 
     # (from flake-utils-plus)
+    # Set the NIX_PATH from the flake inputs
+    # So nix-channel is not needed anymore
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;
