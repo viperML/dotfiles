@@ -1,5 +1,5 @@
 { pkgs, lib, ... }:
 
 {
-  kwriteconfig = import ./kwriteconfig.nix { inherit pkgs lib; };
+  kde = import ./kde.nix { inherit pkgs lib; };
 }

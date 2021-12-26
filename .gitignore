@@ -5,3 +5,4 @@ result
 .direnv
 *.qcow2
 source
+.envrc

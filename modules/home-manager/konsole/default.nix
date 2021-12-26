@@ -10,7 +10,7 @@
 
     activation.konsole =
       lib.hm.dag.entryAfter [ "writeBoundary" ]
-        (inputs.self.lib.kwriteconfig.kdeToString
+        (inputs.self.lib.kde.configsToCommands
           {
             configs = {
               konsolerc = {

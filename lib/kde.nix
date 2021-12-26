@@ -2,7 +2,7 @@
 
 with builtins;
 {
-  kdeToString =
+  configsToCommands =
     let
       toValue = v:
         if builtins.isString v then

@@ -2,16 +2,17 @@
 
 Utility functions.
 
-## kwriteconfig
+## kde
+
+
+### configsToCommands
 
 Generates `kwriteconfigs` commands to set values via activation scripts.
-
-### kdeToString
 
 Takes a an attribute set as argument such as:
 ```nix
 {
-  config = {
+  configs = {
     konsolerc = {
       TabBar = {
         TabBarPosition = "Bottom";
@@ -36,8 +37,7 @@ You can use the output directly in in `home-manager`, for example:
 
 {
   home.activation.<activation script name> = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    (inputs.viperml.lib.kwriteconfig.kdeToString
-    {
+    (inputs.viperml.lib.kde.configsToCommands {
       configs = {
         konsolerc = {
           TabBar = {
@@ -46,7 +46,6 @@ You can use the output directly in in `home-manager`, for example:
           };
         };
       };
-    }
-    );
+    });
 }
 ```
