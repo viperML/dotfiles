@@ -38,7 +38,11 @@
 
     printing = {
       enable = true;
-      drivers = with pkgs; [ gutenprint ];
+      drivers = with pkgs; [
+        gutenprint # generic
+        gutenprintBin
+        brlaser # brother
+      ];
       webInterface = true;
     };
   };
