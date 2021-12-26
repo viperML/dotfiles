@@ -8,6 +8,7 @@ let
     ./nixos/host-gen6.nix
     ./nixos/host-vm.nix
     ./nixos/kvm.nix
+    ./nixos/printing.nix
   ];
   homeModules = utils.lib.exportModules [
     ./home-manager/bat

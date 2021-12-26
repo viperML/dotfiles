@@ -35,18 +35,6 @@
     thermald.enable = true;
 
     udev.packages = with pkgs; [ android-udev-rules ];
-
-    printing = {
-      enable = true;
-      drivers = with pkgs; [
-        gutenprint # generic
-        gutenprintBin
-        brlaser # brother
-      ];
-      webInterface = true;
-    };
-    avahi.enable = true;
-    avahi.nssmdns = true;
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire

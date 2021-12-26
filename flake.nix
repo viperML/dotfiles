@@ -80,6 +80,7 @@
           host-gen6
           kvm
           docker
+          printing
         ];
         # vm.modules = [
         #   nixos-vm
