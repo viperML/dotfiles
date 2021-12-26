@@ -45,6 +45,8 @@
       ];
       webInterface = true;
     };
+    avahi.enable = true;
+    avahi.nssmdns = true;
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire
