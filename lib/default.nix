@@ -1,5 +1,5 @@
 { lib, ... }:
 
 {
-  kwriteconfig = import ./kwriteconfig { inherit lib; };
+  kwriteconfig = import ./kwriteconfig.nix { inherit lib; };
 }
