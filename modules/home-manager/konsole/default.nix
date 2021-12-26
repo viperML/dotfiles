@@ -12,10 +12,18 @@
       {
         configs = {
           konsolerc = {
+            StatusBar = "Disabled";
             "Desktop Entry".DefaultProfile = "Main.profile";
             MainWindow = {
               StatusBar = "Disabled";
               RestorePositionForNextInstance = false;
+              ToolBarsMovable = false;
+            };
+            ThumbnailsSettings.ThumbnailShift = true;
+            "Notification Messages" = {
+              CloseAllEmptyTabs = true;
+              CloseAllTabs = true;
+              ShowPasteHugeTextWarning = false;
             };
           };
         };
