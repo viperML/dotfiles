@@ -25,6 +25,7 @@ let
     ./home-manager/flake-channels.nix
     ./home-manager/discord.nix
     ./home-manager/kde
+    ./home-manager/syncthing.nix
   ];
 in
 {

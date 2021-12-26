@@ -70,6 +70,7 @@
             vscode
             discord
             kde
+            syncthing
           ];
         }
       ];

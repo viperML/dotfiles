@@ -35,34 +35,6 @@
 
 
   # Latte dock config
-  # home.file.".config/latte-source/my-layout.layout.latte".source = ./my-layout.layout.latte;
-  home.file.".config/lattedockrc.new".source = ./lattedockrc;
-  home.file.".config/latte/nix.layout.latte.new".source = ./nix.layout.latte;
-  home.activation.latte-dock = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    $DRY_RUN_CMD cp $VERBOSE_ARG ~/.config/lattedockrc.new ~/.config/lattedockrc
-    $DRY_RUN_CMD cp $VERBOSE_ARG ~/.config/latte/nix.layout.latte.new ~/.config/latte/nix.layout.latte
-  '';
-
-  # home.file.".config/autostart/start-latte.sh.desktop".text = ''
-  #   [Desktop Entry]
-  #   Exec=/home/ayats/.config/autostart/start-latte.sh
-  #   Icon=dialog-scripts
-  #   Name=start-latte.sh
-  #   Path=
-  #   Type=Application
-  #   X-KDE-AutostartScript=true
-  # '';
-
-  # home.file.".config/autostart/start-latte.sh" = {
-  #   executable = true;
-  #   text = ''
-  #     #!${pkgs.bash}/bin/bash
-  #     if [[ -f $HOME/.config/latte/my-layout.layout.latte ]]; then
-  #         ${pkgs.latte-dock}/bin/latte-dock --replace --layout my-layout
-  #     else
-  #         ${pkgs.latte-dock}/bin/latte-dock --replace --import-layout $HOME/.config/latte-source/my-layout.layout.latte
-  #     fi
-  #   '';
-  # };
+  home.file.".config/latte/nix.layout.latte.backup".source = ./nix.layout.latte;
 
 }

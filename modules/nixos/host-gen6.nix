@@ -83,8 +83,6 @@
 
   environment.systemPackages = with pkgs; [
     lutris
-    syncthingtray
-    syncthing
     libsForQt5.kdenlive
     ffmpeg
   ];
