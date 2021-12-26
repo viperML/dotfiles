@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   home = {
     packages = with pkgs; [
@@ -8,8 +8,21 @@
     file.".local/share/konsole/Dracula.colorscheme".source = ./Dracula.colorscheme;
     file.".local/share/konsole/Main.profile".source = ./Main.profile;
 
-    # activation.konsole = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    activation.konsole =
+      lib.hm.dag.entryAfter [ "writeBoundary" ]
+        (inputs.self.lib.kwriteconfig.kdeToString
+          {
+            configs = {
+              konsolerc = {
+                TabBar = {
+                  TabBarPosition = "Bottom";
+                  ExpandTabWidth = false;
+                };
+              };
+            };
+          }
+        );
 
-    # '';
   };
+
 }

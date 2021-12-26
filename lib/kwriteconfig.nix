@@ -14,16 +14,19 @@ with builtins;
         else
           builtins.abort ("Unknown value type: " ++ builtins.toString v);
     in
-    { configs }: lib.flatten (lib.mapAttrsToList
-      (file: groups:
-        lib.mapAttrsToList
-          (group: keys:
-            lib.mapAttrsToList
-              (key: value:
-                "test -f ~/.config/'${file}' && ${pkgs.libsForQt5.kconfig}/bin/kwriteconfig5 --file ~/.config/'${file}' --group '${group}' --key '${key}' '${
+    { configs }:
+    builtins.concatStringsSep "\n"
+      (lib.flatten (lib.mapAttrsToList
+        (file: groups:
+          lib.mapAttrsToList
+            (group: keys:
+              lib.mapAttrsToList
+                (key: value:
+                  "test -f ~/.config/'${file}' && ${pkgs.libsForQt5.kconfig}/bin/kwriteconfig5 --file ~/.config/'${file}' --group '${group}' --key '${key}' '${
                 toValue value
               }'")
-              keys)
-          groups)
-      configs);
+                keys)
+            groups)
+        configs)
+      );
 }
