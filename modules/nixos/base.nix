@@ -72,6 +72,7 @@
     spotify-for-poor-people
     thunderbird
     word-for-poor-people
+    excel-for-poor-people
     xsel
     onlyoffice-bin
     libsForQt5.ark

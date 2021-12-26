@@ -40,4 +40,14 @@ final: prev: {
     terminal = "false";
   };
 
+  excel-for-poor-people = with prev; makeDesktopItem {
+    name = "Excel";
+    desktopName = "Excel";
+    genericName = "ms-word";
+    exec = "${brave}/bin/brave --app=\"https://www.office.com/launch/excel\"";
+    icon = "ms-excel";
+    type = "Application";
+    categories = "Office";
+    terminal = "false";
+  };
 }
