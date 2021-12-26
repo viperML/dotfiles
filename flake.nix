@@ -69,6 +69,7 @@
             # starship
             vscode
             discord
+            kde
           ];
         }
       ];

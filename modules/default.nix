@@ -24,6 +24,7 @@ let
     ./home-manager/gui.nix
     ./home-manager/flake-channels.nix
     ./home-manager/discord.nix
+    ./home-manager/kde
   ];
 in
 {

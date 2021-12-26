@@ -9,6 +9,7 @@
     xserver = {
       enable = true;
       desktopManager.plasma5.enable = true;
+      desktopManager.plasma5.runUsingSystemd = true;
       displayManager = {
         sddm.enable = true;
         sddm.autoLogin.relogin = true;
@@ -59,7 +60,7 @@
     file
     flameshot
     gnome.seahorse
-    latte-dock
+    # latte-dock
     libsForQt5.bismuth
     libsForQt5.plasma-pa
     libsForQt5.qtstyleplugin-kvantum
@@ -86,7 +87,7 @@
     qbittorrent
     birdtray
     caffeine-ng
-    multiload-ng
+    # multiload-ng
 
   ];
 
