@@ -39,7 +39,7 @@
     printing = {
       enable = true;
       drivers = with pkgs; [ gutenprint ];
-      webInterface = false;
+      webInterface = true;
     };
   };
 
