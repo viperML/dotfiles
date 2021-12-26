@@ -15,4 +15,8 @@
     avahi.nssmdns = true;
 
   };
+
+  environment.systemPackages = with pkgs; [
+    libsForQt5.print-manager
+  ];
 }

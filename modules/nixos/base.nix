@@ -87,7 +87,6 @@
     qbittorrent
     birdtray
     caffeine-ng
-    libsForQt5.print-manager
 
   ];
 
