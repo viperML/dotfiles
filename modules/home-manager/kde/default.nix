@@ -37,7 +37,7 @@
   # Latte dock config
   home.file.".config/latte/original/my-layout.layout.latte".source = ./my-layout.layout.latte;
 
-  home.file.".config/autostart/start-latte.sh.service".text = ''
+  home.file.".config/autostart/start-latte.sh.desktop".text = ''
     [Desktop Entry]
     Exec=/home/ayats/.config/autostart/start-latte.sh
     Icon=dialog-scripts
