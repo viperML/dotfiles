@@ -3,56 +3,38 @@
 {
   home.packages = with pkgs; [
     latte-dock
+    multiload-ng
   ];
 
-  home.file.".config/multiload-ng/systray.conf".source = ../../misc/multiload-ng/systray.conf;
+  # Multiload-ng config
+  home.file.".config/multiload-ng/my-systray.conf".source = ../../misc/multiload-ng/systray.conf;
 
-  home.file.".config/latte/original/my-layout.layout.latte".source = ./my-layout.layout.latte;
-
-  # systemd.user.services = {
-    # multiload-ng = {
-    #   Unit = {
-    #     Description = "Multiload-ng, graphical system monitor";
-    #     After = "plasma-plasmashell.service";
-    #   };
-    #   Service = {
-    #     ExecStart = "${pkgs.multiload-ng}/bin/multiload-ng-systray";
-    #     Restart = "on-failure";
-    #   };
-    #   Install.WantedBy = [ "plasma-core.target" ];
-    # };
-    # latte-dock = {
-    #   Unit = {
-    #     Description = "Latte dock";
-    #     After = "plasma-plasmashell.service";
-    #   };
-    #   Service = {
-    #     ExecStart = "${pkgs.latte-dock}/bin/latte-dock --replace";
-    #     Restart = "on-failure";
-    #   };
-    #   Install.WantedBy = [ "plasma-core.target" ];
-    # };
-  # };
-
-  # home.activation.kde = lib.hm.dag.entryAfter [ "writeBoundary" ] (inputs.self.lib.kde.configsToCommands
-  #   {
-  #     configs = {
-  #       lattedockrc = {
-  #         UniversalSettings.singleModeLayoutName = "my-layout";
-  #       };
-  #     };
-  #   }
-  # );
+  home.activation.multiload-ng = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    $DRY_RUN_CMD cp $VERBOSE_ARG ~/.config/multiload-ng/my-systray.conf ~/.config/multiload-ng/systray.conf
+  '';
 
   home.file.".config/autostart/start-latte.sh.desktop".text = ''
-    [Desktop Entry]
-    Exec=/home/ayats/.config/autostart/start-latte.sh
-    Icon=dialog-scripts
-    Name=start-latte.sh
-    Path=
-    Type=Application
-    X-KDE-AutostartScript=true
+  [Desktop Action Preferences]
+  Exec=${pkgs.multiload-ng}/bin/multiload-ng-systray
+  Icon=preferences-system
+  Name=Preferences
+
+  [Desktop Entry]
+  Actions=Preferences;
+  Categories=Utility;System;Monitor;GTK;Applet;TrayIcon;
+  Comment=Modern graphical system monitor
+  Encoding=UTF-8
+  Exec=multiload-ng-systray
+  Icon=utilities-system-monitor
+  Name=Multiload-ng (system tray)
+  StartupNotify=false
+  Terminal=false
+  TryExec=multiload-ng-systray
+  Type=Application
   '';
+
+  # Latte dock config
+  home.file.".config/latte/original/my-layout.layout.latte".source = ./my-layout.layout.latte;
 
   home.file.".config/autostart/start-latte.sh" = {
     executable = true;
