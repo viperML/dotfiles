@@ -35,6 +35,12 @@
     thermald.enable = true;
 
     udev.packages = with pkgs; [ android-udev-rules ];
+
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ gutenprint ];
+      webInterface = false;
+    };
   };
 
   hardware.pulseaudio.enable = false; # replaces pipewire
@@ -87,7 +93,7 @@
     qbittorrent
     birdtray
     caffeine-ng
-    # multiload-ng
+    libsForQt5.print-manager
 
   ];
 
