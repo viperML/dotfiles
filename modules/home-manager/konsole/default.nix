@@ -12,7 +12,6 @@
       {
         configs = {
           konsolerc = {
-            StatusBar = "Disabled";
             "Desktop Entry".DefaultProfile = "Main.profile";
             MainWindow = {
               StatusBar = "Disabled";
