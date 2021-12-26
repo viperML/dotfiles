@@ -40,7 +40,12 @@
         inputs.powercord-overlay.overlay
       ];
 
-      lib = import ./lib { inherit (nixpkgs) pkgs lib; };
+      lib =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          lib = nixpkgs.lib;
+        in
+        import ./lib { inherit pkgs lib; };
 
       hostDefaults.modules = with modules.nixosModules; [
         base
