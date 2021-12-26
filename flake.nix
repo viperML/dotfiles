@@ -40,6 +40,8 @@
         inputs.powercord-overlay.overlay
       ];
 
+      lib = import ./lib { inherit (nixpkgs) lib; };
+
       hostDefaults.modules = with modules.nixosModules; [
         base
         inputs.home-manager.nixosModules.home-manager
@@ -61,6 +63,7 @@
             neovim
             # starship
             vscode
+            discord
           ];
         }
       ];

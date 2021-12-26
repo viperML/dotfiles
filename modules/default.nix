@@ -23,6 +23,7 @@ let
     ./home-manager/git.nix
     ./home-manager/gui.nix
     ./home-manager/flake-channels.nix
+    ./home-manager/discord.nix
   ];
 in
 {
