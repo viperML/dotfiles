@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    latte-dock
+    # latte-dock
     multiload-ng
   ];
 
@@ -13,7 +13,7 @@
     $DRY_RUN_CMD cp $VERBOSE_ARG ~/.config/multiload-ng/my-systray.conf ~/.config/multiload-ng/systray.conf
   '';
 
-  home.file.".config/autostart/start-latte.sh.desktop".text = ''
+  home.file.".config/autostart/multiload-ng.desktop".text = ''
   [Desktop Action Preferences]
   Exec=${pkgs.multiload-ng}/bin/multiload-ng-systray
   Icon=preferences-system
@@ -32,6 +32,7 @@
   TryExec=multiload-ng-systray
   Type=Application
   '';
+
 
   # Latte dock config
   home.file.".config/latte/original/my-layout.layout.latte".source = ./my-layout.layout.latte;
