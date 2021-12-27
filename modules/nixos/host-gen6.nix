@@ -59,7 +59,6 @@
   };
 
   systemd = {
-    services.systemd-remount-fs.wantedBy = lib.mkForce [ ];
     services.sanoid = {
       serviceConfig =  {
         DynamicUser = lib.mkForce false;
@@ -72,17 +71,11 @@
   networking = {
     hostName = "gen6";
     hostId = "01017f00";
-    # useDHCP = true;
-    # interfaces.eno1.useDHCP = true;
     networkmanager.enable = true;
   };
 
-  programs = {
-    steam.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
-    lutris
     libsForQt5.kdenlive
     ffmpeg
   ];

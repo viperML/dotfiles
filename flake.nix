@@ -81,6 +81,7 @@
           kvm
           docker
           printing
+          gaming
         ];
         # vm.modules = [
         #   nixos-vm
