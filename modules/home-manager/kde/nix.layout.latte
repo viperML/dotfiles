@@ -32,7 +32,7 @@ PreloadWeight=0
 
 [Containments][1][Applets][2][Configuration][General]
 isInLatteDock=true
-launchers59=applications:brave-browser.desktop
+launchers59=applications:brave-browser.desktop,applications:virt-manager.desktop,applications:code.desktop,applications:steam.desktop
 manualScrollTasksType=Disabled
 
 [Containments][1][Applets][20]
@@ -40,11 +40,11 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][1][Applets][20][Configuration]
-PreloadWeight=92
+PreloadWeight=100
 
 [Containments][1][Applets][20][Configuration][ConfigDialog]
-DialogHeight=1382
-DialogWidth=2476
+DialogHeight=671
+DialogWidth=1237
 
 [Containments][1][Applets][20][Configuration][General]
 favoritesPortedToKAstats=true
@@ -67,7 +67,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=47
+PreloadWeight=100
 SystrayContainmentId=5
 
 [Containments][1][ConfigDialog]
@@ -84,9 +84,8 @@ alignmentUpgraded=true
 appletOrder=20;21;2;4
 configurationSticker=true
 durationTime=x1
-iconSize=40
+iconSize=42
 inConfigureAppletsMode=true
-panelOutline=true
 panelSize=100
 panelTransparency=77
 shadowOpacity=50
@@ -94,9 +93,10 @@ shadowSize=95
 shadows=All
 shadowsUpgraded=true
 showGlow=false
-splitterPosition=3
+splitterPosition=4
 splitterPosition2=5
 tasksUpgraded=true
+thickMargin=21
 titleTooltips=false
 zoomLevel=0
 
@@ -106,7 +106,7 @@ enabled=true
 type=org.kde.latte.plasma
 
 [Containments][1][Indicator][org.kde.latte.plasma][General]
-lengthPadding=0.21
+lengthPadding=0.15
 
 [Containments][5]
 PreloadWeight=42
@@ -130,7 +130,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=42
+PreloadWeight=57
 
 [Containments][5][Applets][12]
 immutability=1
@@ -158,7 +158,7 @@ immutability=1
 plugin=martchus.syncthingplasmoid
 
 [Containments][5][Applets][15][Configuration]
-PreloadWeight=42
+PreloadWeight=67
 
 [Containments][5][Applets][16]
 immutability=1
@@ -202,9 +202,15 @@ plugin=org.kde.plasma.clipboard
 [Containments][5][Applets][9][Configuration]
 PreloadWeight=42
 
+[Containments][5][ConfigDialog]
+DialogHeight=1382
+DialogWidth=2473
+
 [Containments][5][General]
-extraItems=org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,martchus.syncthingplasmoid
+extraItems=org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,martchus.syncthingplasmoid,Multiload-ng: Processor
+hiddenItems=martchus.syncthingplasmoid
 knownItems=org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,martchus.syncthingplasmoid
+shownItems=Multiload-ng: Processor
 
 [LayoutSettings]
 activities=
@@ -213,7 +219,7 @@ color=blue
 customBackground=
 customTextColor=
 icon=nix-snowflake
-lastUsedActivity=19c24e83-82cc-488e-8553-a1acffa295f3
+lastUsedActivity=
 launchers=
 popUpMargin=-1
 preferredForShortcutsTouched=false
