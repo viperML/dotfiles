@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     latte-dock
+    plasma-applet-splitdigitalclock
   ];
 
 
