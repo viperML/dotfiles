@@ -39,18 +39,27 @@
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
+  users.mutableUsers = true; # change passwords of users
+
   users.users.mainUser = {
     name = "ayats";
     home = "/home/ayats";
     description = "Fernando Ayats";
     isNormalUser = true;
-    initialPassword = "1234";
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
+    passwordFile = config.sops.secrets."initialPassword/ayats".path;
   };
 
 
-  security.sudo = {
-    wheelNeedsPassword = false;
+  security = {
+    sudo = {
+      wheelNeedsPassword = true;
+      extraConfig = ''
+        Defaults pwfeedback
+        Defaults env_keep += "EDITOR PATH"
+        Defaults timestamp_timeout=300
+      '';
+    };
   };
 
   environment.systemPackages = with pkgs; [
