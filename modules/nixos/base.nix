@@ -39,7 +39,7 @@
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
-  users.mutableUsers = false; # change passwords of users
+  users.mutableUsers = true; # change passwords of users
 
   users.users.mainUser = {
     name = "ayats";
