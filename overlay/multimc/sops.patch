@@ -1,0 +1,29 @@
+--- a/notsecrets/Secrets.cpp
++++ b/notsecrets/Secrets.cpp
+@@ -3,7 +3,8 @@
+ #include <array>
+ #include <cstdio>
+ 
+-namespace {
++#include <fstream>
++
+ 
+ /*
+  * This is the MSA client ID. It is confidential and should not be reused.
+@@ -28,8 +29,15 @@ namespace {
+  * If you intend to base your own launcher on this code, take care and customize this to obfuscate the client ID, so it cannot be trivially found by casual attackers.
+  */
+ 
+-QString MSAClientID = "";
++ifstream secretFile;
++secretFile.open("/run/secrets/msaClientID");
++
++QString MSAClientID;
++while (!secretFile.eof)
++{
++    std::getLine(secretFile, MSAClientID);
+ }
++secretFile.close();
+ 
+ namespace Secrets {
+ bool hasMSAClientID() {
