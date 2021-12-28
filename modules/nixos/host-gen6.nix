@@ -148,6 +148,12 @@
       fsType = "zfs";
     };
 
+  fileSystems."/secrets" =
+    {
+      device = "zroot/secrets";
+      fsType = "zfs";
+    };
+
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/LINUXESP";
