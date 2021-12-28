@@ -3,11 +3,13 @@
 {
   environment.systemPackages = with pkgs; [ age sops ];
 
-  # sops.defaultSopsFile = ../../secrets/test.yaml;
+  sops.defaultSopsFile = ../../secrets/main.yaml;
   sops.age.keyFile = "/secrets/age/keys.txt";
 
-  sops.secrets.msaClientID.sopsFile = ../../secrets/multimc.yaml;
+  sops.secrets.multimc = {};
 
-  sops.secrets."initialPassword/ayats".sopsFile = ../../secrets/users.yaml;
-  sops.secrets."initialPassword/ayats".neededForUsers = true;
+  # sops.secrets.msaClientID.sopsFile = ../../secrets/multimc.yaml;
+
+  # sops.secrets."initialPassword/ayats".sopsFile = ../../secrets/users.yaml;
+  # sops.secrets."initialPassword/ayats".neededForUsers = true;
 }
