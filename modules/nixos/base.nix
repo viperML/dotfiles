@@ -39,7 +39,7 @@
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
-  users.mutableUsers = true; # change passwords of users
+  users.mutableUsers = false; # change passwords of users
 
   users.users.mainUser = {
     name = "ayats";
@@ -53,7 +53,7 @@
 
   security = {
     sudo = {
-      wheelNeedsPassword = true;
+      wheelNeedsPassword = false;
       extraConfig = ''
         Defaults pwfeedback
         Defaults env_keep += "EDITOR PATH"
