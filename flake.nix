@@ -15,9 +15,12 @@
       url = github:t184256/nix-on-droid;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nur.url = github:nix-community/NUR;
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    sops-nix = {
+      url = github:Mic92/sops-nix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, utils, ... }:
@@ -51,6 +54,9 @@
         base
         inputs.home-manager.nixosModules.home-manager
         home-manager
+        inputs.sops-nix.nixosModules.sops
+        # Split to not insert modules.nixosModules into the namespace
+        # might get collision between modules.{nixosModules,homeModules}.base etc
       ] ++ [
         {
           home-manager.sharedModules = with modules.homeModules; [
@@ -82,6 +88,7 @@
           docker
           printing
           gaming
+          sops
         ];
         # vm.modules = [
         #   nixos-vm

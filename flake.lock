@@ -192,7 +192,28 @@
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
+        "sops-nix": "sops-nix",
         "utils": "utils"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1638821683,
+        "narHash": "sha256-oyqALhGijy2ZQxFSACrcC+Z8MzYLiomKCr9FQXVZ47U=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "afe00100b16648c1d79e62926caacac561df93a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "utils": {

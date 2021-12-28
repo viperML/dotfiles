@@ -16,5 +16,8 @@
 
   environment.systemPackages = with pkgs; [
     lutris
+    (multimc.override {
+       msaClientID = "";
+    })
   ];
 }
