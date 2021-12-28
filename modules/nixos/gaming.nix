@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     lutris
     (multimc.override {
-       msaClientID = "";
+       msaClientID = "${builtins.readFile config.sops.secrets.msaClientID.path}";
     })
   ];
 }
