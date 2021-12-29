@@ -2,15 +2,16 @@
 
 let
   nixosModules = utils.lib.exportModules [
-    ./nixos/base.nix
-    ./nixos/docker.nix
-    ./nixos/home-manager.nix
-    ./nixos/host-gen6.nix
-    ./nixos/host-vm.nix
-    ./nixos/kvm.nix
-    ./nixos/printing.nix
-    ./nixos/gaming.nix
-    ./nixos/sops.nix
+   ./nixos/common.nix
+   ./nixos/desktop.nix
+   ./nixos/docker.nix
+   ./nixos/gaming.nix
+   ./nixos/home-manager.nix
+   ./nixos/host-gen6.nix
+   ./nixos/host-qemu.nix
+   ./nixos/kvm.nix
+   ./nixos/printing.nix
+   ./nixos/sops.nix
   ];
   homeModules = utils.lib.exportModules [
     ./home-manager/bat

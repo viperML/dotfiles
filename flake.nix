@@ -65,15 +65,15 @@
         gen6.modules = with modules.nixosModules; [
           desktop
           inputs.home-manager.nixosModules.home-manager
-          inputs.sops-nix.nixosModules.sops
           home-manager
+          inputs.sops-nix.nixosModules.sops
+          sops
           host-gen6
 
           kvm
           docker
           printing
           gaming
-          sops
         ] ++ [
           # Split to not insert modules.nixosModules into the namespace
           # might get collision between modules.{nixosModules,homeModules}.base etc
@@ -98,6 +98,10 @@
               syncthing
             ];
           }
+        ];
+
+        qemu_bare.modules = with modules.nixosModules; [
+          host-qemu
         ];
       };
 
