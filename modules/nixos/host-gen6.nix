@@ -43,11 +43,11 @@
           "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
         };
         extraEntries = ''
-          ### Start netboot.xyz
-          menuentry "netboot.xyz" {
-		        chainloader /netboot.xyz.efi
-          }
-          ### End netboot.xyz
+                    ### Start netboot.xyz
+                    menuentry "netboot.xyz" {
+          		        chainloader /netboot.xyz.efi
+                    }
+                    ### End netboot.xyz
         '';
       };
 
@@ -60,7 +60,7 @@
 
   systemd = {
     services.sanoid = {
-      serviceConfig =  {
+      serviceConfig = {
         DynamicUser = lib.mkForce false;
         Group = lib.mkForce "root";
         User = lib.mkForce "root";
@@ -129,12 +129,15 @@
       autoScrub = {
         enable = true;
         pools = [ "zroot" ];
-        interval =  "weekly";
+        interval = "weekly";
       };
     };
   };
 
-  virtualisation.docker.storageDriver = "zfs";
+  virtualisation.docker = {
+    estorageDriver = "zfs";
+    nableNvidia = true;
+  };
 
   fileSystems."/" =
     {
