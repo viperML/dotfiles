@@ -135,8 +135,8 @@
   };
 
   virtualisation.docker = {
-    estorageDriver = "zfs";
-    nableNvidia = true;
+    storageDriver = "zfs";
+    enableNvidia = true;
   };
 
   fileSystems."/" =
