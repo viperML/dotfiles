@@ -20,3 +20,8 @@ update:
 
 hooks:
 	ln -sf ${PWD}/.github/hooks/* .git/hooks
+
+clean:
+	find -name *.qcow2 -exec rm {} \;
+	find -name source -exec rm -rf {} \;
+	find -name result -exec unlink {} \;
