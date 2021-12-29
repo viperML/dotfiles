@@ -6,6 +6,7 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     users.mainUser = { config, pkgs, ... }: {
+      # TODO placeholder needed
       home.packages = with pkgs; [
         hello
       ];

@@ -39,6 +39,7 @@
 
       supportedSystems = [ "x86_64-linux" ];
 
+      # Channels configurations
       channelsConfig.allowUnfree = true;
       overlay = import ./overlay;
       sharedOverlays = [
@@ -54,50 +55,50 @@
         in
         import ./lib { inherit pkgs lib; };
 
-      hostDefaults.modules = with modules.nixosModules; [
-        base
-        inputs.home-manager.nixosModules.home-manager
-        home-manager
-        inputs.sops-nix.nixosModules.sops
-        # Split to not insert modules.nixosModules into the namespace
-        # might get collision between modules.{nixosModules,homeModules}.base etc
-      ] ++ [
-        {
-          home-manager.sharedModules = with modules.homeModules; [
-            base
-            flake-channels
-            fonts
-            gui
-            git
+      # Hosts definitions
 
-            bat
-            fish
-            konsole
-            lsd
-            neofetch
-            neovim
-            # starship
-            vscode
-            discord
-            kde
-            syncthing
-          ];
-        }
+      hostDefaults.modules = with modules.nixosModules; [
+        common
       ];
 
       hosts = {
         gen6.modules = with modules.nixosModules; [
+          desktop
+          inputs.home-manager.nixosModules.home-manager
+          inputs.sops-nix.nixosModules.sops
+          home-manager
           host-gen6
+
           kvm
           docker
           printing
           gaming
           sops
+        ] ++ [
+          # Split to not insert modules.nixosModules into the namespace
+          # might get collision between modules.{nixosModules,homeModules}.base etc
+          {
+            home-manager.sharedModules = with modules.homeModules; [
+              base
+              flake-channels
+              fonts
+              gui
+              git
+
+              bat
+              fish
+              konsole
+              lsd
+              neofetch
+              neovim
+              # starship
+              vscode
+              discord
+              kde
+              syncthing
+            ];
+          }
         ];
-        # vm.modules = [
-        #   nixos-vm
-        #   "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-        # ];
       };
 
 
@@ -128,7 +129,6 @@
       #     ];
       #   };
       # };
-
 
 
       # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {

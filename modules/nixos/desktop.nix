@@ -1,9 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  system.stateVersion = "21.11";
-  system.configurationRevision = (if inputs.self ? rev then inputs.self.rev else null);
-  time.timeZone = "Europe/Madrid";
 
   services = {
     xserver = {
@@ -54,7 +51,6 @@
 
   security = {
     sudo = {
-      wheelNeedsPassword = false;
       extraConfig = ''
         Defaults pwfeedback
         Defaults env_keep += "EDITOR PATH"
@@ -98,28 +94,14 @@
     qbittorrent
     birdtray
     caffeine-ng
-
   ];
-
-
-  nixpkgs.config.allowUnfree = true;
 
   nix = {
     package = pkgs.nixUnstable;
-
     extraOptions = ''${builtins.readFile ../nix.conf}'';
-
     gc = {
       automatic = true;
       dates = "weekly";
     };
-
-    # (from flake-utils-plus)
-    # Set the NIX_PATH from the flake inputs
-    # So nix-channel is not needed anymore
-    generateRegistryFromInputs = true;
-    generateNixPathFromInputs = true;
-    linkInputs = true;
   };
-
 }
