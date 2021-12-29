@@ -103,6 +103,25 @@
         qemu_bare.modules = with modules.nixosModules; [
           host-qemu
         ];
+
+        test_server.modules = with modules.nixosModules; [
+          host-qemu
+          docker
+        ];
+      };
+
+      deploy.nodes.example = {
+        sshOpts = [ "-p" "2221" ];
+        hostname = "localhost";
+        fastConnection = true;
+        profiles = {
+          system = {
+            sshUser = "admin";
+            path =
+              inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.test_server;
+            user = "root";
+          };
+        };
       };
 
 
