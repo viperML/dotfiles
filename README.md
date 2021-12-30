@@ -84,7 +84,7 @@ To grab the whole overlay into your flake:
     },
     "netboot-xyz-images": {
       "description": "netboot.xyz bootloader images, uefi and legacy.",
-      "name": "netboot-xyz-images-2.0.54",
+      "name": "netboot-xyz-images-2.0.53",
       "type": "derivation"
     },
     "papirus-icon-theme": {
@@ -95,10 +95,6 @@ To grab the whole overlay into your flake:
     "sierrabreezeenhanced": {
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
-      "type": "derivation"
-    },
-    "vm-clean": {
-      "name": "nixos-vm",
       "type": "derivation"
     }
   }

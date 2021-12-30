@@ -25,3 +25,4 @@ clean:
 	find -name *.qcow2 -exec rm {} \;
 	find -name source -exec rm -rf {} \;
 	find -name result -exec unlink {} \;
+	nix-collect-garbage --delete-older-than 14d

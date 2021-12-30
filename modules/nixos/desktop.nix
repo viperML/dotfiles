@@ -87,7 +87,8 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "04:00";
+      options = "--delete-older-than 14d";
     };
   };
 }
