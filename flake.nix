@@ -128,6 +128,10 @@
           path = ./templates/latex-flake;
           description = "Flake for reproducible latex documents";
         };
+        base-flake = {
+          path = ./templates/base-flake;
+          description = "Basic flake with flake-utils-plus";
+        };
       };
 
       defaultTemplate = self.templates.poetry-flake;
