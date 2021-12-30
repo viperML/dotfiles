@@ -31,6 +31,6 @@
   home.file.".config/nix/nix.conf".source = ../nix.conf;
   home.file.".config/nixpkgs/config.nix".source = ../nixpkgs.conf;
 
-  home.file.".config/libvirt/libvirtd.conf".text = "uri_default = \"qemu:///system\"";
+  home.file.".config/libvirt/libvirt.conf".text = "uri_default = \"qemu:///system\"";
 
 }
