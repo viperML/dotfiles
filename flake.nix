@@ -106,6 +106,7 @@
 
         test_server.modules = with modules.nixosModules; [
           host-qemu
+          mainUser-admin
           docker
         ];
       };
@@ -179,8 +180,7 @@
             format = "vm-bootloader";
             modules = with modules.nixosModules; [
               common
-              host-qemu
-              
+              mainUser-admin
             ];
           };
         };

@@ -12,6 +12,7 @@ let
    ./nixos/kvm.nix
    ./nixos/printing.nix
    ./nixos/sops.nix
+   ./nixos/mainUser-admin.nix
   ];
   homeModules = utils.lib.exportModules [
     ./home-manager/bat
