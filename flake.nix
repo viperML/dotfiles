@@ -1,47 +1,25 @@
 {
-  description = "Fernando Ayats's personal flake";
+  description = "Personal infrastructure flake";
 
-  inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-
-    utils.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.1;
-
-    home-manager = {
-      url = github:nix-community/home-manager;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-on-droid = {
-      url = github:t184256/nix-on-droid;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur.url = github:nix-community/NUR;
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
-    sops-nix = {
-      url = github:Mic92/sops-nix;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    deploy-rs = {
-      url = github:serokell/deploy-rs;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-generators = {
-      url = github:nix-community/nixos-generators;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = inputs @ { self, nixpkgs, utils, ... }:
+  outputs = inputs @ { self, nixpkgs, flake-utils-plus, ... }:
     let
-      modules = import ./modules { inherit utils; };
-      # lib = nixpkgs.lib;
+      modules = import ./modules { inherit flake-utils-plus; };
     in
-    utils.lib.mkFlake {
+    flake-utils-plus.lib.mkFlake {
 
       inherit self inputs;
-      inherit (modules) nixosModules homeModules; # Place into flake outputs
-
       supportedSystems = [ "x86_64-linux" ];
+
+      # Export modules
+      inherit (modules) nixosModules homeModules;
+
+      # Export lib
+      lib =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          lib = nixpkgs.lib;
+        in
+        import ./lib { inherit pkgs lib; };
 
       # Channels configurations
       channelsConfig.allowUnfree = true;
@@ -52,27 +30,15 @@
         inputs.powercord-overlay.overlay
       ];
 
-      lib =
-        let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          lib = nixpkgs.lib;
-        in
-        import ./lib { inherit pkgs lib; };
-
       # Hosts definitions
-
       hostDefaults.modules = with modules.nixosModules; [
         common
-        {
-          generateRegistryFromInputs = true;
-          generateNixPathFromInputs = true;
-          linkInputs = true;
-        }
       ];
 
       hosts = {
         gen6.modules = with modules.nixosModules; [
           desktop
+          mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
           inputs.sops-nix.nixosModules.sops
@@ -84,8 +50,8 @@
           printing
           gaming
         ] ++ [
-          # Split to not insert modules.nixosModules into the namespace
-          # might get collision between modules.{nixosModules,homeModules}.base etc
+          # Split into 2, so the previous `with modules.nixosModules` namespace
+          # doesn't get inserted here
           {
             home-manager.sharedModules = with modules.homeModules; [
               base
@@ -100,7 +66,6 @@
               lsd
               neofetch
               neovim
-              # starship
               vscode
               discord
               kde
@@ -130,6 +95,42 @@
         };
       };
 
+      outputsBuilder = channels: with channels.nixpkgs; {
+        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
+        packages = {
+          inherit
+            lightly
+            sierrabreezeenhanced
+            multiload-ng
+            any-nix-shell
+            papirus-icon-theme
+            netboot-xyz-images
+            ;
+        } // {
+
+          # vm-clean = inputs.nixos-generators.nixosGenerate {
+          #   pkgs = channels.nixpkgs;
+          #   format = "vm-bootloader";
+          #   modules = with modules.nixosModules; [
+          #     common
+          #     mainUser-admin
+          #   ];
+          # };
+        };
+      };
+
+      templates = {
+        poetry-flake = {
+          path = ./templates/poetry-flake;
+          description = "Flake for reproducible environments with poetry";
+        };
+        latex-flake = {
+          path = ./templates/latex-flake;
+          description = "Flake for reproducible latex documents";
+        };
+      };
+
+      defaultTemplate = self.templates.poetry-flake;
 
       # homeConfigurations = {
       #   "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
@@ -166,44 +167,42 @@
       #     nix-on-droid
       #   ];
       # };
-
-      outputsBuilder = channels: with channels.nixpkgs; {
-        # defaultPackage = self.homeConfigurations."ayats".activationPackage;
-        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
-        packages = {
-          inherit
-            lightly
-            sierrabreezeenhanced
-            multiload-ng
-            any-nix-shell
-            papirus-icon-theme
-            netboot-xyz-images
-            ;
-        } // {
-          vm-clean = inputs.nixos-generators.nixosGenerate {
-            pkgs = channels.nixpkgs;
-            format = "vm-bootloader";
-            modules = with modules.nixosModules; [
-              common
-              mainUser-admin
-            ];
-          };
-        };
-      };
-
-      templates = {
-        poetry-flake = {
-          path = ./templates/poetry-flake;
-          description = "Flake for reproducible environments with poetry";
-        };
-        latex-flake = {
-          path = ./templates/latex-flake;
-          description = "Flake for reproducible latex documents";
-        };
-      };
-
-      defaultTemplate = self.templates.poetry-flake;
-
     };
+
+  inputs = {
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+
+    flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.1;
+
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-on-droid = {
+      url = github:t184256/nix-on-droid;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur.url = github:nix-community/NUR;
+
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+
+    sops-nix = {
+      url = github:Mic92/sops-nix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    deploy-rs = {
+      url = github:serokell/deploy-rs;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-generators = {
+      url = github:nix-community/nixos-generators;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+  };
 
 }
