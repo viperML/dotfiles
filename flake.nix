@@ -75,15 +75,16 @@
         ];
 
         test_server.modules = with modules.nixosModules; [
-          host-qemu
+          # "${inputs.nixos-generators}/formats/qcow.nix"
+          "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
           mainUser-admin
           docker
         ];
       };
 
       deploy.nodes.example = {
-        sshOpts = [ "-p" "2221" ];
-        hostname = "localhost";
+        # sshOpts = [ "-p" "22" ];
+        hostname = "192.168.122.8";
         fastConnection = true;
         profiles = {
           system = {
@@ -108,14 +109,13 @@
             ;
         } // {
 
-          # vm-clean = inputs.nixos-generators.nixosGenerate {
-          #   pkgs = channels.nixpkgs;
-          #   format = "vm-bootloader";
-          #   modules = with modules.nixosModules; [
-          #     common
-          #     mainUser-admin
-          #   ];
-          # };
+          vm-clean = inputs.nixos-generators.nixosGenerate {
+            pkgs = channels.nixpkgs;
+            format = "qcow";
+            modules = with modules.nixosModules; [
+              mainUser-admin
+            ];
+          };
         };
       };
 

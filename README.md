@@ -96,6 +96,10 @@ To grab the whole overlay into your flake:
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
       "type": "derivation"
+    },
+    "vm-clean": {
+      "name": "nixos-disk-image",
+      "type": "derivation"
     }
   }
 }

@@ -4,8 +4,12 @@
   boot.loader.systemd-boot.enable = true;
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000";
-    fsType = "btrfs";
+    device = "/dev/disk/by-label/NIXROOT";
+    fsType = "ext4";
   };
 
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/NIXESP";
+    fsType = "vfat";
+  };
 }
