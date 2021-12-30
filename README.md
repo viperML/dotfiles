@@ -65,5 +65,43 @@ To grab the whole overlay into your flake:
 
 <!--BEGIN-->
 ```json
+{
+  "x86_64-linux": {
+    "any-nix-shell": {
+      "description": "fish and zsh support for nix-shell",
+      "name": "any-nix-shell-1.2.1",
+      "type": "derivation"
+    },
+    "lightly": {
+      "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
+      "name": "lightly-0.4.1",
+      "type": "derivation"
+    },
+    "multiload-ng": {
+      "description": "Modern graphical system monitor for any panel (only systray and standalone builds)",
+      "name": "multiload-ng-20210103",
+      "type": "derivation"
+    },
+    "netboot-xyz-images": {
+      "description": "netboot.xyz bootloader images, uefi and legacy.",
+      "name": "netboot-xyz-images-2.0.54",
+      "type": "derivation"
+    },
+    "papirus-icon-theme": {
+      "description": "Papirus icon theme, patched with folder colorscheme",
+      "name": "papirus-icon-theme-20211201",
+      "type": "derivation"
+    },
+    "sierrabreezeenhanced": {
+      "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
+      "name": "sierrabreezeenhanced-1.0.3",
+      "type": "derivation"
+    },
+    "vm-clean": {
+      "name": "nixos-vm",
+      "type": "derivation"
+    }
+  }
+}
 ```
 <!--END-->

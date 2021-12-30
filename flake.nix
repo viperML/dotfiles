@@ -63,6 +63,11 @@
 
       hostDefaults.modules = with modules.nixosModules; [
         common
+        {
+          generateRegistryFromInputs = true;
+          generateNixPathFromInputs = true;
+          linkInputs = true;
+        }
       ];
 
       hosts = {
