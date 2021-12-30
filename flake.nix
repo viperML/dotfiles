@@ -134,7 +134,7 @@
         };
       };
 
-      defaultTemplate = self.templates.poetry-flake;
+      defaultTemplate = self.templates.base-flake;
 
       # homeConfigurations = {
       #   "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
