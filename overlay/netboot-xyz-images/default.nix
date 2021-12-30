@@ -5,7 +5,7 @@
 
 stdenv.mkDerivation rec {
   pname = "netboot-xyz-images";
-  version = "2.0.54";
+  version = "2.0.53";
 
   srcs = [
     (fetchurl {
