@@ -104,10 +104,6 @@
           }
         ];
 
-        qemu_bare.modules = with modules.nixosModules; [
-          host-qemu
-        ];
-
         test_server.modules = with modules.nixosModules; [
           host-qemu
           docker
@@ -178,9 +174,14 @@
             netboot-xyz-images
             ;
         } // {
-          my-install-iso = inputs.nixos-generators.nixosGenerate {
+          vm-clean = inputs.nixos-generators.nixosGenerate {
             pkgs = channels.nixpkgs;
-            format = "install-iso";
+            format = "vm-bootloader";
+            modules = with modules.nixosModules; [
+              common
+              host-qemu
+              
+            ];
           };
         };
       };

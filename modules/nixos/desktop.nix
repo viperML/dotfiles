@@ -97,8 +97,6 @@
   ];
 
   nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''${builtins.readFile ../nix.conf}'';
     gc = {
       automatic = true;
       dates = "weekly";
