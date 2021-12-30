@@ -82,6 +82,10 @@ To grab the whole overlay into your flake:
       "name": "multiload-ng-20210103",
       "type": "derivation"
     },
+    "my-install-iso": {
+      "name": "nixos-22.05.20211224.eac07ed-x86_64-linux.isonixos.iso",
+      "type": "derivation"
+    },
     "netboot-xyz-images": {
       "description": "netboot.xyz bootloader images, uefi and legacy.",
       "name": "netboot-xyz-images-2.0.54",

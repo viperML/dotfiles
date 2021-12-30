@@ -25,6 +25,10 @@
       url = github:serokell/deploy-rs;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = github:nix-community/nixos-generators;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, utils, ... }:
@@ -173,6 +177,11 @@
             papirus-icon-theme
             netboot-xyz-images
             ;
+        } // {
+          my-install-iso = inputs.nixos-generators.nixosGenerate {
+            pkgs = channels.nixpkgs;
+            format = "install-iso";
+          };
         };
       };
 
