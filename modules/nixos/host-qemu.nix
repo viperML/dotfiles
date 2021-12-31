@@ -1,15 +1,11 @@
 { config, pkgs, ... }:
 # https://github.com/serokell/deploy-rs/blob/715e92a13018bc1745fb680b5860af0c5641026a/examples/system/common.nix
 {
-  boot.loader.systemd-boot.enable = true;
+  imports = [
+    "${pkgs}/nixos/modules/virtualisation/qemu-vm.nix"
+  ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXROOT";
-    fsType = "ext4";
-  };
+  virtualisation.diskSize = 8192;
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXESP";
-    fsType = "vfat";
-  };
+  services.avahi.nssmdns = true;
 }
