@@ -97,7 +97,7 @@ To grab the whole overlay into your flake:
       "name": "sierrabreezeenhanced-1.0.3",
       "type": "derivation"
     },
-    "vm-clean": {
+    "vm-libvirt": {
       "name": "nixos-disk-image",
       "type": "derivation"
     }
