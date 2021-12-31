@@ -75,8 +75,8 @@
         ];
 
         test_server.modules = with modules.nixosModules; [
-          # "${inputs.nixos-generators}/formats/qcow.nix"
-          host-qemu
+          inputs.nixos-generators.nixosModules.qcow
+
           mainUser-admin
           docker
         ];
@@ -84,7 +84,7 @@
 
       deploy.nodes.local-vm = {
         # sshOpts = [ "-p" "22" ];
-        hostname = "192.168.122.8";
+        hostname = "192.168.122.98";
         fastConnection = true;
         profiles = {
           system = {
