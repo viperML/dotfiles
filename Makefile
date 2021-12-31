@@ -27,6 +27,13 @@ clean:
 	find -name result -exec unlink {} \;
 	nix-collect-garbage --delete-older-than 14d
 
-vm:
+IMG_DIR?=/var/lib/libvirt/images
+
+vm-libvirt:
 	nix build .#vm-libvirt
-	cp result
+	-virsh destroy nixos
+	@if [ -f ${IMG_DIR}/nixos.qcow2 ]; then\
+		rm -i ${IMG_DIR}/nixos.qcow2;\
+	fi
+	cp result/nixos.qcow2 ${IMG_DIR}/nixos.qcow2
+	virsh start nixos
