@@ -24,7 +24,7 @@
     enable = true;
     eula = true;
     openFirewall = true;
-    jvmOpts = "-Xmx1536M -Xms1536M";
+    jvmOpts = "-Xmx1536M -Xms512M";
 
     package = pkgs.mohist-server;
   };
