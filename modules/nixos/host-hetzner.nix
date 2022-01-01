@@ -8,7 +8,13 @@
     };
     kernelModules = [ ];
     extraModulePackages = [ ];
-    loader.systemd-boot.enable = true;
+
+    loader = {
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+      };
+    };
   };
 
   networking.useDHCP = false;
@@ -20,29 +26,29 @@
 
   fileSystems."/" =
     {
-      device = "/dev/sda2";
+      device = "/dev/disk/by-label/LINUXROOT";
       fsType = "btrfs";
       options = [ "subvol=@rootfs" ];
     };
 
   fileSystems."/nix" =
     {
-      device = "/dev/sda2";
+      device = "/dev/disk/by-label/LINUXROOT";
       fsType = "btrfs";
       options = [ "subvol=@nix" ];
     };
 
   fileSystems."/var/lib/minecraft" =
     {
-      device = "/dev/sda2";
+      device = "/dev/disk/by-label/LINUXROOT";
       fsType = "btrfs";
       options = [ "subvol=@minecraft" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/4C74-8154";
-      fsType = "vfat";
+      device = "/dev/disk/by-label/LINUXBOOT";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];

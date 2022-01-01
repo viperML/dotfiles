@@ -122,16 +122,30 @@
         ];
       };
 
-      deploy.nodes.local-vm = {
-        # sshOpts = [ "-p" "22" ];
-        hostname = "192.168.122.98";
-        fastConnection = true;
-        profiles = {
-          system = {
-            sshUser = "admin";
-            path =
-              inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.test_server;
-            user = "root";
+      deploy.nodes = {
+        local-vm = {
+          hostname = "192.168.122.98";
+          fastConnection = true;
+          profiles = {
+            system = {
+              sshUser = "admin";
+              path =
+                inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.test_server;
+              user = "root";
+            };
+          };
+        };
+
+        hetzner = {
+          hostname = "hetzner.ayats.org";
+          fastConnection = false;
+          profiles = {
+            system = {
+              sshUser = "admin";
+              path =
+                inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hetzner;
+              user = "root";
+            };
           };
         };
       };
