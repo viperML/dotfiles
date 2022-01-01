@@ -169,7 +169,7 @@
             ;
         } // {
 
-          vm-libvirt = inputs.nixos-generators.nixosGenerate {
+          base-vm = inputs.nixos-generators.nixosGenerate {
             pkgs = channels.nixpkgs;
             format = "qcow";
             modules = with modules.nixosModules; [

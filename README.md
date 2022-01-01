@@ -72,6 +72,10 @@ To grab the whole overlay into your flake:
       "name": "any-nix-shell-1.2.1",
       "type": "derivation"
     },
+    "base-vm": {
+      "name": "nixos-disk-image",
+      "type": "derivation"
+    },
     "lightly": {
       "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
       "name": "lightly-0.4.1",
@@ -95,10 +99,6 @@ To grab the whole overlay into your flake:
     "sierrabreezeenhanced": {
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
-      "type": "derivation"
-    },
-    "vm-libvirt": {
-      "name": "nixos-disk-image",
       "type": "derivation"
     }
   }
