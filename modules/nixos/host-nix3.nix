@@ -19,7 +19,7 @@
       # '';
     };
 
-    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages.kernel;
+    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "zfs" ];
