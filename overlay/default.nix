@@ -7,8 +7,7 @@ final: prev: {
   papirus-icon-theme = prev.callPackage ./papirus-icon-theme { papirus-icon-theme = prev.papirus-icon-theme; };
   netboot-xyz-images = prev.callPackage ./netboot-xyz-images { };
   plasma-applet-splitdigitalclock = prev.callPackage ./splitdigitalclock { };
-  # TODO patch to read secrets via sops-nix at runtime
-  # multimc = prev.callPackage ./multimc { multimc = prev.multimc; };
+  mohist-server = prev.callPackage ./mohist-server { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";
