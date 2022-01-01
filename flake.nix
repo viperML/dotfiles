@@ -37,13 +37,13 @@
 
       hosts = {
         gen6.modules = with modules.nixosModules; [
+          host-gen6
           desktop
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
           inputs.sops-nix.nixosModules.sops
           sops
-          host-gen6
 
           kvm
           docker
@@ -74,11 +74,44 @@
           }
         ];
 
+        nix3.modules = with modules.nixosModules; [
+          host-nix3
+          desktop
+          mainUser-ayats
+          inputs.home-manager.nixosModules.home-manager
+          home-manager
+
+          docker
+          printing
+        ] ++ [
+          # Split into 2, so the previous `with modules.nixosModules` namespace
+          # doesn't get inserted here
+          {
+            home-manager.sharedModules = with modules.homeModules; [
+              base
+              flake-channels
+              fonts
+              gui
+              git
+
+              bat
+              fish
+              konsole
+              lsd
+              neofetch
+              neovim
+              vscode
+              discord
+              kde
+            ];
+          }
+        ];
+
         test_server.modules = with modules.nixosModules; [
           inputs.nixos-generators.nixosModules.qcow
 
           mainUser-admin
-          inputs.modded-minecraft-servers.module
+          # inputs.modded-minecraft-servers.module
           minecraft-server
         ];
       };
@@ -96,6 +129,9 @@
           };
         };
       };
+
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
+
 
       outputsBuilder = channels: with channels.nixpkgs; {
         devShell = mkShell {

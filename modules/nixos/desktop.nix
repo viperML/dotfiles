@@ -82,6 +82,7 @@
     qbittorrent
     birdtray
     caffeine-ng
+    partition-manager
   ];
 
   nix = {

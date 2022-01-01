@@ -26,4 +26,5 @@ jobs:
         name: viperml
         extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build .#homeConfigurations.ayats.activationPackage -L
+    - run: nix build .#nixosConfigurations.nix3.config.system.build.toplevel -L
+      name: Build nix3 system

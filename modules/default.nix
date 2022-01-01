@@ -16,6 +16,7 @@ let
     ./nixos/mainUser-admin.nix
     ./nixos/mainUser-ayats.nix
     ./nixos/minecraft-server.nix
+    ./nixos/host-nix3.nix
   ];
 
   homeModules = flake-utils-plus.lib.exportModules [

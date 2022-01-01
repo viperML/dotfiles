@@ -1,15 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  services.modded-minecraft-servers = {
+  services.minecraft-server = {
+    enable = true;
     eula = true;
-
-    myserver = {
-      enable = true;
-
-      serverConfig = {
-        server-port = 25566;
-      };
-    };
   };
 }
