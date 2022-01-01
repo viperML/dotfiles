@@ -37,3 +37,4 @@ vm-libvirt:
 	fi
 	cp result/nixos.qcow2 ${IMG_DIR}/nixos.qcow2
 	virsh start nixos
+	virsh net-dhcp-leases default

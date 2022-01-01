@@ -7,5 +7,4 @@
 
   virtualisation.diskSize = 8192;
 
-  services.avahi.nssmdns = true;
 }

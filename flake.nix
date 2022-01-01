@@ -78,7 +78,8 @@
           inputs.nixos-generators.nixosModules.qcow
 
           mainUser-admin
-          docker
+          inputs.modded-minecraft-servers.module
+          minecraft-server
         ];
       };
 
@@ -97,7 +98,30 @@
       };
 
       outputsBuilder = channels: with channels.nixpkgs; {
-        devShell = import ./shell.nix { pkgs = channels.nixpkgs; };
+        devShell = mkShell {
+          name = "dotfiles";
+          buildInputs = [
+            git
+            gnumake
+            jq
+            nixos-install-tools
+            nixUnstable
+            ripgrep
+            update-nix-fetchgit
+            inputs.deploy-rs.defaultPackage.${system}
+          ];
+          shellHook = ''
+            export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
+            export FLAKE="/home/ayats/.dotfiles"
+            echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
+            echo "Last flake update:"
+            git log -1 --pretty="format:%ch" flake.lock
+            echo -e "\n\e[34m❄ Changes to the running NixOS config: ❄"
+            echo -e "\e[0m"
+            git --no-pager diff $(nixos-version --json | jq -r '.configurationRevision') -p
+          '';
+        };
+
         packages = {
           inherit
             lightly
@@ -116,6 +140,7 @@
               mainUser-admin
             ];
           };
+
         };
       };
 
@@ -188,6 +213,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+
     nur.url = github:nix-community/NUR;
 
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
@@ -207,6 +237,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-  };
+    modded-minecraft-servers = {
+      url = github:mkaito/nixos-modded-minecraft-servers;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+  };
 }

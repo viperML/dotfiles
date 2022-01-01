@@ -16,4 +16,5 @@
   nix.trustedUsers = [ "@wheel" ]; # https://github.com/serokell/deploy-rs/issues/25
 
   services.openssh = { enable = true; };
+  services.avahi.nssmdns = true;
 }
