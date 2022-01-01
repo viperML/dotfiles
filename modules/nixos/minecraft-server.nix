@@ -24,6 +24,7 @@
     enable = true;
     eula = true;
     openFirewall = true;
+    jvmOpts = "-Xmx1536M -Xms1536M";
 
     package = (pkgs.papermc.overrideAttrs (prev:
       let
