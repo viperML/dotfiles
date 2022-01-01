@@ -17,6 +17,7 @@ let
     ./nixos/mainUser-ayats.nix
     ./nixos/minecraft-server.nix
     ./nixos/host-nix3.nix
+    ./nixos/host-hetzner.nix
   ];
 
   homeModules = flake-utils-plus.lib.exportModules [

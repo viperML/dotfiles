@@ -114,6 +114,12 @@
           # inputs.modded-minecraft-servers.module
           minecraft-server
         ];
+
+        hetzner.modules = with modules.nixosModules; [
+          host-hetzner
+          mainUser-admin
+          # minecraft-server
+        ];
       };
 
       deploy.nodes.local-vm = {
