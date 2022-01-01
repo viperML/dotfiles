@@ -118,7 +118,7 @@
         hetzner.modules = with modules.nixosModules; [
           host-hetzner
           mainUser-admin
-          # minecraft-server
+          minecraft-server
         ];
       };
 
