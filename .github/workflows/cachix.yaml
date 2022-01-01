@@ -28,5 +28,5 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build .#nixosConfigurations.nix3.config.system.build.toplevel -L
       name: Build nix3 system
-    - run: nix build .#devShell.x86_64-linux -L
+    - run: nix build .#devShell.x86_64-linux.inputDerivation -L
       name: Build devShell
