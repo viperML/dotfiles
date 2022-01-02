@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 
 {
-
   networking.firewall.allowedTCPPorts = [ 21 80 443 ];
+  networking.firewall.allowedTCPPortRanges = [{ from = 51000; to = 51999; }];
+
+  # Acess via FTP
   services.vsftpd = {
     enable = true;
     extraConfig = ''
@@ -27,12 +29,12 @@
       root = "/var/lib/minecraft/mods";
     };
   };
-
-  security.acme.certs = {
-    "hetzner.ayats.org".email = "ayatsfer@gmail.com";
+  security.acme = {
+    certs = {
+      "hetzner.ayats.org".email = "ayatsfer@gmail.com";
+    };
+    acceptTerms = true;
   };
-
-  networking.firewall.allowedTCPPortRanges = [{ from = 51000; to = 51999; }];
 
   users.users.minecraft.initialPassword = "minecraft";
 
