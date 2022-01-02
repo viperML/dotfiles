@@ -25,7 +25,7 @@
     group = "minecraft";
     virtualHosts."hetzner.ayats.org" = {
       enableACME = true;
-      forceSSL = true;
+      addSSL = true;
       root = "/var/lib/minecraft/mods";
     };
   };
@@ -35,6 +35,8 @@
     };
     acceptTerms = true;
   };
+
+  systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 
   users.users.minecraft.initialPassword = "minecraft";
 
