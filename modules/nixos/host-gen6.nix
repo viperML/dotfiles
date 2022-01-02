@@ -79,6 +79,7 @@
     libsForQt5.kdenlive
     ffmpeg
     ungoogled-chromium
+    androidStudioPackages.beta
   ];
 
   services = {
