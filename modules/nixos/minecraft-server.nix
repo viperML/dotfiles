@@ -27,9 +27,9 @@
       enableACME = true;
       addSSL = true;
       root = "/var/lib/minecraft/mods";
-      locations."/" = {
-        autoindex = true;
-      };
+      locations."/".extraConfig = ''
+        autoindex on;
+      '';
     };
   };
   security.acme = {
