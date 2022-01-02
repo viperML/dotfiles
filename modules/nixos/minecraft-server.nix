@@ -26,8 +26,10 @@
     virtualHosts."hetzner.ayats.org" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/lib/minecraft/mods";
+      # root = "/var/lib/minecraft/mods";
       locations."/".extraConfig = ''
+        root /var/lib/minecraft/mods;
+        index index.html;
         autoindex on;
       '';
     };
