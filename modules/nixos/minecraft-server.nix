@@ -21,8 +21,8 @@
   # Serve mods via HTTP
   services.nginx = {
     enable = true;
-    user = "minecraft";
-    group = "minecraft";
+    # user = "minecraft";
+    # group = "minecraft";
     virtualHosts."hetzner.ayats.org" = {
       enableACME = true;
       addSSL = true;
