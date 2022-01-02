@@ -24,8 +24,8 @@
     # user = "minecraft";
     # group = "minecraft";
     virtualHosts."hetzner.ayats.org" = {
-      enableACME = true;
-      forceSSL = true;
+      enableACME = false;
+      forceSSL = false;
       # root = "/var/lib/minecraft/mods";
       locations."/".extraConfig = ''
         root /var/lib/minecraft/mods;
@@ -34,12 +34,12 @@
       '';
     };
   };
-  security.acme = {
-    certs = {
-      "hetzner.ayats.org".email = "ayatsfer@gmail.com";
-    };
-    acceptTerms = true;
-  };
+  # security.acme = {
+  #   certs = {
+  #     "hetzner.ayats.org".email = "ayatsfer@gmail.com";
+  #   };
+  #   acceptTerms = true;
+  # };
 
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 
