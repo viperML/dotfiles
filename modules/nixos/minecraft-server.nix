@@ -2,7 +2,7 @@
 
 {
 
-  networking.firewall.allowedTCPPorts = [ 21 ];
+  networking.firewall.allowedTCPPorts = [ 21 80 443 ];
   services.vsftpd = {
     enable = true;
     extraConfig = ''
@@ -14,6 +14,22 @@
     localUsers = true;
     userlist = [ "minecraft" ];
     userlistEnable = true;
+  };
+
+  # Serve mods via HTTP
+  services.nginx = {
+    enable = true;
+    user = "minecraft";
+    group = "minecraft";
+    virtualHosts."hetzner.ayats.org" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/lib/minecraft/mods";
+    };
+  };
+
+  security.acme.certs = {
+    "hetzner.ayats.org".email = "ayatsfer@gmail.com";
   };
 
   networking.firewall.allowedTCPPortRanges = [{ from = 51000; to = 51999; }];
