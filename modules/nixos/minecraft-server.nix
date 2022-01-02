@@ -25,7 +25,7 @@
     # group = "minecraft";
     virtualHosts."hetzner.ayats.org" = {
       enableACME = true;
-      addSSL = true;
+      forceSSL = true;
       root = "/var/lib/minecraft/mods";
       locations."/".extraConfig = ''
         autoindex on;
