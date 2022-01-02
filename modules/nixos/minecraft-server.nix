@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.firewall.allowedTCPPorts = [ 21 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 21 ];
   networking.firewall.allowedTCPPortRanges = [{ from = 51000; to = 51999; }];
 
   # Acess via FTP
@@ -17,31 +17,6 @@
     userlist = [ "minecraft" ];
     userlistEnable = true;
   };
-
-  # Serve mods via HTTP
-  services.nginx = {
-    enable = true;
-    # user = "minecraft";
-    # group = "minecraft";
-    virtualHosts."hetzner.ayats.org" = {
-      enableACME = false;
-      forceSSL = false;
-      # root = "/var/lib/minecraft/mods";
-      locations."/".extraConfig = ''
-        root /var/lib/minecraft/mods;
-        index index.html;
-        autoindex on;
-      '';
-    };
-  };
-  # security.acme = {
-  #   certs = {
-  #     "hetzner.ayats.org".email = "ayatsfer@gmail.com";
-  #   };
-  #   acceptTerms = true;
-  # };
-
-  systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 
   users.users.minecraft.initialPassword = "minecraft";
 
