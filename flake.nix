@@ -3,7 +3,8 @@
 
   outputs = inputs @ { self, nixpkgs, flake-utils-plus, ... }:
     let
-      modules = import ./modules { inherit flake-utils-plus; };
+      lib = nixpkgs.lib;
+      modules = import ./modules { inherit flake-utils-plus lib; };
     in
     flake-utils-plus.lib.mkFlake {
 
@@ -13,7 +14,7 @@
       # Export modules
       inherit (modules) nixosModules homeModules;
 
-      # Export lib
+      # Export lib TODO cleanup with nixpkgs.lib
       lib =
         let
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
