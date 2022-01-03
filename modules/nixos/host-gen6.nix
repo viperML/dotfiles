@@ -146,7 +146,7 @@
     {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = "4g";
+      options = [ "size=4G" ];
     };
 
   fileSystems."/nix" =
