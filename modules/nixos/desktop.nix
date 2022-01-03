@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   services = {
     xserver = {
       enable = true;
@@ -34,6 +33,7 @@
     udev.packages = with pkgs; [ android-udev-rules ];
   };
 
+
   hardware.pulseaudio.enable = false; # replaces pipewire
 
 
@@ -48,41 +48,46 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # jetbrains-mono
-    # vscode-fhs
-    brave
+    # Base cli
     file
+    xsel
+    nmap
+    pciutils
+
+    # Base
+    brave
+    ungoogled-chromium
     flameshot
+    masterpdfeditor4
+    onlyoffice-bin
+    word-for-poor-people
+    excel-for-poor-people
+    thunderbird
+    birdtray
+    mpv
+    (papirus-icon-theme.override { color = "yaru"; })
+    spotify-for-poor-people
+    qbittorrent
+
+    # KDE specific
     gnome.seahorse
-    # latte-dock
     libsForQt5.bismuth
     libsForQt5.plasma-pa
     libsForQt5.qtstyleplugin-kvantum
     lightly
-    masterpdfeditor4
-    mpv
-    (papirus-icon-theme.override { color = "yaru"; })
     sierrabreezeenhanced
-    spotify-for-poor-people
-    thunderbird
-    word-for-poor-people
-    excel-for-poor-people
-    xsel
-    onlyoffice-bin
     libsForQt5.ark
     libsForQt5.ffmpegthumbs
+    libsForQt5.kdegraphics-thumbnailers
     libsForQt5.filelight
     libsForQt5.gwenview
     libsForQt5.kwalletmanager
-    libsForQt5.kdegraphics-thumbnailers
+    caffeine-ng
+
+    # Misc
     ahoviewer
     krita-beta
     obs-studio
-    nmap
-    qbittorrent
-    birdtray
-    caffeine-ng
-    partition-manager
   ];
 
   nix = {

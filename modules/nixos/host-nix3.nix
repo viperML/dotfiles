@@ -108,6 +108,7 @@
           "autoprune" = true;
         };
       };
+      # TODO
       # settings = {
       #   "zroot/data/home" = {
       #     "use_template" = "normal";
@@ -168,8 +169,7 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
-    # cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = true;
     video.hidpi.enable = lib.mkDefault true;
-    # opengl.driSupport32Bit = true;
   };
 }

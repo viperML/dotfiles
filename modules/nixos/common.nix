@@ -11,7 +11,10 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.nixUnstable;
-    extraOptions = ''${builtins.readFile ../nix.conf}'';
+    extraOptions = "${builtins.readFile ../nix.conf}";
+    # from flake-utils-plus
+    # Sets NIX_PATH to follow this flake's nix inputs
+    # So legacy nix-channel is not needed
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;

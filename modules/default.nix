@@ -9,15 +9,13 @@ let
     ./nixos/gaming.nix
     ./nixos/home-manager.nix
     ./nixos/host-gen6.nix
-    ./nixos/host-qemu.nix
-    ./nixos/kvm.nix
-    ./nixos/printing.nix
-    ./nixos/sops.nix
+    ./nixos/host-hetzner.nix
+    ./nixos/host-nix3.nix
     ./nixos/mainUser-admin.nix
     ./nixos/mainUser-ayats.nix
     ./nixos/minecraft-server.nix
-    ./nixos/host-nix3.nix
-    ./nixos/host-hetzner.nix
+    ./nixos/printing.nix
+    ./nixos/virt.nix
   ];
 
   homeModules = flake-utils-plus.lib.exportModules [

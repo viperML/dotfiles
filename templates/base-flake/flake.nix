@@ -13,9 +13,12 @@
 
       outputsBuilder = (channels: {
         devShell = channels.nixpkgs.mkShell {
-          name = "myDevShell";
+          name = "my-shell";
+
           buildInputs = with channels.nixpkgs; [
-            #
+            # My build inputs:
+            hello
+            # ---
           ];
         };
       });

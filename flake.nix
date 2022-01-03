@@ -42,10 +42,8 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
-          inputs.sops-nix.nixosModules.sops
-          sops
 
-          kvm
+          virt
           docker
           printing
           gaming
@@ -277,11 +275,6 @@
     nur.url = github:nix-community/NUR;
 
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
-
-    sops-nix = {
-      url = github:Mic92/sops-nix;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     deploy-rs = {
       url = github:serokell/deploy-rs;

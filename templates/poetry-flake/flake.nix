@@ -1,18 +1,20 @@
 {
-  description = "Flake for reproducible environments with poetry";
+  description = "My flake for reproducible environments with poetry";
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixpkgs-unstable;
-    utils.url = github:gytis-ivaskevicius/flake-utils-plus;
+    flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus;
   };
 
-  outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
+  outputs = inputs@{ self, nixpkgs, flake-utils-plus, ... }:
+  flake-utils-plus.lib.mkFlake {
     inherit self inputs;
 
     outputsBuilder = channels: {
 
       devShell = channels.nixpkgs.mkShell {
-        name = "poetry-flake";
+        name = "my-poetry-flake";
+
         buildInputs = with channels.nixpkgs; [
           # Change your python version here
           (python39.withPackages (pp: with pp; [
@@ -20,7 +22,9 @@
           ]))
           # Add non-python packages here
 
+          # ---
         ];
+
         shellHook = ''
           python -m venv .venv
           if [[ ! -f "pyproject.toml" ]]; then
