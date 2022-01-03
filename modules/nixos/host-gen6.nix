@@ -80,6 +80,7 @@
     ffmpeg
     ungoogled-chromium
     androidStudioPackages.beta
+    genymotion
   ];
 
   services = {
@@ -143,8 +144,9 @@
 
   fileSystems."/" =
     {
-      device = "zroot/gen6/nixos";
-      fsType = "zfs";
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = "4g";
     };
 
   fileSystems."/nix" =
