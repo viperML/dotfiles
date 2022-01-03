@@ -287,10 +287,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    modded-minecraft-servers = {
-      url = github:mkaito/nixos-modded-minecraft-servers;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 }
