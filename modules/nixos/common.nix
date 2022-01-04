@@ -19,4 +19,5 @@
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
+  environment.etc."nixpkgs/config.nix".text = "${builtins.readFile ../nixpkgs.conf}";
 }
