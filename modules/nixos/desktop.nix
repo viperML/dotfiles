@@ -5,8 +5,6 @@
     xserver = {
       enable = true;
       displayManager = {
-        sddm.enable = true;
-        sddm.autoLogin.relogin = true;
         autoLogin.user = "${config.users.users.mainUser.name}";
         autoLogin.enable = true;
       };

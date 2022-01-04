@@ -3,7 +3,10 @@
 {
   services = {
     xserver = {
-
+      displayManager = {
+        sddm.enable = true;
+        sddm.autoLogin.relogin = true;
+      };
       desktopManager.plasma5.enable = true;
       desktopManager.plasma5.runUsingSystemd = true;
     };
