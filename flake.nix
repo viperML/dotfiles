@@ -76,6 +76,7 @@
         nix3.modules = with modules.nixosModules; [
           host-nix3
           desktop
+          desktop-gnome
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
