@@ -33,6 +33,11 @@
     udev.packages = with pkgs; [ android-udev-rules ];
   };
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStartSec=15s
+    DefaultTimeoutStopSec=15s
+  '';
+
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
