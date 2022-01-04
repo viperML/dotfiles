@@ -6,6 +6,8 @@
       displayManager = {
         sddm.enable = true;
         sddm.autoLogin.relogin = true;
+        autoLogin.user = "${config.users.users.mainUser.name}";
+        autoLogin.enable = true;
       };
       desktopManager.plasma5.enable = true;
       desktopManager.plasma5.runUsingSystemd = true;

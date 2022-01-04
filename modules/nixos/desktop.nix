@@ -4,10 +4,6 @@
   services = {
     xserver = {
       enable = true;
-      displayManager = {
-        autoLogin.user = "${config.users.users.mainUser.name}";
-        autoLogin.enable = true;
-      };
     };
 
     pipewire = {

@@ -40,7 +40,7 @@
         gen6.modules = with modules.nixosModules; [
           host-gen6
           desktop
-          desktop-gnome
+          desktop-kde
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
