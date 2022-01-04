@@ -154,7 +154,26 @@
 
       outputsBuilder = channels: with channels.nixpkgs; {
         devShell = mkShell {
-          name = "dotfiles";
+          name = "dotfiles-basic-shell";
+          buildInputs = [
+            git
+            gnumake
+            jq
+            nixos-install-tools
+            nixUnstable
+            ripgrep
+          ];
+          shellHook = ''
+            export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
+            export FLAKE="/home/ayats/.dotfiles"
+            echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
+            echo -e "\e[34m''$(nix --version)"
+            echo -e "\e[0m"
+          '';
+        };
+
+        devShellPlus = mkShell {
+          name = "dotfiles-advanced-shell";
           buildInputs = [
             git
             gnumake
@@ -169,7 +188,8 @@
             export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
             export FLAKE="/home/ayats/.dotfiles"
             echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-            echo "Nixpkgs age:"
+            echo -e "\e[34m- ''$(nix --version)"
+            echo "- Nixpkgs age:"
             curl https://api.github.com/repos/NixOS/nixpkgs/commits/`jq -r '.nodes.nixpkgs.locked.rev' ./flake.lock` -s | jq -r ".commit.author.date"
             echo -e "\n\e[34m❄ Changes to the running NixOS config: ❄"
             echo -e "\e[0m"

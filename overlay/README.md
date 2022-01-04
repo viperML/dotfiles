@@ -10,5 +10,7 @@ These derivations should be able to be built without the flake support,
 by using this command at the derivation folder:
 
 ```bash
-nix-build --pure -E "with import <nixpkgs> {}; callPackage ./. {}"
+nix-build --pure -E "with import <nixpkgs> {}; callPackage ./default.nix {}"
+# Or using the new nix command:
+nix develop --impure --expr "with import <nixpkgs> {}; callPackage ./default.nix {}"
 ```

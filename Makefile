@@ -20,6 +20,8 @@ update:
 
 hooks:
 	ln -sf ${PWD}/.github/hooks/* .git/hooks
+	echo "use flake .#devShellPlus.x86_64-linux" > .envrc
+
 
 clean:
 	find -name *.qcow2 -exec rm {} \;
