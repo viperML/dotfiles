@@ -8,15 +8,11 @@
 
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
-
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src=".img/20211219.png" width="100%"/>
+    <img alt="Desktop screenshot" src=".img/latest.png" width="100%"/>
   </div>
 </div>
-
-
-# ❄ Usage
 
 This repo provides a [nix flake](https://nixos.wiki/wiki/Flakes) which [NixOS](https://nixos.wiki/wiki/NixOS) and [home-manager](https://github.com/nix-community/home-manager) configuration, along with an overlay for packages.
 
