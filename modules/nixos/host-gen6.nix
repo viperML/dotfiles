@@ -12,9 +12,9 @@
       kernelModules = [ ];
       supportedFilesystems = [ "zfs" ];
       # Rollback ZFS on root
-      # postDeviceCommands = lib.mkAfter ''
-      #   zfs rollback -r zroot/gen6/nixos@empty
-      # '';
+      postDeviceCommands = lib.mkAfter ''
+        zfs rollback -r zroot/gen6/nixos@empty
+      '';
     };
 
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
@@ -75,7 +75,7 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.kdenlive
     ffmpeg
-    cudatoolkit
+    # cudatoolkit
   ];
 
   services = {
@@ -139,9 +139,9 @@
 
   fileSystems."/" =
     {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "size=4G" ];
+      device = "zroot/gen6/nixos";
+      fsType = "zfs";
+      # options = [ "size=4G" ];
     };
 
   fileSystems."/nix" =
