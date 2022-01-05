@@ -291,13 +291,13 @@
     };
 
     flake-compat = {
-      url = "github:edolstra/flake-compat";
+      url = github:edolstra/flake-compat;
       flake = false;
     };
 
     nur.url = github:nix-community/NUR;
 
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    powercord-overlay.url = github:LavaDesu/powercord-overlay;
 
     deploy-rs = {
       url = github:serokell/deploy-rs;

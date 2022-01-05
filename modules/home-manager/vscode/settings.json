@@ -382,6 +382,8 @@
   "workbench.enableExperiments": false,
   "gitlens.currentLine.enabled": false,
   "jupyter.askForKernelRestart": false,
-  "nix.enableLanguageServer": true
+  "nix.enableLanguageServer": true,
 
+
+  "insertDateString.format": "iso"
 }

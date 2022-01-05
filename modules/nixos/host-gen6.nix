@@ -75,7 +75,7 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.kdenlive
     ffmpeg
-    # cudatoolkit
+    cudatoolkit
   ];
 
   services = {
