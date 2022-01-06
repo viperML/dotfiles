@@ -6,9 +6,7 @@
   time.timeZone = "Europe/Madrid";
 
 
-  security.sudo.wheelNeedsPassword = false;
-
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = import ../nixpkgs.conf;
 
   nix = {
     package = pkgs.nixUnstable;

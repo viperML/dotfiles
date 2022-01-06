@@ -50,6 +50,7 @@
     xsel
     nmap
     pciutils
+    wget
 
     # Base
     brave

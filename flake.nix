@@ -154,10 +154,13 @@
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
 
-      outputsBuilder = channels: with channels.nixpkgs; {
-        devShell = mkShell {
+      outputsBuilder = channels:
+        let
+          pkgs = channels.nixpkgs;
+        in {
+        devShell = pkgs.mkShell {
           name = "dotfiles-basic-shell";
-          buildInputs = [
+          buildInputs = with pkgs; [
             git
             gnumake
             jq
@@ -174,9 +177,9 @@
           '';
         };
 
-        devShellPlus = mkShell {
+        devShellPlus = pkgs.mkShell {
           name = "dotfiles-advanced-shell";
-          buildInputs = [
+          buildInputs = with pkgs; [
             git
             gnumake
             jq
@@ -199,7 +202,7 @@
           '';
         };
 
-        packages = {
+        packages = with pkgs; {
           inherit
             lightly
             sierrabreezeenhanced
@@ -211,7 +214,7 @@
         } // {
 
           base-vm = inputs.nixos-generators.nixosGenerate {
-            pkgs = channels.nixpkgs;
+            pkgs = pkgs;
             format = "qcow";
             modules = with modules.nixosModules; [
               mainUser-admin
