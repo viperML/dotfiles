@@ -37,7 +37,7 @@ You can use the output directly in in `home-manager`, for example:
 
 {
   home.activation.<activation script name> = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    (inputs.viperml.lib.kde.configsToCommands {
+    (inputs.viperml.lib.x86_64-linux.kde.configsToCommands {
       configs = {
         konsolerc = {
           TabBar = {

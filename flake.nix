@@ -14,13 +14,6 @@
       # Export modules
       inherit (modules) nixosModules homeModules;
 
-      # Export lib TODO cleanup with nixpkgs.lib
-      lib =
-        let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          lib = nixpkgs.lib;
-        in
-        import ./lib { inherit pkgs lib; };
 
       # Channels configurations
       channelsConfig.allowUnfree = true;
@@ -158,6 +151,8 @@
         let
           pkgs = channels.nixpkgs;
         in {
+        lib = let lib = pkgs.lib; in import ./lib { inherit pkgs lib; };
+
         devShell = pkgs.mkShell {
           name = "dotfiles-basic-shell";
           buildInputs = with pkgs; [
