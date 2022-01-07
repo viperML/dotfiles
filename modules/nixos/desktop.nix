@@ -54,7 +54,7 @@
 
     # Base
     brave
-    ungoogled-chromium
+    google-chrome
     flameshot
     masterpdfeditor4
     onlyoffice-bin
