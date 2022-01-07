@@ -37,6 +37,7 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
+          inputs.impermanence.nixosModules.impermanence
 
           virt
           docker
@@ -53,6 +54,9 @@
               gui
               git
 
+              inputs.impermanence.nixosModules.home-manager.impermanence
+              impermanence
+
               bat
               fish
               konsole
@@ -67,39 +71,37 @@
           }
         ];
 
-        nix3.modules = with modules.nixosModules; [
-          host-nix3
-          desktop
-          desktop-gnome
-          mainUser-ayats
-          inputs.home-manager.nixosModules.home-manager
-          home-manager
-
-          docker
-          printing
-        ] ++ [
-          # Split into 2, so the previous `with modules.nixosModules` namespace
-          # doesn't get inserted here
-          {
-            home-manager.sharedModules = with modules.homeModules; [
-              base
-              flake-channels
-              fonts
-              gui
-              git
-
-              bat
-              fish
-              konsole
-              lsd
-              neofetch
-              neovim
-              vscode
-              discord
-              kde
-            ];
-          }
-        ];
+        # nix3.modules = with modules.nixosModules; [
+        #   host-nix3
+        #   desktop
+        #   desktop-gnome
+        #   mainUser-ayats
+        #   inputs.home-manager.nixosModules.home-manager
+        #   home-manager
+        #   docker
+        #   printing
+        # ] ++ [
+        #   # Split into 2, so the previous `with modules.nixosModules` namespace
+        #   # doesn't get inserted here
+        #   {
+        #     home-manager.sharedModules = with modules.homeModules; [
+        #       base
+        #       flake-channels
+        #       fonts
+        #       gui
+        #       git
+        #       bat
+        #       fish
+        #       konsole
+        #       lsd
+        #       neofetch
+        #       neovim
+        #       vscode
+        #       discord
+        #       kde
+        #     ];
+        #   }
+        # ];
 
         test_server.modules = with modules.nixosModules; [
           inputs.nixos-generators.nixosModules.qcow
@@ -150,74 +152,75 @@
       outputsBuilder = channels:
         let
           pkgs = channels.nixpkgs;
-        in {
-        lib = let lib = pkgs.lib; in import ./lib { inherit pkgs lib; };
+        in
+        {
+          lib = let lib = pkgs.lib; in import ./lib { inherit pkgs lib; };
 
-        devShell = pkgs.mkShell {
-          name = "dotfiles-basic-shell";
-          buildInputs = with pkgs; [
-            git
-            gnumake
-            jq
-            nixos-install-tools
-            nixUnstable
-            ripgrep
-          ];
-          shellHook = ''
-            export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-            export FLAKE="/home/ayats/.dotfiles"
-            echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-            echo -e "\e[34m''$(nix --version)"
-            echo -e "\e[0m"
-          '';
-        };
-
-        devShellPlus = pkgs.mkShell {
-          name = "dotfiles-advanced-shell";
-          buildInputs = with pkgs; [
-            git
-            gnumake
-            jq
-            nixos-install-tools
-            nixUnstable
-            ripgrep
-            update-nix-fetchgit
-            inputs.deploy-rs.defaultPackage.${system}
-          ];
-          shellHook = ''
-            export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-            export FLAKE="/home/ayats/.dotfiles"
-            echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-            echo -e "\e[34m- ''$(nix --version)"
-            echo "- Nixpkgs age:"
-            curl https://api.github.com/repos/NixOS/nixpkgs/commits/`jq -r '.nodes.nixpkgs.locked.rev' ./flake.lock` -s | jq -r ".commit.author.date"
-            echo -e "\n\e[34m❄ Changes to the running NixOS config: ❄"
-            echo -e "\e[0m"
-            git --no-pager diff $(nixos-version --json | jq -r '.configurationRevision') -p
-          '';
-        };
-
-        packages = with pkgs; {
-          inherit
-            lightly
-            sierrabreezeenhanced
-            multiload-ng
-            any-nix-shell
-            papirus-icon-theme
-            netboot-xyz-images
-            ;
-        } // {
-
-          base-vm = inputs.nixos-generators.nixosGenerate {
-            pkgs = pkgs;
-            format = "qcow";
-            modules = with modules.nixosModules; [
-              mainUser-admin
+          devShell = pkgs.mkShell {
+            name = "dotfiles-basic-shell";
+            buildInputs = with pkgs; [
+              git
+              gnumake
+              jq
+              nixos-install-tools
+              nixUnstable
+              ripgrep
             ];
+            shellHook = ''
+              export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
+              export FLAKE="/home/ayats/.dotfiles"
+              echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
+              echo -e "\e[34m''$(nix --version)"
+              echo -e "\e[0m"
+            '';
           };
 
+          devShellPlus = pkgs.mkShell {
+            name = "dotfiles-advanced-shell";
+            buildInputs = with pkgs; [
+              git
+              gnumake
+              jq
+              nixos-install-tools
+              nixUnstable
+              ripgrep
+              update-nix-fetchgit
+              inputs.deploy-rs.defaultPackage.${system}
+            ];
+            shellHook = ''
+              export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
+              export FLAKE="/home/ayats/.dotfiles"
+              echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
+              echo -e "\e[34m- ''$(nix --version)"
+              echo "- Nixpkgs age:"
+              curl https://api.github.com/repos/NixOS/nixpkgs/commits/`jq -r '.nodes.nixpkgs.locked.rev' ./flake.lock` -s | jq -r ".commit.author.date"
+              echo -e "\n\e[34m❄ Changes to the running NixOS config: ❄"
+              echo -e "\e[0m"
+              git --no-pager diff $(nixos-version --json | jq -r '.configurationRevision') -p
+            '';
+          };
+
+          packages = with pkgs; {
+            inherit
+              lightly
+              sierrabreezeenhanced
+              multiload-ng
+              any-nix-shell
+              papirus-icon-theme
+              netboot-xyz-images
+              ;
+          } // {
+
+            base-vm = inputs.nixos-generators.nixosGenerate {
+              pkgs = pkgs;
+              format = "qcow";
+              modules = with modules.nixosModules; [
+                mainUser-admin
+              ];
+            };
+
+          };
         };
-      };
 
       templates = {
         poetry-flake = {
@@ -307,5 +310,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = github:nix-community/impermanence;
   };
 }
