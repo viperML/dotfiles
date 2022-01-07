@@ -69,7 +69,7 @@
   };
 
   networking = {
-    hostName = "nix3";
+    # hostName = "nix3";
     hostId = builtins.substring 0 8 (builtins.hashString "md5" config.networking.hostName);
     networkmanager.enable = true;
   };

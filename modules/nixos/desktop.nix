@@ -63,7 +63,7 @@
     thunderbird
     birdtray
     mpv
-    (papirus-icon-theme.override { color = "yaru"; })
+    (papirus-icon-theme.override { color = "brown"; })
     spotify-for-poor-people
     qbittorrent
     gnome.seahorse

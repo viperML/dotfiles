@@ -66,7 +66,7 @@
   };
 
   networking = {
-    hostName = "gen6";
+    # hostName = "gen6";
     hostId = "01017f00";
     networkmanager.enable = true;
   };
