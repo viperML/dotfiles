@@ -1,6 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  programs.fuse.userAllowOther = true; # needed for impermannce
+
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")

@@ -6,6 +6,7 @@
   users.users.mainUser = {
     name = "ayats";
     initialPassword = "1234";
+    createHome = true;
     home = "/home/ayats";
     description = "Fernando Ayats";
     isNormalUser = true;
