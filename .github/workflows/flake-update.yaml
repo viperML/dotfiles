@@ -2,6 +2,9 @@ name: "Flake update and cache"
 
 on:
   workflow_dispatch:
+  schedule:
+  # Every saturday at night
+  - cron: '20 04 * * SAT'
 
 jobs:
   builds:
