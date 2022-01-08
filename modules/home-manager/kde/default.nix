@@ -2,12 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    latte-dock
+    # latte-dock
     plasma-applet-splitdigitalclock
   ];
 
 
   # Latte dock config
-  home.file.".config/latte/nix.layout.latte.backup".source = ./nix.layout.latte;
-
+  # home.file.".config/latte/nix.layout.latte.backup".source = ./nix.layout.latte;
 }

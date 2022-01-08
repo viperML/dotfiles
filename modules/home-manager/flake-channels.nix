@@ -18,7 +18,7 @@
   home.file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
   home.sessionVariables = lib.mkForce {
     NIX_PATH = "nixpkgs=$HOME/.nix-inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";
-    FLAKE = "$HOME/.dotfiles";
+    FLAKE = "$HOME/Documents/dotfiles";
   };
 
   home.activation.useFlakeChannels = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

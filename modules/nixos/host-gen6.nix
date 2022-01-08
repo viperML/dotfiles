@@ -156,7 +156,22 @@
     {
       device = "zroot/secrets";
       fsType = "zfs";
+      neededForBoot = true;
     };
+
+  fileSystems."/home/ayats/.impermanence" =
+    {
+      device = "zroot/data/ayats";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/home" =
+  {
+    device = "zroot/data/home";
+    fsType = "zfs";
+    neededForBoot = true;
+  };
 
   fileSystems."/boot" =
     {

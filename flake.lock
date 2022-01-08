@@ -141,21 +141,6 @@
         "type": "github"
       }
     },
-    "impermanence": {
-      "locked": {
-        "lastModified": 1640808801,
-        "narHash": "sha256-iHo8vyuYyhbk5MGfwn/7IahF8dBAwUYTZga4u0UsqPQ=",
-        "owner": "nix-community",
-        "repo": "impermanence",
-        "rev": "29d781b47b0ee6014abd541c132c647d18ab098e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "impermanence",
-        "type": "github"
-      }
-    },
     "nix-on-droid": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -315,7 +300,6 @@
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
-        "impermanence": "impermanence",
         "nix-on-droid": "nix-on-droid",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",

@@ -37,7 +37,6 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
-          inputs.impermanence.nixosModules.impermanence
 
           virt
           docker
@@ -53,9 +52,6 @@
               fonts
               gui
               git
-
-              inputs.impermanence.nixosModules.home-manager.impermanence
-              impermanence
 
               bat
               fish
@@ -168,7 +164,7 @@
             ];
             shellHook = ''
               export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-              export FLAKE="/home/ayats/.dotfiles"
+              export FLAKE="/home/ayats/Documents/dotfiles"
               echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
               echo -e "\e[34m''$(nix --version)"
               echo -e "\e[0m"
@@ -189,7 +185,7 @@
             ];
             shellHook = ''
               export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-              export FLAKE="/home/ayats/.dotfiles"
+              export FLAKE="/home/ayats/Documents/dotfiles"
               echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
               echo -e "\e[34m- ''$(nix --version)"
               echo "- Nixpkgs age:"
@@ -309,7 +305,5 @@
       url = github:nix-community/nixos-generators;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    impermanence.url = github:nix-community/impermanence;
   };
 }
