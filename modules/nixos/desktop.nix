@@ -54,7 +54,7 @@
 
     # Base
     brave
-    google-chrome
+    # google-chrome
     flameshot
     masterpdfeditor4
     onlyoffice-bin
@@ -72,6 +72,9 @@
     ahoviewer
     krita-beta
     obs-studio
+    joplin-desktop
+    mailspring
+
   ];
 
   nix = {
