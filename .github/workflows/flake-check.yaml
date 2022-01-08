@@ -1,4 +1,4 @@
-name: "Flake Check"
+name: "Flake check"
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   builds:
-    name: Check flake
+    name: flake-check
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.4.0

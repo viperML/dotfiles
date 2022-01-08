@@ -1,4 +1,4 @@
-name: "Update flake"
+name: "Flake update and cache"
 
 on:
   workflow_dispatch:
@@ -27,7 +27,7 @@ jobs:
     - run: nix flake check
     - run: nix build .#devShell.x86_64-linux.inputDerivation -L
     - run: nix build .#devShellPlus.x86_64-linux.inputDerivation -L
-    - run: nix build .#nixosConfigurations.gen6.config.system.build.toplevel
+    - run: nix build .#nixosConfigurations.gen6.config.system.build.toplevel -L
     - name: Create Pull request
       uses: peter-evans/create-pull-request@v3
       with:

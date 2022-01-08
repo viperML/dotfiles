@@ -1,4 +1,4 @@
-name: "Cachix"
+name: "Cache flake"
 
 on:
   workflow_dispatch:
