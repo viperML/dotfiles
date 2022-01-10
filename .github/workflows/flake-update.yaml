@@ -28,14 +28,15 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix flake update
     - run: nix flake check
-    - run: nix build .#devShell.x86_64-linux.inputDerivation -L
-    - run: nix build .#devShellPlus.x86_64-linux.inputDerivation -L
-    - run: nix build .#nixosConfigurations.gen6.config.system.build.toplevel -L
-    - name: Create Pull request
-      uses: peter-evans/create-pull-request@v3
-      with:
-        token: ${{ secrets.PAT }}
-        title: flake automatic update
-        commit-message: flake automatic update
-        branch: flake-update
-        delete-branch: true
+    - run: df -h
+    # - run: nix build .#devShell.x86_64-linux.inputDerivation -L
+    # - run: nix build .#devShellPlus.x86_64-linux.inputDerivation -L
+    # - run: nix build .#nixosConfigurations.gen6.config.system.build.toplevel -L
+    # - name: Create Pull request
+    #   uses: peter-evans/create-pull-request@v3
+    #   with:
+    #     token: ${{ secrets.PAT }}
+    #     title: flake automatic update
+    #     commit-message: flake automatic update
+    #     branch: flake-update
+    #     delete-branch: true
