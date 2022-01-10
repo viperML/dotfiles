@@ -8,6 +8,7 @@ final: prev: {
   netboot-xyz-images = prev.callPackage ./netboot-xyz-images { };
   plasma-applet-splitdigitalclock = prev.callPackage ./splitdigitalclock { };
   mohist-server = prev.callPackage ./mohist-server { };
+  g-kitty = prev.callPackage ./g-kitty { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

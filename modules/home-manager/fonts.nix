@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     jetbrains-mono
     roboto
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" ]; })
     corefonts
     noto-fonts
     noto-fonts-cjk

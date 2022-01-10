@@ -1,8 +1,13 @@
 { config, pkgs, ... }:
 {
+  home.sessionVariables = {
+    SHELL = "${pkgs.fish}/bin/fish";
+  };
+
   home.packages = with pkgs; [
     fzf
   ];
+
 
   home.file.".config/starship.toml".text = ''
     ${builtins.readFile ../starship/starship.toml}

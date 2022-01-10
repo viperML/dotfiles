@@ -15,4 +15,9 @@
 
   programs.ssh.startAgent = true;
   security.sudo.wheelNeedsPassword = false;
+
+  environment.variables = {
+    EDITOR = "${pkgs.neovim}/bin/nvim";
+    SHELL = "${pkgs.fish}/bin/fish";
+  };
 }
