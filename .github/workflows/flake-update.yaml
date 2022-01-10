@@ -27,7 +27,7 @@ jobs:
         extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix flake update
-    - run: nix flake check
+    # - run: nix flake check
     - run: df -h
     # - run: nix build .#devShell.x86_64-linux.inputDerivation -L
     # - run: nix build .#devShellPlus.x86_64-linux.inputDerivation -L
