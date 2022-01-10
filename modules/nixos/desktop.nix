@@ -72,9 +72,7 @@
     ahoviewer
     krita-beta
     obs-studio
-    joplin-desktop
     mailspring
-
   ];
 
   nix = {

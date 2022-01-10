@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  users.mutableUsers = true; # change passwords of users
+  users.mutableUsers = false; # change passwords of users
 
   users.users.mainUser = {
     name = "ayats";
@@ -15,5 +15,4 @@
 
   programs.ssh.startAgent = true;
   security.sudo.wheelNeedsPassword = false;
-
 }

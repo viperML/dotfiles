@@ -1,0 +1,7 @@
+keys:
+  - &admin_ayats age12ew7ztetf7ju00ssp6673jgqpnrpa6hnvm58s92v3clk4msxtfcq7knj6j
+creation_rules:
+  - path_regex: .secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *admin_ayats
