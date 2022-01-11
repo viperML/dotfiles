@@ -39,7 +39,7 @@
   "files.trimTrailingWhitespace": true,
   "security.workspace.trust.enabled": false,
   "update.mode": "none",
-  "window.menuBarVisibility": "compact",
+  // "window.menuBarVisibility": "compact",
   "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.sideBar.location": "left",
@@ -385,5 +385,6 @@
   "nix.enableLanguageServer": true,
 
 
-  "insertDateString.format": "iso"
+  "insertDateString.format": "iso",
+  "window.menuBarVisibility": "hidden"
 }

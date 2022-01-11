@@ -12,11 +12,13 @@
     rnix-lsp
   ];
 
-  # home.file.".config/Code/User/keybindings.json".source = config.lib.file.mkOutOfStoreSymlink ./keybindings.json;
-  # home.file.".config/Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ./settings.json;
-  # home.file.".config/Code/User/snipptes".source = config.lib.file.mkOutOfStoreSymlink ./snippets;
-
-  home.file.".config/Code/User/keybindings.json".source =  ./keybindings.json;
-  home.file.".config/Code/User/settings.json".source = ./settings.json;
-  home.file.".config/Code/User/snipptes".source = ./snippets;
+  home.activation.vscode = {
+    after = [ "writeBoundary" ];
+    before = [ ];
+    data = ''
+      $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/settings.json ~/.config/Code/User/settings.json
+      $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+      $DRY_RUN_CMD ln -sf $VERBOSE_ARG -t ~/.config/Code/User ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/snippets
+    '';
+  };
 }
