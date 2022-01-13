@@ -13,7 +13,7 @@
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
   };
 
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
   security.sudo.wheelNeedsPassword = false;
 
   environment.variables = {
