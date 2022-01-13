@@ -34,6 +34,7 @@
           host-gen6
           desktop
           desktop-kde
+
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
@@ -215,6 +216,8 @@
                 mainUser-admin
               ];
             };
+
+            
 
           };
         };

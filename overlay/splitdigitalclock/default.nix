@@ -3,12 +3,12 @@
 stdenv.mkDerivation rec {
 
   pname = "plasma-applet-splitdigitalclock";
-  version = "0.2";
+  version = "unstable-2021-12-27";
 
   src = fetchFromGitHub {
     owner = "viperML";
     repo = "splitdigitalclock";
-    rev = "v" + version;
+    rev = "b0d3c52fbfa6b2f18991dc3bf34db21e0767c564";
     sha256 = "0500a3hgapp2ims9d3prb201was28zbhbm97lr7cpzsqf6413g9p";
   };
 

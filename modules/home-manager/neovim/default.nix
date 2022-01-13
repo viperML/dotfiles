@@ -49,12 +49,12 @@
         };
         nvim-comment = pkgs.vimUtils.buildVimPluginFrom2Nix {
           pname = "nvim-comment";
-          version = "unstable-2021-08-01";
+          version = "unstable-2022-01-04";
           src = pkgs.fetchFromGitHub {
             owner = "terrortylor";
             repo = "nvim-comment";
-            rev = "6363118acf86824ed11c2238292b72dc5ef8bdde";
-            sha256 = "039fznaldf6lzk0yp51wi7p1j3l5rvhwryvk5s3lrq78lxq2rzn2";
+            rev = "f670649da497de12aa3d5afc0a693d5d50b17d85";
+            sha256 = "0j3pay000yf79lz5plcnfp068fychnf7xa08cg7h5s0nx5cp5bgh";
           };
         };
         copilot-vim = pkgs.vimUtils.buildVimPlugin {
