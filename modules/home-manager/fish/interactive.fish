@@ -47,7 +47,7 @@ abbr --add --global eq equery
 abbr --add --global ns nix shell self#pkgs.x86_64-linux.nixpkgs.
 abbr --add --global nr nix run self#pkgs.x86_64-linux.nixpkgs.
 abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE"
-abbr --add --global no "sudo nixos-rebuild boot --flake \$FLAKE"
+abbr --add --global nb "sudo nixos-rebuild boot --flake \$FLAKE"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
