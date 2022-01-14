@@ -21,6 +21,7 @@
 
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
+    kernelParams = [ ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "zfs" ];
 
@@ -186,8 +187,9 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    video.hidpi.enable = true;
+    # video.hidpi.enable = true;
     opengl.driSupport32Bit = true;
     nvidia.modesetting.enable = true;
+    logitech.wireless.enable = true;
   };
 }

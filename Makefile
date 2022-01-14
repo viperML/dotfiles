@@ -39,3 +39,12 @@ base-vm:
 	fi
 	cp result/nixos.qcow2 ${IMG_DIR}/nixos.qcow2
 	virsh start nixos
+
+test-vm:
+	nix build .#test-vm
+	-virsh destroy viperML-dotfiles-test-vm
+	@if [ -f ${IMG_DIR}/viperML-dotfiles-test-vm.qcow2 ]; then\
+		rm -i ${IMG_DIR}/viperML-dotfiles-test-vm.qcow2;\
+	fi
+	cp result/nixos.qcow2 ${IMG_DIR}/viperML-dotfiles-test-vm.qcow2
+	virsh start viperML-dotfiles-test-vm

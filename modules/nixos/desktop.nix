@@ -2,10 +2,6 @@
 
 {
   services = {
-    xserver = {
-      enable = true;
-    };
-
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -60,8 +56,6 @@
     onlyoffice-bin
     word-for-poor-people
     excel-for-poor-people
-    thunderbird
-    birdtray
     mpv
     (papirus-icon-theme.override { color = "brown"; })
     spotify-for-poor-people
@@ -73,6 +67,7 @@
     krita-beta
     obs-studio
     mailspring
+    tauon
   ];
 
   nix = {
