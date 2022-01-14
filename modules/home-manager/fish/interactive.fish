@@ -3,10 +3,10 @@ function os_greeter
     set_color cyan
     echo (grep "PRETTY_NAME" /etc/os-release | sed 's/PRETTY_NAME=//g;s/"//g')
     set_color normal
-    echo 'powered by'
-    set_color brcyan
-    echo ' Nix'
-    set_color normal
+    # echo 'powered by'
+    # set_color brcyan
+    # echo ' Nix'
+    # set_color normal
 end
 
 set -g -x fish_greeting (os_greeter)
@@ -22,7 +22,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 # Aliases
 alias ip="ip -c=auto"
 alias svim="sudoedit"
-alias cpuinfo="watch -n.1 'cat /proc/cpuinfo | grep \'^[c]pu MHz\''"
 
 # LSD
 alias ls="lsd"
@@ -33,11 +32,9 @@ alias lt="lsd -A -t -r"
 # Abbreviations
 abbr --add --global p python
 abbr --add --global n nvim
-abbr --add --global netboot docker run --net=host pixiecore/pixiecore:master quick xyz --dhcp-no-bind
 abbr --add --global x xdg-open
 
 # Admin
-abbr --add --global s sudo
 abbr --add --global ss sudo systemctl
 abbr --add --global us systemctl --user
 abbr --add --global se sudo -E systemctl edit
@@ -45,15 +42,12 @@ abbr --add --global sf sudo --preserve-env=PATH (which fish)
 
 # Gentoo abbreviations
 abbr --add --global eq equery
-abbr --add --global nuse sudo nvim /etc/portage/package.use/my-use
-abbr --add --global nacc sudo nvim /etc/portage/package.accept_keywords
 
 # Nix abbreviations
-abbr --add --global ns nix shell nixpkgs#
-# abbr --add --global nf nix --option experimental-features \"nix-command flakes\"
-# abbr --add --global he $EDITOR $HOME/.dotfiles/nix/gui.nix
-abbr --add --global hs "home-manager switch --flake \$FLAKE"
+abbr --add --global ns nix shell self#pkgs.x86_64-linux.nixpkgs.
+abbr --add --global nr nix run self#pkgs.x86_64-linux.nixpkgs.
 abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE"
+abbr --add --global no "sudo nixos-rebuild boot --flake \$FLAKE"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
@@ -109,11 +103,6 @@ abbr -a gr "cd (git-root)"
 # Fix ssh passing wrong $TERM
 function ssh
   begin; set -lx TERM xterm-256color; command ssh $argv; end
-end
-
-function dotinstall
-  $DOTDIR/dotbot.sh -c $DOTDIR/install-linux.yaml
-  $PRIVDIR/dotbot.sh -c $PRIVDIR/install-linux.yaml
 end
 
 switch $TERM

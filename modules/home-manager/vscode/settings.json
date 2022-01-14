@@ -24,7 +24,7 @@
   "editor.suggest.preview": true,
   "editor.tabCompletion": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "editor.autoClosingQuotes": "always",
   "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.defaultProfile.linux": "fish",

@@ -7,13 +7,11 @@
       modules = import ./modules { inherit flake-utils-plus lib; };
     in
     flake-utils-plus.lib.mkFlake {
-
       inherit self inputs;
       supportedSystems = [ "x86_64-linux" ];
 
       # Export modules
       inherit (modules) nixosModules homeModules;
-
 
       # Channels configurations
       channelsConfig.allowUnfree = true;
@@ -21,7 +19,6 @@
       sharedOverlays = [
         self.overlay
         inputs.nur.overlay
-        inputs.powercord-overlay.overlay
       ];
 
       # Hosts definitions
@@ -43,108 +40,31 @@
           docker
           printing
           gaming
-        ] ++ [
-          # Split into 2, so the previous `with modules.nixosModules` namespace
-          # doesn't get inserted here
-          {
-            home-manager.sharedModules = with modules.homeModules; [
-              base
-              flake-channels
-              fonts
-              gui
-              git
+        ] ++ [{
+          home-manager.sharedModules = with modules.homeModules; [
+            base
+            flake-channels
+            fonts
+            gui
+            git
 
-              bat
-              fish
-              konsole
-              lsd
-              neofetch
-              neovim
-              vscode
-              discord
-              kde
-              syncthing
-              kitty
-            ];
-          }
-        ];
+            bat
+            fish
+            lsd
+            neofetch
+            neovim
+            vscode
+            kde
+            syncthing
+            kitty
+          ];
+        }];
 
-        # nix3.modules = with modules.nixosModules; [
-        #   host-nix3
-        #   desktop
-        #   desktop-gnome
-        #   mainUser-ayats
-        #   inputs.home-manager.nixosModules.home-manager
-        #   home-manager
-        #   docker
-        #   printing
-        # ] ++ [
-        #   # Split into 2, so the previous `with modules.nixosModules` namespace
-        #   # doesn't get inserted here
-        #   {
-        #     home-manager.sharedModules = with modules.homeModules; [
-        #       base
-        #       flake-channels
-        #       fonts
-        #       gui
-        #       git
-        #       bat
-        #       fish
-        #       konsole
-        #       lsd
-        #       neofetch
-        #       neovim
-        #       vscode
-        #       discord
-        #       kde
-        #     ];
-        #   }
-        # ];
-
-        test_server.modules = with modules.nixosModules; [
-          inputs.nixos-generators.nixosModules.qcow
-
-          mainUser-admin
-          # inputs.modded-minecraft-servers.module
-          minecraft-server
-        ];
-
-        hetzner.modules = with modules.nixosModules; [
-          host-hetzner
-          mainUser-admin
-          minecraft-server
-        ];
       };
 
-      deploy.nodes = {
-        local-vm = {
-          hostname = "192.168.122.98";
-          fastConnection = true;
-          profiles = {
-            system = {
-              sshUser = "admin";
-              path =
-                inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.test_server;
-              user = "root";
-            };
-          };
-        };
-
-        hetzner = {
-          hostname = "hetzner.ayats.org";
-          fastConnection = false;
-          profiles = {
-            system = {
-              sshUser = "admin";
-              path =
-                inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hetzner;
-              user = "root";
-            };
-          };
-        };
-      };
-
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
+      # deploy.nodes = {
+      # };
+      # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
 
       outputsBuilder = channels:
@@ -161,7 +81,6 @@
               gnumake
               jq
               nixos-install-tools
-              nixUnstable
               ripgrep
             ];
             shellHook = ''
@@ -180,7 +99,6 @@
               gnumake
               jq
               nixos-install-tools
-              nixUnstable
               ripgrep
               update-nix-fetchgit
               inputs.deploy-rs.defaultPackage.${system}
@@ -217,34 +135,6 @@
               ];
             };
 
-            # test-vm = inputs.nixos-generators.nixosGenerate {
-            #   pkgs = pkgs;
-            #   format = "qcow";
-            #   modules =
-            #     with modules.nixosModules; [
-            #       # desktop
-            #       desktop-kde
-
-            #       mainUser-ayats
-            #       inputs.home-manager.nixosModules.home-manager
-            #       home-manager
-
-            #     ] ++ [{
-            #       _module.args.inputs = inputs;
-            #       home-manager.sharedModules = with modules.homeModules; [
-            #         base
-            #         flake-channels
-            #         fonts
-            #         gui
-            #         git
-
-            #         fish
-            #         lsd
-            #         neofetch
-            #       ];
-            #     }];
-            # };
-
           };
         };
 
@@ -265,41 +155,7 @@
 
       defaultTemplate = self.templates.base-flake;
 
-      # homeConfigurations = {
-      #   "ayats" = inputs.home-manager.lib.homeManagerConfiguration rec {
-      #     system = "x86_64-linux";
-      #     username = "ayats";
-      #     homeDirectory = "/home/${username}";
-      #     pkgs = self.pkgs.${system}.nixpkgs;
-      #     configuration = {
-      #       # see modules/base-home.nix for information about this
-      #       home = {
-      #         file = lib.mapAttrs' (name: value: { name = ".nix-inputs/${name}"; value = { source = value.outPath; }; }) inputs;
-      #       };
-      #     };
-      #     extraModules = [
-      #       base-home
-      #       bat
-      #       fish
-      #       git
-      #       home-fonts
-      #       home-gui
-      #       konsole
-      #       lsd
-      #       neofetch
-      #       neovim
-      #       vscode
-      #     ];
-      #   };
-      # };
 
-
-      # nix-on-droid = inputs.nix-on-droid.lib.aarch64-linux.nix-on-droid {
-      #   config = {};
-      #   extraModules = with mods.nixosModules; [
-      #     nix-on-droid
-      #   ];
-      # };
     };
 
   inputs = {
@@ -323,8 +179,6 @@
     };
 
     nur.url = github:nix-community/NUR;
-
-    powercord-overlay.url = github:LavaDesu/powercord-overlay;
 
     deploy-rs = {
       url = github:serokell/deploy-rs;

@@ -228,22 +228,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1641230035,
-        "narHash": "sha256-hFyqihERaTbLxCOlugy/rpp22VLtLh8SPRnA2uu3F/8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "78cd22c1b8604de423546cd49bfe264b786eca13",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
         "lastModified": 1642086863,
@@ -259,41 +243,6 @@
         "type": "github"
       }
     },
-    "powercord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1640708207,
-        "narHash": "sha256-bZfAf3DqoAmqCuPfkvBT6TfAEJWYRZ8jT7azj/HZ7W0=",
-        "owner": "powercord-org",
-        "repo": "powercord",
-        "rev": "8872f5f30ac135dce24a542ede4087499c204b79",
-        "type": "github"
-      },
-      "original": {
-        "owner": "powercord-org",
-        "repo": "powercord",
-        "type": "github"
-      }
-    },
-    "powercord-overlay": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3",
-        "powercord": "powercord"
-      },
-      "locked": {
-        "lastModified": 1641390922,
-        "narHash": "sha256-rb+Ulds+jvwmdodyNcJNh2HfTCIqxuBIN+l6xGupAqo=",
-        "owner": "LavaDesu",
-        "repo": "powercord-overlay",
-        "rev": "bdf20fb7ab0ba89fa7eecdda845ce55569376b61",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LavaDesu",
-        "repo": "powercord-overlay",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
@@ -303,8 +252,7 @@
         "nix-on-droid": "nix-on-droid",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
-        "nur": "nur",
-        "powercord-overlay": "powercord-overlay"
+        "nur": "nur"
       }
     },
     "utils": {

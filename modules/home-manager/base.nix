@@ -4,7 +4,6 @@
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
-    nixUnstable
     nix-prefetch-scripts
     update-nix-fetchgit
     fup-repl
@@ -32,5 +31,4 @@
   home.file.".config/nixpkgs/config.nix".source = ../nixpkgs.conf;
 
   home.file.".config/libvirt/libvirt.conf".text = "uri_default = \"qemu:///system\"";
-
 }

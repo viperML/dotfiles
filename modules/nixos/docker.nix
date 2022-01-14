@@ -7,7 +7,7 @@
     extraOptions = "--registry-mirror=https://mirror.gcr.io --add-runtime crun=${pkgs.crun}/bin/crun --default-runtime=crun";
   };
 
-  users.users.mainUser.extraGroups = [ "docker" ];
+  users.groups.docker.members = config.users.groups.wheel.members;
 
   systemd = {
     timers.docker-prune = {

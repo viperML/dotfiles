@@ -2,7 +2,6 @@
 
 {
   programs = {
-    fuse.userAllowOther = true; # needed for impermannce
     xwayland.enable = true;
   };
 
@@ -72,17 +71,14 @@
   };
 
   networking = {
-    # hostName = "gen6";
     hostId = "01017f00";
     networkmanager.enable = true;
   };
 
 
-  environment.systemPackages = with pkgs; [
-    libsForQt5.kdenlive
-    ffmpeg
-    # cudatoolkit
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   ffmpeg
+  # ];
 
   services = {
     xserver = {
@@ -163,12 +159,12 @@
       neededForBoot = true;
     };
 
-  fileSystems."/home/ayats/.impermanence" =
-    {
-      device = "zroot/data/ayats";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
+  # fileSystems."/home/ayats/.impermanence" =
+  #   {
+  #     device = "zroot/data/ayats";
+  #     fsType = "zfs";
+  #     neededForBoot = true;
+  #   };
 
   fileSystems."/home" =
     {

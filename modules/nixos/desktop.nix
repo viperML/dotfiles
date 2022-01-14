@@ -24,17 +24,13 @@
       pulse.enable = true;
     };
 
-    gnome = {
-      gnome-keyring.enable = true;
-    };
-
     journald.extraConfig = ''
       Storage=volatile
     '';
 
+    gnome.gnome-keyring.enable = true;
     ananicy.enable = true;
     thermald.enable = true;
-
     udev.packages = with pkgs; [ android-udev-rules ];
   };
 
@@ -43,19 +39,7 @@
     DefaultTimeoutStopSec=15s
   '';
 
-
   hardware.pulseaudio.enable = false; # replaces pipewire
-
-
-  security = {
-    sudo = {
-      extraConfig = ''
-        Defaults pwfeedback
-        Defaults env_keep += "EDITOR PATH"
-        Defaults timestamp_timeout=300
-      '';
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     # Base cli
@@ -84,7 +68,6 @@
     krita-beta
     obs-studio
     mailspring
-    tauon
   ];
 
   nix = {

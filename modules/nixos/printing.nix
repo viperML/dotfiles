@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -16,7 +16,7 @@
 
   };
 
-  environment.systemPackages = with pkgs; [
-    libsForQt5.print-manager
-  ];
+  environment.systemPackages = lib.mkIf
+  config.services.xserver.desktopManager.plasma5.enable
+  [ pkgs.libsForQt5.print-manager ];
 }
