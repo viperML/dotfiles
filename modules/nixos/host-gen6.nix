@@ -1,7 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  programs.fuse.userAllowOther = true; # needed for impermannce
+  programs = {
+    fuse.userAllowOther = true; # needed for impermannce
+    xwayland.enable = true;
+  };
 
   imports =
     [
@@ -168,11 +171,11 @@
     };
 
   fileSystems."/home" =
-  {
-    device = "zroot/data/home";
-    fsType = "zfs";
-    neededForBoot = true;
-  };
+    {
+      device = "zroot/data/home";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
 
   fileSystems."/boot" =
     {
@@ -191,5 +194,7 @@
     opengl.driSupport32Bit = true;
     nvidia.modesetting.enable = true;
     logitech.wireless.enable = true;
+    opengl.enable = true;
+    opengl.driSupport = true;
   };
 }

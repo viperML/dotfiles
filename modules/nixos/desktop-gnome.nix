@@ -1,17 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.xserver = {
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-      nvidiaWayland = lib.mkIf (config.services.xserver.videoDrivers == [ "nvidia" ]) true;
-    };
-    desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome = {
+    enable = true;
   };
-
-  programs.xwayland.enable = true;
-  hardware.opengl.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
     gnome.cheese

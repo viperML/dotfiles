@@ -2,6 +2,23 @@
 
 {
   services = {
+    xserver = {
+      enable = true;
+      displayManager = {
+        lightdm.enable = false;
+        sddm = {
+          enable = true;
+        };
+        gdm = {
+          enable = false;
+          wayland = true;
+          nvidiaWayland = true;
+        };
+        autoLogin.user = "${config.users.users.mainUser.name}";
+        autoLogin.enable = true;
+      };
+    };
+
     pipewire = {
       enable = true;
       pulse.enable = true;

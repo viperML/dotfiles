@@ -217,33 +217,33 @@
               ];
             };
 
-            test-vm = inputs.nixos-generators.nixosGenerate {
-              pkgs = pkgs;
-              format = "qcow";
-              modules =
-                with modules.nixosModules; [
-                  # desktop
-                  desktop-kde
+            # test-vm = inputs.nixos-generators.nixosGenerate {
+            #   pkgs = pkgs;
+            #   format = "qcow";
+            #   modules =
+            #     with modules.nixosModules; [
+            #       # desktop
+            #       desktop-kde
 
-                  mainUser-ayats
-                  inputs.home-manager.nixosModules.home-manager
-                  home-manager
+            #       mainUser-ayats
+            #       inputs.home-manager.nixosModules.home-manager
+            #       home-manager
 
-                ] ++ [{
-                  _module.args.inputs = inputs;
-                  home-manager.sharedModules = with modules.homeModules; [
-                    base
-                    flake-channels
-                    fonts
-                    gui
-                    git
+            #     ] ++ [{
+            #       _module.args.inputs = inputs;
+            #       home-manager.sharedModules = with modules.homeModules; [
+            #         base
+            #         flake-channels
+            #         fonts
+            #         gui
+            #         git
 
-                    fish
-                    lsd
-                    neofetch
-                  ];
-                }];
-            };
+            #         fish
+            #         lsd
+            #         neofetch
+            #       ];
+            #     }];
+            # };
 
           };
         };
