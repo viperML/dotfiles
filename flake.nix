@@ -66,26 +66,6 @@
       # };
       # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
-      nixOnDroidConfigurations.my-device = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-        system = "aarch64-linux";
-        extraSpecialArgs = { inputs = inputs; };
-        config = ./modules/nix-on-droid;
-        extraModules = [
-          {
-            home-manager.sharedModules = with modules.homeModules; [
-              flake-channels
-              fish
-              neovim
-              git
-              neofetch
-              lsd
-              bat
-            ];
-          }
-        ];
-      };
-
-
       outputsBuilder = channels:
         let
           pkgs = channels.nixpkgs;
@@ -187,14 +167,6 @@
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-on-droid = {
-      url = github:t184256/nix-on-droid;
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
     };
 
     flake-compat = {
