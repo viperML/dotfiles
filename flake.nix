@@ -190,9 +190,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    javacafe01-dotfiles = {
-      url = github:JavaCafe01/dotfiles;
-      flake = false;
-    };
   };
 }
