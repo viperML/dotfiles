@@ -124,6 +124,8 @@
               any-nix-shell
               papirus-icon-theme
               netboot-xyz-images
+              reversal-kde
+              splitdigitalclock
               ;
           } // {
 
