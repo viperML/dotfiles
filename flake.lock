@@ -141,6 +141,22 @@
         "type": "github"
       }
     },
+    "javacafe01-dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640230810,
+        "narHash": "sha256-1CMhoTc9OvqGu2tk5VBiKrGUhxe7dLpIiELRS1MkjyI=",
+        "owner": "JavaCafe01",
+        "repo": "dotfiles",
+        "rev": "6bb2b5878e8a3140192eea717120c4a899f55a38",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JavaCafe01",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "nix-on-droid": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -249,6 +265,7 @@
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
+        "javacafe01-dotfiles": "javacafe01-dotfiles",
         "nix-on-droid": "nix-on-droid",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
