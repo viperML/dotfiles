@@ -88,21 +88,6 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1638122382,
-        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -120,30 +105,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "nix-on-droid": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1641155977,
-        "narHash": "sha256-50h+3soki1I+plc+4gzzvO2yaGg/8UDsLNQotXg649c=",
-        "owner": "t184256",
-        "repo": "nix-on-droid",
-        "rev": "07c4406897104c7be56094b0865e4c37aa72ec8f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "t184256",
-        "repo": "nix-on-droid",
         "type": "github"
       }
     },
@@ -220,7 +181,6 @@
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
-        "nix-on-droid": "nix-on-droid",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
