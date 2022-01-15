@@ -57,5 +57,53 @@ To grab the whole overlay into your flake:
 
 <!--BEGIN-->
 ```json
+{
+  "x86_64-linux": {
+    "any-nix-shell": {
+      "description": "fish and zsh support for nix-shell",
+      "name": "any-nix-shell-1.2.1",
+      "type": "derivation"
+    },
+    "base-vm": {
+      "name": "nixos-disk-image",
+      "type": "derivation"
+    },
+    "lightly": {
+      "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
+      "name": "lightly-0.4.1",
+      "type": "derivation"
+    },
+    "multiload-ng": {
+      "description": "Modern graphical system monitor for any panel (only systray and standalone builds)",
+      "name": "multiload-ng-20210103",
+      "type": "derivation"
+    },
+    "netboot-xyz-images": {
+      "description": "netboot.xyz bootloader images, uefi and legacy.",
+      "name": "netboot-xyz-images-2.0.53",
+      "type": "derivation"
+    },
+    "papirus-icon-theme": {
+      "description": "Papirus icon theme, patched with folder colorscheme",
+      "name": "papirus-icon-theme-20211201",
+      "type": "derivation"
+    },
+    "plasma-applet-splitdigitalclock": {
+      "description": "Split Digital Clock",
+      "name": "plasma-applet-splitdigitalclock-unstable-2021-12-27",
+      "type": "derivation"
+    },
+    "reversal-kde": {
+      "description": "Reversal kde is a materia Design theme for KDE Plasma desktop.",
+      "name": "reversal-kde-20220101",
+      "type": "derivation"
+    },
+    "sierrabreezeenhanced": {
+      "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
+      "name": "sierrabreezeenhanced-1.0.3",
+      "type": "derivation"
+    }
+  }
+}
 ```
 <!--END-->

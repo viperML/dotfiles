@@ -125,7 +125,7 @@
               papirus-icon-theme
               netboot-xyz-images
               reversal-kde
-              splitdigitalclock
+              plasma-applet-splitdigitalclock
               ;
           } // {
 
