@@ -9,6 +9,7 @@ final: prev: {
   plasma-applet-splitdigitalclock = prev.callPackage ./splitdigitalclock { };
   mohist-server = prev.callPackage ./mohist-server { };
   g-kitty = prev.callPackage ./g-kitty { };
+  reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

@@ -7,11 +7,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    libsForQt5.bismuth
-    libsForQt5.plasma-pa
-    libsForQt5.qtstyleplugin-kvantum
+    # Theming
     lightly
     sierrabreezeenhanced
+
+    # Extend
+    libsForQt5.bismuth
+    libsForQt5.plasma-pa
     libsForQt5.ark
     libsForQt5.ffmpegthumbs
     libsForQt5.kdegraphics-thumbnailers
@@ -19,5 +21,6 @@
     libsForQt5.gwenview
     libsForQt5.kwalletmanager
     caffeine-ng
+    reversal-kde
   ];
 }
