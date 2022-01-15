@@ -15,7 +15,7 @@
           nvidiaWayland = true;
         };
         autoLogin.user = "${config.users.users.mainUser.name}";
-        autoLogin.enable = true;
+        # autoLogin.enable = true;
       };
     };
 
