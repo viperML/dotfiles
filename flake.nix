@@ -73,8 +73,13 @@
         extraModules = [
           {
             home-manager.sharedModules = with modules.homeModules; [
-              base
               flake-channels
+              fish
+              neovim
+              git
+              neofetch
+              lsd
+              bat
             ];
           }
         ];
