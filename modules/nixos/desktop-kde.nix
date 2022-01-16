@@ -1,9 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  services.xserver.desktopManager.plasma5 = {
-    enable = true;
-    runUsingSystemd = true;
+  services.xserver = {
+    desktopManager.plasma5 = {
+      enable = true;
+      runUsingSystemd = true;
+    };
+    displayManager.defaultSession = "plasma";
   };
 
   environment.systemPackages = with pkgs; [

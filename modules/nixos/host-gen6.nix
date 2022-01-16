@@ -58,6 +58,8 @@
         canTouchEfiVariables = true;
       };
     };
+
+    tmpOnTmpfs = true;
   };
 
   systemd = {
@@ -143,7 +145,6 @@
     {
       device = "zroot/gen6/nixos";
       fsType = "zfs";
-      # options = [ "size=4G" ];
     };
 
   fileSystems."/nix" =
@@ -158,13 +159,6 @@
       fsType = "zfs";
       neededForBoot = true;
     };
-
-  # fileSystems."/home/ayats/.impermanence" =
-  #   {
-  #     device = "zroot/data/ayats";
-  #     fsType = "zfs";
-  #     neededForBoot = true;
-  #   };
 
   fileSystems."/home" =
     {
