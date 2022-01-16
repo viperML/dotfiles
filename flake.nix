@@ -35,6 +35,8 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
+          inputs.hosts.nixosModule
+          hosts
 
           virt
           docker
@@ -186,5 +188,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hosts = {
+      url = github:StevenBlack/hosts;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
