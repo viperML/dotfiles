@@ -28,6 +28,29 @@
         ];
       }
     ];
+    extraConfig =
+      let
+        my-lecture = pkgs.writeTextFile {
+          name = "my-lecture";
+          text = ''
+
+            [?7l[1m[34m      \\  \\ //
+            [34m     ==\\__\\/ //
+            [34m       //   \\//
+            [34m    ==//     //==
+            [34m     //\\___//
+            [34m    // /\\  \\==
+            [34m      // \\  \\
+
+            [0m [[ you have angered the nix gods]]
+
+          '';
+        };
+      in
+      ''
+        Defaults lecture=always
+        Defaults lecture_file=${my-lecture}
+      '';
   };
 
   # users.users = mkMerge (
