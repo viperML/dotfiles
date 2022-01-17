@@ -6,3 +6,4 @@ result
 *.qcow2
 source
 .envrc
+node_modules

@@ -48,6 +48,7 @@
     nmap
     pciutils
     wget
+    lsof
 
     # Base
     brave
