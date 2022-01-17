@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "StevenBlack-hosts": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1642134026,
-        "narHash": "sha256-YH3QhjwJxsJnbKl6zINLj7SSFdM2UGKisNkG2CFUnWA=",
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "rev": "3e9678b8d3e9e29fcb9dc828797d6b128a3cdcb4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "type": "github"
-      }
-    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -92,7 +71,7 @@
     },
     "flake-utils-plus": {
       "inputs": {
-        "flake-utils": "flake-utils_2"
+        "flake-utils": "flake-utils"
       },
       "locked": {
         "lastModified": 1638172912,
@@ -106,21 +85,6 @@
         "owner": "gytis-ivaskevicius",
         "ref": "v1.3.1",
         "repo": "flake-utils-plus",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1638122382,
-        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -213,7 +177,6 @@
     },
     "root": {
       "inputs": {
-        "StevenBlack-hosts": "StevenBlack-hosts",
         "deploy-rs": "deploy-rs",
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",

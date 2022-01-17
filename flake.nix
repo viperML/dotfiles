@@ -35,7 +35,7 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
-          networkmanager
+          network
           adblock
 
           virt
@@ -186,11 +186,6 @@
 
     nixos-generators = {
       url = github:nix-community/nixos-generators;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    StevenBlack-hosts = {
-      url = github:StevenBlack/hosts;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
