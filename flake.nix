@@ -35,6 +35,7 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
+          networkmanager
           hosts
 
           virt

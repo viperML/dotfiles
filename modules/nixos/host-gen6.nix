@@ -74,7 +74,6 @@
 
   networking = {
     hostId = "01017f00";
-    networkmanager.enable = true;
   };
 
 
