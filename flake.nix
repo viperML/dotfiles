@@ -35,7 +35,6 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
-          inputs.hosts.nixosModule
           hosts
 
           virt
@@ -189,7 +188,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hosts = {
+    StevenBlack-hosts = {
       url = github:StevenBlack/hosts;
       inputs.nixpkgs.follows = "nixpkgs";
     };
