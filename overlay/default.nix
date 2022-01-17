@@ -11,6 +11,7 @@ final: prev: {
   g-kitty = prev.callPackage ./g-kitty { };
   reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
   disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
+  stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

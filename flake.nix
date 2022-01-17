@@ -128,6 +128,7 @@
               reversal-kde
               plasma-applet-splitdigitalclock
               disconnect-tracking-protection
+              stevenblack-hosts
               ;
           } // {
 

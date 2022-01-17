@@ -107,6 +107,11 @@ To grab the whole overlay into your flake:
       "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
       "name": "sierrabreezeenhanced-1.0.3",
       "type": "derivation"
+    },
+    "stevenblack-hosts": {
+      "description": "Unified hosts file with base extensions",
+      "name": "stevenblack-hosts-3.9.36",
+      "type": "derivation"
     }
   }
 }
