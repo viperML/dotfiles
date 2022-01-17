@@ -68,6 +68,11 @@ To grab the whole overlay into your flake:
       "name": "nixos-disk-image",
       "type": "derivation"
     },
+    "disconnect-tracking-protection": {
+      "description": "Tracking protection lists and services",
+      "name": "disconnect-tracking-protection-20220112",
+      "type": "derivation"
+    },
     "lightly": {
       "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
       "name": "lightly-0.4.1",

@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, python310, writeTextFile }:
+{ stdenv, fetchFromGitHub, python310, writeTextFile, lib }:
 
 stdenv.mkDerivation rec {
   pname = "disconnect-tracking-protection";
@@ -29,4 +29,11 @@ stdenv.mkDerivation rec {
     cp $src/services.json $out
     cp $src/entities.json $out
   '';
+
+  meta = with lib; {
+    description = "Tracking protection lists and services";
+    homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
+    license = licenses.cc-by-nc-sa-40;
+    platforms = platforms.all;
+  };
 }

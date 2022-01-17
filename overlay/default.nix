@@ -10,6 +10,7 @@ final: prev: {
   mohist-server = prev.callPackage ./mohist-server { };
   g-kitty = prev.callPackage ./g-kitty { };
   reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
+  disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

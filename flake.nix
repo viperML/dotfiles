@@ -127,6 +127,7 @@
               netboot-xyz-images
               reversal-kde
               plasma-applet-splitdigitalclock
+              disconnect-tracking-protection
               ;
           } // {
 
