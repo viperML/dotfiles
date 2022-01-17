@@ -36,7 +36,7 @@
           inputs.home-manager.nixosModules.home-manager
           home-manager
           networkmanager
-          hosts
+          adblock
 
           virt
           docker
