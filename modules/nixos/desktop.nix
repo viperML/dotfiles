@@ -12,10 +12,18 @@
         gdm = {
           enable = false;
           wayland = true;
-          nvidiaWayland = lib.mkIf (builtins.any (v: v =="nvidia") config.services.xserver.videoDrivers) true;
+          nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
-        autoLogin.user = "${config.users.users.mainUser.name}";
-        autoLogin.enable = true;
+
+        # If system only has 1 normal user, enable autologin for them
+        autoLogin =
+          let
+            my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
+          in
+          {
+            enable = (builtins.length my-users == 1);
+            user = lib.mkIf (builtins.length my-users == 1) (builtins.head my-users);
+          };
       };
     };
 
