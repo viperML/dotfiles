@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -12,7 +12,7 @@
         gdm = {
           enable = false;
           wayland = true;
-          nvidiaWayland = true;
+          nvidiaWayland = lib.mkIf (builtins.any (v: v =="nvidia") config.services.xserver.videoDrivers) true;
         };
         autoLogin.user = "${config.users.users.mainUser.name}";
         autoLogin.enable = true;

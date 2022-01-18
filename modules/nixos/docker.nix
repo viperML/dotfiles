@@ -8,12 +8,6 @@
   };
 
   users.groups.docker.members = config.users.groups.wheel.members;
-  # users.users = with pkgs.lib;
-  # mkMerge (
-  #   forEach config.users (u:
-  #     { "${u}".passwordFile = "/secrets/password/${u}"; }
-  #   )
-  # );
 
   systemd = {
     timers.docker-prune = {
