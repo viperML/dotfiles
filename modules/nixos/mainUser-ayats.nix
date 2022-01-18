@@ -14,6 +14,8 @@
     passwordFile = "/secrets/password/ayats";
   };
 
+  home-manager.users.mainUser = { ... }: { };
+
   # programs.ssh.startAgent = true;
   # security.sudo.wheelNeedsPassword = false;
   security.sudo = {
