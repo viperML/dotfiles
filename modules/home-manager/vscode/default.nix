@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.vscode = {
@@ -12,17 +12,14 @@
     rnix-lsp
   ];
 
-  home.activation.vscode = {
-    after = [ "writeBoundary" ];
-    before = [ ];
-    data =
-      let
-        FLAKE = "$HOME/Documents/dotfiles";
-      in
-      ''
-        $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${FLAKE}/modules/home-manager/vscode/settings.json ~/.config/Code/User/settings.json
-        $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${FLAKE}/modules/home-manager/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-        $DRY_RUN_CMD ln -sf $VERBOSE_ARG -t ~/.config/Code/User ${FLAKE}/modules/home-manager/vscode/snippets
+  home.activation.vscode =
+    if (lib.hasAttr "FLAKE" config.home.sessionVariables) then {
+      after = [ "writeBoundary" ];
+      before = [ ];
+      data = ''
+        $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/settings.json ~/.config/Code/User/settings.json
+        $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+        $DRY_RUN_CMD ln -sf $VERBOSE_ARG -t ~/.config/Code/User ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/snippets
       '';
-  };
+    } else (throw "The implementation to import this module (vscode) is not finished");
 }

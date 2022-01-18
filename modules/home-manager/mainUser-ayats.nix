@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.sessionVariables.FLAKE = lib.mkForce "$HOME/Documents/dotfiles";
+  home.sessionVariables.FLAKE = "$HOME/Documents/dotfiles";
 }

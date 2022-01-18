@@ -87,7 +87,6 @@
             ];
             shellHook = ''
               export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-              export FLAKE="/home/ayats/Documents/dotfiles"
               echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
               echo -e "\e[34m''$(nix --version)"
               echo -e "\e[0m"
@@ -107,7 +106,6 @@
             ];
             shellHook = ''
               export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-              export FLAKE="/home/ayats/Documents/dotfiles"
               echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
               echo -e "\e[34m- ''$(nix --version)"
               echo "- Nixpkgs age:"

@@ -8,8 +8,6 @@
 
 Design considerations:
 
-* Try to be as username-agnostic as possible (`mainUser` used when not possible)
-
-* Try to not hardcode the path to this flake
-
 * Import to enable, remove to restore the state. The modules won't export options that have to be enabled.
+
+* Any hardcoded paths and usernames have been removed, except in `mainUser-` files. Any module should be able to be imported into any NixOS without any prior knowledge.
