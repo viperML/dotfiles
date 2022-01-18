@@ -19,31 +19,12 @@
   };
 
   security.sudo = {
-    extraConfig =
-      let
-        my-lecture = pkgs.writeTextFile {
-          name = "my-lecture";
-          text = ''
-
-            [?7l[1m[34m      \\  \\ //
-            [34m     ==\\__\\/ //
-            [34m       //   \\//
-            [34m    ==//     //==
-            [34m     //\\___//
-            [34m    // /\\  \\==
-            [34m      // \\  \\
-
-            [0m [[ you have angered the nix gods ]]
-
-          '';
-        };
-      in
-      ''
-        Defaults pwfeedback
-        Defaults env_keep += "EDITOR PATH"
-        Defaults timestamp_timeout=300
-        Defaults lecture=always
-        Defaults lecture_file=${my-lecture}
-      '';
+    extraConfig = ''
+      Defaults pwfeedback
+      Defaults env_keep += "EDITOR PATH"
+      Defaults timestamp_timeout=300
+      Defaults lecture=never
+      Defaults passprompt="[31msudo: password for %p@%h, running as %U:[0m "
+    '';
   };
 }

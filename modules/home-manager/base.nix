@@ -22,6 +22,8 @@
     sysstat
   ];
 
+  home.stateVersion = "21.11";
+
   programs.home-manager = {
     enable = true;
     path = "…";
