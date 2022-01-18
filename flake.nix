@@ -44,7 +44,8 @@
           gaming
         ] ++ [{
           home-manager.sharedModules = with modules.homeModules; [
-            base
+            common
+            mainUser-ayats
             flake-channels
             fonts
             gui
