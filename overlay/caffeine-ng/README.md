@@ -4,7 +4,7 @@
 
     ```bash
     git clone https://github.com/viperML/dotfiles
-    cd overlay/caffeine-ng
+    cd dotfiles/overlay/caffeine-ng
     nix-build -A caffeine-ng ./shell.nix
     ```
 
