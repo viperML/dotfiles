@@ -1,6 +1,6 @@
 > 2022-01-19T13:58:52Z
 
-- To build the package with Nix:
+- To build the package with [Nix](https://nixos.org/download.html):
 
     ```bash
     git clone https://github.com/viperML/dotfiles
@@ -8,6 +8,6 @@
     nix-build -A caffeine-ng ./shell.nix
     ```
 
-    The output dir will be printed after finishing the build. To run it, `/nix/store/<hash>-caffeine-ng-<versiobn>/bin/caffeine-ng`.
+    The output dir will be printed after finishing the build. To run it, `/nix/store/<hash>-caffeine-ng-<versiobn>/bin/caffeine`.
 
 - To change the python version, modify line 8 at `shell.nix`: `python38Packages`, `python39Packages`, etc.
