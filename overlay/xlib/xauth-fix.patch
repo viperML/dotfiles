@@ -5,7 +5,7 @@
  
          for efam, eaddr, enum, ename, edata in self.entries:
 -            if efam == family and eaddr == address and num == enum:
-+            if efam == family and eaddr == address and (num == enum or enum == ""):
++            if efam == family and eaddr == address:
                  matches[ename] = edata
  
          for t in types:
