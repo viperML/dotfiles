@@ -26,4 +26,9 @@
     caffeine-ng
     reversal-kde
   ];
+
+  security.pam.services =
+    lib.mkIf
+      config.services.xserver.displayManager.gdm.enable
+      { gdm-password.enableKwallet = true; };
 }

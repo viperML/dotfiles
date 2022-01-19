@@ -36,7 +36,7 @@
           inputs.home-manager.nixosModules.home-manager
           home-manager
           network
-          adblock
+          # adblock # TODO fix
 
           virt
           docker
@@ -164,6 +164,7 @@
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
 
     flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.1;
 

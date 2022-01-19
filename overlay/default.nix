@@ -12,6 +12,7 @@ final: prev: {
   reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
   disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
   stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
+  caffeine-ng = prev.callPackage ./caffeine-ng { pP = prev.python3Packages; };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";

@@ -7,10 +7,10 @@
       displayManager = {
         lightdm.enable = false;
         sddm = {
-          enable = true;
+          enable = false;
         };
         gdm = {
-          enable = false;
+          enable = true;
           wayland = true;
           nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
