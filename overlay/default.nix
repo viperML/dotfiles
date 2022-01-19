@@ -14,15 +14,15 @@ final: prev: {
   stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
   caffeine-ng = prev.callPackage ./caffeine-ng { python3Packages = prev.python3Packages; };
 
-  # python3 = prev.python3.override {
-  #   packageOverrides = python3-final: python3-prev: {
-  #     xlib = python3-prev.xlib.overrideAttrs (prevAttrs: {
-  #       patches = [
-  #         ./xlib/xauth-fix.patch
-  #       ];
-  #     });
-  #   };
-  # };
+  python3 = prev.python3.override {
+    packageOverrides = python3-final: python3-prev: {
+      xlib = python3-prev.xlib.overrideAttrs (prevAttrs: {
+        patches = [
+          ./xlib/xauth-fix.patch
+        ];
+      });
+    };
+  };
 
   element-for-poor-people = with prev; makeDesktopItem {
     name = "Element";
