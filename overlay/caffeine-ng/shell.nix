@@ -5,5 +5,5 @@
   }) { }
 }:
 {
-  caffeine-ng = pkgs.callPackage ./. { pP = pkgs.python39Packages; };
+  caffeine-ng = pkgs.callPackage ./. { python3Packages = pkgs.python310Packages; };
 }
