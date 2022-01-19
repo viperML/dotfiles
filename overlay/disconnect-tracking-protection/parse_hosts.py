@@ -3,7 +3,7 @@ import json
 import argparse
 
 selected_categories = [ "All" ]
-removed_categories = [ "Social" ]
+removed_categories = [ ]
 
 # Initialize argparse
 parser = argparse.ArgumentParser(description='Parse hosts file')
@@ -24,9 +24,9 @@ hosts = []
 
 for category in data["categories"]:
     category_hosts = []
+    print(f"Parsing category: {category}")
     if category in selected_categories \
-       or ("All" in selected_categories and category not in removed_categories):
-        print(f"Parsing category: {category}")
+       or (("All" in selected_categories) and (category not in removed_categories)):
         category_hosts = []
         for service in data["categories"][category]:
             # Unfold the JSON mess
@@ -34,9 +34,6 @@ for category in data["categories"]:
             category_hosts.extend(service_hosts)
         print(f"- Adding {len(category_hosts)} hosts")
         hosts.extend(category_hosts)
-
-    else:
-        print(f"Skipping category: {category}")
 
 hosts.sort()
 print(f"Total hosts: {len(hosts)}")

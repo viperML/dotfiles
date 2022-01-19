@@ -36,7 +36,7 @@
           inputs.home-manager.nixosModules.home-manager
           home-manager
           network
-          # adblock # TODO fix
+          adblock # TODO fix
 
           virt
           docker

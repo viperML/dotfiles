@@ -18,7 +18,7 @@ final: prev: {
     packageOverrides = python3-final: python3-prev: {
       xlib = python3-prev.xlib.overrideAttrs (prevAttrs: {
         patches = [
-          ./xlib/xauth-fix.patch
+          ./python3/xlib/xauth-fix.patch
         ];
       });
     };
