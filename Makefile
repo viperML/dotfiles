@@ -2,7 +2,7 @@ readme:
 	sed -i "/<!--BEGIN-->/,/<!--END-->/d" ./.github/README.md
 	echo -e "<!--BEGIN-->" >> ./.github/README.md
 	echo -e "\`\`\`json" >> ./.github/README.md
-	nix flake show --json | jq -r ".packages" >> ./.github/README.md
+	nix flake show --json | jq -r ".packages.x86_64-linux" >> ./.github/README.md
 	echo -e "\`\`\`" >> ./.github/README.md
 	echo -e "<!--END-->" >> ./.github/README.md
 

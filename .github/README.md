@@ -36,24 +36,35 @@ You can directly reference this flake and import it into your NixOS configuratio
 
 # 📦 Exported packages
 
-To grab the whole overlay into your flake:
+You can either:
+- Pull the whole package into nixpkgs, and reference any package:
 
-#### flake.nix
 
 ```nix
+# flake.nix
 {
-  inputs.viperML-dotfiles.url = github:viperML/dotfiles;
   # ...
+  inputs.viperML-dotfiles.url = github:viperML/dotfiles;
+
+  outputs  = inputs@{ ... }: {
+    nixosConfigurations.<hostname> = nixpkgs.lib.nixosSystem {
+      # ...
+      modules = [
+        {
+          nixpkgs.overlays = [
+
+            inputs.viperML-dotfiles.overlay-pkgs
+
+          ];
+        }
+      ];
+    };
+  }
 }
 ```
 
-#### \<wherever you configure your overlays>
+- Or reference specific packages, such as `inputs.viperML-dotfiles.pkgs.x86_64-linux.<pkg>`:
 
-```nix
-{
-  nixpkgs.overlays = [ inputs.viperML-dotfiles.overlay ];
-}
-```
 
 <!--BEGIN-->
 ```json
