@@ -15,9 +15,11 @@
 
       # Channels configurations
       channelsConfig.allowUnfree = true;
-      overlay = import ./overlay;
+      overlay-pkgs = import ./overlay/overlay-pkgs.nix;
+      overlay-patches = import ./overlay/overlay-patches.nix;
       sharedOverlays = [
-        self.overlay
+        self.overlay-pkgs
+        self.overlay-patches
         inputs.nur.overlay
       ];
 

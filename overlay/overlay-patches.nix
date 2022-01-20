@@ -1,17 +1,6 @@
 final: prev: {
-
-  sierrabreezeenhanced = prev.libsForQt5.callPackage ./SierraBreezeEnhanced { };
-  lightly = prev.libsForQt5.callPackage ./Lightly { };
-  multiload-ng = prev.callPackage ./multiload-ng { };
   any-nix-shell = prev.callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
-  papirus-icon-theme = prev.callPackage ./papirus-icon-theme { papirus-icon-theme = prev.papirus-icon-theme; };
-  netboot-xyz-images = prev.callPackage ./netboot-xyz-images { };
-  plasma-applet-splitdigitalclock = prev.callPackage ./splitdigitalclock { };
-  mohist-server = prev.callPackage ./mohist-server { };
   g-kitty = prev.callPackage ./g-kitty { };
-  reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
-  disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
-  stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
   caffeine-ng = prev.callPackage ./caffeine-ng { python3Packages = prev.python3Packages; };
 
   python3 = prev.python3.override {
