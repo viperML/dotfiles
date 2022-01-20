@@ -17,6 +17,9 @@
       channelsConfig.allowUnfree = true;
       overlay-pkgs = import ./overlay/overlay-pkgs.nix;
       overlay-patches = import ./overlay/overlay-patches.nix;
+      channels.nixpkgs.overlaysBuilder = channels: [
+        (final: prev: { inherit (channels.nixpkgs-devel) caffeine-ng; })
+      ];
       sharedOverlays = [
         self.overlay-pkgs
         self.overlay-patches
@@ -167,8 +170,9 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
+    nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
 
-    flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/v1.3.1;
+    flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/master;
 
     home-manager = {
       url = github:nix-community/home-manager;

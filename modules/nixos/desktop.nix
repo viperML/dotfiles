@@ -75,7 +75,9 @@
     ahoviewer
     krita-beta
     obs-studio
-    mailspring
+    # mailspring
+    thunderbird
+    birdtray
   ];
 
   nix = {

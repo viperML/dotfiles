@@ -74,16 +74,16 @@
         "flake-utils": "flake-utils"
       },
       "locked": {
-        "lastModified": 1638172912,
-        "narHash": "sha256-jxhQGNEsZTdop/Br3JPS+xmBf6t9cIWRzVZFxbT76Rw=",
+        "lastModified": 1639385028,
+        "narHash": "sha256-oqorKz3mwf7UuDJwlbCEYCB2LfcWLL0DkeCWhRIL820=",
         "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
-        "rev": "166d6ebd9f0de03afc98060ac92cba9c71cfe550",
+        "rev": "be1be083af014720c14f3b574f57b6173b4915d0",
         "type": "github"
       },
       "original": {
         "owner": "gytis-ivaskevicius",
-        "ref": "v1.3.1",
+        "ref": "master",
         "repo": "flake-utils-plus",
         "type": "github"
       }
@@ -160,6 +160,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-devel": {
+      "locked": {
+        "lastModified": 1642676089,
+        "narHash": "sha256-mYPm91U32J2sNn/JLmvkuaVVq0kDk8Dkgw9/ypcEM4M=",
+        "ref": "master",
+        "rev": "84127a719f1f1f73fbe632a288090002a47adc37",
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/ayats/Documents/nixpkgs"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/ayats/Documents/nixpkgs"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1642522226,
@@ -199,6 +215,7 @@
         "home-manager": "home-manager",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-devel": "nixpkgs-devel",
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur"
       }
