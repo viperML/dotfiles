@@ -18,7 +18,9 @@
       overlay-pkgs = import ./overlay/overlay-pkgs.nix;
       overlay-patches = import ./overlay/overlay-patches.nix;
       channels.nixpkgs.overlaysBuilder = channels: [
-        (final: prev: { inherit (channels.nixpkgs-devel) caffeine-ng; })
+        (final: prev: {
+          inherit (channels.nixpkgs-devel) caffeine-ng;
+        })
       ];
       sharedOverlays = [
         self.overlay-pkgs
@@ -27,7 +29,7 @@
       ];
 
       # Hosts definitions
-      hostDefaults.modules = with modules.nixosModules; [
+      hostDefaults. modules = with modules.nixosModules; [
         common
       ];
 
@@ -172,6 +174,8 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
     nixpkgs-devel.url = github:viperML/nixpkgs/master;
+    # nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
+
 
     flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/master;
 

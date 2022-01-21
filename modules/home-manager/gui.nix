@@ -5,8 +5,8 @@
     enable = true;
     mime.enable = true;
 
-    configFile."autostart/Mailspring.desktop" = {
-      text = ''
+    configFile = {
+      "autostart/Mailspring.desktop".text = ''
         [Desktop Action NewMessage]
         Exec=${pkgs.mailspring}/bin/mailspring mailto:
         Name[en_US]=New Message
@@ -26,6 +26,36 @@
         StartupWMClass=Mailspring
         Type=Application
       '';
+
+      "autostart/org.flameshot.Flameshot.desktop".text = ''
+        [Desktop Action Capture]
+        Exec=${pkgs.flameshot}/bin/flameshot gui --delay 500
+        Name=Take screenshot
+
+        [Desktop Action Configure]
+        Exec=${pkgs.flameshot}/bin/flameshot config
+        Name=Configure
+
+        [Desktop Action Launcher]
+        Exec=${pkgs.flameshot}/bin/flameshot launcher
+        Name=Open launcher
+
+        [Desktop Entry]
+        Actions=Configure;Capture;Launcher;
+        Categories=Graphics;
+        Comment=Powerful yet simple to use screenshot software.
+        Exec=${pkgs.flameshot}/bin/flameshot
+        GenericName=Screenshot tool
+        Icon=org.flameshot.Flameshot
+        Keywords=flameshot;screenshot;capture;shutter;
+        Name=Flameshot
+        StartupNotify=false
+        Terminal=false
+        Type=Application
+        X-DBUS-ServiceName=org.flameshot.Flameshot
+        X-DBUS-StartupType=Unique
+        X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot
+      '';
     };
 
   };
@@ -35,6 +65,7 @@
   home.packages = with pkgs; [
     discord
     mailspring
+    flameshot
   ];
 
 }

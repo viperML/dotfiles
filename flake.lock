@@ -162,18 +162,16 @@
     },
     "nixpkgs-devel": {
       "locked": {
-        "lastModified": 1642676089,
-        "narHash": "sha256-mYPm91U32J2sNn/JLmvkuaVVq0kDk8Dkgw9/ypcEM4M=",
-        "owner": "viperML",
-        "repo": "nixpkgs",
-        "rev": "84127a719f1f1f73fbe632a288090002a47adc37",
-        "type": "github"
+        "lastModified": 1642754638,
+        "narHash": "sha256-U127g+I0JU68nzVfAT3aXGBDsURbDWSqBS3nl2ohe/8=",
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/ayats/Documents/nixpkgs"
       },
       "original": {
-        "owner": "viperML",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/ayats/Documents/nixpkgs"
       }
     },
     "nixpkgs-stable": {
