@@ -8,13 +8,13 @@
 
 stdenv.mkDerivation rec {
   pname = "plasma-theme-switcher";
-  version = "20200220";
+  version = "develop-20201129";
 
   src = fetchFromGitHub {
     owner = "maldoinc";
     repo = pname;
-    rev = "ccc595f126a58475b42a6013727c6d0a9943b6e1";
-    sha256 = "19731hx726ynqp8w3a624fwc67pk3n5rf11j214hk6jhmvl0kmxi";
+    rev = "4c497d4b9bf2ebb4378d19285d2ac2a213bf54ab";
+    sha256 = "19w3chvi8rqx35f750m18scwsc6nbqh7gpgdgiv6pf417f9mj9iz";
   };
 
   nativeBuildInputs = [
