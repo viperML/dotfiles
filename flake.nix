@@ -171,7 +171,7 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
-    nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
+    nixpkgs-devel.url = github:viperML/nixpkgs/master;
 
     flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/master;
 
