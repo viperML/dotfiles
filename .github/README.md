@@ -84,6 +84,11 @@ You can either:
       "name": "disconnect-tracking-protection-20220112",
       "type": "derivation"
     },
+    "koi-fork": {
+      "description": "Theme scheduling for the KDE Plasma Desktop",
+      "name": "koi-20201128",
+      "type": "derivation"
+    },
     "lightly": {
       "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
       "name": "lightly-0.4.1",

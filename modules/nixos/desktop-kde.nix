@@ -20,6 +20,7 @@
     # Theming
     lightly
     sierrabreezeenhanced
+    reversal-kde
 
     # Extend
     libsForQt5.bismuth
@@ -31,11 +32,6 @@
     libsForQt5.gwenview
     libsForQt5.kwalletmanager
     caffeine-ng
-    reversal-kde
   ];
 
-  security.pam.services =
-    lib.mkIf
-      config.services.xserver.displayManager.gdm.enable
-      { gdm-password.enableKwallet = true; };
 }

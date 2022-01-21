@@ -8,3 +8,4 @@ source
 .envrc
 node_modules
 outputs
+build

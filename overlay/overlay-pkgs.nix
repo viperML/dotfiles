@@ -9,4 +9,5 @@ final: prev: {
   reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
   disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
   stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
+  koi-fork = prev.libsForQt5.callPackage ./Koi-fork { };
 }

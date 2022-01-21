@@ -133,6 +133,7 @@
               plasma-applet-splitdigitalclock
               disconnect-tracking-protection
               stevenblack-hosts
+              koi-fork
               ;
           } // {
 
