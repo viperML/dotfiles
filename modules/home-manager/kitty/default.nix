@@ -9,6 +9,7 @@
       ${builtins.readFile ./kitty.conf}
     '';
     "kitty/dracula-dark.conf".source = ./dracula-dark.conf;
+    "kitty/dracula-light-darker.conf".source = ./dracula-light-darker.conf;
   };
 
   home.activation.kitty = {
