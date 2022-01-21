@@ -75,7 +75,6 @@
     ahoviewer
     krita-beta
     obs-studio
-    mailspring
   ];
 
   nix = {
