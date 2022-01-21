@@ -15,9 +15,11 @@
         let
           apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
             if (( $(date +"%H%M") <  1900 )) && (( $(date +"%H%M") > 0500 )); then
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme Oxygen
+              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme Breeze
+              ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             else
               ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
+              ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             fi
           '';
         in

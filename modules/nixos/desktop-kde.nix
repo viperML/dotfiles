@@ -21,7 +21,6 @@
     lightly
     sierrabreezeenhanced
     reversal-kde
-    whitesur-icon-theme
 
     # Extend
     libsForQt5.bismuth
@@ -31,7 +30,7 @@
     libsForQt5.kdegraphics-thumbnailers
     libsForQt5.filelight
     libsForQt5.gwenview
-    # libsForQt5.kwalletmanager
+    libsForQt5.kcolorchooser
     caffeine-ng
   ];
 

@@ -163,21 +163,21 @@
   "terminal.integrated.cursorStyle": "line",
 
   // Colors
-  "workbench.colorCustomizations": {
-    "editor.background": "#121212",
-    "minimap.background": "#1212125e",
-    "sideBar.foreground": "#999999",
-    "scrollbarSlider.background": "#333333",
-    "scrollbarSlider.hoverBackground": "#444444",
-    "editorRuler.foreground": "#202020",
-    "statusBar.foreground": "#121212",
-    "statusBar.background": "#A8D5E0",
-    "statusBar.noFolderBackground": "#A8D5E0",
-    "statusBar.debuggingBackground": "#A8D5E0",
-    "statusBarItem.remoteBackground": "#A8D5E0",
-    "statusBarItem.remoteForeground": "#121212",
-    "statusBar.border": "#ffffff00"
-  },
+  // "workbench.colorCustomizations": {
+  //   "editor.background": "#121212",
+  //   "minimap.background": "#1212125e",
+  //   "sideBar.foreground": "#999999",
+  //   "scrollbarSlider.background": "#333333",
+  //   "scrollbarSlider.hoverBackground": "#444444",
+  //   "editorRuler.foreground": "#202020",
+  //   "statusBar.foreground": "#121212",
+  //   "statusBar.background": "#a8a8e0",
+  //   "statusBar.noFolderBackground": "#a8a8e0",
+  //   "statusBar.debuggingBackground": "#a8a8e0",
+  //   "statusBarItem.remoteBackground": "#A8D5E0",
+  //   "statusBarItem.remoteForeground": "#121212",
+  //   "statusBar.border": "#ffffff00"
+  // },
 
   // Smoothing
   "editor.cursorBlinking": "phase",
@@ -386,5 +386,10 @@
 
 
   "insertDateString.format": "iso",
-  "window.menuBarVisibility": "hidden"
+  "window.menuBarVisibility": "hidden",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#A8D5E0",
+    "statusBar.noFolderBackground": "#A8D5E0",
+    "statusBar.debuggingBackground": "#A8D5E0"
+  }
 }
