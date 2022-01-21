@@ -1,7 +1,8 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    plasma-applet-splitdigitalclock
+  home.packages =
+  [
+    pkgs.plasma-applet-splitdigitalclock
   ];
 }

@@ -164,16 +164,16 @@
       "locked": {
         "lastModified": 1642676089,
         "narHash": "sha256-mYPm91U32J2sNn/JLmvkuaVVq0kDk8Dkgw9/ypcEM4M=",
-        "ref": "master",
+        "owner": "viperML",
+        "repo": "nixpkgs",
         "rev": "84127a719f1f1f73fbe632a288090002a47adc37",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/ayats/Documents/nixpkgs"
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/ayats/Documents/nixpkgs"
+        "owner": "viperML",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-stable": {

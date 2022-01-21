@@ -66,7 +66,7 @@
     word-for-poor-people
     excel-for-poor-people
     mpv
-    (papirus-icon-theme.override { color = "brown"; })
+    (papirus-icon-theme.override { color = "palebrown"; })
     spotify-for-poor-people
     qbittorrent
     gnome.seahorse
