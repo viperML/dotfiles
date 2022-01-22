@@ -39,6 +39,7 @@
           host-gen6
           desktop
           desktop-kde
+          desktop-sway
 
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager

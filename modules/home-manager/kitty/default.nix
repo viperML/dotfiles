@@ -26,7 +26,7 @@
       Service.ExecStart =
         let
           apply-kitty-script = pkgs.writeShellScript "apply-kitty-script" ''
-            if (( $(date +"%H%M") <  1900 )) && (( $(date +"%H%M") > 0500 )); then
+            if (( $(date +"%H%M") <  1800 )) && (( $(date +"%H%M") > 0500 )); then
               ln -sf ${config.xdg.configHome}/kitty/dracula-light-darker.conf ${config.xdg.configHome}/kitty/theme.conf
             else
               ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
