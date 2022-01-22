@@ -40,7 +40,7 @@
           host-gen6
           desktop
           desktop-kde
-          desktop-sway
+          # desktop-sway
 
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
@@ -70,6 +70,8 @@
             kde
             syncthing
             kitty
+
+            sway
           ];
         }];
 
