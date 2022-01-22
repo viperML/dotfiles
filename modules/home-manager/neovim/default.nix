@@ -7,13 +7,23 @@
   programs.neovim = {
     enable = true;
 
-    extraConfig = ''
-      " Vanilla configs
-      ${builtins.readFile ./base.vim}
+    extraConfig =
+      let
+        init-lua = pkgs.writeTextFile {
+          name = "init-lua";
+          text = "${builtins.readFile ./init.lua}";
+        };
+      in
+      ''
+        " Vanilla configs
+        ${builtins.readFile ./base.vim}
 
-      " Plugins configs
-      ${builtins.readFile ./plugins.vim}
-    '';
+        " Plugins configs
+        ${builtins.readFile ./plugins.vim}
+
+        " Lua config
+        :luafile ${init-lua}
+      '';
 
     withNodeJs = true;
 
