@@ -69,7 +69,7 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "Dark Material Dracula",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",
@@ -388,7 +388,7 @@
   "insertDateString.format": "iso",
   "window.menuBarVisibility": "hidden",
 
-  "nightswitch.themeNight": "Super One Dark",
+  "nightswitch.themeNight": "Dark Material Dracula",
   "nightswitch.themeDay": "Atom One Light",
   "nightswitch.sunrise": "05:00",
   "nightswitch.sunset": "18:00"

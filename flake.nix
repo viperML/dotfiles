@@ -27,6 +27,7 @@
         self.overlay-patches
         inputs.nur.overlay
         inputs.nixpkgs-wayland.overlay
+        inputs.vim-extra-plugins.overlay
       ];
 
       # Hosts definitions
@@ -202,8 +203,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-wayland = {
-      url = github:nix-community/nixpkgs-wayland;
+    nixpkgs-wayland.url = github:nix-community/nixpkgs-wayland;
+    vim-extra-plugins = {
+      url = "github:m15a/nixpkgs-vim-extra-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

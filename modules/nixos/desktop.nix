@@ -70,6 +70,7 @@
     spotify-for-poor-people
     qbittorrent
     gnome.seahorse
+    android-tools
 
     # Misc
     ahoviewer
