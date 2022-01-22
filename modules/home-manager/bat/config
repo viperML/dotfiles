@@ -24,7 +24,8 @@
 #--map-syntax "*.ino:C++"
 #--map-syntax ".ignore:Git Ignore"
 
---theme="Dracula"
+--theme="ansi"
 --style="changes,header"
 
 --plain
+--pager=never
