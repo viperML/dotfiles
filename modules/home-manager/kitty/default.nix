@@ -40,8 +40,7 @@
         Unit.Description = "Apply colorscheme on schedule";
         Unit.PartOf = [ "apply-kitty.service" ];
         # DayOfWeek Year-Month-Day Hour:Minute:Second
-        Timer.OnCalendar = "*-*-* 19:01:00";
-        Timer.OnCalendar = "*-*-* 05:01:00";
+        Timer.OnCalendar = [ "*-*-* 19:01:00" "*-*-* 05:01:00" ];
         Timer.Persistent = "true";
         Install.WantedBy = [ "timers.target" ];
       };
