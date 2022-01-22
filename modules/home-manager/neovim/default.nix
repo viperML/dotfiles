@@ -75,6 +75,7 @@
         vim-airline
         vim-highlightedyank
         dracula-vim
+        vim-one
 
         # Misc
         vim-easymotion

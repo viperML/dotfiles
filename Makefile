@@ -28,6 +28,7 @@ clean:
 	find -name *.qcow2 -exec rm {} \;
 	find -name source -exec rm -rf {} \;
 	find -name result -exec unlink {} \;
+	find -name results -exec rm -rf {} \;
 
 IMG_DIR?=/var/lib/libvirt/images
 

@@ -29,7 +29,7 @@
       ];
 
       # Hosts definitions
-      hostDefaults. modules = with modules.nixosModules; [
+      hostDefaults.modules = with modules.nixosModules; [
         common
       ];
 

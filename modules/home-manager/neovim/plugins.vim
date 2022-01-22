@@ -1,4 +1,9 @@
-colorscheme dracula
+colorscheme one
+if strftime("%H") < 4
+  set background=dark
+else
+  set background=light
+endif
 
 " https://github.com/xiyaowong/nvim-transparent
 let g:transparent_enabled = v:true
