@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cachix": {
+      "locked": {
+        "lastModified": 1642244250,
+        "narHash": "sha256-vWpUEqQdVP4srj+/YLJRTN9vjpTs4je0cdWKXPbDItc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0fd9ee1aa36ce865ad273f4f07fdc093adeb5c00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-21.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -192,6 +208,41 @@
         "type": "github"
       }
     },
+    "nixpkgs-wayland": {
+      "inputs": {
+        "cachix": "cachix",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1642847082,
+        "narHash": "sha256-FSP1I6PiW2QGBwQvNKzr1PEMjOkdrNWPOCk3R8kOHM8=",
+        "owner": "nix-community",
+        "repo": "nixpkgs-wayland",
+        "rev": "34acdbc77574a727c4adc30bb8e8b1435cca3ee7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs-wayland",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1642635915,
+        "narHash": "sha256-vabPA32j81xBO5m3+qXndWp5aqepe+vu96Wkd9UnngM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6d8215281b2f87a5af9ed7425a26ac575da0438f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1642086863,
@@ -217,6 +268,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-devel": "nixpkgs-devel",
         "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur"
       }
     },

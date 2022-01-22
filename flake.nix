@@ -26,6 +26,7 @@
         self.overlay-pkgs
         self.overlay-patches
         inputs.nur.overlay
+        inputs.nixpkgs-wayland.overlay
       ];
 
       # Hosts definitions
@@ -198,6 +199,10 @@
     nixos-generators = {
       url = github:nix-community/nixos-generators;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs-wayland = {
+      url = github:nix-community/nixpkgs-wayland;
     };
   };
 }
