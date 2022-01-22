@@ -43,7 +43,7 @@
           inputs.home-manager.nixosModules.home-manager
           home-manager
           network
-          adblock # TODO fix
+          adblock
 
           virt
           docker
@@ -166,8 +166,6 @@
       };
 
       defaultTemplate = self.templates.base-flake;
-
-
     };
 
   inputs = {
