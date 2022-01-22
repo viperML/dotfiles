@@ -136,6 +136,7 @@
               disconnect-tracking-protection
               stevenblack-hosts
               koi-fork
+              plasma-theme-switcher
               ;
           } // {
 

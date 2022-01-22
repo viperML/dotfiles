@@ -52,9 +52,10 @@ You can either:
       modules = [
         {
           nixpkgs.overlays = [
-
             inputs.viperML-dotfiles.overlay-pkgs
-
+          ];
+          environment.systemPackages = [
+            <pkg>
           ];
         }
       ];
@@ -63,7 +64,28 @@ You can either:
 }
 ```
 
-- Or reference specific packages, such as `inputs.viperML-dotfiles.pkgs.x86_64-linux.<pkg>`:
+- Or reference specific packages, such as:
+
+```nix
+# configuration.nix
+{ inputs, ... }: {
+  environment.systemPackages = [
+    # ...
+    inputs.viperML-dotfiles.pkgs.x86_64-linux.<pkg>`
+  ];
+}
+```
+Packages are built and pushed to a public cachix cache, according to [.github/build-pkgs.sh](.github/build-pkgs.sh). You can use the binary cache with:
+
+```nix
+# configuration.nix
+{ config, pkgs, ... }: {
+  nix.extraOptions = ''
+    extra-substituters = https://viperml.cachix.org
+    extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
+  '';
+}
+```
 
 
 <!--BEGIN-->
@@ -112,6 +134,11 @@ You can either:
     "plasma-applet-splitdigitalclock": {
       "description": "Split Digital Clock",
       "name": "plasma-applet-splitdigitalclock-unstable-2021-12-27",
+      "type": "derivation"
+    },
+    "plasma-theme-switcher": {
+      "description": "Quickly apply KDE Plasma color schemes and widget styles from the command-line",
+      "name": "plasma-theme-switcher-develop-20201129",
       "type": "derivation"
     },
     "reversal-kde": {
