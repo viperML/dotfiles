@@ -390,5 +390,6 @@
 
   "nightswitch.themeNight": "Dark Material Dracula",
   "nightswitch.themeDay": "Dracula.min Light Darker",
+  "nightswitch.sunrise": "05:00",
   "nightswitch.sunset": "18:00"
 }
