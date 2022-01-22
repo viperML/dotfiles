@@ -77,9 +77,10 @@
   };
 
 
-  # environment.systemPackages = with pkgs; [
-  #   ffmpeg
-  # ];
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    libva-utils
+  ];
 
   services = {
     xserver = {
@@ -176,14 +177,25 @@
     [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = "powersave";
+  # https://discourse.nixos.org/t/nvidia-users-testers-requested-sway-on-nvidia-steam-on-wayland/15264/32
 
   hardware = {
     cpu.intel.updateMicrocode = true;
     # video.hidpi.enable = true;
-    opengl.driSupport32Bit = true;
     nvidia.modesetting.enable = true;
     logitech.wireless.enable = true;
     opengl.enable = true;
     opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+    opengl.extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      libva
+    ];
   };
+
+  environment.etc."gbm/nvidia-drm_gbm.so".source = "${nvidiaPackage}/lib/libnvidia-allocator.so";
+  environment.etc."egl/egl_external_platform.d".source = "/run/opengl-driver/share/egl/egl_external_platform.d/";
+
 }
