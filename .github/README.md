@@ -75,7 +75,7 @@ You can either:
   ];
 }
 ```
-Packages are built and pushed to a public cachix cache, according to [.github/build-pkgs.sh](.github/build-pkgs.sh). You can use the binary cache with:
+Packages are built and pushed to a public cachix cache, according to [.github/build-pkgs.sh](build-pkgs.sh). You can use the binary cache with:
 
 ```nix
 # configuration.nix
