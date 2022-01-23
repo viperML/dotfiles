@@ -1,5 +1,11 @@
 { extensions = [
   {
+    name = "vscode-theme-onelight";
+    publisher = "akamud";
+    version = "2.2.3";
+    sha256 = "1mzd77sv6lb6kfv5fvdvzggs488q553cf752byrml981ys9r7khz";
+  }
+  {
     name = "github-markdown-preview";
     publisher = "bierner";
     version = "0.1.0";
