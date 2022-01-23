@@ -14,8 +14,9 @@
       Service.ExecStart =
         let
           apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
+            sleep 10
             if (( $(date +"%H%M") <  1800 )) && (( $(date +"%H%M") > 0500 )); then
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme Breeze
+              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme KritaBright
               ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             else
               ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark

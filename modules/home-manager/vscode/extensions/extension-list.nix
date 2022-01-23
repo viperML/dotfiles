@@ -20,8 +20,8 @@
   {
     name = "markdown-preview-github-styles";
     publisher = "bierner";
-    version = "1.0.0";
-    sha256 = "1l28h0i8wfi9g6inar7c3is4yp9x2ggi8d9ivcspfrf5nxnq5r08";
+    version = "1.0.1";
+    sha256 = "1bjx46v17d18c9bplz70dx6fpsc6pr371ihpawhlr1y61b59n5aj";
   }
   {
     name = "markdown-yaml-preamble";
@@ -32,8 +32,8 @@
   {
     name = "vscode-fish";
     publisher = "bmalehorn";
-    version = "1.0.24";
-    sha256 = "1hi9xixhzpy09fy25j6xhv8k9yahwj9kh8s057xibaaj04lz6i5b";
+    version = "1.0.27";
+    sha256 = "0k3agnnh3ys6m6v8dbq3yy9rkyr4zgrp7ks0dan1az0ry4nd4vlw";
   }
   {
     name = "file-browser";
@@ -84,10 +84,16 @@
     sha256 = "1vfyzxaqj0bdl9cd0x6glnydbi85pf4j9fbasj2i0lfqn06l27lm";
   }
   {
+    name = "nightswitch-lite";
+    publisher = "gharveymn";
+    version = "2.3.0";
+    sha256 = "0iy6pnyl76rr9lnglsjplkc24980i04fgp8qa1m0l0034qd5mlg9";
+  }
+  {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.4421";
-    sha256 = "1wvzf8rq8ligj079f1m74zzna2mfmhcbgvvrsw6w0wxw9x8fn4wy";
+    version = "1.7.4688";
+    sha256 = "0p3w6b1qkg7qc0y0q8ijfrvz3na8cyn0l63ij9cjphpnf9c0knii";
   }
   {
     name = "haskell";
@@ -158,14 +164,14 @@
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.1.0";
-    sha256 = "0kh97pg3ixs6mnls98x2sj4h8qf48w9sglp3k63azri9im8mcj2j";
+    version = "2022.1.3";
+    sha256 = "17v8dp8f39m2rbszlcmr0mnyjckycab4kzh5xpna4fz243rqmhl6";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.1.1001666841";
-    sha256 = "1rxkcxv6afg3qp20mcvcknk6ww1l4gn0m51615zvgv0iiys9rwkm";
+    version = "2022.1.1001727824";
+    sha256 = "0hj04cgw5027nsghcjzp7gp4x55chimrbr1c1p7jnrial4yhrvgq";
   }
   {
     name = "jupyter-keymap";
@@ -182,8 +188,8 @@
   {
     name = "remote-containers";
     publisher = "ms-vscode-remote";
-    version = "0.210.1";
-    sha256 = "1nfdg7i9hq6vqqm723hzrh7v00fw4cgcq7ml10rgidsg4yv7xby4";
+    version = "0.214.0";
+    sha256 = "105q784p4q4l032zyzyxsswg4jmf366l4shhf45m0hvxxiik42m4";
   }
   {
     name = "remote-ssh";
@@ -200,14 +206,14 @@
   {
     name = "cpptools";
     publisher = "ms-vscode";
-    version = "1.7.1";
-    sha256 = "0hc6gnw00mri6hijm752zmhz26864dk8gxwa0yshy20hk9z29y6s";
+    version = "1.8.0";
+    sha256 = "083wv2gi55jb6j4qbrj1h6c31pjl91wq3s5kzi7aklp0j0b9gs3j";
   }
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.5242";
-    sha256 = "0mndks2zfpxydd9fpwbi98qdhzkjzwfhh7hg3z222l18scfzad3z";
+    version = "1.0.5273";
+    sha256 = "17q3k4c688nr29ihf0x9kizfchab6i74dkl3b66767czx07kkd1m";
   }
   {
     name = "color-highlight";
@@ -254,14 +260,14 @@
   {
     name = "rewrap";
     publisher = "stkb";
-    version = "1.15.4";
-    sha256 = "1s55a78b61ly2fgg7mpnq09g0ard4hriqn6pplkwl6p1bc5g5rfa";
+    version = "17.3.0";
+    sha256 = "1nzg029wk0hh4n51m44snh3wcz6yhwgx3lqxx0vjmhkv3iidpg7x";
   }
   {
     name = "code-spell-checker";
     publisher = "streetsidesoftware";
-    version = "2.0.14";
-    sha256 = "0y3xw0490n35138z964ai97mfw9b2v0a7a74abkxmkns1fqjq1wv";
+    version = "2.1.4";
+    sha256 = "1y0gfdr8kw3rjp47p9lxnylpwl1pd5wfr2zvl7i3hws39gya1jsp";
   }
   {
     name = "code-spell-checker-spanish";

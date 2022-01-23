@@ -40,14 +40,6 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = "-DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON";
 
-  # buildPhase = ''
-  #   make
-  # '';
-
-  # installPhase = ''
-	# 	make install
-	# '';
-
   meta = with lib; {
     description = "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative";
     homepage = "https://github.com/kupiqu/SierraBreezeEnhanced";

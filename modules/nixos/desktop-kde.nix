@@ -21,7 +21,7 @@
     lightly
     sierrabreezeenhanced
     reversal-kde
-    lounge-gtk-theme
+    yaru-theme
 
     # Extend
     libsForQt5.bismuth

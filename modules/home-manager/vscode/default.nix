@@ -4,7 +4,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace ((import ./extensions.nix).extensions);
+    extensions = import ./extensions { pkgs =pkgs; };
   };
 
   home.packages = with pkgs; [
@@ -20,6 +20,7 @@
         $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/settings.json ~/.config/Code/User/settings.json
         $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/keybindings.json ~/.config/Code/User/keybindings.json
         $DRY_RUN_CMD ln -sf $VERBOSE_ARG -t ~/.config/Code/User ${config.home.sessionVariables.FLAKE}/modules/home-manager/vscode/snippets
+        $DRY_RUN_CMD find $HOME/.vscode/extensions -maxdepth 1 -mindepth 1 -type d -exec rm -rf $VERBOSE_ARG {} \;
       '';
     } else (throw "The implementation to import this module (vscode) is not finished");
 }

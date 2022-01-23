@@ -4,8 +4,8 @@ vim.opt.termguicolors = true
 require("bufferline").setup{}
 
 require("lspconfig").rnix.setup{}
-require('gitsigns').setup()
-require('feline').setup()
+require("gitsigns").setup{}
+require("feline").setup{}
 
 
 require("nvim-treesitter.configs").setup {
