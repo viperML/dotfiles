@@ -1,10 +1,3 @@
-colorscheme one
-if strftime("%H") < 18 && strftime("%H") > 5
-  set background=light
-else
-  set background=dark
-endif
-
 let g:transparent_enabled = v:true
 let g:highlightedyank_highlight_duration = 3
 

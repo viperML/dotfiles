@@ -69,7 +69,7 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "Dark Material Dracula",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",
@@ -386,7 +386,7 @@
 
 
   "insertDateString.format": "iso",
-  "window.menuBarVisibility": "compact",
+  // "window.menuBarVisibility": "
 
   "nightswitch.themeNight": "Dark Material Dracula",
   "nightswitch.themeDay": "Atom One Light",
@@ -396,5 +396,6 @@
     "editor.defaultFormatter": "Koihik.vscode-lua-format"
   },
   "extensions.autoUpdate": false,
-  "extensions.autoCheckUpdates": false
+  "extensions.autoCheckUpdates": false,
+  "window.menuBarVisibility": "toggle"
 }

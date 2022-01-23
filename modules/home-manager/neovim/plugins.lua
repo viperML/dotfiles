@@ -1,3 +1,11 @@
+vim.cmd[[colorscheme one]]
+local current_time = tonumber(os.date("%H%M"))
+if current_time < 1800 and current_time > 500 then
+  vim.opt.background = "light"
+else
+  vim.opt.background = "dark"
+end
+
 require("nvim_comment").setup{}
 
 vim.opt.termguicolors = true

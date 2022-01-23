@@ -9,20 +9,20 @@
 
     extraConfig =
       let
-        init-lua = pkgs.writeTextFile {
-          name = "init-lua";
-          text = "${builtins.readFile ./init.lua}";
+        plugins-lua = pkgs.writeTextFile {
+          name = "plugins-lua";
+          text = "${builtins.readFile ./plugins.lua}";
         };
       in
       ''
         " Vanilla configs
-        ${builtins.readFile ./base.vim}
+        ${builtins.readFile ./vanilla.vim}
 
         " Plugins configs
         ${builtins.readFile ./plugins.vim}
 
         " Lua config
-        :luafile ${init-lua}
+        :luafile ${plugins-lua}
       '';
 
     withNodeJs = true;
