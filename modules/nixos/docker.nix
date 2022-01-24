@@ -7,6 +7,18 @@
     extraOptions = "--registry-mirror=https://mirror.gcr.io --add-runtime crun=${pkgs.crun}/bin/crun --default-runtime=crun";
   };
 
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers = {
+      # test = {
+      #   ports = [
+      #     "8080:80"
+      #   ];
+      #   image = "nginx:latest";
+      # };
+    };
+  };
+
   users.groups.docker.members = config.users.groups.wheel.members;
 
   systemd = {

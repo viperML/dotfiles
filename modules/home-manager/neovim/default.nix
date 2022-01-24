@@ -2,7 +2,7 @@
 
 # Requires https://github.com/m15a/nixpkgs-vim-extra-plugins overlay
 {
-  home.sessionVariables.EDITOR = "neovim";
+  home.sessionVariables.EDITOR = "${config.programs.neovim.package.outPath}/bin/nvim";
 
   programs.neovim = {
     enable = true;
