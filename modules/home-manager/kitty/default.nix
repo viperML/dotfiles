@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.g-kitty ];
+  home.packages = [ pkgs.kitty ];
 
   xdg.configFile = {
     "kitty/kitty.conf".text = ''

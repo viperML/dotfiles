@@ -60,8 +60,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "PatrickF1";
           repo = "fzf.fish";
-          rev = "e246a4bb5fc61c1562178a62f4ff80685eb48565";
-          sha256 = "023ilgp7hbqqsadjw58rd0zpmiy60gq55w96p38n7wv01p39cw3i";
+          rev = "0dc2795255d6ac0759e6f1d572f64ea0768acefb";
+          sha256 = "0k8g9fliwxxvzcbh90v2k230p23g48kwsicd4z1cg69y4l60bqdg";
         };
       }
       {
@@ -78,8 +78,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Gazorby";
           repo = "fish-abbreviation-tips";
-          rev = "75f7f66ca092d53197c1a97c7d8e93b1402fdc15";
-          sha256 = "0imwsq0hs8m1msjxkg4gvnclh7q1sz5zkqb16m859v1aih02k3xs";
+          rev = "d29a52375a0826ed86b0710f58b2495a73d3aff3";
+          sha256 = "0s6zcxlhfys545lnfg626ilk1jqgak9xpijy3jxs9z12w2c4d3gk";
         };
       }
     ];
