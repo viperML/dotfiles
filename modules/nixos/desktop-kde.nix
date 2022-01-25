@@ -12,7 +12,8 @@
         my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
       in
       {
-        enable = (builtins.length my-users == 1);
+        # enable = (builtins.length my-users == 1);
+        enable = false; # not working
       };
   };
 

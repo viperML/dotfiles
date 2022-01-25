@@ -13,6 +13,7 @@
           enable = true;
           wayland = true;
           nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
+          autoLogin.delay = 1;
         };
 
         # If system only has 1 normal user, enable autologin for them
@@ -21,7 +22,7 @@
             my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
           in
           {
-            user = lib.mkIf (builtins.length my-users == 1) (builtins.head my-users);
+            user = lib.mkIf (builtins.length my-users == 1) (config.users.users."${builtins.head my-users}".name);
           };
       };
     };
@@ -56,6 +57,7 @@
     pciutils
     wget
     lsof
+    pwgen
 
     # Base
     brave
