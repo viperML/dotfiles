@@ -87,7 +87,7 @@
 
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     nix-direnv.enable = false;
     config.whitelist.prefix = [
       "/home"
