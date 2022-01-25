@@ -28,6 +28,7 @@
         inputs.nur.overlay
         inputs.nixpkgs-wayland.overlay
         inputs.vim-extra-plugins.overlay
+        inputs.emacs-overlay.overlay
       ];
 
       # Hosts definitions
@@ -72,6 +73,8 @@
             kitty
 
             sway
+            # inputs.doom-emacs.hmModule
+            # emacs
           ];
         }];
 
@@ -209,6 +212,12 @@
     vim-extra-plugins = {
       url = "github:m15a/nixpkgs-vim-extra-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs-overlay.url = github:nix-community/emacs-overlay;
+    doom-emacs = {
+      url = github:vlaci/nix-doom-emacs;
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.emacs-overlay.follows = "emacs-overlay";
     };
   };
 }
