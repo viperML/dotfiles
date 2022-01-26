@@ -11,13 +11,9 @@ switch:
 	home-manager switch --flake ${FLAKE} || true
 
 update:
-	git stash
 	nix flake update
-	rg -l fetchFromGitHub | sed '/Makefile/d' | xargs -n1 update-nix-fetchgit
 	bash ~/.nix-inputs/nixpkgs/pkgs/misc/vscode-extensions/update_installed_exts.sh > modules/home-manager/vscode/extensions.nix
-	git add .
-	git commit -m "nix: automatic update"
-	git stash pop
+	-rg -l fetchFromGitHub | sed '/Makefile/d' | xargs -n1 update-nix-fetchgit
 
 hooks:
 	ln -sf ${PWD}/.github/hooks/* .git/hooks

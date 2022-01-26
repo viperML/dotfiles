@@ -8,7 +8,7 @@
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" ]; })
     corefonts
     noto-fonts
-    noto-fonts-cjk
+    # noto-fonts-cjk
     noto-fonts-extra
     noto-fonts-emoji
   ];

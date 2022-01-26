@@ -73,8 +73,8 @@
             kitty
 
             sway
-            # inputs.doom-emacs.hmModule
-            # emacs
+            inputs.doom-emacs.hmModule
+            emacs
           ];
         }];
 
@@ -99,6 +99,7 @@
               jq
               nixos-install-tools
               ripgrep
+              unzip
             ];
             shellHook = ''
               export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
