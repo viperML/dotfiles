@@ -1,7 +1,14 @@
-# viperML/dotfiles
+<h1 align="center">viperML/dotfiles</h1>
 
-![https://app.cachix.org/cache/viperml](https://img.shields.io/badge/-%E2%9D%84%20built%20with%20nix-blue)
 
+<p align="center">
+  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-check.yaml">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=flake%20check">
+  </a>
+  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-cache.yaml">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=cachix">
+  </a>
+</p>
 
 # 🗒 About
 
