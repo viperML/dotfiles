@@ -214,11 +214,11 @@
       url = "github:m15a/nixpkgs-vim-extra-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = github:nix-community/emacs-overlay;
-    doom-emacs = {
-      url = github:vlaci/nix-doom-emacs;
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
-    };
+    # emacs-overlay.url = github:nix-community/emacs-overlay;
+    # doom-emacs = {
+    #   url = github:vlaci/nix-doom-emacs;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.emacs-overlay.follows = "emacs-overlay";
+    # };
   };
 }
