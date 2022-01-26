@@ -4,6 +4,12 @@
   system.stateVersion = "21.11";
   system.configurationRevision = (if inputs.self ? rev then inputs.self.rev else null);
   time.timeZone = "Europe/Madrid";
+  documentation = {
+    man.enable = true;
+    doc.enable = false;
+    info.enable = false;
+    nixos.enable = false;
+  };
 
   nixpkgs.config = import ../nixpkgs.conf;
   nix = {
