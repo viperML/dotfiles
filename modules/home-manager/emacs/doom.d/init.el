@@ -187,3 +187,4 @@
        (default +bindings +smartparens))
 
 (add-hook 'emacs-startup-hook 'treemacs)
+;; (add-hook 'emacs-startup-hook)

@@ -73,8 +73,8 @@
             kitty
 
             sway
-            inputs.doom-emacs.hmModule
-            emacs
+            # inputs.doom-emacs.hmModule
+            # emacs
           ];
         }];
 

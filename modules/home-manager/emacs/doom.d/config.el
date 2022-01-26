@@ -26,7 +26,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
-(setq doom-font "JetBrains Mono Medium")
+;; (setq doom-font "JetBrains Mono Medium")
+;; (setq doom-font (font-spec :family "JetBrains Mono Medium" :size 13))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -58,7 +59,9 @@
   ;; If you want it in all text modes:
   (text-mode . mixed-pitch-mode))
 
-(cua-mode 1)
+;; (cua-mode 1)
 (setq confirm-kill-emacs nil)
-(after! highlight-indent-guides
-  (highlight-indent-guides-top-character-face))
+;; (setq highlight-indent-guides-mode 'character)
+
+(setq custom-file "/home/ayats/Documents/dotfiles/modules/home-manager/emacs/doom.d/custom.el")
+(load custom-file)

@@ -80,6 +80,8 @@
     obs-studio
   ];
 
+  fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
+
   nix = {
     gc = {
       automatic = true;
