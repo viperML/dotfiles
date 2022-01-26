@@ -1,8 +1,7 @@
 # viperML/dotfiles
 
 ![https://app.cachix.org/cache/viperml](https://img.shields.io/badge/-%E2%9D%84%20built%20with%20nix-blue)
-![![GitHub Workflow Status (branch)](https://github.com/viperML/dotfiles/actions/workflows/flake-check.yaml)](https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20Check/master?label=flake%20check)
-![![GitHub Workflow Status (branch)](https://github.com/viperML/dotfiles/actions/workflows/cachix.yaml)](https://img.shields.io/github/workflow/status/viperML/dotfiles/Cachix/master?label=cachix)
+
 
 # 🗒 About
 

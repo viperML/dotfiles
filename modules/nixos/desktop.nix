@@ -13,7 +13,6 @@
           enable = true;
           wayland = true;
           nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
-          autoLogin.delay = 1;
         };
 
         # If system only has 1 normal user, enable autologin for them
@@ -41,6 +40,11 @@
     thermald.enable = true;
     udev.packages = with pkgs; [ android-udev-rules ];
   };
+
+  # Fixes GDM autologin in Wayland
+  # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=15s

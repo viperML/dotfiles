@@ -1,4 +1,4 @@
-name: "Cache flake"
+name: "Flake cache"
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  builds:
+  main:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Build configuration
     runs-on: ubuntu-latest
@@ -26,9 +26,7 @@ jobs:
         name: viperml
         extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    # - run: nix build .#nixosConfigurations.nix3.config.system.build.toplevel -L
-    #   name: Build nix3 system
     - run: nix build .#devShell.x86_64-linux.inputDerivation -L
       name: Build devShell
-    - run: bash .github/build-pkgs.sh
+    - run: ./bin/build-flake-packages.sh
       name: Build packages
