@@ -28,7 +28,7 @@
         inputs.nur.overlay
         inputs.nixpkgs-wayland.overlay
         inputs.vim-extra-plugins.overlay
-        inputs.emacs-overlay.overlay
+        # inputs.emacs-overlay.overlay
       ];
 
       # Hosts definitions
