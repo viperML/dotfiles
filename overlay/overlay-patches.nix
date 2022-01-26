@@ -2,6 +2,7 @@ final: prev: {
   any-nix-shell = prev.callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
   g-kitty = prev.callPackage ./g-kitty { };
   # caffeine-ng = prev.callPackage ./caffeine-ng { python3Packages = prev.python3Packages; };
+  obsidian = prev.callPackage ./obsidian { obsidian = prev.obsidian; };
 
   python3 = prev.python3.override {
     packageOverrides = python3-final: python3-prev: {

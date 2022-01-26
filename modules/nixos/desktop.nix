@@ -78,9 +78,8 @@
     ahoviewer
     krita-beta
     obs-studio
+    obsidian
   ];
-
-  fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
 
   nix = {
     gc = {
