@@ -65,7 +65,7 @@
 
     # Base
     brave
-    google-chrome
+    google-chrome-beta
     flameshot
     masterpdfeditor4
     onlyoffice-bin
@@ -92,4 +92,12 @@
       options = "--delete-older-than 14d";
     };
   };
+
+  # programs.chromium = {
+  #   enable = true;
+  #   # package = pkgs.google-chrome;
+  #   extensions = [
+  #     "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+  #   ];
+  # };
 }

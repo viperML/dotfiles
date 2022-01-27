@@ -70,10 +70,13 @@
 
   # programs.chromium = {
   #   enable = true;
-  #   package = pkgs.ungoogled-chromium;
+  #   # package = pkgs.google-chrome;
   #   extensions = [
   #     { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
   #   ];
   # };
-
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-beta-bin;
+  };
 }

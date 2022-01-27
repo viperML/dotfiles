@@ -1,14 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  programs = {
-    xwayland.enable = true;
-  };
-
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
@@ -20,7 +13,7 @@
         zfs rollback -r zroot/gen6/nixos@empty
       '';
     };
-
+    tmpOnTmpfs = true;
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
     kernelParams = [ ];
@@ -33,42 +26,28 @@
       forceImportRoot = false;
     };
 
-    loader = {
-      grub = {
-        device = "nodev";
-        enable = true;
-        efiSupport = true;
-        zfsSupport = true;
-        gfxmodeEfi = "2560x1440";
-        configurationLimit = 20;
-        extraFiles = {
-          "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
-        };
-        extraEntries = ''
-          ### Start netboot.xyz
-          menuentry "netboot.xyz" {
-            chainloader /netboot.xyz.efi
-          }
-          ### End netboot.xyz
-        '';
+    loader.grub = {
+      device = "nodev";
+      enable = true;
+      efiSupport = true;
+      zfsSupport = true;
+      gfxmodeEfi = "2560x1440";
+      configurationLimit = 20;
+      extraFiles = {
+        "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
       };
-
-      efi = {
-        efiSysMountPoint = "/boot";
-        canTouchEfiVariables = true;
-      };
+      extraEntries = ''
+        ### Start netboot.xyz
+        menuentry "netboot.xyz" {
+          chainloader /netboot.xyz.efi
+        }
+        ### End netboot.xyz
+      '';
     };
 
-    tmpOnTmpfs = true;
-  };
-
-  systemd = {
-    services.sanoid = {
-      serviceConfig = {
-        DynamicUser = lib.mkForce false;
-        Group = lib.mkForce "root";
-        User = lib.mkForce "root";
-      };
+    loader.efi = {
+      efiSysMountPoint = "/boot";
+      canTouchEfiVariables = true;
     };
   };
 
@@ -76,63 +55,69 @@
     hostId = "01017f00";
   };
 
-
   environment.systemPackages = with pkgs; [
     vulkan-tools
     libva-utils
   ];
 
-  services = {
-    xserver = {
-      layout = "us";
-      videoDrivers = [ "nvidia" ];
-      xkbOptions = "compose:rctrl";
-    };
+  services.xserver = {
+    layout = "us";
+    videoDrivers = [ "nvidia" ];
+    xkbOptions = "compose:rctrl";
+  };
 
-    sanoid = {
+  services.sanoid = {
+    enable = true;
+    templates = {
+      "normal" = {
+        "frequently" = 0;
+        "hourly" = 1;
+        "daily" = 1;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+      "slow" = {
+        "frequently" = 0;
+        "hourly" = 0;
+        "daily" = 0;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+    };
+    datasets =
+      let
+        slow-datasets = [
+          "zroot/data/games"
+          "zroot/data/steam"
+        ];
+        normal-datasets = [
+          # "zroot/data/downloads"
+          "zroot/data/documents"
+          "zroot/data/music"
+          "zroot/data/pictures"
+          "zroot/data/videos"
+          "zroot/secrets"
+        ];
+      in
+      (builtins.listToAttrs
+        (builtins.map (dataset: { name = dataset; value.use_template = [ "slow" ]; })
+          slow-datasets))
+      //
+      (builtins.listToAttrs
+        (builtins.map (dataset: { name = dataset; value.use_template = [ "normal" ]; })
+          normal-datasets))
+    ;
+  };
+
+  services.zfs = {
+    autoScrub = {
       enable = true;
-      templates = {
-        "normal" = {
-          "frequently" = 0;
-          "hourly" = 1;
-          "daily" = 1;
-          "monthly" = 4;
-          "yearly" = 0;
-          "autosnap" = true;
-          "autoprune" = true;
-        };
-        "slow" = {
-          "frequently" = 0;
-          "hourly" = 0;
-          "daily" = 0;
-          "monthly" = 4;
-          "yearly" = 0;
-          "autosnap" = true;
-          "autoprune" = true;
-        };
-      };
-      settings = {
-        "zroot/data/home" = {
-          "use_template" = "normal";
-        };
-        "zroot/data/games" = {
-          "use_template" = "slow";
-        };
-        "zroot/data/wine" = {
-          "use_template" = "slow";
-        };
-        "zroot/data/steam" = {
-          "use_template" = "slow";
-        };
-      };
-    };
-
-    zfs = {
-      autoScrub = {
-        enable = true;
-        pools = [ "zroot" ];
-        interval = "weekly";
-      };
+      pools = [ "zroot" ];
+      interval = "weekly";
     };
   };
 
@@ -141,40 +126,32 @@
     enableNvidia = true;
   };
 
-  fileSystems."/" =
-    {
+  fileSystems = {
+    "/" = {
       device = "zroot/gen6/nixos";
       fsType = "zfs";
     };
-
-  fileSystems."/nix" =
-    {
+    "/nix" = {
       device = "zroot/nix";
       fsType = "zfs";
     };
-
-  fileSystems."/secrets" =
-    {
+    "/secrets" = {
       device = "zroot/secrets";
       fsType = "zfs";
       neededForBoot = true;
     };
-
-  fileSystems."/home" =
-    {
+    "/home" = {
       device = "zroot/data/home";
       fsType = "zfs";
       neededForBoot = true;
     };
-
-  fileSystems."/boot" =
-    {
+    "/boot" = {
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
     };
+  };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
+  swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = "powersave";
   # https://discourse.nixos.org/t/nvidia-users-testers-requested-sway-on-nvidia-steam-on-wayland/15264/32
@@ -195,7 +172,13 @@
     ];
   };
 
-  environment.etc."gbm/nvidia-drm_gbm.so".source = "${config.hardware.nvidia.package}/lib/libnvidia-allocator.so";
-  environment.etc."egl/egl_external_platform.d".source = "/run/opengl-driver/share/egl/egl_external_platform.d/";
+  programs = {
+    xwayland.enable = true;
+  };
+
+  environment.etc = {
+    "gbm/nvidia-drm_gbm.so".source = "${config.hardware.nvidia.package}/lib/libnvidia-allocator.so";
+    "egl/egl_external_platform.d".source = "/run/opengl-driver/share/egl/egl_external_platform.d/";
+  };
 
 }
