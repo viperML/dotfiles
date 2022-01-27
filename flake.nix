@@ -42,6 +42,7 @@
           desktop
           desktop-kde
           # desktop-sway
+          gnome-keyring
 
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager

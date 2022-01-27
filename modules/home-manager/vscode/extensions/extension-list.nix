@@ -222,6 +222,12 @@
     sha256 = "001h5jc98cf2q0nfb41wshph1kh4g5ym6jdg9xljjnghgsprcs62";
   }
   {
+    name = "vim";
+    publisher = "vscodevim";
+    version = "1.21.10";
+    sha256 = "0c9m7mc2kmfzj3hkwq3d4hj43qha8a75q5r1rdf1xfx8wi5hhb1n";
+  }
+  {
     name = "viml";
     publisher = "XadillaX";
     version = "1.0.1";

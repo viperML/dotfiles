@@ -69,7 +69,7 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "Dark Material Dracula",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",
@@ -314,57 +314,57 @@
   "powershell.startAutomatically": false,
 
   // Vim
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": false,
-  "vim.easymotion": true,
-  "vim.enableNeovim": false,
-  "vim.highlightedyank.enable": true,
-  "vim.showMarksInGutter": true,
-  "vim.statusBarColorControl": true,
-  "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
-  "vim.statusBarColors.insert": "#a8e0ba",
-  "vim.statusBarColors.normal": "#A8D5E0",
-  "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
-  "vim.statusBarColors.visual": "#a8a8e0",
-  "vim.statusBarColors.visualblock": "#a8a8e0",
-  "vim.statusBarColors.visualline": "#a8a8e0",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<space>"],
-      "commands": ["vspacecode.space"]
-    },
-    {
-      "before": [","],
-      "commands": [
-        "vspacecode.space",
-        {
-          "command": "whichkey.triggerKey",
-          "args": "m"
-        }
-      ]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<space>"],
-      "commands": ["vspacecode.space"]
-    },
-    {
-      "before": [","],
-      "commands": [
-        "vspacecode.space",
-        {
-          "command": "whichkey.triggerKey",
-          "args": "m"
-        }
-      ]
-    }
-  ],
+  // "vim.hlsearch": true,
+  // "vim.incsearch": true,
+  // "vim.useSystemClipboard": false,
+  // "vim.easymotion": true,
+  // "vim.enableNeovim": false,
+  // "vim.highlightedyank.enable": true,
+  // "vim.showMarksInGutter": true,
+  // "vim.statusBarColorControl": true,
+  // "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
+  // "vim.statusBarColors.insert": "#a8e0ba",
+  // "vim.statusBarColors.normal": "#A8D5E0",
+  // "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
+  // "vim.statusBarColors.visual": "#a8a8e0",
+  // "vim.statusBarColors.visualblock": "#a8a8e0",
+  // "vim.statusBarColors.visualline": "#a8a8e0",
+  // "vim.handleKeys": {
+  //   "<C-a>": false,
+  //   "<C-f>": false
+  // },
+  // "vim.normalModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": ["<space>"],
+  //     "commands": ["vspacecode.space"]
+  //   },
+  //   {
+  //     "before": [","],
+  //     "commands": [
+  //       "vspacecode.space",
+  //       {
+  //         "command": "whichkey.triggerKey",
+  //         "args": "m"
+  //       }
+  //     ]
+  //   }
+  // ],
+  // "vim.visualModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": ["<space>"],
+  //     "commands": ["vspacecode.space"]
+  //   },
+  //   {
+  //     "before": [","],
+  //     "commands": [
+  //       "vspacecode.space",
+  //       {
+  //         "command": "whichkey.triggerKey",
+  //         "args": "m"
+  //       }
+  //     ]
+  //   }
+  // ],
 
   // Spell check
   "cSpell.language": "en,es",

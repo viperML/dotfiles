@@ -35,7 +35,6 @@
       Storage=volatile
     '';
 
-    gnome.gnome-keyring.enable = true;
     ananicy.enable = true;
     thermald.enable = true;
     udev.packages = with pkgs; [ android-udev-rules ];
@@ -45,11 +44,6 @@
   # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStartSec=15s
-    DefaultTimeoutStopSec=15s
-  '';
 
   hardware.pulseaudio.enable = false; # replaces pipewire
 
@@ -75,7 +69,6 @@
     (papirus-icon-theme.override { color = "palebrown"; })
     spotify-for-poor-people
     qbittorrent
-    gnome.seahorse
     android-tools
 
     # Misc
@@ -92,12 +85,4 @@
       options = "--delete-older-than 14d";
     };
   };
-
-  # programs.chromium = {
-  #   enable = true;
-  #   # package = pkgs.google-chrome;
-  #   extensions = [
-  #     "cjpalhdlnbpafiamejdnhcphjbkeiagm"
-  #   ];
-  # };
 }
