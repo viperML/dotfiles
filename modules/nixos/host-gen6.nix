@@ -158,6 +158,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
+    enableRedistributableFirmware = true;
     # video.hidpi.enable = true;
     nvidia.modesetting.enable = true;
     logitech.wireless.enable = true;

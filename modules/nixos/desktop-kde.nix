@@ -13,7 +13,6 @@
       in
       {
         enable = (builtins.length my-users == 1);
-        # enable = false; # not working
       };
   };
 

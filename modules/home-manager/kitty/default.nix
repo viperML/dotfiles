@@ -12,11 +12,11 @@
     "kitty/dracula-light-darker.conf".source = ./dracula-light-darker.conf;
   };
 
-  # home.activation.kitty = {
-  #   after = [ "writeBoundary" ];
-  #   before = [ ];
-  #   data = config.systemd.user.services.apply-kitty.Service.ExecStart;
-  # };
+  home.activation.kitty = {
+    after = [ "writeBoundary" ];
+    before = [ ];
+    data = config.systemd.user.services.apply-kitty.Service.ExecStart;
+  };
 
   systemd.user = {
     services.apply-kitty = {
@@ -43,7 +43,7 @@
         # DayOfWeek Year-Month-Day Hour:Minute:Second
         Timer.OnCalendar = [ "*-*-* 18:01:00" "*-*-* 05:01:00" ];
         # Timer.Persistent = "true";
-        Timer.OnBootSec = "1min";
+        # Timer.OnBootSec = "1mim";
         Install.WantedBy = [ "timers.target" ];
       };
     };

@@ -38,6 +38,22 @@
         "type": "github"
       }
     },
+    "firefox-csshacks": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642826637,
+        "narHash": "sha256-enom0ixKduPwGzGv9VzJS+PshwUleKjXnueLxcklJhA=",
+        "owner": "MrOtherGuy",
+        "repo": "firefox-csshacks",
+        "rev": "fd644ff857b0cbf98519633ecf0903be47f4b3fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MrOtherGuy",
+        "repo": "firefox-csshacks",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -207,6 +223,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-LunNova-qt515-update": {
+      "locked": {
+        "lastModified": 1642976163,
+        "narHash": "sha256-4yWEwdSL8wN8bvqRhWLM20Pk26Kv2MzRiPg9Ch6IIWA=",
+        "owner": "LunNova",
+        "repo": "nixpkgs",
+        "rev": "d7e59539429e7921496705785ac34be9fc5aefbd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LunNova",
+        "ref": "qt515-update",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-devel": {
       "locked": {
         "lastModified": 1642754638,
@@ -292,11 +324,13 @@
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
+        "firefox-csshacks": "firefox-csshacks",
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-LunNova-qt515-update": "nixpkgs-LunNova-qt515-update",
         "nixpkgs-devel": "nixpkgs-devel",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-wayland": "nixpkgs-wayland",

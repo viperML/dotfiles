@@ -16,14 +16,13 @@
           apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
             if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
               ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme KritaBright
-              ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             else
               ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
-              ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             fi
           '';
         in
         "${apply-colorscheme-script}";
+      Install.WantedBy = [ "xdg-desktop-autostart.target" ];
     };
     timers = {
       apply-colorscheme = {
@@ -32,7 +31,7 @@
         # DayOfWeek Year-Month-Day Hour:Minute:Second
         Timer.OnCalendar = [ "*-*-* 18:01:00" "*-*-* 05:01:00" ];
         # Timer.Persistent = "true";
-        Timer.OnBootSec = "1min";
+        # Timer.OnBootSec = "2s";
         Install.WantedBy = [ "timers.target" ];
       };
     };

@@ -19,7 +19,7 @@
       overlay-patches = import ./overlay/overlay-patches.nix;
       channels.nixpkgs.overlaysBuilder = channels: [
         (final: prev: {
-          inherit (channels.nixpkgs-devel) caffeine-ng;
+          # libsForQt5 = channels.nixpkgs-LunNova-qt515-update.libsForQt5;
         })
       ];
       sharedOverlays = [
@@ -76,6 +76,7 @@
             sway
             # inputs.doom-emacs.hmModule
             # emacs
+            firefox
           ];
         }];
 
@@ -185,6 +186,7 @@
     nixpkgs-devel.url = github:viperML/nixpkgs/master;
     # nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
 
+    nixpkgs-LunNova-qt515-update.url = github:LunNova/nixpkgs/qt515-update;
 
     flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/master;
 
@@ -221,5 +223,9 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.emacs-overlay.follows = "emacs-overlay";
     # };
+    firefox-csshacks = {
+      url = github:MrOtherGuy/firefox-csshacks;
+      flake = false;
+    };
   };
 }

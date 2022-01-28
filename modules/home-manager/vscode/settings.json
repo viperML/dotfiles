@@ -69,7 +69,7 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Dark Material Dracula",
+  "workbench.colorTheme": "Atom One Light",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",
