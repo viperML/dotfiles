@@ -58,8 +58,6 @@
     pwgen
 
     # Base
-    flameshot
-    mailspring
     masterpdfeditor4
     onlyoffice-bin
     word-for-poor-people

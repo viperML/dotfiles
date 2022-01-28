@@ -63,6 +63,11 @@
   # targets.genericLinux.enable = true;
 
   home.packages = with pkgs; [
+    # Autostart
+    flameshot
+    mailspring
+
+    # Misc
     google-chrome
   ];
 
