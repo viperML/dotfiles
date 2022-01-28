@@ -3,8 +3,8 @@
 {
   virtualisation.libvirtd = {
     enable = true;
-    onShutdown = "shutdown";
     onBoot = "ignore";
+    onShutdown = "shutdown";
   };
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [

@@ -54,6 +54,7 @@
           docker
           printing
           gaming
+          vfio
         ] ++ [{
           home-manager.sharedModules = with modules.homeModules; [
             common
