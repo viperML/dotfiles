@@ -73,7 +73,7 @@
       betterttv
       bitwarden
       darkreader
-      treturn-youtube-dislikes
+      return-youtube-dislikes
       sponsorblock
       violentmonkey
       xbrowsersync
