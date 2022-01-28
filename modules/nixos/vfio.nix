@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
+# https://old.reddit.com/r/VFIO/comments/p42x2k/single_gpu_etclibvirthooksqemu_hook_is_never/
+# https://gitlab.com/Karuri/vfio
 let
   my-iommu-group = [
     "pci_0000_01_00_0"
     "pci_0000_01_00_1"
     "pci_0000_01_00_2"
     "pci_0000_01_00_3"
+  ];
+  vfio-enabled-machines = [
+    "win10"
   ];
 in
 {
@@ -66,22 +71,27 @@ in
               while read file; do
                   # check for null string
                   if [ ! -z "$file" ]; then
-                    eval \"$file\" "$@"
+                    # Log the hook execution
+                    mkdir -p /var/log/libvirt/hooks
+                    ${pkgs.util-linux}/bin/script /var/log/libvirt/hooks/$GUEST_NAME-$HOOK_NAME-$STATE_NAME.log ${pkgs.bash}/bin/bash -c "$file $@"
                   fi
               done <<< "$(find -L "$HOOKPATH" -maxdepth 1 -type f -executable -print;)"
           fi
         '';
       mode = "0755";
     };
-
-    "libvirt/hooks/qemu.d/win10/prepare/begin/start.sh" = {
-      text =
-        ''
+  }
+  //
+  builtins.listToAttrs (map
+    (x: {
+      name = "libvirt/hooks/qemu.d/${x}/prepare/begin/start.sh";
+      value = {
+        text = ''
           #!/run/current-system/sw/bin/bash
 
           # Debugging
-          exec 19>/home/ayats/Desktop/startlogfile
-          BASH_XTRACEFD=19
+          # exec 19>/home/ayats/Desktop/startlogfile
+          # BASH_XTRACEFD=19
           set -eux -o pipefail
 
           # Change to performance governor
@@ -105,8 +115,14 @@ in
           # Avoid race condition
           sleep 5
 
-          # Unload NVIDIA kernel modules
-          modprobe -r nvidia_drm nvidia_modeset nvidia_uvm nvidia
+          # Unload all Nvidia drivers
+          modprobe -r nvidia_drm
+          modprobe -r nvidia_modeset
+          modprobe -r drm_kms_helper
+          modprobe -r nvidia
+          modprobe -r i2c_nvidia_gpu
+          modprobe -r drm
+
 
           # Detach GPU devices from host
           ${builtins.concatStringsSep "\n" (builtins.map (x: "virsh nodedev-detach " + x) my-iommu-group)}
@@ -114,17 +130,21 @@ in
           # Load vfio module
           modprobe vfio-pci
         '';
-      mode = "0755";
-    };
-
-    "libvirt/hooks/qemu.d/win10/release/end/stop.sh" = {
-      text =
-        ''
+        mode = "0755";
+      };
+    })
+    vfio-enabled-machines)
+  //
+  builtins.listToAttrs (map
+    (x: {
+      name = "libvirt/hooks/qemu.d/${x}/release/end/stop.sh";
+      value = {
+        text = ''
           #!/run/current-system/sw/bin/bash
 
           # Debugging
-          exec 19>/home/ayats/Desktop/stoplogfile
-          BASH_XTRACEFD=19
+          # exec 19>/home/ayats/Desktop/stoplogfile
+          # BASH_XTRACEFD=19
           set -x
 
           # Unload vfio module
@@ -137,7 +157,13 @@ in
           # nvidia-xconfig --query-gpu-info > /dev/null 2>&1
 
           # Load NVIDIA kernel modules
-          modprobe nvidia_drm nvidia_modeset nvidia_uvm nvidia
+          # Load nvidia drivers
+          modprobe nvidia_drm
+          modprobe nvidia_modeset
+          modprobe drm_kms_helper
+          modprobe nvidia
+          modprobe i2c_nvidia_gpu
+          modprobe drm
 
           # Avoid race condition
           # sleep 5
@@ -160,9 +186,8 @@ in
           # Change to powersave governor
           echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
         '';
-      mode = "0755";
-    };
-
-    # "libvirt/vgabios/patched.rom".source = /home/owner/Desktop/Sync/Files/Linux_Config/symlinks/patched.rom;
-  };
+        mode = "0755";
+      };
+    })
+    vfio-enabled-machines);
 }

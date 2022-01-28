@@ -149,6 +149,11 @@
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
     };
+    "/var/log" = {
+      device = "zroot/data/log";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
   };
 
   swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
@@ -160,7 +165,7 @@
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
     # video.hidpi.enable = true;
-    nvidia.modesetting.enable = true;
+    # nvidia.modesetting.enable = true;
     logitech.wireless.enable = true;
     opengl.enable = true;
     opengl.driSupport = true;

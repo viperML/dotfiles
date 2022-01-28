@@ -7,12 +7,12 @@
       displayManager = {
         lightdm.enable = false;
         sddm = {
-          enable = false;
+          enable = true;
         };
         gdm = {
-          enable = true;
-          wayland = true;
-          nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
+          enable = false;
+          wayland = false;
+          # nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
 
         # If system only has 1 normal user, enable autologin for them

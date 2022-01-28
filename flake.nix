@@ -74,7 +74,7 @@
             syncthing
             kitty
 
-            sway
+            # sway
             # inputs.doom-emacs.hmModule
             # emacs
             firefox
