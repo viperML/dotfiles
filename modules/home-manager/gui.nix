@@ -63,20 +63,27 @@
   # targets.genericLinux.enable = true;
 
   home.packages = with pkgs; [
-    discord
-    mailspring
-    flameshot
+    google-chrome
   ];
 
-  # programs.chromium = {
-  #   enable = true;
-  #   # package = pkgs.google-chrome;
-  #   extensions = [
-  #     { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-  #   ];
-  # };
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-beta-bin;
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      betterttv
+      bitwarden
+      darkreader
+      treturn-youtube-dislikes
+      sponsorblock
+      violentmonkey
+      xbrowsersync
+      wayback-machine
+      ublock-origin
+      unpaywall
+      bypass-paywalls-clean
+    ];
+    profiles.main = {
+      id = 0;
+    };
   };
 }
