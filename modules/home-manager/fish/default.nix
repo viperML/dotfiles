@@ -16,7 +16,8 @@
     when = "${pkgs.any-nix-shell}/bin/nix-shell-info"
     symbol = ""
     style = "bold cyan"
-    format = "[$symbol]($style) [$output]($style) "
+    format = """==> [$symbol]($style) [$output]($style)
+    """
   '';
 
   programs.fish = {

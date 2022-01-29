@@ -63,7 +63,7 @@
   },
 
   // Git
-  "git.autofetch": true,
+  "git.autofetch": false,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreWindowsGit27Warning": true,

@@ -33,6 +33,16 @@
 
   };
 
+  services.openssh = {
+    enable = true;
+    listenAddresses = [
+      {
+        addr = "192.168.122.1";
+        port = 22;
+      }
+    ];
+  };
+
   # users.users = pkgs.lib.mkMerge (
   #   [{ root.passwordFile = "/secrets/password/root"; }] ++
   #   forEach config.users (u:

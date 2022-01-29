@@ -1,15 +1,19 @@
 # ~/.config/starship.toml
 
 # Use custom format
-format = """$directory\
-$python\
+format = """
+$custom\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$custom\
+$python\
+$package\
+$jobs\
+$directory\
+$shlvl\
 $cmd_duration
-[➜](bold) """
+[λ](bold) """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -22,6 +26,11 @@ style = "bold blue"
 read_only = " "
 truncate_to_repo = false
 truncation_length = 0
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+format = "==>  [$symbol$branch]($style) "
+symbol = ""
 
 [git_status]
 format = '([\[$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind \]]($style) )'
@@ -40,10 +49,32 @@ style = "bold cyan"
 
 [git_metrics]
 disabled = false
-format = '\[( [+$added]($added_style))( [-$deleted]($deleted_style)) \] '
+# format = """\[( [+$added]($added_style))( [-$deleted]($deleted_style)) \]
+format = """
+([+$added]($added_style) )([-$deleted]($deleted_style))
+"""
+
+[jobs]
+disabled = false
+format = """==>  bg jobs: [$symbol$number]($style)
+"""
+number_threshold = 1
+symbol = ""
+
 
 [python]
-symbol = ' '
+format = """==> [${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)
+"""
+symbol = " "
+
+[package]
+format = """==> [$symbol$version]($style)
+"""
+symbol = " "
 
 [cmd_duration]
 min_time = 60_000
+
+[shlvl]
+disabled = false
+format = '\[ $shlvl \]'

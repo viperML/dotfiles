@@ -11,10 +11,20 @@ let
   vfio-enabled-machines = [
     "win10"
   ];
+  lsiommu = pkgs.writeShellScriptBin "lsiommu" ''
+  shopt -s nullglob
+  for g in /sys/kernel/iommu_groups/*; do
+    echo "IOMMU Group ''${g##*/}:"
+    for d in $g/devices/*; do
+        echo -e "\t$(lspci -nns ''${d##*/})"
+    done;
+  done;
+  '';
 in
 {
   boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "kvm-intel" "vfio-pci" ];
+  environment.systemPackages = [ lsiommu ];
 
   systemd.services.libvirtd = {
     path =
@@ -88,11 +98,7 @@ in
       value = {
         text = ''
           #!/run/current-system/sw/bin/bash
-
-          # Debugging
-          # exec 19>/home/ayats/Desktop/startlogfile
-          # BASH_XTRACEFD=19
-          set -eux -o pipefail
+          set -ux -o pipefail
 
           # Change to performance governor
           echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
@@ -113,7 +119,7 @@ in
           echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
 
           # Avoid race condition
-          sleep 5
+          # sleep 5
 
           # Unload all Nvidia drivers
           modprobe -r nvidia_drm
@@ -141,11 +147,7 @@ in
       value = {
         text = ''
           #!/run/current-system/sw/bin/bash
-
-          # Debugging
-          # exec 19>/home/ayats/Desktop/stoplogfile
-          # BASH_XTRACEFD=19
-          set -x
+          set -ux -o pipefail
 
           # Unload vfio module
           modprobe -r vfio-pci

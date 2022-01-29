@@ -73,6 +73,7 @@
     krita-beta
     obs-studio
     obsidian
+    inkscape
   ];
 
   nix = {
