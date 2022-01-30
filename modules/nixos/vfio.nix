@@ -38,6 +38,8 @@ in
             systemd
             ripgrep
             sd
+
+            swtpm # software tpm support
           ];
         };
       in

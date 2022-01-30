@@ -8,6 +8,7 @@ $git_state\
 $git_status\
 $git_metrics\
 $python\
+$terraform\
 $package\
 $jobs\
 $directory\
@@ -78,3 +79,9 @@ min_time = 60_000
 [shlvl]
 disabled = false
 format = '\[ $shlvl \]'
+
+
+[terraform]
+format = """==> [$symbol$workspace]($style)
+"""
+symbol = "練 "

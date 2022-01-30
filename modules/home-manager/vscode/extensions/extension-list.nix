@@ -6,6 +6,12 @@
     sha256 = "1mzd77sv6lb6kfv5fvdvzggs488q553cf752byrml981ys9r7khz";
   }
   {
+    name = "toml";
+    publisher = "be5invis";
+    version = "0.6.0";
+    sha256 = "0q8blfihawmqfbyy68lv932mdac1miph5cs8i6d0w8wh9jwdnkna";
+  }
+  {
     name = "github-markdown-preview";
     publisher = "bierner";
     version = "0.1.0";
@@ -74,8 +80,8 @@
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "9.1.0";
-    sha256 = "1vfyzxaqj0bdl9cd0x6glnydbi85pf4j9fbasj2i0lfqn06l27lm";
+    version = "9.2.0";
+    sha256 = "1ci17xm6mpxsbdazh0qgqk8c7h2v8ajy45d2mcslcc8gcgbkgqj4";
   }
   {
     name = "nightswitch-lite";
@@ -86,8 +92,14 @@
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.4688";
-    sha256 = "0p3w6b1qkg7qc0y0q8ijfrvz3na8cyn0l63ij9cjphpnf9c0knii";
+    version = "1.7.4760";
+    sha256 = "0c8qnjwin4ajn1n88sz54wf9kd6i10m531nx9x1mwcilgbbdscvh";
+  }
+  {
+    name = "terraform";
+    publisher = "hashicorp";
+    version = "2.19.0";
+    sha256 = "0imyddsk2hv68xqasbj1mprp66rpzarlmbq8jcqksbw4kc8drxwk";
   }
   {
     name = "latex-workshop";
@@ -122,14 +134,14 @@
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.1.3";
-    sha256 = "17v8dp8f39m2rbszlcmr0mnyjckycab4kzh5xpna4fz243rqmhl6";
+    version = "2022.1.5";
+    sha256 = "1b5ihrac9xsq35a39vlq7krr1ffqpdjxdlhv9s056hs033kayazl";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.1.1001755318";
-    sha256 = "11z29rxqc8xldwk8ch4djzankbsbd3vj39rh979wwyy52jnizd8q";
+    version = "2022.1.1001760686";
+    sha256 = "1nzd47zbhh6fn2h9id0vjp52f6fnp04yqdhqiinsviwsn4zaxk1x";
   }
   {
     name = "jupyter-keymap";
@@ -146,14 +158,14 @@
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.71.2022012715";
-    sha256 = "0cfapjh9p9i68gxdiz6zw5dsgqfms87hvvirz0wa6w8kd5imgx6p";
+    version = "0.71.2022012819";
+    sha256 = "0cpifai31lp94wfw84npwn38i0cnalhbrhv7dvw6jg2q3aw2zjrp";
   }
   {
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
-    version = "0.71.2022012715";
-    sha256 = "0h8g8422ipha3jjikrhx1vqvb927rhg74ck9pd79ijydb185qw8f";
+    version = "0.71.2022012819";
+    sha256 = "1hw4aw3z9nlglrzc5qw3z6fv68xgrh6cr7rcn0cj6d8dz0wa0dic";
   }
   {
     name = "vsliveshare";
@@ -206,8 +218,8 @@
   {
     name = "rewrap";
     publisher = "stkb";
-    version = "17.3.0";
-    sha256 = "1nzg029wk0hh4n51m44snh3wcz6yhwgx3lqxx0vjmhkv3iidpg7x";
+    version = "17.4.0";
+    sha256 = "154wa5sfhypm02hm3n5z7qvr9zb6qcsx0nz1p5wqisrfm7jxni68";
   }
   {
     name = "code-spell-checker";

@@ -186,5 +186,4 @@
     "gbm/nvidia-drm_gbm.so".source = "${config.hardware.nvidia.package}/lib/libnvidia-allocator.so";
     "egl/egl_external_platform.d".source = "/run/opengl-driver/share/egl/egl_external_platform.d/";
   };
-
 }

@@ -159,7 +159,7 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     },
     "stevenblack-hosts": {
       "description": "Unified hosts file with base extensions",
-      "name": "stevenblack-hosts-3.9.36",
+      "name": "stevenblack-hosts-unstable-2022-01-25",
       "type": "derivation"
     }
   }

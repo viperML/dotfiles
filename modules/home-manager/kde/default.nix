@@ -11,6 +11,7 @@
       Unit.Description = "Apply colorscheme to KDE";
       Unit.After = [ "plasma-plasmashell.service" ];
       Service.Type = "oneshot";
+      Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 3";
       Service.ExecStart =
         let
           apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
