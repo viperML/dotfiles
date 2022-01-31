@@ -49,6 +49,9 @@
       efiSysMountPoint = "/boot";
       canTouchEfiVariables = true;
     };
+
+    # Build ARM
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   networking = {

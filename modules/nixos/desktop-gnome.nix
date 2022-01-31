@@ -27,6 +27,9 @@
     gnomeExtensions.appindicator
     gnome.gnome-shell-extensions
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
+    # gnomeExtensions.pop-shell
+    gnomeExtensions.forge
+    # gnomeExtensions.tiling-assistant
+    gnomeExtensions.dash-to-dock
   ];
 }

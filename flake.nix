@@ -41,7 +41,7 @@
           host-gen6
           desktop
           desktop-kde
-          # desktop-sway
+          # desktop-gnome
           gnome-keyring
 
           mainUser-ayats
