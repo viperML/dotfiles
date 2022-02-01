@@ -33,6 +33,7 @@
     libsForQt5.gwenview
     libsForQt5.kcolorchooser
     caffeine-ng
+    libsForQt5.discover
   ];
 
 }

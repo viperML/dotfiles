@@ -38,6 +38,7 @@
     ananicy.enable = true;
     thermald.enable = true;
     udev.packages = with pkgs; [ android-udev-rules ];
+    flatpak.enable = true;
   };
 
   # Fixes GDM autologin in Wayland
@@ -57,6 +58,7 @@
     lsof
     pwgen
 
+
     # Base
     masterpdfeditor4
     onlyoffice-bin
@@ -67,6 +69,7 @@
     spotify-for-poor-people
     qbittorrent
     android-tools
+    tor-browser-bundle-bin
 
     # Misc
     ahoviewer
@@ -74,6 +77,7 @@
     obs-studio
     obsidian
     inkscape
+
   ];
 
   nix = {

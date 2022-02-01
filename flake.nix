@@ -228,5 +228,6 @@
       url = github:MrOtherGuy/firefox-csshacks;
       flake = false;
     };
+
   };
 }
