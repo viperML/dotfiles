@@ -9,7 +9,7 @@ is adapted to nixpkgs naming standards.
 ## Building
 
 ```bash
-nix-build --pure --expr "with import <nixpkgs> {}; callPackage ./default.nix {}"
+nix-build --pure --expr "let pkgs = import <nixpkgs> {}; in pkgs.callPackage ./default.nix {}"
 # Or using the new nix command:
-nix build --impure --expr 'with import (builtins.getFlake "nixpkgs") {}; pkgs.callPackage ./default.nix {}' -L
+nix build --impure --expr 'let pkgs = import (builtins.getFlake "nixpkgs") {}; in pkgs.callPackage ./default.nix {}' -L
 ```
