@@ -225,11 +225,11 @@
     },
     "nixpkgs-LunNova-qt515-update": {
       "locked": {
-        "lastModified": 1642976163,
-        "narHash": "sha256-4yWEwdSL8wN8bvqRhWLM20Pk26Kv2MzRiPg9Ch6IIWA=",
+        "lastModified": 1643419015,
+        "narHash": "sha256-ehKRym5ZRfxzXPxe9JJ1K1yx959PxooKg5frsmJN0sM=",
         "owner": "LunNova",
         "repo": "nixpkgs",
-        "rev": "d7e59539429e7921496705785ac34be9fc5aefbd",
+        "rev": "1861748a307c643edba7bac7961ad4f82c1fb48f",
         "type": "github"
       },
       "original": {
