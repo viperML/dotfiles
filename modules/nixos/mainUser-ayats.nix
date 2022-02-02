@@ -43,10 +43,26 @@
     ];
   };
 
-  # users.users = pkgs.lib.mkMerge (
-  #   [{ root.passwordFile = "/secrets/password/root"; }] ++
-  #   forEach config.users (u:
-  #     { "${u}".passwordFile = "/secrets/password/${u}"; }
-  #   )
-  # );
+  systemd.tmpfiles.rules =
+    let
+      ho = config.users.users.mainUser.home;
+      us = config.users.users.mainUser.name;
+      gr = config.users.users.mainUser.group;
+    in
+    [
+      "z /secrets/ssh 0700 ${us} ${gr} - -"
+      "z /secrets/ssh/config 0600 ${us} ${gr} - -"
+      "z /secrets/ssh/id_rsa 0400 ${us} ${gr} - -"
+      "z /secrets/ssh/id_rsa.pub 0600 ${us} ${gr} - -"
+      "z /secrets/ssh/known_hosts 0600 ${us} ${gr} - -"
+      "L+ ${ho}/.ssh - - - - /secrets/ssh"
+    ];
+
+  systemd.services.bind-ssh = {
+    serviceConfig.Type = "forking";
+    script = ''
+      ${pkgs.bindfs}/bin/bindfs --map=1000/0:@100/@0 -p ugo-x /secrets/ssh /root/.ssh
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
 }

@@ -27,5 +27,4 @@ stdenv.mkDerivation {
       ) plugins-withNames
     )}
   '';
-
 }
