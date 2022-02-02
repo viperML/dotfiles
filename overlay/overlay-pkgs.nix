@@ -11,4 +11,5 @@ final: prev: {
   stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
   koi-fork = prev.libsForQt5.callPackage ./Koi-fork { };
   plasma-theme-switcher = prev.libsForQt5.callPackage ./plasma-theme-switcher { };
+  bdcompat = prev.callPackage ./bdCompat { };
 }

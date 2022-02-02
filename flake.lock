@@ -305,6 +305,43 @@
         "type": "github"
       }
     },
+    "powercord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642452856,
+        "narHash": "sha256-BMMuJ5zrl5/rdBX/Sl+F0RmRPyJR78sabdmWJao+FBw=",
+        "owner": "powercord-org",
+        "repo": "powercord",
+        "rev": "12de9dc6c8c35cec730d134731e8cb7c282f0899",
+        "type": "github"
+      },
+      "original": {
+        "owner": "powercord-org",
+        "repo": "powercord",
+        "type": "github"
+      }
+    },
+    "powercord-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "powercord": "powercord"
+      },
+      "locked": {
+        "lastModified": 1642613814,
+        "narHash": "sha256-wNdlf2bHhj6tCaS1rPNBH9S0drIL2tpczV1W74kN394=",
+        "owner": "LavaDesu",
+        "repo": "powercord-overlay",
+        "rev": "00c54c8acbced4c0b43880ab5e9a99691b7ac885",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LavaDesu",
+        "repo": "powercord-overlay",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
@@ -318,6 +355,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
+        "powercord-overlay": "powercord-overlay",
         "vim-extra-plugins": "vim-extra-plugins"
       }
     },

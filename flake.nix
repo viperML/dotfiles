@@ -29,6 +29,7 @@
         inputs.nixpkgs-wayland.overlay
         inputs.vim-extra-plugins.overlay
         # inputs.emacs-overlay.overlay
+        inputs.powercord-overlay.overlay
       ];
 
       # Hosts definitions
@@ -78,6 +79,7 @@
             # inputs.doom-emacs.hmModule
             # emacs
             firefox
+            discord
           ];
         }];
 
@@ -228,6 +230,9 @@
       url = github:MrOtherGuy/firefox-csshacks;
       flake = false;
     };
-
+    powercord-overlay = {
+      url = "github:LavaDesu/powercord-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 }

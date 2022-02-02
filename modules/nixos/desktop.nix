@@ -74,6 +74,7 @@
     obs-studio
     obsidian
     inkscape
+    etcher
   ];
 
   nix = {

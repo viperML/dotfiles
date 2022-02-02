@@ -6,7 +6,7 @@
       enable = true;
       runUsingSystemd = true;
     };
-    displayManager.defaultSession = "plasma";
+    # displayManager.defaultSession = "plasma";
     displayManager.autoLogin =
       let
         my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
@@ -33,7 +33,6 @@
     libsForQt5.gwenview
     libsForQt5.kcolorchooser
     caffeine-ng
-    libsForQt5.discover
   ];
 
 }

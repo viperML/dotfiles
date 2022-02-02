@@ -7,8 +7,8 @@
     roboto
     (pkgs.nerdfonts.override { fonts = [
       "JetBrainsMono"
-      "UbuntuMono"
-      "Iosevka"
+      # "UbuntuMono"
+      # "Iosevka"
     ];})
     corefonts
     noto-fonts
