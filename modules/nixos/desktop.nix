@@ -62,11 +62,8 @@
     # Base
     masterpdfeditor4
     onlyoffice-bin
-    # word-for-poor-people
-    # excel-for-poor-people
     mpv
     (papirus-icon-theme.override { color = "palebrown"; })
-    # spotify-for-poor-people
     qbittorrent
     android-tools
     tor-browser-bundle-bin
@@ -77,7 +74,6 @@
     obs-studio
     obsidian
     inkscape
-
   ];
 
   nix = {

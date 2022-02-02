@@ -46,6 +46,10 @@
   "workbench.startupEditor": "none",
   "editor.tabSize": 4,
   "debug.toolBarLocation": "docked",
+  "terminal.integrated.cursorStyle": "line",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "window.menuBarVisibility": "toggle",
 
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -160,7 +164,6 @@
       }
     ]
   },
-  "terminal.integrated.cursorStyle": "line",
 
   // Colors
   // "editor.background": "#121212",
@@ -279,7 +282,6 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
-
   "[nix]": {
     "editor.detectIndentation": false,
     "editor.tabSize": 2,
@@ -288,10 +290,16 @@
   "[diff]": {
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": false,
-    "files.trimTrailingWhitespace": false,
+    "files.trimTrailingWhitespace": false
   },
   "[shellscript]": {
     "editor.rulers": [80]
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "Koihik.vscode-lua-format"
   },
 
   // Python
@@ -299,11 +307,12 @@
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": [
     "--max-line-length=90",
-    "--ignore=E501",
+    "--ignore=E501"
   ],
   "python.linting.enabled": true,
   "vsintellicode.python.completionsEnabled": true,
-  "python.defaultInterpreterPath": "/usr/bin/python",
+  "python.defaultInterpreterPath": "/usr/bin/env python3",
+  "python.formatting.provider": "black",
   "[python]": {
     "editor.defaultFormatter": "ms-python.python",
     "editor.rulers": [90]
@@ -317,22 +326,23 @@
   // "vim.hlsearch": true,
   // "vim.incsearch": true,
   // "vim.useSystemClipboard": false,
-  // "vim.easymotion": true,
+  "vim.easymotion": true,
   // "vim.enableNeovim": false,
   // "vim.highlightedyank.enable": true,
-  // "vim.showMarksInGutter": true,
-  // "vim.statusBarColorControl": true,
-  // "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
-  // "vim.statusBarColors.insert": "#a8e0ba",
-  // "vim.statusBarColors.normal": "#A8D5E0",
-  // "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
-  // "vim.statusBarColors.visual": "#a8a8e0",
-  // "vim.statusBarColors.visualblock": "#a8a8e0",
-  // "vim.statusBarColors.visualline": "#a8a8e0",
-  // "vim.handleKeys": {
-  //   "<C-a>": false,
-  //   "<C-f>": false
-  // },
+  "vim.leader": "<Space>",
+  "vim.showMarksInGutter": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
+  "vim.statusBarColors.insert": "#a8e0ba",
+  "vim.statusBarColors.normal": "#A8D5E0",
+  "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
+  "vim.statusBarColors.visual": "#a8a8e0",
+  "vim.statusBarColors.visualblock": "#a8a8e0",
+  "vim.statusBarColors.visualline": "#a8a8e0",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
   // "vim.normalModeKeyBindingsNonRecursive": [
   //   {
   //     "before": ["<space>"],
@@ -373,6 +383,13 @@
   "cSpell.showStatus": true,
   "cSpell.words": [],
 
+  // Nightswitch
+  "nightLight.enabled": true,
+  "nightswitch.themeNight": "Dark Material Dracula",
+  "nightswitch.themeDay": "Atom One Light",
+  "nightswitch.sunrise": "05:00",
+  "nightswitch.sunset": "18:00",
+
   // Unsorted
   "notebook.cellToolbarLocation": {
     "default": "right",
@@ -383,25 +400,9 @@
   "gitlens.currentLine.enabled": false,
   "jupyter.askForKernelRestart": false,
   "nix.enableLanguageServer": true,
+  "insertDateString.format": "iso"
 
-
-  "insertDateString.format": "iso",
-  // "window.menuBarVisibility": "
-
-  "nightswitch.themeNight": "Dark Material Dracula",
-  "nightswitch.themeDay": "Atom One Light",
-  "nightswitch.sunrise": "05:00",
-  "nightswitch.sunset": "18:00",
-  "[lua]": {
-    "editor.defaultFormatter": "Koihik.vscode-lua-format"
-  },
-  "extensions.autoUpdate": false,
-  "extensions.autoCheckUpdates": false,
-  "window.menuBarVisibility": "toggle",
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
-  "workbench.preferredDarkColorTheme": "Dark Material Dracula",
-  "workbench.preferredLightColorTheme": "Atom One Light",
-  "window.autoDetectColorScheme": true
+  // "workbench.preferredDarkColorTheme": "Dark Material Dracula",
+  // "workbench.preferredLightColorTheme": "Atom One Light",
+  // "window.autoDetectColorScheme": true
 }

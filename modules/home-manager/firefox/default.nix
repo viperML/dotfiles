@@ -3,6 +3,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-beta-bin;
+    # https://nur.nix-community.org/repos/rycee/
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       betterttv
       bitwarden
@@ -10,11 +11,11 @@
       return-youtube-dislikes
       sponsorblock
       violentmonkey
-      xbrowsersync
       wayback-machine
       ublock-origin
       unpaywall
       bypass-paywalls-clean
+      floccus
     ];
     profiles.main = {
       id = 0;
