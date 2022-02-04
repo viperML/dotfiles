@@ -5,7 +5,6 @@
 
   users.users.mainUser = {
     name = "ayats";
-    # initialPassword = "1234";
     createHome = true;
     home = "/home/ayats";
     description = "Fernando Ayats";
@@ -52,12 +51,15 @@
     [
       "z /secrets/ssh 0700 ${us} ${gr} - -"
       "z /secrets/ssh/config 0600 ${us} ${gr} - -"
-      "z /secrets/ssh/id_rsa 0400 ${us} ${gr} - -"
-      "z /secrets/ssh/id_rsa.pub 0600 ${us} ${gr} - -"
+      "z /secrets/ssh/id_ed25519 0600 ${us} ${gr} - -"
+      "z /secrets/ssh/id_ed25519.pub 0644 ${us} ${gr} - -"
       "z /secrets/ssh/known_hosts 0600 ${us} ${gr} - -"
+      "d /root/.ssh 0700 root root - -"
       "L+ ${ho}/.ssh - - - - /secrets/ssh"
     ];
 
+  # Bind keys to the root users
+  # This fixes building on remote machines
   systemd.services.bind-ssh = {
     serviceConfig.Type = "forking";
     script = ''

@@ -102,9 +102,9 @@ abbr -a gss "git status --short"
 abbr -a gr "cd (git-root)"
 
 # Fix ssh passing wrong $TERM
-function ssh
-  begin; set -lx TERM xterm-256color; command ssh $argv; end
-end
+# function ssh */
+#   begin; set -lx TERM xterm-256color; command ssh $argv; end */
+# end */
 
 switch $TERM
     case 'st-*' # suckless' simple terminal

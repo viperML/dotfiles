@@ -5,7 +5,10 @@
 
   xdg.configFile = {
     "kitty/kitty.conf".text = ''
-      shell ${pkgs.fish}/bin/fish
+      shell fish
+      term xterm-256color
+      include theme.conf
+
       ${builtins.readFile ./kitty.conf}
     '';
     "kitty/dracula-dark.conf".source = ./dracula-dark.conf;

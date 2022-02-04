@@ -57,6 +57,8 @@
     wget
     lsof
     pwgen
+    usbutils
+    lshw
 
 
     # Base
@@ -74,7 +76,8 @@
     obs-studio
     obsidian
     inkscape
-    etcher
+    # etcher
+    appimage-run
   ];
 
   nix = {

@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
-  home.sessionVariables = {
-    SHELL = "${pkgs.fish}/bin/fish";
-  };
+  # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
 
   home.packages = with pkgs; [
     fzf

@@ -20,6 +20,37 @@ let
     done;
   done;
   '';
+  memory = "16384"; # in MiB
+  hugepages = "8192";
+  # https://gitlab.com/Karuri/vfio/-/blob/master/alloc_hugepages.sh
+  alloc_hugepages = pkgs.writeShellScriptBin "alloc_hugepages" ''
+    set -uxo pipefail
+
+    ## Calculate number of hugepages to allocate from memory (in MB)
+    # HUGEPAGES="$((${memory}/$(($(grep Hugepagesize /proc/meminfo | awk '{print $2}')/1024))))"
+
+    echo "Allocating hugepages..."
+    HUGEPAGES=${hugepages}
+    echo $HUGEPAGES > /proc/sys/vm/nr_hugepages
+    ALLOC_PAGES=$(cat /proc/sys/vm/nr_hugepages)
+
+    TRIES=0
+    while (( $ALLOC_PAGES != $HUGEPAGES && $TRIES < 1000 ))
+    do
+        echo 1 > /proc/sys/vm/compact_memory            ## defrag ram
+        echo $HUGEPAGES > /proc/sys/vm/nr_hugepages
+        ALLOC_PAGES=$(cat /proc/sys/vm/nr_hugepages)
+        echo "Succesfully allocated $ALLOC_PAGES / $HUGEPAGES"
+        let TRIES+=1
+    done
+
+    if [ "$ALLOC_PAGES" -ne "$HUGEPAGES" ]
+    then
+        echo "Not able to allocate all hugepages. Reverting..."
+        echo 0 > /proc/sys/vm/nr_hugepages
+        exit 1
+    fi
+  '';
 in
 {
   boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
@@ -100,7 +131,7 @@ in
       value = {
         text = ''
           #!/run/current-system/sw/bin/bash
-          set -ux -o pipefail
+          set -uxo pipefail
 
           # Change to performance governor
           echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
@@ -137,6 +168,8 @@ in
 
           # Load vfio module
           modprobe vfio-pci
+
+          ${alloc_hugepages}/bin/alloc_hugepages
         '';
         mode = "0755";
       };
@@ -189,6 +222,9 @@ in
 
           # Change to powersave governor
           echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
+          # Dealloc hugepages
+          echo 0 > /proc/sys/vm/nr_hugepages
         '';
         mode = "0755";
       };

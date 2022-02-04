@@ -8,6 +8,7 @@
     update-nix-fetchgit
     fup-repl
     cachix
+    nix-du
 
     # Misc utils
     ripgrep

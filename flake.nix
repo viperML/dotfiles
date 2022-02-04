@@ -80,6 +80,7 @@
             # emacs
             firefox
             discord
+            xonsh
           ];
         }];
 

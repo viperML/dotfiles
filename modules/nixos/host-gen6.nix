@@ -17,7 +17,10 @@
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
     kernelParams = [ ];
-    extraModulePackages = [ ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      rtl8192eu # wifi dongle
+    ];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
     supportedFilesystems = [ "zfs" ];
 
     zfs = {
@@ -159,6 +162,13 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "L+ /etc/ssh/ssh_host_ed25519_key - - - - /secrets/ssh_host/ssh_host_ed25519_key"
+    "L+ /etc/ssh/ssh_host_ed25519_key.pub - - - - /secrets/ssh_host/ssh_host_ed25519_key.pub"
+    "L+ /etc/ssh/ssh_host_rsa_key - - - - /secrets/ssh_host/ssh_host_rsa_key"
+    "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
+  ];
+
   swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = "powersave";
@@ -180,6 +190,7 @@
       libva
     ];
   };
+
 
   programs = {
     xwayland.enable = true;

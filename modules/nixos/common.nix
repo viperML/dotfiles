@@ -25,20 +25,20 @@
     generateNixPathFromInputs = true;
     linkInputs = true;
 
-    buildMachines = [{
-      hostName = "oci";
-      system = "aarch64-linux";
-      maxJobs = 4;
-      speedFactor = 2;
-    }];
-    distributedBuilds = true;
-
-    binaryCachePublicKeys = [
-      "oci.ayats.org:GtvwHMXC9IuwQKfgZE8pNXGa/5K/rFahtXU3ySO6rtM="
-    ];
-    trustedBinaryCaches = [
-      "ssh://oci"
-    ];
+#     buildMachines = [{
+#       hostName = "oci";
+#       system = "aarch64-linux";
+#       maxJobs = 4;
+#       speedFactor = 2;
+#     }];
+#     distributedBuilds = true;
+# 
+#     binaryCachePublicKeys = [
+#       "oci.ayats.org:GtvwHMXC9IuwQKfgZE8pNXGa/5K/rFahtXU3ySO6rtM="
+#     ];
+#     trustedBinaryCaches = [
+#       "ssh://oci"
+#     ];
   };
 
   security.sudo = {
