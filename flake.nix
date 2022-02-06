@@ -15,7 +15,7 @@
 
       # Channels configurations
       channelsConfig.allowUnfree = true;
-      overlay-pkgs = import ./overlay/overlay-pkgs.nix;
+      overlay = import ./overlay/overlay-pkgs.nix;
       overlay-patches = import ./overlay/overlay-patches.nix;
       channels.nixpkgs.overlaysBuilder = channels: [
         (final: prev: {
@@ -23,7 +23,7 @@
         })
       ];
       sharedOverlays = [
-        self.overlay-pkgs
+        self.overlay
         self.overlay-patches
         inputs.nur.overlay
         inputs.nixpkgs-wayland.overlay
@@ -48,7 +48,6 @@
           mainUser-ayats
           inputs.home-manager.nixosModules.home-manager
           home-manager
-          network
           adblock
 
           virt

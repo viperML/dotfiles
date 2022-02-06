@@ -6,16 +6,14 @@
       enable = true;
       displayManager = {
         lightdm.enable = false;
-        sddm = {
-          enable = true;
-        };
+        sddm.enable = false;
         gdm = {
-          enable = false;
+          enable = true;
           wayland = true;
           nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
 
-        # If system only has 1 normal user, enable autologin for them
+        # Set the autologin user, if there's only 1 normal user
         autoLogin =
           let
             my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
@@ -46,7 +44,7 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  hardware.pulseaudio.enable = false; # replaces pipewire
+  hardware.pulseaudio.enable = false; # replaced by pipewire
 
   environment.systemPackages = with pkgs; [
     # Base cli
@@ -59,6 +57,7 @@
     pwgen
     usbutils
     lshw
+    appimage-run
 
 
     # Base
@@ -76,8 +75,6 @@
     obs-studio
     obsidian
     inkscape
-    # etcher
-    appimage-run
   ];
 
   nix = {

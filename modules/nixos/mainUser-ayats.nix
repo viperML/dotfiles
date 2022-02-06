@@ -1,36 +1,32 @@
 { config, pkgs, ... }:
-
+let
+  name = "ayats";
+  home = "/home/ayats";
+in
 {
   users.mutableUsers = false; # change passwords of users
 
   users.users.mainUser = {
-    name = "ayats";
+    inherit name home;
     createHome = true;
-    home = "/home/ayats";
     description = "Fernando Ayats";
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager" ];
     passwordFile = "/secrets/password/ayats";
   };
 
+  # Enable home-manager for the user (inherit shared modules)
   home-manager.users.mainUser = { ... }: { };
 
-  # programs.ssh.startAgent = true;
-  # security.sudo.wheelNeedsPassword = false;
-  security.sudo = {
-    extraRules = [
+  security.sudo. extraRules = [{
+    groups = [ "wheel" ];
+    commands = [
       {
-        groups = [ "wheel" ];
-        commands = [
-          {
-            command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
-            options = [ "SETENV" "NOPASSWD" ];
-          }
-        ];
+        command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+        options = [ "SETENV" "NOPASSWD" ];
       }
     ];
-
-  };
+  }];
 
   services.openssh = {
     enable = true;
@@ -44,18 +40,16 @@
 
   systemd.tmpfiles.rules =
     let
-      ho = config.users.users.mainUser.home;
-      us = config.users.users.mainUser.name;
-      gr = config.users.users.mainUser.group;
+      group = config.users.users.mainUser.group;
     in
     [
-      "z /secrets/ssh 0700 ${us} ${gr} - -"
-      "z /secrets/ssh/config 0600 ${us} ${gr} - -"
-      "z /secrets/ssh/id_ed25519 0600 ${us} ${gr} - -"
-      "z /secrets/ssh/id_ed25519.pub 0644 ${us} ${gr} - -"
-      "z /secrets/ssh/known_hosts 0600 ${us} ${gr} - -"
+      "z /secrets/ssh 0700 ${name} ${group} - -"
+      "z /secrets/ssh/config 0600 ${name} ${group} - -"
+      "z /secrets/ssh/id_ed25519 0600 ${name} ${group} - -"
+      "z /secrets/ssh/id_ed25519.pub 0644 ${name} ${group} - -"
+      "z /secrets/ssh/known_hosts 0600 ${name} ${group} - -"
       "d /root/.ssh 0700 root root - -"
-      "L+ ${ho}/.ssh - - - - /secrets/ssh"
+      "L+ ${home}/.ssh - - - - /secrets/ssh"
     ];
 
   # Bind keys to the root users

@@ -13,32 +13,14 @@
 
   nixpkgs.config = import ../nixpkgs.conf;
   nix = {
-    package = pkgs.nix; # supports flakes in nixpkgs-unstable
+    package = pkgs.nix;
     extraOptions = ''
       ${builtins.readFile ../nix.conf}
     '';
 
-    # from flake-utils-plus
-    # Sets NIX_PATH to follow this flake's nix inputs
-    # So legacy nix-channel is not needed
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;
-
-#     buildMachines = [{
-#       hostName = "oci";
-#       system = "aarch64-linux";
-#       maxJobs = 4;
-#       speedFactor = 2;
-#     }];
-#     distributedBuilds = true;
-# 
-#     binaryCachePublicKeys = [
-#       "oci.ayats.org:GtvwHMXC9IuwQKfgZE8pNXGa/5K/rFahtXU3ySO6rtM="
-#     ];
-#     trustedBinaryCaches = [
-#       "ssh://oci"
-#     ];
   };
 
   security.sudo = {

@@ -1,8 +1,7 @@
-final: prev:
-{
-  any-nix-shell = prev.callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
-  g-kitty = prev.callPackage ./g-kitty { };
-  obsidian = prev.callPackage ./obsidian { obsidian = prev.obsidian; };
+final: prev: let callPackage = prev.callPackage; in {
+  any-nix-shell = callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
+  g-kitty = callPackage ./g-kitty { };
+  obsidian = callPackage ./obsidian { obsidian = prev.obsidian; };
 
   python3 = prev.python3.override {
     packageOverrides = python3-final: python3-prev: {
@@ -14,7 +13,7 @@ final: prev:
     };
   };
 
-  ryujinx = prev.callPackage ./ryujinx { };
+  ryujinx = callPackage ./ryujinx { };
 
   # element-for-poor-people = with prev; makeDesktopItem {
   #   name = "Element";

@@ -9,14 +9,6 @@
 
   virtualisation.oci-containers = {
     backend = "docker";
-    containers = {
-      # test = {
-      #   ports = [
-      #     "8080:80"
-      #   ];
-      #   image = "nginx:latest";
-      # };
-    };
   };
 
   users.groups.docker.members = config.users.groups.wheel.members;

@@ -34,6 +34,7 @@
     libsForQt5.kcolorchooser
     caffeine-ng
     libsForQt5.kwin-forceblur
+    pkgs.libsForQt5.kwalletmanager
   ];
 
 }

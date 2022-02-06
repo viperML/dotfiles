@@ -1,9 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  networking.firewall.enable =false;
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   boot = {
     initrd = {
       availableKernelModules = [ "ahci" "nvme" "usbhid" ];
@@ -18,10 +15,6 @@
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     kernelModules = [ "kvm-intel" ];
     kernelParams = [ ];
-    extraModulePackages = with config.boot.kernelPackages; [
-      rtl8192eu # wifi dongle
-    ];
-    blacklistedKernelModules = [ "rtl8xxxu" ];
     supportedFilesystems = [ "zfs" ];
 
     zfs = {
@@ -173,14 +166,11 @@
   swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = "powersave";
-  # https://discourse.nixos.org/t/nvidia-users-testers-requested-sway-on-nvidia-steam-on-wayland/15264/32
 
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    # video.hidpi.enable = true;
-    # nvidia.modesetting.enable = true;
-    logitech.wireless.enable = true;
+    nvidia.modesetting.enable = config.services.xserver.displayManager.gdm.enable;
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
@@ -192,18 +182,17 @@
     ];
   };
 
-
   programs = {
     xwayland.enable = true;
-  };
-
-  environment.etc = {
-    "gbm/nvidia-drm_gbm.so".source = "${config.hardware.nvidia.package}/lib/libnvidia-allocator.so";
-    "egl/egl_external_platform.d".source = "/run/opengl-driver/share/egl/egl_external_platform.d/";
   };
 
   security.tpm2 = {
     enable = true;
     abrmd.enable = true;
+  };
+
+  networking.networkmanager = {
+    enable = true;
+    dns = "default";
   };
 }

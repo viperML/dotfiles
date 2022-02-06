@@ -13,7 +13,6 @@
     };
     avahi.enable = true;
     avahi.nssmdns = true;
-
   };
 
   environment.systemPackages = lib.mkIf
