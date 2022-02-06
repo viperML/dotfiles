@@ -17,10 +17,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Theming
-    lightly
-    sierrabreezeenhanced
-    reversal-kde
+    # Themes
+    libsForQt5.lightly
+    libsForQt5.sierrabreezeenhanced
+    libsForQt5.reversal-kde
     yaru-theme
 
     # Extend
@@ -33,6 +33,7 @@
     libsForQt5.gwenview
     libsForQt5.kcolorchooser
     caffeine-ng
+    libsForQt5.kwin-forceblur
   ];
 
 }

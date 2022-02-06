@@ -1,16 +1,23 @@
-final: prev: {
-  sierrabreezeenhanced = prev.libsForQt5.callPackage ./SierraBreezeEnhanced { };
-  lightly = prev.libsForQt5.callPackage ./Lightly { };
-  multiload-ng = prev.callPackage ./multiload-ng { };
-  papirus-icon-theme = prev.callPackage ./papirus-icon-theme { papirus-icon-theme = prev.papirus-icon-theme; };
-  netboot-xyz-images = prev.callPackage ./netboot-xyz-images { };
-  plasma-applet-splitdigitalclock = prev.callPackage ./splitdigitalclock { };
-  mohist-server = prev.callPackage ./mohist-server { };
-  reversal-kde = prev.libsForQt5.callPackage ./Reversal-kde { };
-  disconnect-tracking-protection = prev.callPackage ./disconnect-tracking-protection { };
-  stevenblack-hosts = prev.callPackage ./StevenBlack-hosts { };
-  koi-fork = prev.libsForQt5.callPackage ./Koi-fork { };
-  plasma-theme-switcher = prev.libsForQt5.callPackage ./plasma-theme-switcher { };
-  bdcompat = prev.callPackage ./bdCompat { };
-  vlmcsd = prev.callPackage ./vlmcsd { };
+final: prev: let callPackage = prev.callPackage; in {
+  multiload-ng = callPackage ./multiload-ng { };
+  papirus-icon-theme = callPackage ./papirus-icon-theme { papirus-icon-theme = prev.papirus-icon-theme; };
+  netboot-xyz-images = callPackage ./netboot-xyz-images { };
+  plasma-applet-splitdigitalclock = callPackage ./splitdigitalclock { };
+  mohist-server = callPackage ./mohist-server { };
+  disconnect-tracking-protection = callPackage ./disconnect-tracking-protection { };
+  stevenblack-hosts = callPackage ./StevenBlack-hosts { };
+  bdcompat = callPackage ./bdCompat { };
+  vlmcsd = callPackage ./vlmcsd { };
+  # kwin-forceblur = prev.libsForQt5.callPackage ./kwin-forceblur { };
+
+  libsForQt5 = let callPackage = prev.libsForQt5.callPackage; in
+    prev.libsForQt5 //
+    {
+      lightly = callPackage ./Lightly { };
+      sierrabreezeenhanced = callPackage ./SierraBreezeEnhanced { };
+      reversal-kde = callPackage ./Reversal-kde { };
+      kwin-forceblur = callPackage ./kwin-forceblur { };
+      koi-fork = callPackage ./Koi-fork { };
+      plasma-theme-switcher = callPackage ./plasma-theme-switcher { };
+    };
 }

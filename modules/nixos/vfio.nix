@@ -120,6 +120,11 @@ let
     systemctl start vlmcsd.service
   '';
 
+  hook-prepare-windows = pkgs.writeShellScriptBin "start.sh" ''
+    export PATH="$PATH:${pkgs.systemd}/bin"
+    systemctl start vlmcsd.service
+  '';
+
   hook-release-iommu = pkgs.writeShellScriptBin "stop.sh" ''
     export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin"
     set -ux -o pipefail
@@ -151,6 +156,11 @@ let
     echo 0 > /proc/sys/vm/nr_hugepages
     systemctl stop vlmcsd.service
   '';
+
+  hook-release-windows = pkgs.writeShellScriptBin "stop.sh" ''
+    export PATH="$PATH:${pkgs.systemd}/bin"
+    systemctl stop vlmcsd.service
+  '';
 in
 
 {
@@ -165,5 +175,7 @@ in
     "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemu-entrypoint}/bin/qemu"
     "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/prepare/begin/start.sh - - - - ${hook-prepare-iommu}/bin/start.sh"
     "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/release/end/stop.sh - - - - ${hook-release-iommu}/bin/stop.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/prepare/begin/start.sh - - - - ${hook-prepare-windows}/bin/start.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/release/end/stop.sh - - - - ${hook-release-windows}/bin/stop.sh"
   ];
 }

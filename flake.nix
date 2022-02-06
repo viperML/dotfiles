@@ -138,22 +138,25 @@
             '';
           };
 
-          packages = with pkgs; {
-            inherit
+          packages = {
+            inherit (pkgs.libsForQt5)
               lightly
               sierrabreezeenhanced
+              reversal-kde
+              koi-fork
+              plasma-theme-switcher
+              kwin-forceblur
+              ;
+          } // {
+            inherit (pkgs)
               multiload-ng
-              any-nix-shell
               papirus-icon-theme
               netboot-xyz-images
-              reversal-kde
               plasma-applet-splitdigitalclock
               disconnect-tracking-protection
               stevenblack-hosts
-              koi-fork
-              plasma-theme-switcher
               vlmcsd
-              ;
+            ;
           } // {
 
             base-vm = inputs.nixos-generators.nixosGenerate {
