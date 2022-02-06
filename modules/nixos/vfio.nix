@@ -10,8 +10,8 @@ let
     "pci_0000_01_00_3"
   ];
 
-  memory = "16384"; # in MiB
-  hugepages = "8192";
+  memory = 16384;
+  Hugepagesize = 2048; # $ grep Hugepagesize /proc/meminfo
   my-network = "virbr0";
   vlmcsd-port = 1688;
 
@@ -26,19 +26,14 @@ let
     done;
   '';
   # https://gitlab.com/Karuri/vfio/-/blob/master/alloc_hugepages.sh
-  alloc_hugepages = pkgs.writeShellScriptBin "alloc_hugepages" ''
-    set -uxo pipefail
-
-    ## Calculate number of hugepages to allocate from memory (in MB)
-    # HUGEPAGES="$((${memory}/$(($(grep Hugepagesize /proc/meminfo | awk '{print $2}')/1024))))"
-
+  alloc_hugepages = ''
     echo "Allocating hugepages..."
-    HUGEPAGES=${hugepages}
+    HUGEPAGES=${builtins.toString (memory / (Hugepagesize / 1024))}
     echo $HUGEPAGES > /proc/sys/vm/nr_hugepages
     ALLOC_PAGES=$(cat /proc/sys/vm/nr_hugepages)
 
     TRIES=0
-    while (( $ALLOC_PAGES != $HUGEPAGES && $TRIES < 1000 ))
+    while (( $ALLOC_PAGES != $HUGEPAGES && $TRIES < 10 ))
     do
         echo 1 > /proc/sys/vm/compact_memory            ## defrag ram
         echo $HUGEPAGES > /proc/sys/vm/nr_hugepages
@@ -95,12 +90,13 @@ let
   hook-prepare-iommu = pkgs.writeShellScriptBin "start.sh" ''
     export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin"
     set -uxo pipefail
+    echo $(date)
     # Change to performance governor
     echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
     # Isolate host to core 0
-    systemctl set-property --runtime -- user.slice AllowedCPUs=0
-    systemctl set-property --runtime -- system.slice AllowedCPUs=0
-    systemctl set-property --runtime -- init.scope AllowedCPUs=0
+    systemctl set-property --runtime -- user.slice AllowedCPUs=6,14,7,15
+    systemctl set-property --runtime -- system.slice AllowedCPUs=6,14,7,15
+    systemctl set-property --runtime -- init.scope AllowedCPUs=6,14,7,15
     # Stop display manager
     systemctl stop display-manager.service
     # Unbind VTconsoles
@@ -108,6 +104,7 @@ let
     echo 0 > /sys/class/vtconsole/vtcon1/bind
     # Unbind EFI Framebuffer
     echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+    sleep 2
     # Unload all Nvidia drivers
     modprobe -r nvidia_drm
     modprobe -r nvidia_modeset
@@ -119,7 +116,7 @@ let
     ${lib.concatMapStringsSep "\n" (dev: "virsh nodedev-detach ${dev}") my-iommu-group}
     # Load vfio module
     modprobe vfio-pci
-    ${alloc_hugepages}/bin/alloc_hugepages
+    ${alloc_hugepages}
     systemctl start vlmcsd.service
   '';
 
@@ -145,9 +142,9 @@ let
     # Start display manager
     systemctl start display-manager.service
     # Return host to all cores
-    systemctl set-property --runtime -- user.slice AllowedCPUs=0-3
-    systemctl set-property --runtime -- system.slice AllowedCPUs=0-3
-    systemctl set-property --runtime -- init.scope AllowedCPUs=0-3
+    systemctl set-property --runtime -- user.slice AllowedCPUs=0-15
+    systemctl set-property --runtime -- system.slice AllowedCPUs=0-15
+    systemctl set-property --runtime -- init.scope AllowedCPUs=0-15
     # Change to powersave governor
     echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
     # Dealloc hugepages
