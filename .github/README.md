@@ -161,6 +161,11 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "description": "Unified hosts file with base extensions",
       "name": "stevenblack-hosts-unstable-2022-01-25",
       "type": "derivation"
+    },
+    "vlmcsd": {
+      "description": "KMS Emulator written in C",
+      "name": "vlmcsd-unstable",
+      "type": "derivation"
     }
   }
 }

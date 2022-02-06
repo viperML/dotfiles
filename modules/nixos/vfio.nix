@@ -9,16 +9,16 @@ let
     "pci_0000_01_00_3"
   ];
   vfio-enabled-machines = [
-    "win10"
+    "windows-nvidia"
   ];
   lsiommu = pkgs.writeShellScriptBin "lsiommu" ''
-  shopt -s nullglob
-  for g in /sys/kernel/iommu_groups/*; do
-    echo "IOMMU Group ''${g##*/}:"
-    for d in $g/devices/*; do
-        echo -e "\t$(lspci -nns ''${d##*/})"
+    shopt -s nullglob
+    for g in /sys/kernel/iommu_groups/*; do
+      echo "IOMMU Group ''${g##*/}:"
+      for d in $g/devices/*; do
+          echo -e "\t$(lspci -nns ''${d##*/})"
+      done;
     done;
-  done;
   '';
   memory = "16384"; # in MiB
   hugepages = "8192";
@@ -51,11 +51,14 @@ let
         exit 1
     fi
   '';
+  my-network = "virbr0";
+  vlmcsd-port = 1688;
 in
 {
   boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "kvm-intel" "vfio-pci" ];
   environment.systemPackages = [ lsiommu ];
+  # virtualisation.libvirtd.qemu.swtpm.enable = true;
 
   systemd.services.libvirtd = {
     path =
@@ -69,13 +72,17 @@ in
             systemd
             ripgrep
             sd
-
-            swtpm # software tpm support
           ];
         };
       in
       [ env ];
   };
+
+  systemd.services.vlmcsd = {
+    script = "${pkgs.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
+  };
+
+  networking.firewall.interfaces.${my-network}.allowedUDPPorts = [ vlmcsd-port ];
 
   system.activationScripts.libvirt-hooks.text = ''
     ln -Tfs /etc/libvirt/hooks /var/lib/libvirt/hooks
@@ -170,6 +177,8 @@ in
           modprobe vfio-pci
 
           ${alloc_hugepages}/bin/alloc_hugepages
+
+          ${pkgs.systemd}/bin/systemctl start vlmcsd.service
         '';
         mode = "0755";
       };
@@ -225,6 +234,8 @@ in
 
           # Dealloc hugepages
           echo 0 > /proc/sys/vm/nr_hugepages
+
+          ${pkgs.systemd}/bin/systemctl stop vlmcsd.service
         '';
         mode = "0755";
       };

@@ -15,10 +15,6 @@ set -g -x fish_greeting (os_greeter)
 bind \cH backward-kill-path-component
 bind \e\[3\;5~ kill-word
 
-# Variables
-# export GREP_OPTIONS='--color=always'
-export VIRTUAL_ENV_DISABLE_PROMPT=true
-
 # Aliases
 alias ip="ip -c=auto"
 alias svim="sudoedit"
@@ -33,6 +29,7 @@ alias lt="lsd -A -t -r"
 abbr --add --global p python
 abbr --add --global n nvim
 abbr --add --global x xdg-open
+abbr --add --global pd pushd
 
 # Admin
 abbr --add --global ss sudo systemctl

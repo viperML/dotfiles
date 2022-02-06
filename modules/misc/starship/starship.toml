@@ -3,7 +3,6 @@
 # Use custom format
 format = """
 
-$custom\
 $git_branch\
 $git_state\
 $git_status\
@@ -12,10 +11,13 @@ $python\
 $terraform\
 $package\
 $jobs\
+$status\
+$custom\
 $directory\
+$env_var\
 $shlvl\
 $cmd_duration
-[λ](bold) """
+[>](bold) """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -28,10 +30,13 @@ style = "bold blue"
 read_only = " "
 truncate_to_repo = false
 truncation_length = 0
-format = "[$path]($style)[$read_only]($read_only_style) "
+format = ">>= [ $path]($style)[$read_only]($read_only_style) "
+repo_root_style = "red"
+home_symbol = "$HOME"
+disabled = true
 
 [git_branch]
-format = "==>  [$symbol$branch]($style) "
+format = ">>=  [$symbol$branch]($style) "
 symbol = ""
 
 [git_status]
@@ -58,19 +63,19 @@ format = """
 
 [jobs]
 disabled = false
-format = """==>  bg jobs: [$symbol$number]($style)
+format = """>>=  bg jobs: [$symbol$number]($style)
 """
 number_threshold = 1
 symbol = ""
 
 
 [python]
-format = """==> [${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)
+format = """>>= [${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)
 """
 symbol = " "
 
 [package]
-format = """==> [$symbol$version]($style)
+format = """>>= [$symbol$version]($style)
 """
 symbol = " "
 
@@ -83,6 +88,24 @@ format = '\[ $shlvl \]'
 
 
 [terraform]
-format = """==> [$symbol$workspace]($style)
+format = """>>= [$symbol$workspace]($style)
 """
 symbol = "練 "
+
+[custom.dirstack]
+command = "echo $DIRSTACK"
+when = "set -q DIRSTACK"
+style = "fg:8"
+symbol = " "
+format = """>>= [$symbol($output)]($style)
+"""
+
+[status]
+disabled = false
+format = """>>= [$symbol $status $common_meaning]($style)
+"""
+
+[env_var.directory]
+variable = "PWD"
+format = ">>= [ $env_value]($style) "
+style = "bold blue"

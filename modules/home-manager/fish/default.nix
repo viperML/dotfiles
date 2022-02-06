@@ -9,12 +9,13 @@
 
   home.file.".config/starship.toml".text = ''
     ${builtins.readFile ../../misc/starship/starship.toml}
+
     [custom.nix]
     command = "${pkgs.any-nix-shell}/bin/nix-shell-info"
     when = "${pkgs.any-nix-shell}/bin/nix-shell-info"
     symbol = ""
     style = "bold cyan"
-    format = """==> [$symbol]($style) [$output]($style)
+    format = """>>= [$symbol]($style) [$output]($style)
     """
   '';
 
@@ -25,6 +26,7 @@
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
 
       ${builtins.readFile ./interactive.fish}
+      ${builtins.readFile ./pushd-mod.fish}
     '';
     plugins = [
       {

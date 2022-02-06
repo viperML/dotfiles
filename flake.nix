@@ -152,6 +152,7 @@
               stevenblack-hosts
               koi-fork
               plasma-theme-switcher
+              vlmcsd
               ;
           } // {
 
@@ -234,6 +235,6 @@
     powercord-overlay = {
       url = "github:LavaDesu/powercord-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
   };
 }
