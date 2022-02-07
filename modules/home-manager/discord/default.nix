@@ -31,5 +31,5 @@ BDLibrary
   };
 in
 {
-  home.packages = [ discord-plugged-withPlugins ];
+  # home.packages = [ discord-plugged-withPlugins ];
 }

@@ -57,7 +57,7 @@
     pwgen
     usbutils
     lshw
-    # appimage-run
+    appimage-run
 
 
     # Base
