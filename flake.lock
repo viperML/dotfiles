@@ -241,8 +241,10 @@
     },
     "nixpkgs-devel": {
       "locked": {
-        "lastModified": 1643653624,
-        "narHash": "sha256-5bHLnhH7JisAcDjZTLye56MOKoSCCRqO0yMrjMjmpHI=",
+        "lastModified": 1644238424,
+        "narHash": "sha256-HxS5Ji0rFo/LNjsOISVNu0qFikPJkRa+uVUFrQ0MAok=",
+        "ref": "nixos-unstable",
+        "rev": "dec85af8dee468ccc3e91c9223f9013311358313",
         "shallow": true,
         "type": "git",
         "url": "file:///home/ayats/Documents/nixpkgs"
