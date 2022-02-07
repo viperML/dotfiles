@@ -19,7 +19,7 @@
       overlay-patches = import ./overlay/overlay-patches.nix;
       channels.nixpkgs.overlaysBuilder = channels: [
         (final: prev: {
-          # inherit (channels.nixpkgs-devel) libsForQt5;
+          inherit (channels.nixpkgs-devel) libsForQt5;
         })
       ];
       sharedOverlays = [
@@ -192,7 +192,7 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
     # nixpkgs-devel.url = github:viperML/nixpkgs/master;
-    # nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
+    nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
 
     nixpkgs-LunNova-qt515-update.url = github:LunNova/nixpkgs/qt515-update;
 

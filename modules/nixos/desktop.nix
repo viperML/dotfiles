@@ -10,7 +10,7 @@
         gdm = {
           enable = true;
           wayland = true;
-          nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
+          # nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
 
         # Set the autologin user, if there's only 1 normal user
@@ -57,7 +57,7 @@
     pwgen
     usbutils
     lshw
-    appimage-run
+    # appimage-run
 
 
     # Base
