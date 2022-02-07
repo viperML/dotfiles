@@ -98,11 +98,6 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
 ```json
 {
   "x86_64-linux": {
-    "any-nix-shell": {
-      "description": "fish and zsh support for nix-shell",
-      "name": "any-nix-shell-1.2.1",
-      "type": "derivation"
-    },
     "base-vm": {
       "name": "nixos-disk-image",
       "type": "derivation"
@@ -115,6 +110,10 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     "koi-fork": {
       "description": "Theme scheduling for the KDE Plasma Desktop",
       "name": "koi-20201128",
+      "type": "derivation"
+    },
+    "kwin-forceblur": {
+      "name": "kwin-forceblur-0.5",
       "type": "derivation"
     },
     "lightly": {
@@ -159,12 +158,12 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     },
     "stevenblack-hosts": {
       "description": "Unified hosts file with base extensions",
-      "name": "stevenblack-hosts-unstable-2022-01-25",
+      "name": "stevenblack-hosts-unstable-2022-02-05",
       "type": "derivation"
     },
     "vlmcsd": {
       "description": "KMS Emulator written in C",
-      "name": "vlmcsd-unstable",
+      "name": "vlmcsd-unstable-2020-05-19",
       "type": "derivation"
     }
   }

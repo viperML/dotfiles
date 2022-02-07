@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation {
   pname = "vlmcsd";
-  version = "unstable";
+  version = "unstable-2020-05-19";
 
   src = fetchFromGitHub {
     owner = "Wind4";

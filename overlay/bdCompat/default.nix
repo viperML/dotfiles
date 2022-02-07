@@ -8,7 +8,7 @@ let
 in
 stdenv.mkDerivation {
   pname = "bdCompat";
-  version = "20211110";
+  version = "unstable-2021-11-10";
 
   src = fetchFromGitHub {
     owner = "Juby210";
