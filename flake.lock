@@ -239,22 +239,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-devel": {
-      "locked": {
-        "lastModified": 1644238424,
-        "narHash": "sha256-HxS5Ji0rFo/LNjsOISVNu0qFikPJkRa+uVUFrQ0MAok=",
-        "ref": "nixos-unstable",
-        "rev": "dec85af8dee468ccc3e91c9223f9013311358313",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/ayats/Documents/nixpkgs"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/ayats/Documents/nixpkgs"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1644125761,
@@ -368,7 +352,6 @@
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixpkgs-LunNova-qt515-update": "nixpkgs-LunNova-qt515-update",
-        "nixpkgs-devel": "nixpkgs-devel",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
