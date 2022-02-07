@@ -84,4 +84,6 @@
       options = "--delete-older-than 14d";
     };
   };
+
+  xdg.portal.enable = true;
 }

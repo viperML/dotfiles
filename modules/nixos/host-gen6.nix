@@ -171,6 +171,7 @@
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
     nvidia.modesetting.enable = config.services.xserver.displayManager.gdm.enable;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;

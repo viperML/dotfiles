@@ -43,6 +43,7 @@
           desktop
           desktop-kde
           # desktop-gnome
+          # desktop-sway
           gnome-keyring
 
           mainUser-ayats
