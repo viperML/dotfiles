@@ -5,6 +5,8 @@
     enable = true;
     package = pkgs.vscode;
     extensions = import ./extensions { pkgs =pkgs; };
+    keybindings = [];
+    userSettings = {};
   };
 
   home.packages = with pkgs; [

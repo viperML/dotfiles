@@ -6,6 +6,6 @@
 
   environment.systemPackages = with pkgs; [
       steam-run-native
-      ryujinx
+      # ryujinx
     ];
 }

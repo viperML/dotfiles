@@ -6,15 +6,8 @@
       enable = true;
       runUsingSystemd = true;
     };
-    # displayManager.defaultSession = "plasma";
-    displayManager.autoLogin =
-      let
-        my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser == true) config.users.users);
-      in
-      {
-        # enable = (builtins.length my-users == 1);
-        enable = false;
-      };
+    displayManager.defaultSession = "plasma";
+    displayManager.autoLogin.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

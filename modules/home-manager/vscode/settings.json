@@ -63,7 +63,8 @@
     "yaml": false,
     "plaintext": false,
     "markdown": false,
-    "nix": false
+    "nix": false,
+    "haskell": true
   },
 
   // Git
