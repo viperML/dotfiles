@@ -156,11 +156,6 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "name": "python3-3.9.6",
       "type": "derivation"
     },
-    "ryujinx": {
-      "description": "Experimental Nintendo Switch Emulator written in C#",
-      "name": "ryujinx-0.0.0",
-      "type": "derivation"
-    },
     "stevenblack-hosts": {
       "description": "Unified hosts file with base extensions",
       "name": "stevenblack-hosts-unstable-2022-02-05",

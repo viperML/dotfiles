@@ -18,7 +18,7 @@ in
       };
     };
 
-    ryujinx = callPackage ./ryujinx { };
+    # ryujinx = callPackage ./ryujinx { };
 
     # element-for-poor-people = with prev; makeDesktopItem {
     #   name = "Element";
