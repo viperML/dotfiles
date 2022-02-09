@@ -402,7 +402,8 @@
   "gitlens.currentLine.enabled": false,
   "jupyter.askForKernelRestart": false,
   "nix.enableLanguageServer": true,
-  "insertDateString.format": "iso"
+  "insertDateString.format": "iso",
+  "nix.formatterPath": "alejandra"
 
   // "workbench.preferredDarkColorTheme": "Dark Material Dracula",
   // "workbench.preferredLightColorTheme": "Atom One Light",

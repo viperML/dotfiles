@@ -21,18 +21,21 @@
 
         # Channels configurations
         channelsConfig.allowUnfree = true;
-        overlay = import ./overlay/overlay-pkgs.nix;
-        overlay-patches = import ./overlay/overlay-patches.nix;
+        overlays = {
+          pkgs = import ./overlay/overlay-pkgs.nix;
+          patches = import ./overlay/overlay-patches.nix;
+        };
         channels.nixpkgs.overlaysBuilder = channels: [
           (
             final: prev: {
-              # inherit (channels.nixpkgs-devel) libsForQt5;
+              alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
+              # FIXME
             }
           )
         ];
         sharedOverlays = [
-          self.overlay
-          self.overlay-patches
+          self.overlays.pkgs
+          self.overlays.patches
           inputs.nur.overlay
           inputs.nixpkgs-wayland.overlay
           inputs.vim-extra-plugins.overlay
@@ -158,39 +161,7 @@
             };
 
             packages =
-              {
-                inherit
-                  (pkgs.libsForQt5)
-                  lightly
-                  sierrabreezeenhanced
-                  reversal-kde
-                  # koi-fork
-                  # plasma-theme-switcher
-                  kwin-forceblur
-                  ;
-                inherit
-                  (pkgs)
-                  multiload-ng
-                  papirus-icon-theme
-                  netboot-xyz-images
-                  plasma-applet-splitdigitalclock
-                  disconnect-tracking-protection
-                  stevenblack-hosts
-                  vlmcsd
-                  adwaita-plus
-                  ;
-              }
-              // {
-                base-vm = inputs.nixos-generators.nixosGenerate {
-                  pkgs = pkgs;
-                  format = "qcow";
-                  modules =
-                    with modules.nixosModules;
-                    [
-                      mainUser-admin
-                    ];
-                };
-              };
+              flake-utils-plus.lib.exportPackages self.overlays channels;
           };
 
         templates = {

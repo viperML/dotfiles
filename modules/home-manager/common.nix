@@ -14,6 +14,7 @@
       fup-repl
       cachix
       nix-du
+      alejandra
 
       # Misc utils
       ripgrep

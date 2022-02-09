@@ -102,8 +102,13 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "name": "adwaita-plus-unstable",
       "type": "derivation"
     },
-    "base-vm": {
-      "name": "nixos-disk-image",
+    "any-nix-shell": {
+      "description": "fish and zsh support for nix-shell",
+      "name": "any-nix-shell-1.2.1",
+      "type": "derivation"
+    },
+    "bdcompat": {
+      "name": "bdCompat-unstable-2021-11-10",
       "type": "derivation"
     },
     "disconnect-tracking-protection": {
@@ -111,13 +116,14 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "name": "disconnect-tracking-protection-20220112",
       "type": "derivation"
     },
-    "kwin-forceblur": {
-      "name": "kwin-forceblur-0.5",
+    "g-kitty": {
+      "description": "A modern, hackable, featureful, OpenGL based terminal emulator",
+      "name": "kitty-unstable-2022-02-07",
       "type": "derivation"
     },
-    "lightly": {
-      "description": "Lightly is a fork of breeze theme style that aims to be visually modern and minimalistic.",
-      "name": "lightly-0.4.1",
+    "mohist-server": {
+      "description": "Minecraft Forge Server Software Implementing Paper/Spigot/Bukkit API",
+      "name": "mohist-server-1.16.5r904",
       "type": "derivation"
     },
     "multiload-ng": {
@@ -130,9 +136,14 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "name": "netboot-xyz-images-2.0.53",
       "type": "derivation"
     },
+    "obsidian": {
+      "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files",
+      "name": "obsidian-0.12.19",
+      "type": "derivation"
+    },
     "papirus-icon-theme": {
       "description": "Papirus icon theme, patched with folder colorscheme",
-      "name": "papirus-icon-theme-20211201",
+      "name": "papirus-icon-theme-20211001",
       "type": "derivation"
     },
     "plasma-applet-splitdigitalclock": {
@@ -140,14 +151,14 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
       "name": "plasma-applet-splitdigitalclock-unstable-2021-12-27",
       "type": "derivation"
     },
-    "reversal-kde": {
-      "description": "Reversal kde is a materia Design theme for KDE Plasma desktop.",
-      "name": "reversal-kde-20220101",
+    "python3": {
+      "description": "A high-level dynamically-typed programming language",
+      "name": "python3-3.9.6",
       "type": "derivation"
     },
-    "sierrabreezeenhanced": {
-      "description": "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative",
-      "name": "sierrabreezeenhanced-1.0.3",
+    "ryujinx": {
+      "description": "Experimental Nintendo Switch Emulator written in C#",
+      "name": "ryujinx-0.0.0",
       "type": "derivation"
     },
     "stevenblack-hosts": {

@@ -2,9 +2,9 @@ final: prev: let
   callPackage = prev.callPackage;
 in
   {
-    any-nix-shell = callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
+    any-nix-shell = callPackage ./any-nix-shell { inherit (prev) any-nix-shell; };
     g-kitty = callPackage ./g-kitty { };
-    obsidian = callPackage ./obsidian { obsidian = prev.obsidian; };
+    obsidian = callPackage ./obsidian { inherit (prev) obsidian; };
 
     python3 = prev.python3.override {
       packageOverrides = python3-final: python3-prev: {

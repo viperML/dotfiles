@@ -22,7 +22,7 @@
       libsForQt5.reversal-kde
       yaru-theme
       adwaita-plus
-      kde-rounded-corners
+      libsForQt5.lightlyshaders
 
       # Extend
       libsForQt5.bismuth
