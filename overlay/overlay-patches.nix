@@ -1,4 +1,6 @@
-final: prev: let callPackage = prev.callPackage; in {
+final: prev:
+let callPackage = prev.callPackage; in
+{
   any-nix-shell = callPackage ./any-nix-shell { any-nix-shell = prev.any-nix-shell; };
   g-kitty = callPackage ./g-kitty { };
   obsidian = callPackage ./obsidian { obsidian = prev.obsidian; };
@@ -14,8 +16,6 @@ final: prev: let callPackage = prev.callPackage; in {
   };
 
   ryujinx = callPackage ./ryujinx { };
-
-  # wlroots = callPackage ./wlroots { wlroots = prev.wlroots; };
 
   # element-for-poor-people = with prev; makeDesktopItem {
   #   name = "Element";

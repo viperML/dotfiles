@@ -17,6 +17,7 @@
     libsForQt5.reversal-kde
     yaru-theme
     adwaita-plus
+    # libsForQt5.lightlyshaders
 
     # Extend
     libsForQt5.bismuth

@@ -1,5 +1,30 @@
 {
   "nodes": {
+    "alejandra": {
+      "inputs": {
+        "fenix": "fenix",
+        "flakeCompat": "flakeCompat",
+        "flakeUtils": "flakeUtils",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rustAnalyzer": "rustAnalyzer",
+        "treefmt": "treefmt"
+      },
+      "locked": {
+        "lastModified": 1644370980,
+        "narHash": "sha256-w6aQNaU4Nxt/yAFEUFBcHW8MrKI5mrb0cWjzbsZavfU=",
+        "owner": "kamadorueda",
+        "repo": "alejandra",
+        "rev": "26a02cdf14894d37b4984e4e24e1f012ab1e8f08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kamadorueda",
+        "repo": "alejandra",
+        "type": "github"
+      }
+    },
     "cachix": {
       "locked": {
         "lastModified": 1642244250,
@@ -35,6 +60,31 @@
       "original": {
         "owner": "serokell",
         "repo": "deploy-rs",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "alejandra",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": [
+          "alejandra",
+          "rustAnalyzer"
+        ]
+      },
+      "locked": {
+        "lastModified": 1643869431,
+        "narHash": "sha256-M+khM8s4Kz70q1jCpNX+Cx/YH6cZnn32yCW4udZMCVk=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "2d64d0c1941b2b82d938e82790ea0e692889c23b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
         "type": "github"
       }
     },
@@ -143,6 +193,37 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flakeCompat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1641205782,
+        "narHash": "sha256-4jY7RCWUoZ9cKD8co0/4tFARpWB+57+r1bLLvXNJliY=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "b7547d3eed6f32d06102ead8991ec52ab0a4f1a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flakeUtils": {
+      "locked": {
+        "lastModified": 1642700792,
+        "narHash": "sha256-XqHrk7hFb+zBvRg6Ghl+AZDq03ov6OshJLiSWOoX5es=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "846b2ae0fc4cc943637d3d1def4454213e203cba",
         "type": "github"
       },
       "original": {
@@ -344,6 +425,7 @@
     },
     "root": {
       "inputs": {
+        "alejandra": "alejandra",
         "deploy-rs": "deploy-rs",
         "firefox-csshacks": "firefox-csshacks",
         "flake-compat": "flake-compat_2",
@@ -357,6 +439,47 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "vim-extra-plugins": "vim-extra-plugins"
+      }
+    },
+    "rustAnalyzer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1644158521,
+        "narHash": "sha256-MtyPwa9qvQN7Y3rCVa5VwlQzsgkdMNvbg4LX7SNHCFU=",
+        "owner": "rust-analyzer",
+        "repo": "rust-analyzer",
+        "rev": "ba330548023607717295f0dfd61b72eda41aa9dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-analyzer",
+        "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "treefmt": {
+      "inputs": {
+        "flake-utils": [
+          "alejandra",
+          "flakeUtils"
+        ],
+        "nixpkgs": [
+          "alejandra",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1640364438,
+        "narHash": "sha256-sV1Oa9JVNmpAwZ4cnVs7ovHrKL8EPg3J08jPX/a48LI=",
+        "owner": "numtide",
+        "repo": "treefmt",
+        "rev": "26d7f5f15e5d22d4413ba7c5ae0447fdc0b5cc76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt",
+        "type": "github"
       }
     },
     "utils": {

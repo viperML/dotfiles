@@ -10,15 +10,16 @@ final: prev: let callPackage = prev.callPackage; in {
   vlmcsd = callPackage ./vlmcsd { };
   adwaita-plus = callPackage ./adwaita-plus { };
 
-
-  libsForQt5 = let callPackage = prev.libsForQt5.callPackage; in
-    prev.libsForQt5 //
-    {
+  libsForQt5 = prev.libsForQt5.overrideScope' (qtfinal: qtprev:
+    let
+      callPackage = qtprev.callPackage;
+    in
+    rec {
       lightly = callPackage ./Lightly { };
       sierrabreezeenhanced = callPackage ./SierraBreezeEnhanced { };
       reversal-kde = callPackage ./Reversal-kde { };
       kwin-forceblur = callPackage ./kwin-forceblur { };
       koi-fork = callPackage ./Koi-fork { };
       plasma-theme-switcher = callPackage ./plasma-theme-switcher { };
-    };
+    });
 }
