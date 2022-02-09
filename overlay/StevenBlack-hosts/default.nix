@@ -1,5 +1,9 @@
-{ stdenv, fetchFromGitHub, python310, writeTextFile, lib }:
-
+{ stdenv
+, fetchFromGitHub
+, python310
+, writeTextFile
+, lib
+}:
 stdenv.mkDerivation rec {
   pname = "stevenblack-hosts";
   version = "unstable-2022-02-05";
@@ -12,7 +16,7 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [
-    (python310.withPackages (p: [p.requests]))
+    (python310.withPackages (p: [ p.requests ]))
   ];
 
   # Move source into $out because the script opens source files as r/w
@@ -28,10 +32,12 @@ stdenv.mkDerivation rec {
 
   installPhase = '':'';
 
-  meta = with lib; {
-    description = "Unified hosts file with base extensions";
-    homepage = "https://github.com/StevenBlack/hosts";
-    license = licenses.mit;
-    platforms = platforms.all;
-  };
+  meta =
+    with lib;
+    {
+      description = "Unified hosts file with base extensions";
+      homepage = "https://github.com/StevenBlack/hosts";
+      license = licenses.mit;
+      platforms = platforms.all;
+    };
 }

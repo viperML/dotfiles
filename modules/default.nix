@@ -1,5 +1,7 @@
-{ flake-utils-plus, lib, ... }:
-
+{ flake-utils-plus
+, lib
+, ...
+}:
 let
   nixosModules = flake-utils-plus.lib.exportModules (
     lib.mapAttrsToList (name: value: ./nixos/${name}) (builtins.readDir ./nixos)

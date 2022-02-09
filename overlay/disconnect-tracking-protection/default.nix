@@ -1,5 +1,9 @@
-{ stdenv, fetchFromGitHub, python310, writeTextFile, lib }:
-
+{ stdenv
+, fetchFromGitHub
+, python310
+, writeTextFile
+, lib
+}:
 stdenv.mkDerivation rec {
   pname = "disconnect-tracking-protection";
   version = "20220112";
@@ -15,25 +19,29 @@ stdenv.mkDerivation rec {
     python310
   ];
 
-  buildPhase = let
-    parse_hosts = writeTextFile {
-      name = "parse_hosts";
-      text = "${builtins.readFile ./parse_hosts.py}";
-    };
-  in ''
-    mkdir -p $out
-    ${python310}/bin/python ${parse_hosts} -f $src/services.json -o $out/hosts
-  '';
+  buildPhase =
+    let
+      parse_hosts = writeTextFile {
+        name = "parse_hosts";
+        text = "${builtins.readFile ./parse_hosts.py}";
+      };
+    in
+      ''
+        mkdir -p $out
+        ${python310}/bin/python ${parse_hosts} -f $src/services.json -o $out/hosts
+      '';
 
   installPhase = ''
     cp $src/services.json $out
     cp $src/entities.json $out
   '';
 
-  meta = with lib; {
-    description = "Tracking protection lists and services";
-    homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
-    license = licenses.cc-by-nc-sa-40;
-    platforms = platforms.all;
-  };
+  meta =
+    with lib;
+    {
+      description = "Tracking protection lists and services";
+      homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
+      license = licenses.cc-by-nc-sa-40;
+      platforms = platforms.all;
+    };
 }

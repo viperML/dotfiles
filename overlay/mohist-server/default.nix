@@ -1,5 +1,8 @@
-{ stdenv, bash, jdk11_headless, lib }:
-
+{ stdenv
+, bash
+, jdk11_headless
+, lib
+}:
 let
   mcVersion = "1.16.5";
   revision = "904";
@@ -11,9 +14,7 @@ let
 
   my_java = jdk11_headless;
 in
-
 stdenv.mkDerivation {
-
   pname = "mohist-server";
   version = "${mcVersion}r${revision}";
 
@@ -40,5 +41,4 @@ stdenv.mkDerivation {
     platforms = lib.platforms.unix;
     # maintainers = with lib.maintainers; [ aaronjanse neonfuz ];
   };
-
 }

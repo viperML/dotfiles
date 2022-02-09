@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 {
   programs.doom-emacs = {
     enable = true;
@@ -11,7 +14,9 @@
     };
   };
 
-  home.packages = with pkgs; [
-    emacs-all-the-icons-fonts
-  ];
+  home.packages =
+    with pkgs;
+    [
+      emacs-all-the-icons-fonts
+    ];
 }

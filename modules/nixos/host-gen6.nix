@@ -1,5 +1,9 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
+{ config
+, lib
+, pkgs
+, modulesPath
+, ...
+}:
 {
   boot = {
     initrd = {
@@ -55,10 +59,12 @@
     hostId = "01017f00";
   };
 
-  environment.systemPackages = with pkgs; [
-    vulkan-tools
-    libva-utils
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      vulkan-tools
+      libva-utils
+    ];
 
   services.xserver = {
     layout = "us";
@@ -103,14 +109,28 @@
           "zroot/secrets"
         ];
       in
-      (builtins.listToAttrs
-        (builtins.map (dataset: { name = dataset; value.use_template = [ "slow" ]; })
-          slow-datasets))
-      //
-      (builtins.listToAttrs
-        (builtins.map (dataset: { name = dataset; value.use_template = [ "normal" ]; })
-          normal-datasets))
-    ;
+        (
+          builtins.listToAttrs (
+            builtins.map (
+              dataset: {
+                name = dataset;
+                value.use_template = [ "slow" ];
+              }
+            )
+            slow-datasets
+          )
+        )
+        // (
+          builtins.listToAttrs (
+            builtins.map (
+              dataset: {
+                name = dataset;
+                value.use_template = [ "normal" ];
+              }
+            )
+            normal-datasets
+          )
+        );
   };
 
   services.zfs = {
@@ -163,24 +183,27 @@
     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
   ];
 
-  swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
+  swapDevices = [ { device = "/dev/disk/by-label/LINUXSWAP"; } ];
 
   powerManagement.cpuFreqGovernor = "powersave";
 
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    nvidia.modesetting.enable = config.services.xserver.displayManager.gdm.enable;
+    nvidia.modesetting.enable =
+      config.services.xserver.displayManager.gdm.enable;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
-    opengl.extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-      libva
-    ];
+    opengl.extraPackages =
+      with pkgs;
+      [
+        vaapiVdpau
+        libvdpau-va-gl
+        libva
+      ];
   };
 
   programs = {

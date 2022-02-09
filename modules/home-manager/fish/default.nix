@@ -1,11 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 {
   # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
 
-  home.packages = with pkgs; [
-    fzf
-  ];
-
+  home.packages =
+    with pkgs;
+    [
+      fzf
+    ];
 
   home.file.".config/starship.toml".text = ''
     ${builtins.readFile ../../misc/starship/starship.toml}
@@ -93,6 +98,5 @@
     config.whitelist.prefix = [
       "/home"
     ];
-
   };
 }

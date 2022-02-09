@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 let
   launch-mailspring = pkgs.writeShellScriptBin "launch-mailspring" ''
     sleep 3
@@ -61,18 +64,18 @@ in
         X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot
       '';
     };
-
   };
 
   # targets.genericLinux.enable = true;
 
-  home.packages = with pkgs; [
-    # Autostart
-    flameshot
-    mailspring
+  home.packages =
+    with pkgs;
+    [
+      # Autostart
+      flameshot
+      mailspring
 
-    # Misc
-    google-chrome
-  ];
-
+      # Misc
+      google-chrome
+    ];
 }

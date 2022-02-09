@@ -3,7 +3,6 @@
 , fetchFromGitHub
 , pkgs
 }:
-
 stdenv.mkDerivation rec {
   pname = "multiload-ng";
   version = "20210103";
@@ -15,18 +14,22 @@ stdenv.mkDerivation rec {
     sha256 = "1v64775qjk41wf0ilp6mbabb73li0awrzwy7xmry8ddlf8sxpj00";
   };
 
-  buildInputs = with pkgs; [
-    gtk3
-    cairo
-    intltool
-    gettext
-  ];
+  buildInputs =
+    with pkgs;
+    [
+      gtk3
+      cairo
+      intltool
+      gettext
+    ];
 
-  nativeBuildInputs = with pkgs; [
-    autoreconfHook
-    pkgconfig
-    bash
-  ];
+  nativeBuildInputs =
+    with pkgs;
+    [
+      autoreconfHook
+      pkgconfig
+      bash
+    ];
 
   preBuild = ''
     chmod +x data/generate-about-data.sh
@@ -45,11 +48,12 @@ stdenv.mkDerivation rec {
   #   make all-recursive
   # '';
 
-
-  meta = with lib; {
-    description = "Modern graphical system monitor for any panel (only systray and standalone builds)";
-    homepage = "https://github.com/udda/multiload-ng";
-    license = licenses.gpl2;
-    platforms = platforms.linux;
-  };
+  meta =
+    with lib;
+    {
+      description = "Modern graphical system monitor for any panel (only systray and standalone builds)";
+      homepage = "https://github.com/udda/multiload-ng";
+      license = licenses.gpl2;
+      platforms = platforms.linux;
+    };
 }

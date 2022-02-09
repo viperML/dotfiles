@@ -1,5 +1,7 @@
-{ pkgs, lib, ... }:
-
+{ pkgs
+, lib
+, ...
+}:
 {
   kde = import ./kde.nix { inherit pkgs lib; };
 }

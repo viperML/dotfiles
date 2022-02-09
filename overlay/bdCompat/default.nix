@@ -1,10 +1,22 @@
-{ stdenv, fetchFromGitHub, plugins ? [ ], lib }:
+{ stdenv
+, fetchFromGitHub
+, plugins ? [ ]
+, lib
+}:
 let
-  drvToName = drv: builtins.concatStringsSep "-" (builtins.tail (lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))));
-  plugins-withNames = builtins.map (plug: {
-    name = drvToName "${plug}";
-    drv = plug;
-  }) plugins;
+  drvToName = drv: builtins.concatStringsSep "-" (
+    builtins.tail (
+      lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))
+    )
+  );
+  plugins-withNames =
+    builtins.map (
+      plug: {
+        name = drvToName "${plug}";
+        drv = plug;
+      }
+    )
+    plugins;
 in
 stdenv.mkDerivation {
   pname = "bdCompat";
@@ -21,10 +33,11 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp -r $src/* $out
     mkdir -p $out/plugins
-    ${builtins.concatStringsSep "\n" (
-      builtins.map (p:
-        "ln -s ${p.drv} $out/plugins/${p.name}"
-      ) plugins-withNames
-    )}
+    ${
+    builtins.concatStringsSep "\n" (
+      builtins.map (p: "ln -s ${p.drv} $out/plugins/${p.name}")
+      plugins-withNames
+    )
+  }
   '';
 }

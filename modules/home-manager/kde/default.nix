@@ -1,10 +1,13 @@
-{ config, pkgs, inputs, lib, ... }:
-
+{ config
+, pkgs
+, inputs
+, lib
+, ...
+}:
 {
-  home.packages =
-    [
-      pkgs.plasma-applet-splitdigitalclock
-    ];
+  home.packages = [
+    pkgs.plasma-applet-splitdigitalclock
+  ];
 
   systemd.user = {
     services.apply-colorscheme = {
@@ -22,7 +25,7 @@
             fi
           '';
         in
-        "${apply-colorscheme-script}";
+          "${apply-colorscheme-script}";
       Install.WantedBy = [ "xdg-desktop-autostart.target" ];
     };
     timers = {

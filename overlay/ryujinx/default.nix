@@ -1,9 +1,21 @@
-{ lib, buildDotnetModule, fetchFromGitHub, makeDesktopItem, copyDesktopItems
-, dotnetCorePackages, libX11, libgdiplus, ffmpeg
-, SDL2_mixer, openal, libsoundio, sndio, pulseaudio
-, gtk3, gdk-pixbuf, wrapGAppsHook
+{ lib
+, buildDotnetModule
+, fetchFromGitHub
+, makeDesktopItem
+, copyDesktopItems
+, dotnetCorePackages
+, libX11
+, libgdiplus
+, ffmpeg
+, SDL2_mixer
+, openal
+, libsoundio
+, sndio
+, pulseaudio
+, gtk3
+, gdk-pixbuf
+, wrapGAppsHook
 }:
-
 buildDotnetModule rec {
   pname = "ryujinx";
   version = "0.0.0";
@@ -50,7 +62,8 @@ buildDotnetModule rec {
   ];
 
   patches = [
-    ./log.patch # Without this, Ryujinx attempts to write logs to the nix store. This patch makes it write to "~/.config/Ryujinx/Logs" on Linux.
+    ./log.patch
+    # Without this, Ryujinx attempts to write logs to the nix store. This patch makes it write to "~/.config/Ryujinx/Logs" on Linux.
   ];
 
   preInstall = ''
@@ -67,24 +80,30 @@ buildDotnetModule rec {
     done
   '';
 
-  desktopItems = [(makeDesktopItem {
-    desktopName = "Ryujinx";
-    name = "ryujinx";
-    exec = "Ryujinx";
-    icon = "ryujinx";
-    comment = meta.description;
-    type = "Application";
-    categories = "Game;";
-  })];
+  desktopItems = [
+    (
+      makeDesktopItem {
+        desktopName = "Ryujinx";
+        name = "ryujinx";
+        exec = "Ryujinx";
+        icon = "ryujinx";
+        comment = meta.description;
+        type = "Application";
+        categories = "Game;";
+      }
+    )
+  ];
 
-  meta = with lib; {
-    description = "Experimental Nintendo Switch Emulator written in C#";
-    homepage = "https://ryujinx.org/";
-    license = licenses.mit;
-    changelog = "https://github.com/Ryujinx/Ryujinx/wiki/Changelog";
-    maintainers = [ maintainers.ivar ];
-    platforms = [ "x86_64-linux" ];
-    mainProgram = "Ryujinx";
-  };
+  meta =
+    with lib;
+    {
+      description = "Experimental Nintendo Switch Emulator written in C#";
+      homepage = "https://ryujinx.org/";
+      license = licenses.mit;
+      changelog = "https://github.com/Ryujinx/Ryujinx/wiki/Changelog";
+      maintainers = [ maintainers.ivar ];
+      platforms = [ "x86_64-linux" ];
+      mainProgram = "Ryujinx";
+    };
   passthru.updateScript = ./updater.sh;
 }

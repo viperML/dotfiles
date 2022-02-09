@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 let
   waylandEnv = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -11,16 +14,17 @@ let
     XDG_SESSION_TYPE = "wayland";
   };
 in
-
 {
   programs.sway = {
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    wofi
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      wofi
+    ];
 
   environment.variables = waylandEnv;
   environment.sessionVariables = waylandEnv;

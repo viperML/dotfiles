@@ -13,7 +13,6 @@
 , qtdeclarative
 , xsettingsd
 }:
-
 stdenv.mkDerivation rec {
   pname = "koi";
   version = "20201128";
@@ -42,10 +41,12 @@ stdenv.mkDerivation rec {
     xsettingsd
   ];
 
-  meta = with lib; {
-    homepage = "https://github.com/Da-Viper/Koi";
-    description = "Theme scheduling for the KDE Plasma Desktop";
-    license = licenses.lgpl3;
-    platforms = platforms.linux;
-  };
+  meta =
+    with lib;
+    {
+      homepage = "https://github.com/Da-Viper/Koi";
+      description = "Theme scheduling for the KDE Plasma Desktop";
+      license = licenses.lgpl3;
+      platforms = platforms.linux;
+    };
 }

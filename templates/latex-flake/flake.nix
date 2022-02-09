@@ -6,16 +6,22 @@
     utils.url = github:gytis-ivaskevicius/flake-utils-plus;
   };
 
-  outputs = inputs @ { self, nixpkgs, utils, ... }: utils.lib.mkFlake {
-    inherit self inputs;
+  outputs =
+    inputs @
+    { self
+    , nixpkgs
+    , utils
+    , ...
+    }:
+    utils.lib.mkFlake {
+      inherit self inputs;
 
-    channelsConfig = { allowUnfree = true; };
+      channelsConfig = { allowUnfree = true; };
 
-    outputsBuilder = channels: {
-      packages = {
-        my-latex-document = channels.nixpkgs.callPackage ./default.nix { };
+      outputsBuilder = channels: {
+        packages = {
+          my-latex-document = channels.nixpkgs.callPackage ./default.nix { };
+        };
       };
     };
-
-  };
 }

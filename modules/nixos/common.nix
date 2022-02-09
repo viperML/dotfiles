@@ -1,8 +1,15 @@
-{ config, pkgs, inputs, ... }:
-
+{ config
+, pkgs
+, inputs
+, ...
+}:
 {
   system.stateVersion = "21.11";
-  system.configurationRevision = (if inputs.self ? rev then inputs.self.rev else null);
+  system.configurationRevision = (
+    if inputs.self ? rev
+    then inputs.self.rev
+    else null
+  );
   time.timeZone = "Europe/Madrid";
   documentation = {
     man.enable = true;

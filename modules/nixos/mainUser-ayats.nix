@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 let
   name = "ayats";
   home = "/home/ayats";
 in
 {
-  users.mutableUsers = false; # change passwords of users
+  users.mutableUsers = false;
+  # change passwords of users
 
   users.users.mainUser = {
     inherit name home;
@@ -18,15 +22,17 @@ in
   # Enable home-manager for the user (inherit shared modules)
   home-manager.users.mainUser = { ... }: { };
 
-  security.sudo. extraRules = [{
-    groups = [ "wheel" ];
-    commands = [
-      {
-        command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
-        options = [ "SETENV" "NOPASSWD" ];
-      }
-    ];
-  }];
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+          options = [ "SETENV" "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   services.openssh = {
     enable = true;
@@ -42,15 +48,15 @@ in
     let
       group = config.users.users.mainUser.group;
     in
-    [
-      "z /secrets/ssh 0700 ${name} ${group} - -"
-      "z /secrets/ssh/config 0600 ${name} ${group} - -"
-      "z /secrets/ssh/id_ed25519 0600 ${name} ${group} - -"
-      "z /secrets/ssh/id_ed25519.pub 0644 ${name} ${group} - -"
-      "z /secrets/ssh/known_hosts 0600 ${name} ${group} - -"
-      "d /root/.ssh 0700 root root - -"
-      "L+ ${home}/.ssh - - - - /secrets/ssh"
-    ];
+      [
+        "z /secrets/ssh 0700 ${name} ${group} - -"
+        "z /secrets/ssh/config 0600 ${name} ${group} - -"
+        "z /secrets/ssh/id_ed25519 0600 ${name} ${group} - -"
+        "z /secrets/ssh/id_ed25519.pub 0644 ${name} ${group} - -"
+        "z /secrets/ssh/known_hosts 0600 ${name} ${group} - -"
+        "d /root/.ssh 0700 root root - -"
+        "L+ ${home}/.ssh - - - - /secrets/ssh"
+      ];
 
   # Bind keys to the root users
   # This fixes building on remote machines

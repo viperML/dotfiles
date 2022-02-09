@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, ...
+}:
 let
   # BetterDiscord plugin definitions
   imageEmojis = pkgs.fetchurl {
@@ -17,7 +20,7 @@ let
     plugins = [
       imageEmojis
       BetterFriendList
-BDLibrary
+      BDLibrary
     ];
   };
 

@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-
+{ config
+, pkgs
+, ...
+}:
 {
   home.packages = [ pkgs.kitty ];
 
@@ -37,7 +39,7 @@
             fi
           '';
         in
-        "${apply-kitty-script}";
+          "${apply-kitty-script}";
     };
     timers = {
       apply-kitty = {

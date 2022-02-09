@@ -1,4 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 # https://old.reddit.com/r/VFIO/comments/p42x2k/single_gpu_etclibvirthooksqemu_hook_is_never/
 # https://gitlab.com/Karuri/vfio
 let
@@ -11,7 +15,8 @@ let
   ];
 
   memory = 16384;
-  Hugepagesize = 2048; # $ grep Hugepagesize /proc/meminfo
+  Hugepagesize = 2048;
+  # $ grep Hugepagesize /proc/meminfo
   my-network = "virbr0";
   vlmcsd-port = 1688;
 
@@ -113,7 +118,10 @@ let
     modprobe -r i2c_nvidia_gpu
     modprobe -r drm
     # Detach GPU devices from host
-    ${lib.concatMapStringsSep "\n" (dev: "virsh nodedev-detach ${dev}") my-iommu-group}
+    ${
+    lib.concatMapStringsSep "\n" (dev: "virsh nodedev-detach ${dev}")
+    my-iommu-group
+  }
     # Load vfio module
     modprobe vfio-pci
     ${alloc_hugepages}
@@ -131,7 +139,10 @@ let
     # Unload vfio module
     modprobe -r vfio-pci
     # Attach GPU devices from host
-    ${lib.concatMapStringsSep "\n" (dev: "virsh nodedev-reattach ${dev}") my-iommu-group}
+    ${
+    lib.concatMapStringsSep "\n" (dev: "virsh nodedev-reattach ${dev}")
+    my-iommu-group
+  }
     # Load nvidia drivers
     modprobe nvidia_drm
     modprobe nvidia_modeset
@@ -162,7 +173,6 @@ let
     systemctl stop vlmcsd.service
   '';
 in
-
 {
   boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "kvm-intel" "vfio-pci" ];
@@ -173,9 +183,17 @@ in
 
   systemd.tmpfiles.rules = [
     "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemu-entrypoint}/bin/qemu"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/prepare/begin/start.sh - - - - ${hook-prepare-iommu}/bin/start.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/release/end/stop.sh - - - - ${hook-release-iommu}/bin/stop.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/prepare/begin/start.sh - - - - ${hook-prepare-windows}/bin/start.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/release/end/stop.sh - - - - ${hook-release-windows}/bin/stop.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/prepare/begin/start.sh - - - - ${
+      hook-prepare-iommu
+    }/bin/start.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/release/end/stop.sh - - - - ${
+      hook-release-iommu
+    }/bin/stop.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/prepare/begin/start.sh - - - - ${
+      hook-prepare-windows
+    }/bin/start.sh"
+    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/release/end/stop.sh - - - - ${
+      hook-release-windows
+    }/bin/stop.sh"
   ];
 }

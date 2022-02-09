@@ -10,7 +10,6 @@
 , libepoxy
 , xorg
 }:
-
 stdenv.mkDerivation {
   pname = "lightlyshaders";
   version = "unstable-2022-02-03";

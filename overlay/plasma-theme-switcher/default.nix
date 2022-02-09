@@ -5,7 +5,6 @@
 , extra-cmake-modules
 , kconfig
 }:
-
 stdenv.mkDerivation rec {
   pname = "plasma-theme-switcher";
   version = "develop-20201129";
@@ -30,10 +29,12 @@ stdenv.mkDerivation rec {
     install -Dm755 plasma-theme $out/bin/plasma-theme
   '';
 
-  meta = with lib; {
-    homepage = "https://github.com/maldoinc/plasma-theme-switcher";
-    description = "Quickly apply KDE Plasma color schemes and widget styles from the command-line";
-    license = licenses.gpl2;
-    platforms = platforms.linux;
-  };
+  meta =
+    with lib;
+    {
+      homepage = "https://github.com/maldoinc/plasma-theme-switcher";
+      description = "Quickly apply KDE Plasma color schemes and widget styles from the command-line";
+      license = licenses.gpl2;
+      platforms = platforms.linux;
+    };
 }

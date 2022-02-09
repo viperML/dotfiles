@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
-
+{ config
+, pkgs
+, ...
+}:
 {
-  home.packages = with pkgs; [
-    wofi
-  ];
+  home.packages =
+    with pkgs;
+    [
+      wofi
+    ];
 
   wayland.windowManager.sway = {
     enable = true;

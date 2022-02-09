@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-
+{ config
+, pkgs
+, ...
+}:
 # Requires https://github.com/m15a/nixpkgs-vim-extra-plugins overlay
 {
   home.sessionVariables.EDITOR = "${config.programs.neovim.package.outPath}/bin/nvim";
@@ -14,33 +16,36 @@
           text = "${builtins.readFile ./plugins.lua}";
         };
       in
-      ''
-        " Vanilla configs
-        ${builtins.readFile ./vanilla.vim}
+        ''
+          " Vanilla configs
+          ${builtins.readFile ./vanilla.vim}
 
-        " Plugins configs
-        ${builtins.readFile ./plugins.vim}
+          " Plugins configs
+          ${builtins.readFile ./plugins.vim}
 
-        " Lua config
-        :luafile ${plugins-lua}
-      '';
+          " Lua config
+          :luafile ${plugins-lua}
+        '';
 
     withNodeJs = true;
 
-    extraPackages = with pkgs; [
-      tree-sitter
-      nixpkgs-fmt
-      rnix-lsp
-      xsel
-    ];
+    extraPackages =
+      with pkgs;
+      [
+        tree-sitter
+        nixpkgs-fmt
+        rnix-lsp
+        xsel
+      ];
 
     coc = {
       enable = true;
       settings = "${builtins.readFile ./coc-settings.json}";
     };
 
-
-    plugins = with pkgs.vimPlugins; with pkgs.vimExtraPlugins;
+    plugins =
+      with pkgs.vimPlugins;
+      with pkgs.vimExtraPlugins;
       # Some pkgs must be derivated from source
       let
         context-vim = pkgs.vimUtils.buildVimPlugin {
@@ -52,36 +57,34 @@
             sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
           };
         };
-
       in
-      [
-        # Visual
-        nvim-transparent
-        # context-vim
-        # vim-airline
-        vim-highlightedyank
-        dracula-vim
-        vim-one
-        bufferline-nvim
-        feline-nvim
-        nvim-web-devicons
-        gitsigns-nvim
-        indent-blankline-nvim
-        nvim-tree-lua
+        [
+          # Visual
+          nvim-transparent
+          # context-vim
+          # vim-airline
+          vim-highlightedyank
+          dracula-vim
+          vim-one
+          bufferline-nvim
+          feline-nvim
+          nvim-web-devicons
+          gitsigns-nvim
+          indent-blankline-nvim
+          nvim-tree-lua
 
-        # Misc
-        vim-easymotion
-        auto-pairs
-        nvim-comment
-        editorconfig-vim
+          # Misc
+          vim-easymotion
+          auto-pairs
+          nvim-comment
+          editorconfig-vim
 
-        # Completion and syntax
-        # coc-nvim
-        # coc-json
-        vim-nix
-        nvim-lspconfig
-        nvim-treesitter
-      ];
-
+          # Completion and syntax
+          # coc-nvim
+          # coc-json
+          vim-nix
+          nvim-lspconfig
+          nvim-treesitter
+        ];
   };
 }
