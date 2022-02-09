@@ -164,12 +164,10 @@
                   lightly
                   sierrabreezeenhanced
                   reversal-kde
-                  koi-fork
+                  # koi-fork
                   plasma-theme-switcher
                   kwin-forceblur
                   ;
-              }
-              // {
                 inherit
                   (pkgs)
                   multiload-ng
