@@ -23,7 +23,7 @@ in
           reversal-kde = callPackage ./Reversal-kde { };
           kwin-forceblur = callPackage ./kwin-forceblur { };
           # koi-fork = callPackage ./Koi-fork { };
-          plasma-theme-switcher = callPackage ./plasma-theme-switcher { };
+          # plasma-theme-switcher = callPackage ./plasma-theme-switcher { };
         }
     );
   }

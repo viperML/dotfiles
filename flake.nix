@@ -165,7 +165,7 @@
                   sierrabreezeenhanced
                   reversal-kde
                   # koi-fork
-                  plasma-theme-switcher
+                  # plasma-theme-switcher
                   kwin-forceblur
                   ;
                 inherit
