@@ -15,6 +15,8 @@ final: prev: let callPackage = prev.callPackage; in {
 
   ryujinx = callPackage ./ryujinx { };
 
+  # wlroots = callPackage ./wlroots { wlroots = prev.wlroots; };
+
   # element-for-poor-people = with prev; makeDesktopItem {
   #   name = "Element";
   #   desktopName = "Element";

@@ -16,6 +16,7 @@
     libsForQt5.sierrabreezeenhanced
     libsForQt5.reversal-kde
     yaru-theme
+    adwaita-plus
 
     # Extend
     libsForQt5.bismuth

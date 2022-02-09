@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
-
+let
+  launch-mailspring = pkgs.writeShellScriptBin "launch-mailspring" ''
+    sleep 3
+    ${pkgs.mailspring}/bin/mailspring --background
+  '';
+in
 {
   xdg = {
     enable = true;
@@ -8,7 +13,7 @@
     configFile = {
       "autostart/Mailspring.desktop".text = ''
         [Desktop Action NewMessage]
-        Exec=${pkgs.mailspring}/bin/mailspring mailto:
+        Exec=mailspring mailto:
         Name[en_US]=New Message
         Name=New Message
 
@@ -16,8 +21,7 @@
         Actions=NewMessage
         Categories=GNOME;GTK;Network;Email;
         Comment=The best email app for people and teams at work
-        Exec=${pkgs.mailspring}/bin/mailspring %U --background
-        GenericName=Mail Client
+        Exec=${launch-mailspring}/bin/launch-mailspring
         Icon=mailspring
         Keywords=email;internet;
         MimeType=x-scheme-handler/mailto;x-scheme-handler/mailspring;

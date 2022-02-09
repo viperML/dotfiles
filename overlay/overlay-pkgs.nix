@@ -8,7 +8,8 @@ final: prev: let callPackage = prev.callPackage; in {
   stevenblack-hosts = callPackage ./StevenBlack-hosts { };
   bdcompat = callPackage ./bdCompat { };
   vlmcsd = callPackage ./vlmcsd { };
-  # kwin-forceblur = prev.libsForQt5.callPackage ./kwin-forceblur { };
+  adwaita-plus = callPackage ./adwaita-plus { };
+
 
   libsForQt5 = let callPackage = prev.libsForQt5.callPackage; in
     prev.libsForQt5 //

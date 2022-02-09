@@ -88,7 +88,7 @@ let
   '';
 
   hook-prepare-iommu = pkgs.writeShellScriptBin "start.sh" ''
-    export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin"
+    export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin:${pkgs.libvirt}/bin"
     set -uxo pipefail
     echo $(date)
     # Change to performance governor
@@ -126,7 +126,7 @@ let
   '';
 
   hook-release-iommu = pkgs.writeShellScriptBin "stop.sh" ''
-    export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin"
+    export PATH="$PATH:${pkgs.kmod}/bin:${pkgs.systemd}/bin:${pkgs.libvirt}/bin"
     set -ux -o pipefail
     # Unload vfio module
     modprobe -r vfio-pci

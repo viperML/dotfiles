@@ -6,13 +6,13 @@
 
 buildDotnetModule rec {
   pname = "ryujinx";
-  version = "unstable-2022-02-07"; # Versioning is based off of the official appveyor builds: https://ci.appveyor.com/project/gdkchan/ryujinx
+  version = "0.0.0";
 
   src = fetchFromGitHub {
     owner = "Ryujinx";
     repo = "Ryujinx";
-    rev = "863c5811903d9fe1020d966028ce6a030477be92";
-    sha256 = "1pmnidjhr63ghjbszy390hn0k9r90yd6zcs2ny8h5w8r7mx3m9vl";
+    rev = "86b37d0ff7764ac62b1e9578b07a8b648a3bd55a";
+    sha256 = "1h5fvdy8s68h3l8mpcfx51v2nkldyv0a1m83yrwjcpl05cf0wr4q";
   };
 
   dotnet-sdk = dotnetCorePackages.sdk_6_0;

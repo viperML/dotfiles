@@ -79,8 +79,8 @@
             # inputs.doom-emacs.hmModule
             # emacs
             firefox
-            discord
-            xonsh
+            # discord
+            # xonsh
           ];
         }];
 
@@ -156,6 +156,7 @@
               disconnect-tracking-protection
               stevenblack-hosts
               vlmcsd
+              adwaita-plus
             ;
           } // {
 

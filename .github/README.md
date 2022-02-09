@@ -98,6 +98,10 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
 ```json
 {
   "x86_64-linux": {
+    "adwaita-plus": {
+      "name": "adwaita-plus-unstable",
+      "type": "derivation"
+    },
     "base-vm": {
       "name": "nixos-disk-image",
       "type": "derivation"

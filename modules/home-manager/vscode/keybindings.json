@@ -45,7 +45,7 @@
     "when": "editorTextFocus && foldingEnabled"
   },
   {
-    "key": "meta+f1",
+    "key": "alt+x",
     "command": "workbench.action.showCommands"
   },
   {
@@ -174,5 +174,17 @@
 	"key": "tab",
 	"command": "-markdown.extension.onTabKey",
 	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+},
+{
+	"key": "alt+space",
+	"command": "workbench.action.quickOpen"
+},
+{
+	"key": "ctrl+p",
+	"command": "-workbench.action.quickOpen"
+},
+{
+	"key": "ctrl+shift+p",
+	"command": "-workbench.action.showCommands"
 }
 ]

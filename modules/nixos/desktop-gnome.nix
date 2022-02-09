@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.xserver.desktopManager.gnome = {
-    enable = true;
+  services.xserver = {
+    desktopManager.gnome.enable = true;
+    displayManager.autoLogin.enable = false;
   };
 
   environment.gnome.excludePackages = with pkgs; [

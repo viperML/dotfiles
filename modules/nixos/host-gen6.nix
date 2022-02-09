@@ -29,7 +29,7 @@
       efiSupport = true;
       zfsSupport = true;
       gfxmodeEfi = "2560x1440";
-      configurationLimit = 20;
+      configurationLimit = 10;
       extraFiles = {
         "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
       };

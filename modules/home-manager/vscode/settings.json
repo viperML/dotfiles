@@ -64,7 +64,8 @@
     "plaintext": false,
     "markdown": false,
     "nix": false,
-    "haskell": true
+    "haskell": true,
+    "python": true
   },
 
   // Git
@@ -74,7 +75,7 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Dark Material Dracula Soft",
+  "workbench.colorTheme": "Dark Material Dracula",
 
   // Icons
   "workbench.productIconTheme": "material-product-icons",

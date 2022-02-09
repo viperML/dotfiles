@@ -6,11 +6,10 @@
       enable = true;
       displayManager = {
         lightdm.enable = false;
-        sddm.enable = false;
+        sddm.enable = true;
         gdm = {
-          enable = true;
+          enable = false;
           wayland = true;
-          # nvidiaWayland = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
         };
 
         # Set the autologin user, if there's only 1 normal user
@@ -38,6 +37,9 @@
     udev.packages = with pkgs; [ android-udev-rules ];
     flatpak.enable = true;
   };
+
+  environment.variables.GTK_USE_PORTAL="1";
+  environment.sessionVariables.GTK_USE_PORTAL="1";
 
   # Fixes GDM autologin in Wayland
   # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
