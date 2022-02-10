@@ -1,35 +1,27 @@
 { stdenv
 , fetchFromGitHub
-, python310
-, writeTextFile
+, python3
 , lib
 }:
 stdenv.mkDerivation rec {
   pname = "disconnect-tracking-protection";
-  version = "20220112";
+  version = "unstable-2022-02-01";
 
   src = fetchFromGitHub {
-    repo = pname;
+    repo = "disconnect-tracking-protection";
     owner = "disconnectme";
-    rev = "e8e755f151af42e7a8884c52f4db4879579f5b30";
-    sha256 = "0f06cc9c6g0pw63lnaydrqkpqgms0sdi6zl0iq6dsih7l750hv0h";
+    rev = "dab5b07e1a8b961cb2475cc7d66fc505bccbbc3b";
+    sha256 = "09gwpfzg6qkkwri1sr9ismzs36lnv9as3p76asr7gv8y6zi2p8dl";
   };
 
-  buildInputs = [
-    python310
+  nativeBuildInputs = [
+    python3
   ];
 
-  buildPhase =
-    let
-      parse_hosts = writeTextFile {
-        name = "parse_hosts";
-        text = "${builtins.readFile ./parse_hosts.py}";
-      };
-    in
-      ''
-        mkdir -p $out
-        ${python310}/bin/python ${parse_hosts} -f $src/services.json -o $out/hosts
-      '';
+  buildPhase = ''
+    mkdir -p $out
+    python ${./parse_hosts.py} -f $src/services.json -o $out/hosts
+  '';
 
   installPhase = ''
     cp $src/services.json $out

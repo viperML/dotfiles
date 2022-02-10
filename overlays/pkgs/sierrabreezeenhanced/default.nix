@@ -1,18 +1,22 @@
 { lib
 , stdenv
 , fetchFromGitHub
-, pkgs
-, qtbase
 , wrapQtAppsHook
+, cmake
+, extra-cmake-modules
+, qtbase
+, libsForQt5
+, plasma-desktop
+, qt5
 }:
 stdenv.mkDerivation rec {
   pname = "sierrabreezeenhanced";
-  version = "1.0.3";
+  version = "unstable-2021-10-25";
 
   src = fetchFromGitHub {
     owner = "kupiqu";
-    repo = pname;
-    rev = "V" + version;
+    repo = "SierraBreezeEnhanced";
+    rev = "8800ff577ca5c16b2d8269eb34d555ec519c0682";
     sha256 = "0kqbfn1jqsbii3hqcqlb93x8cg8dyh5mf66i9r237w41knks5mnw";
   };
 
@@ -21,11 +25,8 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs =
-    with pkgs;
     [
       qtbase
-      cmake
-      extra-cmake-modules
       qt5.qtdeclarative
       libsForQt5.kdecoration
       qt5.qtx11extras
@@ -37,9 +38,17 @@ stdenv.mkDerivation rec {
       libsForQt5.kiconthemes
     ];
 
-  nativeBuildInputs = [ wrapQtAppsHook ];
+  nativeBuildInputs = [
+    wrapQtAppsHook
+    cmake
+    extra-cmake-modules
+  ];
 
-  cmakeFlags = "-DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON";
+  cmakeFlags = [
+    "-DCMAKE_BUILD_TYPE=Release"
+    "-DKDE_INSTALL_LIBDIR=lib"
+    "-DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON"
+  ];
 
   meta =
     with lib;

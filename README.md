@@ -113,7 +113,7 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     },
     "disconnect-tracking-protection": {
       "description": "Tracking protection lists and services",
-      "name": "disconnect-tracking-protection-20220112",
+      "name": "disconnect-tracking-protection-unstable-2022-02-01",
       "type": "derivation"
     },
     "g-kitty": {
@@ -153,7 +153,7 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     },
     "stevenblack-hosts": {
       "description": "Unified hosts file with base extensions",
-      "name": "stevenblack-hosts-unstable-2022-02-05",
+      "name": "stevenblack-hosts-unstable-2022-02-07",
       "type": "derivation"
     },
     "vlmcsd": {

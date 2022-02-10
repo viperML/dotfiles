@@ -5,11 +5,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "reversal-kde";
-  version = "20220101";
+  version = "unstable-2022-01-02";
 
   src = fetchFromGitHub {
     owner = "yeyushengfan258";
-    repo = pname;
+    repo = "reversal-kde";
     rev = "2f264d0bb78499f04383151d9f248617c83f3819";
     sha256 = "0i74hnvy3wv8gf1hyd4xx4ganq7q1h0ld3gcvig577ydd34mdya0";
   };

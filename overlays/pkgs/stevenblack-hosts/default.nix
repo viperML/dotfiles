@@ -1,22 +1,21 @@
 { stdenv
 , fetchFromGitHub
-, python310
-, writeTextFile
+, python3
 , lib
 }:
 stdenv.mkDerivation rec {
   pname = "stevenblack-hosts";
-  version = "unstable-2022-02-05";
+  version = "unstable-2022-02-07";
 
   src = fetchFromGitHub {
     owner = "StevenBlack";
     repo = "hosts";
-    rev = "89c42d1c09b53b8bc139a9477bf575e92f1a4ad0";
-    sha256 = "1wz203nlq1s4zsbihjn0synacmg61h4nfmh6l39lk68xlr68njza";
+    rev = "aebd77a7da0eb10a65979af260b0294832467a94";
+    sha256 = "0h8yqxslxhzw8zayqryr9v32vgxb9y8h6pxhgbpr5fqd0hw27xv0";
   };
 
   buildInputs = [
-    (python310.withPackages (p: [ p.requests ]))
+    (python3.withPackages (p: [ p.requests ]))
   ];
 
   # Move source into $out because the script opens source files as r/w
@@ -30,7 +29,7 @@ stdenv.mkDerivation rec {
     rm -rf $out/extensions
   '';
 
-  installPhase = '':'';
+  dontInstall = true;
 
   meta =
     with lib;

@@ -7,8 +7,8 @@ in
     netboot-xyz-images = callPackage ./netboot-xyz-images { };
     plasma-applet-splitdigitalclock = callPackage ./plasma-applet-splitdigitalclock { };
     disconnect-tracking-protection = callPackage ./disconnect-tracking-protection { };
-    stevenblack-hosts = callPackage ./StevenBlack-hosts { };
-    bdcompat = callPackage ./bdCompat { };
+    stevenblack-hosts = callPackage ./stevenblack-hosts { };
+    bdcompat = callPackage ./bdcompat { };
     vlmcsd = callPackage ./vlmcsd { };
     adwaita-plus = callPackage ./adwaita-plus { };
 
@@ -17,9 +17,9 @@ in
         inherit (qtprev) callPackage;
       in
         rec {
-          lightly = callPackage ./Lightly { };
-          sierrabreezeenhanced = callPackage ./SierraBreezeEnhanced { };
-          reversal-kde = callPackage ./Reversal-kde { };
+          lightly = callPackage ./lightly { };
+          sierrabreezeenhanced = callPackage ./sierrabreezeenhanced { };
+          reversal-kde = callPackage ./reversal-kde { };
           kwin-forceblur = callPackage ./kwin-forceblur { };
           lightlyshaders = callPackage ./LightlyShaders { inherit (qtprev) kdelibs4support; };
         }
