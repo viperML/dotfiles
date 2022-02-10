@@ -1,5 +1,5 @@
 {
-  description = "Personal infrastructure flake";
+  description = "My awesome dotfiles";
 
   outputs =
     inputs @
@@ -21,18 +21,18 @@
 
         # Overlays and channels
         channelsConfig = import ./misc/nixpkgs.nix;
+        channels.nixpkgs.overlaysBuilder = ch: [
+          (
+            final: prev: {
+              # FIXME
+              alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
+            }
+          )
+        ];
         overlays = {
           pkgs = import ./overlays/pkgs;
           patches = import ./overlays/patches;
         };
-        channels.nixpkgs.overlaysBuilder = channels: [
-          (
-            final: prev: {
-              alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
-              # FIXME
-            }
-          )
-        ];
         sharedOverlays = [
           self.overlays.pkgs
           self.overlays.patches
@@ -44,12 +44,7 @@
         ];
 
         # Hosts definitions
-        hostDefaults.modules =
-          with modules.nixosModules;
-          [
-            common
-          ];
-
+        hostDefaults.modules = with modules.nixosModules; [ common ];
         hosts = {
           gen6.modules =
             with modules.nixosModules;
@@ -60,12 +55,10 @@
               # desktop-gnome
               # desktop-sway
               gnome-keyring
-
               mainUser-ayats
               inputs.home-manager.nixosModules.home-manager
               home-manager
               adblock
-
               virt
               docker
               printing
@@ -83,7 +76,6 @@
                     fonts
                     gui
                     git
-
                     bat
                     fish
                     lsd
@@ -93,7 +85,6 @@
                     kde
                     syncthing
                     kitty
-
                     # sway
                     # inputs.doom-emacs.hmModule
                     # emacs
@@ -105,23 +96,19 @@
             ];
         };
 
-        # deploy.nodes = {
-        # };
-        # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
-
         templates = import ./templates;
         defaultTemplate = self.templates.base-flake;
 
-        outputsBuilder = channels: let
-          pkgs = channels.nixpkgs;
-        in
-          {
-            devShell = import ./bin/devShell.nix { inherit pkgs; };
-            # devShellPlus = import ./bin/devShellPlus.nix { inherit pkgs inputs ;
-            # system = "${system}"; }; # FIXME
-            packages =
-              flake-utils-plus.lib.exportPackages self.overlays channels;
-          };
+        outputsBuilder =
+          channels: let
+            pkgs = channels.nixpkgs;
+          in
+            {
+              devShell = import ./bin/devShell.nix { inherit pkgs; };
+              # devShellPlus = import ./bin/devShellPlus.nix { inherit pkgs inputs ;
+              # system = "${system}"; }; # FIXME
+              packages = flake-utils-plus.lib.exportPackages self.overlays channels;
+            };
       };
 
   inputs = {
