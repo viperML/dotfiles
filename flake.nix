@@ -66,7 +66,7 @@
                   alejandra = {
                     enable = true;
                     name = "Format nix";
-                    entry = "alejandra";
+                    entry = "${inputs.alejandra.defaultPackage.${system}}/bin/alejandra";
                     files = "\\.nix$";
                   };
                 };
