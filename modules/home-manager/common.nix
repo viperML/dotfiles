@@ -37,6 +37,6 @@
     path = "…";
   };
 
-  home.file.".config/nix/nix.conf".source = ../nix.conf;
-  home.file.".config/nixpkgs/config.nix".source = ../nixpkgs.conf;
+  home.file.".config/nix/nix.conf".source = ../../misc/nix.conf;
+  home.file.".config/nixpkgs/config.nix".source = ../../misc/nixpkgs.nix;
 }

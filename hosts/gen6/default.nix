@@ -1,23 +1,27 @@
-{ modules, inputs }: {
-
+{ modules
+, inputs
+}:
+{
   modules =
-    with modules.nixosModules;
+    with modules;
     [
-      desktop
-      desktop-kde
+      ./configuration.nix
+      nixosModules.desktop
+      nixosModules.desktop-kde
       # desktop-gnome
       # desktop-sway
-      gnome-keyring
-      mainUser-ayats
+      nixosModules.gnome-keyring
+
       inputs.home-manager.nixosModules.home-manager
-      home-manager
-      adblock
-      virt
-      docker
-      printing
-      gaming
-      vfio
-      ./configuration.nix
+      nixosModules.home-manager
+      nixosModules.mainUser-ayats
+
+      nixosModules.adblock
+      nixosModules.virt
+      nixosModules.docker
+      nixosModules.printing
+      nixosModules.gaming
+      nixosModules.vfio
     ]
     ++ [
       {
@@ -30,6 +34,7 @@
             fonts
             gui
             git
+
             bat
             fish
             lsd
@@ -39,12 +44,7 @@
             kde
             syncthing
             kitty
-            # sway
-            # inputs.doom-emacs.hmModule
-            # emacs
             firefox
-            # discord
-            # xonsh
           ];
       }
     ];

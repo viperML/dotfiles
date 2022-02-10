@@ -9,7 +9,6 @@
     with pkgs;
     [
       jetbrains-mono
-      roboto
       (
         pkgs.nerdfonts.override {
           fonts = [
@@ -17,6 +16,7 @@
           ];
         }
       )
+      roboto
       corefonts
       noto-fonts
       # noto-fonts-cjk

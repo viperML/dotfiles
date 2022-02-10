@@ -7,7 +7,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = import ./extensions { pkgs = pkgs; };
+    extensions = import ./extensions { inherit pkgs; };
     keybindings = [ ];
     userSettings = { };
   };

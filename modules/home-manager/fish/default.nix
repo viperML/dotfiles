@@ -13,7 +13,7 @@
     ];
 
   home.file.".config/starship.toml".text = ''
-    ${builtins.readFile ../../misc/starship/starship.toml}
+    ${builtins.readFile ../../../misc/starship/starship.toml}
 
     [custom.nix]
     command = "${pkgs.any-nix-shell}/bin/nix-shell-info"

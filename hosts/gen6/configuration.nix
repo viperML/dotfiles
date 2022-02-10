@@ -30,7 +30,6 @@
       inkscape
     ];
 
-
   boot = {
     initrd = {
       availableKernelModules = [ "ahci" "nvme" "usbhid" ];
@@ -84,7 +83,6 @@
   networking = {
     hostId = "01017f00";
   };
-
 
   services.xserver = {
     layout = "us";
