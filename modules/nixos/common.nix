@@ -5,12 +5,9 @@
 }:
 {
   system.stateVersion = "21.11";
-  system.configurationRevision = (
-    if inputs.self ? rev
-    then inputs.self.rev
-    else null
-  );
+  system.configurationRevision = (inputs.self.rev or null);
   time.timeZone = "Europe/Madrid";
+
   documentation = {
     man.enable = true;
     doc.enable = false;
@@ -18,11 +15,11 @@
     nixos.enable = false;
   };
 
-  nixpkgs.config = import ../nixpkgs.conf;
+  nixpkgs.config = import ../../misc/nixpkgs.nix;
   nix = {
     package = pkgs.nix;
     extraOptions = ''
-      ${builtins.readFile ../nix.conf}
+      ${builtins.readFile ../../misc/nix.conf}
     '';
 
     generateRegistryFromInputs = true;

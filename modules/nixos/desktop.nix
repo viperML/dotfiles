@@ -59,6 +59,7 @@
     with pkgs;
     [
       # Base cli
+      file
       xsel
       nmap
       pciutils
@@ -68,22 +69,7 @@
       usbutils
       lshw
       appimage-run
-
-      # Base
-      masterpdfeditor4
-      onlyoffice-bin
-      mpv
-      (g-papirus-icon-theme.override { color = "palebrown"; })
-      qbittorrent
-      android-tools
-      tor-browser-bundle-bin
-
-      # Misc
-      ahoviewer
-      krita-beta
-      obs-studio
-      obsidian
-      inkscape
+      hwloc
     ];
 
   nix = {
