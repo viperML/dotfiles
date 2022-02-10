@@ -35,9 +35,11 @@ You can directly reference this flake and import it into your NixOS configuratio
 # 💾 Resources
 
 - [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus): library to help with flakes
-- [gytis-ivaskevicius/nixfiles](https://github.com/gytis-ivaskevicius/nixfiles): flake-utils-plus's author flake, from which I ~~stole~~ took heavy inspiration
+- [gytis-ivaskevicius/nixfiles](https://github.com/gytis-ivaskevicius/nixfiles)
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
 
-> Last update of this README: January 2022
+> Last update of this README: February 2022
 
 
 # 📦 Exported packages

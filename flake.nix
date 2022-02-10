@@ -49,7 +49,6 @@
           gen6.modules =
             with modules.nixosModules;
             [
-              host-gen6
               desktop
               desktop-kde
               # desktop-gnome
@@ -64,6 +63,8 @@
               printing
               gaming
               vfio
+
+              ./hosts/gen6
             ]
             ++ [
               {

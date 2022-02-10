@@ -59,7 +59,6 @@
     with pkgs;
     [
       # Base cli
-      file
       xsel
       nmap
       pciutils
