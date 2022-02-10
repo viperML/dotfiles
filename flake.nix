@@ -55,10 +55,22 @@
         outputsBuilder =
           channels: let
             pkgs = channels.nixpkgs;
+            system = channels.nixpkgs.system;
           in
             {
               devShell = import ./bin/devShell.nix { inherit pkgs; };
               packages = flake-utils-plus.lib.exportPackages self.overlays channels;
+              checks.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+                src = ./.;
+                hooks = {
+                  alejandra = {
+                    enable = true;
+                    name = "Format nix";
+                    entry = "alejandra";
+                    files = "\\.nix$";
+                  };
+                };
+              };
             };
       };
 
@@ -118,6 +130,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flakeUtils.follows = "flake-utils";
       inputs.flakeCompat.follows = "flake-compat";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
