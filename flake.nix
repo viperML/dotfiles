@@ -62,15 +62,7 @@
               packages = flake-utils-plus.lib.exportPackages self.overlays channels;
               checks.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
                 src = ./.;
-                hooks = {
-                  alejandra = {
-                    enable = true;
-                    name = "Format nix";
-                    entry = "${inputs.alejandra.defaultPackage.${system}}/bin/alejandra";
-                    files = "\\.nix$";
-                    excludes = [ "deps\\.nix" ];
-                  };
-                };
+                hooks = import ./misc/hooks.nix { inherit inputs system; };
               };
             };
       };
