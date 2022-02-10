@@ -21,7 +21,7 @@ in
           sierrabreezeenhanced = callPackage ./sierrabreezeenhanced { };
           reversal-kde = callPackage ./reversal-kde { };
           kwin-forceblur = callPackage ./kwin-forceblur { };
-          lightlyshaders = callPackage ./LightlyShaders { inherit (qtprev) kdelibs4support; };
+          lightlyshaders = callPackage ./lightlyshaders { inherit (qtprev) kdelibs4support; };
         }
     );
   }
