@@ -1,11 +1,11 @@
 final: prev: let
-  callPackage = prev.callPackage;
+  inherit (prev) callPackage;
 in
   {
     multiload-ng = callPackage ./multiload-ng { };
-    papirus-icon-theme = callPackage ./papirus-icon-theme { inherit (prev) papirus-icon-theme; };
+    g-papirus-icon-theme = callPackage ./papirus-icon-theme { inherit (prev) papirus-icon-theme; };
     netboot-xyz-images = callPackage ./netboot-xyz-images { };
-    plasma-applet-splitdigitalclock = callPackage ./splitdigitalclock { };
+    plasma-applet-splitdigitalclock = callPackage ./plasma-applet-splitdigitalclock { };
     disconnect-tracking-protection = callPackage ./disconnect-tracking-protection { };
     stevenblack-hosts = callPackage ./StevenBlack-hosts { };
     bdcompat = callPackage ./bdCompat { };
@@ -14,7 +14,7 @@ in
 
     libsForQt5 = prev.libsForQt5.overrideScope' (
       qtfinal: qtprev: let
-        callPackage = qtprev.callPackage;
+        inherit (qtprev) callPackage;
       in
         rec {
           lightly = callPackage ./Lightly { };

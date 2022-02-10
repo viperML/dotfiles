@@ -1,21 +1,25 @@
 { lib
 , stdenv
 , fetchFromGitHub
-, pkgs
+, gtk3
+, cairo
+, intltool
+, gettext
+, autoreconfHook
+, pkgconfig
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "multiload-ng";
-  version = "20210103";
+  version = "unstable-2021-01-03";
 
   src = fetchFromGitHub {
     owner = "udda";
-    repo = pname;
+    repo = "multiload-ng";
     rev = "743885da84474bfffc5f5505c0d1a7160de6afef";
     sha256 = "1v64775qjk41wf0ilp6mbabb73li0awrzwy7xmry8ddlf8sxpj00";
   };
 
   buildInputs =
-    with pkgs;
     [
       gtk3
       cairo
@@ -24,11 +28,9 @@ stdenv.mkDerivation rec {
     ];
 
   nativeBuildInputs =
-    with pkgs;
     [
       autoreconfHook
       pkgconfig
-      bash
     ];
 
   preBuild = ''
@@ -43,10 +45,6 @@ stdenv.mkDerivation rec {
   configureFlags = [
     "--disable-autostart"
   ];
-
-  # buildPhase = ''
-  #   make all-recursive
-  # '';
 
   meta =
     with lib;

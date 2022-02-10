@@ -4,7 +4,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "netboot-xyz-images";
-  version = "2.0.53";
+  version = "2.0.54";
 
   srcs = [
     (
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
     )
   ];
 
-  unpackPhase = ":";
+  dontUnpack = true;
 
   installPhase = ''
     mkdir $out
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
   meta =
     with lib;
     {
-      description = "netboot.xyz bootloader images, uefi and legacy.";
+      description = "netboot.xyz bootloader images, uefi and legacy";
       homepage = "https://netboot.xyz";
       license = licenses.asl20;
       platforms = platforms.linux;

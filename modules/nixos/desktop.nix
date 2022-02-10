@@ -74,7 +74,7 @@
       masterpdfeditor4
       onlyoffice-bin
       mpv
-      (papirus-icon-theme.override { color = "palebrown"; })
+      (g-papirus-icon-theme.override { color = "palebrown"; })
       qbittorrent
       android-tools
       tor-browser-bundle-bin
