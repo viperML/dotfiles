@@ -96,5 +96,72 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
 
 <!--BEGIN-->
 ```json
+{
+  "x86_64-linux": {
+    "adwaita-plus": {
+      "name": "adwaita-plus-unstable",
+      "type": "derivation"
+    },
+    "any-nix-shell": {
+      "description": "fish and zsh support for nix-shell",
+      "name": "any-nix-shell-1.2.1",
+      "type": "derivation"
+    },
+    "bdcompat": {
+      "name": "bdCompat-unstable-2021-11-10",
+      "type": "derivation"
+    },
+    "disconnect-tracking-protection": {
+      "description": "Tracking protection lists and services",
+      "name": "disconnect-tracking-protection-20220112",
+      "type": "derivation"
+    },
+    "g-kitty": {
+      "description": "A modern, hackable, featureful, OpenGL based terminal emulator",
+      "name": "kitty-unstable-2022-02-07",
+      "type": "derivation"
+    },
+    "g-papirus-icon-theme": {
+      "description": "Papirus icon theme, patched with folder colorscheme",
+      "name": "papirus-icon-theme-20211001",
+      "type": "derivation"
+    },
+    "multiload-ng": {
+      "description": "Modern graphical system monitor for any panel (only systray and standalone builds)",
+      "name": "multiload-ng-unstable-2021-01-03",
+      "type": "derivation"
+    },
+    "netboot-xyz-images": {
+      "description": "netboot.xyz bootloader images, uefi and legacy",
+      "name": "netboot-xyz-images-2.0.54",
+      "type": "derivation"
+    },
+    "obsidian": {
+      "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files",
+      "name": "obsidian-0.12.19",
+      "type": "derivation"
+    },
+    "plasma-applet-splitdigitalclock": {
+      "description": "Split Digital Clock",
+      "name": "plasma-applet-splitdigitalclock-unstable-2021-12-27",
+      "type": "derivation"
+    },
+    "python3": {
+      "description": "A high-level dynamically-typed programming language",
+      "name": "python3-3.9.6",
+      "type": "derivation"
+    },
+    "stevenblack-hosts": {
+      "description": "Unified hosts file with base extensions",
+      "name": "stevenblack-hosts-unstable-2022-02-05",
+      "type": "derivation"
+    },
+    "vlmcsd": {
+      "description": "KMS Emulator written in C",
+      "name": "vlmcsd-unstable-2020-05-19",
+      "type": "derivation"
+    }
+  }
+}
 ```
 <!--END-->

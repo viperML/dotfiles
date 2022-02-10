@@ -3,7 +3,7 @@ final: prev: let
 in
   {
     multiload-ng = callPackage ./multiload-ng { };
-    g-papirus-icon-theme = callPackage ./papirus-icon-theme { inherit (prev) papirus-icon-theme; };
+    g-papirus-icon-theme = callPackage ./g-papirus-icon-theme { inherit (prev) papirus-icon-theme; };
     netboot-xyz-images = callPackage ./netboot-xyz-images { };
     plasma-applet-splitdigitalclock = callPackage ./plasma-applet-splitdigitalclock { };
     disconnect-tracking-protection = callPackage ./disconnect-tracking-protection { };
