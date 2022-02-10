@@ -181,7 +181,6 @@
       },
       "original": {
         "owner": "gytis-ivaskevicius",
-        "ref": "master",
         "repo": "flake-utils-plus",
         "type": "github"
       }
@@ -304,22 +303,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-LunNova-qt515-update": {
-      "locked": {
-        "lastModified": 1644077393,
-        "narHash": "sha256-7h3UG9viwSsgU2aoVhJ11xFd1HM8udSs2WjOiojlzaY=",
-        "owner": "LunNova",
-        "repo": "nixpkgs",
-        "rev": "832961a27e8d7194121723d56bebe1fac552c5b3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LunNova",
-        "ref": "qt515-update",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1644125761,
@@ -433,7 +416,6 @@
         "home-manager": "home-manager",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-LunNova-qt515-update": "nixpkgs-LunNova-qt515-update",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",

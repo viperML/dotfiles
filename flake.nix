@@ -9,7 +9,7 @@
     , ...
     }:
     let
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
       modules = import ./modules { inherit flake-utils-plus lib; };
     in
       flake-utils-plus.lib.mkFlake {
@@ -119,48 +119,45 @@
             devShell = import ./bin/devShell.nix { inherit pkgs; };
             # devShellPlus = import ./bin/devShellPlus.nix { inherit pkgs inputs ;
             # system = "${system}"; }; # FIXME
-            packages = flake-utils-plus.lib.exportPackages self.overlays channels;
+            packages =
+              flake-utils-plus.lib.exportPackages self.overlays channels;
           };
-
       };
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-21.11;
-    # nixpkgs-devel.url = github:viperML/nixpkgs/master;
-    # nixpkgs-devel.url = "/home/ayats/Documents/nixpkgs";
-    nixpkgs-LunNova-qt515-update.url = github:LunNova/nixpkgs/qt515-update;
-    flake-utils-plus.url = github:gytis-ivaskevicius/flake-utils-plus/master;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-compat = {
-      url = github:edolstra/flake-compat;
+      url = "github:edolstra/flake-compat";
       flake = false;
     };
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
     deploy-rs = {
-      url = github:serokell/deploy-rs;
+      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
-      url = github:nix-community/nixos-generators;
+      url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-wayland.url = github:nix-community/nixpkgs-wayland;
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     vim-extra-plugins = {
       url = "github:m15a/nixpkgs-vim-extra-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # emacs-overlay.url = github:nix-community/emacs-overlay;
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
     # doom-emacs = {
-    #   url = github:vlaci/nix-doom-emacs;
+    #   url = "github:vlaci/nix-doom-emacs";
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.emacs-overlay.follows = "emacs-overlay";
     # };
     firefox-csshacks = {
-      url = github:MrOtherGuy/firefox-csshacks;
+      url = "github:MrOtherGuy/firefox-csshacks";
       flake = false;
     };
     powercord-overlay = {
