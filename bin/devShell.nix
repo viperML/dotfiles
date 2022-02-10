@@ -1,5 +1,4 @@
 { pkgs }:
-
 pkgs.mkShell {
   name = "dotfiles-basic-shell";
   buildInputs =

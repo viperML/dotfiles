@@ -4,11 +4,12 @@
 , lib
 }:
 let
-  drvToName = drv: builtins.concatStringsSep "-" (
-    builtins.tail (
-      lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))
-    )
-  );
+  drvToName = drv:
+    builtins.concatStringsSep "-" (
+      builtins.tail (
+        lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))
+      )
+    );
   plugins-withNames =
     builtins.map (
       plug: {

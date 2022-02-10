@@ -13,40 +13,41 @@
     , flake-utils-plus
     , ...
     }:
-    flake-utils-plus.lib.mkFlake {
-      inherit self inputs;
+      flake-utils-plus.lib.mkFlake {
+        inherit self inputs;
 
-      outputsBuilder = channels: {
-        devShell = channels.nixpkgs.mkShell {
-          name = "my-poetry-flake";
+        outputsBuilder = channels: {
+          devShell = channels.nixpkgs.mkShell {
+            name = "my-poetry-flake";
 
-          buildInputs =
-            with channels.nixpkgs;
-            [
-              # Change your python version here
-              (
-                python39.withPackages (
-                  pp: with pp;
-                  [
-                    poetry
-                  ]
+            buildInputs =
+              with channels.nixpkgs;
+              [
+                # Change your python version here
+                (
+                  python39.withPackages (
+                    pp:
+                      with pp;
+                      [
+                        poetry
+                      ]
+                  )
                 )
-              )
-              # Add non-python packages here
+                # Add non-python packages here
 
-              # ---
-            ];
+                # ---
+              ];
 
-          shellHook = ''
-            python -m venv .venv
-            if [[ ! -f "pyproject.toml" ]]; then
-              poetry init -n
-            fi
-            poetry env use .venv/bin/python
-            poetry install --no-root
-            source ./.venv/bin/activate
-          '';
+            shellHook = ''
+              python -m venv .venv
+              if [[ ! -f "pyproject.toml" ]]; then
+                poetry init -n
+              fi
+              poetry env use .venv/bin/python
+              poetry install --no-root
+              source ./.venv/bin/activate
+            '';
+          };
         };
       };
-    };
 }

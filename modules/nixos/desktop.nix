@@ -7,7 +7,7 @@ let
   my-env = {
     GTK_USE_PORTAL = "1";
   };
-  in
+in
 {
   services = {
     xserver = {

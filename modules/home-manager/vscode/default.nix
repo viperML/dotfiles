@@ -38,7 +38,8 @@
           $DRY_RUN_CMD find $HOME/.vscode/extensions -maxdepth 1 -mindepth 1 -type d -exec rm -rf $VERBOSE_ARG {} \;
         '';
       }
-    else (
-      throw "The implementation to import this module (vscode) is not finished"
-    );
+    else
+      (
+        throw "The implementation to import this module (vscode) is not finished"
+      );
 }

@@ -13,23 +13,23 @@
     , flake-utils-plus
     , ...
     }:
-    flake-utils-plus.lib.mkFlake {
-      inherit self inputs;
+      flake-utils-plus.lib.mkFlake {
+        inherit self inputs;
 
-      outputsBuilder = (
-        channels: {
-          devShell = channels.nixpkgs.mkShell {
-            name = "my-shell";
+        outputsBuilder = (
+          channels: {
+            devShell = channels.nixpkgs.mkShell {
+              name = "my-shell";
 
-            buildInputs =
-              with channels.nixpkgs;
-              [
-                # My build inputs:
-                hello
-                # ---
-              ];
-          };
-        }
-      );
-    };
+              buildInputs =
+                with channels.nixpkgs;
+                [
+                  # My build inputs:
+                  hello
+                  # ---
+                ];
+            };
+          }
+        );
+      };
 }

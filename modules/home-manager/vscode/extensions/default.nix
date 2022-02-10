@@ -1,4 +1,4 @@
-{ file ? ./extension-list.nix
+{ file ? ./deps.nix
 , pkgs ? import <nixpkgs> { }
 , lib ? pkgs.lib
 }:
