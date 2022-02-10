@@ -34,19 +34,9 @@ in
     }
   ];
 
-  services.openssh = {
-    enable = true;
-    listenAddresses = [
-      {
-        addr = "192.168.122.1";
-        port = 22;
-      }
-    ];
-  };
-
   systemd.tmpfiles.rules =
     let
-      group = config.users.users.mainUser.group;
+      inherit (config.users.users.mainUser) group;
     in
       [
         "z /secrets/ssh 0700 ${name} ${group} - -"

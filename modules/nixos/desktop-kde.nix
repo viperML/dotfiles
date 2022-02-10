@@ -21,8 +21,8 @@
       libsForQt5.sierrabreezeenhanced
       libsForQt5.reversal-kde
       yaru-theme
-      adwaita-plus
       libsForQt5.lightlyshaders
+      pkgs.libsForQt5.kwalletmanager
 
       # Extend
       libsForQt5.bismuth
@@ -35,7 +35,6 @@
       libsForQt5.kcolorchooser
       caffeine-ng
       libsForQt5.kwin-forceblur
-      pkgs.libsForQt5.kwalletmanager
       latte-dock
     ];
 }

@@ -196,4 +196,14 @@ in
       hook-release-windows
     }/bin/stop.sh"
   ];
+
+  services.openssh = {
+    enable = true;
+    listenAddresses = [
+      {
+        addr = "192.168.122.1";
+        port = 22;
+      }
+    ];
+  };
 }

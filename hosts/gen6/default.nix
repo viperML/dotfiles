@@ -17,7 +17,6 @@
       printing
       gaming
       vfio
-
       ./configuration.nix
     ]
     ++ [

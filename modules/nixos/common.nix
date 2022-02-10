@@ -22,18 +22,17 @@
       ${builtins.readFile ../../misc/nix.conf}
     '';
 
+    # Coming from flake-utils-plus
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
 
-  security.sudo = {
-    extraConfig = ''
-      Defaults pwfeedback
-      Defaults env_keep += "EDITOR PATH"
-      Defaults timestamp_timeout=300
-      Defaults lecture=never
-      Defaults passprompt="[31msudo: password for %p@%h, running as %U:[0m "
-    '';
-  };
+  security.sudo.extraConfig = ''
+    Defaults pwfeedback
+    Defaults env_keep += "EDITOR PATH"
+    Defaults timestamp_timeout=300
+    Defaults lecture=never
+    Defaults passprompt="[31msudo: password for %p@%h, running as %U:[0m "
+  '';
 }

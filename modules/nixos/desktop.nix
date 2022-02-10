@@ -3,6 +3,11 @@
 , lib
 , ...
 }:
+let
+  my-env = {
+    GTK_USE_PORTAL = "1";
+  };
+  in
 {
   services = {
     xserver = {
@@ -19,12 +24,12 @@
         autoLogin =
           let
             my-users = builtins.attrNames (
-              pkgs.lib.filterAttrs (name: value: value.isNormalUser == true)
+              pkgs.lib.filterAttrs (name: value: value.isNormalUser)
               config.users.users
             );
           in
             {
-              user = lib.mkIf (builtins.length my-users == 1) (config.users.users."${builtins.head my-users}".name);
+              user = lib.mkIf (builtins.length my-users == 1) config.users.users."${builtins.head my-users}".name;
             };
       };
     };
@@ -44,16 +49,16 @@
     flatpak.enable = true;
   };
 
-  environment.variables.GTK_USE_PORTAL = "1";
-  environment.sessionVariables.GTK_USE_PORTAL = "1";
+  environment.variables = my-env;
+  environment.sessionVariables = my-env;
 
   # Fixes GDM autologin in Wayland
   # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  hardware.pulseaudio.enable = false;
   # replaced by pipewire
+  hardware.pulseaudio.enable = false;
 
   environment.systemPackages =
     with pkgs;

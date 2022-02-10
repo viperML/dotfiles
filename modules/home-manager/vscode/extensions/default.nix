@@ -11,21 +11,19 @@ let
   in_nixpkgs = ext: (
     if builtins.hasAttr (lib.toLower ext.publisher) pkgs.vscode-extensions
     then
-      if
-        builtins.hasAttr (lib.toLower ext.name)
-        pkgs.vscode-extensions."${lib.toLower ext.publisher}"
-      then true
-      else false
+      builtins.hasAttr (lib.toLower ext.name)
+      pkgs.vscode-extensions."${lib.toLower ext.publisher}"
     else false
   );
 
   exts-built = pkgs.vscode-utils.extensionsFromVscodeMarketplace (builtins.filter (n: !(in_nixpkgs n)) extension-list);
 
   exts-in-nixpkgs = map (
-    v: pkgs
-    .vscode-extensions
-    ."${lib.toLower v.publisher}"
-    ."${lib.toLower v.name}"
-  ) (builtins.filter (n: in_nixpkgs n) extension-list);
+    v:
+      pkgs
+      .vscode-extensions
+      ."${lib.toLower v.publisher}"
+      ."${lib.toLower v.name}"
+  ) (builtins.filter in_nixpkgs extension-list);
 in
-(exts-built ++ exts-in-nixpkgs)
+exts-built ++ exts-in-nixpkgs

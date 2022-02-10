@@ -58,8 +58,6 @@
           in
             {
               devShell = import ./bin/devShell.nix { inherit pkgs; };
-              # devShellPlus = import ./bin/devShellPlus.nix { inherit pkgs inputs ;
-              # system = "${system}"; }; # FIXME
               packages = flake-utils-plus.lib.exportPackages self.overlays channels;
             };
       };
