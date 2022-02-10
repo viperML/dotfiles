@@ -32,7 +32,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
-  "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "files.insertFinalNewline": true, // editorconfig collision
   "files.trimFinalNewlines": true,
@@ -287,7 +286,9 @@
   "[nix]": {
     "editor.detectIndentation": false,
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "jkillian.custom-local-formatters",
+    "editor.formatOnSave": true,
   },
   "[diff]": {
     "files.insertFinalNewline": false,
@@ -304,13 +305,11 @@
     "editor.defaultFormatter": "Koihik.vscode-lua-format"
   },
 
+
   // Python
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-    "--max-line-length=90",
-    "--ignore=E501"
-  ],
+  "python.linting.flake8Args": ["--max-line-length=90", "--ignore=E501"],
   "python.linting.enabled": true,
   "vsintellicode.python.completionsEnabled": true,
   "python.defaultInterpreterPath": "/usr/bin/env python3",
@@ -401,11 +400,18 @@
   "workbench.enableExperiments": false,
   "gitlens.currentLine.enabled": false,
   "jupyter.askForKernelRestart": false,
-  "nix.enableLanguageServer": true,
   "insertDateString.format": "iso",
-  "nix.formatterPath": "alejandra"
+  "nix.formatterPath": "alejandra",
+  "nix.enableLanguageServer": true,
 
   // "workbench.preferredDarkColorTheme": "Dark Material Dracula",
   // "workbench.preferredLightColorTheme": "Atom One Light",
   // "window.autoDetectColorScheme": true
+  "customLocalFormatters.formatters": [
+    {
+      "command": "alejandra",
+      "languages": ["nix"]
+    }
+  ],
+  "files.autoSave": "afterDelay"
 }

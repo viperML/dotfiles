@@ -15,7 +15,7 @@
   home.packages =
     with pkgs;
     [
-      nixpkgs-fmt
+      # nixpkgs-fmt
       rnix-lsp
     ];
 

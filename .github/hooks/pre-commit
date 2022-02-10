@@ -1,4 +1,4 @@
 #!/bin/sh
 nix flake check
 make readme
-git add .github/README.md
+git add README.md

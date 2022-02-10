@@ -16,7 +16,7 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src="../.img/20211219.png" width="100%"/>
+    <img alt="Desktop screenshot" src="./misc/img/20211219.png" width="100%"/>
   </div>
 </div>
 
@@ -119,11 +119,6 @@ Packages are built and pushed to a public cachix cache, according to [.github/bu
     "g-kitty": {
       "description": "A modern, hackable, featureful, OpenGL based terminal emulator",
       "name": "kitty-unstable-2022-02-07",
-      "type": "derivation"
-    },
-    "mohist-server": {
-      "description": "Minecraft Forge Server Software Implementing Paper/Spigot/Bukkit API",
-      "name": "mohist-server-1.16.5r904",
       "type": "derivation"
     },
     "multiload-ng": {

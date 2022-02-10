@@ -19,11 +19,11 @@
         # Export modules
         inherit (modules) nixosModules homeModules;
 
-        # Channels configurations
-        channelsConfig.allowUnfree = true;
+        # Overlays and channels
+        channelsConfig = import ./misc/nixpkgs.nix;
         overlays = {
-          pkgs = import ./overlay/overlay-pkgs.nix;
-          patches = import ./overlay/overlay-patches.nix;
+          pkgs = import ./overlays/pkgs;
+          patches = import ./overlays/patches;
         };
         channels.nixpkgs.overlaysBuilder = channels: [
           (
@@ -109,77 +109,19 @@
         # };
         # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
+        templates = import ./templates;
+        defaultTemplate = self.templates.base-flake;
+
         outputsBuilder = channels: let
           pkgs = channels.nixpkgs;
         in
           {
-            lib = let lib = pkgs.lib; in import ./lib { inherit pkgs lib; };
-
-            devShell = pkgs.mkShell {
-              name = "dotfiles-basic-shell";
-              buildInputs =
-                with pkgs;
-                [
-                  git
-                  gnumake
-                  jq
-                  nixos-install-tools
-                  ripgrep
-                  unzip
-                ];
-              shellHook = ''
-                export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-                echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-                echo -e "\e[34m''$(nix --version)"
-                echo -e "\e[0m"
-              '';
-            };
-
-            devShellPlus = pkgs.mkShell {
-              name = "dotfiles-advanced-shell";
-              buildInputs =
-                with pkgs;
-                [
-                  git
-                  gnumake
-                  jq
-                  nixos-install-tools
-                  ripgrep
-                  update-nix-fetchgit
-                  inputs.deploy-rs.defaultPackage.${system}
-                ];
-              shellHook = ''
-                export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-                echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-                echo -e "\e[34m- ''$(nix --version)"
-                echo "- Nixpkgs age:"
-                curl https://api.github.com/repos/NixOS/nixpkgs/commits/`jq -r '.nodes.nixpkgs.locked.rev' ./flake.lock` -s | jq -r ".commit.author.date"
-                echo -e "\n\e[34m❄ Changes to the running NixOS config: ❄"
-                echo -e "\e[0m"
-                git --no-pager diff $(nixos-version --json | jq -r '.configurationRevision') -p
-              '';
-            };
-
-            packages =
-              flake-utils-plus.lib.exportPackages self.overlays channels;
+            devShell = import ./bin/devShell.nix { inherit pkgs; };
+            # devShellPlus = import ./bin/devShellPlus.nix { inherit pkgs inputs ;
+            # system = "${system}"; }; # FIXME
+            packages = flake-utils-plus.lib.exportPackages self.overlays channels;
           };
 
-        templates = {
-          poetry-flake = {
-            path = ./templates/poetry-flake;
-            description = "Flake for reproducible environments with poetry";
-          };
-          latex-flake = {
-            path = ./templates/latex-flake;
-            description = "Flake for reproducible latex documents";
-          };
-          base-flake = {
-            path = ./templates/base-flake;
-            description = "Basic flake with flake-utils-plus";
-          };
-        };
-
-        defaultTemplate = self.templates.base-flake;
       };
 
   inputs = {

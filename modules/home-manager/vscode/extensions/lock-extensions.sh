@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu pipefail
+set -eux pipefail
 
 # Retrieve nixpkgs from environment
 ## Read the environment variable NIX_PATH into an array split by :

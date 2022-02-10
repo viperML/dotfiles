@@ -15,6 +15,7 @@
       cachix
       nix-du
       alejandra
+      statix
 
       # Misc utils
       ripgrep

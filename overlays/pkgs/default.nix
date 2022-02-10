@@ -6,7 +6,6 @@ in
     papirus-icon-theme = callPackage ./papirus-icon-theme { inherit (prev) papirus-icon-theme; };
     netboot-xyz-images = callPackage ./netboot-xyz-images { };
     plasma-applet-splitdigitalclock = callPackage ./splitdigitalclock { };
-    mohist-server = callPackage ./mohist-server { };
     disconnect-tracking-protection = callPackage ./disconnect-tracking-protection { };
     stevenblack-hosts = callPackage ./StevenBlack-hosts { };
     bdcompat = callPackage ./bdCompat { };
@@ -23,8 +22,6 @@ in
           reversal-kde = callPackage ./Reversal-kde { };
           kwin-forceblur = callPackage ./kwin-forceblur { };
           lightlyshaders = callPackage ./LightlyShaders { inherit (qtprev) kdelibs4support; };
-          # koi-fork = callPackage ./Koi-fork { };
-          # plasma-theme-switcher = callPackage ./plasma-theme-switcher { };
         }
     );
   }

@@ -33,7 +33,7 @@
       with pkgs;
       [
         tree-sitter
-        nixpkgs-fmt
+        # nixpkgs-fmt
         rnix-lsp
         xsel
       ];
