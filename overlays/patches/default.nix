@@ -1,5 +1,5 @@
 final: prev: let
-  callPackage = prev.callPackage;
+  inherit (prev) callPackage;
 in
   {
     any-nix-shell = callPackage ./any-nix-shell { inherit (prev) any-nix-shell; };

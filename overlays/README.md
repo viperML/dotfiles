@@ -1,10 +1,11 @@
 # overlay
 
-Each folder should hold a single package, with the upstream name. The derivation name
-is adapted to nixpkgs naming standards.
+Folders containing:
+- [Overlay definition](https://nixos.wiki/wiki/Overlays) in `default.nix`
+- One folder per package
 
-- `overlay-patches.nix` exports packages that are patches to existing ones in nixpkgs
-- `overlay-pkgs.nix` exports packages, not in nixpkgs
+- [pkgs](pkgs/default.nix): new packages, not available on nixpkgs
+- [patches](patches/default.nix): modifications to existing packages
 
 ## Building
 
