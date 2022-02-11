@@ -50,7 +50,7 @@ abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/lock-exte
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
 # tj git aliases
-abbr -a gd "git diff -M"
+abbr -a gd "git diff | grep -v '^diff\|^index' | bat"
 abbr -a ga "git add"
 abbr -a gaa "git add --all ."
 abbr -a gbd "git branch -D"
