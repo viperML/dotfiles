@@ -12,18 +12,6 @@
       fzf
     ];
 
-  home.file.".config/starship.toml".text = ''
-    ${builtins.readFile ../../../misc/starship/starship.toml}
-
-    [custom.nix]
-    command = "${pkgs.any-nix-shell}/bin/nix-shell-info"
-    when = "${pkgs.any-nix-shell}/bin/nix-shell-info"
-    symbol = ""
-    style = "bold cyan"
-    format = """>>= [$symbol]($style) [$output]($style)
-    """
-  '';
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -93,7 +81,6 @@
 
   programs.direnv = {
     enable = true;
-    # enableFishIntegration = true;
     nix-direnv.enable = false;
     config.whitelist.prefix = [
       "/home"

@@ -1,51 +1,57 @@
 { modules
 , inputs
 }:
-{
-  modules =
-    with modules;
+let
+  gen6-nixosModules =
+    with modules.nixosModules;
     [
       ./configuration.nix
-      nixosModules.desktop
-      nixosModules.desktop-kde
+      desktop
+      desktop-kde
       # desktop-gnome
       # desktop-sway
-      nixosModules.gnome-keyring
+      gnome-keyring
 
       inputs.home-manager.nixosModules.home-manager
-      nixosModules.home-manager
-      nixosModules.mainUser-ayats
+      home-manager
+      mainUser-ayats
 
-      nixosModules.adblock
-      nixosModules.virt
-      nixosModules.docker
-      nixosModules.printing
-      nixosModules.gaming
-      nixosModules.vfio
-    ]
+      adblock
+      virt
+      docker
+      printing
+      gaming
+      vfio
+    ];
+  gen6-homeModules =
+    with modules.homeModules;
+    [
+      common
+      mainUser-ayats
+      flake-channels
+      fonts
+      gui
+      git
+
+      bat
+      fish
+      lsd
+      neofetch
+      neovim
+      vscode
+      kde
+      syncthing
+      kitty
+      firefox
+      starship
+    ];
+in
+{
+  modules =
+    gen6-nixosModules
     ++ [
       {
-        home-manager.sharedModules =
-          with modules.homeModules;
-          [
-            common
-            mainUser-ayats
-            flake-channels
-            fonts
-            gui
-            git
-
-            bat
-            fish
-            lsd
-            neofetch
-            neovim
-            vscode
-            kde
-            syncthing
-            kitty
-            firefox
-          ];
+        home-manager.sharedModules = gen6-homeModules;
       }
     ];
 }
