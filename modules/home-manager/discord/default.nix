@@ -30,7 +30,6 @@ let
   #     bdcompat-withPlugins
   #   ];
   # };
-
 in
 {
   home.packages = [ pkgs.discord ];

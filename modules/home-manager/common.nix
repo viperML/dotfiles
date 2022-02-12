@@ -6,8 +6,7 @@
 {
   # Generic programs
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       # Nix management
       nix-prefetch-scripts
       update-nix-fetchgit

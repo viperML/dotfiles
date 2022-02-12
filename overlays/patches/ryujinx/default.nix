@@ -95,8 +95,7 @@ buildDotnetModule rec {
   ];
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "Experimental Nintendo Switch Emulator written in C#";
       homepage = "https://ryujinx.org/";
       license = licenses.mit;

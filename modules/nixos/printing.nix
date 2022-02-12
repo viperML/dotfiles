@@ -8,8 +8,7 @@
     printing = {
       enable = true;
       drivers =
-        with pkgs;
-        [
+        with pkgs; [
           gutenprint
           # generic
           gutenprintBin

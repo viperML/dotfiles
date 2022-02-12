@@ -14,8 +14,7 @@
   };
 
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       # Themes
       libsForQt5.lightly
       libsForQt5.sierrabreezeenhanced

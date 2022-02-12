@@ -10,8 +10,7 @@
   };
   programs.dconf.enable = true;
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       virt-manager
     ];
   users.groups.libvirtd.members = config.users.groups.wheel.members;

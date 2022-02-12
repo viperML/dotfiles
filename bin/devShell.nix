@@ -2,8 +2,7 @@
 pkgs.mkShell {
   name = "dotfiles-basic-shell";
   buildInputs =
-    with pkgs;
-    [
+    with pkgs; [
       git
       gnumake
       jq

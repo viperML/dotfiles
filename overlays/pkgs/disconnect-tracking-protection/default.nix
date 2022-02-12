@@ -29,8 +29,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "Tracking protection lists and services";
       homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
       license = licenses.cc-by-nc-sa-40;

@@ -7,8 +7,7 @@
 }:
 {
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       # HW
       vulkan-tools
       libva-utils
@@ -216,8 +215,7 @@
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
     opengl.extraPackages =
-      with pkgs;
-      [
+      with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
         libva

@@ -9,8 +9,7 @@
     package = pkgs.firefox-beta-bin;
     # https://nur.nix-community.org/repos/rycee/
     extensions =
-      with pkgs.nur.repos.rycee.firefox-addons;
-      [
+      with pkgs.nur.repos.rycee.firefox-addons; [
         betterttv
         bitwarden
         darkreader

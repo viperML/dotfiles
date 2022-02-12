@@ -3,8 +3,7 @@
 }:
 let
   gen6-nixosModules =
-    with modules.nixosModules;
-    [
+    with modules.nixosModules; [
       ./configuration.nix
       desktop
       desktop-kde
@@ -24,8 +23,7 @@ let
       vfio
     ];
   gen6-homeModules =
-    with modules.homeModules;
-    [
+    with modules.homeModules; [
       common
       mainUser-ayats
       flake-channels

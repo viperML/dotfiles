@@ -15,8 +15,7 @@
   };
 
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       emacs-all-the-icons-fonts
     ];
 }

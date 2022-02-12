@@ -51,8 +51,7 @@ stdenv.mkDerivation rec {
   ];
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative";
       homepage = "https://github.com/kupiqu/SierraBreezeEnhanced";
       license = licenses.gpl3;

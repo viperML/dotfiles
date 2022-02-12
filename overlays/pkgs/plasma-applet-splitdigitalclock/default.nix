@@ -19,8 +19,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "Split Digital Clock";
       homepage = "https://store.kde.org/p/1324315";
       license = licenses.gpl3;

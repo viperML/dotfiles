@@ -13,8 +13,7 @@
   };
 
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       # nixpkgs-fmt
       rnix-lsp
     ];

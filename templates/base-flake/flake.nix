@@ -22,8 +22,7 @@
               name = "my-shell";
 
               buildInputs =
-                with channels.nixpkgs;
-                [
+                with channels.nixpkgs; [
                   # My build inputs:
                   hello
                   # ---

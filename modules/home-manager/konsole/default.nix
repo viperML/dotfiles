@@ -7,8 +7,7 @@
 {
   home = {
     packages =
-      with pkgs;
-      [
+      with pkgs; [
         libsForQt5.konsole
       ];
 

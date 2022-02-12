@@ -10,8 +10,7 @@
   };
 
   environment.gnome.excludePackages =
-    with pkgs;
-    [
+    with pkgs; [
       gnome.cheese
       gnome-photos
       # gnome.gnome-music
@@ -30,8 +29,7 @@
     ];
 
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       gnomeExtensions.appindicator
       gnome.gnome-shell-extensions
       gnomeExtensions.blur-my-shell

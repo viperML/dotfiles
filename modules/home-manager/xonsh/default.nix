@@ -6,8 +6,7 @@
 let
   my-python = pkgs.python3;
   xontrib-kitty =
-    with my-python.pkgs;
-    buildPythonPackage rec {
+    with my-python.pkgs; buildPythonPackage rec {
       pname = "xontrib-kitty";
       version = "0.0.2";
       src = fetchPypi {
@@ -17,8 +16,7 @@ let
       doCheck = false;
     };
   xontrib-onepath =
-    with my-python.pkgs;
-    buildPythonPackage rec {
+    with my-python.pkgs; buildPythonPackage rec {
       pname = "xontrib-onepath";
       version = "0.3.2";
       src = fetchPypi {
@@ -27,8 +25,7 @@ let
       };
     };
   xonsh-direnv =
-    with my-python.pkgs;
-    buildPythonPackage rec {
+    with my-python.pkgs; buildPythonPackage rec {
       pname = "xonsh-direnv";
       version = "1.5.0";
       src = fetchPypi {
@@ -37,8 +34,7 @@ let
       };
     };
   xontrib-prompt-starship =
-    with my-python.pkgs;
-    buildPythonPackage rec {
+    with my-python.pkgs; buildPythonPackage rec {
       pname = "xontrib-prompt-starship";
       version = "0.2.0";
       src = fetchPypi {

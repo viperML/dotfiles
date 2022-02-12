@@ -36,8 +36,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "netboot.xyz bootloader images, uefi and legacy";
       homepage = "https://netboot.xyz";
       license = licenses.asl20;

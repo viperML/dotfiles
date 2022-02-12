@@ -7,8 +7,7 @@
   # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
 
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       fzf
     ];
 

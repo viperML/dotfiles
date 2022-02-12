@@ -61,8 +61,7 @@ in
   hardware.pulseaudio.enable = false;
 
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       # Base cli
       file
       xsel

@@ -21,8 +21,7 @@ in
   };
 
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       wofi
     ];
 

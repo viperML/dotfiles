@@ -5,8 +5,7 @@
 stdenv.mkDerivation {
   name = "my-latex-document";
   meta =
-    with lib;
-    {
+    with lib; {
       description = "My latex document";
       license = lib.licenses.cc-by-nc-sa-40;
       platforms = platforms.linux;
@@ -16,8 +15,7 @@ stdenv.mkDerivation {
   buildPhase = "make PREFIX='./'";
 
   buildInputs =
-    with pkgs;
-    [
+    with pkgs; [
       (
         texlive.combine {
           inherit

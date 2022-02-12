@@ -4,8 +4,7 @@
 }:
 {
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       bat
     ];
 

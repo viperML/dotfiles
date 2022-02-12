@@ -19,8 +19,7 @@ stdenv.mkDerivation {
   '';
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "KMS Emulator written in C";
       homepage = "https://github.com/Wind4/vlmcsd";
       platforms = platforms.all;

@@ -94,8 +94,7 @@ in
   # targets.genericLinux.enable = true;
 
   home.packages =
-    with pkgs;
-    [
+    with pkgs; [
       # Autostart
       flameshot
       mailspring

@@ -21,14 +21,12 @@
             name = "my-poetry-flake";
 
             buildInputs =
-              with channels.nixpkgs;
-              [
+              with channels.nixpkgs; [
                 # Change your python version here
                 (
                   python39.withPackages (
                     pp:
-                      with pp;
-                      [
+                      with pp; [
                         poetry
                       ]
                   )

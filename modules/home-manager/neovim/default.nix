@@ -30,8 +30,7 @@
     withNodeJs = true;
 
     extraPackages =
-      with pkgs;
-      [
+      with pkgs; [
         tree-sitter
         # nixpkgs-fmt
         rnix-lsp

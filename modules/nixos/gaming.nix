@@ -6,8 +6,7 @@
   programs.steam.enable = true;
 
   environment.systemPackages =
-    with pkgs;
-    [
+    with pkgs; [
       steam-run-native
       # lutris
       ryujinx

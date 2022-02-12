@@ -32,8 +32,7 @@
 , zlib
 ,
 }:
-with python3Packages;
-buildPythonApplication rec {
+with python3Packages; buildPythonApplication rec {
   pname = "kitty";
   version = "unstable-2022-02-07";
   format = "other";
@@ -172,8 +171,7 @@ buildPythonApplication rec {
   '';
 
   meta =
-    with lib;
-    {
+    with lib; {
       homepage = "https://github.com/kovidgoyal/kitty";
       description = "A modern, hackable, featureful, OpenGL based terminal emulator";
       license = licenses.gpl3Only;
