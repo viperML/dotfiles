@@ -60,6 +60,10 @@
             {
               devShell = import ./bin/devShell.nix { inherit pkgs; };
               packages = flake-utils-plus.lib.exportPackages self.overlays channels;
+              checks.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+                src = ./.;
+                hooks = import ./misc/hooks.nix { inherit inputs system; };
+              };
             };
       };
 
@@ -119,6 +123,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flakeUtils.follows = "flake-utils";
       inputs.flakeCompat.follows = "flake-compat";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
