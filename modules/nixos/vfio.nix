@@ -109,7 +109,9 @@ let
     echo 0 > /sys/class/vtconsole/vtcon1/bind
     # Unbind EFI Framebuffer
     echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
-    sleep 2
+    sleep 1
+    echo 3 > /proc/sys/vm/drop_caches
+    sleep 1
     # Unload all Nvidia drivers
     modprobe -r nvidia_drm
     modprobe -r nvidia_modeset

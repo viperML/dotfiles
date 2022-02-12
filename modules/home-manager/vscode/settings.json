@@ -74,18 +74,14 @@
   "git.ignoreWindowsGit27Warning": true,
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
-  "workbench.colorTheme": "Dark Material Dracula",
-
-  // Icons
-  "workbench.productIconTheme": "material-product-icons",
   "material-icon-theme.opacity": 1,
   "material-icon-theme.saturation": 1,
-  "workbench.iconTheme": "material-icon-theme",
   "helium-icon-theme.folders.color": "#90a4ae",
 
   // Fonts
   "editor.fontSize": 15,
-  "editor.fontFamily": "'JetBrains Mono Medium', 'JetBrainsMonoMedium Nerd Font'",
+  "editor.fontFamily": "'VictorMono Nerd Font'",
+  "editor.fontWeight": "600",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @
@@ -386,7 +382,7 @@
 
   // Nightswitch
   "nightLight.enabled": true,
-  "nightswitch.themeNight": "Dark Material Dracula",
+  "nightswitch.themeNight": "Atom One Darker",
   "nightswitch.themeDay": "Atom One Light",
   "nightswitch.sunrise": "05:00",
   "nightswitch.sunset": "18:00",
@@ -413,5 +409,8 @@
       "languages": ["nix"]
     }
   ],
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "workbench.colorTheme": "Atom One Darker",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons"
 }

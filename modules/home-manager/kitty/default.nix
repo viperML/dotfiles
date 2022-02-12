@@ -2,6 +2,14 @@
 , pkgs
 , ...
 }:
+let
+  kitty-themes = pkgs.fetchFromGitHub {
+    owner = "kovidgoyal";
+    repo = "kitty-themes";
+    rev = "2e1f413cdf9b3865510cdc6eb849a4b920c5cf3e";
+    sha256 = "100z43qkykrclpb11s1zcrngzj4an4vimhbjqbj16amr5z23r1wp";
+  };
+in
 {
   home.packages = [ pkgs.kitty ];
 
@@ -13,8 +21,8 @@
 
       ${builtins.readFile ./kitty.conf}
     '';
-    "kitty/dracula-dark.conf".source = ./dracula-dark.conf;
-    "kitty/dracula-light-darker.conf".source = ./dracula-light-darker.conf;
+    "kitty/theme-dark.conf".source = ./dracula-dark.conf;
+    "kitty/theme-light.conf".source = "${kitty-themes}/themes/AtomOneLight.conf";
   };
 
   home.activation.kitty = {
@@ -33,9 +41,9 @@
           apply-kitty-script = pkgs.writeShellScript "apply-kitty-script" ''
             set -eux
             if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              ln -sf ${config.xdg.configHome}/kitty/dracula-light-darker.conf ${config.xdg.configHome}/kitty/theme.conf
+              ln -sf ${config.xdg.configHome}/kitty/theme-light.conf ${config.xdg.configHome}/kitty/theme.conf
             else
-              ln -sf ${config.xdg.configHome}/kitty/dracula-dark.conf ${config.xdg.configHome}/kitty/theme.conf
+              ln -sf ${config.xdg.configHome}/kitty/theme-dark.conf ${config.xdg.configHome}/kitty/theme.conf
             fi
           '';
         in

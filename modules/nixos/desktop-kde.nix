@@ -33,7 +33,6 @@
       libsForQt5.filelight
       libsForQt5.gwenview
       libsForQt5.kcolorchooser
-      caffeine-ng
       libsForQt5.kwin-forceblur
       latte-dock
     ];

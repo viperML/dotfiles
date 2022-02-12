@@ -43,9 +43,13 @@ abbr --add --global eq equery
 # Nix abbreviations
 abbr --add --global ns nix shell self#pkgs.x86_64-linux.nixpkgs.
 abbr --add --global nr nix run self#pkgs.x86_64-linux.nixpkgs.
-abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE"
-abbr --add --global nb "sudo nixos-rebuild boot --flake \$FLAKE"
-abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/lock-extensions.sh"
+abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE" -L
+abbr --add --global nb "sudo nixos-rebuild boot --flake \$FLAKE" -L
+abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/updater.sh"
+
+# Image cat
+abbr --add --global kat "kitty +icat"
+abbr --add --global wat "wezterm imgcat"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

@@ -13,6 +13,7 @@
         pkgs.nerdfonts.override {
           fonts = [
             "JetBrainsMono"
+            "VictorMono"
           ];
         }
       )

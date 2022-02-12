@@ -63,6 +63,31 @@ in
         X-DBUS-StartupType=Unique
         X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot
       '';
+
+      "autostart/caffeine.desktop".text = ''
+        [Desktop Entry]
+        Categories=Utility;TrayIcon;DesktopUtility
+        Comment[en_US]=Temporarily deactivate the screensaver and sleep mode
+        Comment=Temporarily deactivate the screensaver and sleep mode
+        Encoding=UTF-8
+        Exec=bash -c "sleep 3; ${pkgs.caffeine-ng}/bin/caffeine"
+        GenericName[en_US]=
+        GenericName=
+        Icon=caffeine
+        Keywords=Screensaver,Power,DPMS,Blank,Idle
+        MimeType=
+        Name[en_US]=Caffeine-ng
+        Name=Caffeine-ng
+        Path=
+        StartupNotify=false
+        Terminal=false
+        TerminalOptions=
+        Type=Application
+        X-DBUS-ServiceName=
+        X-DBUS-StartupType=
+        X-KDE-SubstituteUID=false
+        X-KDE-Username=
+      '';
     };
   };
 
@@ -74,6 +99,7 @@ in
       # Autostart
       flameshot
       mailspring
+      caffeine-ng
 
       # Misc
       google-chrome

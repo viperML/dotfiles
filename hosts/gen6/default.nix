@@ -44,6 +44,8 @@ let
       kitty
       firefox
       starship
+      # discord
+      wezterm
     ];
 in
 {

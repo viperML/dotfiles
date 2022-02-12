@@ -6,12 +6,6 @@
     sha256 = "1mzd77sv6lb6kfv5fvdvzggs488q553cf752byrml981ys9r7khz";
   }
   {
-    name = "format-on-auto-save";
-    publisher = "BDSoftware";
-    version = "1.0.4";
-    sha256 = "1d47n96bnzjl7l9f7a6p9i3gv3gd4ndh5pdh2ffnk2h4gv5kwmps";
-  }
-  {
     name = "toml";
     publisher = "be5invis";
     version = "0.6.0";
@@ -66,6 +60,12 @@
     sha256 = "0hcj6ckwpjyn8nfiz7fkvhmqlklk9mmmw1d8d17h8cxn03sn8hfc";
   }
   {
+    name = "vscode-theme-onedarker";
+    publisher = "christopherafbjur";
+    version = "2.1.0";
+    sha256 = "04561xcav667z4mnvngq2z3a05sybzxssixx65g9pkfscv9njm2b";
+  }
+  {
     name = "vscode-markdownlint";
     publisher = "DavidAnson";
     version = "0.46.0";
@@ -98,8 +98,8 @@
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.4924";
-    sha256 = "1zvz95a1csyy8cfyhfybkwiva9kabm4i900dxim01rn36gpas9dj";
+    version = "1.7.5003";
+    sha256 = "031zci42q6f5baimxf1ma0jzr8fbnzqjjj18qkz1z31yb7vgwrnv";
   }
   {
     name = "terraform";
@@ -140,8 +140,8 @@
   {
     name = "vscode-insertdatestring";
     publisher = "jsynowiec";
-    version = "2.3.0";
-    sha256 = "0p8sjjw2nyvdr41db9h6kmxrwx34w3jp02jsl7gdbdz4n14a65xw";
+    version = "2.3.1";
+    sha256 = "1cm29jggxax3d7i8s3jqs4z9ikh7n85blm8hrha0qz7r55wvc4ia";
   }
   {
     name = "language-haskell";
@@ -170,14 +170,14 @@
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.2.0";
-    sha256 = "0xbk79s21z156xk3l4z75dfhzgs7vks3mvz3kdad206f34kmgcdl";
+    version = "2022.2.1";
+    sha256 = "0hp4i69qm3bli235ik9qijif8g2d7k1dpqshm17afhs8sr2dph60";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.2.1001817079";
-    sha256 = "1akfff2ig0w6dcv1ca785sg70559wp3w8fvq5da8xwsf4iwj58xp";
+    version = "2022.2.1001828435";
+    sha256 = "06211hv6h8lh70ka6xw15hd0v4igndm9564fz65bmj9mhz7kb07y";
   }
   {
     name = "jupyter-keymap";
@@ -194,14 +194,14 @@
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.73.2022020915";
-    sha256 = "1pw3ksvh4jcnmgnyljn2ldh7sid6kbpzdyvaqjnvfcjx70vqfr4x";
+    version = "0.73.2022021015";
+    sha256 = "18gwf9r9fsqxrgdjh70ii3b0fw9i1yvq9g978ww69mr25yai2p7j";
   }
   {
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
-    version = "0.73.2022020915";
-    sha256 = "188kjjnpqcx0j5zki77r7gsk1j051f07nfnn8j8w92vvfg5ijzq4";
+    version = "0.73.2022021015";
+    sha256 = "1vv9xhm3hksjx9bbx92ggn3qf3mbbaiszpzd3im2hvjca431539w";
   }
   {
     name = "vsliveshare";
@@ -224,8 +224,8 @@
   {
     name = "material-icon-theme";
     publisher = "PKief";
-    version = "4.12.1";
-    sha256 = "1c434f2za01rrfbcfyk0k3pkr29bl12f8il1y7dsr4yxkafsfrd6";
+    version = "4.13.0";
+    sha256 = "0b5z08v34q10xlbjbb5sn3zdwq6bflhd96z3dqsiakywhrsxi0jm";
   }
   {
     name = "material-product-icons";
@@ -280,6 +280,12 @@
     publisher = "XadillaX";
     version = "1.0.1";
     sha256 = "0zc0pi68f7lsir1jzzdr914w0ybzv9j2lwn8il7niglv2hygcdwv";
+  }
+  {
+    name = "luahelper";
+    publisher = "yinfei";
+    version = "0.2.10";
+    sha256 = "1kcmvsa3yjbaa203wamps30xxzhy876gpmhq3r8vnwr0lza5l9cb";
   }
   {
     name = "markdown-all-in-one";
