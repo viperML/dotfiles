@@ -55,7 +55,7 @@
         outputsBuilder =
           channels: let
             pkgs = channels.nixpkgs;
-            system = channels.nixpkgs.system;
+            inherit (channels.nixpkgs) system;
           in
             {
               devShell = import ./bin/devShell.nix { inherit pkgs; };

@@ -6,21 +6,16 @@
         "flakeCompat": [
           "flake-compat"
         ],
-        "flakeUtils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "rustAnalyzer": "rustAnalyzer",
-        "treefmt": "treefmt"
+        ]
       },
       "locked": {
-        "lastModified": 1644476363,
-        "narHash": "sha256-eIPyrL8C3qQbEahoryS70cJ4FbXDdPQuWaM2jD2BbI0=",
+        "lastModified": 1644634371,
+        "narHash": "sha256-WhPfBqpfhb60sf0NZPbkHecFpTVwb/ujqYVgwLvV/yA=",
         "owner": "kamadorueda",
         "repo": "alejandra",
-        "rev": "0c095ed50d3bbfd50f9f97832f7ac8092a8c1289",
+        "rev": "c22f2e35a295e70cce3a75a8965ad892152b4c80",
         "type": "github"
       },
       "original": {
@@ -77,17 +72,14 @@
           "alejandra",
           "nixpkgs"
         ],
-        "rust-analyzer-src": [
-          "alejandra",
-          "rustAnalyzer"
-        ]
+        "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1644387840,
-        "narHash": "sha256-g3On+GqjP5YRlseypyJxOM/Dz9bKW3iTbV0Nfz5Py6I=",
+        "lastModified": 1644560676,
+        "narHash": "sha256-KBC2Fn6ynCIE2sUUmJiNPY2QDWeh9caP8M1RPiUW5nE=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "f950cc5036dc2a6631d39e0887e9f6a9a92c4dd9",
+        "rev": "6fbfc2821a058eb820bb3742a762bbba5a99f0df",
         "type": "github"
       },
       "original": {
@@ -366,7 +358,7 @@
         "vim-extra-plugins": "vim-extra-plugins"
       }
     },
-    "rustAnalyzer": {
+    "rust-analyzer-src": {
       "flake": false,
       "locked": {
         "lastModified": 1644391473,
@@ -378,32 +370,8 @@
       },
       "original": {
         "owner": "rust-analyzer",
+        "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "treefmt": {
-      "inputs": {
-        "flake-utils": [
-          "alejandra",
-          "flakeUtils"
-        ],
-        "nixpkgs": [
-          "alejandra",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1640364438,
-        "narHash": "sha256-sV1Oa9JVNmpAwZ4cnVs7ovHrKL8EPg3J08jPX/a48LI=",
-        "owner": "numtide",
-        "repo": "treefmt",
-        "rev": "26d7f5f15e5d22d4413ba7c5ae0447fdc0b5cc76",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt",
         "type": "github"
       }
     },
