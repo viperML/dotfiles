@@ -25,7 +25,7 @@
           (
             final: prev: {
               # FIXME
-              alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
+              # alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
             }
           )
         ];
@@ -51,6 +51,8 @@
 
         templates = import ./templates;
         defaultTemplate = self.templates.base-flake;
+
+        lib = import ./lib { inherit (nixpkgs) lib; };
 
         outputsBuilder =
           channels: let
@@ -80,12 +82,12 @@
       flake = false;
     };
     nur.url = "github:nix-community/NUR";
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
+    # deploy-rs = {
+    #   url = "github:serokell/deploy-rs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.utils.follows = "flake-utils";
+    #   inputs.flake-compat.follows = "flake-compat";
+    # };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";

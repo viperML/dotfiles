@@ -1,8 +1,12 @@
 { config
 , pkgs
 , lib
+, inputs
 , ...
 }:
+let
+  inherit (pkgs) system;
+in
 {
   # Generic programs
   home.packages =
@@ -13,7 +17,8 @@
       fup-repl
       cachix
       nix-du
-      alejandra
+
+      inputs.alejandra.defaultPackage.${system}
       statix
 
       # Misc utils

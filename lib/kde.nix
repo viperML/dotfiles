@@ -2,8 +2,7 @@
 , lib
 , ...
 }:
-with builtins;
-{
+with builtins; {
   configsToCommands =
     let
       toValue = v:
