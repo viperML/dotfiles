@@ -230,8 +230,8 @@
   {
     name = "autodocstring";
     publisher = "njpwerner";
-    version = "0.5.4";
-    sha256 = "0a2krzgljkz02flps1yj048xq3xcwm26lqa42nq4b0r4l50hnis9";
+    version = "0.6.0";
+    sha256 = "0cybhad7a97n95ba25r2hm7py1jsszn9ynijpnv90hfw32lvxyv2";
   }
   {
     name = "material-icon-theme";
