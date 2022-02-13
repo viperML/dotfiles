@@ -2,7 +2,6 @@
 
 # Use custom format
 format = """
-
 $git_branch\
 $git_state\
 $git_status\

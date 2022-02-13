@@ -16,6 +16,7 @@
     with pkgs; [
       # nixpkgs-fmt
       rnix-lsp
+      # sumneko-lua-language-server
     ];
 
   home.activation.vscode =
