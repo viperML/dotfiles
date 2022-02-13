@@ -32,5 +32,6 @@ stdenv.mkDerivation rec {
     with lib; {
       description = "Round corners and outline effect for KWin";
       homepage = "https://github.com/a-parhom/LightlyShaders";
+      platforms = platforms.linux;
     };
 }

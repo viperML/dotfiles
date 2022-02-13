@@ -24,8 +24,7 @@
         channels.nixpkgs.overlaysBuilder = ch: [
           (
             final: prev: {
-              # FIXME
-              # alejandra = inputs.alejandra.defaultPackage.x86_64-linux;
+              # keep
             }
           )
         ];

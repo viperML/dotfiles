@@ -39,7 +39,7 @@ let
       vscode
       kde
       syncthing
-      kitty
+      # kitty
       firefox
       starship
       # discord

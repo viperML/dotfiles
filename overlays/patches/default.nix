@@ -3,7 +3,6 @@ final: prev: let
 in
   {
     any-nix-shell = callPackage ./any-nix-shell { inherit (prev) any-nix-shell; };
-    g-kitty = callPackage ./g-kitty { };
     obsidian = callPackage ./obsidian { inherit (prev) obsidian; };
     discord = callPackage ./discord { inherit (prev) discord; };
 

@@ -41,4 +41,11 @@ stdenv.mkDerivation {
     )
   }
   '';
+
+  meta = with lib; {
+    description = "Compatibility layer for running BetterDiscord plugins in Powercord ";
+    homepage = "https://github.com/Juby210/bdCompat";
+    license = licenses.mit;
+    platforms = platforms.all;
+  };
 }

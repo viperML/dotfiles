@@ -23,4 +23,11 @@ stdenv.mkDerivation rec {
   makeFlags = [ "PREFIX=$(out)" ];
 
   dontDropIconThemeCache = true;
+
+  meta = with lib; {
+    description = "Third-party icons theme, based on new GNOME 3.32's Adwaita";
+    homepage = "https://github.com/Bonandry/adwaita-plus";
+    license = licenses.gpl3;
+    platforms = platforms.linux;
+  };
 }
