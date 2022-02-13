@@ -11,9 +11,6 @@ pkgs.mkShell {
       unzip
     ];
   shellHook = ''
-    export NIX_USER_CONF_FILES="$(pwd)/modules/nix.conf"
-    echo -e "\n\e[34m❄ Welcome to viperML/dotfiles ❄"
-    echo -e "\e[34m''$(nix --version)"
-    echo -e "\e[0m"
+    ln -sf $PWD/bin/pre-commit.sh .git/hooks/pre-commit
   '';
 }
