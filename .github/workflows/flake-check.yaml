@@ -7,6 +7,7 @@ on:
 
 jobs:
   main:
+    name: Main job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.4.0
@@ -14,7 +15,7 @@ jobs:
         fetch-depth: 0 # Nix Flakes doesn't work on shallow clones
     - uses: cachix/install-nix-action@v16
       with:
-        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.6.0pre20211228_ed3bc63/install
+        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.6.0pre20220122_c9a4ddb/install
         extra_nix_config: |
           experimental-features = nix-command flakes
     - run: nix flake check

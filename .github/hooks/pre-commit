@@ -1,4 +1,0 @@
-#!/bin/sh
-nix flake check
-make readme
-git add README.md

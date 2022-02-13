@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+
 targets=($(nix flake show --json | jq -r '.packages."x86_64-linux" | to_entries[] | "\(.key)"'))
-skip=("base-vm" "g-papirus-icon-theme")
+targets+=".#devShell.x86_64-linux.inputDerivation"
+skip=(
+    "base-vm"
+    "g-papirus-icon-theme"
+)
 
 
 for i in "${targets[@]}"; do
