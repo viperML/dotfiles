@@ -26,8 +26,52 @@ in
             '';
           }
         );
+        furo = python3-prev.furo.overrideAttrs (
+          prevAttrs: {
+            format = "wheel";
+
+            src = python3-prev.fetchPypi {
+              pname = "furo";
+              version = "2022.1.2";
+              inherit format;
+              dist = "py3";
+              python = "py3";
+              sha256 = "sha256-lYAWv+E4fB6N31udcWlracTqpc2K/JSSq/sAirotMAw=";
+            };
+
+            installCheckPhase = ''
+              # furo was built incorrectly if this directory is empty
+              # Ignore the hidden file .gitignore
+              cd "$out/lib/python"*
+              if [ "$(ls 'site-packages/furo/theme/furo/static/' | wc -l)" -le 0 ]; then
+                echo 'static directory must not be empty'
+                exit 1
+              fi
+              cd -
+            '';
+          }
+        );
       };
     };
+
+    # https://github.com/NixOS/nixpkgs/pull/156305
+    spice = prev.spice.overrideAttrs (
+      prevAttrs: {
+        postPatch =
+          prevAttrs.postPatch
+          + ''
+            # https://gitlab.freedesktop.org/spice/spice-common/-/issues/5
+            substituteInPlace subprojects/spice-common/meson.build \
+              --replace \
+              "cmd = run_command(python, '-m', module)" \
+              "cmd = run_command(python, '-c', 'import @0@'.format(module))"
+          '';
+      }
+    );
+
+    # https://github.com/NixOS/nixpkgs/issues/159270
+    # https://github.com/NixOS/nixpkgs/pull/159340
+    spice-gtk = callPackage ./spice-gtk { };
 
     # ryujinx = callPackage ./ryujinx { };
 
