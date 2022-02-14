@@ -2,11 +2,27 @@
 , inputs
 }:
 let
+  de.desktop = "kde";
+
+  de.nixosModules =
+    if de.desktop == "kde"
+    then [ modules.nixosModules.desktop-kde ]
+    else if de.desktop == "sway"
+    then [ modules.nixosModules.desktop-sway ]
+    else throw "No DE chosen";
+
+  de.homeModules =
+    if de.desktop == "kde"
+    then [ modules.homeModules.kde ]
+    else if de.desktop == "sway"
+    then [ modules.homeModules.sway ]
+    else throw "No DE chosen";
+
   gen6-nixosModules =
-    with modules.nixosModules; [
+    with modules.nixosModules;
+    [
       ./configuration.nix
       desktop
-      desktop-sway
       gnome-keyring
 
       inputs.home-manager.nixosModules.home-manager
@@ -19,9 +35,12 @@ let
       printing
       gaming
       vfio
-    ];
+    ]
+    ++ de.nixosModules;
+
   gen6-homeModules =
-    with modules.homeModules; [
+    with modules.homeModules;
+    [
       common
       mainUser-ayats
       flake-channels
@@ -35,14 +54,12 @@ let
       neofetch
       neovim
       vscode
-      kde
       syncthing
-      # kitty
       firefox
       starship
-      # discord
       wezterm
-    ];
+    ]
+    ++ de.homeModules;
 in
 {
   modules =

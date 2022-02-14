@@ -31,6 +31,7 @@
         overlays = {
           pkgs = import ./overlays/pkgs;
           patches = import ./overlays/patches;
+          patches-wayland = import ./overlays/patches-wayland;
         };
         sharedOverlays = [
           inputs.nur.overlay
@@ -41,6 +42,7 @@
 
           self.overlays.pkgs
           self.overlays.patches
+          self.overlays.patches-wayland
         ];
 
         # Hosts definitions
