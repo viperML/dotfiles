@@ -58,13 +58,13 @@
 
   // Copilot
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "yaml": false,
     "plaintext": false,
     "markdown": false,
     "nix": false,
     "haskell": true,
-    "python": true
+    "python": false
   },
 
   // Git

@@ -13,10 +13,7 @@ in
     xserver = {
       enable = true;
       displayManager = {
-        lightdm.enable = false;
-        sddm.enable = true;
         gdm = {
-          enable = false;
           wayland = true;
         };
 
@@ -74,6 +71,7 @@ in
       lshw
       appimage-run
       hwloc
+      libarchive
     ];
 
   nix = {

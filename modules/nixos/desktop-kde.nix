@@ -9,6 +9,7 @@
       enable = true;
       runUsingSystemd = true;
     };
+    displayManager.sddm.enable = true;
     displayManager.defaultSession = "plasma";
     displayManager.autoLogin.enable = true;
   };

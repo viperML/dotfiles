@@ -15,6 +15,9 @@ let
   };
 in
 {
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.autoLogin.enable = true;
+
   programs.sway = {
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
@@ -22,7 +25,6 @@ in
 
   environment.systemPackages =
     with pkgs; [
-      wofi
     ];
 
   environment.variables = waylandEnv;

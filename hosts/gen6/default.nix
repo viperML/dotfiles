@@ -6,9 +6,7 @@ let
     with modules.nixosModules; [
       ./configuration.nix
       desktop
-      desktop-kde
-      # desktop-gnome
-      # desktop-sway
+      desktop-sway
       gnome-keyring
 
       inputs.home-manager.nixosModules.home-manager
