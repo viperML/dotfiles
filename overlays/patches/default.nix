@@ -27,7 +27,7 @@ in
           }
         );
         furo = python3-prev.furo.overrideAttrs (
-          prevAttrs: {
+          prevAttrs: rec {
             format = "wheel";
 
             src = python3-prev.fetchPypi {
