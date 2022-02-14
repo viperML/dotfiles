@@ -15,6 +15,17 @@ in
             ];
           }
         );
+        # https://github.com/NixOS/nixpkgs/issues/159522
+        remarshal = python3-prev.remarshal.overrideAttrs (
+          prevAtrrs: {
+            postPatch = ''
+              substituteInPlace pyproject.toml \
+                --replace "poetry.masonry.api" "poetry.core.masonry.api" \
+                --replace 'PyYAML = "^5.3"' 'PyYAML = "*"' \
+                --replace 'tomlkit = "^0.7"' 'tomlkit = "*"'
+            '';
+          }
+        );
       };
     };
 
