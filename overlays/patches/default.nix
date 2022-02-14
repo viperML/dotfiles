@@ -26,31 +26,6 @@ in
             '';
           }
         );
-        furo = python3-prev.furo.overrideAttrs (
-          prevAttrs: rec {
-            format = "wheel";
-
-            src = python3-prev.fetchPypi {
-              pname = "furo";
-              version = "2022.1.2";
-              inherit format;
-              dist = "py3";
-              python = "py3";
-              sha256 = "sha256-lYAWv+E4fB6N31udcWlracTqpc2K/JSSq/sAirotMAw=";
-            };
-
-            installCheckPhase = ''
-              # furo was built incorrectly if this directory is empty
-              # Ignore the hidden file .gitignore
-              cd "$out/lib/python"*
-              if [ "$(ls 'site-packages/furo/theme/furo/static/' | wc -l)" -le 0 ]; then
-                echo 'static directory must not be empty'
-                exit 1
-              fi
-              cd -
-            '';
-          }
-        );
       };
     };
 
@@ -118,4 +93,15 @@ in
     #   categories = "Office";
     #   terminal = "false";
     # };
+
+    wlroots = prev.wlroots.overrideAttrs (
+      prevAttrs: {
+        src = prev.fetchFromGitHub {
+          owner = "danvd";
+          repo = "wlroots-eglstreams";
+          sha256 = "0m4x63wnh7jnr0i1nhs221c0d8diyf043hhx0spfja6bc549bdxr";
+          rev = "f3282ab9b545db8e76452332be63e2fbe380f1e9";
+        };
+      }
+    );
   }

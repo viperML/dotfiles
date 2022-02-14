@@ -48,7 +48,6 @@
   "terminal.integrated.cursorStyle": "line",
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
-  "window.menuBarVisibility": "toggle",
 
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -413,5 +412,6 @@
   "workbench.colorTheme": "Atom One Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
-  "vscode-lua-format.binaryPath": "/usr/bin/en lua-format"
+  "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",
+  "window.menuBarVisibility": "toggle"
 }

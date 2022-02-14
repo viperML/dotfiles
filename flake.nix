@@ -33,13 +33,14 @@
           patches = import ./overlays/patches;
         };
         sharedOverlays = [
-          self.overlays.pkgs
-          self.overlays.patches
           inputs.nur.overlay
           inputs.nixpkgs-wayland.overlay
           inputs.vim-extra-plugins.overlay
           # inputs.emacs-overlay.overlay
           inputs.powercord-overlay.overlay
+
+          self.overlays.pkgs
+          self.overlays.patches
         ];
 
         # Hosts definitions

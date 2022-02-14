@@ -1,5 +1,6 @@
 { stdenv
 , fetchFromGitHub
+, lib
 }:
 stdenv.mkDerivation rec {
   pname = "kwin-forceblur";

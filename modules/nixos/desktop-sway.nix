@@ -25,6 +25,7 @@ in
 
   environment.systemPackages =
     with pkgs; [
+      foot
     ];
 
   environment.variables = waylandEnv;
