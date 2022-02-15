@@ -21,6 +21,7 @@
         unpaywall
         bypass-paywalls-clean
         floccus
+        betterttv
       ];
     profiles.main = {
       id = 0;

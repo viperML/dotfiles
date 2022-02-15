@@ -44,7 +44,6 @@
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
   "editor.tabSize": 4,
-  "debug.toolBarLocation": "docked",
   "terminal.integrated.cursorStyle": "line",
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
@@ -161,14 +160,14 @@
     ]
   },
 
+  // "sideBar.foreground": "#999999",
+  // "scrollbarSlider.background": "#333333",
+  // "scrollbarSlider.hoverBackground": "#444444",
+  // "editorRuler.foreground": "#202020",
   // Colors
   // "editor.background": "#121212",
   "workbench.colorCustomizations": {
     "minimap.background": "#1212125e",
-    "sideBar.foreground": "#999999",
-    "scrollbarSlider.background": "#333333",
-    "scrollbarSlider.hoverBackground": "#444444",
-    "editorRuler.foreground": "#202020",
     "statusBar.foreground": "#121212",
     "statusBar.background": "#A8D5E0",
     "statusBar.noFolderBackground": "#A8D5E0",
@@ -409,7 +408,7 @@
     }
   ],
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Atom One Darker",
+  "workbench.colorTheme": "Atom One Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
   "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",

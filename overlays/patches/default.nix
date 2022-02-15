@@ -4,7 +4,7 @@ in
   {
     any-nix-shell = callPackage ./any-nix-shell { inherit (prev) any-nix-shell; };
     obsidian = callPackage ./obsidian { inherit (prev) obsidian; };
-    discord = callPackage ./discord { inherit (prev) discord; };
+    # discord = callPackage ./discord { inherit (prev) discord; };
 
     python3 = prev.python3.override {
       packageOverrides = python3-final: python3-prev: {
