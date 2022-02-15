@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     install -d $out/share/kwin/scripts/forceblur
-    cp -r bin/ contents/ LICENSE image.png metadata.desktop "$out/share/kwin/scripts/forceblur/"
+    cp -r contents/ LICENSE image.png metadata.desktop "$out/share/kwin/scripts/forceblur/"
     install -Dm644 metadata.desktop "$out/share/kservices5/kwin-script-forceblur.desktop"
   '';
 
