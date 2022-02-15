@@ -3,10 +3,11 @@
 
   outputs =
     inputs @
-    { self
-    , nixpkgs
-    , flake-utils-plus
-    , ...
+    {
+      self,
+      nixpkgs,
+      flake-utils-plus,
+      ...
     }:
     let
       inherit (nixpkgs) lib;
@@ -24,7 +25,7 @@
         channels.nixpkgs.overlaysBuilder = ch: [
           (
             final: prev: {
-              vscode = ch.nixpkgs-master.vscode;
+              inherit (ch.nixpkgs-master) vscode;
             }
           )
         ];

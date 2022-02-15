@@ -1,9 +1,10 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, gtk3
-, gnome-icon-theme
-, hicolor-icon-theme
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  gtk3,
+  gnome-icon-theme,
+  hicolor-icon-theme,
 }:
 stdenv.mkDerivation rec {
   pname = "adwaita-plus";

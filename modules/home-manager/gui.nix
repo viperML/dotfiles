@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 let
   launch-mailspring = pkgs.writeShellScriptBin "launch-mailspring" ''

@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 # Requires https://github.com/m15a/nixpkgs-vim-extra-plugins overlay
 {

@@ -1,6 +1,7 @@
-{ discord
-, fetchurl
-, nodePackages
+{
+  discord,
+  fetchurl,
+  nodePackages,
 }:
 let
   betterdiscord-asar =

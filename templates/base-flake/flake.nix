@@ -8,10 +8,11 @@
 
   outputs =
     inputs @
-    { self
-    , nixpkgs
-    , flake-utils-plus
-    , ...
+    {
+      self,
+      nixpkgs,
+      flake-utils-plus,
+      ...
     }:
       flake-utils-plus.lib.mkFlake {
         inherit self inputs;

@@ -1,7 +1,8 @@
-{ stdenv
-, fetchFromGitHub
-, plugins ? [ ]
-, lib
+{
+  stdenv,
+  fetchFromGitHub,
+  plugins ? [ ],
+  lib,
 }:
 let
   drvToName = drv:

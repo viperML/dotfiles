@@ -1,12 +1,13 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, gtk3
-, cairo
-, intltool
-, gettext
-, autoreconfHook
-, pkgconfig
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  gtk3,
+  cairo,
+  intltool,
+  gettext,
+  autoreconfHook,
+  pkgconfig,
 }:
 stdenv.mkDerivation {
   pname = "multiload-ng";

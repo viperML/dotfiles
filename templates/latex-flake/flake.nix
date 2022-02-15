@@ -8,10 +8,11 @@
 
   outputs =
     inputs @
-    { self
-    , nixpkgs
-    , utils
-    , ...
+    {
+      self,
+      nixpkgs,
+      utils,
+      ...
     }:
       utils.lib.mkFlake {
         inherit self inputs;

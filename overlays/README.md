@@ -6,6 +6,7 @@ Folders containing:
 
 - [pkgs](pkgs/default.nix): new packages, not available on nixpkgs
 - [patches](patches/default.nix): modifications to existing packages
+- [patches-wayland](patches-wayland/default.nix): patches to fix under wayland
 
 ## Building
 

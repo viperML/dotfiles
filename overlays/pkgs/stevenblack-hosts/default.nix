@@ -1,7 +1,8 @@
-{ stdenv
-, fetchFromGitHub
-, python3
-, lib
+{
+  stdenv,
+  fetchFromGitHub,
+  python3,
+  lib,
 }:
 stdenv.mkDerivation rec {
   pname = "stevenblack-hosts";

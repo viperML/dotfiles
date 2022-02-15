@@ -1,9 +1,10 @@
-{ config
-, pkgs
-, inputs
-, lib
-, modulesPath
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  modulesPath,
+  ...
 }:
 {
   environment.systemPackages =

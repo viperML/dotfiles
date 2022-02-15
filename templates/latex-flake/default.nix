@@ -1,6 +1,7 @@
-{ pkgs
-, stdenv
-, lib
+{
+  pkgs,
+  stdenv,
+  lib,
 }:
 stdenv.mkDerivation {
   name = "my-latex-document";

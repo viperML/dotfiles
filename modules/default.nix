@@ -1,6 +1,7 @@
-{ flake-utils-plus
-, lib
-, ...
+{
+  flake-utils-plus,
+  lib,
+  ...
 }:
 let
   nixosModules = flake-utils-plus.lib.exportModules (

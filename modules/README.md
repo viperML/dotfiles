@@ -4,8 +4,6 @@
 
 * [nixos](./nixos): modules to be used with NixOS
 
-* [misc](./misc): configurations not managed by nix
-
 Design considerations:
 
 * Import to enable, remove to restore the state. The modules won't export options that have to be enabled.

@@ -1,6 +1,7 @@
-{ file ? ./deps.nix
-, pkgs ? import <nixpkgs> { }
-, lib ? pkgs.lib
+{
+  file ? ./deps.nix,
+  pkgs ? import <nixpkgs> { },
+  lib ? pkgs.lib,
 }:
 # Return a list with vscode extensions
 # Split into extensions available in nixpkgs (that can be pulled from binary cache)

@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 let
   waylandEnv = {
@@ -31,11 +32,6 @@ in
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
   };
-
-  environment.systemPackages =
-    with pkgs; [
-      foot
-    ];
 
   environment.variables = waylandEnv;
   environment.sessionVariables = waylandEnv;

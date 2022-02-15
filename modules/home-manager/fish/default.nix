@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 {
   # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";

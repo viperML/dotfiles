@@ -1,5 +1,6 @@
-{ papirus-icon-theme
-, color ? "blue"
+{
+  papirus-icon-theme,
+  color ? "blue",
 }:
 papirus-icon-theme.overrideAttrs (
   prev: {

@@ -1,13 +1,14 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, wrapQtAppsHook
-, cmake
-, extra-cmake-modules
-, qtbase
-, libsForQt5
-, plasma-desktop
-, qt5
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  wrapQtAppsHook,
+  cmake,
+  extra-cmake-modules,
+  qtbase,
+  libsForQt5,
+  plasma-desktop,
+  qt5,
 }:
 stdenv.mkDerivation rec {
   pname = "sierrabreezeenhanced";

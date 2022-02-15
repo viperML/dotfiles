@@ -1,5 +1,6 @@
-{ modules
-, inputs
+{
+  modules,
+  inputs,
 }:
 let
   de.desktop = "kde";
@@ -15,7 +16,11 @@ let
     if de.desktop == "kde"
     then [ modules.homeModules.kde ]
     else if de.desktop == "sway"
-    then [ modules.homeModules.sway ]
+    then
+      [
+        modules.homeModules.sway
+        modules.homeModules.foot
+      ]
     else throw "No DE chosen";
 
   gen6-nixosModules =

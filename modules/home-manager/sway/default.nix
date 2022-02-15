@@ -1,15 +1,9 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
-# let
-#   cfg =
-#     if (lib.hasAttr "FLAKE" config.home.sessionVariables)
-#     then
-#       # FIXME
-#     else { xdg.configFile."sway/config".source = ./config.ini; };
-# in
 {
   home.packages = with pkgs; [
     wofi

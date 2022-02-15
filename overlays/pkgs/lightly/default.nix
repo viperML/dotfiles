@@ -1,13 +1,14 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, qtbase
-, wrapQtAppsHook
-, cmake
-, extra-cmake-modules
-, qt5
-, libsForQt5
-, plasma-desktop
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  qtbase,
+  wrapQtAppsHook,
+  cmake,
+  extra-cmake-modules,
+  qt5,
+  libsForQt5,
+  plasma-desktop,
 }:
 stdenv.mkDerivation rec {
   pname = "lightly";

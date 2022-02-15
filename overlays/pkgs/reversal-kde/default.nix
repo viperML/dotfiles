@@ -1,7 +1,8 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, wrapQtAppsHook
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  wrapQtAppsHook,
 }:
 stdenv.mkDerivation rec {
   pname = "reversal-kde";

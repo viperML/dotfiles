@@ -1,20 +1,21 @@
-{ lib
-, buildDotnetModule
-, fetchFromGitHub
-, makeDesktopItem
-, copyDesktopItems
-, dotnetCorePackages
-, libX11
-, libgdiplus
-, ffmpeg
-, SDL2_mixer
-, openal
-, libsoundio
-, sndio
-, pulseaudio
-, gtk3
-, gdk-pixbuf
-, wrapGAppsHook
+{
+  lib,
+  buildDotnetModule,
+  fetchFromGitHub,
+  makeDesktopItem,
+  copyDesktopItems,
+  dotnetCorePackages,
+  libX11,
+  libgdiplus,
+  ffmpeg,
+  SDL2_mixer,
+  openal,
+  libsoundio,
+  sndio,
+  pulseaudio,
+  gtk3,
+  gdk-pixbuf,
+  wrapGAppsHook,
 }:
 buildDotnetModule rec {
   pname = "ryujinx";
