@@ -24,7 +24,7 @@
         channels.nixpkgs.overlaysBuilder = ch: [
           (
             final: prev: {
-              # keep
+              vscode = ch.nixpkgs-master.vscode;
             }
           )
         ];
@@ -70,6 +70,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     flake-utils-plus = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";

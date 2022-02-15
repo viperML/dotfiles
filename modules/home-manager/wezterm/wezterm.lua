@@ -77,5 +77,5 @@ return {
 
     colors = colors,
 
-    enable_wayland = true,
+    -- enable_wayland = true,
 }

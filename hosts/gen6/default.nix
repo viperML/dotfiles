@@ -2,7 +2,7 @@
 , inputs
 }:
 let
-  de.desktop = "sway";
+  de.desktop = "kde";
 
   de.nixosModules =
     if de.desktop == "kde"
