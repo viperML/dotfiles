@@ -12,13 +12,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "lightlyshaders";
-  version = "unstable-2022-02-03";
+  version = "unstable-2022-02-15";
 
   src = fetchFromGitHub {
     repo = "LightlyShaders";
     owner = "a-parhom";
-    rev = "ea8187d52d2f20771ebde35fef4d9726808e583e";
-    sha256 = "1npw4s0kys4ahcsrl9cznxaqkqhlnkq3q03qmcnn3zl2z72n9v5n";
+    rev = "1931e4262eebb1a9c8a9e3ef75b593906991cfbb";
+    sha256 = "0ximyigail148k4nd6waagsyvjijw1dxldgpqx64c02x87p48lls";
   };
 
   postConfigure = ''

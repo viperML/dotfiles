@@ -5,13 +5,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "kwin-forceblur";
-  version = "unstable-2020-05-15";
+  version = "unstable-2022-02-13";
 
   src = fetchFromGitHub {
     owner = "esjeon";
     repo = "kwin-forceblur";
-    rev = "fff423bafacbca8ae0b60aec3659b38bde16e82b";
-    sha256 = "0jhqdh0j196j73fmxzxr5blyvhicisb49q6j57j2zyky549prdw9";
+    rev = "1f92ed59d4e445587ad4245f374f90f61850f29f";
+    sha256 = "1sk0lx0v4iidsc3ph93p5qqm0vagjpvfficxg79z8zp31zmjv151";
   };
 
   installPhase = ''

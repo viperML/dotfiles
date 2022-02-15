@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "disconnect-tracking-protection";
-  version = "unstable-2022-02-01";
+  version = "unstable-2022-02-10";
 
   src = fetchFromGitHub {
     repo = "disconnect-tracking-protection";
     owner = "disconnectme";
-    rev = "dab5b07e1a8b961cb2475cc7d66fc505bccbbc3b";
-    sha256 = "09gwpfzg6qkkwri1sr9ismzs36lnv9as3p76asr7gv8y6zi2p8dl";
+    rev = "5b28d0adbafda7b6954251a4ff04b9707a260bf1";
+    sha256 = "012z6asx234sapy3irrf8ryzbq02zhpggalgh8vsfbl90i9dkf62";
   };
 
   nativeBuildInputs = [

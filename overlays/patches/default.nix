@@ -11,11 +11,12 @@ in
         xlib = python3-prev.xlib.overrideAttrs (
           prevAttrs: {
             patches = [
-              ./python3/xlib/xauth-fix.patch
+              ./python-xlib-xauth-fix.patch
             ];
           }
         );
         # https://github.com/NixOS/nixpkgs/issues/159522
+        # https://nixpk.gs/pr-tracker.html?pr=159074
         remarshal = python3-prev.remarshal.overrideAttrs (
           prevAtrrs: {
             postPatch = ''
@@ -30,22 +31,24 @@ in
     };
 
     # https://github.com/NixOS/nixpkgs/pull/156305
-    spice = prev.spice.overrideAttrs (
-      prevAttrs: {
-        postPatch =
-          prevAttrs.postPatch
-          + ''
-            # https://gitlab.freedesktop.org/spice/spice-common/-/issues/5
-            substituteInPlace subprojects/spice-common/meson.build \
-              --replace \
-              "cmd = run_command(python, '-m', module)" \
-              "cmd = run_command(python, '-c', 'import @0@'.format(module))"
-          '';
-      }
-    );
+    # https://nixpk.gs/pr-tracker.html?pr=156305
+    # spice = prev.spice.overrideAttrs (
+    #   prevAttrs: {
+    #     postPatch =
+    #       prevAttrs.postPatch
+    #       + ''
+    #         # https://gitlab.freedesktop.org/spice/spice-common/-/issues/5
+    #         substituteInPlace subprojects/spice-common/meson.build \
+    #           --replace \
+    #           "cmd = run_command(python, '-m', module)" \
+    #           "cmd = run_command(python, '-c', 'import @0@'.format(module))"
+    #       '';
+    #   }
+    # );
 
     # https://github.com/NixOS/nixpkgs/issues/159270
     # https://github.com/NixOS/nixpkgs/pull/159340
+    # https://nixpk.gs/pr-tracker.html?pr=159340
     spice-gtk = callPackage ./spice-gtk { };
 
     # ryujinx = callPackage ./ryujinx { };

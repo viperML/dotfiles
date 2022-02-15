@@ -7,8 +7,8 @@ let
   kitty-themes = pkgs.fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty-themes";
-    rev = "2e1f413cdf9b3865510cdc6eb849a4b920c5cf3e";
-    sha256 = "100z43qkykrclpb11s1zcrngzj4an4vimhbjqbj16amr5z23r1wp";
+    rev = "6b06ed8661c62b1fcc63c9de9054d9cc12c319f6";
+    sha256 = "0543d6ghx3s6fjxkzb78j5wj77ag20z46kzi2b6lyqkm7swwvm2c";
   };
 in
 {
