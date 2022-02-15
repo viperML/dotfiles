@@ -4,6 +4,11 @@
   lib,
   ...
 }:
+let
+  my-env = {
+    GTK_USE_PORTAL = "1";
+  };
+in
 {
   services.xserver = {
     desktopManager.plasma5 = {
@@ -37,4 +42,7 @@
       libsForQt5.kwin-forceblur
       latte-dock
     ];
+
+  environment.variables = my-env;
+  environment.sessionVariables = my-env;
 }

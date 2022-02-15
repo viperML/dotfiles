@@ -4,11 +4,6 @@
   lib,
   ...
 }:
-let
-  my-env = {
-    GTK_USE_PORTAL = "1";
-  };
-in
 {
   services = {
     xserver = {
@@ -46,9 +41,6 @@ in
     udev.packages = with pkgs; [ android-udev-rules ];
     flatpak.enable = true;
   };
-
-  environment.variables = my-env;
-  environment.sessionVariables = my-env;
 
   # Fixes GDM autologin in Wayland
   # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
