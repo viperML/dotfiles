@@ -36,6 +36,8 @@ stdenv.mkDerivation rec {
     done
   '';
 
+  passthru.updateScript = ./updater.sh;
+
   meta =
     with lib; {
       description = "netboot.xyz bootloader images, uefi and legacy";
