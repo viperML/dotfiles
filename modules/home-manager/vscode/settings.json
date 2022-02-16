@@ -56,7 +56,7 @@
 
   // Copilot
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "yaml": false,
     "plaintext": false,
     "markdown": false,

@@ -22,7 +22,6 @@
         unpaywall
         bypass-paywalls-clean
         floccus
-        betterttv
       ];
     profiles.main = {
       id = 0;
@@ -35,6 +34,8 @@
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "privacy.resistFingerprinting" = true;
+        # fix inital size of window
       };
     };
   };

@@ -18,11 +18,14 @@ else
                               }}')"
 fi
 
+for i in {31..36}; do
+    panes+="[${i}m "
+done
 
 print_info() {
     prin
     prin " " "github.com/viperML/dotfiles"
-    info " " packages
+    # info " " packages
     info " " kernel
     info " " cpu
     prin " " "${MY_VIDEO}"
@@ -38,8 +41,9 @@ print_info() {
 
 
 
-    info cols
+    prin " " "$panes"
 }
+
 
 # Info Separator
 # Replace the default separator with the specified string.
