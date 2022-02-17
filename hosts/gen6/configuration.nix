@@ -192,6 +192,10 @@
       fsType = "zfs";
       neededForBoot = true;
     };
+    "/var/lib/tailscale" = {
+      device = "zroot/data/tailscale";
+      fsType = "zfs";
+    };
   };
 
   systemd.tmpfiles.rules = [

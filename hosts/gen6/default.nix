@@ -40,6 +40,7 @@ let
       printing
       gaming
       vfio
+      tailscale
     ]
     ++ de.nixosModules;
 
