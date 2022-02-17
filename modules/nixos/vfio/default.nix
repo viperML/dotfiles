@@ -21,6 +21,16 @@ let
   my-network = "virbr0";
   vlmcsd-port = 1688;
 
+  # TODO find cleaner solution
+  xml-rules =
+    if config.networking.hostName == "gen6"
+    then
+      [
+        "L+ /var/lib/libvirt/qemu/windows-nvidia.xml - - - - /home/ayats/Documents/dotfiles/modules/nixos/vfio/windows-nvidia.xml"
+        "L+ /var/lib/libvirt/qemu/windows-qxl.xml - - - - /home/ayats/Documents/dotfiles/modules/nixos/vfio/windows-qxl.xml"
+      ]
+    else [];
+
   # Scripts
   lsiommu = pkgs.writeShellScriptBin "lsiommu" ''
     shopt -s nullglob
@@ -183,21 +193,23 @@ in {
   systemd.services.vlmcsd.script = "${pkgs.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
   networking.firewall.interfaces.${my-network}.allowedUDPPorts = [vlmcsd-port];
 
-  systemd.tmpfiles.rules = [
-    "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemu-entrypoint}/bin/qemu"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/prepare/begin/start.sh - - - - ${
-      hook-prepare-iommu
-    }/bin/start.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/release/end/stop.sh - - - - ${
-      hook-release-iommu
-    }/bin/stop.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/prepare/begin/start.sh - - - - ${
-      hook-prepare-windows
-    }/bin/start.sh"
-    "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/release/end/stop.sh - - - - ${
-      hook-release-windows
-    }/bin/stop.sh"
-  ];
+  systemd.tmpfiles.rules =
+    [
+      "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemu-entrypoint}/bin/qemu"
+      "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/prepare/begin/start.sh - - - - ${
+        hook-prepare-iommu
+      }/bin/start.sh"
+      "L+ /var/lib/libvirt/hooks/qemu.d/windows-nvidia/release/end/stop.sh - - - - ${
+        hook-release-iommu
+      }/bin/stop.sh"
+      "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/prepare/begin/start.sh - - - - ${
+        hook-prepare-windows
+      }/bin/start.sh"
+      "L+ /var/lib/libvirt/hooks/qemu.d/windows-qxl/release/end/stop.sh - - - - ${
+        hook-release-windows
+      }/bin/stop.sh"
+    ]
+    ++ xml-rules;
 
   services.openssh = {
     enable = true;
