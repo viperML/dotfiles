@@ -28,16 +28,15 @@
               ];
             }
           );
-          my-app = pkgs.callPackage ./default.nix { };
-        in
-          rec {
-            packages.my-app = my-app;
-            apps.my-app = flake-utils.lib.mkApp {
-              drv = packages.my-app;
-              exePath = "/bin/my-app";
-            };
-            defaultApp = apps.my-app;
-            devShell = my-app-env;
-          }
+          my-app = pkgs.callPackage ./default.nix {};
+        in rec {
+          packages.my-app = my-app;
+          apps.my-app = flake-utils.lib.mkApp {
+            drv = packages.my-app;
+            exePath = "/bin/my-app";
+          };
+          defaultApp = apps.my-app;
+          devShell = my-app-env;
+        }
       );
 }

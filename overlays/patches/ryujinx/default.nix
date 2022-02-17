@@ -34,11 +34,11 @@ buildDotnetModule rec {
   projectFile = "Ryujinx.sln";
   nugetDeps = ./deps.nix;
 
-  dotnetFlags = [ "/p:ExtraDefineConstants=DISABLE_UPDATER" ];
+  dotnetFlags = ["/p:ExtraDefineConstants=DISABLE_UPDATER"];
 
   # TODO: Add the headless frontend. Currently errors on the following:
   # System.Exception: SDL2 initlaization failed with error "No available video device"
-  executables = [ "Ryujinx" ];
+  executables = ["Ryujinx"];
 
   nativeBuildInputs = [
     copyDesktopItems
@@ -101,8 +101,8 @@ buildDotnetModule rec {
       homepage = "https://ryujinx.org/";
       license = licenses.mit;
       changelog = "https://github.com/Ryujinx/Ryujinx/wiki/Changelog";
-      maintainers = [ maintainers.ivar ];
-      platforms = [ "x86_64-linux" ];
+      maintainers = [maintainers.ivar];
+      platforms = ["x86_64-linux"];
       mainProgram = "Ryujinx";
     };
   passthru.updateScript = ./updater.sh;

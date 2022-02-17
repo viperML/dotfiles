@@ -8,8 +8,7 @@ let
   my-env = {
     SSH_ASKPASS_REQUIRE = "prefer";
   };
-in
-{
+in {
   services.gnome.gnome-keyring.enable = true;
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "3h";

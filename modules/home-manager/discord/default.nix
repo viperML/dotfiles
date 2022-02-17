@@ -31,7 +31,6 @@ let
   #     bdcompat-withPlugins
   #   ];
   # };
-in
-{
-  home.packages = [ pkgs.discord ];
+in {
+  home.packages = [pkgs.discord];
 }

@@ -14,8 +14,8 @@
         ${builtins.readFile ./userChrome.css}
 
         ${
-        builtins.readFile "${inputs.firefox-csshacks.outPath}/chrome/urlbar_centered_text.css"
-      }
+          builtins.readFile "${inputs.firefox-csshacks.outPath}/chrome/urlbar_centered_text.css"
+        }
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

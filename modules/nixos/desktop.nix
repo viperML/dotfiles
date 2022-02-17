@@ -20,10 +20,9 @@
               pkgs.lib.filterAttrs (name: value: value.isNormalUser)
               config.users.users
             );
-          in
-            {
-              user = lib.mkIf (builtins.length my-users == 1) config.users.users."${builtins.head my-users}".name;
-            };
+          in {
+            user = lib.mkIf (builtins.length my-users == 1) config.users.users."${builtins.head my-users}".name;
+          };
       };
     };
 
@@ -38,7 +37,7 @@
 
     ananicy.enable = true;
     thermald.enable = true;
-    udev.packages = with pkgs; [ android-udev-rules ];
+    udev.packages = with pkgs; [android-udev-rules];
     flatpak.enable = true;
   };
 

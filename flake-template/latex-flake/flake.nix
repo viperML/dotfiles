@@ -21,7 +21,7 @@
 
         outputsBuilder = channels: {
           packages = {
-            my-latex-document = channels.nixpkgs.callPackage ./default.nix { };
+            my-latex-document = channels.nixpkgs.callPackage ./default.nix {};
           };
         };
       };
@@ -35,10 +35,9 @@
       flake-utils.lib.eachDefaultSystem (
         system: let
           pkgs = nixpkgs.legacyPackages.${system};
-          my-latex-document = pkgs.callPackage ./default.nix { };
-        in
-          rec {
-            packages = { inherit my-latex-document; };
-          }
+          my-latex-document = pkgs.callPackage ./default.nix {};
+        in rec {
+          packages = { inherit my-latex-document; };
+        }
       );
 }

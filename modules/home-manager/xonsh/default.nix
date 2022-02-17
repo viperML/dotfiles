@@ -80,9 +80,8 @@ let
         ];
     }
   );
-in
-{
-  home.packages = [ xonsh-plugged pkgs.starship ];
+in {
+  home.packages = [xonsh-plugged pkgs.starship];
 
   xdg.configFile."xonsh/rc.xsh" = {
     text = ''

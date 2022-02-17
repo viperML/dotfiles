@@ -15,7 +15,7 @@
     in
       flake-utils-plus.lib.mkFlake {
         inherit self inputs;
-        supportedSystems = [ "x86_64-linux" ];
+        supportedSystems = ["x86_64-linux"];
 
         # Export modules
         inherit (modules) nixosModules homeModules;
@@ -47,7 +47,7 @@
         ];
 
         # Hosts definitions
-        hostDefaults.modules = with modules.nixosModules; [ common ];
+        hostDefaults.modules = with modules.nixosModules; [common];
         hosts = {
           gen6 = import ./hosts/gen6 { inherit inputs modules; };
         };
@@ -61,11 +61,10 @@
           channels: let
             pkgs = channels.nixpkgs;
             inherit (channels.nixpkgs) system;
-          in
-            {
-              devShell = import ./misc/devShell.nix { inherit pkgs; };
-              packages = flake-utils-plus.lib.exportPackages self.overlays channels;
-            };
+          in {
+            devShell = import ./misc/devShell.nix { inherit pkgs; };
+            packages = flake-utils-plus.lib.exportPackages self.overlays channels;
+          };
       };
 
   inputs = {

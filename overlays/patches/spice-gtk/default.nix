@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
   pname = "spice-gtk";
   version = "0.40";
 
-  outputs = [ "out" "dev" "devdoc" "man" ];
+  outputs = ["out" "dev" "devdoc" "man"];
 
   src = fetchurl {
     url = "https://www.spice-space.org/download/gtk/${pname}-${version}.tar.xz";
@@ -119,7 +119,7 @@ stdenv.mkDerivation rec {
       wayland-protocols
       zlib
     ]
-    ++ lib.optionals withPolkit [ polkit acl ];
+    ++ lib.optionals withPolkit [polkit acl];
 
   PKG_CONFIG_POLKIT_GOBJECT_1_POLICYDIR = "${placeholder "out"}/share/polkit-1/actions";
 
@@ -139,7 +139,7 @@ stdenv.mkDerivation rec {
 
     homepage = "https://www.spice-space.org/";
     license = licenses.lgpl21;
-    maintainers = [ maintainers.xeji ];
+    maintainers = [maintainers.xeji];
     platforms = platforms.linux;
   };
 }

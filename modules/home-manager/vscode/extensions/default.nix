@@ -1,6 +1,6 @@
 {
   file ? ./deps.nix,
-  pkgs ? import <nixpkgs> { },
+  pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
 }:
 # Return a list with vscode extensions

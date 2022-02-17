@@ -7,14 +7,14 @@ let
 
   de.nixosModules =
     if de.desktop == "kde"
-    then [ modules.nixosModules.desktop-kde ]
+    then [modules.nixosModules.desktop-kde]
     else if de.desktop == "sway"
-    then [ modules.nixosModules.desktop-sway ]
+    then [modules.nixosModules.desktop-sway]
     else throw "No DE chosen";
 
   de.homeModules =
     if de.desktop == "kde"
-    then [ modules.homeModules.kde ]
+    then [modules.homeModules.kde]
     else if de.desktop == "sway"
     then
       [
@@ -66,8 +66,7 @@ let
       wezterm
     ]
     ++ de.homeModules;
-in
-{
+in {
   modules =
     gen6-nixosModules
     ++ [

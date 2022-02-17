@@ -16,17 +16,16 @@
           name = "plugins-lua";
           text = "${builtins.readFile ./plugins.lua}";
         };
-      in
-        ''
-          " Vanilla configs
-          ${builtins.readFile ./vanilla.vim}
+      in ''
+        " Vanilla configs
+        ${builtins.readFile ./vanilla.vim}
 
-          " Plugins configs
-          ${builtins.readFile ./plugins.vim}
+        " Plugins configs
+        ${builtins.readFile ./plugins.vim}
 
-          " Lua config
-          :luafile ${plugins-lua}
-        '';
+        " Lua config
+        :luafile ${plugins-lua}
+      '';
 
     withNodeJs = true;
 
@@ -57,34 +56,33 @@
             sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
           };
         };
-      in
-        [
-          # Visual
-          nvim-transparent
-          # context-vim
-          # vim-airline
-          vim-highlightedyank
-          dracula-vim
-          vim-one
-          bufferline-nvim
-          feline-nvim
-          nvim-web-devicons
-          gitsigns-nvim
-          indent-blankline-nvim
-          nvim-tree-lua
+      in [
+        # Visual
+        nvim-transparent
+        # context-vim
+        # vim-airline
+        vim-highlightedyank
+        dracula-vim
+        vim-one
+        bufferline-nvim
+        feline-nvim
+        nvim-web-devicons
+        gitsigns-nvim
+        indent-blankline-nvim
+        nvim-tree-lua
 
-          # Misc
-          vim-easymotion
-          auto-pairs
-          nvim-comment
-          editorconfig-vim
+        # Misc
+        vim-easymotion
+        auto-pairs
+        nvim-comment
+        editorconfig-vim
 
-          # Completion and syntax
-          # coc-nvim
-          # coc-json
-          vim-nix
-          nvim-lspconfig
-          nvim-treesitter
-        ];
+        # Completion and syntax
+        # coc-nvim
+        # coc-json
+        vim-nix
+        nvim-lspconfig
+        nvim-treesitter
+      ];
   };
 }

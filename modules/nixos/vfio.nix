@@ -122,9 +122,9 @@ let
     modprobe -r drm
     # Detach GPU devices from host
     ${
-    lib.concatMapStringsSep "\n" (dev: "virsh nodedev-detach ${dev}")
-    my-iommu-group
-  }
+      lib.concatMapStringsSep "\n" (dev: "virsh nodedev-detach ${dev}")
+      my-iommu-group
+    }
     # Load vfio module
     modprobe vfio-pci
     ${alloc_hugepages}
@@ -143,9 +143,9 @@ let
     modprobe -r vfio-pci
     # Attach GPU devices from host
     ${
-    lib.concatMapStringsSep "\n" (dev: "virsh nodedev-reattach ${dev}")
-    my-iommu-group
-  }
+      lib.concatMapStringsSep "\n" (dev: "virsh nodedev-reattach ${dev}")
+      my-iommu-group
+    }
     # Load nvidia drivers
     modprobe nvidia_drm
     modprobe nvidia_modeset
@@ -175,14 +175,13 @@ let
     export PATH="$PATH:${pkgs.systemd}/bin"
     systemctl stop vlmcsd.service
   '';
-in
-{
-  boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
-  boot.kernelModules = [ "kvm-intel" "vfio-pci" ];
-  environment.systemPackages = [ lsiommu ];
+in {
+  boot.kernelParams = ["intel_iommu=on" "iommu=pt"];
+  boot.kernelModules = ["kvm-intel" "vfio-pci"];
+  environment.systemPackages = [lsiommu];
 
   systemd.services.vlmcsd.script = "${pkgs.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
-  networking.firewall.interfaces.${my-network}.allowedUDPPorts = [ vlmcsd-port ];
+  networking.firewall.interfaces.${my-network}.allowedUDPPorts = [vlmcsd-port];
 
   systemd.tmpfiles.rules = [
     "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemu-entrypoint}/bin/qemu"

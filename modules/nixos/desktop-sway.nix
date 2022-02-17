@@ -22,14 +22,13 @@ let
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "sway";
   };
-in
-{
+in {
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.autoLogin.enable = true;
 
   programs.sway = {
     enable = true;
-    extraOptions = [ "--unsupported-gpu" ];
+    extraOptions = ["--unsupported-gpu"];
   };
 
   environment.variables = waylandEnv;

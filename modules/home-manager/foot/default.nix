@@ -4,7 +4,7 @@
   ...
 }:
 {
-  home.packages = [ pkgs.foot ];
+  home.packages = [pkgs.foot];
 
   xdg.configFile."foot/foot.ini".text = ''
     shell=fish

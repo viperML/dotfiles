@@ -1,7 +1,7 @@
 {
   stdenv,
   fetchFromGitHub,
-  plugins ? [ ],
+  plugins ? [],
   lib,
 }:
 let
@@ -36,11 +36,11 @@ stdenv.mkDerivation {
     cp -r $src/* $out
     mkdir -p $out/plugins
     ${
-    builtins.concatStringsSep "\n" (
-      builtins.map (p: "ln -s ${p.drv} $out/plugins/${p.name}")
-      plugins-withNames
-    )
-  }
+      builtins.concatStringsSep "\n" (
+        builtins.map (p: "ln -s ${p.drv} $out/plugins/${p.name}")
+        plugins-withNames
+      )
+    }
   '';
 
   meta = with lib; {

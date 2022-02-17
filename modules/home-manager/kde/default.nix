@@ -13,7 +13,7 @@
   systemd.user = {
     services.apply-colorscheme = {
       Unit.Description = "Apply colorscheme to KDE";
-      Unit.After = [ "plasma-plasmashell.service" ];
+      Unit.After = ["plasma-plasmashell.service"];
       Service.Type = "oneshot";
       Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 3";
       Service.ExecStart =
@@ -25,19 +25,18 @@
               ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
             fi
           '';
-        in
-          "${apply-colorscheme-script}";
-      Install.WantedBy = [ "xdg-desktop-autostart.target" ];
+        in "${apply-colorscheme-script}";
+      Install.WantedBy = ["xdg-desktop-autostart.target"];
     };
     timers = {
       apply-colorscheme = {
         Unit.Description = "Apply colorscheme on schedule";
-        Unit.PartOf = [ "apply-colorscheme.service" ];
+        Unit.PartOf = ["apply-colorscheme.service"];
         # DayOfWeek Year-Month-Day Hour:Minute:Second
-        Timer.OnCalendar = [ "*-*-* 18:01:00" "*-*-* 05:01:00" ];
+        Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
         # Timer.Persistent = "true";
         # Timer.OnBootSec = "2s";
-        Install.WantedBy = [ "timers.target" ];
+        Install.WantedBy = ["timers.target"];
       };
     };
   };

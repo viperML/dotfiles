@@ -20,9 +20,8 @@
               hello
             ];
           };
-        in
-          {
-            inherit devShell;
-          }
+        in {
+          inherit devShell;
+        }
       );
 }

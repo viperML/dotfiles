@@ -32,9 +32,9 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "ahci" "nvme" "usbhid" ];
-      kernelModules = [ ];
-      supportedFilesystems = [ "zfs" ];
+      availableKernelModules = ["ahci" "nvme" "usbhid"];
+      kernelModules = [];
+      supportedFilesystems = ["zfs"];
       # Rollback ZFS on root
       postDeviceCommands = lib.mkAfter ''
         zfs rollback -r zroot/gen6/nixos@empty
@@ -42,9 +42,9 @@
     };
     tmpOnTmpfs = true;
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
-    kernelModules = [ "kvm-intel" ];
-    kernelParams = [ ];
-    supportedFilesystems = [ "zfs" ];
+    kernelModules = ["kvm-intel"];
+    kernelParams = [];
+    supportedFilesystems = ["zfs"];
 
     zfs = {
       enableUnstable = true;
@@ -77,7 +77,7 @@
     };
 
     # Build ARM
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
   networking = {
@@ -86,7 +86,7 @@
 
   services.xserver = {
     layout = "us";
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
   };
 
@@ -132,7 +132,7 @@
             builtins.map (
               dataset: {
                 name = dataset;
-                value.use_template = [ "slow" ];
+                value.use_template = ["slow"];
               }
             )
             slow-datasets
@@ -143,7 +143,7 @@
             builtins.map (
               dataset: {
                 name = dataset;
-                value.use_template = [ "normal" ];
+                value.use_template = ["normal"];
               }
             )
             normal-datasets
@@ -154,7 +154,7 @@
   services.zfs = {
     autoScrub = {
       enable = true;
-      pools = [ "zroot" ];
+      pools = ["zroot"];
       interval = "weekly";
     };
   };
@@ -205,7 +205,7 @@
     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
   ];
 
-  swapDevices = [ { device = "/dev/disk/by-label/LINUXSWAP"; } ];
+  swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
 
   powerManagement.cpuFreqGovernor = "powersave";
 

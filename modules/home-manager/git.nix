@@ -17,5 +17,5 @@
     };
   };
 
-  home.packages = [ pkgs.git-extras ];
+  home.packages = [pkgs.git-extras];
 }

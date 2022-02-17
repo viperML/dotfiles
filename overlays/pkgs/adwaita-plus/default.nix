@@ -17,11 +17,11 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-KrzEbK+Iucm+SqB54ERzU+XsMCyxAoaxSeaMDb/L3Eo=";
   };
 
-  nativeBuildInputs = [ gtk3 ];
+  nativeBuildInputs = [gtk3];
 
-  propagatedBuildInputs = [ gnome-icon-theme hicolor-icon-theme ];
+  propagatedBuildInputs = [gnome-icon-theme hicolor-icon-theme];
 
-  makeFlags = [ "PREFIX=$(out)" ];
+  makeFlags = ["PREFIX=$(out)"];
 
   dontDropIconThemeCache = true;
 

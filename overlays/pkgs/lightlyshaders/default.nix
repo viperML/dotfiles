@@ -26,8 +26,8 @@ stdenv.mkDerivation rec {
       --replace "${kdelibs4support}" "$out"
   '';
 
-  nativeBuildInputs = [ cmake extra-cmake-modules wrapQtAppsHook ];
-  buildInputs = [ kwin kdelibs4support libepoxy libXdmcp ];
+  nativeBuildInputs = [cmake extra-cmake-modules wrapQtAppsHook];
+  buildInputs = [kwin kdelibs4support libepoxy libXdmcp];
 
   meta =
     with lib; {

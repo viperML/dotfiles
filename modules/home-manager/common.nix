@@ -7,8 +7,7 @@
 }:
 let
   inherit (pkgs) system;
-in
-{
+in {
   # Generic programs
   home.packages =
     with pkgs; [

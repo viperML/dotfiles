@@ -18,8 +18,8 @@
 
   systemd = {
     timers.docker-prune = {
-      wantedBy = [ "timers.target" ];
-      partOf = [ "docker-prune.service" ];
+      wantedBy = ["timers.target"];
+      partOf = ["docker-prune.service"];
       timerConfig.OnCalendar = "weekly";
     };
     services.docker-prune = {
@@ -27,7 +27,7 @@
       script = ''
         ${pkgs.docker}/bin/docker system prune --all --force
       '';
-      requires = [ "docker.service" ];
+      requires = ["docker.service"];
     };
   };
 }

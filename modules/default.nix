@@ -10,5 +10,4 @@ let
   homeModules = flake-utils-plus.lib.exportModules (
     lib.mapAttrsToList (name: value: ./home-manager/${name}) (builtins.readDir ./home-manager)
   );
-in
-{ inherit nixosModules homeModules; }
+in { inherit nixosModules homeModules; }

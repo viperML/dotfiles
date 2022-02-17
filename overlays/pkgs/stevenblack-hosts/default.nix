@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [
-    (python3.withPackages (p: [ p.requests ]))
+    (python3.withPackages (p: [p.requests]))
   ];
 
   # Move source into $out because the script opens source files as r/w
