@@ -37,7 +37,7 @@ You can directly reference this flake and import it into your NixOS configuratio
 - [overlays](overlays): new packages and patches
 - [lib](lib): Nix utility functions.
 - [bin](bin): Various scripts
-- [templates](templates): Template files for various projects.
+- [flake-template](flake-template): Template files for various projects.
 - [misc](misc): whatever doesn't fit the above
 - [misc/img](misc/img): A look into the past
 

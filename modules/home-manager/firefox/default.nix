@@ -8,21 +8,6 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-beta-bin;
-    # https://nur.nix-community.org/repos/rycee/
-    extensions =
-      with pkgs.nur.repos.rycee.firefox-addons; [
-        betterttv
-        bitwarden
-        darkreader
-        return-youtube-dislikes
-        sponsorblock
-        violentmonkey
-        wayback-machine
-        ublock-origin
-        unpaywall
-        bypass-paywalls-clean
-        floccus
-      ];
     profiles.main = {
       id = 0;
       userChrome = ''
@@ -34,7 +19,7 @@
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "privacy.resistFingerprinting" = true;
+        # "privacy.resistFingerprinting" = true;
         # fix inital size of window
       };
     };

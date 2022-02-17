@@ -102,6 +102,5 @@ in
       caffeine-ng
 
       # Misc
-      google-chrome
     ];
 }

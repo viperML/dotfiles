@@ -21,6 +21,8 @@ in
 
       inputs.alejandra.defaultPackage.${system}
       statix
+      inputs.nh.packages.${system}.nh
+      hello
 
       # Misc utils
       ripgrep

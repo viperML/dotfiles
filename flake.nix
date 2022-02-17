@@ -52,7 +52,7 @@
           gen6 = import ./hosts/gen6 { inherit inputs modules; };
         };
 
-        templates = import ./templates;
+        templates = import ./flake-template;
         defaultTemplate = self.templates.base-flake;
 
         lib = import ./lib { inherit (nixpkgs) lib; };
@@ -125,6 +125,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flakeUtils.follows = "flake-utils";
       inputs.flakeCompat.follows = "flake-compat";
+    };
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 }
