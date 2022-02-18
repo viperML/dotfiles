@@ -3,13 +3,15 @@
   inputs,
 }:
 let
-  de.desktop = "kde";
+  de.desktop = "gnome";
 
   de.nixosModules =
     if de.desktop == "kde"
     then [modules.nixosModules.desktop-kde]
     else if de.desktop == "sway"
     then [modules.nixosModules.desktop-sway]
+    else if de.desktop == "gnome"
+    then [modules.nixosModules.desktop-gnome]
     else throw "No DE chosen";
 
   de.homeModules =
@@ -20,6 +22,11 @@ let
       [
         modules.homeModules.sway
         modules.homeModules.foot
+      ]
+    else if de.desktop == "gnome"
+    then
+      [
+        modules.homeModules.gnome
       ]
     else throw "No DE chosen";
 

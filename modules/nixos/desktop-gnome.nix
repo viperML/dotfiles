@@ -4,10 +4,25 @@
   lib,
   ...
 }:
-{
+let
+  my-extensions = with pkgs.gnomeExtensions; [
+    pkgs.gnome.gnome-shell-extensions
+    appindicator
+    blur-my-shell
+    pop-shell
+    night-theme-switcher
+    dash-to-panel
+    sound-output-device-chooser
+  ];
+in {
   services.xserver = {
     desktopManager.gnome.enable = true;
-    displayManager.autoLogin.enable = false;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+    };
+    displayManager.defaultSession = "gnome-xorg";
+    displayManager.autoLogin.enable = true;
   };
 
   environment.gnome.excludePackages =
@@ -30,11 +45,10 @@
     ];
 
   environment.systemPackages =
-    with pkgs; [
-      gnomeExtensions.appindicator
-      gnome.gnome-shell-extensions
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.forge
-      gnomeExtensions.dash-to-dock
-    ];
+    with pkgs;
+    [
+      gnome.dconf-editor
+      adw-gtk3
+    ]
+    ++ my-extensions;
 }

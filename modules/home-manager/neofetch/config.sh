@@ -353,7 +353,7 @@ image_backend="ascii"
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
 source /etc/os-release
-image_source="$FLAKE/misc/img/$NAME.png"
+image_source="$FLAKE/misc/ascii/$NAME.txt"
 
 
 # Ascii Options

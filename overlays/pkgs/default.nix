@@ -10,6 +10,8 @@ in {
   bdcompat = callPackage ./bdcompat {};
   vlmcsd = callPackage ./vlmcsd {};
   adwaita-plus = callPackage ./adwaita-plus {};
+  tym = callPackage ./tym {};
+  adw-gtk3 = callPackage ./adw-gtk3 {};
 
   libsForQt5 = prev.libsForQt5.overrideScope' (
     qtfinal: qtprev: let
@@ -22,4 +24,15 @@ in {
       lightlyshaders = callPackage ./lightlyshaders { inherit (qtprev) kdelibs4support; };
     }
   );
+
+  # gnomeExtensions = prev.gnomeExtensions.overrideScope' (
+  #   gExtFinal: gExtPrev: {
+  #     tidalwm = gExtPrev.callPackage ./tidalwm {};
+  #   }
+  # );
+  gnomeExtensions =
+    prev.gnomeExtensions
+    // {
+      tidalwm = callPackage ./tidalwm {};
+    };
 }

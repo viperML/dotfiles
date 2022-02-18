@@ -9,10 +9,6 @@
     xserver = {
       enable = true;
       displayManager = {
-        gdm = {
-          wayland = true;
-        };
-
         # Set the autologin user, if there's only 1 normal user
         autoLogin =
           let

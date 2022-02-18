@@ -22,5 +22,6 @@
       caffeine-ng
 
       # Misc
+      tym
     ];
 }

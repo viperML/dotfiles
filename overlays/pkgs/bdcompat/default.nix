@@ -35,12 +35,7 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp -r $src/* $out
     mkdir -p $out/plugins
-    ${
-      builtins.concatStringsSep "\n" (
-        builtins.map (p: "ln -s ${p.drv} $out/plugins/${p.name}")
-        plugins-withNames
-      )
-    }
+    ${lib.concatMapStringsSep "\n" (p: "cp ${p} $out/plugins/") plugins}
   '';
 
   meta = with lib; {

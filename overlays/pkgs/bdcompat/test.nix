@@ -1,13 +1,15 @@
 let
   pkgs = import (builtins.getFlake "nixpkgs") {};
-  imageEmojis = pkgs.fetchurl {
-    url = "https://github.com/MateusAquino/ImageEmojis/releases/download/v0.2.3/ImageEmojis.plugin.js";
-    sha256 = "1ialbrh94k2hak16zi0spcn1gff11f7j5qvgl5bnwq77xqiyp3fn";
+  ImageEmojis = pkgs.fetchFromGitHub {
+    owner = "MateusAquino";
+    repo = "ImageEmojis";
+    rev = "ac463507577de6c03e2ea2d512fb344d1d2ed9a8";
+    sha256 = "1rv7ikivrpp7cxwfpx5zd1r197mymayglnv8y0jc0pg0k216jmai";
   };
 in {
   bdCompat = pkgs.callPackage ./default.nix {
     plugins = [
-      imageEmojis
+      "${ImageEmojis}/ImageEmojis.plugin.js"
     ];
   };
 }

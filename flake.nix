@@ -26,6 +26,8 @@
           (
             final: prev: {
               inherit (ch.nixpkgs-master) vscode;
+              # https://nixpk.gs/pr-tracker.html?pr=159112
+              # inherit (ch.nixpkgs-master) discord-canary;
             }
           )
         ];
