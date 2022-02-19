@@ -10,6 +10,7 @@
   home.packages =
     with pkgs; [
       fzf
+      exa
     ];
 
   programs.fish = {

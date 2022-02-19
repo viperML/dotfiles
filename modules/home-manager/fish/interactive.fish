@@ -20,10 +20,18 @@ alias ip="ip -c=auto"
 alias svim="sudoedit"
 
 # LSD
-alias ls="lsd"
-alias la="lsd -A"
-alias ll="lsd -A -l"
-alias lt="lsd -A -t -r"
+# alias ls="lsd"
+# alias la="lsd -A"
+# alias ll="lsd -A -l"
+# alias lt="lsd -A -t -r"
+
+# EXA
+alias ls="exa --icons"
+alias la="exa --icons --all"
+alias ll="exa --icons --long --header --group"
+alias lla="exa --icons --all --long --header --group"
+alias lal="exa --icons --all --long --header --group"
+alias lt="exa --sort modified -1"
 
 # Abbreviations
 abbr --add --global p python

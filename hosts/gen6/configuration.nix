@@ -196,6 +196,36 @@
       device = "zroot/data/tailscale";
       fsType = "zfs";
     };
+    "/home/ayats/Music" = {
+      device = "zroot/data/music";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/Downloads" = {
+      device = "zroot/data/downloads";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/Pictures" = {
+      device = "zroot/data/pictures";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/Games" = {
+      device = "zroot/data/games";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/Videos" = {
+      device = "zroot/data/videos";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/Documents" = {
+      device = "zroot/data/documents";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
   };
 
   systemd.tmpfiles.rules = [

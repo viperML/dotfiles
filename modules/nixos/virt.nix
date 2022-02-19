@@ -13,6 +13,7 @@
   environment.systemPackages =
     with pkgs; [
       virt-manager
+      vagrant
     ];
   users.groups.libvirtd.members = config.users.groups.wheel.members;
 

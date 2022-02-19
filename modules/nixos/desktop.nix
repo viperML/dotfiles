@@ -60,7 +60,6 @@
       appimage-run
       hwloc
       libarchive
-      tree
     ];
 
   nix = {

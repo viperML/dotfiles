@@ -6,13 +6,13 @@
 }:
 let
   my-extensions = with pkgs.gnomeExtensions; [
-    pkgs.gnome.gnome-shell-extensions
     appindicator
     blur-my-shell
     pop-shell
-    night-theme-switcher
+    # night-theme-switcher
     dash-to-panel
     sound-output-device-chooser
+    system-monitor
   ];
 in {
   services.xserver = {
@@ -30,26 +30,31 @@ in {
       gnome.cheese
       gnome-photos
       # gnome.gnome-music
-      # pkgs.gnome.gnome-terminal
+      gnome.gnome-terminal
       gnome.gedit
       epiphany
       # evince
-      # gnome.gnome-characters
+      gnome.gnome-characters
       gnome.totem
-      # gnome.tali
-      # gnome.iagno
-      # gnome.hitori
-      # gnome.atomix
       gnome-tour
       gnome.geary
+      gnome.gnome-screenshot
+      gnome.eog
     ];
 
   environment.systemPackages =
     with pkgs;
     [
-      gnome.dconf-editor
       gnome.gnome-tweaks
+      gnome.gnome-shell-extensions
+      gnome.dconf-editor
       adw-gtk3
+      libsForQt5.gwenview
     ]
     ++ my-extensions;
+
+  # Hide ZFS subvolumes on gvfs/nautilus
+  services.udev.extraRules = ''
+    KERNEL=="zd*", ENV{UDISKS_IGNORE}="1"
+  '';
 }
