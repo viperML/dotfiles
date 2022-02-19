@@ -9,5 +9,5 @@
       bat
     ];
 
-  home.file.".config/bat/config".source = ./config;
+  home.file.".config/bat/config".source = ./config.sh;
 }

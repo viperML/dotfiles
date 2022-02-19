@@ -19,6 +19,7 @@
   nixpkgs.config = import ../../misc/nixpkgs.nix;
   nix = {
     package = pkgs.nix;
+    # Reading from file so I can also use this config with home-manager standalone
     extraOptions = ''
       ${builtins.readFile ../../misc/nix.conf}
     '';

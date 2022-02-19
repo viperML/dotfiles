@@ -15,10 +15,11 @@
       Service.ExecStart =
         let
           apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
+            export PATH="${pkgs.coreutils-full}/bin:${pkgs.glib}/bin"
             if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              ${pkgs.glib}/bin/set org.gnome.desktop.interface gtk-theme adw-gtk3
+              gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
             else
-              ${pkgs.glib}/bin/set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+              gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
             fi
           '';
         in "${apply-colorscheme-script}";

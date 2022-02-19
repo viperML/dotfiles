@@ -66,7 +66,7 @@ return {
         italic = false
     }),
     default_prog = {"fish", "-l"},
-    window_background_opacity = 0.9,
+    window_background_opacity = 1.0,
     enable_scroll_bar = true,
     enable_tab_bar = false,
     window_padding = {

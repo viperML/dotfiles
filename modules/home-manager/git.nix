@@ -15,7 +15,15 @@
       pull.rebase = "false";
       push.default = "simple";
     };
+
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
+    };
   };
 
   home.packages = [pkgs.git-extras];
+  home.sessionVariables.LESS = "-r";
 }

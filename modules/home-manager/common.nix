@@ -29,6 +29,7 @@ in {
       tealdeer
       unar
       jq
+      dogdns
 
       # System monitor
       htop

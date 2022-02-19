@@ -8,6 +8,7 @@
 {
   home.packages = [
     pkgs.plasma-applet-splitdigitalclock
+    pkgs.caffeine-ng
   ];
 
   systemd.user = {
@@ -39,5 +40,8 @@
         Install.WantedBy = ["timers.target"];
       };
     };
+  };
+  xdg.configFile = {
+    "autostart/Caffeine.desktop".source = ./Caffeine.desktop;
   };
 }

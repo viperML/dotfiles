@@ -48,6 +48,7 @@ in {
     with pkgs;
     [
       gnome.dconf-editor
+      gnome.gnome-tweaks
       adw-gtk3
     ]
     ++ my-extensions;

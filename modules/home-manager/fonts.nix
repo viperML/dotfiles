@@ -14,6 +14,7 @@
           fonts = [
             "JetBrainsMono"
             "VictorMono"
+            "Inconsolata"
           ];
         }
       )
