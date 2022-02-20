@@ -18,7 +18,6 @@ let
   memory = 16384;
   Hugepagesize = 2048;
   # $ grep Hugepagesize /proc/meminfo
-  my-network = "virbr0";
   vlmcsd-port = 1688;
 
   # TODO find cleaner solution
@@ -191,7 +190,8 @@ in {
   environment.systemPackages = [lsiommu];
 
   systemd.services.vlmcsd.script = "${pkgs.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
-  networking.firewall.interfaces.${my-network}.allowedUDPPorts = [vlmcsd-port];
+  networking.firewall.interfaces.virbr0.allowedTCPPorts = [vlmcsd-port];
+  networking.firewall.interfaces.virbr0.allowedUDPPorts = [vlmcsd-port];
 
   systemd.tmpfiles.rules =
     [

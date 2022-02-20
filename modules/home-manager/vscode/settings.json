@@ -408,7 +408,7 @@
     }
   ],
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "Atom One Darker",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
   "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",
