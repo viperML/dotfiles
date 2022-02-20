@@ -21,7 +21,7 @@ in {
       inputs.alejandra.defaultPackage.${system}
       statix
       inputs.nh.packages.${system}.nh
-      hello
+      inputs.deploy-rs.packages.${system}.deploy-rs
 
       # Misc utils
       ripgrep
