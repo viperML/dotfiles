@@ -25,7 +25,10 @@
         channels.nixpkgs.overlaysBuilder = ch: [
           (
             final: prev: {
-              inherit (ch.nixpkgs-master) vscode;
+              inherit
+                (ch.nixpkgs-master)
+                vscode
+                ;
               # https://nixpk.gs/pr-tracker.html?pr=159112
               # inherit (ch.nixpkgs-master) discord-canary;
             }
@@ -38,7 +41,7 @@
         };
         sharedOverlays = [
           inputs.nur.overlay
-          inputs.nixpkgs-wayland.overlay
+          # inputs.nixpkgs-wayland.overlay
           inputs.vim-extra-plugins.overlay
           # inputs.emacs-overlay.overlay
           inputs.powercord-overlay.overlay

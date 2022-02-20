@@ -27,7 +27,7 @@
       krita-beta
       obs-studio
       obsidian
-      inkscape
+      # inkscape
     ];
 
   boot = {
