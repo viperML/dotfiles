@@ -19,5 +19,5 @@ let
 
   exportModulesDir = dir: (exportModules (lib.mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
 in {
-  inherit exportModules exportModulesDir;
+  inherit removeSuffix exportModules exportModulesDir;
 }

@@ -10,6 +10,7 @@
     }:
     let
       supportedSystems = ["x86_64-linux"];
+      config = import ./misc/nixpkgs.nix;
     in {
       lib = import ./lib { inherit (nixpkgs) lib; };
       nixosModules = self.lib.exportModulesDir ./modules/nixos;
@@ -18,10 +19,11 @@
       nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
 
       pkgs = nixpkgs.lib.genAttrs supportedSystems (
-        system:
+        system: let
+          my-nixpkgs-master = import inputs.nixpkgs-master { inherit config system; };
+        in
           import nixpkgs {
-            inherit system;
-            config = import ./misc/nixpkgs.nix;
+            inherit config system;
             overlays =
               [
                 inputs.nur.overlay
@@ -29,9 +31,14 @@
                 inputs.vim-extra-plugins.overlay
                 # inputs.emacs-overlay.overlay
                 inputs.powercord-overlay.overlay
-                # (final: prev: {
-                #   inherit (inputs.nixpkgs-master) vscode;
-                # })
+                (
+                  final: prev: {
+                    inherit
+                      (my-nixpkgs-master)
+                      vscode
+                      ;
+                  }
+                )
               ]
               ++ (nixpkgs.lib.attrValues self.overlays);
           }
