@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -11,16 +12,21 @@
     profiles.main = {
       id = 0;
       userChrome = ''
-        ${builtins.readFile ./userChrome.css}
-
         ${
-          builtins.readFile "${inputs.firefox-csshacks.outPath}/chrome/urlbar_centered_text.css"
+          lib.concatMapStringsSep "\n" (value: "${builtins.readFile (inputs.firefox-csshacks.outPath + "/chrome/${value}")}") [
+            "urlbar_centered_text.css"
+            "centered_tab_label.css"
+            "floating_findbar_on_top.css"
+            "tab_effect_scale_onclick.css"
+            "window_control_force_linux_system_style.css"
+            "tabs_fill_available_width.css"
+          ]
         }
+
+        ${builtins.readFile ./userChrome.css}
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        # "privacy.resistFingerprinting" = true;
-        # fix inital size of window
       };
     };
   };
