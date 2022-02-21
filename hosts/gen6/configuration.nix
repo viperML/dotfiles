@@ -81,6 +81,7 @@
   };
 
   networking = {
+    hostName = "gen6";
     hostId = "01017f00";
   };
 

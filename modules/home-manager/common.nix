@@ -14,7 +14,6 @@ in {
       # Nix management
       nix-prefetch-scripts
       update-nix-fetchgit
-      fup-repl
       cachix
       nix-du
 

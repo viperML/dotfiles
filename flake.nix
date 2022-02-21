@@ -6,71 +6,44 @@
     {
       self,
       nixpkgs,
-      flake-utils-plus,
       ...
     }:
     let
-      inherit (nixpkgs) lib;
-      modules = import ./modules { inherit flake-utils-plus lib; };
-    in
-      flake-utils-plus.lib.mkFlake {
-        inherit self inputs;
-        supportedSystems = ["x86_64-linux"];
+      supportedSystems = ["x86_64-linux" "aarch64-linux"];
+    in {
+      lib = import ./lib { inherit (nixpkgs) lib; };
+      nixosModules = self.lib.exportModulesDir ./modules/nixos;
+      homeModules = self.lib.exportModulesDir ./modules/home-manager;
+      overlays = self.lib.exportModulesDir ./overlays;
+      nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
 
-        # Export modules
-        inherit (modules) nixosModules homeModules;
+      pkgs = nixpkgs.lib.genAttrs supportedSystems (
+        system:
+          import nixpkgs {
+            inherit system;
+            config = import ./misc/nixpkgs.nix;
+            overlays =
+              [
+                inputs.nur.overlay
+                # inputs.nixpkgs-wayland.overlay
+                inputs.vim-extra-plugins.overlay
+                # inputs.emacs-overlay.overlay
+                inputs.powercord-overlay.overlay
+                # (final: prev: {
+                #   inherit (inputs.nixpkgs-master) vscode;
+                # })
+              ]
+              ++ (nixpkgs.lib.attrValues self.overlays);
+          }
+      );
 
-        # Overlays and channels
-        channelsConfig = import ./misc/nixpkgs.nix;
-        channels.nixpkgs.overlaysBuilder = ch: [
-          (
-            final: prev: {
-              inherit
-                (ch.nixpkgs-master)
-                vscode
-                ;
-              # https://nixpk.gs/pr-tracker.html?pr=159112
-              # inherit (ch.nixpkgs-master) discord-canary;
-            }
-          )
-        ];
-        overlays = {
-          pkgs = import ./overlays/pkgs;
-          patches = import ./overlays/patches;
-          patches-wayland = import ./overlays/patches-wayland;
-        };
-        sharedOverlays = [
-          inputs.nur.overlay
-          # inputs.nixpkgs-wayland.overlay
-          inputs.vim-extra-plugins.overlay
-          # inputs.emacs-overlay.overlay
-          inputs.powercord-overlay.overlay
+      devShell = nixpkgs.lib.genAttrs supportedSystems (
+        system: import ./misc/devShell.nix { pkgs = self.pkgs.${system}; }
+      );
 
-          self.overlays.pkgs
-          self.overlays.patches
-          self.overlays.patches-wayland
-        ];
-
-        # Hosts definitions
-        hostDefaults.modules = with modules.nixosModules; [common];
-        hosts = {
-          gen6 = import ./hosts/gen6 { inherit inputs modules; };
-        };
-
-        templates = import ./flake-template;
-        defaultTemplate = self.templates.base-flake;
-
-        lib = import ./lib { inherit (nixpkgs) lib; };
-
-        outputsBuilder =
-          channels: let
-            pkgs = channels.nixpkgs;
-            inherit (channels.nixpkgs) system;
-          in {
-            devShell = import ./misc/devShell.nix { inherit pkgs; };
-            packages = flake-utils-plus.lib.exportPackages self.overlays channels;
-          };
-      };
+      templates = import ./flake-templates;
+      defaultTemplate = self.templates.base-flake;
+    };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

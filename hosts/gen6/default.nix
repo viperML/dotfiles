@@ -1,38 +1,40 @@
 {
-  modules,
+  self,
   inputs,
 }:
 let
+  inherit (self) homeModules nixosModules;
   de.desktop = "gnome";
-
   de.nixosModules =
     if de.desktop == "kde"
-    then [modules.nixosModules.desktop-kde]
+    then [nixosModules.desktop-kde]
     else if de.desktop == "sway"
-    then [modules.nixosModules.desktop-sway]
+    then [nixosModules.desktop-sway]
     else if de.desktop == "gnome"
-    then [modules.nixosModules.desktop-gnome]
+    then [nixosModules.desktop-gnome]
     else throw "No DE chosen";
 
   de.homeModules =
     if de.desktop == "kde"
-    then [modules.homeModules.kde]
+    then [homeModules.kde]
     else if de.desktop == "sway"
     then
       [
-        modules.homeModules.sway
-        modules.homeModules.foot
+        homeModules.sway
+        homeModules.foot
       ]
     else if de.desktop == "gnome"
     then
       [
-        modules.homeModules.gnome
+        homeModules.gnome
       ]
     else throw "No DE chosen";
 
   gen6-nixosModules =
-    with modules.nixosModules;
+    with nixosModules;
     [
+      common
+      channels-to-flakes
       ./configuration.nix
       desktop
       gnome-keyring
@@ -52,7 +54,7 @@ let
     ++ de.nixosModules;
 
   gen6-homeModules =
-    with modules.homeModules;
+    with homeModules;
     [
       common
       mainUser-ayats
@@ -74,6 +76,11 @@ let
     ]
     ++ de.homeModules;
 in {
+  system = "x86_64-linux";
+  pkgs = self.pkgs."x86_64-linux";
+  specialArgs = {
+    inherit inputs;
+  };
   modules =
     gen6-nixosModules
     ++ [

@@ -18,16 +18,11 @@
 
   nixpkgs.config = import ../../misc/nixpkgs.nix;
   nix = {
-    package = pkgs.nix;
+    # package = pkgs.nix;
     # Reading from file so I can also use this config with home-manager standalone
     extraOptions = ''
       ${builtins.readFile ../../misc/nix.conf}
     '';
-
-    # Coming from flake-utils-plus
-    generateRegistryFromInputs = true;
-    generateNixPathFromInputs = true;
-    linkInputs = true;
   };
 
   security.sudo.extraConfig = ''

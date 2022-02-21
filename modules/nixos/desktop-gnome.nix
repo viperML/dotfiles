@@ -13,6 +13,7 @@ let
     dash-to-panel
     sound-output-device-chooser
     system-monitor
+    logo-menu
   ];
 in {
   services.xserver = {
