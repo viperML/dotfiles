@@ -9,7 +9,7 @@
       ...
     }:
     let
-      supportedSystems = ["x86_64-linux" "aarch64-linux"];
+      supportedSystems = ["x86_64-linux"];
     in {
       lib = import ./lib { inherit (nixpkgs) lib; };
       nixosModules = self.lib.exportModulesDir ./modules/nixos;
