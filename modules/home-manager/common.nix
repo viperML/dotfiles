@@ -29,6 +29,7 @@ in {
       unar
       jq
       dogdns
+      jless
 
       # System monitor
       htop
