@@ -24,22 +24,23 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src="./misc/img/20211219.png" width="100%"/>
+    <img alt="Desktop screenshot" src="./misc/img/20220222.png" width="100%"/>
   </div>
 </div>
+
 
 This repo provides a [nix flake](https://nixos.wiki/wiki/Flakes) which [NixOS](https://nixos.wiki/wiki/NixOS) and [home-manager](https://github.com/nix-community/home-manager) configuration, along with an overlay for packages.
 
 You can directly reference this flake and import it into your NixOS configuration, but you may want to copy code snippets instead.
 
 - [modules](modules): NixOS and home-manager configurations
-- [hosts](hosts): NixOS hosts definitions and configurations
+- [hosts](hosts): host-specific configuration
 - [overlays](overlays): new packages and patches
-- [lib](lib): Nix utility functions.
-- [bin](bin): Various scripts
-- [flake-template](flake-template): Template files for various projects.
-- [misc](misc): whatever doesn't fit the above
-- [misc/img](misc/img): A look into the past
+- [lib](lib): utility functions.
+- [bin](bin): various scripts
+- [flake-templates](flake-templates): flake templates
+- [misc](misc): anything else
+- [misc/img](misc/img): a look into the past
 
 
 # 💾 Resources
@@ -55,9 +56,7 @@ You can directly reference this flake and import it into your NixOS configuratio
 # 📦 Exported packages
 
 I package software for myself, which you can use in your flake. The list of packages is in [overlays/pkgs](./overlays/pkgs).
-
-To install a package `foo-bar`, you can either:
-a. Pull the whole overlay into nixpkgs
+To use the packages, an overlay is provided, that you can use over your nixpkgs. For example:
 
 ```nix
 # flake.nix
@@ -86,28 +85,6 @@ a. Pull the whole overlay into nixpkgs
 }
 ```
 
-- Or reference it directly
-
-```nix
-# flake.nix
-{
-  # ...
-  inputs.viperML-dotfiles.url = github:viperML/dotfiles;
-  inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs"; # override my nixpkgs lock
-
-  outputs  = inputs @ { ... }: {
-    nixosConfigurations.<hostname> = nixpkgs.lib.nixosSystem {
-      # ...
-      modules =
-        [
-          {
-            environment.systemPackages = [ inputs.viperML-dotfiles.packages.x86_64-linux.foo-bar ];
-          }
-        ]
-    };
-  }
-}
-```
 
 Packages are built and pushed to a public cachix cache, according to [.github/build-pkgs.sh](build-pkgs.sh). You can use the binary cache with:
 
