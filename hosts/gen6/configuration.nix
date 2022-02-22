@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   lib,
-  modulesPath,
   ...
 }: {
   environment.systemPackages = with pkgs; [

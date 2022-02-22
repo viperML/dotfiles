@@ -6,21 +6,23 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    jetbrains-mono
+    # jetbrains-mono
     (
       pkgs.nerdfonts.override {
         fonts = [
           "JetBrainsMono"
-          "VictorMono"
-          "Inconsolata"
+          "Hack"
         ];
       }
     )
-    roboto
+    # roboto
     corefonts
     noto-fonts
     # noto-fonts-cjk
     noto-fonts-extra
     noto-fonts-emoji
+
+    san-francisco
+    libertinus
   ];
 }

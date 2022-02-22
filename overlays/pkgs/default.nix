@@ -12,6 +12,7 @@ in {
   adwaita-plus = callPackage ./adwaita-plus {};
   tym = callPackage ./tym {};
   adw-gtk3 = callPackage ./adw-gtk3 {};
+  san-francisco = callPackage ./san-francisco {};
 
   libsForQt5 = prev.libsForQt5.overrideScope' (
     qtfinal: qtprev: let

@@ -78,8 +78,8 @@
 
   // Fonts
   "editor.fontSize": 15,
-  "editor.fontFamily": "'VictorMono Nerd Font'",
-  "editor.fontWeight": "600",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+  "editor.fontWeight": "500",
   "editor.fontLigatures": true,
 
   //   __ |> <->  == >=> @
