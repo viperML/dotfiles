@@ -18,7 +18,7 @@
       overlays = self.lib.exportModulesDir ./overlays;
       nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
 
-      pkgs = nixpkgs.lib.genAttrs supportedSystems (
+      legacyPackages = nixpkgs.lib.genAttrs supportedSystems (
         system: let
           my-nixpkgs-master = import inputs.nixpkgs-master { inherit config system; };
         in
@@ -44,9 +44,9 @@
           }
       );
 
-      devShell = nixpkgs.lib.genAttrs supportedSystems (
-        system: import ./misc/devShell.nix { pkgs = self.pkgs.${system}; }
-      );
+      # devShell = nixpkgs.lib.genAttrs supportedSystems (
+      #   system: import ./misc/devShell.nix { pkgs = self.pkgs.${system}; }
+      # );
 
       templates = import ./flake-templates;
       defaultTemplate = self.templates.base-flake;

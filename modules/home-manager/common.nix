@@ -45,5 +45,5 @@ in {
   };
 
   home.file.".config/nix/nix.conf".source = ../../misc/nix.conf;
-  home.file.".config/nixpkgs/config.nix".source = ../../misc/nixpkgs.nix;
+  # home.file.".config/nixpkgs/config.nix".source = ../../misc/nixpkgs.nix;
 }

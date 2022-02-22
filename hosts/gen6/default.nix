@@ -57,8 +57,8 @@ let
     with homeModules;
     [
       common
+      channels-to-flakes
       mainUser-ayats
-      flake-channels
       fonts
       gui
       git
@@ -75,11 +75,11 @@ let
       wezterm
     ]
     ++ de.homeModules;
-in {
+in rec {
   system = "x86_64-linux";
-  pkgs = self.pkgs."x86_64-linux";
+  pkgs = self.legacyPackages.${system};
   specialArgs = {
-    inherit inputs;
+    inherit inputs self;
   };
   modules =
     gen6-nixosModules
