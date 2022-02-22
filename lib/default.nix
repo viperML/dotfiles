@@ -1,4 +1,8 @@
-{lib}: let
+let
+  # From nixpkgs.lib
+  mapAttrsToList = f: attrs:
+    map (name: f name attrs.${name}) (builtins.attrNames attrs);
+
   genAttrs' = func: values: builtins.listToAttrs (map func values);
 
   removeSuffix = suffix: str: let
@@ -16,57 +20,7 @@
     }
   );
 
-  exportModulesDir = dir: (exportModules (lib.mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
-
-  eachSystem = systems: f: let
-    # Taken from <nixpkgs/lib/attrsets.nix>
-    isDerivation = x: builtins.isAttrs x && x ? type && x.type == "derivation";
-
-    # Used to match Hydra's convention of how to define jobs. Basically transforms
-    #
-    #     hydraJobs = {
-    #       hello = <derivation>;
-    #       haskellPackages.aeson = <derivation>;
-    #     }
-    #
-    # to
-    #
-    #     hydraJobs = {
-    #       hello.x86_64-linux = <derivation>;
-    #       haskellPackages.aeson.x86_64-linux = <derivation>;
-    #     }
-    #
-    # if the given flake does `eachSystem [ "x86_64-linux" ] { ... }`.
-    pushDownSystem = system: merged:
-      builtins.mapAttrs
-      (
-        name: value:
-          if !(builtins.isAttrs value)
-          then value
-          else if isDerivation value
-          then (merged.${name} or {}) // {${system} = value;}
-          else pushDownSystem system (merged.${name} or {}) value
-      );
-
-    # Merge together the outputs for all systems.
-    op = attrs: system: let
-      ret = f system;
-      op = attrs: key: let
-        appendSystem = key: system: ret:
-          if key == "hydraJobs"
-          then (pushDownSystem system (attrs.hydraJobs or {}) ret.hydraJobs)
-          else {${system} = ret.${key};};
-      in
-        attrs
-        // {
-          ${key} =
-            (attrs.${key} or {})
-            // (appendSystem key system ret);
-        };
-    in
-      builtins.foldl' op attrs (builtins.attrNames ret);
-  in
-    builtins.foldl' op {} systems;
+  exportModulesDir = dir: (exportModules (mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
 in {
-  inherit removeSuffix exportModules exportModulesDir eachSystem;
+  inherit exportModules exportModulesDir;
 }

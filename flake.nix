@@ -9,7 +9,7 @@
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
   in {
-    lib = import ./lib {inherit (nixpkgs) lib;};
+    lib = import ./lib;
     nixosModules = self.lib.exportModulesDir ./modules/nixos;
     homeModules = self.lib.exportModulesDir ./modules/home-manager;
     overlays = self.lib.exportModulesDir ./overlays;
@@ -17,6 +17,7 @@
     templates = import ./flake-templates;
     defaultTemplate = self.templates.base-flake;
 
+    # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
     legacyPackages = nixpkgs.lib.genAttrs supportedSystems (system:
       import nixpkgs {
         inherit config system;
