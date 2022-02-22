@@ -2,7 +2,6 @@
   "nodes": {
     "alejandra": {
       "inputs": {
-        "fenix": "fenix",
         "flakeCompat": [
           "flake-compat"
         ],
@@ -11,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1645081464,
-        "narHash": "sha256-qocZn7u5mWJZHHGjeg9CXFz0NKLUVnZb+oTgj9Ei/Sw=",
+        "lastModified": 1645487891,
+        "narHash": "sha256-vMfCEX0DqxT4yC4qPJEoAENUj0pHfsXnLaZaBfzYXJo=",
         "owner": "kamadorueda",
         "repo": "alejandra",
-        "rev": "f8e7b233bdc11bfbcac0ab67e0a3c5234e9be66b",
+        "rev": "2cf592a4d651eaca2bf17412249eac35ae0de702",
         "type": "github"
       },
       "original": {
@@ -63,28 +62,6 @@
       "original": {
         "owner": "serokell",
         "repo": "deploy-rs",
-        "type": "github"
-      }
-    },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "alejandra",
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1644992777,
-        "narHash": "sha256-SXUZrKw+UlMlkbcKYHVAhaohW8Ss62oP3EWNO0UhyDA=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "8fa7c3c91809cd9665a2391890469160c5ba01dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
         "type": "github"
       }
     },
@@ -397,23 +374,6 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "vim-extra-plugins": "vim-extra-plugins"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1644917782,
-        "narHash": "sha256-nFaqGKTtzzPY6rXwjYfuJetNAnvZGuFVtfJ4nWKaVes=",
-        "owner": "rust-analyzer",
-        "repo": "rust-analyzer",
-        "rev": "f0210f8a43efefef93dcb9ce0cf34b083fd3d51a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-analyzer",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "vim-extra-plugins": {
