@@ -4,13 +4,11 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   home = {
-    packages =
-      with pkgs; [
-        libsForQt5.konsole
-      ];
+    packages = with pkgs; [
+      libsForQt5.konsole
+    ];
 
     file.".local/share/konsole/Dracula.colorscheme".source =
       ./Dracula.colorscheme;

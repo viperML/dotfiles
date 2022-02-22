@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   my-env = {
     SSH_ASKPASS_REQUIRE = "prefer";
   };

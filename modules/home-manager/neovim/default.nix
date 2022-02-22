@@ -10,42 +10,39 @@
   programs.neovim = {
     enable = true;
 
-    extraConfig =
-      let
-        plugins-lua = pkgs.writeTextFile {
-          name = "plugins-lua";
-          text = "${builtins.readFile ./plugins.lua}";
-        };
-      in ''
-        " Vanilla configs
-        ${builtins.readFile ./vanilla.vim}
+    extraConfig = let
+      plugins-lua = pkgs.writeTextFile {
+        name = "plugins-lua";
+        text = "${builtins.readFile ./plugins.lua}";
+      };
+    in ''
+      " Vanilla configs
+      ${builtins.readFile ./vanilla.vim}
 
-        " Plugins configs
-        ${builtins.readFile ./plugins.vim}
+      " Plugins configs
+      ${builtins.readFile ./plugins.vim}
 
-        " Lua config
-        :luafile ${plugins-lua}
-      '';
+      " Lua config
+      :luafile ${plugins-lua}
+    '';
 
     withNodeJs = true;
 
-    extraPackages =
-      with pkgs; [
-        tree-sitter
-        # nixpkgs-fmt
-        rnix-lsp
-        xsel
-      ];
+    extraPackages = with pkgs; [
+      tree-sitter
+      # nixpkgs-fmt
+      rnix-lsp
+      xsel
+    ];
 
     coc = {
       enable = true;
       settings = "${builtins.readFile ./coc-settings.json}";
     };
 
-    plugins =
-      with pkgs.vimPlugins;
-      with pkgs.vimExtraPlugins;
-      # Some pkgs must be derivated from source
+    plugins = with pkgs.vimPlugins;
+    with pkgs.vimExtraPlugins;
+    # Some pkgs must be derivated from source
       let
         context-vim = pkgs.vimUtils.buildVimPlugin {
           name = "context-vim";

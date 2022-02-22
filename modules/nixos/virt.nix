@@ -2,19 +2,17 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   virtualisation.libvirtd = {
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
   };
   programs.dconf.enable = true;
-  environment.systemPackages =
-    with pkgs; [
-      virt-manager
-      vagrant
-    ];
+  environment.systemPackages = with pkgs; [
+    virt-manager
+    vagrant
+  ];
   users.groups.libvirtd.members = config.users.groups.wheel.members;
 
   home-manager.sharedModules = [

@@ -5,30 +5,28 @@
   lib,
   modulesPath,
   ...
-}:
-{
-  environment.systemPackages =
-    with pkgs; [
-      # HW
-      vulkan-tools
-      libva-utils
+}: {
+  environment.systemPackages = with pkgs; [
+    # HW
+    vulkan-tools
+    libva-utils
 
-      # Base
-      masterpdfeditor4
-      onlyoffice-bin
-      mpv
-      (g-papirus-icon-theme.override { color = "palebrown"; })
-      qbittorrent
-      android-tools
-      tor-browser-bundle-bin
+    # Base
+    masterpdfeditor4
+    onlyoffice-bin
+    mpv
+    (g-papirus-icon-theme.override {color = "palebrown";})
+    qbittorrent
+    android-tools
+    tor-browser-bundle-bin
 
-      # Misc
-      ahoviewer
-      krita-beta
-      obs-studio
-      obsidian
-      # inkscape
-    ];
+    # Misc
+    ahoviewer
+    krita-beta
+    obs-studio
+    obsidian
+    # inkscape
+  ];
 
   boot = {
     initrd = {
@@ -113,43 +111,42 @@
         "autoprune" = true;
       };
     };
-    datasets =
-      let
-        slow-datasets = [
-          "zroot/data/games"
-          "zroot/data/steam"
-        ];
-        normal-datasets = [
-          # "zroot/data/downloads"
-          "zroot/data/documents"
-          "zroot/data/music"
-          "zroot/data/pictures"
-          "zroot/data/videos"
-          "zroot/secrets"
-        ];
-      in
-        (
-          builtins.listToAttrs (
-            builtins.map (
-              dataset: {
-                name = dataset;
-                value.use_template = ["slow"];
-              }
-            )
-            slow-datasets
+    datasets = let
+      slow-datasets = [
+        "zroot/data/games"
+        "zroot/data/steam"
+      ];
+      normal-datasets = [
+        # "zroot/data/downloads"
+        "zroot/data/documents"
+        "zroot/data/music"
+        "zroot/data/pictures"
+        "zroot/data/videos"
+        "zroot/secrets"
+      ];
+    in
+      (
+        builtins.listToAttrs (
+          builtins.map (
+            dataset: {
+              name = dataset;
+              value.use_template = ["slow"];
+            }
           )
+          slow-datasets
         )
-        // (
-          builtins.listToAttrs (
-            builtins.map (
-              dataset: {
-                name = dataset;
-                value.use_template = ["normal"];
-              }
-            )
-            normal-datasets
+      )
+      // (
+        builtins.listToAttrs (
+          builtins.map (
+            dataset: {
+              name = dataset;
+              value.use_template = ["normal"];
+            }
           )
-        );
+          normal-datasets
+        )
+      );
   };
 
   services.zfs = {
@@ -236,7 +233,7 @@
     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
   ];
 
-  swapDevices = [{ device = "/dev/disk/by-label/LINUXSWAP"; }];
+  swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
 
   powerManagement.cpuFreqGovernor = "powersave";
 
@@ -250,12 +247,11 @@
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
-    opengl.extraPackages =
-      with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        libva
-      ];
+    opengl.extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      libva
+    ];
   };
 
   programs = {

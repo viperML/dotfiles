@@ -27,7 +27,7 @@ let
       ."${lib.toLower v.name}"
   ) (builtins.filter in_nixpkgs extension-list);
 in
-exts-built ++ exts-in-nixpkgs
+  exts-built ++ exts-in-nixpkgs
 # Bots
 # updateScript
 

@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   my-extensions = with pkgs.gnomeExtensions; [
     appindicator
     blur-my-shell
@@ -26,25 +25,23 @@ in {
     displayManager.autoLogin.enable = true;
   };
 
-  environment.gnome.excludePackages =
-    with pkgs; [
-      gnome.cheese
-      gnome-photos
-      # gnome.gnome-music
-      gnome.gnome-terminal
-      gnome.gedit
-      epiphany
-      # evince
-      gnome.gnome-characters
-      gnome.totem
-      gnome-tour
-      gnome.geary
-      gnome.gnome-screenshot
-      gnome.eog
-    ];
+  environment.gnome.excludePackages = with pkgs; [
+    gnome.cheese
+    gnome-photos
+    # gnome.gnome-music
+    gnome.gnome-terminal
+    gnome.gedit
+    epiphany
+    # evince
+    gnome.gnome-characters
+    gnome.totem
+    gnome-tour
+    gnome.geary
+    gnome.gnome-screenshot
+    gnome.eog
+  ];
 
-  environment.systemPackages =
-    with pkgs;
+  environment.systemPackages = with pkgs;
     [
       gnome.gnome-tweaks
       gnome.gnome-shell-extensions

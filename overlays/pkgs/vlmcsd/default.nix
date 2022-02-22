@@ -19,10 +19,9 @@ stdenv.mkDerivation {
     install -Dm755 ./bin/vlmcs $out/bin/vlmcs
   '';
 
-  meta =
-    with lib; {
-      description = "KMS Emulator written in C";
-      homepage = "https://github.com/Wind4/vlmcsd";
-      platforms = platforms.all;
-    };
+  meta = with lib; {
+    description = "KMS Emulator written in C";
+    homepage = "https://github.com/Wind4/vlmcsd";
+    platforms = platforms.all;
+  };
 }

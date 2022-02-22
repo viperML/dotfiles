@@ -29,10 +29,9 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [cmake extra-cmake-modules wrapQtAppsHook];
   buildInputs = [kwin kdelibs4support libepoxy libXdmcp];
 
-  meta =
-    with lib; {
-      description = "Round corners and outline effect for KWin";
-      homepage = "https://github.com/a-parhom/LightlyShaders";
-      platforms = platforms.linux;
-    };
+  meta = with lib; {
+    description = "Round corners and outline effect for KWin";
+    homepage = "https://github.com/a-parhom/LightlyShaders";
+    platforms = platforms.linux;
+  };
 }

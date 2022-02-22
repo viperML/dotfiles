@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   my-python = pkgs.python3;
-  xontrib-kitty =
-    with my-python.pkgs;
+  xontrib-kitty = with my-python.pkgs;
     buildPythonPackage rec {
       pname = "xontrib-kitty";
       version = "0.0.2";
@@ -17,8 +15,7 @@ let
       };
       doCheck = false;
     };
-  xontrib-onepath =
-    with my-python.pkgs;
+  xontrib-onepath = with my-python.pkgs;
     buildPythonPackage rec {
       pname = "xontrib-onepath";
       version = "0.3.2";
@@ -27,8 +24,7 @@ let
         sha256 = "sha256-xYLns/RW4L731fxJWXFBGuZL9d0szMdhXSRDhEehIiQ=";
       };
     };
-  xonsh-direnv =
-    with my-python.pkgs;
+  xonsh-direnv = with my-python.pkgs;
     buildPythonPackage rec {
       pname = "xonsh-direnv";
       version = "1.5.0";
@@ -37,8 +33,7 @@ let
         sha256 = "sha256-OLjtGD2lX4Yf3aHrxCWmAbSPZnf8OuVrBu0VFbsna1Y=";
       };
     };
-  xontrib-prompt-starship =
-    with my-python.pkgs;
+  xontrib-prompt-starship = with my-python.pkgs;
     buildPythonPackage rec {
       pname = "xontrib-prompt-starship";
       version = "0.2.0";

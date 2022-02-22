@@ -3,15 +3,13 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
 
-  home.packages =
-    with pkgs; [
-      fzf
-      exa
-    ];
+  home.packages = with pkgs; [
+    fzf
+    exa
+  ];
 
   programs.fish = {
     enable = true;

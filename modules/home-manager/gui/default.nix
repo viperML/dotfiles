@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   xdg = {
     enable = true;
     mime.enable = true;
@@ -13,13 +12,12 @@
     };
   };
 
-  home.packages =
-    with pkgs; [
-      # Autostart
-      flameshot
-      mailspring
+  home.packages = with pkgs; [
+    # Autostart
+    flameshot
+    mailspring
 
-      # Misc
-      tym
-    ];
+    # Misc
+    tym
+  ];
 }

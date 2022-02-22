@@ -25,19 +25,18 @@ stdenv.mkDerivation rec {
     ./no-blur.patch
   ];
 
-  buildInputs =
-    [
-      libsForQt5.kconfigwidgets
-      libsForQt5.kcoreaddons
-      libsForQt5.kdecoration
-      libsForQt5.kguiaddons
-      libsForQt5.kiconthemes
-      libsForQt5.kwindowsystem
-      plasma-desktop
-      qt5.qtdeclarative
-      qt5.qtx11extras
-      qtbase
-    ];
+  buildInputs = [
+    libsForQt5.kconfigwidgets
+    libsForQt5.kcoreaddons
+    libsForQt5.kdecoration
+    libsForQt5.kguiaddons
+    libsForQt5.kiconthemes
+    libsForQt5.kwindowsystem
+    plasma-desktop
+    qt5.qtdeclarative
+    qt5.qtx11extras
+    qtbase
+  ];
 
   nativeBuildInputs = [
     wrapQtAppsHook
@@ -52,11 +51,10 @@ stdenv.mkDerivation rec {
     "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON"
   ];
 
-  meta =
-    with lib; {
-      description = "Fork of breeze theme style that aims to be visually modern and minimalistic";
-      homepage = "https://github.com/Luwx/Lightly";
-      license = licenses.gpl2;
-      platforms = platforms.linux;
-    };
+  meta = with lib; {
+    description = "Fork of breeze theme style that aims to be visually modern and minimalistic";
+    homepage = "https://github.com/Luwx/Lightly";
+    license = licenses.gpl2;
+    platforms = platforms.linux;
+  };
 }

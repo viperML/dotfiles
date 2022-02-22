@@ -32,11 +32,10 @@ stdenv.mkDerivation rec {
 
   dontInstall = true;
 
-  meta =
-    with lib; {
-      description = "Unified hosts file with base extensions";
-      homepage = "https://github.com/StevenBlack/hosts";
-      license = licenses.mit;
-      platforms = platforms.all;
-    };
+  meta = with lib; {
+    description = "Unified hosts file with base extensions";
+    homepage = "https://github.com/StevenBlack/hosts";
+    license = licenses.mit;
+    platforms = platforms.all;
+  };
 }

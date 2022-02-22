@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   home.packages = with pkgs; [
     wofi
     plasma5Packages.dolphin

@@ -38,11 +38,10 @@ stdenv.mkDerivation rec {
 
   passthru.updateScript = ./updater.sh;
 
-  meta =
-    with lib; {
-      description = "netboot.xyz bootloader images, uefi and legacy";
-      homepage = "https://netboot.xyz";
-      license = licenses.asl20;
-      platforms = platforms.linux;
-    };
+  meta = with lib; {
+    description = "netboot.xyz bootloader images, uefi and legacy";
+    homepage = "https://netboot.xyz";
+    license = licenses.asl20;
+    platforms = platforms.linux;
+  };
 }

@@ -4,8 +4,7 @@
   inputs,
   lib,
   ...
-}:
-{
+}: {
   home.packages = [
     pkgs.plasma-applet-splitdigitalclock
     pkgs.caffeine-ng
@@ -17,16 +16,15 @@
       Unit.After = ["plasma-plasmashell.service"];
       Service.Type = "oneshot";
       Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 3";
-      Service.ExecStart =
-        let
-          apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
-            if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme KritaBright
-            else
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
-            fi
-          '';
-        in "${apply-colorscheme-script}";
+      Service.ExecStart = let
+        apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
+          if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
+            ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme KritaBright
+          else
+            ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
+          fi
+        '';
+      in "${apply-colorscheme-script}";
       Install.WantedBy = ["xdg-desktop-autostart.target"];
     };
     timers = {

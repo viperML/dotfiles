@@ -95,15 +95,14 @@ buildDotnetModule rec {
     )
   ];
 
-  meta =
-    with lib; {
-      description = "Experimental Nintendo Switch Emulator written in C#";
-      homepage = "https://ryujinx.org/";
-      license = licenses.mit;
-      changelog = "https://github.com/Ryujinx/Ryujinx/wiki/Changelog";
-      maintainers = [maintainers.ivar];
-      platforms = ["x86_64-linux"];
-      mainProgram = "Ryujinx";
-    };
+  meta = with lib; {
+    description = "Experimental Nintendo Switch Emulator written in C#";
+    homepage = "https://ryujinx.org/";
+    license = licenses.mit;
+    changelog = "https://github.com/Ryujinx/Ryujinx/wiki/Changelog";
+    maintainers = [maintainers.ivar];
+    platforms = ["x86_64-linux"];
+    mainProgram = "Ryujinx";
+  };
   passthru.updateScript = ./updater.sh;
 }

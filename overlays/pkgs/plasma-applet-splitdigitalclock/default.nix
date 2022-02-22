@@ -19,11 +19,10 @@ stdenv.mkDerivation rec {
     cp -r * $out/share/plasma/plasmoids/org.kde.plasma.splitdigitalclock
   '';
 
-  meta =
-    with lib; {
-      description = "Split Digital Clock";
-      homepage = "https://store.kde.org/p/1324315";
-      license = licenses.gpl3;
-      platforms = platforms.linux;
-    };
+  meta = with lib; {
+    description = "Split Digital Clock";
+    homepage = "https://store.kde.org/p/1324315";
+    license = licenses.gpl3;
+    platforms = platforms.linux;
+  };
 }

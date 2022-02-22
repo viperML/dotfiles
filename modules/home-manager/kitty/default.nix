@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   kitty-themes = pkgs.fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty-themes";
@@ -36,17 +35,16 @@ in {
       Unit.Description = "Apply colorscheme to kitty";
       Unit.After = ["plasma-plasmashell.service"];
       Service.Type = "oneshot";
-      Service.ExecStart =
-        let
-          apply-kitty-script = pkgs.writeShellScript "apply-kitty-script" ''
-            set -eux
-            if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              ln -sf ${config.xdg.configHome}/kitty/theme-light.conf ${config.xdg.configHome}/kitty/theme.conf
-            else
-              ln -sf ${config.xdg.configHome}/kitty/theme-dark.conf ${config.xdg.configHome}/kitty/theme.conf
-            fi
-          '';
-        in "${apply-kitty-script}";
+      Service.ExecStart = let
+        apply-kitty-script = pkgs.writeShellScript "apply-kitty-script" ''
+          set -eux
+          if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
+            ln -sf ${config.xdg.configHome}/kitty/theme-light.conf ${config.xdg.configHome}/kitty/theme.conf
+          else
+            ln -sf ${config.xdg.configHome}/kitty/theme-dark.conf ${config.xdg.configHome}/kitty/theme.conf
+          fi
+        '';
+      in "${apply-kitty-script}";
     };
     timers = {
       apply-kitty = {

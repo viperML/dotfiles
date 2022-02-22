@@ -1,55 +1,52 @@
 {
   description = "My awesome dotfiles";
 
-  outputs =
-    inputs @
-    {
-      self,
-      nixpkgs,
-      ...
-    }:
-    let
-      supportedSystems = ["x86_64-linux"];
-      config = import ./misc/nixpkgs.nix;
-      lib = import ./lib { inherit (nixpkgs) lib; };
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: let
+    supportedSystems = ["x86_64-linux"];
+    config = import ./misc/nixpkgs.nix;
+    lib = import ./lib {inherit (nixpkgs) lib;};
 
-      sysOutputs = lib.eachSystem supportedSystems (
-        system: rec {
-          legacyPackages = import nixpkgs {
-            inherit config system;
-            overlays =
-              [
-                inputs.nur.overlay
-                # inputs.nixpkgs-wayland.overlay
-                inputs.vim-extra-plugins.overlay
-                # inputs.emacs-overlay.overlay
-                inputs.powercord-overlay.overlay
-                (
-                  final: prev: {
-                    inherit
-                      (import inputs.nixpkgs-master { inherit system config; })
-                      vscode
-                      ;
-                  }
-                )
-              ]
-              ++ (nixpkgs.lib.attrValues self.overlays);
-          };
+    sysOutputs = lib.eachSystem supportedSystems (
+      system: rec {
+        legacyPackages = import nixpkgs {
+          inherit config system;
+          overlays =
+            [
+              inputs.nur.overlay
+              # inputs.nixpkgs-wayland.overlay
+              inputs.vim-extra-plugins.overlay
+              # inputs.emacs-overlay.overlay
+              inputs.powercord-overlay.overlay
+              (
+                final: prev: {
+                  inherit
+                    (import inputs.nixpkgs-master {inherit system config;})
+                    vscode
+                    ;
+                }
+              )
+            ]
+            ++ (nixpkgs.lib.attrValues self.overlays);
+        };
 
-          devShell = legacyPackages.callPackage ./misc/devShell.nix {};
-        }
-      );
-    in
-      {
-        inherit lib;
-        nixosModules = self.lib.exportModulesDir ./modules/nixos;
-        homeModules = self.lib.exportModulesDir ./modules/home-manager;
-        overlays = self.lib.exportModulesDir ./overlays;
-        nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
-        templates = import ./flake-templates;
-        defaultTemplate = self.templates.base-flake;
+        devShell = legacyPackages.callPackage ./misc/devShell.nix {};
       }
-      // sysOutputs;
+    );
+  in
+    {
+      inherit lib;
+      nixosModules = self.lib.exportModulesDir ./modules/nixos;
+      homeModules = self.lib.exportModulesDir ./modules/home-manager;
+      overlays = self.lib.exportModulesDir ./overlays;
+      nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 {inherit self inputs;});
+      templates = import ./flake-templates;
+      defaultTemplate = self.templates.base-flake;
+    }
+    // sysOutputs;
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

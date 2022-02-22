@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   users.users.mainUser = {
     name = "admin";
     initialPassword = "1234";
@@ -19,5 +18,5 @@
   nix.trustedUsers = ["@wheel"];
   # https://github.com/serokell/deploy-rs/issues/25
 
-  services.openssh = { enable = true; };
+  services.openssh = {enable = true;};
 }

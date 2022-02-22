@@ -5,8 +5,7 @@
   self,
   lib,
   ...
-}:
-let
+}: let
   # relative path to /etc to place our inputs such as /etc/${inputsPath}/nixpkgs
   inputsPath = "nix/inputs";
   selfRegistry = {

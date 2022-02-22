@@ -4,8 +4,7 @@
   inputs,
   lib,
   ...
-}:
-{
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-beta-bin;

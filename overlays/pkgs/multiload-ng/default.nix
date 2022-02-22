@@ -20,19 +20,17 @@ stdenv.mkDerivation {
     sha256 = "1v64775qjk41wf0ilp6mbabb73li0awrzwy7xmry8ddlf8sxpj00";
   };
 
-  buildInputs =
-    [
-      gtk3
-      cairo
-      intltool
-      gettext
-    ];
+  buildInputs = [
+    gtk3
+    cairo
+    intltool
+    gettext
+  ];
 
-  nativeBuildInputs =
-    [
-      autoreconfHook
-      pkgconfig
-    ];
+  nativeBuildInputs = [
+    autoreconfHook
+    pkgconfig
+  ];
 
   preBuild = ''
     chmod +x data/generate-about-data.sh
@@ -47,11 +45,10 @@ stdenv.mkDerivation {
     "--disable-autostart"
   ];
 
-  meta =
-    with lib; {
-      description = "Modern graphical system monitor for any panel (only systray and standalone builds)";
-      homepage = "https://github.com/udda/multiload-ng";
-      license = licenses.gpl2;
-      platforms = platforms.linux;
-    };
+  meta = with lib; {
+    description = "Modern graphical system monitor for any panel (only systray and standalone builds)";
+    homepage = "https://github.com/udda/multiload-ng";
+    license = licenses.gpl2;
+    platforms = platforms.linux;
+  };
 }

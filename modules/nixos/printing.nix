@@ -3,19 +3,17 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   services = {
     printing = {
       enable = true;
-      drivers =
-        with pkgs; [
-          gutenprint
-          # generic
-          gutenprintBin
-          brlaser
-          # brother
-        ];
+      drivers = with pkgs; [
+        gutenprint
+        # generic
+        gutenprintBin
+        brlaser
+        # brother
+      ];
       webInterface = false;
     };
     avahi.enable = true;

@@ -4,25 +4,23 @@
   inputs,
   lib,
   ...
-}:
-{
+}: {
   systemd.user = {
     services.apply-colorscheme = {
       Unit.Description = "Apply colorscheme to Gnome";
       Unit.After = ["org.gnome.SettingsDaemon.Datetime.service"];
       Service.Type = "oneshot";
       Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 3";
-      Service.ExecStart =
-        let
-          apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
-            export PATH="${pkgs.coreutils-full}/bin:${pkgs.glib}/bin"
-            if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
-            else
-              gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
-            fi
-          '';
-        in "${apply-colorscheme-script}";
+      Service.ExecStart = let
+        apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
+          export PATH="${pkgs.coreutils-full}/bin:${pkgs.glib}/bin"
+          if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
+            gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+          else
+            gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+          fi
+        '';
+      in "${apply-colorscheme-script}";
       Install.WantedBy = ["graphical-session.target"];
     };
     timers = {

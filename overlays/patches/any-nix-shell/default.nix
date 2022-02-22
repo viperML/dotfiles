@@ -1,4 +1,4 @@
-{ any-nix-shell }:
+{any-nix-shell}:
 any-nix-shell.overrideAttrs (
   prev: {
     patches = [

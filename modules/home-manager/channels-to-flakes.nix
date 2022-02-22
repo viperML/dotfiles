@@ -5,8 +5,7 @@
   inputs,
   self,
   ...
-}:
-{
+}: {
   home.file.".nix-inputs/nixpkgs".source = self.outPath;
   home.sessionVariables.NIX_PATH = "nixpkgs=${config.home.homeDirectory}/.nix-inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";
   home.activation.useFlakeChannels = lib.hm.dag.entryAfter ["writeBoundary"] ''

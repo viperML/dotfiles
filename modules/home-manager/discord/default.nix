@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   # # BetterDiscord plugin definitions
   # imageEmojis = pkgs.fetchurl {
   #   url = "https://github.com/MateusAquino/ImageEmojis/releases/download/v0.2.3/ImageEmojis.plugin.js";

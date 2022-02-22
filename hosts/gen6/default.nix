@@ -1,8 +1,7 @@
 {
   self,
   inputs,
-}:
-let
+}: let
   inherit (self) homeModules nixosModules;
   de.desktop = "gnome";
   de.nixosModules =
@@ -30,8 +29,7 @@ let
       ]
     else throw "No DE chosen";
 
-  gen6-nixosModules =
-    with nixosModules;
+  gen6-nixosModules = with nixosModules;
     [
       common
       channels-to-flakes
@@ -53,8 +51,7 @@ let
     ]
     ++ de.nixosModules;
 
-  gen6-homeModules =
-    with homeModules;
+  gen6-homeModules = with homeModules;
     [
       common
       channels-to-flakes

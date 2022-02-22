@@ -29,11 +29,10 @@ stdenv.mkDerivation rec {
     cp $src/entities.json $out
   '';
 
-  meta =
-    with lib; {
-      description = "Tracking protection lists and services";
-      homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
-      license = licenses.cc-by-nc-sa-40;
-      platforms = platforms.all;
-    };
+  meta = with lib; {
+    description = "Tracking protection lists and services";
+    homepage = "https://github.com/disconnectme/disconnect-tracking-protection";
+    license = licenses.cc-by-nc-sa-40;
+    platforms = platforms.all;
+  };
 }

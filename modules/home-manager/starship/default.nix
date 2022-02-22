@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   xdg.configFile."starship.toml".text = ''
     ${builtins.readFile ./starship.toml}
 

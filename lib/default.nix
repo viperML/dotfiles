@@ -1,5 +1,4 @@
-{ lib }:
-let
+{lib}: let
   genAttrs' = func: values: builtins.listToAttrs (map func values);
 
   removeSuffix = suffix: str: let
@@ -45,7 +44,7 @@ let
           if !(builtins.isAttrs value)
           then value
           else if isDerivation value
-          then (merged.${name} or {}) // { ${system} = value; }
+          then (merged.${name} or {}) // {${system} = value;}
           else pushDownSystem system (merged.${name} or {}) value
       );
 
@@ -56,7 +55,7 @@ let
         appendSystem = key: system: ret:
           if key == "hydraJobs"
           then (pushDownSystem system (attrs.hydraJobs or {}) ret.hydraJobs)
-          else { ${system} = ret.${key}; };
+          else {${system} = ret.${key};};
       in
         attrs
         // {

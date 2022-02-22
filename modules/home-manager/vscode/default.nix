@@ -3,22 +3,20 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = import ./extensions { inherit pkgs; };
+    extensions = import ./extensions {inherit pkgs;};
     keybindings = [];
     userSettings = {};
   };
 
-  home.packages =
-    with pkgs; [
-      # nixpkgs-fmt
-      rnix-lsp
-      # sumneko-lua-language-server
-    ];
+  home.packages = with pkgs; [
+    # nixpkgs-fmt
+    rnix-lsp
+    # sumneko-lua-language-server
+  ];
 
   home.activation.vscode =
     if (lib.hasAttr "FLAKE" config.home.sessionVariables)
