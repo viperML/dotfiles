@@ -49,8 +49,8 @@ abbr --add --global sf sudo --preserve-env=PATH (which fish)
 abbr --add --global eq equery
 
 # Nix abbreviations
-abbr --add --global ns nix shell self#pkgs.x86_64-linux.nixpkgs.
-abbr --add --global nr nix run self#pkgs.x86_64-linux.nixpkgs.
+abbr --add --global ns nix shell pkgs#
+abbr --add --global nr nix run pkgs#
 abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE" -L
 abbr --add --global nb "sudo nixos-rebuild boot --flake \$FLAKE" -L
 abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/updater.sh"
