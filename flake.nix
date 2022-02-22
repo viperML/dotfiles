@@ -11,18 +11,11 @@
     let
       supportedSystems = ["x86_64-linux"];
       config = import ./misc/nixpkgs.nix;
-    in {
       lib = import ./lib { inherit (nixpkgs) lib; };
-      nixosModules = self.lib.exportModulesDir ./modules/nixos;
-      homeModules = self.lib.exportModulesDir ./modules/home-manager;
-      overlays = self.lib.exportModulesDir ./overlays;
-      nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
 
-      legacyPackages = nixpkgs.lib.genAttrs supportedSystems (
-        system: let
-          my-nixpkgs-master = import inputs.nixpkgs-master { inherit config system; };
-        in
-          import nixpkgs {
+      sysOutputs = lib.eachSystem supportedSystems (
+        system: rec {
+          legacyPackages = import nixpkgs {
             inherit config system;
             overlays =
               [
@@ -34,23 +27,29 @@
                 (
                   final: prev: {
                     inherit
-                      (my-nixpkgs-master)
+                      (import inputs.nixpkgs-master { inherit system config; })
                       vscode
                       ;
                   }
                 )
               ]
               ++ (nixpkgs.lib.attrValues self.overlays);
-          }
+          };
+
+          devShell = legacyPackages.callPackage ./misc/devShell.nix {};
+        }
       );
-
-      # devShell = nixpkgs.lib.genAttrs supportedSystems (
-      #   system: import ./misc/devShell.nix { pkgs = self.pkgs.${system}; }
-      # );
-
-      templates = import ./flake-templates;
-      defaultTemplate = self.templates.base-flake;
-    };
+    in
+      {
+        inherit lib;
+        nixosModules = self.lib.exportModulesDir ./modules/nixos;
+        homeModules = self.lib.exportModulesDir ./modules/home-manager;
+        overlays = self.lib.exportModulesDir ./overlays;
+        nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 { inherit self inputs; });
+        templates = import ./flake-templates;
+        defaultTemplate = self.templates.base-flake;
+      }
+      // sysOutputs;
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

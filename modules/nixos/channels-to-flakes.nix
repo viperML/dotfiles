@@ -51,4 +51,5 @@ in {
   };
 
   environment.etc."nix/inputs/nixpkgs".source = self.outPath;
+  environment.variables.NIXPKGS_CONFIG = lib.mkForce "";
 }
