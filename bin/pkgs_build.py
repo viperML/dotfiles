@@ -1,6 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p python3
-
+#!/usr/bin/env python3
 import argparse
 from pathlib import Path
 import subprocess

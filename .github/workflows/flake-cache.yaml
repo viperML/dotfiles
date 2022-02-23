@@ -37,4 +37,4 @@ jobs:
     - name: Cache devShell
       run: nix build .#devShell.x86_64-linux.inputDerivation
     - name: Cache pkgs
-      run: ./bin/pkgs_build.py ./overlays/pkgs/default.nix
+      run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py ./overlays/pkgs/default.nix
