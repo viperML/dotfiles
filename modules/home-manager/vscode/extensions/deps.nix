@@ -20,8 +20,8 @@
   {
     name = "github-markdown-preview";
     publisher = "bierner";
-    version = "0.1.0";
-    sha256 = "0ksayk1m46djgwi5rc4mif0rn0w43a5djrc2yahyg59d992hsywc";
+    version = "0.2.0";
+    sha256 = "1dvqvpwhlyixv93fkcxlw8xdh7ycdg6r86zqd37x9qid86jbafx2";
   }
   {
     name = "markdown-checkbox";
@@ -92,8 +92,8 @@
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "9.2.0";
-    sha256 = "1ci17xm6mpxsbdazh0qgqk8c7h2v8ajy45d2mcslcc8gcgbkgqj4";
+    version = "9.3.0";
+    sha256 = "1w6whr6h5v7i16f3j1kahs02mk7w2jplr5rrnsjwyszvcy6hz644";
   }
   {
     name = "nightswitch-lite";
@@ -104,8 +104,8 @@
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.5003";
-    sha256 = "031zci42q6f5baimxf1ma0jzr8fbnzqjjj18qkz1z31yb7vgwrnv";
+    version = "1.7.5118";
+    sha256 = "1w8hisl0mp30y664y44nl942slbzch21gv3r10lbwvf9dyi8x5pr";
   }
   {
     name = "terraform";
@@ -140,8 +140,8 @@
   {
     name = "nix-ide";
     publisher = "jnoortheen";
-    version = "0.1.19";
-    sha256 = "1ms96ij6z4bysdhqgdaxx2znvczyhzx57iifbqws50m1c3m7pkx7";
+    version = "0.1.20";
+    sha256 = "16mmivdssjky11gmih7zp99d41m09r0ii43n17d4i6xwivagi9a3";
   }
   {
     name = "vscode-insertdatestring";
@@ -182,14 +182,14 @@
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.2.1";
-    sha256 = "0hp4i69qm3bli235ik9qijif8g2d7k1dpqshm17afhs8sr2dph60";
+    version = "2022.2.3";
+    sha256 = "01csiyr4wc0z4ppfnn0k5higzamg5rmkfxhk5ip4id966ipbfbdl";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.2.1001828435";
-    sha256 = "06211hv6h8lh70ka6xw15hd0v4igndm9564fz65bmj9mhz7kb07y";
+    version = "2022.2.1010551006";
+    sha256 = "0m2cd9j4bhxasq7qf1169w75lgmrxccgwnlkb9szbhyyypgb8a30";
   }
   {
     name = "jupyter-keymap";
@@ -206,14 +206,14 @@
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.73.2022021015";
-    sha256 = "18gwf9r9fsqxrgdjh70ii3b0fw9i1yvq9g978ww69mr25yai2p7j";
+    version = "0.75.2022022115";
+    sha256 = "1jifyklm5qikb2y099gr3flg5lmxdw6hb77gsm6mv7mmqzfal7n5";
   }
   {
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
-    version = "0.73.2022021015";
-    sha256 = "1vv9xhm3hksjx9bbx92ggn3qf3mbbaiszpzd3im2hvjca431539w";
+    version = "0.75.2022022115";
+    sha256 = "1aik03q5g79888d47hikbm0xhjaa40bxrqsyfvj1c2qf0pdbagzj";
   }
   {
     name = "vsliveshare";
@@ -230,8 +230,8 @@
   {
     name = "autodocstring";
     publisher = "njpwerner";
-    version = "0.6.0";
-    sha256 = "0cybhad7a97n95ba25r2hm7py1jsszn9ynijpnv90hfw32lvxyv2";
+    version = "0.6.1";
+    sha256 = "11vsvr3pggr6xn7hnljins286x6f5am48lx4x8knyg8r7dp1r39l";
   }
   {
     name = "material-icon-theme";
@@ -254,8 +254,8 @@
   {
     name = "vscode-xml";
     publisher = "redhat";
-    version = "0.18.3";
-    sha256 = "172szp70csia9n0xvj6pd3qln71brphj4cgh8cy2as5cmkydv5bc";
+    version = "0.19.1";
+    sha256 = "0k4lym09wbyz25q76db5awgdamx3ycpmjv5njvbi9b7damj0w99z";
   }
   {
     name = "vscode-direnv";
@@ -266,14 +266,14 @@
   {
     name = "rewrap";
     publisher = "stkb";
-    version = "17.6.0";
-    sha256 = "1y3hg4q05fjkxjp2yw5zdcv492q0j56yh2x8f8sfjvhd3i50rqmx";
+    version = "17.8.0";
+    sha256 = "1y168ar01zxdd2x73ddsckbzqq0iinax2zv3d95nhwp9asjnbpgn";
   }
   {
     name = "code-spell-checker";
     publisher = "streetsidesoftware";
-    version = "2.1.6";
-    sha256 = "15ycxgah3pqar2ngbpz2sq9a0fz7hzabyslzc37dm3s40mxzsnwk";
+    version = "2.1.7";
+    sha256 = "11lfc87h76bk2z8n9jrrnl4mfl4ajih1cnp1y53m4ay1h06dhj0b";
   }
   {
     name = "code-spell-checker-spanish";
@@ -284,14 +284,14 @@
   {
     name = "lua";
     publisher = "sumneko";
-    version = "2.6.4";
-    sha256 = "1qwnyw9v0kq7mvy5hb1b5bp294n161ldnynz4nr38kmgrvx90413";
+    version = "2.6.6";
+    sha256 = "0hb4qy67hwxzhfnk69iqmnyzp3695l166zwf0f622j3zarfzk605";
   }
   {
     name = "vim";
     publisher = "vscodevim";
-    version = "1.22.1";
-    sha256 = "0hp2qw9qpp70pqblpybgpngisz98q6jk8zsabxlxy25j3hgzbhc3";
+    version = "1.22.2";
+    sha256 = "1d85dwlnfgn7d32ivza0bv1zf9bh36fx7gbi586dligkw202blkn";
   }
   {
     name = "viml";
