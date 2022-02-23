@@ -12,12 +12,14 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # Autostart
-    flameshot
-    mailspring
-
-    # Misc
-    tym
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      # Autostart
+      flameshot
+      mailspring
+      # Misc
+      syncthing
+      ;
+  };
 }

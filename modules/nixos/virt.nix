@@ -9,9 +9,9 @@
     onShutdown = "shutdown";
   };
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [
-    virt-manager
-    vagrant
+  environment.systemPackages = [
+    pkgs.virt-manager
+    pkgs.vagrant
   ];
   users.groups.libvirtd.members = config.users.groups.wheel.members;
 

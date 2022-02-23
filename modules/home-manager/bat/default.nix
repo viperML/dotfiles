@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    bat
+  home.packages = [
+    pkgs.bat
   ];
 
   home.file.".config/bat/config".source = ./config.sh;

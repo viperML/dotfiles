@@ -31,7 +31,7 @@
 
     ananicy.enable = true;
     thermald.enable = true;
-    udev.packages = with pkgs; [android-udev-rules];
+    udev.packages = [pkgs.android-udev-rules];
     flatpak.enable = true;
   };
 
@@ -43,21 +43,24 @@
   # replaced by pipewire
   hardware.pulseaudio.enable = false;
 
-  environment.systemPackages = with pkgs; [
-    # Base cli
-    file
-    xsel
-    nmap
-    pciutils
-    wget
-    lsof
-    pwgen
-    usbutils
-    lshw
-    appimage-run
-    hwloc
-    libarchive
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      # Base cli
+      file
+      xsel
+      nmap
+      pciutils
+      wget
+      lsof
+      pwgen
+      usbutils
+      lshw
+      appimage-run
+      hwloc
+      libarchive
+      ;
+  };
 
   nix = {
     gc = {

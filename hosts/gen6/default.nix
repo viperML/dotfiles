@@ -66,10 +66,10 @@
       neofetch
       neovim
       vscode
-      syncthing
       firefox
       starship
       wezterm
+      zsh
     ]
     ++ de.homeModules;
 in rec {

@@ -6,8 +6,8 @@
   ...
 }: {
   home = {
-    packages = with pkgs; [
-      libsForQt5.konsole
+    packages = [
+      pkgs.libsForQt5.konsole
     ];
 
     file.".local/share/konsole/Dracula.colorscheme".source =

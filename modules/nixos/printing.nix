@@ -7,13 +7,16 @@
   services = {
     printing = {
       enable = true;
-      drivers = with pkgs; [
-        gutenprint
-        # generic
-        gutenprintBin
-        brlaser
-        # brother
-      ];
+      drivers = builtins.attrValues {
+        inherit
+          (pkgs)
+          gutenprint
+          # generic
+          gutenprintBin
+          brlaser
+          # brother
+          ;
+      };
       webInterface = false;
     };
     avahi.enable = true;

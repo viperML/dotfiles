@@ -4,16 +4,20 @@
   lib,
   ...
 }: let
-  my-extensions = with pkgs.gnomeExtensions; [
-    appindicator
-    blur-my-shell
-    pop-shell
-    # night-theme-switcher
-    dash-to-panel
-    sound-output-device-chooser
-    system-monitor
-    logo-menu
-  ];
+  my-extensions = builtins.attrValues {
+    inherit
+      (pkgs.gnomeExtensions)
+      appindicator
+      blur-my-shell
+      pop-shell
+      # night-theme-switcher
+      dash-to-panel
+      sound-output-device-chooser
+      system-monitor
+      logo-menu
+      syncthing-indicator
+      ;
+  };
 in {
   services.xserver = {
     desktopManager.gnome.enable = true;
@@ -25,34 +29,44 @@ in {
     displayManager.autoLogin.enable = true;
   };
 
-  environment.gnome.excludePackages = with pkgs; [
-    gnome.cheese
-    gnome-photos
-    # gnome.gnome-music
-    gnome.gnome-terminal
-    gnome.gedit
-    epiphany
-    # evince
-    gnome.gnome-characters
-    gnome.totem
-    gnome-tour
-    gnome.geary
-    gnome.gnome-screenshot
-    gnome.eog
-  ];
+  environment.gnome.excludePackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      epiphany
+      gnome-photos
+      # evince
+      gnome-tour
+      ;
+    inherit
+      (pkgs.gnome)
+      gnome-characters
+      cheese
+      gnome-terminal
+      gedit
+      totem
+      geary
+      gnome-screenshot
+      eog
+      ;
+  };
 
-  environment.systemPackages = with pkgs;
-    [
-      gnome.gnome-tweaks
-      gnome.gnome-shell-extensions
-      gnome.dconf-editor
-      adw-gtk3
-      libsForQt5.gwenview
-    ]
+  environment.systemPackages =
+    (builtins.attrValues
+    {
+      inherit
+        (pkgs)
+        adw-gtk3
+        ;
+      inherit
+        (pkgs.gnome)
+        gnome-tweaks
+        gnome-shell-extensions
+        dconf-editor
+        ;
+      inherit
+        (pkgs.libsForQt5)
+        gwenview
+        ;
+    })
     ++ my-extensions;
-
-  # Hide ZFS subvolumes on gvfs/nautilus
-  services.udev.extraRules = ''
-    KERNEL=="zd*", ENV{UDISKS_IGNORE}="1"
-  '';
 }

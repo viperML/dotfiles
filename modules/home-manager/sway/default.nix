@@ -4,9 +4,9 @@
   lib,
   ...
 }: {
-  home.packages = with pkgs; [
-    wofi
-    plasma5Packages.dolphin
+  home.packages = [
+    pkgs.wofi
+    pkgs.plasma5Packages.dolphin
   ];
 
   # FIXME
