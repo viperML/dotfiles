@@ -32,4 +32,9 @@ jobs:
         name: viperml
         extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: ./bin/build-flake.sh
+    - name: Cache flake inputs
+      run: nix flake archive
+    - run: Cache devShell
+      run: nix build .#devShell.x86_64-linux.inputDerivation
+    - run: Cache pkgs
+      run: ./bin/pkgs_build.py ./overlays/pkgs/default.nix

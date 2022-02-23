@@ -28,6 +28,7 @@ in {
     jq
     dogdns
     jless
+    choose
 
     # System monitor
     htop

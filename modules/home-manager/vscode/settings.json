@@ -62,7 +62,7 @@
     "markdown": false,
     "nix": false,
     "haskell": true,
-    "python": false
+    "python": true
   },
 
   // Git
@@ -408,7 +408,7 @@
     }
   ],
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Atom One Darker",
+  "workbench.colorTheme": "Atom One Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
   "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",
