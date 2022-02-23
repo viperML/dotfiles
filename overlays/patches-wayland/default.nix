@@ -11,14 +11,4 @@ in {
       };
     }
   );
-  # vscode = prev.vscode.overrideAttrs (
-  #   prevAttrs: {
-  #     nativeBuildInputs = prevAttrs.nativeBuildInputs or [ ] ++ [ prev.makeWrapper ];
-  #     postInstall =
-  #       prevAttrs.postInstall or ""
-  #       + ''
-  #         wrapProgram $out/bin/code --unset WAYLAND_DISPLAY
-  #       '';
-  #   }
-  # );
 }
