@@ -285,7 +285,7 @@
     name = "lua";
     publisher = "sumneko";
     version = "2.6.6";
-    sha256 = "0hb4qy67hwxzhfnk69iqmnyzp3695l166zwf0f622j3zarfzk605";
+    sha256 = "sha256-BP2yAvTDpFBldkT/nKs22ZOKX/Wcw+v0ZDxBGlFVQqU=";
   }
   {
     name = "vim";
