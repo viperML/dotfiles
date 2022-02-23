@@ -1,14 +1,15 @@
 {
-  file ? ./deps.nix,
-  pkgs ? import <nixpkgs> {},
+  pkgs,
   lib ? pkgs.lib,
 }:
-# Return a list with vscode extensions
-# Split into extensions available in nixpkgs (that can be pulled from binary cache)
-# and extensions to build ourselves
+# updateScript
 let
-  extension-list = (import file).extensions;
+  inherit (import ./deps.nix) extensions;
 
+  /*
+   Takes a extension (attribute set from ./deps.nix)
+   return true or false if it is packaged in nixpkgs(pkgs.vscode-extensions)
+   */
   in_nixpkgs = ext: (
     if builtins.hasAttr (lib.toLower ext.publisher) pkgs.vscode-extensions
     then
@@ -17,17 +18,22 @@ let
     else false
   );
 
-  exts-built = pkgs.vscode-utils.extensionsFromVscodeMarketplace (builtins.filter (n: !(in_nixpkgs n)) extension-list);
+  /*
+   Filter deps.nix
+   Returns a list with derivations for extensions not in nixpkgs
+   */
+  extensions-built = pkgs.vscode-utils.extensionsFromVscodeMarketplace (builtins.filter (n: !(in_nixpkgs n)) extensions);
 
-  exts-in-nixpkgs = map (
+  /*
+   Filter deps.nix
+   Returns a list with the derivation for the extensions that are in nixpkgs
+   */
+  extensions-in-nixpkgs = map (
     v:
       pkgs
       .vscode-extensions
       ."${lib.toLower v.publisher}"
       ."${lib.toLower v.name}"
-  ) (builtins.filter in_nixpkgs extension-list);
+  ) (builtins.filter in_nixpkgs extensions);
 in
-  exts-built ++ exts-in-nixpkgs
-# Bots
-# updateScript
-
+  extensions-built ++ extensions-in-nixpkgs

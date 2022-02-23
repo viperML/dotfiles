@@ -4,5 +4,5 @@
   lib,
   ...
 }: {
-  home.sessionVariables.FLAKE = "$HOME/Documents/dotfiles";
+  home.sessionVariables.FLAKE = "/home/ayats/Documents/dotfiles";
 }

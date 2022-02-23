@@ -2,6 +2,10 @@
 #!nix-shell -i bash -p curl jq unzip
 set -euxo pipefail
 shopt -s nullglob
+mydir="$(dirname ${BASH_SOURCE[0]})"
+
+# This scripts queries vscode for installed extensions
+# Then, writes them into extension/deps.nix, so that extensions/default.nix can import them
 
 # Helper to just fail with a message and non-zero exit code.
 function fail() {
@@ -44,21 +48,6 @@ function get_vsixpkg() {
   }
 EOF
 }
-
-# Retrieve nixpkgs from environment
-## Read the environment variable NIX_PATH into an array split by :
-IFS=':' read -r -a nix_path <<< "$NIX_PATH"
-## Get the value of the element which defines nixpkgs
-for i in "${!nix_path[@]}"; do
-    if [[ "${nix_path[i]}" == *"nixpkgs="* ]]; then
-        nixpkgs_path="${nix_path[i]}"
-        break # exit on first match
-    fi
-done
-## Remove nixpkgs= from nixpkgs_path
-nixpkgs_path="${nixpkgs_path#*nixpkgs=}"
-
-mydir="$(dirname ${BASH_SOURCE[0]})"
 
 # See if we can find our `code` binary somewhere.
 if [ $# -ne 0 ]; then
