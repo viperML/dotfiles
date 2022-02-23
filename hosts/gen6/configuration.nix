@@ -9,22 +9,19 @@
     # HW
     vulkan-tools
     libva-utils
-
     # Base
     masterpdfeditor4
     onlyoffice-bin
     mpv
-    (g-papirus-icon-theme.override {color = "palebrown";})
     qbittorrent
     android-tools
     tor-browser-bundle-bin
-
+    (g-papirus-icon-theme.override {color = "palebrown";})
     # Misc
     ahoviewer
     krita-beta
     obs-studio
     obsidian
-    # inkscape
   ];
 
   boot = {

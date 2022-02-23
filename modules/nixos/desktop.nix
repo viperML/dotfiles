@@ -43,24 +43,21 @@
   # replaced by pipewire
   hardware.pulseaudio.enable = false;
 
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      # Base cli
-      file
-      xsel
-      nmap
-      pciutils
-      wget
-      lsof
-      pwgen
-      usbutils
-      lshw
-      appimage-run
-      hwloc
-      libarchive
-      ;
-  };
+  environment.systemPackages = with pkgs; [
+    # Base cli
+    file
+    xsel
+    nmap
+    pciutils
+    wget
+    lsof
+    pwgen
+    usbutils
+    lshw
+    appimage-run
+    hwloc
+    libarchive
+  ];
 
   nix = {
     gc = {

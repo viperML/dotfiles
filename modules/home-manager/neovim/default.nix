@@ -28,15 +28,12 @@
 
     withNodeJs = true;
 
-    extraPackages = builtins.attrValues {
-      inherit
-        (pkgs)
-        tree-sitter
-        # nixpkgs-fmt
-        rnix-lsp
-        xsel
-        ;
-    };
+    extraPackages = with pkgs; [
+      tree-sitter
+      # nixpkgs-fmt
+      rnix-lsp
+      xsel
+    ];
 
     coc = {
       enable = true;

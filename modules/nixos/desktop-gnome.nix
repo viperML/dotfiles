@@ -4,20 +4,17 @@
   lib,
   ...
 }: let
-  my-extensions = builtins.attrValues {
-    inherit
-      (pkgs.gnomeExtensions)
-      appindicator
-      blur-my-shell
-      pop-shell
-      # night-theme-switcher
-      dash-to-panel
-      sound-output-device-chooser
-      system-monitor
-      logo-menu
-      syncthing-indicator
-      ;
-  };
+  my-extensions = with pkgs.gnomeExtensions; [
+    appindicator
+    blur-my-shell
+    pop-shell
+    # night-theme-switcher
+    dash-to-panel
+    sound-output-device-chooser
+    system-monitor
+    logo-menu
+    syncthing-indicator
+  ];
 in {
   services.xserver = {
     desktopManager.gnome.enable = true;
@@ -29,44 +26,28 @@ in {
     displayManager.autoLogin.enable = true;
   };
 
-  environment.gnome.excludePackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      epiphany
-      gnome-photos
-      # evince
-      gnome-tour
-      ;
-    inherit
-      (pkgs.gnome)
-      gnome-characters
-      cheese
-      gnome-terminal
-      gedit
-      totem
-      geary
-      gnome-screenshot
-      eog
-      ;
-  };
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany
+    gnome-photos
+    gnome-tour
 
-  environment.systemPackages =
-    (builtins.attrValues
-    {
-      inherit
-        (pkgs)
-        adw-gtk3
-        ;
-      inherit
-        (pkgs.gnome)
-        gnome-tweaks
-        gnome-shell-extensions
-        dconf-editor
-        ;
-      inherit
-        (pkgs.libsForQt5)
-        gwenview
-        ;
-    })
+    gnome.gnome-characters
+    gnome.cheese
+    gnome.gnome-terminal
+    gnome.gedit
+    gnome.totem
+    gnome.geary
+    gnome.gnome-screenshot
+    gnome.eog
+  ];
+
+  environment.systemPackages = with pkgs;
+    [
+      adw-gtk3
+      gnome.gnome-tweaks
+      gnome.gnome-shell-extensions
+      gnome.dconf-editor
+      libsForQt5.gwenview
+    ]
     ++ my-extensions;
 }
