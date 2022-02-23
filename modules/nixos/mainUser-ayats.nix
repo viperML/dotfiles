@@ -19,7 +19,9 @@ in {
   };
 
   # Enable home-manager for the user (inherit shared modules)
-  home-manager.users.mainUser = {...}: {};
+  home-manager.users.mainUser = {config, ...}: {
+    home.sessionVariables.FLAKE = "/home/ayats/Documents/dotfiles";
+  };
 
   security.sudo.extraRules = [
     {

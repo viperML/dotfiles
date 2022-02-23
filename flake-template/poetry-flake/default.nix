@@ -9,10 +9,10 @@ poetry2nix.mkPoetryApplication rec {
   src = ./.;
   projectDir = src;
 
-  meta = with lib; {
+  meta = {
     inherit (python.meta) platforms;
     description = "My awesome poetry application";
-    license = licenses.mit;
+    license = lib.licenses.mit;
     homepage = "https://foo.bar";
   };
 }

@@ -14,7 +14,7 @@
     homeModules = self.lib.exportModulesDir ./modules/home-manager;
     overlays = self.lib.exportModulesDir ./overlays;
     nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 {inherit self inputs;});
-    templates = import ./flake-templates;
+    templates = import ./flake-template;
     defaultTemplate = self.templates.base-flake;
 
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there

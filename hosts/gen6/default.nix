@@ -31,15 +31,15 @@
 
   gen6-nixosModules = with nixosModules;
     [
+      ./configuration.nix
+      mainUser-ayats
+
       common
       channels-to-flakes
-      ./configuration.nix
       desktop
       gnome-keyring
-
       inputs.home-manager.nixosModules.home-manager
       home-manager
-      mainUser-ayats
 
       adblock
       virt
@@ -55,11 +55,9 @@
     [
       common
       channels-to-flakes
-      mainUser-ayats
       fonts
       gui
       git
-
       bat
       fish
       lsd

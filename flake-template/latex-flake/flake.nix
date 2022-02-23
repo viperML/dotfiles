@@ -1,4 +1,5 @@
 {
+  # Unmaintained, probably won't work OOTB :p
   description = "My latex document";
 
   inputs = {
