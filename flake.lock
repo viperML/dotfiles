@@ -285,16 +285,19 @@
     "nixpkgs-wayland": {
       "inputs": {
         "cachix": "cachix",
+        "flake-compat": [
+          "flake-compat"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1645609996,
-        "narHash": "sha256-byXCtXAxAj2PRCSZmj+UVu1m4QxrPW9bl1nBWJnfuwU=",
+        "lastModified": 1645712309,
+        "narHash": "sha256-BcI8/tQl+J2lqNnAPwKuE0VeFBMRAiu8QMWbrm0LoJk=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "ab36b3fe5455ef1d29e1ac9a7ce34d6462d2f71f",
+        "rev": "dc6a6549bd3172fa8b1b733e7547acf997ff1a28",
         "type": "github"
       },
       "original": {

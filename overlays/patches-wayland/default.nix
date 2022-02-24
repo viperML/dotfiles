@@ -1,6 +1,7 @@
 final: prev: let
   inherit (prev) callPackage;
 in {
+  # rip
   # wlroots = prev.wlroots.overrideAttrs (
   #   prevAttrs: {
   #     src = prev.fetchFromGitHub {

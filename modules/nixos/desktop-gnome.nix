@@ -49,6 +49,7 @@ in {
       gnome.gnome-shell-extensions
       gnome.dconf-editor
       libsForQt5.gwenview
+      dolphin
     ]
     ++ my-extensions;
 }

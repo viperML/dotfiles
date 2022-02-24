@@ -24,7 +24,7 @@
         overlays =
           [
             inputs.nur.overlay
-            # inputs.nixpkgs-wayland.overlay
+            inputs.nixpkgs-wayland.overlay
             inputs.vim-extra-plugins.overlay
             # inputs.emacs-overlay.overlay
             inputs.powercord-overlay.overlay
@@ -74,6 +74,7 @@
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
     vim-extra-plugins = {
       url = "github:m15a/nixpkgs-vim-extra-plugins";

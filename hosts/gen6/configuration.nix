@@ -9,6 +9,8 @@
     # HW
     vulkan-tools
     libva-utils
+    glxinfo
+    glmark2
     # Base
     masterpdfeditor4
     onlyoffice-bin
@@ -239,14 +241,13 @@
     nvidia.modesetting.enable =
       config.services.xserver.displayManager.gdm.enable;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    nvidia.powerManagement.enable = false;
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
     opengl.extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-      libva
+      mesa.drivers
     ];
   };
 
