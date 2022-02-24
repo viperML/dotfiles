@@ -21,10 +21,7 @@ in {
       Type=Application
     '';
   in
-    prev.river.overrideAttrs (prevAttrs: {
-      # patches = (prev.patches or []) ++ [
-      #   ./river-eglstreams.patch
-      # ];
+    prev.river.overrideAttrs (prevAttrs: rec {
       postInstall = ''
         mkdir -p $out/share/wayland-sessions
         echo "${riverSession}" > $out/share/wayland-sessions/river.desktop

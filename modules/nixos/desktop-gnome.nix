@@ -51,10 +51,4 @@ in {
       libsForQt5.gwenview
     ]
     ++ my-extensions;
-
-  home-manager.sharedModules = [
-    {
-      programs.firefox.enableGnomeExtensions = true;
-    }
-  ];
 }

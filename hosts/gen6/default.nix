@@ -30,7 +30,11 @@
         homeModules.gnome
       ]
     else if de.desktop == "river"
-    then [homeModules.foot]
+    then
+      [
+        homeModules.foot
+        homeModules.river
+      ]
     else throw "No DE chosen";
 
   gen6-nixosModules = with nixosModules;
