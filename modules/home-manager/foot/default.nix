@@ -7,7 +7,7 @@
 
   xdg.configFile."foot/foot.ini".text = ''
     shell=fish
-    font=VictorMono Nerd Font:size=10
+    font=JetBrainsMono Nerd font:size=10
     pad=10x10
   '';
 }

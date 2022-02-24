@@ -11,6 +11,8 @@
     then [nixosModules.desktop-sway]
     else if de.desktop == "gnome"
     then [nixosModules.desktop-gnome]
+    else if de.desktop == "river"
+    then [nixosModules.desktop-river]
     else throw "No DE chosen";
 
   de.homeModules =
@@ -27,6 +29,8 @@
       [
         homeModules.gnome
       ]
+    else if de.desktop == "river"
+    then [homeModules.foot]
     else throw "No DE chosen";
 
   gen6-nixosModules = with nixosModules;

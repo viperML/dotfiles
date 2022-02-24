@@ -1,0 +1,15 @@
+--- a/deps/zig-wlroots/src/wlroots.zig
++++ b/deps/zig-wlroots/src/wlroots.zig
+@@ -169,12 +169,6 @@ pub const SceneOutput = @import("types/scene.zig").SceneOutput;
+ pub const config = @import("config.zig");
+ pub const version = @import("version.zig");
+ 
+-comptime {
+-    if (version.major != 0 or version.minor != 15) {
+-        @compileError("zig-wlroots requires wlroots version 0.15");
+-    }
+-}
+-
+ fn refAllDeclsRecursive(comptime T: type) void {
+     comptime {
+         for (@import("std").meta.declarations(T)) |decl| {

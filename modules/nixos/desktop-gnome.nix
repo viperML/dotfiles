@@ -12,8 +12,9 @@
     dash-to-panel
     sound-output-device-chooser
     system-monitor
-    logo-menu
     syncthing-indicator
+    caffeine
+    just-perfection
   ];
 in {
   services.xserver = {
@@ -50,4 +51,10 @@ in {
       libsForQt5.gwenview
     ]
     ++ my-extensions;
+
+  home-manager.sharedModules = [
+    {
+      programs.firefox.enableGnomeExtensions = true;
+    }
+  ];
 }
