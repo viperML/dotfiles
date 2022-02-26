@@ -3,7 +3,7 @@
   inputs,
 }: let
   inherit (self) homeModules nixosModules;
-  de.desktop = "gnome";
+  de.desktop = "kde";
   de.nixosModules =
     if de.desktop == "kde"
     then [nixosModules.desktop-kde]
@@ -76,6 +76,8 @@
       starship
       wezterm
       zsh
+
+      emacs
     ]
     ++ de.homeModules;
 in rec {

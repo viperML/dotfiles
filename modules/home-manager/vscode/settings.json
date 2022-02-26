@@ -79,6 +79,7 @@
   // Fonts
   "editor.fontSize": 15,
   "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+  // "editor.fontFamily": "Comic Code",
   "editor.fontWeight": "500",
   "editor.fontLigatures": true,
 

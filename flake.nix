@@ -26,7 +26,7 @@
             inputs.nur.overlay
             inputs.nixpkgs-wayland.overlay
             inputs.vim-extra-plugins.overlay
-            # inputs.emacs-overlay.overlay
+            inputs.emacs-overlay.overlay
             inputs.powercord-overlay.overlay
             (
               final: prev: {
@@ -82,11 +82,12 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
-    # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    # doom-emacs = {
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # nix-doom-emacs = {
     #   url = "github:vlaci/nix-doom-emacs";
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.emacs-overlay.follows = "emacs-overlay";
+    #   inputs.flake-utils.follows = "flake-utils";
     # };
     firefox-csshacks = {
       url = "github:MrOtherGuy/firefox-csshacks";

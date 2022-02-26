@@ -4,7 +4,12 @@
   inputs,
   lib,
   ...
-}: {
+}: let
+  FLAKE = "/home/ayats/Documents/dotfiles";
+in {
+  environment.variables = {inherit FLAKE;};
+  environment.sessionVariables = {inherit FLAKE;};
+
   environment.systemPackages = with pkgs; [
     # HW
     vulkan-tools
@@ -190,6 +195,10 @@
     };
     "/var/lib/tailscale" = {
       device = "zroot/data/tailscale";
+      fsType = "zfs";
+    };
+    "/var/lib/systemd" = {
+      device = "zroot/data/systemd";
       fsType = "zfs";
     };
     "/home/ayats/Music" = {

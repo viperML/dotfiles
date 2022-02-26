@@ -14,6 +14,7 @@ in {
   adw-gtk3 = callPackage ./adw-gtk3 {};
   san-francisco = callPackage ./san-francisco {};
   nvidia-vaapi-driver = callPackage ./nvidia-vaapi-driver {};
+  comic-code = callPackage ./comic-code {};
 
   # https://github.com/NixOS/nixpkgs/pull/161625
   i3a = callPackage ./i3a {};

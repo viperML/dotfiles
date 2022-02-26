@@ -21,5 +21,6 @@
     noto-fonts-emoji
     san-francisco
     libertinus
+    comic-code
   ];
 }

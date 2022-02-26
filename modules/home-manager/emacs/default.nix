@@ -1,20 +1,14 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
-  programs.doom-emacs = {
+  programs.emacs = {
     enable = true;
-    doomPrivateDir = ./doom.d;
-
-    emacsPackagesOverlay = self: super: {
-      # fixes https://github.com/vlaci/nix-doom-emacs/issues/394
-      gitignore-mode = pkgs.emacsPackages.git-modes;
-      gitconfig-mode = pkgs.emacsPackages.git-modes;
+    package = pkgs.emacsWithPackagesFromUsePackage {
+      config = ./emacs.el;
+      alwaysEnsure = true;
     };
   };
-
-  home.packages = [
-    pkgs.emacs-all-the-icons-fonts
-  ];
 }
