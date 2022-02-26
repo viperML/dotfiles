@@ -19,22 +19,19 @@
     if de.desktop == "kde"
     then [homeModules.kde]
     else if de.desktop == "sway"
-    then
-      [
-        homeModules.sway
-        homeModules.foot
-      ]
+    then [
+      homeModules.sway
+      homeModules.foot
+    ]
     else if de.desktop == "gnome"
-    then
-      [
-        homeModules.gnome
-      ]
+    then [
+      homeModules.gnome
+    ]
     else if de.desktop == "river"
-    then
-      [
-        homeModules.foot
-        homeModules.river
-      ]
+    then [
+      homeModules.foot
+      homeModules.river
+    ]
     else throw "No DE chosen";
 
   gen6-nixosModules = with nixosModules;
