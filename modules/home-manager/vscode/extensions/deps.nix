@@ -66,6 +66,12 @@
     sha256 = "0hcj6ckwpjyn8nfiz7fkvhmqlklk9mmmw1d8d17h8cxn03sn8hfc";
   }
   {
+    name = "vscode-modelines";
+    publisher = "chrislajoie";
+    version = "2.0.5";
+    sha256 = "0lp32y43gl18bvnviqa5nxh3niz66l01aj1kiz65zcc0gm3vs8nd";
+  }
+  {
     name = "vscode-theme-onedarker";
     publisher = "christopherafbjur";
     version = "2.1.0";
@@ -286,12 +292,6 @@
     publisher = "streetsidesoftware";
     version = "2.0.5";
     sha256 = "125l8ibp0z9jrj0jznb9g5ggln4ds3qsny6ws2wqlacc0ir4f8fg";
-  }
-  {
-    name = "lua";
-    publisher = "sumneko";
-    version = "2.6.6";
-    sha256 = "sha256-BP2yAvTDpFBldkT/nKs22ZOKX/Wcw+v0ZDxBGlFVQqU=";
   }
   {
     name = "vim";

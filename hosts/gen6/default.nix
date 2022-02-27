@@ -72,9 +72,6 @@
       firefox
       starship
       wezterm
-      zsh
-
-      emacs
     ]
     ++ de.homeModules;
 in rec {

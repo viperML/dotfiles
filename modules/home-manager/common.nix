@@ -27,6 +27,7 @@ in {
     dogdns
     jless
     choose
+    # bpytop
     # System monitor
     htop
     pstree
