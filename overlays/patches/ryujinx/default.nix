@@ -19,13 +19,13 @@
 }:
 buildDotnetModule rec {
   pname = "ryujinx";
-  version = "unstable-2022-02-22";
+  version = "unstable-2022-02-27";
 
   src = fetchFromGitHub {
     owner = "Ryujinx";
     repo = "Ryujinx";
-    rev = "7b35ebc64a411e95e197bb36ad4b55c522c3703d";
-    sha256 = "00ly2cn7jl5zalwmi1impp1vsfip4k50q6v06d1ablh3ncjh2aby";
+    rev = "3705c206688c69d3348f5cec84dc480d8d7c578e";
+    sha256 = "1lhnr11x46yjpka865m0dzkbkdxmrrhjcpvq4ab4wll6j0ipy908";
   };
 
   dotnet-sdk = dotnetCorePackages.sdk_6_0;
