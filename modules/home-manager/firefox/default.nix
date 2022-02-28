@@ -26,6 +26,7 @@
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "app.update.interval" = 604800; # 1 week
       };
     };
   };

@@ -23,7 +23,7 @@ in {
     qbittorrent
     android-tools
     tor-browser-bundle-bin
-    (g-papirus-icon-theme.override {color = "palebrown";})
+    (g-papirus-icon-theme.override {color = "yaru";})
     # Misc
     ahoviewer
     krita-beta
