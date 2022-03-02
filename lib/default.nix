@@ -21,6 +21,12 @@ let
   );
 
   exportModulesDir = dir: (exportModules (mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
+
+  folderToList = folder: (
+    mapAttrsToList (key: value: folder + "/${key}") (
+      builtins.readDir folder
+    )
+  );
 in {
-  inherit exportModules exportModulesDir;
+  inherit exportModules exportModulesDir folderToList;
 }

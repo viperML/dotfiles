@@ -37,6 +37,7 @@
               }
             )
           ]
+          # Apply every exported overlay
           ++ (nixpkgs.lib.attrValues self.overlays);
       });
 
@@ -83,12 +84,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    # nix-doom-emacs = {
-    #   url = "github:vlaci/nix-doom-emacs";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.emacs-overlay.follows = "emacs-overlay";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
     firefox-csshacks = {
       url = "github:MrOtherGuy/firefox-csshacks";
       flake = false;

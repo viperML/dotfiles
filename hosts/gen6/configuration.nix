@@ -29,6 +29,7 @@ in {
     krita-beta
     obs-studio
     obsidian
+    distrobox
   ];
 
   boot = {

@@ -72,6 +72,7 @@
       firefox
       starship
       wezterm
+      nh
     ]
     ++ de.homeModules;
 in rec {

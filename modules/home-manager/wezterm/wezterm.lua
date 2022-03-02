@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 
-local padding = 20
+local padding = 15
 
 
 atom_one_dark = {
@@ -67,14 +67,14 @@ return {
     }),
     font_size = 11,
     default_prog = {"fish", "-l"},
-    window_background_opacity = 1.0,
+    window_background_opacity = 0.9,
     enable_scroll_bar = true,
     enable_tab_bar = false,
     window_padding = {
         left = padding,
         right = padding,
-        top = padding,
-        bottom = padding
+        top = padding-5,
+        bottom = padding-5
     },
 
     colors = colors,
