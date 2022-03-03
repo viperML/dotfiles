@@ -28,12 +28,10 @@ let
    Filter deps.nix
    Returns a list with the derivation for the extensions that are in nixpkgs
    */
-  extensions-in-nixpkgs = map (
-    v:
-      pkgs
-      .vscode-extensions
-      ."${lib.toLower v.publisher}"
-      ."${lib.toLower v.name}"
-  ) (builtins.filter in_nixpkgs extensions);
+  extensions-in-nixpkgs = map (v:
+    pkgs
+    .vscode-extensions
+    ."${lib.toLower v.publisher}"
+    ."${lib.toLower v.name}") (builtins.filter in_nixpkgs extensions);
 in
   extensions-built ++ extensions-in-nixpkgs

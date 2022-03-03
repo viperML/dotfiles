@@ -36,12 +36,10 @@ in {
       {
         pkgs = selfRegistry;
       }
-      // lib.mapAttrs' (
-        name: value: {
-          inherit name;
-          value.flake = value;
-        }
-      )
+      // lib.mapAttrs' (name: value: {
+        inherit name;
+        value.flake = value;
+      })
       inputs;
 
     nixPath = [

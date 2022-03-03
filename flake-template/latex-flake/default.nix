@@ -15,33 +15,32 @@ stdenv.mkDerivation {
   buildPhase = "make PREFIX='./'";
 
   buildInputs = with pkgs; [
-    (
-      texlive.combine {
-        inherit
-          (texlive)
-          scheme-medium
-          # Additional packages
-          enumitem
-          ragged2e
-          geometry
-          fancyhdr
-          xcolor
-          xifthen
-          etoolbox
-          setspace
-          fontspec
-          unicode-math
-          fontawesome
-          sourcesanspro
-          tcolorbox
-          parskip
-          hyperref
-          ifmtarg
-          environ
-          trimspaces
-          ;
-      }
-    )
+    (texlive.combine {
+      inherit
+        (texlive)
+        scheme-medium
+        # Additional packages
+        
+        enumitem
+        ragged2e
+        geometry
+        fancyhdr
+        xcolor
+        xifthen
+        etoolbox
+        setspace
+        fontspec
+        unicode-math
+        fontawesome
+        sourcesanspro
+        tcolorbox
+        parskip
+        hyperref
+        ifmtarg
+        environ
+        trimspaces
+        ;
+    })
     glibcLocales
   ];
 }

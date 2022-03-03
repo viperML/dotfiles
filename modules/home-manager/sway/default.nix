@@ -4,13 +4,19 @@
   lib,
   ...
 }: {
+  wayland.windowManager.sway = {
+    enable = true;
+    systemdIntegration = true;
+    config = import ./config.nix {inherit pkgs;};
+  };
+
   home.packages = [
     pkgs.wofi
     pkgs.plasma5Packages.dolphin
   ];
 
   # FIXME
-  systemd.user.tmpfiles.rules = [
-    "L+ /home/ayats/.config/sway/config - - - - /home/ayats/Documents/dotfiles/modules/home-manager/sway/config.ini"
-  ];
+  # systemd.user.tmpfiles.rules = [
+  #   "L+ /home/ayats/.config/sway/config - - - - /home/ayats/Documents/dotfiles/modules/home-manager/sway/config.ini"
+  # ];
 }

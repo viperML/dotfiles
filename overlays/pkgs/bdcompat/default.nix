@@ -5,18 +5,12 @@
   lib,
 }: let
   drvToName = drv:
-    builtins.concatStringsSep "-" (
-      builtins.tail (
-        lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))
-      )
-    );
+    builtins.concatStringsSep "-" (builtins.tail (lib.strings.splitString "-" (lib.lists.last (lib.strings.splitString "/" drv))));
   plugins-withNames =
-    builtins.map (
-      plug: {
-        name = drvToName "${plug}";
-        drv = plug;
-      }
-    )
+    builtins.map (plug: {
+      name = drvToName "${plug}";
+      drv = plug;
+    })
     plugins;
 in
   stdenv.mkDerivation {

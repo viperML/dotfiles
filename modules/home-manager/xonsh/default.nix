@@ -61,20 +61,18 @@
   #   pkgs.xonsh
   #   xontrib-kitty
   # ]);
-  xonsh-plugged = pkgs.xonsh.overrideAttrs (
-    prev: {
-      propagatedBuildInputs =
-        prev.propagatedBuildInputs
-        ++ [
-          xontrib-kitty
-          # xontrib-onepath
-          xonsh-direnv
-          xontrib-prompt-starship
-          # my-python.pkgs.numpy
-          # my-python.pkgs.matplotlib
-        ];
-    }
-  );
+  xonsh-plugged = pkgs.xonsh.overrideAttrs (prev: {
+    propagatedBuildInputs =
+      prev.propagatedBuildInputs
+      ++ [
+        xontrib-kitty
+        # xontrib-onepath
+        xonsh-direnv
+        xontrib-prompt-starship
+        # my-python.pkgs.numpy
+        # my-python.pkgs.matplotlib
+      ];
+  });
 in {
   home.packages = [xonsh-plugged pkgs.starship];
 

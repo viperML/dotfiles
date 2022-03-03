@@ -13,20 +13,14 @@ let
     then builtins.substring 0 (sLen - sufLen) str
     else str;
 
-  exportModules = genAttrs' (
-    arg: {
-      name = removeSuffix ".nix" (baseNameOf arg);
-      value = import arg;
-    }
-  );
+  exportModules = genAttrs' (arg: {
+    name = removeSuffix ".nix" (baseNameOf arg);
+    value = import arg;
+  });
 
   exportModulesDir = dir: (exportModules (mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
 
-  folderToList = folder: (
-    mapAttrsToList (key: value: folder + "/${key}") (
-      builtins.readDir folder
-    )
-  );
+  folderToList = folder: (mapAttrsToList (key: value: folder + "/${key}") (builtins.readDir folder));
 in {
   inherit exportModules exportModulesDir folderToList;
 }

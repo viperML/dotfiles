@@ -6,13 +6,11 @@ in {
 
   python3 = prev.python3.override {
     packageOverrides = python3-final: python3-prev: {
-      xlib = python3-prev.xlib.overrideAttrs (
-        prevAttrs: {
-          patches = [
-            ./python-xlib-xauth-fix.patch
-          ];
-        }
-      );
+      xlib = python3-prev.xlib.overrideAttrs (prevAttrs: {
+        patches = [
+          ./python-xlib-xauth-fix.patch
+        ];
+      });
     };
   };
 

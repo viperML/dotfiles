@@ -6,20 +6,13 @@
 }: (lib.mkMerge [
   {
     services = {
-      xserver = {
-        enable = true;
-        displayManager = {
-          # Set the autologin user, if there's only 1 normal user
-          autoLogin = let
-            my-users = builtins.attrNames (
-              pkgs.lib.filterAttrs (name: value: value.isNormalUser)
-              config.users.users
-            );
-          in {
-            user = lib.mkIf (builtins.length my-users == 1) config.users.users."${builtins.head my-users}".name;
-          };
-        };
-      };
+      # xserver.displayManager.autoLogin = let
+      #   my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser)
+      #   config.users.users);
+      #   enable = (builtins.length my-users == 1) && (config.services.xserver.displayManager.defaultSession != null);
+      # in {
+      #   user = lib.mkIf enable config.users.users."${builtins.head my-users}".name;
+      # };
 
       pipewire = {
         enable = true;

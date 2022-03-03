@@ -15,7 +15,6 @@ in {
     vulkan-tools
     libva-utils
     glxinfo
-    glmark2
     # Base
     masterpdfeditor4
     onlyoffice-bin
@@ -71,6 +70,7 @@ in {
         }
         ### End netboot.xyz
       '';
+      default = "saved";
     };
 
     loader.efi = {
@@ -91,6 +91,7 @@ in {
     layout = "us";
     videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
+    displayManager.autoLogin.user = "ayats";
   };
 
   services.sanoid = {
@@ -129,28 +130,20 @@ in {
         "zroot/secrets"
       ];
     in
-      (
-        builtins.listToAttrs (
-          builtins.map (
-            dataset: {
-              name = dataset;
-              value.use_template = ["slow"];
-            }
-          )
-          slow-datasets
-        )
-      )
-      // (
-        builtins.listToAttrs (
-          builtins.map (
-            dataset: {
-              name = dataset;
-              value.use_template = ["normal"];
-            }
-          )
-          normal-datasets
-        )
-      );
+      (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["slow"];
+        })
+        slow-datasets
+      ))
+      // (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["normal"];
+        })
+        normal-datasets
+      ));
   };
 
   services.zfs = {
@@ -265,10 +258,10 @@ in {
     xwayland.enable = true;
   };
 
-  security.tpm2 = {
-    enable = true;
-    abrmd.enable = true;
-  };
+  # security.tpm2 = {
+  #   enable = true;
+  #   abrmd.enable = true;
+  # };
 
   networking.networkmanager = {
     enable = true;

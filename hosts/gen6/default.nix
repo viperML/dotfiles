@@ -3,78 +3,44 @@
   inputs,
 }: let
   inherit (self) homeModules nixosModules;
-  de.desktop = "kde";
-  de.nixosModules =
-    if de.desktop == "kde"
-    then [nixosModules.desktop-kde]
-    else if de.desktop == "sway"
-    then [nixosModules.desktop-sway]
-    else if de.desktop == "gnome"
-    then [nixosModules.desktop-gnome]
-    else if de.desktop == "river"
-    then [nixosModules.desktop-river]
-    else throw "No DE chosen";
 
-  de.homeModules =
-    if de.desktop == "kde"
-    then [homeModules.kde]
-    else if de.desktop == "sway"
-    then [
-      homeModules.sway
-      homeModules.foot
-    ]
-    else if de.desktop == "gnome"
-    then [
-      homeModules.gnome
-    ]
-    else if de.desktop == "river"
-    then [
-      homeModules.foot
-      homeModules.river
-    ]
-    else throw "No DE chosen";
+  gen6-nixosModules = with nixosModules; [
+    ./configuration.nix
+    mainUser-ayats
 
-  gen6-nixosModules = with nixosModules;
-    [
-      ./configuration.nix
-      mainUser-ayats
+    common
+    channels-to-flakes
+    desktop
+    gnome-keyring
+    inputs.home-manager.nixosModules.home-manager
+    home-manager
 
-      common
-      channels-to-flakes
-      desktop
-      gnome-keyring
-      inputs.home-manager.nixosModules.home-manager
-      home-manager
+    adblock
+    virt
+    docker
+    printing
+    gaming
+    # vfio
+    tailscale
+  ];
 
-      adblock
-      virt
-      docker
-      printing
-      gaming
-      vfio
-      tailscale
-    ]
-    ++ de.nixosModules;
-
-  gen6-homeModules = with homeModules;
-    [
-      common
-      channels-to-flakes
-      fonts
-      gui
-      git
-      bat
-      fish
-      lsd
-      neofetch
-      neovim
-      vscode
-      firefox
-      starship
-      wezterm
-      nh
-    ]
-    ++ de.homeModules;
+  gen6-homeModules = with homeModules; [
+    common
+    channels-to-flakes
+    fonts
+    gui
+    git
+    bat
+    fish
+    lsd
+    neofetch
+    neovim
+    vscode
+    firefox
+    starship
+    wezterm
+    nh
+  ];
 in rec {
   system = "x86_64-linux";
   pkgs = self.legacyPackages.${system};
@@ -86,6 +52,43 @@ in rec {
     ++ [
       {
         home-manager.sharedModules = gen6-homeModules;
+
+        specialisation = {
+          "KDE" = {
+            inheritParentConfig = true;
+            configuration = {
+              imports = [
+                nixosModules.desktop-kde
+              ];
+              home-manager.sharedModules = [
+                homeModules.kde
+              ];
+            };
+          };
+          "Gnome" = {
+            inheritParentConfig = true;
+            configuration = {
+              imports = [
+                nixosModules.desktop-gnome
+              ];
+              home-manager.sharedModules = [
+                homeModules.gnome
+              ];
+            };
+          };
+          "Sway" = {
+            inheritParentConfig = true;
+            configuration = {
+              imports = [
+                nixosModules.desktop-sway
+              ];
+              home-manager.sharedModules = [
+                homeModules.sway
+                homeModules.foot
+              ];
+            };
+          };
+        };
       }
     ];
 }

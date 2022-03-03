@@ -82,17 +82,15 @@ buildDotnetModule rec {
   '';
 
   desktopItems = [
-    (
-      makeDesktopItem {
-        desktopName = "Ryujinx";
-        name = "ryujinx";
-        exec = "Ryujinx";
-        icon = "ryujinx";
-        comment = meta.description;
-        type = "Application";
-        categories = "Game;";
-      }
-    )
+    (makeDesktopItem {
+      desktopName = "Ryujinx";
+      name = "ryujinx";
+      exec = "Ryujinx";
+      icon = "ryujinx";
+      comment = meta.description;
+      type = "Application";
+      categories = "Game;";
+    })
   ];
 
   meta = with lib; {

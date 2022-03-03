@@ -19,15 +19,17 @@
     flake-utils,
     ...
   }:
-    flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in rec {
-      packages.myproject = pkgs.callPackage ./default.nix {};
-      defaultPackage = packages.myproject;
-      apps.myproject = flake-utils.lib.mkApp {
-        drv = packages.myproject;
-        exePath = "/bin/hello";
-      };
-      defaultApp = apps.myproject;
-    });
+    flake-utils.lib.eachSystem ["x86_64-linux"] (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in rec {
+        packages.myproject = pkgs.callPackage ./default.nix {};
+        defaultPackage = packages.myproject;
+        apps.myproject = flake-utils.lib.mkApp {
+          drv = packages.myproject;
+          exePath = "/bin/hello";
+        };
+        defaultApp = apps.myproject;
+      }
+    );
 }

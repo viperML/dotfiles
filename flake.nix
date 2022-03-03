@@ -28,14 +28,12 @@
             inputs.vim-extra-plugins.overlay
             inputs.emacs-overlay.overlay
             inputs.powercord-overlay.overlay
-            (
-              final: prev: {
-                inherit
-                  (import inputs.nixpkgs-master {inherit system config;})
-                  vscode
-                  ;
-              }
-            )
+            (final: prev: {
+              inherit
+                (import inputs.nixpkgs-master {inherit system config;})
+                vscode
+                ;
+            })
           ]
           # Apply every exported overlay
           ++ (nixpkgs.lib.attrValues self.overlays);
