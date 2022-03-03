@@ -9,11 +9,13 @@
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
   in {
-    lib = import ./lib;
+    lib = import ./lib {inherit (nixpkgs) lib;};
     nixosModules = self.lib.exportModulesDir ./modules/nixos;
     homeModules = self.lib.exportModulesDir ./modules/home-manager;
     overlays = self.lib.exportModulesDir ./overlays;
-    nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 {inherit self inputs;});
+    # nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 {inherit self inputs;});
+    nixosConfigurations.gen6 = import ./hosts/gen6 {inherit self inputs;};
+    # nixosConfigurations."gen6.Sway".config.system.build.toplevel = self.nixosConfigurations.gen6.config.specialisation.Sway.configuration.system.build.toplevel;
     templates = import ./flake-template;
     defaultTemplate = self.templates.package-app;
 

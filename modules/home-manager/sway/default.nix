@@ -7,7 +7,7 @@
   wayland.windowManager.sway = {
     enable = true;
     systemdIntegration = true;
-    config = import ./config.nix {inherit pkgs;};
+    config = import ./config.nix {inherit pkgs lib;};
   };
 
   home.packages = [

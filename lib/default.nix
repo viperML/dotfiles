@@ -1,9 +1,21 @@
-let
-  # From nixpkgs.lib
-  mapAttrsToList = f: attrs:
-    map (name: f name attrs.${name}) (builtins.attrNames attrs);
+{lib}: let
+  inherit
+    (builtins)
+    listToAttrs
+    concatMap
+    attrNames
+    mapAttrs
+    map
+    ;
+  inherit
+    (lib)
+    mapAttrsToList
+    mapAttrs'
+    nameValuePair
+    filterAttrs
+    ;
 
-  genAttrs' = func: values: builtins.listToAttrs (map func values);
+  genAttrs' = func: values: listToAttrs (map func values);
 
   removeSuffix = suffix: str: let
     sufLen = builtins.stringLength suffix;
@@ -21,6 +33,37 @@ let
   exportModulesDir = dir: (exportModules (mapAttrsToList (name: value: dir + "/${name}") (builtins.readDir dir)));
 
   folderToList = folder: (mapAttrsToList (key: value: folder + "/${key}") (builtins.readDir folder));
+
+  mkSpecialisedSystem = {
+    system,
+    pkgs,
+    lib,
+    specialArgs,
+    specialisations,
+  }: let
+    base-spec = specialisations.base;
+    specs = filterAttrs (n: v: n != "base") specialisations;
+
+    modules =
+      base-spec.nixosModules
+      ++ [
+        {
+          home-manager.sharedModules = base-spec.homeModules;
+          specialisation = mapAttrs (name: value: {
+            inheritParentConfig = true;
+            configuration = {
+              imports = value.nixosModules;
+              boot.loader.grub.configurationName = "${name}";
+              home-manager.sharedModules = value.homeModules;
+            };
+          })
+          specs;
+        }
+      ];
+  in
+    lib.nixosSystem {
+      inherit system pkgs specialArgs modules;
+    };
 in {
-  inherit exportModules exportModulesDir folderToList;
+  inherit exportModules exportModulesDir folderToList mkSpecialisedSystem;
 }

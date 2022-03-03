@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  self,
   ...
 }: (lib.mkMerge [
   {
@@ -32,7 +33,9 @@
     # replaced by pipewire
     hardware.pulseaudio.enable = false;
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; let
+      nhplus = pkgs.writeShellScriptBin "nh+" (builtins.readFile "${self.outPath}/bin/nh+.sh");
+    in [
       # Base cli
       file
       xsel
@@ -46,6 +49,8 @@
       appimage-run
       hwloc
       libarchive
+      #
+      nhplus
     ];
 
     nix = {
