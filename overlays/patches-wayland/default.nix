@@ -29,4 +29,18 @@ in {
       '';
       passthru.providedSessions = ["river"];
     });
+
+  # Electron with vscode <1.64.X is broken in wayland
+  # May be fixed in 1.65, who knows
+  vscode = prev.vscode.overrideAttrs (prevAttrs: {
+    buildInputs = prevAttrs.buildInputs or [] ++ [prev.makeWrapper];
+    postFixup =
+      prevAttrs.postFixup
+      or ""
+      + ''
+        wrapProgram $out/bin/code \
+        --unset "WAYLAND_DISPLAY" \
+        --unset "NIXOS_OZONE_WL"
+      '';
+  });
 }

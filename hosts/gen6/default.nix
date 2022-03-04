@@ -43,6 +43,7 @@
         starship
         wezterm
         nh
+        xonsh
       ];
     };
 
@@ -52,7 +53,6 @@
       ];
       homeModules = with self.homeModules; [
         sway
-        foot
       ];
     };
 

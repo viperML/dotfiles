@@ -15,7 +15,7 @@ in {
   };
 
   keybindings = lib.mkOptionDefault {
-    "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
+    "${modifier}+Return" = "exec ${pkgs.wezterm}/bin/wezterm";
     "${modifier}+q" = "kill";
     "${modifier}+Shift+r" = "reload";
     "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";

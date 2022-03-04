@@ -5,16 +5,16 @@
   ...
 }: let
   my-python = pkgs.python3;
-  xontrib-kitty = with my-python.pkgs;
-    buildPythonPackage rec {
-      pname = "xontrib-kitty";
-      version = "0.0.2";
-      src = fetchPypi {
-        inherit pname version;
-        sha256 = "sha256-MoAylQLdZd9TaKDe7nNYCN4vyqloAoHfCrBRKGPJyro=";
-      };
-      doCheck = false;
-    };
+  # xontrib-kitty = with my-python.pkgs;
+  #   buildPythonPackage rec {
+  #     pname = "xontrib-kitty";
+  #     version = "0.0.2";
+  #     src = fetchPypi {
+  #       inherit pname version;
+  #       sha256 = "sha256-MoAylQLdZd9TaKDe7nNYCN4vyqloAoHfCrBRKGPJyro=";
+  #     };
+  #     doCheck = false;
+  #   };
   xontrib-onepath = with my-python.pkgs;
     buildPythonPackage rec {
       pname = "xontrib-onepath";
@@ -65,7 +65,7 @@
     propagatedBuildInputs =
       prev.propagatedBuildInputs
       ++ [
-        xontrib-kitty
+        # xontrib-kitty
         # xontrib-onepath
         xonsh-direnv
         xontrib-prompt-starship
@@ -82,7 +82,7 @@ in {
 
       # execx($(${pkgs.starship}/bin/starship init xonsh))
 
-      xontrib load kitty direnv prompt_starship
+      xontrib load direnv prompt_starship
     '';
     executable = true;
   };
