@@ -67,7 +67,7 @@ return {
     }),
     font_size = 11,
     default_prog = {"fish", "-l"},
-    window_background_opacity = 0.9,
+    window_background_opacity = 1.0,
     enable_scroll_bar = true,
     enable_tab_bar = false,
     window_padding = {
@@ -79,5 +79,5 @@ return {
 
     colors = colors,
 
-    -- enable_wayland = true,
+    enable_wayland = false,
 }

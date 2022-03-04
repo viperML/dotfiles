@@ -28,14 +28,20 @@
     # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 in {
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.videoDrivers = lib.mkForce ["nouveau"];
+  services.xserver = {
+    enable = true;
+    videoDrivers = lib.mkForce ["nouveau"];
+    displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = true;
+  };
 
-  # programs.sway = {
-  #   enable = true;
-  #   extraOptions = ["--unsupported-gpu"];
-  # };
+  programs.sway = {
+    enable = true;
+    extraOptions = ["--unsupported-gpu"];
+    wrapperFeatures = {
+      gtk = true;
+    };
+  };
 
   environment.variables = waylandEnv;
   environment.sessionVariables = waylandEnv;
