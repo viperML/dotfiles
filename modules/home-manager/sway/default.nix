@@ -10,6 +10,13 @@ args @ {
     package = null;
     systemdIntegration = true;
     config = import ./config.nix {inherit args;};
+
+    extraConfig = ''
+      border_images.focused ~/.config/sway/borders/focused.png
+      border_images.focused_inactive ~/.config/sway/borders/focused_inactive.png
+      border_images.unfocused ~/.config/sway/borders/unfocused.png
+      border_images.urgent ~/.config/sway/borders/urgent.png
+    '';
   };
 
   home.packages = with pkgs; [

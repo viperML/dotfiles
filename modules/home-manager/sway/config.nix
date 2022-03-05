@@ -6,8 +6,8 @@
   '';
 in {
   gaps = {
-    outer = 10;
-    inner = 5;
+    outer = 0;
+    inner = 30;
   };
 
   inherit modifier;
@@ -36,5 +36,10 @@ in {
     "${modifier}+z" = "floating toggle";
     "${modifier}+e" = "exec ${args.pkgs.gnome.nautilus}/bin/nautilus";
     "Print" = "exec ${wayland-screenshot}";
+  };
+
+  window = {
+    # titlebar = true;
+    border = 0;
   };
 }

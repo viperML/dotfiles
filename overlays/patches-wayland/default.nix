@@ -1,5 +1,5 @@
 final: prev: let
-  inherit (prev) callPackage;
+  inherit (prev) callPackage fetchFromGitHub;
 in {
   # rip
   # wlroots = prev.wlroots.overrideAttrs (
@@ -42,5 +42,14 @@ in {
         --unset "WAYLAND_DISPLAY" \
         --unset "NIXOS_OZONE_WL"
       '';
+  });
+
+  sway-unwrapped = prev.sway-unwrapped.overrideAttrs (prevAttrs: {
+    src = fetchFromGitHub {
+      owner = "viperML";
+      repo = "sway-borders";
+      rev = "6bf1ab19256bb8b654f8b28def7ed0b7b1bc160d";
+      sha256 = "11gxrsb2r30wkbbwn8j8wajw239p90iyg0rgyssjldwkbpw2r3br";
+    };
   });
 }

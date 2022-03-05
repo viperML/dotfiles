@@ -28,10 +28,11 @@
 (if (fboundp 'tool-bar-mode)
     (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
 
 ;; use asynchronous processes wherever possible
 (use-package async
-  :ensure t
   :init (dired-async-mode 1))
 
 (setq locale-coding-system 'utf-8)
@@ -48,7 +49,7 @@
 (progn (setq-default indent-tabs-mode nil))
 
 
-(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font-10")
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font-11" :weight 'medium)
 
 
 (recentf-mode 1)
@@ -65,6 +66,12 @@
 
 ; (run-with-timer 0 900 'synchronize-theme)
 
+;; Padding
+(setq header-line-format " ")
+; (lambda () (progn
+;              (setq left-margin-width 10)
+;              (setq right-margin-width 10)
+;         
 
 
 ;; Pkgs
@@ -130,3 +137,34 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
+
+(use-package treemacs
+  :defer t)
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
+(use-package centaur-tabs
+  :demand
+  :config
+  (setq centaur-tabs-style "chamfer")
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-height 25)
+  (centaur-tabs-mode t))
+
+;; LSP
+(use-package lsp-mode
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration)
+  :commands (lsp lsp-deferred))
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package flycheck
+  :init (global-flycheck-mode))
+(use-package company
+  :init (global-company-mode))
+
+;; Nix
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
+;;; init.el ends here
