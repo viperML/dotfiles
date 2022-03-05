@@ -53,6 +53,19 @@
 
 (recentf-mode 1)
 
+(defun synchronize-theme ()
+  (let* ((light-theme 'doom-one-light)
+         (dark-theme 'doom-one)
+         (start-time-light-theme 6)
+         (end-time-light-theme 18)
+         (hour (string-to-number (substring (current-time-string) 11 13)))
+         (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
+                         light-theme dark-theme)))
+    (load-theme next-theme)))
+
+; (run-with-timer 0 900 'synchronize-theme)
+
+
 
 ;; Pkgs
 (use-package evil
@@ -85,7 +98,7 @@
              :config
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (load-theme 'doom-one t)
+             (synchronize-theme)
              (doom-themes-org-config))
 
 (use-package dashboard

@@ -9,40 +9,44 @@
     self,
     nixpkgs,
     ...
-  }: let
-    system = "x86_64-linux";
-  in {
+  }: {
+    # Change myHost to your hostname
     nixosConfigurations.myHost = nixpkgs.lib.nixosSystem rec {
-      inherit system;
-      pkgs = self.legacyPackages.${system};
+      system = "x86_64-linux";
+      pkgs = self.legacyPackages."x86_64-linux";
       specialArgs = {
         inherit self inputs;
       };
       modules = [
-        (import ./configuration.nix) # readme
+        ./configuration.nix
       ];
     };
 
     # Global config of nixpkgs
-    legacyPackages.${system} = import nixpkgs {
-      inherit system;
+    # Don't configure nixpkgs (overlays, config) inside configuration.nix
+    # We do it here and propagate it to the config
+    legacyPackages."x86_64-linux" = import nixpkgs {
+      system = "x86_64-linux";
       config = {
         allowUnfree = true;
       };
       overlays = [
-        # My awesome overlay I got from the internet
+        # ./overlay.nix
       ];
     };
+    # This way, you can run packages that have been patched by your overlays
+    # Or configured packages (allowUnfree)
+    # by using `nix run .#<my-package>`
   };
 
   /*
    Some nix lang refresher...
-   { inherit somehting; } === { something = something; }
+   { inherit something; }
+   is the same as
+   { something = something; }
    
-   We can use "let in", to get local variables, that don't get exported
-   (functional language without side effects)
-   
-   outputs is a function, that takes many arguments and puts then into inputs.my-input
-   nixpkgs === inputs.nixpkgs (because we also have nixpkgs in the args)
+    inputs@{...} puts all the arguments into the inputs.
+    For example, we could access inputs.self, inputs.nixpkgs, inputs.whatever-you-add
+    self, nixpkgs are inside the argset, so you can also access them without inputs.
    */
 }
