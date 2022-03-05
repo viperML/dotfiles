@@ -10,3 +10,9 @@ node_modules
 outputs
 build
 result*
+\#*\#
+
+**/emacs/*
+!**/emacs/custom.el
+!**/emacs/init.el
+!**/emacs/*.nix

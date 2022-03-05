@@ -1,5 +1,9 @@
 {args}: let
   modifier = "Mod4";
+  inherit (args) pkgs;
+  wayland-screenshot = pkgs.writeShellScript "wayland-screenshot" ''
+    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
+  '';
 in {
   gaps = {
     outer = 10;
@@ -31,5 +35,6 @@ in {
     "${modifier}+space" = "exec ${args.pkgs.wofi}/bin/wofi -S drun";
     "${modifier}+z" = "floating toggle";
     "${modifier}+e" = "exec ${args.pkgs.gnome.nautilus}/bin/nautilus";
+    "Print" = "exec ${wayland-screenshot}";
   };
 }

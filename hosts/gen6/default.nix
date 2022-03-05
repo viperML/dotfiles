@@ -44,6 +44,7 @@
         wezterm
         nh
         xonsh
+        emacs
       ];
     };
 
