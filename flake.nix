@@ -78,7 +78,7 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     vim-extra-plugins = {
-      url = "github:m15a/nixpkgs-vim-extra-plugins";
+      url = "github:m15a/nixpkgs-vim-extra-plugins/42beca2847d7e5528dfa5f6c8daea86f1d6747af";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";

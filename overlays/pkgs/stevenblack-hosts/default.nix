@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "stevenblack-hosts";
-  version = "unstable-2022-02-26";
+  version = "unstable-2022-02-28";
 
   src = fetchFromGitHub {
     owner = "StevenBlack";
     repo = "hosts";
-    rev = "33fc378336e392af5a3c1e24daf8b3d60fa819d7";
-    sha256 = "0l4clg7mnnc6pc9q4ls6i8f1ja6ffi22l6sjjfzpd68h7v8lni3m";
+    rev = "697dcc60f73ec882068c2b1505ca777f00c903e2";
+    sha256 = "0xwpz12bi93r59xnwdsy9han981jhxyvx30adfq61nqvcasn8v0w";
   };
 
   buildInputs = [

@@ -5,13 +5,13 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "distrobox";
-  version = "unstable-2022-02-28";
+  version = "unstable-2022-03-05";
 
   src = fetchFromGitHub {
     owner = "89luca89";
     repo = "distrobox";
-    rev = "eca80a069d6f9c71e7b5c350eae9c8ef4a0e07d2";
-    sha256 = "0gs85vjrgsfxq86m2hy72h4z9i1zf6jznqmds88rnag2gxalrrk4";
+    rev = "d98974b5a58b62f75ab6ea34a13368bd773652de";
+    sha256 = "18xaldaq6vczfqy8s44f9z2x5ajh3dq6p8gi57cazks12x37hf7i";
   };
 
   dontConfigure = true;

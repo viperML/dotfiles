@@ -8,12 +8,12 @@
 }:
 stdenv.mkDerivation {
   pname = "adw-gtk3";
-  version = "unstable-2022-02-28";
+  version = "unstable-2022-03-05";
   src = fetchFromGitHub {
     owner = "lassekongo83";
     repo = "adw-gtk3";
-    rev = "a1e1867e82c0a2d851ef7948bc3c7ac877a2ae99";
-    sha256 = "sha256-JTqonPpzKTpJUNxp4IPe6BRf/OmiBFwRqGqrjz1gyI4=";
+    rev = "4e7b6933faa35e541d3b8aa29bf06dff3389827c";
+    sha256 = "1j46vnd91q6586fhpxj9hwa5ba6rrckf2a2zk9h7zjjlsrxgjj9p";
   };
 
   nativeBuildInputs = [
