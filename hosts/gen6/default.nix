@@ -54,6 +54,8 @@
       ];
       homeModules = with self.homeModules; [
         sway
+        # waybar
+        nwg-panel
       ];
     };
 

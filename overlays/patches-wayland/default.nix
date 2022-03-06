@@ -44,12 +44,17 @@ in {
       '';
   });
 
-  sway-unwrapped = prev.sway-unwrapped.overrideAttrs (prevAttrs: {
-    src = fetchFromGitHub {
-      owner = "viperML";
-      repo = "sway-borders";
-      rev = "6bf1ab19256bb8b654f8b28def7ed0b7b1bc160d";
-      sha256 = "11gxrsb2r30wkbbwn8j8wajw239p90iyg0rgyssjldwkbpw2r3br";
-    };
-  });
+  # sway-borders
+  # sway-unwrapped = prev.sway-unwrapped.overrideAttrs (prevAttrs: {
+  #   src = fetchFromGitHub {
+  #     owner = "viperML";
+  #     repo = "sway-borders";
+  #     rev = "6bf1ab19256bb8b654f8b28def7ed0b7b1bc160d";
+  #     sha256 = "11gxrsb2r30wkbbwn8j8wajw239p90iyg0rgyssjldwkbpw2r3br";
+  #   };
+  # });
+
+  # nwg-panel: 0.5.7 -> 0.6.1
+  # https://github.com/NixOS/nixpkgs/pull/159600
+  nwg-panel = callPackage ./nwg-panel {};
 }

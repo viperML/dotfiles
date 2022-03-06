@@ -73,10 +73,15 @@
 ;              (setq right-margin-width 10)
 ;         
 
+(add-hook 'prog-mode-hook (lambda () (electric-pair-mode)))
+
 
 ;; Pkgs
 (use-package evil
              :config (evil-mode 1))
+
+(use-package direnv
+  :config (direnv-mode))
 
 (use-package mixed-pitch
              :hook (text-mode . mixed-pitch-mode))
@@ -93,6 +98,8 @@
 
 (use-package good-scroll
              :init (good-scroll-mode 1))
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode))
 
 (use-package ivy)
 (use-package projectile)
@@ -132,6 +139,7 @@
    :non-normal-prefix "C-SPC"
    "SPC" '(counsel-find-file :which-key "Find file")
    "p" '(:keymap projectile-command-map :package counsel-projectile :which-key "Projectile")
+   "b" '(treemacs :package treemacs)
    ))
 
 
@@ -166,5 +174,15 @@
 ;; Nix
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+;; Python
+(use-package python-mode)
+(use-package lsp-python-ms
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-python-ms)
+                         (lsp-deferred)))
+  :init
+  (setq lsp-python-ms-executable (executable-find "python-language-server")))
 
 ;;; init.el ends here

@@ -22,6 +22,7 @@ in {
   home.packages = with pkgs; [
     emacs-all-the-icons-fonts
     rnix-lsp
+    python-language-server
   ];
 
   systemd.user.tmpfiles.rules = [

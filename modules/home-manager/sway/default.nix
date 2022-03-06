@@ -9,21 +9,12 @@ args @ {
     # Use NixOS module system to install
     package = null;
     systemdIntegration = true;
-    config = import ./config.nix {inherit args;};
-
-    extraConfig = ''
-      border_images.focused ~/.config/sway/borders/focused.png
-      border_images.focused_inactive ~/.config/sway/borders/focused_inactive.png
-      border_images.unfocused ~/.config/sway/borders/unfocused.png
-      border_images.urgent ~/.config/sway/borders/urgent.png
-    '';
+    inherit (import ./config.nix {inherit args;}) config extraConfig;
   };
 
   home.packages = with pkgs; [
     wofi
-    plasma5Packages.dolphin
-    libsForQt5.ffmpegthumbs
-    libsForQt5.kdegraphics-thumbnailers
+    nwg-panel
   ];
 
   systemd.user.services = {
@@ -39,9 +30,9 @@ args @ {
       Install.WantedBy = ["sway-session.target"];
     };
 
-    waybar = {
-      Unit.Description = "System bar";
-      Service.ExecStart = "${pkgs.waybar}/bin/waybar";
+    gammastep = {
+      Unit.Description = "Night time color filter";
+      Service.ExecStart = "${pkgs.gammastep}/bin/gammastep -m wayland -l 40:-2 -t 6500:3000";
       Install.WantedBy = ["sway-session.target"];
     };
   };
