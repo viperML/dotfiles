@@ -19,7 +19,7 @@ require("bufferline").setup{
   },
 }
 
-require("lspconfig").rnix.setup{}
+-- require("lspconfig").rnix.setup{}
 require("gitsigns").setup{}
 
 

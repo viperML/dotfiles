@@ -23,14 +23,12 @@
 
     extraPackages = with pkgs; [
       tree-sitter
-      rnix-lsp
-      xsel
     ];
 
-    coc = {
-      enable = true;
-      settings = "${builtins.readFile ./coc-settings.json}";
-    };
+    # coc = {
+    #   enable = true;
+    #   settings = "${builtins.readFile ./coc-settings.json}";
+    # };
 
     plugins = let
       src-plugins = {
@@ -45,9 +43,9 @@
         bufferline-nvim
         lualine-nvim
 
-        nvim-lspconfig
+        # nvim-lspconfig
         nvim-treesitter
-        vim-nix
+        # vim-nix
 
         vim-highlightedyank
         indent-blankline-nvim
