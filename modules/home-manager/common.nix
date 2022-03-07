@@ -12,12 +12,11 @@ in {
     # Nix management
     nix-prefetch-scripts
     update-nix-fetchgit
-    cachix
     nix-du
     statix
     inputs.alejandra.defaultPackage.${system}
     inputs.nh.packages.${system}.nh
-    inputs.deploy-rs.packages.${system}.deploy-rs
+    # inputs.deploy-rs.packages.${system}.deploy-rs
     # Misc utils
     ripgrep
     fd

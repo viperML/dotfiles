@@ -1,7 +1,5 @@
 # This file is managed by Home-Manager!
-# vim: syntax=python
-
-# execx($(/nix/store/n6j1frb6g25cb53gp2mydvfhvgyzyvl8-starship-1.3.0/bin/starship init xonsh))
+# code: language=python
 
 xontrib load direnv prompt_starship
 

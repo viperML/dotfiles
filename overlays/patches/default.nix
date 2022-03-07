@@ -14,15 +14,6 @@ in {
     };
   };
 
-  # https://github.com/NixOS/nixpkgs/pull/162568
-  thermald = prev.thermald.overrideAttrs (p: {
-    configureFlags =
-      p.configureFlags
-      ++ [
-        "--disable-werror"
-      ];
-  });
-
   # ryujinx = callPackage ./ryujinx { };
 
   # element-for-poor-people = with prev; makeDesktopItem {

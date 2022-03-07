@@ -76,16 +76,5 @@
 in {
   home.packages = [xonsh-plugged pkgs.starship];
 
-  xdg.configFile."xonsh/rc.xsh" = {
-    text = ''
-      # This file is managed by Home-Manager!
-
-      # execx($(${pkgs.starship}/bin/starship init xonsh))
-
-      xontrib load direnv prompt_starship
-    '';
-    executable = true;
-  };
-
-  # home.sessionVariables.SHELL = "xonsh";
+  xdg.configFile."xonsh/rc.xsh".source = ./rc.xsh;
 }

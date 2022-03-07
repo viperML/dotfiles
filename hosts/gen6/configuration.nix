@@ -22,13 +22,12 @@ in {
     qbittorrent
     android-tools
     tor-browser-bundle-bin
-    (g-papirus-icon-theme.override {color = "yaru";})
+    (g-papirus-icon-theme.override {color = "breeze";})
     # Misc
     ahoviewer
     krita-beta
     obs-studio
     obsidian
-    distrobox
   ];
 
   boot = {
@@ -118,8 +117,8 @@ in {
     };
     datasets = let
       slow-datasets = [
-        "zroot/data/games"
-        "zroot/data/steam"
+        # "zroot/data/games"
+        # "zroot/data/steam"
       ];
       normal-datasets = [
         # "zroot/data/downloads"
@@ -257,11 +256,6 @@ in {
   programs = {
     xwayland.enable = true;
   };
-
-  # security.tpm2 = {
-  #   enable = true;
-  #   abrmd.enable = true;
-  # };
 
   networking.networkmanager = {
     enable = true;

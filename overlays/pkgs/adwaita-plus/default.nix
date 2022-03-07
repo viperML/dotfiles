@@ -8,13 +8,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "adwaita-plus";
-  version = "unstable";
+  version = "unstable-2021-07-28";
 
   src = fetchFromGitHub {
-    repo = pname;
+    repo = "adwaita-plus";
     owner = "Bonandry";
     rev = "8dd6ce97826c7b947e8e6dc023ae8a5c1b9429dd";
-    sha256 = "sha256-KrzEbK+Iucm+SqB54ERzU+XsMCyxAoaxSeaMDb/L3Eo=";
+    sha256 = "1zi639l45k2bj7wybdlzq4hp8y10f7yirradp7axdylhxwmxckys";
   };
 
   nativeBuildInputs = [gtk3];
