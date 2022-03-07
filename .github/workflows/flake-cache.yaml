@@ -36,5 +36,5 @@ jobs:
       run: nix flake archive
     - name: Cache devShell
       run: nix build .#devShell.x86_64-linux.inputDerivation
-    - name: Cache pkgs
-      run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py ./overlays/pkgs/default.nix
+    - name: Cache overlays/pkgs-*
+      run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py
