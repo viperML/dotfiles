@@ -48,16 +48,6 @@ in {
       efiSupport = true;
       # gfxmodeEfi = "2560x1440";
       configurationLimit = 10;
-      extraFiles = {
-        "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
-      };
-      extraEntries = ''
-        ### Start netboot.xyz
-        menuentry "netboot.xyz" {
-          chainloader /netboot.xyz.efi
-        }
-        ### End netboot.xyz
-      '';
       default = "saved";
     };
 
