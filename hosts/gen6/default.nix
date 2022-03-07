@@ -59,14 +59,14 @@
       ];
     };
 
-    "kde" = {
-      nixosModules = with self.nixosModules; [
-        desktop-kde
-      ];
-      homeModules = with self.homeModules; [
-        kde
-      ];
-    };
+    # "kde" = {
+    #   nixosModules = with self.nixosModules; [
+    #     desktop-kde
+    #   ];
+    #   homeModules = with self.homeModules; [
+    #     kde
+    #   ];
+    # };
 
     "gnome" = {
       nixosModules = with self.nixosModules; [
