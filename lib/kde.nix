@@ -18,13 +18,7 @@ with builtins; {
       builtins.concatStringsSep "\n" (lib.flatten (lib.mapAttrsToList (file: groups:
         lib.mapAttrsToList (group: keys:
           lib.mapAttrsToList (
-            key: value: "test -f ~/.config/'${file}' && ${pkgs.libsForQt5.kconfig}/bin/kwriteconfig5 --file ~/.config/'${
-              file
-            }' --group '${
-              group
-            }' --key '${
-              key
-            }' '${
+            key: value: "test -f ~/.config/'${file}' && ${pkgs.libsForQt5.kconfig}/bin/kwriteconfig5 --file ~/.config/'${file}' --group '${group}' --key '${key}' '${
               toValue value
             }'"
           )

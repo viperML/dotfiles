@@ -4,6 +4,10 @@
   wayland-screenshot = pkgs.writeShellScript "wayland-screenshot" ''
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
   '';
+  volume = pkgs.writeShellScript "volume" ''
+    export PATH="$PATH:${pkgs.pamixer}/bin"
+    ${pkgs.avizo}/bin/volumectl "$@"
+  '';
 
   nocolor = "#FF0000";
 in {
@@ -39,6 +43,10 @@ in {
       "${modifier}+z" = "floating toggle";
       "${modifier}+e" = "exec ${pkgs.gnome.nautilus}/bin/nautilus";
       "Print" = "exec ${wayland-screenshot}";
+      "XF86AudioRaiseVolume" = "exec ${volume} -u up";
+      "XF86AudioLowerVolume" = "exec ${volume} -u down";
+      "XF86AudioMute" = "exec ${volume} toggle-mute";
+      "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
     };
 
     window = {

@@ -69,7 +69,7 @@
           }
         ]
       },
-      "output-switcher": false,
+      "output-switcher": true,
       "backlight-device": "",
       "window-width": 0,
       "window-margin": 0,

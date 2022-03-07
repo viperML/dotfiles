@@ -37,7 +37,7 @@ python3Packages.buildPythonApplication rec {
 
   buildInputs = [atk gdk-pixbuf gtk-layer-shell pango];
   nativeBuildInputs = [wrapGAppsHook gobject-introspection];
-  propagatedBuildInputs = with python3Packages; [i3ipc netifaces psutil pybluez pygobject3];
+  propagatedBuildInputs = with python3Packages; [i3ipc netifaces psutil pybluez pygobject3 dasbus];
 
   postInstall = ''
     mkdir -p $out/share/{applications,pixmaps}

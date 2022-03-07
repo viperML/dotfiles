@@ -35,5 +35,13 @@ args @ {
       Service.ExecStart = "${pkgs.gammastep}/bin/gammastep -m wayland -l 40:-2 -t 6500:3000";
       Install.WantedBy = ["sway-session.target"];
     };
+
+    avizo = {
+      Unit.Description = "Volume popup daemon";
+      Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
+      Install.WantedBy = ["sway-session.target"];
+    };
   };
+
+  xdg.configFile."avizo/config.ini".source = ./avizo.ini;
 }

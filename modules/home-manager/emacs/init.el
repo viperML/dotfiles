@@ -157,7 +157,7 @@
   :config
   (setq centaur-tabs-style "chamfer")
   (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-height 25)
+  (setq centaur-tabs-height 30)
   (centaur-tabs-mode t))
 
 ;; LSP
@@ -165,24 +165,39 @@
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   :commands (lsp lsp-deferred))
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list)
 (use-package flycheck
   :init (global-flycheck-mode))
 (use-package company
   :init (global-company-mode))
+
+(use-package dap-mode
+  :hook (dap-mode . (lambda ()
+                      (dap-ui-mode 1))))
+(use-package dap-python)
 
 ;; Nix
 (use-package nix-mode
   :mode "\\.nix\\'")
 
 ;; Python
-(use-package python-mode)
-(use-package lsp-python-ms
-  :init (setq lsp-python-ms-auto-install-server t)
+(use-package python-mode
   :hook (python-mode . (lambda ()
                          (require 'lsp-python-ms)
-                         (lsp-deferred)))
+                         (lsp-deferred)
+                         (dap-node-setup)
+                         (dap-tooltip-mode 1)
+                         (dap-ui-controls-mode 1)
+                         (dap-python-debugger 'debugpy))))
+(use-package lsp-python-ms
   :init
+  (setq lsp-python-ms-auto-install-server t)
   (setq lsp-python-ms-executable (executable-find "python-language-server")))
+
 
 ;;; init.el ends here

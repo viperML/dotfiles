@@ -33,9 +33,7 @@
     # replaced by pipewire
     hardware.pulseaudio.enable = false;
 
-    environment.systemPackages = with pkgs; let
-      nhplus = pkgs.writeShellScriptBin "nh+" (builtins.readFile "${self.outPath}/bin/nh+.sh");
-    in [
+    environment.systemPackages = with pkgs; [
       # Base cli
       file
       xsel
@@ -49,8 +47,6 @@
       appimage-run
       hwloc
       libarchive
-      #
-      nhplus
     ];
 
     nix = {

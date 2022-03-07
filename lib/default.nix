@@ -49,15 +49,16 @@
       ++ [
         {
           home-manager.sharedModules = base-spec.homeModules;
-          specialisation = mapAttrs (name: value: {
-            inheritParentConfig = true;
-            configuration = {
-              imports = value.nixosModules;
-              boot.loader.grub.configurationName = "${name}";
-              home-manager.sharedModules = value.homeModules;
-            };
-          })
-          specs;
+          specialisation =
+            mapAttrs (name: value: {
+              inheritParentConfig = true;
+              configuration = {
+                imports = value.nixosModules;
+                boot.loader.grub.configurationName = "${name}";
+                home-manager.sharedModules = value.homeModules;
+              };
+            })
+            specs;
         }
       ];
   in
