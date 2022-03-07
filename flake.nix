@@ -8,28 +8,29 @@
   }: let
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
+    inherit (builtins) mapAttrs readDir;
+    inherit (nixpkgs.lib) attrValues genAttrs;
+    inherit (self.lib) exportModulesDir;
   in {
     lib = import ./lib {inherit (nixpkgs) lib;};
-    nixosModules = self.lib.exportModulesDir ./modules/nixos;
-    homeModules = self.lib.exportModulesDir ./modules/home-manager;
-    overlays = self.lib.exportModulesDir ./overlays;
-    # nixosConfigurations.gen6 = nixpkgs.lib.nixosSystem (import ./hosts/gen6 {inherit self inputs;});
-    nixosConfigurations.gen6 = import ./hosts/gen6 {inherit self inputs;};
-    # nixosConfigurations."gen6.Sway".config.system.build.toplevel = self.nixosConfigurations.gen6.config.specialisation.Sway.configuration.system.build.toplevel;
+    nixosModules = exportModulesDir ./modules/nixos;
+    homeModules = exportModulesDir ./modules/home-manager;
+    overlays = exportModulesDir ./overlays;
+    nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
     templates = import ./flake-template;
     defaultTemplate = self.templates.package-app;
 
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
-    legacyPackages = nixpkgs.lib.genAttrs supportedSystems (system:
+    legacyPackages = genAttrs supportedSystems (system:
       import nixpkgs {
         inherit config system;
-        overlays =
+        overlays = with inputs;
           [
-            inputs.nur.overlay
-            inputs.nixpkgs-wayland.overlay
-            inputs.vim-extra-plugins.overlay
-            inputs.emacs-overlay.overlay
-            inputs.powercord-overlay.overlay
+            nur.overlay
+            nixpkgs-wayland.overlay
+            vim-extra-plugins.overlay
+            emacs-overlay.overlay
+            powercord-overlay.overlay
             (final: prev: {
               inherit
                 (import inputs.nixpkgs-master {inherit system config;})
@@ -38,10 +39,10 @@
             })
           ]
           # Apply every exported overlay
-          ++ (nixpkgs.lib.attrValues self.overlays);
+          ++ (attrValues self.overlays);
       });
 
-    devShell = nixpkgs.lib.genAttrs supportedSystems (system: self.legacyPackages.${system}.callPackage ./misc/devShell.nix {});
+    devShell = genAttrs supportedSystems (system: self.legacyPackages.${system}.callPackage ./misc/devShell.nix {});
   };
 
   inputs = {
