@@ -69,7 +69,7 @@ in {
 
   fileSystems = {
     "/" = {
-      device = "/dev/mapper/tankVG/rootfs";
+      device = "/dev/tankVG/rootfs";
       fsType = "ext4";
     };
     "/boot" = {
@@ -80,7 +80,7 @@ in {
 
   swapDevices = [
     {
-      device = "/dev/mapper/tankVG/swap";
+      device = "/dev/tankVG/swap";
     }
   ];
 
