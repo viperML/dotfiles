@@ -1,32 +1,24 @@
 #!/usr/bin/env python3
-import argparse
-from pathlib import Path
 import subprocess
+from pathlib import Path
+from typing import Optional
 
-parser = argparse.ArgumentParser(description='Parse a list of packages')
-parser.add_argument('file', help='The file to parse')
-args = parser.parse_args()
+dry = False
+root_dir = Path(__file__).parent.parent
 
-path = Path(args.file).resolve()
+def build(folder: str, namespace: Optional[str]):
+    for p in Path(root_dir / "overlays" / folder).iterdir():
+        if p.is_dir():
+            cmd = f"nix build {root_dir}#"
+            if namespace:
+                cmd += f"{namespace}."
+            cmd += f"{p.name} --out-link {root_dir / 'results' / p.name}"
+            print(f"$ {cmd}")
+            if not dry:
+                subprocess.run(cmd.split(" "), check=True)
 
-all_pkgs = []
 
-context = ""
-for line in path.read_text().splitlines():
 
-    if "libsForQt5" in line:
-        context = "libsForQt5."
-    elif "gnomeExtensions" in line:
-        context = "gnomeExtensions."
-
-    if ' = callPackage' in line:
-        pkg = line.split(' = ')[0].strip()
-
-        all_pkgs.append(context + pkg)
-
-subprocess.call(["mkdir", "-p", "results"])
-for pkg in all_pkgs:
-    print(f"Building {pkg}")
-    subprocess.call([
-        "nix", "build", f".#pkgs.{pkg}", "--out-link", f"results/{pkg}"
-    ])
+build(folder="pkgs", namespace=None)
+build(folder="pkgs-libsForQt5", namespace="libsForQt5")
+build(folder="pkgs-gnomeExtensions", namespace="gnomeExtensions")
