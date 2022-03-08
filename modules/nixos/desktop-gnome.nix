@@ -15,6 +15,7 @@
     syncthing-indicator
     caffeine
     just-perfection
+    x11-gestures
   ];
 in {
   services.xserver = {
