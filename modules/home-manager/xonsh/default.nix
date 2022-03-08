@@ -4,28 +4,16 @@
   lib,
   ...
 }: let
-  my-python = pkgs.python3;
-  # xontrib-kitty = with my-python.pkgs;
-  #   buildPythonPackage rec {
-  #     pname = "xontrib-kitty";
-  #     version = "0.0.2";
-  #     src = fetchPypi {
-  #       inherit pname version;
-  #       sha256 = "sha256-MoAylQLdZd9TaKDe7nNYCN4vyqloAoHfCrBRKGPJyro=";
-  #     };
-  #     doCheck = false;
-  #   };
-  xontrib-onepath = with my-python.pkgs;
-    buildPythonPackage rec {
-      pname = "xontrib-onepath";
-      version = "0.3.2";
+  xontribs = with pkgs.python3.pkgs; {
+    fzf-widgets = buildPythonPackage rec {
+      pname = "xontrib-fzf-widgets";
+      version = "0.0.4";
       src = fetchPypi {
         inherit pname version;
-        sha256 = "sha256-xYLns/RW4L731fxJWXFBGuZL9d0szMdhXSRDhEehIiQ=";
+        sha256 = "sha256-EpeOr9c3HwFdF8tMpUkFNu7crmxqbL1VjUg5wTzNzUk=";
       };
     };
-  xonsh-direnv = with my-python.pkgs;
-    buildPythonPackage rec {
+    direnv = buildPythonPackage rec {
       pname = "xonsh-direnv";
       version = "1.5.0";
       src = fetchPypi {
@@ -33,8 +21,7 @@
         sha256 = "sha256-OLjtGD2lX4Yf3aHrxCWmAbSPZnf8OuVrBu0VFbsna1Y=";
       };
     };
-  xontrib-prompt-starship = with my-python.pkgs;
-    buildPythonPackage rec {
+    prompt_starship = buildPythonPackage rec {
       pname = "xontrib-prompt-starship";
       version = "0.2.0";
       src = fetchPypi {
@@ -45,36 +32,28 @@
         ./prompt-starship.patch
       ];
     };
+  };
 
-  # my-plugins = with my-python.pkgs; [
-  #   (fetchPypi {
-  #   })
-  # ];
-  # xonsh-wrapped = pkgs.symlinkJoin {
-  #   name = "xonsh";
-  #   paths = [
-  #     pkgs.xonsh
-  #     xontrib-kitty
-  #   ];
-  # };
-  # xonsh-wrapped = my-python.withPackages (p: [
-  #   pkgs.xonsh
-  #   xontrib-kitty
-  # ]);
   xonsh-plugged = pkgs.xonsh.overrideAttrs (prev: {
     propagatedBuildInputs =
       prev.propagatedBuildInputs
+      ++ (builtins.attrValues xontribs)
       ++ [
-        # xontrib-kitty
-        # xontrib-onepath
-        xonsh-direnv
-        xontrib-prompt-starship
-        # my-python.pkgs.numpy
-        # my-python.pkgs.matplotlib
+        (pkgs.python3.withPackages
+          (p:
+            with p; [
+              numpy
+              requests
+            ]))
       ];
   });
 in {
   home.packages = [xonsh-plugged pkgs.starship];
 
-  xdg.configFile."xonsh/rc.xsh".source = ./rc.xsh;
+  xdg.configFile."xonsh/rc.xsh".text = ''
+    # This file is managed by Home-Manager!
+    xontrib load ${lib.concatStringsSep " " (builtins.attrNames xontribs)} abbrevs
+
+    ${builtins.readFile ./rc.xsh}
+  '';
 }

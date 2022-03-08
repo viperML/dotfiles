@@ -3,18 +3,13 @@
 
 <p align="center">
   <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-check.yaml">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=flake%20check">
+  <img alt="check" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=flake%20check">
   </a>
   <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-cache.yaml">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=cachix">
+  <img alt="cache" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20cache?label=flake%20cache">
   </a>
-  <a
-    href="https://github.com/kamadorueda/alejandra"
-  >
-  <img
-    alt="style: Alejandra"
-    src="https://img.shields.io/badge/code%20style-Alejandra-green.svg"
-  >
+  <a href="https://github.com/kamadorueda/alejandra">
+  <img alt="style: Alejandra" src="https://img.shields.io/badge/code%20style-Alejandra-green.svg">
   </a>
 </p>
 
@@ -38,7 +33,7 @@ You can directly reference this flake and import it into your NixOS configuratio
 - [overlays](overlays): new packages and patches
 - [lib](lib): utility functions.
 - [bin](bin): various scripts
-- [flake-templates](flake-templates): flake templates
+- [flake-template](flake-template): flake templates
 - [misc](misc): anything else
 - [misc/img](misc/img): a look into the past
 
@@ -64,7 +59,7 @@ To use the packages, an overlay is provided, that you can use over your nixpkgs.
   inputs.viperML-dotfiles.url = github:viperML/dotfiles;
   inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs"; # override my nixpkgs lock
 
-  outputs  = inputs @ { ... }: {
+  outputs  = inputs @ { self, nixpkgs, ... }: {
     nixosConfigurations.<hostname> = nixpkgs.lib.nixosSystem {
       # ...
       modules = [
@@ -84,8 +79,7 @@ To use the packages, an overlay is provided, that you can use over your nixpkgs.
 }
 ```
 
-
-Packages are built and pushed to a public cachix cache, according to [.github/build-pkgs.sh](build-pkgs.sh). You can use the binary cache with:
+A package cache is provided:
 
 ```nix
 # configuration.nix

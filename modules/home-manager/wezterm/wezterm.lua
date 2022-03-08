@@ -66,7 +66,7 @@ return {
         italic = false
     }),
     font_size = 11,
-    default_prog = {"fish", "-l"},
+    default_prog = {"xonsh", "-l"},
     window_background_opacity = 1.0,
     -- enable_scroll_bar = true,
     enable_tab_bar = false,
@@ -76,8 +76,7 @@ return {
         top = padding-5,
         bottom = padding-5
     },
-
     colors = colors,
-
     enable_wayland = false,
+    window_close_confirmation = "NeverPrompt",
 }
