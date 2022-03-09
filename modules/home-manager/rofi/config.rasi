@@ -3,9 +3,9 @@ configuration {
     combi-modi: "drun,run,ssh";
     font: "Roboto 16";
     show-icons: true;
-    icon-theme: "Vimix Dark";
-    theme: "theme";
 }
+
+@theme "theme"
 
 * {
     width: 350px;

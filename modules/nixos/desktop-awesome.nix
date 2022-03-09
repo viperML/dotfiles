@@ -10,4 +10,7 @@
       ];
     };
   };
+
+  # Needed for autorandr
+  hardware.nvidia.modesetting.enable = true;
 }

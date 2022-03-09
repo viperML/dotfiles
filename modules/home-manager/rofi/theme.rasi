@@ -10,7 +10,7 @@ configuration {
   bg: #151515;
   bg-alt: #232323;
 
-  fg: #FFFFFF;
+  text-color: #FFFFFF;
   fg-alt: #424242;
 
   background-color: @bg;
@@ -23,7 +23,6 @@ configuration {
 }
 
 window {
-
 }
 
 element {

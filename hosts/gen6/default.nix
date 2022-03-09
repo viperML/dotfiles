@@ -84,6 +84,7 @@
       homeModules = with self.homeModules; [
         awesome
         picom
+        rofi
       ];
     };
   };

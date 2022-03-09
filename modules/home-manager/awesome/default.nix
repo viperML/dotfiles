@@ -18,7 +18,7 @@
 in {
   home.packages = with pkgs; [
     nitrogen
-    rofi
+    lxrandr
   ];
 
   systemd.user.tmpfiles.rules =
@@ -45,6 +45,21 @@ in {
       Unit.Description = "Wallpaper chooser";
       Service.ExecStart = "${pkgs.nitrogen}/bin/nitrogen --restore";
       Install.WantedBy = ["awesome-session.target"];
+    };
+  };
+
+  programs.autorandr = {
+    enable = true;
+    profiles = {
+      "gen6" = {
+        fingerprint."DP-2" = "00ffffffffffff003669a73f86030000091d0104a53c22783b1ad5ae5048a625125054bfcf00d1c0714f81c0814081809500b3000101695e00a0a0a029503020b80455502100001af8e300a0a0a032500820980455502100001e000000fd003090dede3c010a202020202020000000fc004d5349204d41473237314351520169020320714d0102031112130f1d1e0e901f04230917078301000065030c0010006fc200a0a0a055503020350055502100001a5a8700a0a0a03b503020350055502100001a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b8";
+        config."DP-2" = {
+          crtc = 0;
+          mode = "2560x1440";
+          position = "0x0";
+          rate = "144.00";
+        };
+      };
     };
   };
 }
