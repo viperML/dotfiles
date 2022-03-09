@@ -65,7 +65,10 @@ in {
   services.xserver = {
     layout = "es";
     displayManager.autoLogin.user = "ayats";
+    libinput.enable = true;
   };
+  
+
 
   fileSystems = {
     "/" = {
@@ -83,6 +86,8 @@ in {
       device = "/dev/tankVG/swap";
     }
   ];
+
+  powerManagement.cpuFreqGovernor = "schedutil";
 
   hardware = {
     cpu.amd.updateMicrocode = true;
