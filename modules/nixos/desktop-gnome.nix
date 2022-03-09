@@ -8,7 +8,6 @@
     appindicator
     blur-my-shell
     pop-shell
-    # night-theme-switcher
     dash-to-panel
     sound-output-device-chooser
     system-monitor

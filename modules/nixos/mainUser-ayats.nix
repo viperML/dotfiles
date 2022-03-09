@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
   name = "ayats";
@@ -29,6 +30,10 @@ in {
       commands = [
         {
           command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+          options = ["SETENV" "NOPASSWD"];
+        }
+        {
+          command = "${inputs.nh.packages.${pkgs.system}.nh}/bin/nh";
           options = ["SETENV" "NOPASSWD"];
         }
       ];
