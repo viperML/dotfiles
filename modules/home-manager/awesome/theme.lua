@@ -236,7 +236,7 @@ theme.titlebar_sticky_button_focus_inactive_hover    = btn_dir.."pin2.png"
 theme.titlebar_sticky_button_focus_inactive_press    = btn_dir.."pin3.png"
 
 
-theme.useless_gap = 0
+theme.useless_gap = 7
 
 
 -- ██████╗ ██╗     ██╗███╗   ██╗ ██████╗

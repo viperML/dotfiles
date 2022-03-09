@@ -32,7 +32,7 @@ revelation.init{
 
 -- Need import after beautiful init
 local lain = require("lain")
-local bling = require("bling")
+-- local bling = require("bling")
 
 
 if os.getenv('SSH_CLIENT') then
@@ -40,10 +40,10 @@ if os.getenv('SSH_CLIENT') then
     terminals = {'/usr/bin/konsole'}
 else
     modkey = "Mod4"
-    terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm'}
+    terminals = {'/usr/bin/st', '/usr/bin/alacritty', '/usr/bin/xterm', 'wezterm'}
 end
 
-local corner_radius = 0
+local corner_radius = 10
 local bar_height = 29
 
 for _, term in ipairs(terminals) do
@@ -53,6 +53,8 @@ for _, term in ipairs(terminals) do
         break
     end
 end
+
+terminal = 'wezterm'
 
 
 awful.layout.layouts = {
@@ -72,11 +74,11 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
-    bling.layout.mstab,
-    bling.layout.centered,
+    -- bling.layout.mstab,
+    -- bling.layout.centered,
     -- bling.layout.vertical,
     -- bling.layout.horizontal,
-    bling.layout.equalarea,
+    -- bling.layout.equalarea,
 }
 
 local tags = sharedtags({
@@ -87,21 +89,21 @@ local tags = sharedtags({
     { name = " 5 ", layout = awful.layout.suit.tile},
     { name = "  ", layout = awful.layout.suit.tile},
     { name = "  ", layout = awful.layout.suit.tile},
-    { name = "  ", layout = bling.layout.mstab},
+    -- { name = "  ", layout = bling.layout.mstab},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
     { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
 
 tags[8].master_count = 0
 
-bling.widget.tag_preview.enable {
-    show_client_content = true,  -- Whether or not to show the client content
-    x = bar_height * 2,                       -- The x-coord of the popup
-    y = bar_height * 2,                       -- The y-coord of the popup
-    scale = 0.25,                 -- The scale of the previews compared to the screen
-    honor_padding = false,        -- Honor padding when creating widget size
-    honor_workarea = false,       -- Honor work area when creating widget size
-}
+-- bling.widget.tag_preview.enable {
+--     show_client_content = true,  -- Whether or not to show the client content
+--     x = bar_height * 2,                       -- The x-coord of the popup
+--     y = bar_height * 2,                       -- The y-coord of the popup
+--     scale = 0.25,                 -- The scale of the previews compared to the screen
+--     honor_padding = false,        -- Honor padding when creating widget size
+--     honor_workarea = false,       -- Honor work area when creating widget size
+-- }
 
 -- ███╗   ██╗ ██████╗ ████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
 -- ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
@@ -257,7 +259,7 @@ widget_test = wibox.widget {
 
 widget_logo = wibox.widget {
     -- image = '/home/ayats/.dotfiles/.img/gentoo-signet-small.png',
-    image = os.getenv('DOTDIR')..'/.img/gentoo-signet-small.png',
+    image = os.getenv('FLAKE')..'/misc/img/gentoo-signet-small.png',
     widget = wibox.widget.imagebox,
     resize = true,
     horizontal_fit_policy = 'fit',
@@ -531,16 +533,16 @@ awful.screen.connect_for_each_screen(function(s)
             expand = 'none',
     }
 
-    bling.module.tiled_wallpaper("*", s, {        -- call the actual function ("x" is the string that will be tiled)
-        fg = "#45747d",  -- define the foreground color
-        bg = "#000000",  -- define the background color
-        offset_y = 25,   -- set a y offset
-        offset_x = 25,   -- set a x offset
-        font = "Sans",   -- set the font (without the size)
-        font_size = 30,  -- set the font size
-        padding = 50,   -- set padding (default is 100)
-        zickzack = true  -- rectangular pattern or criss cross
-    })
+    -- bling.module.tiled_wallpaper("*", s, {        -- call the actual function ("x" is the string that will be tiled)
+    --     fg = "#45747d",  -- define the foreground color
+    --     bg = "#000000",  -- define the background color
+    --     offset_y = 25,   -- set a y offset
+    --     offset_x = 25,   -- set a x offset
+    --     font = "Sans",   -- set the font (without the size)
+    --     font_size = 30,  -- set the font size
+    --     padding = 50,   -- set padding (default is 100)
+    --     zickzack = true  -- rectangular pattern or criss cross
+    -- })
 
 
 end)
@@ -932,15 +934,17 @@ end)
 -- ██╔══██║██║   ██║   ██║   ██║   ██║██║     ██╔══██║██║   ██║██║╚██╗██║██║     ██╔══██║
 -- ██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║
 -- ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
-awful.spawn("nitrogen --restore")
+-- awful.spawn("nitrogen --restore")
 -- Lauch systemd user custom files
 -- awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
 -- awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
 
 -- Increase keyboard tick rate and disable screen blanking
-awful.spawn("xset r rate 200 40")
+-- awful.spawn("xset r rate 200 40")
 awful.spawn("xset s off -dpms")
 awful.spawn("xset b off")
+
+awful.spawn('bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"')
 
 
 -- ████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗         ███████╗██╗    ██╗ █████╗ ██╗     ██╗      ██████╗ ██╗    ██╗

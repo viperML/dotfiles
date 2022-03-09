@@ -76,6 +76,16 @@
         gnome
       ];
     };
+
+    "awesome" = {
+      nixosModules = with self.nixosModules; [
+        desktop-awesome
+      ];
+      homeModules = with self.homeModules; [
+        awesome
+        picom
+      ];
+    };
   };
 in
   self.lib.mkSpecialisedSystem {
