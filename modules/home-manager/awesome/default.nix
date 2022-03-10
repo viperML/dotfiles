@@ -1,4 +1,4 @@
-{
+args @ {
   config,
   lib,
   self,
@@ -15,10 +15,31 @@
   finalPath = "${config.home.homeDirectory}/.config/awesome";
 
   modules = import ./modules.nix {inherit pkgs;};
+
+  mkService = serviceAttrs:
+    lib.recursiveUpdate {
+      Unit.PartOf = ["graphical-session.target"];
+      Unit.After = ["graphical-session.target"];
+      Install.WantedBy = ["awesome-session.target"];
+    }
+    serviceAttrs;
+
+  xsettingsConfig = import ./xsettings.nix {inherit args;};
+
+  xsettingsd-switch-script = pkgs.writeShellScript "xsettings-switch" ''
+    export PATH="${pkgs.coreutils-full}/bin:${pkgs.systemd}/bin"
+    if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
+      ln -sf ${xsettingsConfig.light} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
+    else
+      ln -sf ${xsettingsConfig.dark} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
+    fi
+    systemctl --user restart xsettingsd.service
+  '';
 in {
   home.packages = with pkgs; [
     nitrogen
     lxrandr
+    adw-gtk3
   ];
 
   systemd.user.tmpfiles.rules =
@@ -33,7 +54,6 @@ in {
   systemd.user.targets.awesome-session = {
     Unit = {
       Description = "awesome window manager session";
-      Documentation = ["man:systemd.special(7)"];
       BindsTo = ["graphical-session.target"];
       Wants = ["graphical-session-pre.target"];
       After = ["graphical-session-pre.target"];
@@ -41,10 +61,39 @@ in {
   };
 
   systemd.user.services = {
-    nitrogen = {
+    nitrogen = mkService {
       Unit.Description = "Wallpaper chooser";
       Service.ExecStart = "${pkgs.nitrogen}/bin/nitrogen --restore";
-      Install.WantedBy = ["awesome-session.target"];
+    };
+    nm-applet = mkService {
+      Unit.Description = "Network manager applet";
+      Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+    };
+    autorandr-boot = mkService {
+      Unit.Description = "Load autorandr on boot";
+      Service.ExecStart = "${pkgs.autorandr}/bin/autorandr --change";
+    };
+    polkit-agent = mkService {
+      Unit.Description = "GNOME polkit agent";
+      Service.ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    };
+    xsettingsd = mkService {
+      Unit.Description = "Cross desktop configuration daemon";
+      Service.ExecStart = "${pkgs.xsettingsd}/bin/xsettingsd";
+      Unit.After = ["xsettingsd-switch.service"];
+    };
+    xsettingsd-switch = mkService {
+      Unit.Description = "Reload the xsettingsd with new configuration";
+      Service.ExecStart = xsettingsd-switch-script.outPath;
+    };
+  };
+
+  systemd.user.timers = {
+    xsettingsd-switch = {
+      Unit.Description = "Apply xsettings on schedule";
+      Unit.PartOf = ["xsettingsd-switch.service"];
+      Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
+      Install.WantedBy = ["timers.target"];
     };
   };
 

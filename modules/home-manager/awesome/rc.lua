@@ -63,7 +63,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
+    awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
@@ -82,19 +82,19 @@ awful.layout.layouts = {
 }
 
 local tags = sharedtags({
-    { name = "  ", layout = awful.layout.suit.tile},
-    { name = "  ", layout = awful.layout.suit.tile},
+    { name = " 1 ", layout = awful.layout.suit.tile},
+    { name = " 2 ", layout = awful.layout.suit.tile},
     { name = " 3 ", layout = awful.layout.suit.tile},
     { name = " 4 ", layout = awful.layout.suit.tile},
-    { name = " 5 ", layout = awful.layout.suit.tile},
-    { name = "  ", layout = awful.layout.suit.tile},
-    { name = "  ", layout = awful.layout.suit.tile},
-    -- { name = "  ", layout = bling.layout.mstab},
-    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
-    { name = "  ", layout = awful.layout.suit.tile, screen = 2},
+    -- { name = " 5 ", layout = awful.layout.suit.tile},
+    -- { name = "  ", layout = awful.layout.suit.tile},
+    -- { name = "  ", layout = awful.layout.suit.tile},
+    -- -- { name = "  ", layout = bling.layout.mstab},
+    -- { name = "  ", layout = awful.layout.suit.tile, screen = 2},
+    -- { name = "  ", layout = awful.layout.suit.tile, screen = 2},
 })
 
-tags[8].master_count = 0
+-- tags[8].master_count = 0
 
 -- bling.widget.tag_preview.enable {
 --     show_client_content = true,  -- Whether or not to show the client content
@@ -139,8 +139,8 @@ local menu_system = {
     { "Hotkeys manual", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
     { "Restart Awesome", awesome.restart },
     { "Quit Awesome", function() awesome.quit() end },
-    { "Restart PC", "sudo reboot" },
-    { "Shutdown PC", "sudo shutdown now" },
+    { "Restart PC", "systemctl reboot" },
+    { "Shutdown PC", "systemctl poweroff" },
 }
 
 local menu_keyboard = {
@@ -927,31 +927,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 
-
---  █████╗ ██╗   ██╗████████╗ ██████╗ ██╗      █████╗ ██╗   ██╗███╗   ██╗ ██████╗██╗  ██╗
--- ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██║     ██╔══██╗██║   ██║████╗  ██║██╔════╝██║  ██║
--- ███████║██║   ██║   ██║   ██║   ██║██║     ███████║██║   ██║██╔██╗ ██║██║     ███████║
--- ██╔══██║██║   ██║   ██║   ██║   ██║██║     ██╔══██║██║   ██║██║╚██╗██║██║     ██╔══██║
--- ██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║
--- ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
--- awful.spawn("nitrogen --restore")
--- Lauch systemd user custom files
--- awful.spawn.with_shell("systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS")
--- awful.spawn.with_shell("systemctl --no-block --user start xsession.target")
-
--- Increase keyboard tick rate and disable screen blanking
--- awful.spawn("xset r rate 200 40")
 awful.spawn("xset s off -dpms")
 awful.spawn("xset b off")
 
 awful.spawn('bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"')
-
-
--- ████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗         ███████╗██╗    ██╗ █████╗ ██╗     ██╗      ██████╗ ██╗    ██╗
--- ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██║         ██╔════╝██║    ██║██╔══██╗██║     ██║     ██╔═══██╗██║    ██║
---    ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║         ███████╗██║ █╗ ██║███████║██║     ██║     ██║   ██║██║ █╗ ██║
---    ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║         ╚════██║██║███╗██║██╔══██║██║     ██║     ██║   ██║██║███╗██║
---    ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗    ███████║╚███╔███╔╝██║  ██║███████╗███████╗╚██████╔╝╚███╔███╔╝
---    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝
--- https://www.reddit.com/r/awesomewm/comments/h07f5y/does_awesome_support_window_swallowing/
--- Not used

@@ -91,6 +91,11 @@ in {
     videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
     displayManager.autoLogin.user = "ayats";
+    libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
+      mouse.accelSpeed = "0.0";
+    };
   };
 
   services.sanoid = {
