@@ -35,6 +35,18 @@ args @ {
     fi
     systemctl --user restart xsettingsd.service
   '';
+
+  redshift-conf = pkgs.writeText "redshift-conf" ''
+    [redshift]
+    location-provider=manual
+    temp-day=6500
+    temp-night=3500
+    transition=1
+    adjustment-method=randr
+    [manual]
+    lat=41
+    lon=-3
+  '';
 in {
   home.packages = with pkgs; [
     nitrogen
@@ -85,6 +97,10 @@ in {
     xsettingsd-switch = mkService {
       Unit.Description = "Reload the xsettingsd with new configuration";
       Service.ExecStart = xsettingsd-switch-script.outPath;
+    };
+    redshift = mkService {
+      Unit.Description = "Night color filter";
+      Service.ExecStart = "${pkgs.redshift}/bin/redshift-gtk -c ${redshift-conf}";
     };
   };
 
