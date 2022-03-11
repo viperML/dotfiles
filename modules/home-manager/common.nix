@@ -31,6 +31,8 @@ in {
     htop
     pstree
     sysstat
+
+    stylua
   ];
 
   home.stateVersion = "21.11";

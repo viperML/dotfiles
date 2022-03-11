@@ -406,7 +406,11 @@
     {
       "command": "alejandra",
       "languages": ["nix"]
-    }
+    },
+    {
+      "command": "stylua -",
+      "languages": ["lua"]
+    },
   ],
   "files.autoSave": "afterDelay",
   "workbench.colorTheme": "Atom One Darker",
