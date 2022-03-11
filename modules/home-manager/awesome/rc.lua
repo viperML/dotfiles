@@ -258,7 +258,6 @@ widget_test = wibox.widget {
 }
 
 widget_logo = wibox.widget {
-    -- image = '/home/ayats/.dotfiles/.img/gentoo-signet-small.png',
     image = os.getenv('FLAKE')..'/misc/img/gentoo-signet-small.png',
     widget = wibox.widget.imagebox,
     resize = true,
@@ -457,36 +456,36 @@ awful.screen.connect_for_each_screen(function(s)
         gears.shape.rounded_rect(cr,w,h,corner_radius)
     end
 
-    s.wibox_splash = wibox({
-        screen = s,
-        type = 'splash',
-        width = 400,
-        height = 400,
-        visible = true,
-        bg = '#12121200',
-        opacity = 1,
-    })
-    s.wibox_splash.y = s.geometry.y + s.geometry.height/2 - s.wibox_splash.height/2
-    s.wibox_splash.x = s.geometry.width/2 + s.geometry.x - s.wibox_splash.width/2
+    -- s.wibox_splash = wibox({
+    --     screen = s,
+    --     type = 'splash',
+    --     width = 400,
+    --     height = 400,
+    --     visible = true,
+    --     bg = '#12121200',
+    --     opacity = 1,
+    -- })
+    -- s.wibox_splash.y = s.geometry.y + s.geometry.height/2 - s.wibox_splash.height/2
+    -- s.wibox_splash.x = s.geometry.width/2 + s.geometry.x - s.wibox_splash.width/2
 
-    s.wibox_splash:setup {
-        layout = wibox.layout.align.horizontal,
-        {
-            widget = wibox.widget.textbox,
-        },
-        -- {
-        --     markup = helpers.colorize_text('I use arch btw', '#121212'),
-        --     align  = 'center',
-        --     valign = 'center',
-        --     font = 'Noto Sans Bold 30',
-        --     widget = wibox.widget.textbox,
-        -- },
-        {
-            widget = wibox.widget.imagebox,
-            resize = true,
-            image = '/home/ayats/Pictures/splash_target',
-        }
-    }
+    -- s.wibox_splash:setup {
+    --     layout = wibox.layout.align.horizontal,
+    --     {
+    --         widget = wibox.widget.textbox,
+    --     },
+    --     -- {
+    --     --     markup = helpers.colorize_text('I use arch btw', '#121212'),
+    --     --     align  = 'center',
+    --     --     valign = 'center',
+    --     --     font = 'Noto Sans Bold 30',
+    --     --     widget = wibox.widget.textbox,
+    --     -- },
+    --     -- {
+    --     --     widget = wibox.widget.imagebox,
+    --     --     resize = true,
+    --     --     image = '/home/ayats/Pictures/splash_target',
+    --     -- }
+    -- }
 
 
 
@@ -632,16 +631,16 @@ globalkeys = gears.table.join(
 
     -- awful.key({      }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
     -- awful.key({      }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
-    awful.key({      }, "XF86AudioRaiseVolume", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_volume +4 ]]) end),
-    awful.key({      }, "XF86AudioLowerVolume", function() awful.spawn([[ /home/ayats/.dotfiles/bin/change_volume -4 ]]) end),
-    awful.key({      }, "XF86AudioMute", function() volume_widget:toggle() end),
-    awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
-    awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
-    awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end),
+    awful.key({      }, "XF86AudioRaiseVolume", function() awful.spawn([[ pactl -- set-sink-volume 0 +5% ]]) end),
+    awful.key({      }, "XF86AudioLowerVolume", function() awful.spawn([[ pactl -- set-sink-volume 0 -5% ]]) end),
+    awful.key({      }, "XF86AudioMute", function() awful.spawn([[ pactl set-sink-mute 0 toggle ]]) end),
+    -- awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
+    -- awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
+    -- awful.key({      }, "XF86AudioNext", function() awful.spawn("playerctl next") end),
 
 
-    awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ xbacklight -inc +5 ]]) end),
-    awful.key({      }, "XF86MonBrightnessDown", function() awful.spawn([[ xbacklight -inc -5 ]]) end),
+    -- awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ xbacklight -inc +5 ]]) end),
+    -- awful.key({      }, "XF86MonBrightnessDown", function() awful.spawn([[ xbacklight -inc -5 ]]) end),
 
     -- On the fly useless gaps change
     awful.key({ modkey }, "g", function () lain.util.useless_gaps_resize(1) end),

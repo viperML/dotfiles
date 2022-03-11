@@ -80,8 +80,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "12.0.1";
-    sha256 = "1xv1vzx643qa8jhjpnpv2wrymz38w130vm0idkcl77lh209r5i8x";
+    version = "12.0.4";
+    sha256 = "1s1wrrp5i7cqm8c4x67c9b19mf1sjpcxklyl58rfsnmjbrlnazsg";
   }
   {
     name = "EditorConfig";
@@ -98,14 +98,14 @@
   {
     name = "nightswitch-lite";
     publisher = "gharveymn";
-    version = "2.3.0";
-    sha256 = "0iy6pnyl76rr9lnglsjplkc24980i04fgp8qa1m0l0034qd5mlg9";
+    version = "2.3.1";
+    sha256 = "1bybmkylgmw5crgnpvsss2m80lqjzc3w0jxjbvl1wrc40bjxmkbm";
   }
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.5227";
-    sha256 = "1bfwzfs2xqnvhxxbn7mn2yhvznajlhy6q5y1r5gqzbk1k8pnl1mm";
+    version = "1.7.5250";
+    sha256 = "1dc9dkc60v4pbn6s223i7m1lr14pjkjg1m9rfny90rjf248838d1";
   }
   {
     name = "terraform";
@@ -182,20 +182,20 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2022.3.10661003";
-    sha256 = "1h0d5p5p04r3k3s47n6b7m7y551prmg9021s1vv0jniv5q2b580r";
+    version = "2022.3.10701002";
+    sha256 = "073ha9d5rcfln72mk6dyi4y5x57ml4gviy87l1n3bividrvxrzlc";
   }
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.3.0";
-    sha256 = "1s4cyrzqpb4ijwj942dqd86pcxwxdhshx80r2z80mc3q0l6gkhcd";
+    version = "2022.3.1";
+    sha256 = "1x4m1617391sy7f4zcf3axn26r5kz5xg0fshy0shpdwgxi1557pd";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.3.1000652335";
-    sha256 = "13f7595hbdib3xdy90fb6ak3q7nmpm156m4jjcvby9k46ff42p03";
+    version = "2022.3.1000721005";
+    sha256 = "1lkw77fgf3qn8fgpiidrqn2a9nrw7pnfv7x6ic3w8j56cm00mrwn";
   }
   {
     name = "jupyter-keymap";
@@ -242,14 +242,14 @@
   {
     name = "material-icon-theme";
     publisher = "PKief";
-    version = "4.13.0";
-    sha256 = "0b5z08v34q10xlbjbb5sn3zdwq6bflhd96z3dqsiakywhrsxi0jm";
+    version = "4.14.1";
+    sha256 = "1d6wv5jxg4syz9dlj3q4rrv1cfk86hlff5132qga7j6y8z8f4x9q";
   }
   {
     name = "material-product-icons";
     publisher = "PKief";
-    version = "1.1.2";
-    sha256 = "1g2m75mzfd8rdv5r17wy61598vrhr55wh4y9vd8al5fpx55kiar8";
+    version = "1.2.0";
+    sha256 = "0gxdmhlhrxl42v7sicmbcixamf61d03s9ap9r7gr2qa8dzamx31f";
   }
   {
     name = "vscode-commons";
@@ -288,6 +288,12 @@
     sha256 = "125l8ibp0z9jrj0jznb9g5ggln4ds3qsny6ws2wqlacc0ir4f8fg";
   }
   {
+    name = "lua";
+    publisher = "sumneko";
+    version = "2.6.7";
+    sha256 = "sha256-BZj5XVZ/SCGMA45/YwItyYz7va04JjOtg79zeIzHZEE=";
+  }
+  {
     name = "vim";
     publisher = "vscodevim";
     version = "1.22.2";
@@ -296,8 +302,8 @@
   {
     name = "viml";
     publisher = "XadillaX";
-    version = "1.0.1";
-    sha256 = "0zc0pi68f7lsir1jzzdr914w0ybzv9j2lwn8il7niglv2hygcdwv";
+    version = "2.1.0";
+    sha256 = "03q1djzdf6z6bcwz47qgrfiyk30lcd0pkqbvnzi1688mlhic1xa5";
   }
   {
     name = "markdown-all-in-one";

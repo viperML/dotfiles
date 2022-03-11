@@ -23,35 +23,14 @@ args @ {
       Install.WantedBy = ["awesome-session.target"];
     }
     serviceAttrs;
-
-  xsettingsConfig = import ./xsettings.nix {inherit args;};
-
-  xsettingsd-switch-script = pkgs.writeShellScript "xsettings-switch" ''
-    export PATH="${pkgs.coreutils-full}/bin:${pkgs.systemd}/bin"
-    if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-      ln -sf ${xsettingsConfig.light} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
-    else
-      ln -sf ${xsettingsConfig.dark} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
-    fi
-    systemctl --user restart xsettingsd.service
-  '';
-
-  redshift-conf = pkgs.writeText "redshift-conf" ''
-    [redshift]
-    location-provider=manual
-    temp-day=6500
-    temp-night=3500
-    transition=1
-    adjustment-method=randr
-    [manual]
-    lat=41
-    lon=-3
-  '';
 in {
   home.packages = with pkgs; [
     nitrogen
     lxrandr
     adw-gtk3
+
+    # TODO move to keybinds.json
+    pulseaudio
   ];
 
   systemd.user.tmpfiles.rules =
@@ -94,14 +73,49 @@ in {
       Service.ExecStart = "${pkgs.xsettingsd}/bin/xsettingsd";
       Unit.After = ["xsettingsd-switch.service"];
     };
-    xsettingsd-switch = mkService {
-      Unit.Description = "Reload the xsettingsd with new configuration";
-      Service.ExecStart = xsettingsd-switch-script.outPath;
-    };
-    redshift = mkService {
-      Unit.Description = "Night color filter";
-      Service.ExecStart = "${pkgs.redshift}/bin/redshift-gtk -c ${redshift-conf}";
-    };
+    xsettingsd-switch = let
+      xsettingsConfig = import ./xsettings.nix {inherit args;};
+      xsettingsd-switch-script = pkgs.writeShellScript "xsettings-switch" ''
+        export PATH="${pkgs.coreutils-full}/bin:${pkgs.systemd}/bin"
+        if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
+          ln -sf ${xsettingsConfig.light} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
+        else
+          ln -sf ${xsettingsConfig.dark} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
+        fi
+        systemctl --user restart xsettingsd.service
+      '';
+    in
+      mkService {
+        Unit.Description = "Reload the xsettingsd with new configuration";
+        Service.ExecStart = xsettingsd-switch-script.outPath;
+      };
+    redshift = let
+      redshift-conf = pkgs.writeText "redshift-conf" ''
+        [redshift]
+        location-provider=manual
+        temp-day=6500
+        temp-night=3500
+        transition=1
+        adjustment-method=randr
+        [manual]
+        lat=41
+        lon=-3
+      '';
+    in
+      mkService {
+        Unit.Description = "Night color filter";
+        Service.ExecStart = "${pkgs.redshift}/bin/redshift-gtk -c ${redshift-conf}";
+      };
+    xob = let
+      pyenv = pkgs.python3.withPackages (p3: [p3.pulsectl]);
+      xob-daemon = pkgs.writeShellScript "xob-daemon" ''
+        ${pyenv}/bin/python ${./xob_receiver.py} | ${pkgs.xob}/bin/xob
+      '';
+    in
+      mkService {
+        Unit.Description = "Visual overlay of current volume";
+        Service.ExecStart = xob-daemon.outPath;
+      };
   };
 
   systemd.user.timers = {
