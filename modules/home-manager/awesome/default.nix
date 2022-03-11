@@ -109,7 +109,7 @@ in {
     xob = let
       pyenv = pkgs.python3.withPackages (p3: [p3.pulsectl]);
       xob-daemon = pkgs.writeShellScript "xob-daemon" ''
-        ${pyenv}/bin/python ${./xob_receiver.py} | ${pkgs.xob}/bin/xob
+        ${pyenv}/bin/python ${./xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob.cfg}
       '';
     in
       mkService {

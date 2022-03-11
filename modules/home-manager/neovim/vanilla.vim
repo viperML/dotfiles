@@ -34,3 +34,6 @@ set mouse=a
 
 " Set the cursor to a line after leaving
 au VimLeave * set guicursor=a:ver100
+
+" Fuck Ex mode
+:map Q <Nop>
