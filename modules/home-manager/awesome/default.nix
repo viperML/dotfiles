@@ -37,14 +37,13 @@ in {
   systemd.user.tmpfiles.rules =
     map (f: "L+ ${finalPath}/${f} - - - - ${selfPath}/${f}") [
       "rc.lua"
+      "rc"
+      "menu.lua"
       # "helpers.lua"
       # "theme.lua"
       # "res"
-
-      # "keybinds.lua"
-      "rc"
     ]
-    ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/modules/${name} - - - - ${value.outPath}") modules);
+    ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/${name} - - - - ${value.outPath}") modules);
 
   systemd.user.targets.awesome-session = {
     Unit = {
@@ -113,7 +112,7 @@ in {
     xob = let
       pyenv = pkgs.python3.withPackages (p3: [p3.pulsectl]);
       xob-daemon = pkgs.writeShellScript "xob-daemon" ''
-        ${pyenv}/bin/python ${./xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob.cfg}
+        ${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}
       '';
     in
       mkService {

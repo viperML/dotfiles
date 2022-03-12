@@ -1,0 +1,28 @@
+local awful = require "awful"
+local freedesktop = require "freedesktop"
+local hotkeys_popup = require "awful.hotkeys_popup"
+
+local menu_system = {
+    {
+        "Hotkeys manual",
+        function()
+            hotkeys_popup.show_help(nil, awful.screen.focused())
+        end,
+    },
+    { "Restart Awesome", awesome.restart },
+    {
+        "Quit Awesome",
+        function()
+            awesome.quit()
+        end,
+    },
+    { "Restart PC", "systemctl reboot" },
+    { "Shutdown PC", "systemctl poweroff" },
+}
+
+menu = freedesktop.menu.build {
+    before = {
+        { "System", menu_system },
+    },
+    after = {},
+}

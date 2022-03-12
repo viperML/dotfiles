@@ -1,24 +1,11 @@
--- Standard awesome library
 local gears = require "gears"
 local awful = require "awful"
 require "awful.autofocus"
--- Widget and layout library
 local wibox = require "wibox"
--- Theme handling library
 local beautiful = require "beautiful"
--- Notification library
 local naughty = require "naughty"
--- Declarative object management
 local ruled = require "ruled"
-local menubar = require "menubar"
-local hotkeys_popup = require "awful.hotkeys_popup"
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require "awful.hotkeys_popup.keys"
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
     naughty.notification {
         urgency = "critical",
@@ -26,100 +13,42 @@ naughty.connect_signal("request::display_error", function(message, startup)
         message = message,
     }
 end)
--- }}}
 
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
+local bling = require "bling"
+
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
--- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv "EDITOR" or "nano"
-editor_cmd = terminal .. " -e " .. editor
+C = {}
+C.modkey = "Mod4"
 
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
--- }}}
+require "rc.menu"
+require "rc.notifications"
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-    {
-        "hotkeys",
-        function()
-            hotkeys_popup.show_help(nil, awful.screen.focused())
-        end,
-    },
-    { "manual", terminal .. " -e man awesome" },
-    { "edit config", editor_cmd .. " " .. awesome.conffile },
-    { "restart", awesome.restart },
-    {
-        "quit",
-        function()
-            awesome.quit()
-        end,
-    },
-}
-
-mymainmenu = awful.menu {
-    items = {
-        { "awesome", myawesomemenu, beautiful.awesome_icon },
-        { "open terminal", terminal },
-    },
-}
-
-mylauncher = awful.widget.launcher { image = beautiful.awesome_icon, menu = mymainmenu }
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
--- {{{ Tag layout
--- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts {
-        awful.layout.suit.floating,
         awful.layout.suit.tile,
-        awful.layout.suit.tile.left,
-        awful.layout.suit.tile.bottom,
-        awful.layout.suit.tile.top,
+        awful.layout.suit.floating,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.bottom,
+        -- awful.layout.suit.tile.top,
         awful.layout.suit.fair,
-        awful.layout.suit.fair.horizontal,
-        awful.layout.suit.spiral,
-        awful.layout.suit.spiral.dwindle,
-        awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen,
-        awful.layout.suit.magnifier,
-        awful.layout.suit.corner.nw,
+        -- awful.layout.suit.fair.horizontal,
+        -- awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+        -- awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        -- awful.layout.suit.magnifier,
+        -- awful.layout.suit.corner.nw,
+        -- awful.layout.suit.corner.ne,
+        -- awful.layout.suit.corner.sw,
+        -- awful.layout.suit.corner.se,
+        -- bling.layout.mstab,
+        -- bling.layout.centered,
+        -- bling.layout.vertical,
+        -- bling.layout.horizontal,
+        -- bling.layout.equalarea,
     }
 end)
--- }}}
-
--- {{{ Wallpaper
-screen.connect_signal("request::wallpaper", function(s)
-    awful.wallpaper {
-        screen = s,
-        widget = {
-            {
-                image = beautiful.wallpaper,
-                upscale = true,
-                downscale = true,
-                widget = wibox.widget.imagebox,
-            },
-            valign = "center",
-            halign = "center",
-            tiled = false,
-            widget = wibox.container.tile,
-        },
-    }
-end)
--- }}}
-
--- {{{ Wibar
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -162,13 +91,13 @@ screen.connect_signal("request::desktop_decoration", function(s)
             awful.button({}, 1, function(t)
                 t:view_only()
             end),
-            awful.button({ modkey }, 1, function(t)
+            awful.button({ C.modkey }, 1, function(t)
                 if client.focus then
                     client.focus:move_to_tag(t)
                 end
             end),
             awful.button({}, 3, awful.tag.viewtoggle),
-            awful.button({ modkey }, 3, function(t)
+            awful.button({ C.modkey }, 3, function(t)
                 if client.focus then
                     client.focus:toggle_tag(t)
                 end
@@ -331,30 +260,9 @@ end)
 
 -- {{{ Notifications
 
-ruled.notification.connect_signal("request::rules", function()
-    -- All notifications will match this rule.
-    ruled.notification.append_rule {
-        rule = {},
-        properties = {
-            screen = awful.screen.preferred,
-            implicit_timeout = 5,
-        },
-    }
-end)
-
-naughty.connect_signal("request::display", function(n)
-    naughty.layout.box { notification = n }
-end)
-
 -- }}}
 
--- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:activate { context = "mouse_enter", raise = false }
-end)
-
-C = {}
-C.modkey = "Mod4"
 require "rc.keybinds"
+require "rc.signals"
 
-awful.spawn('bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"')
+awful.spawn 'bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"'

@@ -41,7 +41,7 @@ in {
       '';
     };
     tmpOnTmpfs = true;
-    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     kernelModules = ["kvm-intel"];
     kernelParams = [];
     supportedFilesystems = ["zfs"];
