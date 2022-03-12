@@ -7,5 +7,10 @@
     };
   };
 
-  xdg.configFile."picom/picom.conf".source = ./picom.conf;
+  xdg.configFile."picom/picom.conf" = {
+    source = ./picom.conf;
+    onChange = ''
+      systemctl --user is-active picom.service --quiet && systemctl --user restart picom.service
+    '';
+  };
 }
