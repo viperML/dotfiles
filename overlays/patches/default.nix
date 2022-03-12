@@ -23,4 +23,14 @@ in {
       sha256 = "093zapjm1z33sr7rp895kplw91qb8lq74qwc0x1ljz28xfsbp496";
     };
   });
+
+  stylua = prev.stylua.overrideAttrs (prevAttrs: {
+    buildInputs = prevAttrs.buildInputs or [] ++ [prev.makeWrapper];
+    postFixup =
+      (prev.postFixup or "")
+      + ''
+        wrapProgram $out/bin/stylua \
+          --add-flags "--config-path ${./stylua.toml}"
+      '';
+  });
 }
