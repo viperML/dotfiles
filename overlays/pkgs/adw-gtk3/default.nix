@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     owner = "lassekongo83";
     repo = "adw-gtk3";
     rev = "1d062d51adade942443904e903ef4c21074681c8";
-    sha256 = "049lvc2qqqwdpmd4g7ysn98xixqk4mniq91g3wicla0p6hqm13pz";
+    sha256 = "sha256-SU9BcEBZ+fT1l6D1Bz5bqycjXNc+AlZR2naq09pMBTM=";
   };
 
   nativeBuildInputs = [
