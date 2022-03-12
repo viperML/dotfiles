@@ -297,7 +297,7 @@
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[lua]": {
-    "editor.defaultFormatter": "Koihik.vscode-lua-format"
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
 
 
@@ -413,7 +413,7 @@
     },
   ],
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Atom One Darker",
+  "workbench.colorTheme": "Atom One Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
   "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",

@@ -28,8 +28,9 @@ in {
     nitrogen
     lxrandr
     adw-gtk3
+    gnome.nautilus
 
-    # TODO move to keybinds.json
+    # TODO move out
     pulseaudio
   ];
 
@@ -39,6 +40,8 @@ in {
       "helpers.lua"
       "theme.lua"
       "res"
+
+      "keybinds.lua"
     ]
     ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/${name} - - - - ${value.outPath}") modules);
 
