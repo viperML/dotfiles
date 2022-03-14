@@ -19,4 +19,4 @@ def build(folder: str, namespace: Optional[str]):
 
 build(folder="pkgs", namespace=None)
 build(folder="pkgs-libsForQt5", namespace="libsForQt5")
-build(folder="pkgs-gnomeExtensions", namespace="gnomeExtensions")
+# build(folder="pkgs-gnomeExtensions", namespace="gnomeExtensions")

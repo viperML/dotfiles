@@ -29,6 +29,8 @@ in {
     lxrandr
     adw-gtk3
     gnome.nautilus
+    # Needed by bling
+    xorg.xwininfo
 
     # TODO move out
     pulseaudio
@@ -38,10 +40,9 @@ in {
     map (f: "L+ ${finalPath}/${f} - - - - ${selfPath}/${f}") [
       "rc.lua"
       "rc"
-      "menu.lua"
-      # "helpers.lua"
-      # "theme.lua"
-      # "res"
+      "ui"
+      "helpers.lua"
+      "theme"
     ]
     ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/${name} - - - - ${value.outPath}") modules);
 

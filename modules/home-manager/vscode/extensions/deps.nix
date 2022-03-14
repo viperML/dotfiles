@@ -194,8 +194,8 @@
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.3.1000721005";
-    sha256 = "1lkw77fgf3qn8fgpiidrqn2a9nrw7pnfv7x6ic3w8j56cm00mrwn";
+    version = "2022.3.1000751005";
+    sha256 = "17gl3g7xrc3nmf9p2a9a2l1vha6l98q5qxrpdy0sqrzg9cs44kjl";
   }
   {
     name = "jupyter-keymap";
@@ -212,14 +212,14 @@
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.77.2022030315";
-    sha256 = "1wyz3lnz821znsbdwjigndy3pq43f31v0jg8hfnhgmj05a4y8kjn";
+    version = "0.77.2022031115";
+    sha256 = "1k325xky5m8j77wl0x70sbwlkg5rli0p2anan9sfrhjnpf64xlgk";
   }
   {
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
-    version = "0.77.2022030315";
-    sha256 = "0vn0z4f2hsp95c06w9gl53j3f553xigy1kpm8q834rf927c0bajz";
+    version = "0.77.2022031115";
+    sha256 = "0ly75j66s247bsa05rnrvsgf4f9xcn1ajib1ypw6an68p22f4jj1";
   }
   {
     name = "vsliveshare";
@@ -286,12 +286,6 @@
     publisher = "streetsidesoftware";
     version = "2.0.5";
     sha256 = "125l8ibp0z9jrj0jznb9g5ggln4ds3qsny6ws2wqlacc0ir4f8fg";
-  }
-  {
-    name = "lua";
-    publisher = "sumneko";
-    version = "2.6.7";
-    sha256 = "sha256-BZj5XVZ/SCGMA45/YwItyYz7va04JjOtg79zeIzHZEE=";
   }
   {
     name = "vim";
