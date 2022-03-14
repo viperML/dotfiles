@@ -1,10 +1,11 @@
 local gears = require "gears"
 local awful = require "awful"
+local beautiful = require "beautiful"
 
 client.connect_signal("manage", function(c)
   -- Rounded corners
   c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, corner_radius)
+    gears.shape.rounded_rect(cr, w, h, beautiful.corners)
   end
 
   -- Set the windows at the slave,

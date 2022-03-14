@@ -14,7 +14,7 @@ naughty.connect_signal("request::display_error", function(message, startup)
   }
 end)
 
--- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+awful.spawn 'bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"'
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/dark.lua")
 
 C = {}
@@ -26,7 +26,6 @@ require "rc.rules"
 require "rc.keybinds"
 require "rc.signals"
 
-awful.spawn 'bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"'
 
 require "ui.bar"
 require "ui.title"

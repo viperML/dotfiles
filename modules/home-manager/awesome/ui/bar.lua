@@ -98,12 +98,12 @@ local time = wibox.widget {
       layout = wibox.layout.fixed.vertical,
       {
         widget = wibox.widget.textclock "%H",
-        font = beautiful.font .. " Bold 10",
+        font = beautiful.font_name .. " Black 12",
         align = "center",
       },
       {
         widget = wibox.widget.textclock "%M",
-        font = beautiful.font .. " Bold 10",
+        font = beautiful.font_name .. " Black 12",
         align = "center",
       },
     },

@@ -24,17 +24,24 @@ args @ {
     }
     serviceAttrs;
 in {
-  home.packages = with pkgs; [
-    nitrogen
-    lxrandr
-    adw-gtk3
-    gnome.nautilus
-    # Needed by bling
-    xorg.xwininfo
+  home.packages = attrValues {
+    inherit
+      (pkgs)
+      nitrogen
+      lxrandr
+      adw-gtk3
+      # Required by keybinds
+      
+      pulseaudio
+      ;
 
-    # TODO move out
-    pulseaudio
-  ];
+    inherit
+      (pkgs.xorg)
+      # Required by bling
+      
+      xwininfo
+      ;
+  };
 
   systemd.user.tmpfiles.rules =
     map (f: "L+ ${finalPath}/${f} - - - - ${selfPath}/${f}") [
@@ -43,6 +50,7 @@ in {
       "ui"
       "helpers.lua"
       "theme"
+      "res"
     ]
     ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/${name} - - - - ${value.outPath}") modules);
 
@@ -119,6 +127,7 @@ in {
       mkService {
         Unit.Description = "Visual overlay of current volume";
         Service.ExecStart = xob-daemon.outPath;
+        Unit.After = ["pipewire-pulse.service"];
       };
   };
 

@@ -1,21 +1,9 @@
--------------------------------
---  "Zenburn" awesome theme  --
---    By Adrian C. (anrxc)   --
--------------------------------
-
 local themes_path = require("gears.filesystem").get_themes_dir()
 local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi
 local gears = require "gears"
 
--- {{{ Main
--- local theme = require(gears.filesystem.get_configuration_dir() .. "theme/common.lua").t
 local theme = require "theme.common"
-
--- {{{ Styles
-theme.font      = "sans 8"
-
--- {{{ Colors
 theme.fg_normal  = "#DCDCCC"
 theme.fg_focus   = "#F0DFAF"
 theme.fg_urgent  = "#CC9393"
@@ -26,8 +14,6 @@ theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(2)
 theme.border_color_normal = "#3F3F3F"
 theme.border_color_active = "#6F6F6F"
 theme.border_color_marked = "#CC9393"
@@ -63,8 +49,6 @@ theme.titlebar_bg_normal = "#3F3F3F"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
 -- }}}
 
 -- {{{ Icons
@@ -99,9 +83,6 @@ theme.layout_cornerse   = themes_path .. "zenburn/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "zenburn/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "zenburn/titlebar/close_normal.png"
-
 theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
 theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
 

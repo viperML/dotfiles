@@ -47,7 +47,7 @@ awful.keyboard.append_global_keybindings {
 
   -- fixme
   awful.key({ modkey }, "e", function()
-    awful.spawn "nautilus"
+    awful.spawn "dolphin"
   end, { description = "file explorer", group = "launcher" }),
 
   awful.key({ "Any" }, "Print", function()
