@@ -72,6 +72,10 @@ in {
       Unit.Description = "Network manager applet";
       Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
     };
+    caffeine = mkService {
+      Unit.Description = "Caffeine applet";
+      Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
+    };
     autorandr-boot = mkService {
       Unit.Description = "Load autorandr on boot";
       Service.ExecStart = "${pkgs.autorandr}/bin/autorandr --change";

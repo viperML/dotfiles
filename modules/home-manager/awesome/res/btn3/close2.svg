@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>icons</title>
+	<style>
+		.s0 { opacity: .6;fill: #e0e0e0 }
+		.s1 { fill: #e0e0e0 }
+	</style>
+	<circle id="Shape 1" class="s0" cx="25" cy="25" r="24"/>
+	<g id="Folder 1">
+		<path id="Shape 2" class="s1" d="m35.6 38.2l-23.8-23.8l3.4-3.4l23.8 23.8z"/>
+		<path id="Shape 2 copy" class="s1" d="m39 14.4l-23.8 23.8l-3.4-3.4l23.8-23.8z"/>
+	</g>
+</svg>

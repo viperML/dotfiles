@@ -3,7 +3,7 @@ local awful = require "awful"
 
 awful.mouse.append_global_mousebindings {
   awful.button({}, 3, function()
-    menu:toggle()
+    C.menu:toggle()
   end),
 }
 

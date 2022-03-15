@@ -20,7 +20,7 @@ local menu_system = {
   { "Shutdown PC", "systemctl poweroff" },
 }
 
-menu = freedesktop.menu.build {
+C.menu = freedesktop.menu.build {
   before = {
     { "System", menu_system },
   },

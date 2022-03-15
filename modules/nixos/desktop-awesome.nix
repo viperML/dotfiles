@@ -22,6 +22,12 @@
 
   environment.variables.QT_QPA_PLATFORMTHEME = "gnome";
 
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = true;
+    extraPortals = [pkgs.plasma5Packages.xdg-desktop-portal-kde];
+  };
+
   environment.systemPackages =
     lib.attrValues
     {

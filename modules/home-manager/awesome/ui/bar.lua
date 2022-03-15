@@ -9,11 +9,11 @@ local themes_path = gears.filesystem.get_themes_dir()
 
 local start_icon = wibox.widget {
   widget = wibox.container.margin,
-  margins = 5,
+  margins = 7,
   -- buttons = {
-  --     awful.button({}, 1, function()
-  --         menu.toggle()
-  --     end),
+  --   awful.button({}, 1, function()
+  --     C.menu.toggle()
+  --   end),
   -- },
   {
     widget = wibox.widget.imagebox,
@@ -21,67 +21,7 @@ local start_icon = wibox.widget {
     image = themes_path .. "zenburn/awesome-icon.png",
   },
 }
-helpers.add_hover_cursor(start_icon, "hand2")
-
-local taglist = function(s)
-  bling.widget.tag_preview.enable {
-    show_client_content = true,
-    placement_fn = function(c) -- Place the widget using awful.placement (this overrides x & y)
-      awful.placement.top_left(c, {
-        margins = {
-          top = 20,
-          left = 65,
-        },
-      })
-    end,
-  }
-  return awful.widget.taglist {
-    screen = s,
-    filter = awful.widget.taglist.filter.noempty,
-    layout = { spacing = 5, layout = wibox.layout.fixed.vertical },
-    buttons = {
-      awful.button({}, 1, function(t)
-        t:view_only()
-      end),
-      awful.button({}, 3, awful.tag.viewtoggle),
-      awful.button({}, 4, function(t)
-        awful.tag.viewprev(t.screen)
-      end),
-      awful.button({}, 5, function(t)
-        awful.tag.viewnext(t.screen)
-      end),
-    },
-    widget_template = {
-      {
-        {
-          id = "text_role",
-          widget = wibox.widget.textbox,
-          align = "center",
-          valign = "center",
-        },
-        margins = 2,
-        widget = wibox.container.margin,
-      },
-      id = "background_role",
-      widget = wibox.container.background,
-      create_callback = function(self, c3, index, objects) --luacheck: no unused args
-        self:connect_signal("mouse::enter", function()
-          if #c3:clients() > 0 then
-            awesome.emit_signal("bling::tag_preview::update", c3)
-            awesome.emit_signal("bling::tag_preview::visibility", s, true)
-          end
-        end)
-        self:connect_signal("mouse::leave", function()
-          awesome.emit_signal("bling::tag_preview::visibility", s, false)
-
-          if self.has_backup then
-            self.bg = self.backup
-          end
-        end)
-      end,
-    },
-  }
-end
+-- helpers.add_hover_cursor(start_icon, "hand2")
 
 local time = wibox.widget {
   widget = wibox.container.background,
@@ -162,7 +102,9 @@ local systray = wibox.widget {
   fg = beautiful.fg_time,
   {
     widget = wibox.container.margin,
-    margins = 10,
+    forced_width = beautiful.bar_thickness,
+    left = beautiful.bar_thickness / 4 + 1,
+    bottom = 5,
     {
       widget = wibox.widget.systray,
       horizontal = false,
@@ -176,16 +118,27 @@ screen.connect_signal("request::desktop_decoration", function(s)
 
   s.wb = awful.wibar {
     position = "left",
-    width = 40,
+    width = beautiful.bar_thickness,
     screen = s,
     widget = {
       layout = wibox.layout.align.vertical,
       {
-        layout = wibox.layout.fixed.vertical,
-        start_icon,
-        taglist(s),
+        {
+          layout = wibox.layout.fixed.vertical,
+          start_icon,
+          require "ui.taglist"(s),
+          spacing = 10,
+        },
+        widget = wibox.container.margin,
+        margins = 5,
       },
-      nil,
+      {
+        widget = wibox.container.place,
+        halign = "center",
+        {
+          widget = require "ui.tasklist"(s),
+        },
+      },
       {
         layout = wibox.layout.fixed.vertical,
         systray,
