@@ -45,6 +45,7 @@
         nh
         xonsh
         # emacs
+        # wine
       ];
     };
 

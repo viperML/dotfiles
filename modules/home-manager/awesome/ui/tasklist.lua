@@ -20,7 +20,9 @@ return function(s)
     filter = awful.widget.tasklist.filter.allscreen,
     buttons = {
       awful.button({}, 1, function(c)
-        c:activate { context = "tasklist", action = "toggle_minimization" }
+        -- c:activate { context = "tasklist", action = "toggle_minimization" }
+        c.first_tag:view_only()
+        c:activate {}
       end),
       awful.button({}, 3, function()
         awful.menu.client_list { theme = { width = 250 } }
@@ -36,7 +38,7 @@ return function(s)
       shape = helpers.rrect(10),
     },
     layout = {
-      spacing = 5,
+      spacing = 4,
       forced_num_cols = 1,
       layout = wibox.layout.grid.vertical,
     },
@@ -50,8 +52,8 @@ return function(s)
         widget = wibox.container.margin,
       },
       id = "background_role",
-      forced_width = 35,
-      forced_height = 35,
+      forced_width = 38,
+      forced_height = 38,
       widget = wibox.container.background,
       create_callback = function(self, c, index, objects) --luacheck: no unused
         self:get_children_by_id("clienticon")[1].client = c

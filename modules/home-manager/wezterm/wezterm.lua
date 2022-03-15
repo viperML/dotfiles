@@ -50,12 +50,61 @@ atom_one_light = {
   },
   background = "#ffffff",
 }
+local rose_pine = {
+  background = "#191724",
+  foreground = "#e0def4",
+  ansi = {
+    "#6e6a86",
+    "#eb6f92",
+    "#9ccfd8",
+    "#f6c177",
+    "#31748f",
+    "#c4a7e7",
+    "#ebbcba",
+    "#e0def4",
+  },
+  brights = {
+    "#6e6a86",
+    "#eb6f92",
+    "#9ccfd8",
+    "#f6c177",
+    "#31748f",
+    "#c4a7e7",
+    "#ebbcba",
+    "#e0def4",
+  },
+}
+
+local rose_pine_dawn = {
+  foreground = "#575279",
+  background = "#fffaf3",
+  ansi = {
+    "#6e6a86",
+    "#b4637a",
+    "#56949f",
+    "#ea9d34",
+    "#286983",
+    "#907aa9",
+    "#d7827e",
+    "#575279",
+  },
+  brights = {
+    "#6e6a86",
+    "#eb6f92",
+    "#9ccfd8",
+    "#f6c177",
+    "#31748f",
+    "#c4a7e7",
+    "#ebbcba",
+    "#e0def4",
+  },
+}
 
 local current_time = tonumber(os.date "%H%M")
 if current_time < 1800 and current_time > 500 then
-  colors = atom_one_light
+  colors = rose_pine_dawn
 else
-  colors = atom_one_dark
+  colors = rose_pine
 end
 
 return {

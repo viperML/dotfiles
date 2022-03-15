@@ -14,9 +14,11 @@ client.connect_signal("request::titlebars", function(c)
     end),
   }
 
+
   awful.titlebar(c, {
     size = beautiful.titlebar_height,
     position = "top",
+    font = beautiful.font_name .. " Bold 10",
   }):setup {
     {
       {
@@ -25,13 +27,14 @@ client.connect_signal("request::titlebars", function(c)
         -- awful.titlebar.widget.minimizebutton(c),
         awful.titlebar.widget.stickybutton(c),
         layout = wibox.layout.fixed.horizontal,
-        spacing = dpi(5),
+        spacing =  beautiful.titlebar_icons_margin_internal,
       },
       widget = wibox.container.margin,
       -- TODO move to beautiful
-      top = dpi (6),
-      bottom = dpi(6),
-      left = dpi(9),
+      top = beautiful.titlebar_icons_margin_vertical,
+      bottom = beautiful.titlebar_icons_margin_vertical,
+      left = beautiful.titlebar_icons_margin_horizontal,
+      right = beautiful.titlebar_icons_margin_horizontal,
     },
     {
       widget = awful.titlebar.widget.titlewidget(c),

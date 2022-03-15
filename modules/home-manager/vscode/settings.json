@@ -73,7 +73,7 @@
   "gitlens.hovers.currentLine.over": "line",
   "scm.diffDecorations": "gutter",
   "material-icon-theme.opacity": 1,
-  "material-icon-theme.saturation": 1,
+  "material-icon-theme.saturation": 0,
   "helium-icon-theme.folders.color": "#90a4ae",
 
   // Fonts
@@ -170,10 +170,10 @@
   "workbench.colorCustomizations": {
     "minimap.background": "#1212125e",
     "statusBar.foreground": "#121212",
-    "statusBar.background": "#A8D5E0",
-    "statusBar.noFolderBackground": "#A8D5E0",
-    "statusBar.debuggingBackground": "#A8D5E0",
-    "statusBarItem.remoteBackground": "#A8D5E0",
+    "statusBar.background": "#9ccfd8",
+    "statusBar.noFolderBackground": "#9ccfd8",
+    "statusBar.debuggingBackground": "#9ccfd8",
+    "statusBarItem.remoteBackground": "#9ccfd8",
     "statusBarItem.remoteForeground": "#121212",
     "statusBar.border": "#ffffff00"
   },
@@ -329,8 +329,8 @@
   "vim.showMarksInGutter": true,
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.commandlineinprogress": "#e0a8c4",
-  "vim.statusBarColors.insert": "#a8e0ba",
-  "vim.statusBarColors.normal": "#A8D5E0",
+  "vim.statusBarColors.insert": "#f6c177",
+  "vim.statusBarColors.normal": "#9ccfd8",
   "vim.statusBarColors.searchinprogressmode": "#e0a8c4",
   "vim.statusBarColors.visual": "#a8a8e0",
   "vim.statusBarColors.visualblock": "#a8a8e0",
@@ -380,9 +380,9 @@
   "cSpell.words": [],
 
   // Nightswitch
-  "nightLight.enabled": true,
-  "nightswitch.themeNight": "Atom One Darker",
-  "nightswitch.themeDay": "Atom One Light",
+  "nightswitch.autoSwitch": true,
+  "nightswitch.themeNight": "Rosé Pine",
+  "nightswitch.themeDay": "Rosé Pine Dawn",
   "nightswitch.sunrise": "05:00",
   "nightswitch.sunset": "18:00",
 
@@ -413,10 +413,13 @@
     },
   ],
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Atom One Darker",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
   "vscode-lua-format.binaryPath": "/usr/bin/en lua-format",
   "window.menuBarVisibility": "toggle",
-  "python.analysis.autoImportCompletions": false
+  "python.analysis.autoImportCompletions": false,
+  // "material-icon-theme.folders.color": "#fff",
+  // "material-icon-theme.folders.theme": "classic",
+  // "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.colorTheme": "Rosé Pine"
 }

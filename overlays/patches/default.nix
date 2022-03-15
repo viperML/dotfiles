@@ -44,6 +44,8 @@ in {
     '';
   };
 
+  rose-pine-gtk-theme = callPackage ./rose-pine-gtk-theme {};
+
   # picom = prev.picom.overrideAttrs (_: {
   #   src = fetchFromGitHub {
   #     owner = "Arian8j2";

@@ -21,9 +21,10 @@ theme.menu_width = dpi(200)
 theme.taglist_squares_sel = nil
 theme.taglist_squares_unsel = nil
 theme.taglist_spacing = dpi(5)
-theme.taglist_shape_focus = helpers.rrect(5)
-theme.taglist_shape_empty = helpers.rrect(5)
-theme.taglist_shape = helpers.rrect(5)
+theme.taglist_shape = helpers.rrect(7)
+theme.taglist_shape_focus = helpers.rrect(7)
+theme.taglist_shape_empty = helpers.rrect(7)
+theme.taglist_font = theme.font_name .. " Bold 10"
 
 theme.titlebar_close_button_normal = btn_dir .. "close1.svg"
 theme.titlebar_close_button_normal_hover = btn_dir .. "close2.svg"
@@ -47,10 +48,18 @@ theme.titlebar_sticky_button_focus_inactive = btn_dir .. "pin1.svg"
 theme.titlebar_sticky_button_focus_inactive_hover = btn_dir .. "pin2.svg"
 theme.titlebar_sticky_button_focus_inactive_press = btn_dir .. "pin3.svg"
 
+theme.awesome_icon           = res .. "awesome.png"
+
 -- Custom
 theme.titlebar_height = dpi(35)
 theme.corners = dpi(12)
 theme.bar_thickness = dpi(46)
+
+theme.taglist_sidemargins = dpi(6)
+
+theme.titlebar_icons_margin_vertical = dpi(7)
+theme.titlebar_icons_margin_horizontal = dpi(8)
+theme.titlebar_icons_margin_internal = dpi(6)
 
 -- Bling
 theme.tag_preview_widget_border_radius = dpi(5) -- Border radius of the widget (With AA)

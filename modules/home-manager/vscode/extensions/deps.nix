@@ -104,8 +104,8 @@
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.7.5250";
-    sha256 = "1dc9dkc60v4pbn6s223i7m1lr14pjkjg1m9rfny90rjf248838d1";
+    version = "1.8.5320";
+    sha256 = "11qmz2s205pgnf9504mqpbgbncj4bb6hlh8mzv69hmq4pq3knpgn";
   }
   {
     name = "terraform";
@@ -152,8 +152,8 @@
   {
     name = "language-haskell";
     publisher = "justusadam";
-    version = "3.4.0";
-    sha256 = "0ab7m5jzxakjxaiwmg0jcck53vnn183589bbxh3iiylkpicrv67y";
+    version = "3.5.0";
+    sha256 = "0jznhc3l404p36149l62d5a5qm2k1wp4x0s0ii5s84cvyv2967iy";
   }
   {
     name = "vscode-lua-format";
@@ -182,8 +182,8 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2022.3.10701002";
-    sha256 = "073ha9d5rcfln72mk6dyi4y5x57ml4gviy87l1n3bividrvxrzlc";
+    version = "2022.3.10741003";
+    sha256 = "1j8ln8w712iv3h8in70qzk0pmwz935bj76zxlsxs91cw6w3pi7p2";
   }
   {
     name = "vscode-pylance";
@@ -228,6 +228,12 @@
     sha256 = "1is4ks84v1d4nj35qysfmsz6xk0p7cjp215ahpp56h9rpp1hmagl";
   }
   {
+    name = "rose-pine";
+    publisher = "mvllow";
+    version = "2.0.0";
+    sha256 = "1wq1i6gmczgrjdgy7s1gmby8kyvnj7ck0ig2hfrar91fwk3acngq";
+  }
+  {
     name = "color-highlight";
     publisher = "naumovs";
     version = "2.5.0";
@@ -256,12 +262,6 @@
     publisher = "redhat";
     version = "0.0.6";
     sha256 = "1b8nlhbrsg3kj27f1kgj8n5ak438lcfq5v5zlgf1hzisnhmcda5n";
-  }
-  {
-    name = "vscode-xml";
-    publisher = "redhat";
-    version = "0.19.1";
-    sha256 = "0k4lym09wbyz25q76db5awgdamx3ycpmjv5njvbi9b7damj0w99z";
   }
   {
     name = "vscode-direnv";

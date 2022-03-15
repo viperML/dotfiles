@@ -41,7 +41,7 @@ return function(s)
           align = "center",
           valign = "center",
         },
-        margins = 5,
+        margins = 8,
         widget = wibox.container.margin,
       },
       id = "background_role",

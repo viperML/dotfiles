@@ -9,7 +9,7 @@ local themes_path = gears.filesystem.get_themes_dir()
 
 local start_icon = wibox.widget {
   widget = wibox.container.margin,
-  margins = 7,
+  margins = 10,
   -- buttons = {
   --   awful.button({}, 1, function()
   --     C.menu.toggle()
@@ -17,8 +17,8 @@ local start_icon = wibox.widget {
   -- },
   {
     widget = wibox.widget.imagebox,
-    stylesheet = " * { stroke: " .. beautiful.fg_normal .. " }",
-    image = themes_path .. "zenburn/awesome-icon.png",
+    -- stylesheet = " * { stroke: " .. beautiful.fg_normal .. " }",
+    image = beautiful.awesome_icon,
   },
 }
 -- helpers.add_hover_cursor(start_icon, "hand2")
@@ -38,12 +38,12 @@ local time = wibox.widget {
       layout = wibox.layout.fixed.vertical,
       {
         widget = wibox.widget.textclock "%H",
-        font = beautiful.font_name .. " Black 12",
+        font = beautiful.font_name .. " Black 14",
         align = "center",
       },
       {
         widget = wibox.widget.textclock "%M",
-        font = beautiful.font_name .. " Black 12",
+        font = beautiful.font_name .. " Black 14",
         align = "center",
       },
     },
@@ -77,7 +77,6 @@ local layoutbox = wibox.widget {
   },
   {
     widget = wibox.container.margin,
-
     margins = 10,
     {
       widget = awful.widget.layoutbox,
@@ -98,13 +97,16 @@ helpers.add_hover_cursor(layoutbox, "hand2")
 -- }
 local systray = wibox.widget {
   widget = wibox.container.background,
-  bg = beautiful.bg_subtle,
-  fg = beautiful.fg_time,
+  -- bg = beautiful.bg_subtle,
+  -- fg = beautiful.fg_time,
+  -- bg = "#F00",
+  -- fg = "#0F0",
   {
     widget = wibox.container.margin,
     forced_width = beautiful.bar_thickness,
-    left = beautiful.bar_thickness / 4 + 1,
+    left = beautiful.bar_thickness / 2 - 10 - 4,
     bottom = 5,
+    top = 10,
     {
       widget = wibox.widget.systray,
       horizontal = false,
@@ -114,7 +116,17 @@ local systray = wibox.widget {
 }
 
 screen.connect_signal("request::desktop_decoration", function(s)
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({
+    "Ⅰ",
+    "Ⅱ",
+    "Ⅲ",
+    "Ⅳ",
+    "Ⅴ",
+    "Ⅵ",
+    "Ⅶ",
+    "Ⅷ",
+    "Ⅸ",
+  }, s, awful.layout.layouts[1])
 
   s.wb = awful.wibar {
     position = "left",
@@ -122,17 +134,19 @@ screen.connect_signal("request::desktop_decoration", function(s)
     screen = s,
     widget = {
       layout = wibox.layout.align.vertical,
-      {
+      { -- Top
+        start_icon,
         {
-          layout = wibox.layout.fixed.vertical,
-          start_icon,
-          require "ui.taglist"(s),
-          spacing = 10,
+          {
+            layout = wibox.layout.fixed.vertical,
+            require "ui.taglist"(s),
+          },
+          widget = wibox.container.margin,
+          margins = beautiful.taglist_sidemargins,
         },
-        widget = wibox.container.margin,
-        margins = 5,
+        layout = wibox.layout.fixed.vertical,
       },
-      {
+      { -- Middle
         widget = wibox.container.place,
         halign = "center",
         {
@@ -140,10 +154,19 @@ screen.connect_signal("request::desktop_decoration", function(s)
         },
       },
       {
-        layout = wibox.layout.fixed.vertical,
-        systray,
-        layoutbox,
-        time,
+        widget = wibox.container.margin,
+        margins = 4,
+        {
+          widget = wibox.container.background,
+          bg = beautiful.bg_systray,
+          shape = helpers.rrect(7),
+          {
+            layout = wibox.layout.fixed.vertical,
+            systray,
+            layoutbox,
+            time,
+          },
+        },
       },
     },
   }

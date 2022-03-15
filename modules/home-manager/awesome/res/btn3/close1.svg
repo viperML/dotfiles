@@ -1,8 +1,8 @@
 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
 	<title>icons</title>
 	<style>
-		.s0 { opacity: .4;fill: #e0e0e0 } 
-		.s1 { fill: #e0e0e0 } 
+		.s0 { opacity: .2;fill: #e0e0e0 }
+		.s1 { fill: #e0e0e0 }
 	</style>
 	<circle id="Shape 1" class="s0" cx="25" cy="25" r="24"/>
 	<g id="Folder 1">

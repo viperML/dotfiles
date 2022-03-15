@@ -30,6 +30,7 @@ in {
       nitrogen
       lxrandr
       adw-gtk3
+      rose-pine-gtk-theme
       # Required by keybinds
       
       pulseaudio

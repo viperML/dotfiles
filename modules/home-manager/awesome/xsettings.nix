@@ -35,10 +35,10 @@
 in {
   light = pkgs.writeText "xsettingsd.conf" (renderSettings (xsettingsConfig
     // {
-      "Net/ThemeName" = "adw-gtk3";
+      "Net/ThemeName" = "rose-pine-dawn-gtk";
     }));
   dark = pkgs.writeText "xsettingsd.conf" (renderSettings (xsettingsConfig
     // {
-      "Net/ThemeName" = "adw-gtk3-dark";
+      "Net/ThemeName" = "rose-pine-gtk";
     }));
 }

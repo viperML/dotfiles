@@ -12,6 +12,7 @@ build
 result*
 \#*\#
 .venv
+*~
 
 **/emacs/*
 !**/emacs/custom.el
