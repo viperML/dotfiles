@@ -16,13 +16,11 @@ args @ {
 
   modules = import ./modules.nix {inherit pkgs;};
 
-  mkService = serviceAttrs:
-    lib.recursiveUpdate {
-      Unit.PartOf = ["graphical-session.target"];
-      Unit.After = ["graphical-session.target"];
-      Install.WantedBy = ["awesome-session.target"];
-    }
-    serviceAttrs;
+  mkService = lib.recursiveUpdate {
+    Unit.PartOf = ["graphical-session.target"];
+    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = ["awesome-session.target"];
+  };
 in {
   home.packages = attrValues {
     inherit
@@ -76,6 +74,11 @@ in {
     caffeine = mkService {
       Unit.Description = "Caffeine applet";
       Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
+    };
+    mailspring = mkService {
+      Unit.Description = "Mail client";
+      Service.ExecStart = "${pkgs.mailspring}/bin/mailspring --background";
+      Service.Restart = "on-failure";
     };
     autorandr-boot = mkService {
       Unit.Description = "Load autorandr on boot";

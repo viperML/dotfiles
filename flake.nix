@@ -17,8 +17,6 @@
     homeModules = exportModulesDir ./modules/home-manager;
     overlays = exportModulesDir ./overlays;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
-    templates = import ./flake-template;
-    defaultTemplate = self.templates.package-app;
 
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
     legacyPackages = genAttrs supportedSystems (system:
@@ -30,7 +28,6 @@
             nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
-            powercord-overlay.overlay
             (final: prev: {
               inherit
                 (import inputs.nixpkgs-master {inherit system config;})
@@ -85,14 +82,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    firefox-csshacks = {
-      url = "github:MrOtherGuy/firefox-csshacks";
-      flake = false;
-    };
-    powercord-overlay = {
-      url = "github:LavaDesu/powercord-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -103,11 +92,6 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-    };
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils-plus";
     };
   };
 }

@@ -42,7 +42,7 @@ awful.keyboard.append_global_keybindings {
   end, { description = "terminal", group = "launcher" }),
 
   awful.key({ modkey }, "space", function()
-    awful.spawn "rofi -show combi"
+    awful.spawn "rofi -show drun"
   end, { description = "rofi", group = "launcher" }),
 
   -- fixme

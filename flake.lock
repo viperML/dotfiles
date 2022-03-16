@@ -80,22 +80,6 @@
         "type": "github"
       }
     },
-    "firefox-csshacks": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1646127698,
-        "narHash": "sha256-X6SBT/BIDaDsXqmLKinVsXxMu5JgA8I5cJT6cU0meN4=",
-        "owner": "MrOtherGuy",
-        "repo": "firefox-csshacks",
-        "rev": "0bc77cc51583133ff8279a286f5eae939d13f3e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MrOtherGuy",
-        "repo": "firefox-csshacks",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -187,29 +171,6 @@
       "original": {
         "owner": "viperML",
         "repo": "nh",
-        "type": "github"
-      }
-    },
-    "nix-gaming": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": [
-          "flake-utils-plus"
-        ]
-      },
-      "locked": {
-        "lastModified": 1646694838,
-        "narHash": "sha256-CtxpyUuMRnNn+wsD3Oxi0YPnxESWj6C2l1rgED23LSQ=",
-        "owner": "fufexan",
-        "repo": "nix-gaming",
-        "rev": "fd45bde30b59f0ac22eabbfff9dba1ccd7c8c76d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fufexan",
-        "repo": "nix-gaming",
         "type": "github"
       }
     },
@@ -336,62 +297,22 @@
         "type": "github"
       }
     },
-    "powercord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1646258494,
-        "narHash": "sha256-TU2yXr9T5zMSumciw9IaYRP1Tt7uy97opgFSYa7rP2o=",
-        "owner": "powercord-org",
-        "repo": "powercord",
-        "rev": "8b99354d3186ef34b3ea239da4b07d6f157a7714",
-        "type": "github"
-      },
-      "original": {
-        "owner": "powercord-org",
-        "repo": "powercord",
-        "type": "github"
-      }
-    },
-    "powercord-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "powercord": "powercord"
-      },
-      "locked": {
-        "lastModified": 1646308577,
-        "narHash": "sha256-6frqjMZXe1Qpc3Bg+nv+bS4FFuKWb3xGnzatVcu8HXs=",
-        "owner": "LavaDesu",
-        "repo": "powercord-overlay",
-        "rev": "85029adccb6fbbdbeacea3c296fbb225e7eb8ae1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LavaDesu",
-        "repo": "powercord-overlay",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "alejandra": "alejandra",
         "deploy-rs": "deploy-rs",
         "emacs-overlay": "emacs-overlay",
-        "firefox-csshacks": "firefox-csshacks",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
         "nh": "nh",
-        "nix-gaming": "nix-gaming",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
-        "powercord-overlay": "powercord-overlay",
         "vim-extra-plugins": "vim-extra-plugins"
       }
     },
