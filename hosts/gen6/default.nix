@@ -43,9 +43,11 @@
         starship
         wezterm
         nh
-        xonsh
+        # xonsh
         # emacs
         # wine
+        inputs.nix-doom-emacs.hmModule
+        emacs-doom
       ];
     };
 

@@ -28,6 +28,7 @@ in {
     krita-beta
     obs-studio
     obsidian
+    streamlink
   ];
 
   boot = {

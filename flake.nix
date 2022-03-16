@@ -82,6 +82,12 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-doom-emacs = {
+      url = "github:nix-community/nix-doom-emacs";
+      inputs.emacs-overlay.follows = "emacs-overlay";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
