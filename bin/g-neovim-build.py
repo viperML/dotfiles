@@ -10,6 +10,5 @@ if not dry:
 
 drvPath = subprocess.check_output("nix eval --raw .#g-neovim.drvPath".split(" ")).decode()
 print(f"{drvPath = }")
-
 with open(Path("./drvPath"), "w") as f:
     f.write(drvPath)
