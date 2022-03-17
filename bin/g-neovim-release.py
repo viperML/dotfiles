@@ -24,6 +24,10 @@ def bundle(bundler: str):
     print(f"$ {cmd}")
     if not dry:
         subprocess.run(cmd.split(" "), check=True)
+        # Upload artifact is dumb and wont upload anything under a symlink
+        # https://github.com/actions/upload-artifact/issues/92
+        subprocess.run(["sh", "-c", f"cp results/{bundler}/* results"])
+        subprocess.run("find results -type l -exec rm {} ;".split(" "))
 
 bundle(bundler="toRPM")
 

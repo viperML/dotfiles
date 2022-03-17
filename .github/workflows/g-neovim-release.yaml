@@ -31,4 +31,4 @@ jobs:
       with:
         name: g-neovim.rpm
         path: |
-          results/toRPM/*.rpm
+          results/*.rpm
