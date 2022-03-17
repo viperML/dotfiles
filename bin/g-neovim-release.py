@@ -30,6 +30,7 @@ def bundle(bundler: str):
         subprocess.run("find results -type l -exec rm {} ;".split(" "))
 
 bundle(bundler="toRPM")
+bundle(bundler="toDEB")
 
 drvPath = subprocess.check_output("nix eval --raw .#g-neovim.drvPath".split(" ")).decode()
 print(f"{drvPath = }")

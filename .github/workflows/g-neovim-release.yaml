@@ -32,3 +32,8 @@ jobs:
         name: g-neovim.rpm
         path: |
           results/*.rpm
+    - uses: actions/upload-artifact@v3
+      with:
+        name: g-neovim.deb
+        path: |
+          results/*.deb
