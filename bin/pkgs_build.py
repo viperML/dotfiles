@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 from typing import Optional
 
-dry = False
+dry = True
 root_dir = Path(__file__).parent.parent
 
 def build(folder: str, namespace: Optional[str]):
@@ -17,6 +17,10 @@ def build(folder: str, namespace: Optional[str]):
             if not dry:
                 subprocess.run(cmd.split(" "), check=True)
 
-build(folder="pkgs", namespace=None)
-build(folder="pkgs-libsForQt5", namespace="libsForQt5")
-# build(folder="pkgs-gnomeExtensions", namespace="gnomeExtensions")
+for p in Path(root_dir / "overlays").iterdir():
+    if "pkgs" in p.name:
+        n = p.name.split("-")
+        try:
+            build(folder=n[0], namespace=n[1])
+        except IndexError:
+            build(folder=n[0], namespace=None)

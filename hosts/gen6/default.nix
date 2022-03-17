@@ -19,7 +19,7 @@
         inputs.home-manager.nixosModules.home-manager
         home-manager
 
-        adblock
+        # adblock
         virt
         docker
         printing
@@ -43,7 +43,7 @@
         starship
         wezterm
         nh
-        # xonsh
+        xonsh
         # emacs
         # wine
         inputs.nix-doom-emacs.hmModule
