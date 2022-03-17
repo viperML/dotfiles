@@ -19,21 +19,10 @@ jobs:
       with:
         name: viperml
         extraPullNames: nix-community
-        # Don't push the rpm's, etc
-        # authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix run .#pkgs.python3 -- ./bin/g-neovim-release.py
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - run: nix run .#pkgs.python3 -- ./bin/g-neovim-build.py
     - uses: actions/upload-artifact@v3
       with:
         name: drvPath
         path: |
-          results/drvPath
-    - uses: actions/upload-artifact@v3
-      with:
-        name: g-neovim.rpm
-        path: |
-          results/*.rpm
-    - uses: actions/upload-artifact@v3
-      with:
-        name: g-neovim.deb
-        path: |
-          results/*.deb
+          drvPath
