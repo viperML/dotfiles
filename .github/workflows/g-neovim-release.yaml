@@ -24,6 +24,11 @@ jobs:
     - run: nix run .#pkgs.python3 -- ./bin/g-neovim-release.py
     - uses: actions/upload-artifact@v3
       with:
-        name: release
+        name: drvPath
         path: |
-          results/**/*
+          results/drvPath
+    - uses: actions/upload-artifact@v3
+      with:
+        name: g-neovim.rpm
+        path: |
+          results/toRPM/*.rpm
