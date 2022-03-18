@@ -56,13 +56,13 @@
 
   // Copilot
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "yaml": false,
     "plaintext": false,
     "markdown": false,
     "nix": false,
     "haskell": true,
-    "python": false
+    "python": true
   },
 
   // Git
@@ -421,5 +421,5 @@
   // "material-icon-theme.folders.color": "#fff",
   // "material-icon-theme.folders.theme": "classic",
   // "material-icon-theme.hidesExplorerArrows": true,
-  "workbench.colorTheme": "Rosé Pine Dawn"
+  "workbench.colorTheme": "Rosé Pine"
 }

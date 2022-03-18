@@ -67,8 +67,6 @@ in {
     displayManager.autoLogin.user = "ayats";
     libinput.enable = true;
   };
-  
-
 
   fileSystems = {
     "/" = {

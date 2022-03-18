@@ -3,11 +3,11 @@ pkgs.mkShell {
   name = "dotfiles-basic-shell";
   packages = with pkgs; [
     git
-    gnumake
     jq
     nixos-install-tools
     ripgrep
     unzip
+    gh
 
     (python3.withPackages (p:
       with p; [

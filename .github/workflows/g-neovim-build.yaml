@@ -30,11 +30,6 @@ jobs:
         name: viperml
         extraPullNames: nix-community
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - uses: actions/download-artifact@v3
-      name: Download old drvPath
-      with:
-        name: my-artifact
-        path: path/to/artifact
     - run: nix run .#python3 -- ./bin/g-neovim-build.py
       name: Build g-neovim
     - uses: actions/upload-artifact@v3
