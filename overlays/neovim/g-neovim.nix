@@ -11,8 +11,10 @@ wrapNeovim neovim-unwrapped {
   configure.customRC = ''
     " Vanilla configs
     ${builtins.readFile ./vanilla.vim}
+
     " Plugins configs
     ${builtins.readFile ./plugins.vim}
+
     " Lua config
     :luafile ${./plugins.lua}
   '';
