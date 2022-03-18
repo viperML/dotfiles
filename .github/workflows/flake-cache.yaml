@@ -14,17 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0 # Nix Flakes doesn't work on shallow clones
     - uses: cachix/install-nix-action@v16
       with:
-        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.6.0pre20220122_c9a4ddb/install
+        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.8.0pre20220311_d532269/install
         extra_nix_config: |
           experimental-features = nix-command flakes
           extra-substituters = https://viperml.cachix.org
           extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-          extra-substituters = https://nix-community.cachix.org
-          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
           extra-substituters = https://nix-community.cachix.org
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
     - uses: cachix/cachix-action@v10

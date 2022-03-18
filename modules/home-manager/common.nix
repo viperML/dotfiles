@@ -12,7 +12,6 @@ in {
     # Nix management
     nix-prefetch-scripts
     update-nix-fetchgit
-    nix-du
     statix
     inputs.alejandra.defaultPackage.${system}
     inputs.nh.packages.${system}.nh
@@ -31,6 +30,8 @@ in {
     htop
     pstree
     sysstat
+
+    stylua
   ];
 
   home.stateVersion = "21.11";

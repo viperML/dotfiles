@@ -4,7 +4,7 @@
 }: let
   system = "x86_64-linux";
   pkgs = self.legacyPackages.${system};
-  lib = inputs.nixpkgs.lib;
+  inherit (inputs.nixpkgs) lib;
 
   specialisations = {
     "base" = {

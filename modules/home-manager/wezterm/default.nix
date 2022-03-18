@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = [pkgs.wezterm pkgs.lua];
+  home.packages = [pkgs.wezterm];
 
   xdg.configFile."wezterm/wezterm.lua".source = ./wezterm.lua;
 }

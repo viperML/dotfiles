@@ -12,6 +12,8 @@ build
 result*
 \#*\#
 .venv
+*~
+drvPath
 
 **/emacs/*
 !**/emacs/custom.el

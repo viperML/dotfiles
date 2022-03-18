@@ -4,7 +4,7 @@
 }: let
   system = "x86_64-linux";
   pkgs = self.legacyPackages.${system};
-  lib = inputs.nixpkgs.lib;
+  inherit (inputs.nixpkgs) lib;
 
   specialisations = {
     "base" = {
@@ -19,7 +19,7 @@
         inputs.home-manager.nixosModules.home-manager
         home-manager
 
-        adblock
+        # adblock
         virt
         docker
         printing
@@ -45,6 +45,9 @@
         nh
         xonsh
         # emacs
+        # wine
+        inputs.nix-doom-emacs.hmModule
+        emacs-doom
       ];
     };
 
@@ -74,6 +77,17 @@
       ];
       homeModules = with self.homeModules; [
         gnome
+      ];
+    };
+
+    "awesome" = {
+      nixosModules = with self.nixosModules; [
+        desktop-awesome
+      ];
+      homeModules = with self.homeModules; [
+        awesome
+        picom
+        rofi
       ];
     };
   };

@@ -1,0 +1,12 @@
+configuration {
+    modi: "combi";
+    combi-modi: "drun,run,ssh";
+    font: "Roboto 16";
+    show-icons: true;
+}
+
+@theme "theme"
+
+* {
+    width: 350px;
+}

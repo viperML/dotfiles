@@ -45,6 +45,7 @@ You can directly reference this flake and import it into your NixOS configuratio
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
 - [colemickens/nixcfg](https://github.com/colemickens/nixcfg)
+- [nuxshed/dotfiles](https://github.com/nuxshed)
 
 
 # 📦 Exported packages

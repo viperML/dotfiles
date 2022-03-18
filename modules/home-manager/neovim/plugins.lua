@@ -1,5 +1,5 @@
-vim.cmd[[colorscheme one]]
-local current_time = tonumber(os.date("%H%M"))
+vim.cmd [[colorscheme one]]
+local current_time = tonumber(os.date "%H%M")
 if current_time < 1800 and current_time > 500 then
   colorscheme = "light"
 else
@@ -8,20 +8,19 @@ end
 
 vim.opt.background = colorscheme
 
-require("nvim_comment").setup{}
+require("nvim_comment").setup {}
 
 vim.opt.termguicolors = true
-require("bufferline").setup{
+require("bufferline").setup {
   options = {
     right_mouse_command = nil,
     middle_mouse_command = "bdelete! %d",
-    indicator_icon = ' ',
+    indicator_icon = " ",
   },
 }
 
 -- require("lspconfig").rnix.setup{}
-require("gitsigns").setup{}
-
+require("gitsigns").setup {}
 
 require("nvim-treesitter.configs").setup {
   ensure_installed = "maintained",
@@ -44,21 +43,18 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
-
 vim.opt.list = true
 require("indent_blankline").setup {
-    --space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
+  --space_char_blankline = " ",
+  show_current_context = true,
+  show_current_context_start = true,
 }
 
-
-
-require('lualine').setup {
+require("lualine").setup {
   options = {
-    theme = 'one'..colorscheme,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    theme = "one" .. colorscheme,
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
   },
   -- sections = {
   --   lualine_a = {'mode'},

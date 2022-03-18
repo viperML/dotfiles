@@ -28,6 +28,7 @@ in {
     krita-beta
     obs-studio
     obsidian
+    streamlink
   ];
 
   boot = {
@@ -41,7 +42,7 @@ in {
       '';
     };
     tmpOnTmpfs = true;
-    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     kernelModules = ["kvm-intel"];
     kernelParams = [];
     supportedFilesystems = ["zfs"];
@@ -91,6 +92,11 @@ in {
     videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
     displayManager.autoLogin.user = "ayats";
+    libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
+      mouse.accelSpeed = "0.0";
+    };
   };
 
   services.sanoid = {

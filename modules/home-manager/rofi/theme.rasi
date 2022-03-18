@@ -1,0 +1,52 @@
+configuration {
+  display-run: "";
+  display-drun: "";
+  display-window: "  ";
+  drun-display-format: "{icon} {name}";
+  show-icons: true;
+}
+
+* {
+  bg: #151515;
+  bg-alt: #232323;
+
+  text-color: #FFFFFF;
+  fg-alt: #424242;
+
+  background-color: @bg;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+  border-radius: 0px;
+}
+
+window {
+}
+
+element {
+  padding: 12;
+
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [entry];
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 7;
+}

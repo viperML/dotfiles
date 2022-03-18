@@ -11,13 +11,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "tym";
-  version = "3.1.3";
+  version = "unstable-2022-03-05";
 
   src = fetchFromGitHub {
     owner = "endaaman";
-    repo = pname;
-    rev = version;
-    sha256 = "0623i1m6cmy61msa9sj43wni6szmisk3zsnyl7a9qq9zjprayk74";
+    repo = "tym";
+    rev = "7f0ff1d48e43a19fe4287c606b887f3d34e01e03";
+    sha256 = "1s7cz60l61fgvl7sw6dm9pz4mjbrjwrspwa8rzmh5spl9wnskdy1";
   };
 
   nativeBuildInputs = [
