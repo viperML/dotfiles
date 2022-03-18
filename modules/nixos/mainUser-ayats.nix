@@ -40,6 +40,8 @@ in {
     }
   ];
 
+  security.sudo.wheelNeedsPassword = false;
+
   systemd.tmpfiles.rules = let
     inherit (config.users.users.mainUser) group;
   in [
