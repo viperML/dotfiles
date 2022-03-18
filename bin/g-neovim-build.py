@@ -42,5 +42,5 @@ with open("old/drvPath") as f:
 
 if oldDrvPath != drvPath:
     print("Requesting new release")
-    cmd = "gh workflow run g-neovim-release.yaml --ref master"
+    cmd = "gh workflow run --repo viperML/dotfiles g-neovim-release.yaml --ref master"
     subprocess.run(cmd.split(" "), check=True)
