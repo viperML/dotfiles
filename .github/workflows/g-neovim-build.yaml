@@ -32,6 +32,8 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix run .#python3 -- ./bin/g-neovim-build.py
       name: Build g-neovim
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/upload-artifact@v3
       name: Push drvPath
       with:
