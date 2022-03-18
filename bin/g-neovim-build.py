@@ -27,6 +27,7 @@ with open(Path("./drvPath"), "w") as f:
 # Read the command output as json
 cmd = 'gh run --repo viperML/dotfiles list --workflow g-neovim-release.yaml --json databaseId'
 runs = subprocess.check_output(cmd, shell=True).decode()
+print(f"{runs = }")
 runs = json.loads(runs)
 
 for r in runs:
