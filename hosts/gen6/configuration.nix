@@ -16,13 +16,11 @@ in {
     libva-utils
     glxinfo
     # Base
-    masterpdfeditor4
+    # masterpdfeditor4
     onlyoffice-bin
     mpv
     qbittorrent
     android-tools
-    tor-browser-bundle-bin
-    (g-papirus-icon-theme.override {color = "breeze";})
     # Misc
     ahoviewer
     krita-beta
@@ -123,8 +121,7 @@ in {
     };
     datasets = let
       slow-datasets = [
-        # "zroot/data/games"
-        # "zroot/data/steam"
+        # keep
       ];
       normal-datasets = [
         # "zroot/data/downloads"
@@ -257,10 +254,6 @@ in {
     opengl.extraPackages = with pkgs; [
       mesa.drivers
     ];
-  };
-
-  programs = {
-    xwayland.enable = true;
   };
 
   networking.networkmanager = {

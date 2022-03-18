@@ -39,6 +39,7 @@
       inherit
         (pkgs.plasma5Packages)
         dolphin
+        ark
         # Everything I tried to get thumbnails working
         
         dolphin-plugins

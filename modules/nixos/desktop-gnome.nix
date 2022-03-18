@@ -51,4 +51,8 @@ in {
       libsForQt5.gwenview
     ]
     ++ my-extensions;
+
+  programs = {
+    xwayland.enable = true;
+  };
 }

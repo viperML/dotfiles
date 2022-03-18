@@ -1,0 +1,7 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "234dbb732ef054b109a9e5ee5b499632c63cc24f7c2383a849815dacc1727cb6" "e8df30cd7fb42e56a4efc585540a2e63b0c6eeb9f4dc053373e05d774332fc13" "f7fed1aadf1967523c120c4c82ea48442a51ac65074ba544a5aefc5af490893b" "1d5e33500bc9548f800f9e248b57d1b2a9ecde79cb40c0b1398dec51ee820daf" "028c226411a386abc7f7a0fba1a2ebfae5fe69e2a816f54898df41a6a3412bb5" "c4063322b5011829f7fdd7509979b5823e8eea2abf1fe5572ec4b7af1dd78519" "a9a67b318b7417adbedaab02f05fa679973e9718d9d26075c6235b1f0db703c8" "835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" "4d16802de4686030ed8f30b5a844713d68edec9cc07322bef54493d15e68d8cd" "e9aa348abd3713a75f2c5ba279aa581b1c6ec187ebefbfa33373083ff8004c7c" "6454421996f0508c38215a633256e36c19a28591542fb0946cfc40f1dceb89cf" default)))

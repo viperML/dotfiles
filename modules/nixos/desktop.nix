@@ -47,6 +47,8 @@
       appimage-run
       hwloc
       libarchive
+      # Icons
+      (g-papirus-icon-theme.override {color = "palebrown";})
     ];
 
     nix = {

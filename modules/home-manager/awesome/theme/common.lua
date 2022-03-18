@@ -9,8 +9,8 @@ local theme = {}
 
 -- Awesome stock
 theme.systray_icon_spacing = 10
-theme.font = "Roboto Regular 10"
-theme.font_name = "Roboto" --custom
+theme.font = "Source Sans 3 Regular 10"
+theme.font_name = "Source Sans 3" --custom
 
 theme.useless_gap = dpi(5)
 theme.border_width = dpi(0)

@@ -43,4 +43,8 @@ in {
 
   environment.variables = my-env;
   environment.sessionVariables = my-env;
+
+  programs = {
+    xwayland.enable = true;
+  };
 }

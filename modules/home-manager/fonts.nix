@@ -17,5 +17,9 @@
     noto-fonts-extra
     noto-fonts-emoji
     roboto
+    #
+    # hoefler-text
+    etBook
+    source-sans
   ];
 }

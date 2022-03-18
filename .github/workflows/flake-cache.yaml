@@ -10,11 +10,12 @@ on:
 jobs:
   main:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Main job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      name: Checkout
     - uses: cachix/install-nix-action@v16
+      name: Install Nix unstable
       with:
         install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.8.0pre20220311_d532269/install
         extra_nix_config: |
@@ -24,6 +25,7 @@ jobs:
           extra-substituters = https://nix-community.cachix.org
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
     - uses: cachix/cachix-action@v10
+      name: Login to Cachix
       with:
         name: viperml
         extraPullNames: nix-community
