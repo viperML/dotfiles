@@ -108,4 +108,4 @@ To run it:
 nix run github:viperML/dotfiles#g-neovim
 ```
 
-I also build .DEB and .RPM bundles, that you can download from CI:
+I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/blob/master/.github/workflows/g-neovim-release.yaml)
