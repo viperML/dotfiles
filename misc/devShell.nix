@@ -12,6 +12,7 @@ pkgs.mkShell {
     (python3.withPackages (p:
       with p; [
         #keep
+        grip
       ]))
   ];
   shellHook = ''

@@ -3,3 +3,5 @@
 ;; (package! autothemer)
 
 (package! spacemacs-theme)
+(package! autothemer)
+(package! rose-pine-emacs)

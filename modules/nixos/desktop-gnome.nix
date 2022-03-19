@@ -49,6 +49,8 @@ in {
       gnome.gnome-shell-extensions
       gnome.dconf-editor
       libsForQt5.gwenview
+
+      rose-pine-gtk-theme
     ]
     ++ my-extensions;
 

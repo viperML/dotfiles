@@ -102,9 +102,9 @@ local rose_pine_dawn = {
 
 local current_time = tonumber(os.date "%H%M")
 if current_time < 1800 and current_time > 500 then
-  colors = rose_pine_dawn
+  colors = atom_one_light
 else
-  colors = rose_pine
+  colors = atom_one_dark
 end
 
 return {

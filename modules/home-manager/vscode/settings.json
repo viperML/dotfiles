@@ -380,9 +380,9 @@
   "cSpell.words": [],
 
   // Nightswitch
-  "nightswitch.autoSwitch": true,
-  "nightswitch.themeNight": "Rosé Pine",
-  "nightswitch.themeDay": "Rosé Pine Dawn",
+  "nightswitch.autoSwitch": false,
+  "nightswitch.themeNight": "Atom One Darker",
+  "nightswitch.themeDay": "Atom One",
   "nightswitch.sunrise": "05:00",
   "nightswitch.sunset": "18:00",
 
@@ -421,5 +421,5 @@
   // "material-icon-theme.folders.color": "#fff",
   // "material-icon-theme.folders.theme": "classic",
   // "material-icon-theme.hidesExplorerArrows": true,
-  "workbench.colorTheme": "Rosé Pine"
+  "workbench.colorTheme": "Atom One Darker"
 }

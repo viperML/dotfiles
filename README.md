@@ -11,6 +11,9 @@
   <a href="https://github.com/kamadorueda/alejandra">
   <img alt="style: Alejandra" src="https://img.shields.io/badge/code%20style-Alejandra-green.svg">
   </a>
+  <a href="https://github.com/viperML/dotfiles/actions/workflows/g-neovim-release.yaml">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/g-neovim%20release?label=g-neovim">
+  </a>
 </p>
 
 # 🗒 About
@@ -50,33 +53,36 @@ You can directly reference this flake and import it into your NixOS configuratio
 
 # 📦 Exported packages
 
-I package software for myself, which you can use in your flake. The list of packages is in [overlays/pkgs](./overlays/pkgs).
-To use the packages, an overlay is provided, that you can use over your nixpkgs. For example:
+[overlays/pkgs](./overlays/pkgs) automatically exports every package with the name of its folder.
+You can easily pull this overlay into your system like so:
 
 ```nix
 # flake.nix
 {
-  # ...
   inputs.viperML-dotfiles.url = github:viperML/dotfiles;
-  inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs"; # override my nixpkgs lock
+  # Override my nixpkgs
+  # Binary cache may have less hits
+  inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs  = inputs @ { self, nixpkgs, ... }: {
-    nixosConfigurations.<hostname> = nixpkgs.lib.nixosSystem {
-      # ...
-      modules = [
-        {
-          nixpkgs.overlays =
-          [
-            inputs.viperML-dotfiles.overlays.pkgs
-          ];
-          environment.systemPackages =
-          [
-            foo-bar
-          ];
-        }
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: let
+    pkgs = import nixpkgs {
+      overlays = [
+        # Pull the overlay wherever you already configure overlays
+        # The overlays' names are the folders' names in ./overlays/
+        inputs.viperML-dotfiles.overlays.pkgs
+        inputs.viperML-dotfiles.overlays.pkgs-libsForQt5
       ];
     };
-  }
+  in {
+    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+      inherit pkgs;
+      # ...
+    };
+  };
 }
 ```
 
@@ -91,3 +97,15 @@ A package cache is provided:
   '';
 }
 ```
+
+# g-neovim
+
+My neovim is exported with its configuration and plugins under the name `g-neovim`.
+
+To run it:
+
+```console
+nix run github:viperML/dotfiles#g-neovim
+```
+
+I also build .DEB and .RPM bundles, that you can download from CI:
