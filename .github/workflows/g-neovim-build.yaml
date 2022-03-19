@@ -33,7 +33,7 @@ jobs:
     - run: nix run .#python3 -- ./bin/g-neovim-build.py
       name: Build g-neovim
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PAT }}
     - uses: actions/upload-artifact@v3
       name: Push drvPath
       with:
