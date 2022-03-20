@@ -15,6 +15,7 @@
     lib = import ./lib {inherit (nixpkgs) lib;};
     nixosModules = exportModulesDir ./modules/nixos;
     homeModules = exportModulesDir ./modules/home-manager;
+    specialisations = import ./specialisations {inherit self inputs;};
     overlays = exportModulesDir ./overlays;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
 

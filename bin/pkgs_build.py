@@ -2,8 +2,15 @@
 import subprocess
 from pathlib import Path
 from typing import Optional
+import os
 
-dry = True
+try:
+    dry = os.environ['DRY']
+except KeyError:
+    dry = False
+
+print(f"{dry = }")
+
 root_dir = Path(__file__).parent.parent
 
 def build(folder: str, namespace: Optional[str]):
@@ -12,15 +19,18 @@ def build(folder: str, namespace: Optional[str]):
             cmd = f"nix build {root_dir}#"
             if namespace:
                 cmd += f"{namespace}."
-            cmd += f"{p.name} --out-link {root_dir / 'results' / p.name}"
+                subdir = f"{namespace}.{p.name}"
+            else:
+                subdir = p.name
+            cmd += f"{p.name} --out-link {root_dir / 'results' / subdir}"
             print(f"$ {cmd}")
             if not dry:
                 subprocess.run(cmd.split(" "), check=True)
 
 for p in Path(root_dir / "overlays").iterdir():
     if "pkgs" in p.name:
-        n = p.name.split("-")
-        try:
-            build(folder=n[0], namespace=n[1])
-        except IndexError:
-            build(folder=n[0], namespace=None)
+        n = p.name.split(".")
+        if len(n) == 1:
+            build(p.name, None)
+        else:
+            build(p.name, n[0])

@@ -13,6 +13,7 @@ try:
     dry = os.environ['DRY']
 except KeyError:
     dry = False
+print(f"{dry = }")
 
 cmd = "nix build .#g-neovim -L"
 print(f"$ {cmd}")

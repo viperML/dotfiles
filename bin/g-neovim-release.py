@@ -8,6 +8,7 @@ try:
     dry = os.environ['DRY']
 except KeyError:
     dry = False
+print(f"{dry = }")
 
 # Read flake.lock as json
 with open(Path("./flake.lock")) as f:

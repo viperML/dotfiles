@@ -14,6 +14,8 @@
     syncthing-indicator
     caffeine
     just-perfection
+
+    forge
   ];
 in {
   services.xserver = {

@@ -48,25 +48,10 @@
       ];
     };
 
-    # "sway" = {
-    #   nixosModules = with self.nixosModules; [
-    #     desktop-sway
-    #   ];
-    #   homeModules = with self.homeModules; [
-    #     sway
-    #     # waybar
-    #     nwg-panel
-    #   ];
-    # };
-
-    "gnome" = {
-      nixosModules = with self.nixosModules; [
-        desktop-gnome
-      ];
-      homeModules = with self.homeModules; [
-        gnome
-      ];
-    };
+    inherit
+      (self.specialisations)
+      gnome
+      ;
   };
 in
   self.lib.mkSpecialisedSystem {

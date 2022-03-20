@@ -21,5 +21,6 @@
     # hoefler-text
     etBook
     source-sans
+    redaction
   ];
 }

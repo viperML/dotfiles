@@ -3,6 +3,7 @@ final: prev: let
 in {
   any-nix-shell = callPackage ./any-nix-shell {inherit (prev) any-nix-shell;};
   obsidian = callPackage ./obsidian {inherit (prev) obsidian;};
+  rose-pine-gtk-theme = callPackage ./rose-pine-gtk-theme {};
 
   python3 = prev.python3.override {
     packageOverrides = python3-final: python3-prev: {
@@ -24,16 +25,6 @@ in {
     };
   });
 
-  # stylua = prev.stylua.overrideAttrs (prevAttrs: {
-  #   buildInputs = prevAttrs.buildInputs or [] ++ [prev.makeWrapper];
-  #   postFixup =
-  #     (prev.postFixup or "")
-  #     + ''
-  #       wrapProgram $out/bin/stylua \
-  #         --add-flags "--config-path ${./stylua.toml}"
-  #     '';
-  # });
-
   stylua = prev.symlinkJoin {
     name = "stylua";
     paths = [prev.stylua];
@@ -43,15 +34,4 @@ in {
         --add-flags "--config-path ${./stylua.toml}"
     '';
   };
-
-  rose-pine-gtk-theme = callPackage ./rose-pine-gtk-theme {};
-
-  # picom = prev.picom.overrideAttrs (_: {
-  #   src = fetchFromGitHub {
-  #     owner = "Arian8j2";
-  #     repo = "picom-jonaburg-fix";
-  #     rev = "31d25da22b44f37cbb9be49fe5c239ef8d00df12";
-  #     sha256 = "0vkf4azs2xr0j03vkmn4z9ll4lw7j8s2k0rdsfw630hd78l1ngnp";
-  #   };
-  # });
 }

@@ -50,45 +50,12 @@
         emacs-doom
       ];
     };
-
-    "sway" = {
-      nixosModules = with self.nixosModules; [
-        desktop-sway
-      ];
-      homeModules = with self.homeModules; [
-        sway
-        nwg-panel
-      ];
-    };
-
-    # "kde" = {
-    #   nixosModules = with self.nixosModules; [
-    #     desktop-kde
-    #   ];
-    #   homeModules = with self.homeModules; [
-    #     kde
-    #   ];
-    # };
-
-    "gnome" = {
-      nixosModules = with self.nixosModules; [
-        desktop-gnome
-      ];
-      homeModules = with self.homeModules; [
-        gnome
-      ];
-    };
-
-    "awesome" = {
-      nixosModules = with self.nixosModules; [
-        desktop-awesome
-      ];
-      homeModules = with self.homeModules; [
-        awesome
-        picom
-        rofi
-      ];
-    };
+    inherit
+      (self.specialisations)
+      gnome
+      kde
+      awesome
+      ;
   };
 in
   self.lib.mkSpecialisedSystem {
