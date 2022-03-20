@@ -20,13 +20,12 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    # Themes
+    # Theming
     libsForQt5.lightly
     libsForQt5.sierrabreezeenhanced
     libsForQt5.reversal-kde
-    yaru-theme
     libsForQt5.lightlyshaders
-    pkgs.libsForQt5.kwalletmanager
+    adw-gtk3
 
     # Extend
     libsForQt5.bismuth
@@ -39,6 +38,7 @@ in {
     libsForQt5.kcolorchooser
     libsForQt5.kwin-forceblur
     latte-dock
+    pkgs.libsForQt5.kwalletmanager
   ];
 
   environment.variables = my-env;

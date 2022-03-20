@@ -20,8 +20,10 @@
         apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
           if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
             ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme Breeze
+            ${pkgs.dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3'
           else
             ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
+            ${pkgs.dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3-dark'
           fi
         '';
       in "${apply-colorscheme-script}";
@@ -33,8 +35,6 @@
         Unit.PartOf = ["apply-colorscheme.service"];
         # DayOfWeek Year-Month-Day Hour:Minute:Second
         Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
-        # Timer.Persistent = "true";
-        # Timer.OnBootSec = "2s";
         Install.WantedBy = ["timers.target"];
       };
     };
