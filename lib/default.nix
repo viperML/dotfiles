@@ -67,4 +67,5 @@
     };
 in {
   inherit exportModules exportModulesDir folderToList mkSpecialisedSystem;
+  kde = import ./kde.nix {inherit lib;};
 }

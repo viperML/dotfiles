@@ -19,7 +19,7 @@
       Service.ExecStart = let
         apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
           if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-            ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme Breeze
+            ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme BreezeLight
             ${pkgs.dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3'
           else
             ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark

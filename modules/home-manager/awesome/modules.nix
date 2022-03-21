@@ -16,8 +16,8 @@ in {
   freedesktop = fetchFromGitHub {
     repo = "awesome-freedesktop";
     owner = "lcpz";
-    rev = "1117422e8a0e338fca179e203d47077819410a7b";
-    sha256 = "0viv4dzzwsb3cpxhsa4qkzvz0wd0py4kmmj7s8h3ch3b8dmn3b9z";
+    rev = "ac9de0eccd9d604f43c82cb03e77f6fd791640ab";
+    sha256 = "1ckhria95fkwgz10fp010333wlzx04wbdl2kz9j4dgqxhfrbam64";
   };
   revelation = fetchFromGitHub {
     repo = "awesome-revelation";
@@ -28,13 +28,13 @@ in {
   lain = fetchFromGitHub {
     repo = "lain";
     owner = "lcpz";
-    rev = "4933d6cb27390776a21c659020d8ba1f4a027624";
-    sha256 = "0g42klv9052j4cvc6pi68ynf340a5vxgxvzn1qr9w6hfly0frx9l";
+    rev = "07cf82e3b2cb051e57d8bba9585973fa6e2c659e";
+    sha256 = "0lxpw6z55hpd2yzj85jwwim4jbgl1arzf3nqhkkr8sy6ryxq5r6d";
   };
   bling = fetchFromGitHub {
     repo = "bling";
     owner = "BlingCorp";
-    rev = "4d88068dda380b4fd0c8fd883530d7b31b8c9d2d";
-    sha256 = "1yw0n0qmxs1w9ramsm2riizgc4cq213n9hswj280h8v8kmqjfan4";
+    rev = "5b3bc36b70a35d590dedde5bfe13de4e516b64ea";
+    sha256 = "0l2hy5h0g8kfjxi4rhw1p94ync6hgfr4if2vg7phjpdbb2fn56wk";
   };
 }

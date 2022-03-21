@@ -1,28 +1,30 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-with builtins; {
-  configsToCommands = let
-    toValue = v:
-      if builtins.isString v
-      then v
-      else if builtins.isBool v
-      then lib.boolToString v
-      else if builtins.isInt v
-      then builtins.toString v
-      else builtins.abort ("Unknown value type: " ++ builtins.toString v);
+{lib}: let
+  inherit
+    (builtins)
+    mapAttrs
+    concatStringsSep
+    ;
+  inherit
+    (lib)
+    attrValues
+    ;
+
+  example = {
+    "file" = "~/.config/kglobalshortcutsrc";
+    "group" = "kwin";
+    "values" = {
+      "bismuth_next_layout" = "Meta+L,none,Bismuth: Switch to the Next Layout";
+      "bismuth_toggle_window_floating" = "Meta+Z,none,Bismuth: Toggle Active Window Floating";
+    };
+  };
+
+  writeKConfig = input: let
+    result = concatStringsSep "\n" (attrValues (mapAttrs (keyName: keyValue: ''kwriteconfig --file ${input.file} --group ${input.group} --key ${keyName} "${keyValue}"'') input.values));
   in
-    {configs}:
-      builtins.concatStringsSep "\n" (lib.flatten (lib.mapAttrsToList (file: groups:
-        lib.mapAttrsToList (group: keys:
-          lib.mapAttrsToList (
-            key: value: "test -f ~/.config/'${file}' && ${pkgs.libsForQt5.kconfig}/bin/kwriteconfig5 --file ~/.config/'${file}' --group '${group}' --key '${key}' '${
-              toValue value
-            }'"
-          )
-          keys)
-        groups)
-      configs));
+    ''
+      test -f ${input.file}
+    ''
+    + result;
+in {
+  inherit writeKConfig example;
 }

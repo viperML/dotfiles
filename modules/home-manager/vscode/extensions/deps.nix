@@ -80,8 +80,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "12.0.4";
-    sha256 = "1s1wrrp5i7cqm8c4x67c9b19mf1sjpcxklyl58rfsnmjbrlnazsg";
+    version = "12.0.5";
+    sha256 = "0zfawv9nn88x8m30h7ryax0c7p68najl23a51r88a70hqppzxshw";
   }
   {
     name = "EditorConfig";
@@ -104,14 +104,14 @@
   {
     name = "copilot";
     publisher = "GitHub";
-    version = "1.8.5320";
-    sha256 = "11qmz2s205pgnf9504mqpbgbncj4bb6hlh8mzv69hmq4pq3knpgn";
+    version = "1.9.5350";
+    sha256 = "0mmb2p5mq7qr1x8g90qxpvrxdl4f1iayyy83yildn7vx64qcn1sg";
   }
   {
     name = "terraform";
     publisher = "hashicorp";
-    version = "2.20.0";
-    sha256 = "1sn16my5p2hicdg7as912m8h68nar1zbdxk7aqzjv5fbq114lm4w";
+    version = "2.20.1";
+    sha256 = "0giri0q7rb97kwsxs6nz779a9a8gda1r31mgi284jakckjnac2mp";
   }
   {
     name = "haskell";
@@ -152,8 +152,8 @@
   {
     name = "language-haskell";
     publisher = "justusadam";
-    version = "3.5.0";
-    sha256 = "0jznhc3l404p36149l62d5a5qm2k1wp4x0s0ii5s84cvyv2967iy";
+    version = "3.6.0";
+    sha256 = "115y86w6n2bi33g1xh6ipz92jz5797d3d00mr4k8dv5fz76d35dd";
   }
   {
     name = "vscode-lua-format";
@@ -182,20 +182,20 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2022.3.10741003";
-    sha256 = "1j8ln8w712iv3h8in70qzk0pmwz935bj76zxlsxs91cw6w3pi7p2";
+    version = "2022.3.10771003";
+    sha256 = "0pfj8mhz15jajby4zvb60b1ph330v7scg5w1ywi4s5xcvcj0x0y7";
   }
   {
     name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2022.3.1";
-    sha256 = "1x4m1617391sy7f4zcf3axn26r5kz5xg0fshy0shpdwgxi1557pd";
+    version = "2022.3.2";
+    sha256 = "0nms1bcnnsdy86zg10scp4i8qhm25v1535xqv56pmhnxrrccdzs0";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2022.3.1000751005";
-    sha256 = "17gl3g7xrc3nmf9p2a9a2l1vha6l98q5qxrpdy0sqrzg9cs44kjl";
+    version = "2022.3.1000821004";
+    sha256 = "15b1wfzsllw6xy143q3r3xaawg1g1rjbsy76q7r6hrjpcn4vva4m";
   }
   {
     name = "jupyter-keymap";
@@ -224,8 +224,8 @@
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.5418";
-    sha256 = "1is4ks84v1d4nj35qysfmsz6xk0p7cjp215ahpp56h9rpp1hmagl";
+    version = "1.0.5449";
+    sha256 = "1i7qn2v0s21pqfdrs9g9cz3f2ydxq763vlfxvp98x38x65zmd920";
   }
   {
     name = "rose-pine";

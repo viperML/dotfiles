@@ -23,7 +23,9 @@ in {
     android-tools
     # Misc
     ahoviewer
-    krita-beta
+
+    # No cache hit
+    # krita-beta
     obs-studio
     obsidian
     streamlink

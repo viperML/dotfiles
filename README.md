@@ -100,6 +100,7 @@ A package cache is provided:
 
 # g-neovim
 
+
 My neovim is exported with its configuration and plugins under the name `g-neovim`.
 
 To run it:

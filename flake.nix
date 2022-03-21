@@ -32,7 +32,16 @@
             (final: prev: {
               inherit
                 (import inputs.nixpkgs-master {inherit system config;})
-                vscode
+                ;
+            })
+            (_: __: {
+              inherit
+                (import inputs.nixpkgs-stable {inherit system config;})
+                # FIXME
+                
+                # https://github.com/starship/starship/issues/3771
+                
+                fish
                 ;
             })
           ]

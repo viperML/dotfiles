@@ -27,6 +27,7 @@
     ];
     homeModules = with self.homeModules; [
       kde
+      xsettingsd
     ];
   };
 
@@ -38,6 +39,7 @@
       awesome
       picom
       rofi
+      xsettingsd
     ];
   };
 }
