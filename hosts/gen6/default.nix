@@ -19,13 +19,11 @@
         inputs.home-manager.nixosModules.home-manager
         home-manager
 
-        # adblock
         virt
         docker
         printing
         gaming
         # vfio
-        tailscale
       ];
       homeModules = with self.homeModules; [
         ./home.nix
