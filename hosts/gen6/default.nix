@@ -15,9 +15,8 @@
         common
         channels-to-flakes
         desktop
-        gnome-keyring
         inputs.home-manager.nixosModules.home-manager
-        home-manager
+        gnome-keyring
 
         virt
         docker

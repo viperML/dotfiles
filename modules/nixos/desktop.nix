@@ -3,6 +3,7 @@
   pkgs,
   lib,
   self,
+  inputs,
   ...
 }: (lib.mkMerge [
   {
@@ -48,6 +49,17 @@
     };
 
     xdg.portal.enable = true;
+
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      extraSpecialArgs = {inherit inputs self;};
+      sharedModules = [
+        {
+          home.stateVersion = lib.mkForce config.system.stateVersion;
+        }
+      ];
+    };
   }
   (lib.mkIf config.services.xserver.displayManager.gdm.enable {
     # Fixes GDM autologin in Wayland

@@ -49,7 +49,9 @@
           ++ (attrValues self.overlays);
       });
 
-    devShell = genAttrs supportedSystems (system: self.legacyPackages.${system}.callPackage ./misc/devShell.nix {});
+    devShells = genAttrs supportedSystems (system: {
+      default = self.legacyPackages.${system}.callPackage ./misc/devShell.nix {};
+    });
   };
 
   inputs = {

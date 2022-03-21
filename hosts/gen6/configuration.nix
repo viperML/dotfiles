@@ -11,8 +11,7 @@ in {
   environment.sessionVariables = {inherit FLAKE;};
 
   environment.systemPackages = with pkgs; [
-    # Base
-    # Misc
+    # Keep
   ];
 
   boot = {
@@ -224,17 +223,33 @@ in {
     };
   };
 
-  systemd.tmpfiles.rules = [
+  swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
+
+  systemd.tmpfiles.rules = let
+    inherit (config.users.users.mainUser) group name home;
+  in [
+    "z /secrets/ssh 0700 ${name} ${group} - -"
+    "z /secrets/ssh/config 0600 ${name} ${group} - -"
+    "z /secrets/ssh/id_ed25519 0600 ${name} ${group} - -"
+    "z /secrets/ssh/id_ed25519.pub 0644 ${name} ${group} - -"
+    "z /secrets/ssh/known_hosts 0600 ${name} ${group} - -"
+    "d /root/.ssh 0700 root root - -"
+    "L+ ${home}/.ssh - - - - /secrets/ssh"
+    #
     "L+ /etc/ssh/ssh_host_ed25519_key - - - - /secrets/ssh_host/ssh_host_ed25519_key"
     "L+ /etc/ssh/ssh_host_ed25519_key.pub - - - - /secrets/ssh_host/ssh_host_ed25519_key.pub"
     "L+ /etc/ssh/ssh_host_rsa_key - - - - /secrets/ssh_host/ssh_host_rsa_key"
     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
   ];
-
-  swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
+  systemd.services.bind-ssh = {
+    serviceConfig.Type = "forking";
+    script = ''
+      ${pkgs.bindfs}/bin/bindfs --map=1000/0:@100/@0 -p ugo-x /secrets/ssh /root/.ssh
+    '';
+    wantedBy = ["multi-user.target"];
+  };
 
   powerManagement.cpuFreqGovernor = "powersave";
-
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;

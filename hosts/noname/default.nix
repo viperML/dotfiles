@@ -15,9 +15,8 @@
         common
         channels-to-flakes
         desktop
-        gnome-keyring
         inputs.home-manager.nixosModules.home-manager
-        home-manager
+        gnome-keyring
 
         # adblock
         # virt
@@ -30,7 +29,6 @@
       homeModules = with self.homeModules; [
         common
         channels-to-flakes
-        fonts
         gui
         git
         bat
