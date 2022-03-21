@@ -11,24 +11,8 @@ in {
   environment.sessionVariables = {inherit FLAKE;};
 
   environment.systemPackages = with pkgs; [
-    # HW
-    vulkan-tools
-    libva-utils
-    glxinfo
     # Base
-    # masterpdfeditor4
-    onlyoffice-bin
-    mpv
-    qbittorrent
-    android-tools
     # Misc
-    ahoviewer
-
-    # No cache hit
-    # krita-beta
-    obs-studio
-    obsidian
-    streamlink
   ];
 
   boot = {
@@ -37,9 +21,9 @@ in {
       kernelModules = [];
       supportedFilesystems = ["zfs"];
       # Rollback ZFS on root
-      postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r zroot/gen6/nixos@empty
-      '';
+      # postDeviceCommands = lib.mkAfter ''
+      #   zfs rollback -r zroot/gen6/nixos@empty
+      # '';
     };
     tmpOnTmpfs = true;
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
@@ -164,9 +148,18 @@ in {
   };
 
   fileSystems = {
+    # "/" = {
+    #   device = "zroot/gen6/nixos";
+    #   fsType = "zfs";
+    # };
     "/" = {
-      device = "zroot/gen6/nixos";
-      fsType = "zfs";
+      fsType = "tmpfs";
+      device = "none";
+      options = [
+        "defaults"
+        "size=2G"
+        "mode=755"
+      ];
     };
     "/nix" = {
       device = "zroot/nix";

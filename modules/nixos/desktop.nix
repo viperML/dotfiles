@@ -7,14 +7,6 @@
 }: (lib.mkMerge [
   {
     services = {
-      # xserver.displayManager.autoLogin = let
-      #   my-users = builtins.attrNames (pkgs.lib.filterAttrs (name: value: value.isNormalUser)
-      #   config.users.users);
-      #   enable = (builtins.length my-users == 1) && (config.services.xserver.displayManager.defaultSession != null);
-      # in {
-      #   user = lib.mkIf enable config.users.users."${builtins.head my-users}".name;
-      # };
-
       pipewire = {
         enable = true;
         pulse.enable = true;
@@ -34,19 +26,14 @@
     hardware.pulseaudio.enable = false;
 
     environment.systemPackages = with pkgs; [
-      # Base cli
+      # CLI to be found by default in other distros
       file
       xsel
-      nmap
       pciutils
       wget
-      lsof
-      pwgen
-      usbutils
-      lshw
-      appimage-run
-      hwloc
       libarchive
+      lsof
+      usbutils
       # Icons
       (g-papirus-icon-theme.override {color = "palebrown";})
     ];

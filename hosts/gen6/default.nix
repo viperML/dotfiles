@@ -28,9 +28,9 @@
         tailscale
       ];
       homeModules = with self.homeModules; [
+        ./home.nix
         common
         channels-to-flakes
-        fonts
         gui
         git
         bat

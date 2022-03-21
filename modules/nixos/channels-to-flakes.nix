@@ -7,35 +7,27 @@
   lib,
   ...
 }: let
-  # relative path to /etc to place our inputs such as /etc/${inputsPath}/nixpkgs
-  inputsPath = "nix/inputs";
   selfRegistry = {
     to = {
       path = self.outPath;
       type = "path";
     };
     from = {
-      id = "pkgs";
+      id = "self";
       type = "indirect";
     };
     exact = true;
   };
+  inherit
+    (lib)
+    mapAttrs'
+    nameValuePair
+    ;
 in {
   nix = {
-    package =
-      if lib.versionAtLeast pkgs.nix.version pkgs.nix_2_4.version
-      then pkgs.nix
-      else pkgs.nix_2_4;
-
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
-    # name "pkgs" for convenience, so tools will work with
-    # nix shell pkgs#foo ; etc
     registry =
       {
-        pkgs = selfRegistry;
+        self = selfRegistry;
       }
       // lib.mapAttrs' (name: value: {
         inherit name;
@@ -44,10 +36,12 @@ in {
       inputs;
 
     nixPath = [
-      "nixpkgs=/etc/nix/inputs/nixpkgs"
+      "nixpkgs=/etc/nix/inputs/self"
     ];
   };
 
-  environment.etc."nix/inputs/nixpkgs".source = self.outPath;
+  # environment.etc."nix/inputs/nixpkgs".source = self.outPath;
+  environment.etc =
+    mapAttrs' (n: v: nameValuePair "nix/inputs/${n}" {source = v.outPath;}) inputs;
   environment.variables.NIXPKGS_CONFIG = lib.mkForce "";
 }

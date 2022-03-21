@@ -15,32 +15,27 @@ in {
     statix
     inputs.alejandra.defaultPackage.${system}
     inputs.nh.packages.${system}.nh
-    # inputs.deploy-rs.packages.${system}.deploy-rs
     # Misc utils
-    ripgrep
+    android-tools
+    appimage-run
+    choose
+    dogdns
     fd
+    htop
+    hwloc
+    jless
+    jq
+    lshw
+    nmap
+    pwgen
+    ripgrep
+    stylua
+    sysstat
     tealdeer
     unar
-    jq
-    dogdns
-    jless
-    choose
-    # bpytop
-    # System monitor
-    htop
-    pstree
-    sysstat
-
-    stylua
   ];
 
   home.stateVersion = "21.11";
 
-  programs.home-manager = {
-    enable = true;
-    path = "…";
-  };
-
   home.file.".config/nix/nix.conf".source = ../../misc/nix.conf;
-  # home.file.".config/nixpkgs/config.nix".source = ../../misc/nixpkgs.nix;
 }
