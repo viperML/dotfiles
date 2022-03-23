@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  packages,
   ...
 }: let
   name = "ayats";
@@ -33,7 +34,7 @@ in {
           options = ["SETENV" "NOPASSWD"];
         }
         {
-          command = "${inputs.nh.packages.${pkgs.system}.nh}/bin/nh";
+          command = "${packages.nh.nh}/bin/nh";
           options = ["SETENV" "NOPASSWD"];
         }
       ];

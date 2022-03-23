@@ -34,7 +34,7 @@
                 (import inputs.nixpkgs-master {inherit system config;})
                 ;
             })
-            (_: __: {
+            (_: prev: {
               inherit
                 (import inputs.nixpkgs-stable {inherit system config;})
                 # FIXME

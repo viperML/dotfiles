@@ -1,9 +1,13 @@
 {
   config,
   pkgs,
+  inputs,
+  packages,
   ...
 }: {
   virtualisation.libvirtd = {
+    package = packages.nixpkgs-stable.libvirt;
+    qemu.ovmf.package = packages.nixpkgs-stable.OVMFFull;
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";

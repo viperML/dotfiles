@@ -6,6 +6,7 @@
     attrNames
     mapAttrs
     map
+    hasAttr
     ;
   inherit
     (lib)
@@ -41,6 +42,7 @@
     specialArgs,
     specialisations,
   }: let
+    # Create a system out of the base specialisation + any spec
     base-spec = specialisations.base;
     specs = filterAttrs (n: v: n != "base") specialisations;
 
@@ -61,9 +63,24 @@
             specs;
         }
       ];
+
+    # Insert `packages.<inputs>` in the argset, that contains legacyPackages or packages
+    # So a module can use `packages.nixpkgs-master.vscode` instead of `inputs.nixpkgs-master.legacyPackages.${system}.vscode`
+    packages =
+      (mapAttrs
+        (n: v: v.legacyPackages.${system}) (filterAttrs (n: v: hasAttr "legacyPackages" v) specialArgs.inputs))
+      // (mapAttrs
+        (n: v: v.packages.${system}) (filterAttrs (n: v: hasAttr "packages" v) specialArgs.inputs));
+
+    specialArgs' =
+      specialArgs
+      // {
+        inherit packages;
+      };
   in
     lib.nixosSystem {
-      inherit system pkgs specialArgs modules;
+      inherit system pkgs modules;
+      specialArgs = specialArgs';
     };
 in {
   inherit exportModules exportModulesDir folderToList mkSpecialisedSystem;

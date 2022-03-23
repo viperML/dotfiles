@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  packages,
   ...
 }: let
   inherit (pkgs) system;
@@ -13,8 +14,9 @@ in {
     nix-prefetch-scripts
     update-nix-fetchgit
     statix
-    inputs.alejandra.defaultPackage.${system}
-    inputs.nh.packages.${system}.nh
+    packages.alejandra.alejandra-x86_64-unknown-linux-gnu
+    packages.nh.nh
+
     # Misc utils
     android-tools
     appimage-run

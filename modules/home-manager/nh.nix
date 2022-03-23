@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  packages,
   ...
 }: {
   systemd.user = {
@@ -9,7 +10,7 @@
       Service.Type = "oneshot";
       Service.ExecStart =
         (pkgs.writeShellScript "nh-gcr-clean" ''
-          ${inputs.nh.packages.${pkgs.system}.nh}/bin/nh gcr-clean --age 7d
+          ${packages.nh.nh}/bin/nh gcr-clean --age 7d
         '')
         .outPath;
     };

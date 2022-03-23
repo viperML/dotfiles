@@ -4,6 +4,7 @@
   lib,
   self,
   inputs,
+  packages,
   ...
 }: (lib.mkMerge [
   {
@@ -53,7 +54,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      extraSpecialArgs = {inherit inputs self;};
+      extraSpecialArgs = {inherit inputs self packages;};
       sharedModules = [
         {
           home.stateVersion = lib.mkForce config.system.stateVersion;
