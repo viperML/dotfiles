@@ -12,7 +12,7 @@
     inherit (nixpkgs.lib) attrValues genAttrs;
     inherit (self.lib) exportModulesDir;
   in {
-    lib = import ./lib {inherit (nixpkgs) lib;};
+    lib = import ./lib nixpkgs.lib;
     nixosModules = exportModulesDir ./modules/nixos;
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations {inherit self inputs;};
@@ -25,25 +25,25 @@
         inherit config system;
         overlays = with inputs;
           [
-            nur.overlay
-            nixpkgs-wayland.overlay
+            # nur.overlay
+            # nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
-            (final: prev: {
-              inherit
-                (import inputs.nixpkgs-master {inherit system config;})
-                ;
-            })
-            (_: prev: {
-              inherit
-                (import inputs.nixpkgs-stable {inherit system config;})
-                # FIXME
-                
-                # https://github.com/starship/starship/issues/3771
-                
-                fish
-                ;
-            })
+            # (final: prev: {
+            #   inherit
+            #     (import inputs.nixpkgs-master {inherit system config;})
+            #     ;
+            # })
+            # (_: prev: {
+            #   inherit
+            #     (import inputs.nixpkgs-stable {inherit system config;})
+            #     # FIXME
+
+            #     # https://github.com/starship/starship/issues/3771
+
+            #     fish
+            #     ;
+            # })
           ]
           # Apply every exported overlay
           ++ (attrValues self.overlays);

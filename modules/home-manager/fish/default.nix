@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  packages,
   ...
 }: {
   # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
@@ -13,6 +14,9 @@
 
   programs.fish = {
     enable = true;
+    # FIXME
+    # https://github.com/starship/starship/issues/3771
+    package = packages.nixpkgs-stable.fish;
     interactiveShellInit = ''
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source

@@ -1,14 +1,5 @@
-{lib}: let
-  inherit
-    (builtins)
-    mapAttrs
-    concatStringsSep
-    ;
-  inherit
-    (lib)
-    attrValues
-    ;
-
+lib:
+with lib; let
   example = {
     "file" = "~/.config/kglobalshortcutsrc";
     "group" = "kwin";
