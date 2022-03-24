@@ -6,10 +6,6 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    configFile = {
-      # "autostart/Mailspring.desktop".source = ./Mailspring.desktop;
-      "autostart/Flameshot.desktop".source = ./Flameshot.desktop;
-    };
   };
 
   fonts.fontconfig.enable = true;

@@ -29,21 +29,6 @@
             # nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
-            # (final: prev: {
-            #   inherit
-            #     (import inputs.nixpkgs-master {inherit system config;})
-            #     ;
-            # })
-            # (_: prev: {
-            #   inherit
-            #     (import inputs.nixpkgs-stable {inherit system config;})
-            #     # FIXME
-
-            #     # https://github.com/starship/starship/issues/3771
-
-            #     fish
-            #     ;
-            # })
           ]
           # Apply every exported overlay
           ++ (attrValues self.overlays);
