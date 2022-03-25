@@ -96,5 +96,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    nixos-flakes = {
+      url = "github:viperML/nixos-flakes";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-compat.follows = "flake-compat";
+    };
   };
 }

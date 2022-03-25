@@ -13,7 +13,7 @@
         mainUser-ayats
 
         common
-        channels-to-flakes
+        inputs.nixos-flakes.nixosModules.channels-to-flakes
         desktop
         inputs.home-manager.nixosModules.home-manager
         gnome-keyring
@@ -27,7 +27,7 @@
       homeModules = with self.homeModules; [
         ./home.nix
         common
-        channels-to-flakes
+        inputs.nixos-flakes.homeModules.channels-to-flakes
         gui
         git
         bat

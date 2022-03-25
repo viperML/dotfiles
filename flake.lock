@@ -378,6 +378,32 @@
         "type": "github"
       }
     },
+    "nixos-flakes": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1648202570,
+        "narHash": "sha256-dhInfIO4Vv7O14DOenuSDGTL40GPlqyN6R3E1oda2so=",
+        "owner": "viperML",
+        "repo": "nixos-flakes",
+        "rev": "201bf2e78ab69ce7db6ef7a5409f99719e462ed4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "nixos-flakes",
+        "type": "github"
+      }
+    },
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
@@ -609,6 +635,7 @@
         "home-manager": "home-manager",
         "nh": "nh",
         "nix-doom-emacs": "nix-doom-emacs",
+        "nixos-flakes": "nixos-flakes",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

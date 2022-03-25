@@ -1,4 +1,3 @@
-# TODO move this to a standalone repo
 {
   config,
   pkgs,
@@ -26,10 +25,7 @@
 in {
   nix = {
     registry =
-      {
-        self = selfRegistry;
-      }
-      // lib.mapAttrs' (name: value: {
+      lib.mapAttrs' (name: value: {
         inherit name;
         value.flake = value;
       })
@@ -40,7 +36,6 @@ in {
     ];
   };
 
-  # environment.etc."nix/inputs/nixpkgs".source = self.outPath;
   environment.etc =
     mapAttrs' (n: v: nameValuePair "nix/inputs/${n}" {source = v.outPath;}) inputs;
   environment.variables.NIXPKGS_CONFIG = lib.mkForce "";

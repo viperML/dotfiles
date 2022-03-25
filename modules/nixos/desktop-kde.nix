@@ -19,27 +19,30 @@ in {
     displayManager.autoLogin.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # Theming
-    libsForQt5.lightly
-    libsForQt5.sierrabreezeenhanced
-    libsForQt5.reversal-kde
-    libsForQt5.lightlyshaders
-    adw-gtk3
-
-    # Extend
-    libsForQt5.bismuth
-    libsForQt5.plasma-pa
-    libsForQt5.ark
-    libsForQt5.ffmpegthumbs
-    libsForQt5.kdegraphics-thumbnailers
-    libsForQt5.filelight
-    libsForQt5.gwenview
-    libsForQt5.kcolorchooser
-    libsForQt5.kwin-forceblur
-    latte-dock
-    pkgs.libsForQt5.kwalletmanager
-  ];
+  environment.systemPackages = lib.attrValues {
+    inherit
+      (pkgs.libsForQt5)
+      lightly
+      sierrabreezeenhanced
+      reversal-kde
+      lightlyshaders
+      bismuth
+      plasma-pa
+      ark
+      ffmpegthumbs
+      kdegraphics-thumbnailers
+      filelight
+      gwenview
+      kcolorchooser
+      kwin-forceblur
+      kwalletmanager
+      ;
+    inherit
+      (pkgs)
+      adw-gtk3
+      latte-dock
+      ;
+  };
 
   environment.variables = my-env;
   environment.sessionVariables = my-env;
