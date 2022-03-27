@@ -53,8 +53,7 @@ You can directly reference this flake and import it into your NixOS configuratio
 
 # 📦 Exported packages
 
-[overlays/pkgs](./overlays/pkgs) automatically exports every package with the name of its folder.
-You can easily pull this overlay into your system like so:
+Install directly from the `packages` output. For example:
 
 ```nix
 # flake.nix
@@ -64,25 +63,15 @@ You can easily pull this overlay into your system like so:
   # Binary cache may have less hits
   inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    ...
-  }: let
-    pkgs = import nixpkgs {
-      overlays = [
-        # Pull the overlay wherever you already configure overlays
-        # The overlays' names are the folders' names in ./overlays/
-        inputs.viperML-dotfiles.overlays.pkgs
-        inputs.viperML-dotfiles.overlays.pkgs-libsForQt5
-      ];
-    };
-  in {
-    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-      inherit pkgs;
-      # ...
-    };
-  };
+  # ...
+}
+
+# configuration.nix
+{ config, pkgs, inputs, ... }:
+{
+  environment.systemPackages = [
+    inputs.viperML-dotfiles.packages.${pkgs.system}.thePkgName
+  ];
 }
 ```
 
