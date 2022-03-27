@@ -12,10 +12,9 @@
         ./configuration.nix
         mainUser-ayats
 
-        common
         inputs.nixos-flakes.nixosModules.channels-to-flakes
-        desktop
         inputs.home-manager.nixosModules.home-manager
+        desktop
         gnome-keyring
 
         virt
@@ -43,8 +42,8 @@
         xonsh
         # emacs
         # wine
-        inputs.nix-doom-emacs.hmModule
-        emacs-doom
+        # inputs.nix-doom-emacs.hmModule
+        # emacs-doom
       ];
     };
     inherit

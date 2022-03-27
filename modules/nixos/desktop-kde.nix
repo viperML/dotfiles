@@ -3,11 +3,7 @@
   pkgs,
   lib,
   ...
-}: let
-  my-env = {
-    GTK_USE_PORTAL = "1";
-  };
-in {
+}: {
   services.xserver = {
     enable = true;
     desktopManager.plasma5 = {
@@ -43,9 +39,6 @@ in {
       latte-dock
       ;
   };
-
-  environment.variables = my-env;
-  environment.sessionVariables = my-env;
 
   programs = {
     xwayland.enable = true;

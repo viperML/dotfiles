@@ -12,10 +12,9 @@
         ./configuration.nix
         mainUser-ayats
 
-        common
         channels-to-flakes
-        desktop
         inputs.home-manager.nixosModules.home-manager
+        desktop
         gnome-keyring
 
         # adblock

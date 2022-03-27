@@ -5,11 +5,11 @@ in {
     qtfinal: qtprev: let
       inherit (qtprev) callPackage;
     in rec {
-      lightly = callPackage ./lightly {};
-      sierrabreezeenhanced = callPackage ./sierrabreezeenhanced {};
-      reversal-kde = callPackage ./reversal-kde {};
       kwin-forceblur = callPackage ./kwin-forceblur {};
+      lightly = callPackage ./lightly {};
       lightlyshaders = callPackage ./lightlyshaders {inherit (qtprev) kdelibs4support;};
+      reversal-kde = callPackage ./reversal-kde {};
+      sierrabreezeenhanced = callPackage ./sierrabreezeenhanced {};
     }
   );
 }

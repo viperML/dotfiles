@@ -16,7 +16,15 @@ in {
     createHome = true;
     description = "Fernando Ayats";
     isNormalUser = true;
-    extraGroups = ["wheel" "audio" "video" "uucp" "systemd-journal" "networkmanager"];
+    extraGroups = [
+      "audio"
+      "input"
+      "networkmanager"
+      "systemd-journal"
+      "uucp"
+      "video"
+      "wheel"
+    ];
     passwordFile = "/secrets/password/ayats";
   };
 

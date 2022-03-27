@@ -13,13 +13,13 @@
 in
   stdenv.mkDerivation rec {
     pname = "nvidia-vaapi-driver";
-    version = "unstable-2022-03-13";
+    version = "unstable-2022-03-21";
 
     src = fetchFromGitHub {
       owner = "elFarto";
       repo = "nvidia-vaapi-driver";
-      rev = "ae5a33bb178fd72b0b09bbdd9c8791bcbcd69995";
-      sha256 = "0zx8yj02dvyfclkyij2hkzrpxbhh0k91jd6y4g61na0bxchwjja5";
+      rev = "dd27bbf53082c1884b0495c58999056af3c6bee9";
+      sha256 = "16bshdjn659w931r8106wvqcp5k5xc3xva67kr5s50zw2jdgx1dx";
     };
 
     skipBuild = true;

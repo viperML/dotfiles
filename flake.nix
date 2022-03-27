@@ -1,11 +1,8 @@
 {
   description = "My awesome dotfiles";
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    ...
-  }: let
+  outputs = inputs: let
+    inherit (inputs) self nixpkgs;
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
     inherit (builtins) mapAttrs readDir;
@@ -21,7 +18,7 @@
 
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
     legacyPackages = genAttrs supportedSystems (system:
-      import nixpkgs {
+      import inputs.nixpkgs {
         inherit config system;
         overlays = with inputs;
           [
@@ -29,6 +26,12 @@
             # nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
+            (_: prev: {
+              inherit
+                (inputs.nixpkgs-stable.legacyPackages.${system})
+                mono
+                ;
+            })
           ]
           # Apply every exported overlay
           ++ (attrValues self.overlays);
@@ -39,8 +42,9 @@
     });
   };
 
-  inputs = {
+  inputs = rec {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     flake-utils-plus = {

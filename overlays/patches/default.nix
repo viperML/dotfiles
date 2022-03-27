@@ -5,8 +5,23 @@ final: prev: let
     assert lib.assertMsg (lib.versionAtLeast target.version pkg.version)
     "${pkg.name} has reached the desired version upstream"; target;
 in {
-  any-nix-shell = callPackage ./any-nix-shell {inherit (prev) any-nix-shell;};
-  obsidian = callPackage ./obsidian {inherit (prev) obsidian;};
+  # Dont put stuff on my prompt
+  any-nix-shell = prev.any-nix-shell.overrideAttrs (_: {
+    patches = [./any-nix-shell.patch];
+  });
+
+  # Remove titlebars
+  obsidian = prev.obsidian.overrideAttrs (_: {
+    patchPhase = ''
+      ${prev.nodePackages.asar}/bin/asar extract resources/obsidian.asar resources/obsidian
+      rm resources/obsidian.asar
+      ${prev.gnused}/bin/sed -i 's/frame: false/frame: true/' resources/obsidian/main.js
+      ${prev.nodePackages.asar}/bin/asar pack resources/obsidian resources/obsidian.asar
+      rm -rf resources/obsidian
+    '';
+  });
+
+  # Changing src is not trivial, install steps change
   rose-pine-gtk-theme = callPackage ./rose-pine-gtk-theme {};
 
   python3 = prev.python3.override {
@@ -20,12 +35,12 @@ in {
   };
 
   awesome = prev.awesome.overrideAttrs (_: {
-    version = "unstable-2022-03-20";
+    version = "unstable-2022-03-21";
     src = fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "86f67f4e089ee93ace999f3b523dd1c9cfaf6860";
-      sha256 = "15x9kl5bssj5rrg18fij1k3m78h5yrg9pi9rkbj85kjm3l1flkcl";
+      rev = "c539e0e4350a42f813952fc28dd8490f42d934b3";
+      sha256 = "111sgx9sx4wira7k0fqpdh76s9la3i8h40wgaii605ybv7n0nc0h";
     };
   });
 
