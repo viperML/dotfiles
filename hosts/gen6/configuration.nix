@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   lib,
+  packages,
   ...
 }: let
   FLAKE = "/home/ayats/Documents/dotfiles";
@@ -44,7 +45,7 @@ in {
       gfxmodeEfi = "2560x1440";
       configurationLimit = 10;
       extraFiles = {
-        "netboot.xyz.efi" = "${pkgs.netboot-xyz-images}/netboot.xyz.efi";
+        "netboot.xyz.efi" = "${packages.self.netboot-xyz-images}/netboot.xyz.efi";
       };
       extraEntries = ''
         ### Start netboot.xyz

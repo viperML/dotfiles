@@ -3,6 +3,7 @@ args @ {
   lib,
   self,
   pkgs,
+  packages,
   ...
 }: let
   inherit (builtins) mapAttrs attrValues;
@@ -27,7 +28,6 @@ in {
       (pkgs)
       nitrogen
       lxrandr
-      adw-gtk3
       rose-pine-gtk-theme
       # Required by keybinds
       
@@ -39,6 +39,11 @@ in {
       # Required by bling
       
       xwininfo
+      ;
+
+    inherit
+      (packages.self)
+      adw-gtk3
       ;
   };
 

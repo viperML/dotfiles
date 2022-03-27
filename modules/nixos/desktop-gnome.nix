@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  packages,
   ...
 }: let
   my-extensions = with pkgs.gnomeExtensions; [
@@ -46,7 +47,7 @@ in {
 
   environment.systemPackages = with pkgs;
     [
-      adw-gtk3
+      packages.self.adw-gtk3
       gnome.gnome-tweaks
       gnome.gnome-shell-extensions
       gnome.dconf-editor

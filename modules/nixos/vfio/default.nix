@@ -3,6 +3,7 @@
   pkgs,
   lib,
   self,
+  packages,
   ...
 }:
 # https://old.reddit.com/r/VFIO/comments/p42x2k/single_gpu_etclibvirthooksqemu_hook_is_never/
@@ -172,7 +173,7 @@ in {
   boot.kernelModules = ["kvm-intel" "vfio-pci"];
   environment.systemPackages = [lsiommu];
 
-  systemd.services.vlmcsd.script = "${pkgs.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
+  systemd.services.vlmcsd.script = "${packages.self.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${builtins.toString vlmcsd-port} -e -D";
   networking.firewall.interfaces.virbr0.allowedTCPPorts = [vlmcsd-port];
   networking.firewall.interfaces.virbr0.allowedUDPPorts = [vlmcsd-port];
 

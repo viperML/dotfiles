@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  packages,
   ...
 }: {
   xdg = {
@@ -30,10 +31,9 @@
     noto-fonts-emoji
     roboto
     #
-    # hoefler-text
     etBook
     source-sans
-    redaction
+    packages.self.redaction
   ];
 
   systemd.user = {

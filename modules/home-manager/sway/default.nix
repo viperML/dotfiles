@@ -2,6 +2,7 @@ args @ {
   config,
   pkgs,
   lib,
+  packages,
   ...
 }: {
   wayland.windowManager.sway = {
@@ -20,7 +21,7 @@ args @ {
   systemd.user.services = {
     i3a = {
       Unit.Description = "Master+stack tiling daemon";
-      Service.ExecStart = "${pkgs.i3a}/bin/i3a-master-stack --stack dwm";
+      Service.ExecStart = "${packages.self.i3a}/bin/i3a-master-stack --stack dwm";
       Install.WantedBy = ["sway-session.target"];
     };
 

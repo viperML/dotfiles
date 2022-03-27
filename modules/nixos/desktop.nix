@@ -68,7 +68,7 @@
       lsof
       usbutils
       # Icons
-      (g-papirus-icon-theme.override {color = "palebrown";})
+      (packages.self.g-papirus-icon-theme.override {color = "palebrown";})
     ];
 
     xdg.portal = {

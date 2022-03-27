@@ -3,10 +3,11 @@
   pkgs,
   inputs,
   lib,
+  packages,
   ...
 }: {
   home.packages = [
-    pkgs.plasma-applet-splitdigitalclock
+    packages.self.plasma-applet-splitdigitalclock
     pkgs.caffeine-ng
   ];
 

@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  packages,
   ...
 }: {
   services.xserver = {
@@ -18,10 +19,6 @@
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs.libsForQt5)
-      lightly
-      sierrabreezeenhanced
-      reversal-kde
-      lightlyshaders
       bismuth
       plasma-pa
       ark
@@ -30,13 +27,20 @@
       filelight
       gwenview
       kcolorchooser
-      kwin-forceblur
       kwalletmanager
       ;
     inherit
       (pkgs)
-      adw-gtk3
       latte-dock
+      ;
+    inherit
+      (packages.self)
+      adw-gtk3
+      kwin-forceblur
+      lightly
+      lightlyshaders
+      reversal-kde
+      sierrabreezeenhanced
       ;
   };
 

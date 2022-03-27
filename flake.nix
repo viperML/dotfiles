@@ -37,6 +37,10 @@
           ++ (attrValues self.overlays);
       });
 
+    packages =
+      genAttrs supportedSystems (system:
+        import ./packages self.legacyPackages.${system});
+
     devShells = genAttrs supportedSystems (system: {
       default = self.legacyPackages.${system}.callPackage ./misc/devShell.nix {};
     });
