@@ -14,9 +14,6 @@
 
   programs.fish = {
     enable = true;
-    # FIXME
-    # https://github.com/starship/starship/issues/3771
-    package = packages.nixpkgs-stable.fish;
     interactiveShellInit = ''
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
@@ -59,15 +56,6 @@
           repo = "plugin-foreign-env";
           rev = "dddd9213272a0ab848d474d0cbde12ad034e65bc";
           sha256 = "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs";
-        };
-      }
-      {
-        name = "fish-async-prompt";
-        src = pkgs.fetchFromGitHub {
-          owner = "acomagu";
-          repo = "fish-async-prompt";
-          rev = "40f30a4048b81f03fa871942dcb1671ea0fe7a53";
-          sha256 = "19i59145lsjmidqlgk2dmvs3vg2m3zlz2rcms2kyyk1m3y63q8xi";
         };
       }
     ];

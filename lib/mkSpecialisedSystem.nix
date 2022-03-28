@@ -55,9 +55,9 @@ with lib; let
     # So a module can use `packages.nixpkgs-master.vscode` instead of `inputs.nixpkgs-master.legacyPackages.${system}.vscode`
     packages =
       (mapAttrs
-        (n: v: v.legacyPackages.${system}) (filterAttrs (n: v: hasAttr "legacyPackages" v) specialArgs.inputs))
+        (n: v: v.legacyPackages.${system}) (filterAttrs (_: hasAttr "legacyPackages") specialArgs.inputs))
       // (mapAttrs
-        (n: v: v.packages.${system}) (filterAttrs (n: v: hasAttr "packages" v) specialArgs.inputs));
+        (n: v: v.packages.${system}) (filterAttrs (_: hasAttr "packages") specialArgs.inputs));
 
     specialArgs' =
       specialArgs

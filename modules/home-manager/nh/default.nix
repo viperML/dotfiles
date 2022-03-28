@@ -16,7 +16,7 @@
     };
     timers.nh-gcr-clean = {
       Unit.Description = "Remove gc roots daily";
-      Unit.PartOf = ["nh-gcr-clean.service.service"];
+      Unit.PartOf = ["nh-gcr-clean.service"];
       Timer.OnCalendar = ["daily"];
       Timer.Persistent = true;
       Install.WantedBy = ["timers.target"];

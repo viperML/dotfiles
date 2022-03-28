@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  self,
   packages,
   ...
 }: let
@@ -39,5 +40,5 @@ in {
 
   home.stateVersion = "21.11";
 
-  home.file.".config/nix/nix.conf".source = ../../misc/nix.conf;
+  home.file.".config/nix/nix.conf".source = "${self.outPath}/misc/nix.conf";
 }

@@ -1,9 +1,16 @@
 final: prev: let
-  inherit (prev) callPackage fetchFromGitHub;
-  lib = prev.lib;
-  versionGate = pkg: target:
-    assert lib.assertMsg (lib.versionAtLeast target.version pkg.version)
-    "${pkg.name} has reached the desired version upstream"; target;
+  inherit (prev) callPackage fetchFromGitHub lib;
+
+  versionGate = pkg: newAttrs: let
+    newVersion = newAttrs.version;
+    oldVersion = pkg.version;
+    newPkg = pkg.overrideAttrs (_: newAttrs);
+    result =
+      if lib.versionOlder oldVersion newVersion
+      then newPkg
+      else throw "Package ${pkg.name} has reached the desired version";
+  in
+    result;
 in {
   # Dont put stuff on my prompt
   any-nix-shell = prev.any-nix-shell.overrideAttrs (_: {
@@ -53,16 +60,4 @@ in {
         --add-flags "--config-path ${./stylua.toml}"
     '';
   };
-
-  # starship = versionGate prev.starship (prev.starship.overrideAttrs (pA: rec {
-  #   version = "1.4.2";
-  #   pname = "starship";
-  #   cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  #   src = fetchFromGitHub {
-  #     owner = "starship";
-  #     repo = pname;
-  #     rev = "v${version}";
-  #     sha256 = "sha256-eCttQQ6pL8qkA1+O5p0ufsQo5vcypOEYxq+fNhyrdCo=";
-  #   };
-  # }));
 }
