@@ -33,6 +33,6 @@ jobs:
     - name: Cache flake inputs
       run: nix flake archive
     - name: Cache devShell
-      run: nix build .#devShell.x86_64-linux.inputDerivation
+      run: nix build .#devShells.x86_64-linux.default.inputDerivation
     - name: Cache overlays/pkgs-*
       run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py

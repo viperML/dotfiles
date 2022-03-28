@@ -8,7 +8,7 @@
 
   environment.systemPackages = [
     pkgs.steam-run-native
-    pkgs.lutris
+    # pkgs.lutris
     # ryujinx
   ];
 }

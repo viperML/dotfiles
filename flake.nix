@@ -46,8 +46,10 @@
     });
   };
 
-  inputs = rec {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs = {
+    # https://nixpk.gs/pr-tracker.html?pr=160343
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";

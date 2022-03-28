@@ -15,9 +15,20 @@
     syncthing-indicator
     caffeine
     just-perfection
-
-    forge
   ];
+
+  fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);
+  gnome-version = builtins.head (lib.splitString "." pkgs.gnome.gnome-shell.version);
+  my-patched-extensions =
+    builtins.map (ext: (ext.overrideAttrs (prev: {
+      postInstall =
+        prev.postInstall
+        or ""
+        + ''
+          ${fix_extension} $out/share/gnome-shell/extensions/*/metadata.json ${gnome-version}
+        '';
+    })))
+    my-extensions;
 in {
   services.xserver = {
     enable = true;
@@ -26,8 +37,8 @@ in {
       enable = true;
       wayland = true;
     };
-    displayManager.defaultSession = "gnome-xorg";
-    displayManager.autoLogin.enable = true;
+    # displayManager.defaultSession = "gnome-xorg";
+    displayManager.autoLogin.enable = false;
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -52,10 +63,8 @@ in {
       gnome.gnome-shell-extensions
       gnome.dconf-editor
       libsForQt5.gwenview
-
-      rose-pine-gtk-theme
     ]
-    ++ my-extensions;
+    ++ my-patched-extensions;
 
   programs = {
     xwayland.enable = true;
