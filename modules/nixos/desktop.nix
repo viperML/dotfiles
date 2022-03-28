@@ -20,6 +20,7 @@
     };
 
     nix = {
+      package = packages.nix-dram.nix-dram;
       extraOptions = ''
         ${builtins.readFile ../../misc/nix.conf}
       '';

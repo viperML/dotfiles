@@ -112,5 +112,10 @@
       inputs.home-manager.follows = "home-manager";
       inputs.flake-compat.follows = "flake-compat";
     };
+    nix-dram = {
+      url = "github:dramforever/nix-dram";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 }

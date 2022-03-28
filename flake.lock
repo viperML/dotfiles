@@ -347,6 +347,27 @@
         "type": "github"
       }
     },
+    "nix-dram": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1647510905,
+        "narHash": "sha256-kQ+cftZtnqzI/dIYvhm0NtxT5sKnD9Sh9Ou/Bkni/vI=",
+        "owner": "dramforever",
+        "repo": "nix-dram",
+        "rev": "ea68798b61f32032d093c09b9357b461fed37254",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dramforever",
+        "repo": "nix-dram",
+        "type": "github"
+      }
+    },
     "nix-straight": {
       "flake": false,
       "locked": {
@@ -427,16 +448,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1648315950,
-        "narHash": "sha256-B33QHyAQnMyy1R2waifXv8yQJfn5Ih8gIr5rQIAEeY8=",
+        "lastModified": 1647297614,
+        "narHash": "sha256-ulGq3W5XsrBMU/u5k9d4oPy65pQTkunR4HKKtTq0RwY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a34c788e30fffdbc808e4706bcf50b625af2686a",
+        "rev": "73ad5f9e147c0d2a2061f1d4bd91e05078dc0b58",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable-small",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -510,6 +531,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1648315950,
+        "narHash": "sha256-B33QHyAQnMyy1R2waifXv8yQJfn5Ih8gIr5rQIAEeY8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a34c788e30fffdbc808e4706bcf50b625af2686a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -651,9 +688,10 @@
         "home-manager": "home-manager",
         "nh": "nh",
         "nix-doom-emacs": "nix-doom-emacs",
+        "nix-dram": "nix-dram",
         "nixos-flakes": "nixos-flakes",
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
