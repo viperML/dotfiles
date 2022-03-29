@@ -26,12 +26,12 @@
             # nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
-            (_: prev: {
-              inherit
-                (inputs.nixpkgs-stable.legacyPackages.${system})
-                mono
-                ;
-            })
+            # (_: prev: {
+            #   inherit
+            #     (inputs.nixpkgs-stable.legacyPackages.${system})
+            #     mono
+            #     ;
+            # })
           ]
           # Apply every exported overlay
           ++ (attrValues self.overlays);
@@ -47,16 +47,11 @@
   };
 
   inputs = {
-    # https://nixpk.gs/pr-tracker.html?pr=160343
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    flake-utils-plus = {
-      url = "github:gytis-ivaskevicius/flake-utils-plus";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";

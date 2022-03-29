@@ -10,12 +10,12 @@
   "editor.cursorStyle": "line",
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
-  "editor.lineNumbers": "relative",
+  // "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fill",
   "editor.quickSuggestionsDelay": 0,
-  "editor.rulers": [160],
+  // "editor.rulers": [160],
   "editor.scrollbar.horizontal": "auto",
   "editor.scrollbar.horizontalScrollbarSize": 20,
   "editor.scrollbar.vertical": "visible",
@@ -33,7 +33,7 @@
   "explorer.sortOrder": "type",
   "extensions.ignoreRecommendations": true,
   "files.autoSaveDelay": 500,
-  "files.insertFinalNewline": true, // editorconfig collision
+  "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "security.workspace.trust.enabled": false,
@@ -74,7 +74,6 @@
   "scm.diffDecorations": "gutter",
   "material-icon-theme.opacity": 1,
   "material-icon-theme.saturation": 0,
-  "helium-icon-theme.folders.color": "#90a4ae",
 
   // Fonts
   "editor.fontSize": 15,
@@ -179,10 +178,10 @@
   },
 
   // Smoothing
-  "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.smoothScrolling": true,
-  "workbench.list.smoothScrolling": true,
+  // "editor.cursorBlinking": "phase",
+  // "editor.cursorSmoothCaretAnimation": true,
+  // "editor.smoothScrolling": true,
+  // "workbench.list.smoothScrolling": true,
 
   // Latex
   "[latex]": {
@@ -322,7 +321,7 @@
   // "vim.hlsearch": true,
   // "vim.incsearch": true,
   // "vim.useSystemClipboard": false,
-  "vim.easymotion": true,
+  // "vim.easymotion": true,
   // "vim.enableNeovim": false,
   // "vim.highlightedyank.enable": true,
   "vim.leader": "<Space>",
@@ -421,5 +420,5 @@
   // "material-icon-theme.folders.color": "#fff",
   // "material-icon-theme.folders.theme": "classic",
   // "material-icon-theme.hidesExplorerArrows": true,
-  "workbench.colorTheme": "Atom One Darker"
+  "workbench.colorTheme": "Atom One Light",
 }
