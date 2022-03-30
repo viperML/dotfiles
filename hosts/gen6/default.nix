@@ -22,6 +22,7 @@
         printing
         gaming
         # vfio
+        netboot
       ];
       homeModules = with self.homeModules; [
         ./home.nix

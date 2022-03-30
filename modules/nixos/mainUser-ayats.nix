@@ -28,11 +28,6 @@ in {
     passwordFile = "/secrets/password/ayats";
   };
 
-  # Enable home-manager for the user (inherit shared modules)
-  home-manager.users.mainUser = {config, ...}: {
-    home.sessionVariables.FLAKE = "/home/ayats/Documents/dotfiles";
-  };
-
   security.sudo.extraRules = [
     {
       groups = ["wheel"];
@@ -50,7 +45,4 @@ in {
   ];
 
   security.sudo.wheelNeedsPassword = false;
-
-  # Bind keys to the root users
-  # This fixes building on remote machines
 }

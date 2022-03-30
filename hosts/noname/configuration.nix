@@ -9,6 +9,9 @@
 in {
   environment.variables = {inherit FLAKE;};
   environment.sessionVariables = {inherit FLAKE;};
+  home-manager.users.mainUser = _: {
+    home.sessionVariables = {inherit FLAKE;};
+  };
 
   environment.systemPackages = with pkgs; [
     mpv
