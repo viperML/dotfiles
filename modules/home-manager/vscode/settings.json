@@ -169,9 +169,9 @@
   "workbench.colorCustomizations": {
     "minimap.background": "#1212125e",
     "statusBar.foreground": "#121212",
-    "statusBar.background": "#f6c177",
-    "statusBar.noFolderBackground": "#f6c177",
-    "statusBar.debuggingBackground": "#f6c177",
+    "statusBar.background": "#9ccfd8",
+    "statusBar.noFolderBackground": "#9ccfd8",
+    "statusBar.debuggingBackground": "#9ccfd8",
     "statusBarItem.remoteBackground": "#9ccfd8",
     "statusBarItem.remoteForeground": "#121212",
     "statusBar.border": "#ffffff00"
