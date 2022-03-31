@@ -33,12 +33,16 @@
       };
       caffeine = {
         Unit.Description = "Caffeine";
+        Service.Environment = "NO_AT_BRIDGE=1";
+        Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
         Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
         Unit.After = ["plasma-plasmashell"];
         Install.WantedBy = ["graphical-session.target"];
       };
       mailspring = {
         Unit.Description = "Mailspring";
+        Service.Environment = "NO_AT_BRIDGE=1";
+        Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
         Service.ExecStart = "${pkgs.mailspring}/bin/mailspring --background";
         Unit.After = ["plasma-plasmashell"];
         Install.WantedBy = ["graphical-session.target"];

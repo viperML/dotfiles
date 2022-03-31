@@ -264,4 +264,6 @@ in {
     enable = true;
     dns = "default";
   };
+
+  services.tailscale.enable = true;
 }
