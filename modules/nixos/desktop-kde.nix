@@ -19,7 +19,8 @@
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs.libsForQt5)
-      bismuth
+      # bismuth
+      
       plasma-pa
       ark
       ffmpegthumbs
@@ -41,6 +42,7 @@
       lightlyshaders
       reversal-kde
       sierrabreezeenhanced
+      bismuth
       ;
   };
 
