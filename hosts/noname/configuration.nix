@@ -129,7 +129,7 @@ in {
 
   nix.buildMachines = [
     {
-      hostName = "gen6";
+      hostName = "tail-gen6";
       system = "x86_64-linux";
       maxJobs = 16;
       speedFactor = 2;
