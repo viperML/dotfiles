@@ -420,5 +420,5 @@
   // "material-icon-theme.folders.color": "#fff",
   // "material-icon-theme.folders.theme": "classic",
   // "material-icon-theme.hidesExplorerArrows": true,
-  "workbench.colorTheme": "Atom One Darker",
+  "workbench.colorTheme": "Atom One Light",
 }

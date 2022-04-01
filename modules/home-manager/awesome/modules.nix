@@ -28,13 +28,13 @@ in {
   lain = fetchFromGitHub {
     repo = "lain";
     owner = "lcpz";
-    rev = "07cf82e3b2cb051e57d8bba9585973fa6e2c659e";
-    sha256 = "0lxpw6z55hpd2yzj85jwwim4jbgl1arzf3nqhkkr8sy6ryxq5r6d";
+    rev = "0df20e38bbd047c1afea46ab25e8ecf758bb5d45";
+    sha256 = "1gxvrpi5n8yw5vyqgzrf0z3v00dx96gyw0fjhkqhlbcx4mp58faa";
   };
   bling = fetchFromGitHub {
     repo = "bling";
     owner = "BlingCorp";
-    rev = "5b3bc36b70a35d590dedde5bfe13de4e516b64ea";
-    sha256 = "0l2hy5h0g8kfjxi4rhw1p94ync6hgfr4if2vg7phjpdbb2fn56wk";
+    rev = "3164486da072d22b1bd62e670805566f4418f8a1";
+    sha256 = "0p5zj84hq0nv3zaz685zqsrbrjykv13aczfmrzxa23picjklngf2";
   };
 }

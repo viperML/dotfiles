@@ -8,8 +8,8 @@
   firefox-csshacks = pkgs.fetchFromGitHub {
     repo = "firefox-csshacks";
     owner = "MrOtherGuy";
-    rev = "5b67ff233aec27dc432b42d482767fb8471bdce7";
-    sha256 = "19kfz3pw2wxb1h7x0xpidjjcwxszr56sq1m4fabifwyl66xgsg78";
+    rev = "b9e140dbbd45e8a5358ef1ecb8700c842bfdc2df";
+    sha256 = "1jjygi67sckcvsnlvllry912f3px8470y7yjxkwmnsq1j85xmz9n";
   };
 in {
   programs.firefox = {

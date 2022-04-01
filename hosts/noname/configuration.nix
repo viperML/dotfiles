@@ -13,11 +13,6 @@ in {
     home.sessionVariables = {inherit FLAKE;};
   };
 
-  environment.systemPackages = with pkgs; [
-    mpv
-    android-tools
-  ];
-
   boot = {
     initrd = {
       luks.devices = {
@@ -105,4 +100,6 @@ in {
     enable = true;
     dns = "default";
   };
+
+  services.tailscale.enable = true;
 }

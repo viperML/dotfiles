@@ -26,6 +26,7 @@
         # tailscale
       ];
       homeModules = with self.homeModules; [
+        ./home.nix
         common
         inputs.nixos-flakes.homeModules.channels-to-flakes
         gui
