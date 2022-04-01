@@ -19,6 +19,7 @@
         xsettingsConfig = import ./settings.nix {inherit args;};
         xsettingsd-switch-script = pkgs.writeShellScript "xsettings-switch" ''
           export PATH="${pkgs.coreutils-full}/bin:${pkgs.systemd}/bin"
+          mkdir -p ${config.xdg.configHome}/xsettingsd
           if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
             ln -sf ${xsettingsConfig.light} ${config.xdg.configHome}/xsettingsd/xsettingsd.conf
           else
