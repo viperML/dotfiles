@@ -48,9 +48,9 @@
 
     inherit
       (self.specialisations)
-      gnome
-      # kde
+      # gnome
       
+      kde
       ;
   };
 in
