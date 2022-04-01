@@ -266,4 +266,19 @@ in {
   };
 
   services.tailscale.enable = true;
+
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    listenAddresses = [
+      {
+        addr = "100.113.242.22";
+        port = 22;
+      }
+    ];
+  };
+
+  nix.extraOptions = ''
+    secret-key-files = /secrets/cache-priv-key.pem
+  '';
 }
