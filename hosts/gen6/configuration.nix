@@ -281,4 +281,6 @@ in {
   nix.extraOptions = ''
     secret-key-files = /secrets/cache-priv-key.pem
   '';
+
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
 }
