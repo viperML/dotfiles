@@ -426,6 +426,32 @@
         "type": "github"
       }
     },
+    "nixos-wsl": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1648755557,
+        "narHash": "sha256-A6JeQioTueJrOoeUbZj5yRac1u5q3dCnvicx67IDc8A=",
+        "owner": "nix-community",
+        "repo": "NixOS-WSL",
+        "rev": "55924c215d597a04ca5769cfc9f6228828eab80d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NixOS-WSL",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1647297614,
@@ -670,6 +696,7 @@
         "nix-dram": "nix-dram",
         "nixos-flakes": "nixos-flakes",
         "nixos-generators": "nixos-generators",
+        "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
