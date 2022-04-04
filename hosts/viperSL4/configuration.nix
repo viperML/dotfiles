@@ -8,7 +8,7 @@
   ...
 }: let
   hn = "viperSL4";
-  FLAKE = "/home/ayats/dotfiles";
+  FLAKE = "/mnt/c/Users/ayats/Documents/dotfiles";
 in {
   environment.variables = {inherit FLAKE;};
   environment.sessionVariables = {inherit FLAKE;};
