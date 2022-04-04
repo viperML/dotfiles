@@ -14,7 +14,6 @@
       # pull.rebase = "false";
       push.default = "simple";
     };
-
     delta = {
       enable = true;
       options = {
@@ -23,8 +22,16 @@
     };
   };
 
+  programs.gh = {
+    enable = true;
+    enableGitCredentialHelper = true;
+    settings = {
+      git_protocol = "https";
+      pager = "bat";
+    };
+  };
+
   home.packages = with pkgs; [
-    gh
     git-extras
   ];
   home.sessionVariables.LESS = "-r";
