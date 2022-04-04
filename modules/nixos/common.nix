@@ -33,12 +33,6 @@
     extraOptions = ''
       ${builtins.readFile "${self.outPath}/misc/nix.conf"}
     '';
-    gc = {
-      automatic = true;
-      dates = "04:00";
-      # options = "--delete-older-than 7d";
-      options = "-d";
-    };
   };
 
   security.sudo.extraConfig = ''

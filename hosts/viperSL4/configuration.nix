@@ -8,7 +8,14 @@
   ...
 }: let
   hn = "viperSL4";
+  FLAKE = "/home/ayats/dotfiles";
 in {
+  environment.variables = {inherit FLAKE;};
+  environment.sessionVariables = {inherit FLAKE;};
+  home-manager.users.ayats = _: {
+    home.sessionVariables = {inherit FLAKE;};
+  };
+
   imports = [
     "${modulesPath}/profiles/minimal.nix"
   ];
@@ -16,15 +23,11 @@ in {
   wsl = {
     enable = true;
     automountPath = "/mnt";
-    defaultUser = "nixos";
+    defaultUser = "ayats";
     startMenuLaunchers = true;
 
-    # Enable integration with Docker Desktop (needs to be installed)
-    # docker.enable = true;
     wslConf.network.hostname = hn;
   };
 
   networking.hostName = hn;
-  # FIXME
-  home-manager.users.nixos = _: {};
 }

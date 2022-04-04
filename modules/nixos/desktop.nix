@@ -46,6 +46,13 @@
       enable = true;
       gtkUsePortal = true;
     };
+
+    nix.gc = {
+      automatic = true;
+      dates = "04:00";
+      # options = "--delete-older-than 7d";
+      options = "-d";
+    };
   }
   (lib.mkIf config.services.xserver.displayManager.gdm.enable {
     # Fixes GDM autologin in Wayland

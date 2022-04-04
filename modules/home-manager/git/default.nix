@@ -23,6 +23,9 @@
     };
   };
 
-  home.packages = [pkgs.git-extras];
+  home.packages = with pkgs; [
+    gh
+    git-extras
+  ];
   home.sessionVariables.LESS = "-r";
 }
