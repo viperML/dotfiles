@@ -1,11 +1,16 @@
-{ lib, pkgs, config, modulesPath, inputs, ... }:
-let
-  hn = "viperSL4";
-in
 {
+  lib,
+  pkgs,
+  config,
+  modulesPath,
+  self,
+  packages,
+  ...
+}: let
+  hn = "viperSL4";
+in {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
-    inputs.nixos-wsl.nixosModules.wsl
   ];
 
   wsl = {
@@ -20,4 +25,6 @@ in
   };
 
   networking.hostName = hn;
+  # FIXME
+  home-manager.users.nixos = _: {};
 }
