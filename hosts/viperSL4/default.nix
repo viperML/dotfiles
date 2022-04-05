@@ -29,6 +29,7 @@ self.lib.mkSpecialisedSystem rec {
         neovim
         starship
         zsh
+        vscode
       ];
     };
   };

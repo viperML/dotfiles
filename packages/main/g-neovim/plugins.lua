@@ -75,3 +75,6 @@ require("lualine").setup {
   -- tabline = {},
   -- extensions = {}
 }
+
+-- LSP
+require'lspconfig'.rnix.setup{}

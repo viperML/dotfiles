@@ -3,42 +3,53 @@
   neovim-unwrapped,
   vimPlugins,
   vimExtraPlugins,
+  formats,
+  writeTextDir,
   ...
-}:
-wrapNeovim neovim-unwrapped {
-  withNodeJs = true;
-  withPython3 = true;
-  configure.customRC = ''
-    " Vanilla configs
-    ${builtins.readFile ./vanilla.vim}
+}: let
+  jsonFormat = formats.json {};
+in
+  wrapNeovim neovim-unwrapped {
+    withNodeJs = true;
+    withPython3 = true;
+    configure.customRC = ''
+      " Vanilla configs
+      ${builtins.readFile ./vanilla.vim}
 
-    " Plugins configs
-    ${builtins.readFile ./plugins.vim}
+      " Plugins configs
+      ${builtins.readFile ./plugins.vim}
 
-    " Lua config
-    :luafile ${./plugins.lua}
-  '';
-  configure.packages.plugins = with vimPlugins; {
-    start = [
-      vim-one
+      let g:coc_config_home="${writeTextDir "coc" (jsonFormat.generate "coc-settings.json" (import ./coc.nix))}"
 
-      nvim-web-devicons
-      gitsigns-nvim
-      bufferline-nvim
-      lualine-nvim
+      " Lua config
+      :luafile ${./plugins.lua}
+    '';
+    configure.packages.plugins = with vimPlugins; {
+      start = [
+        vim-one
 
-      # Treesitter is quite broken + bloat
-      # nvim-treesitter
+        nvim-web-devicons
+        gitsigns-nvim
+        bufferline-nvim
+        lualine-nvim
 
-      vim-highlightedyank
-      indent-blankline-nvim
-      auto-pairs
-      nvim-comment
-      editorconfig-vim
-      vimExtraPlugins.nvim-transparent
-    ];
-    # Packages that might be lazy-loaded
-    # with :packadd <name>
-    opt = [];
-  };
-}
+        # Treesitter is quite broken + bloat
+        # nvim-treesitter
+
+        vim-highlightedyank
+        indent-blankline-nvim
+        auto-pairs
+        nvim-comment
+        editorconfig-vim
+        vimExtraPlugins.nvim-transparent
+
+        # LSP and comp
+        nvim-lspconfig
+        vim-nix
+        coc-nvim
+      ];
+      # Packages that might be lazy-loaded
+      # with :packadd <name>
+      opt = [];
+    };
+  }
