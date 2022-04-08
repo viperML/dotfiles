@@ -8,12 +8,17 @@
   ...
 }: let
   hn = "viperSL4";
+  env = {
   FLAKE = "/mnt/c/Users/ayats/Documents/dotfiles";
+  GDK_DPI_SCALE = "1.5";
+  QT_QPA_PLATFORM="wayland";
+  DONT_PROMPT_WSL_INSTALL = "1";
+  };
 in {
-  environment.variables = {inherit FLAKE;};
-  environment.sessionVariables = {inherit FLAKE;};
+  environment.variables = env;
+  environment.sessionVariables = env;
   home-manager.users.ayats = _: {
-    home.sessionVariables = {inherit FLAKE;};
+    home.sessionVariables = env;
   };
 
   imports = [

@@ -107,14 +107,23 @@ else
   colors = atom_one_dark
 end
 
+local shell = "fish"
+if os.getenv("HOME") then
+    cmd = {shell}
+    font_size = 11,
+else
+    cmd = {"wsl", "-d", "NixOS", shell}
+    font_size = 12,
+end
+
 return {
   font = wezterm.font("JetBrainsMono Nerd Font", {
     weight = "Medium",
     stretch = "Normal",
     italic = false,
   }),
-  font_size = 11,
-  default_prog = { "fish", "-l" },
+  font_size = font_size,
+  default_prog = cmd,
   window_background_opacity = 1.0,
   -- enable_scroll_bar = true,
   enable_tab_bar = false,

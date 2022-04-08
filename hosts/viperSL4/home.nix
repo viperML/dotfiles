@@ -8,6 +8,11 @@
 in {
   home.packages = with pkgs; [
     wget
+        (pkgs.nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+      ];
+    })
   ];
   home.file.".vscode-server/server-env-setup" = {
     # source = "${vscode-remote-wsl-nixos}/flake/server-env-setup";
