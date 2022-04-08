@@ -8,7 +8,7 @@
 in {
   home.packages = with pkgs; [
     wget
-        (pkgs.nerdfonts.override {
+    (pkgs.nerdfonts.override {
       fonts = [
         "JetBrainsMono"
       ];

@@ -10,6 +10,7 @@
     "base" = {
       nixosModules = with self.nixosModules; [
         ./configuration.nix
+        common
         mainUser-ayats
 
         inputs.nixos-flakes.nixosModules.channels-to-flakes

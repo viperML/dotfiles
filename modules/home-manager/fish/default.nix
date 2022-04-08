@@ -60,12 +60,13 @@
       }
     ];
   };
-/*
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = false;
-    config.whitelist.prefix = [
-      "/home"
-    ];
-  };*/
+  /*
+   programs.direnv = {
+     enable = true;
+     nix-direnv.enable = false;
+     config.whitelist.prefix = [
+       "/home"
+     ];
+   };
+   */
 }
