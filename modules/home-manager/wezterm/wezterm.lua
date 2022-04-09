@@ -110,10 +110,10 @@ end
 local shell = "fish"
 if os.getenv("HOME") then
     cmd = {shell}
-    font_size = 11,
+    font_size = 11
 else
     cmd = {"wsl", "-d", "NixOS", shell}
-    font_size = 12,
+    font_size = 12
 end
 
 return {
