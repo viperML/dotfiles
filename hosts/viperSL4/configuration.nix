@@ -20,10 +20,7 @@ in {
   home-manager.users.ayats = _: {
     home.sessionVariables = env;
   };
-
-  imports = [
-    "${modulesPath}/profiles/minimal.nix"
-  ];
+  environment.defaultPackages = [];
 
   wsl = {
     enable = true;

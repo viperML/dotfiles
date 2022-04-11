@@ -1,11 +1,12 @@
 {
   self,
   inputs,
-}: let
+}:
+self.lib.mkSystem rec {
   system = "x86_64-linux";
   pkgs = self.legacyPackages.${system};
   inherit (inputs.nixpkgs) lib;
-
+  specialArgs = {inherit self inputs;};
   specialisations = {
     "base" = {
       nixosModules = with self.nixosModules; [
@@ -56,8 +57,4 @@
       awesome
       ;
   };
-in
-  self.lib.mkSpecialisedSystem {
-    inherit system pkgs lib specialisations;
-    specialArgs = {inherit self inputs;};
-  }
+}
