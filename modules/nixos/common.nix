@@ -42,4 +42,6 @@
     Defaults lecture=never
     Defaults passprompt="^[[31msudo: password for %p@%h, running as %U:^[[0m "
   '';
+
+  environment.defaultPackages = [];
 }

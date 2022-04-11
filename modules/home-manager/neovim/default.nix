@@ -6,7 +6,10 @@
 }: {
   home.sessionVariables.EDITOR = "nvim";
 
-  home.packages = [packages.self.g-neovim];
+  home.packages = [
+    packages.self.g-neovim
+    pkgs.rnix-lsp
+  ];
 
   # programs.neovim = {
   #   enable = false;

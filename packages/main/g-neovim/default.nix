@@ -2,7 +2,7 @@
   wrapNeovim,
   neovim-unwrapped,
   vimPlugins,
-  vimExtraPlugins,
+  # vimExtraPlugins,
   formats,
   writeTextDir,
   ...
@@ -26,27 +26,26 @@ in
     '';
     configure.packages.plugins = with vimPlugins; {
       start = [
+        # Theming
         vim-one
-
         nvim-web-devicons
         gitsigns-nvim
         bufferline-nvim
         lualine-nvim
 
-        # Treesitter is quite broken + bloat
-        # nvim-treesitter
-
+        # Misc
         vim-highlightedyank
         indent-blankline-nvim
         auto-pairs
         nvim-comment
         editorconfig-vim
-        vimExtraPlugins.nvim-transparent
+        # vimExtraPlugins.nvim-transparent
 
-        # LSP and comp
+        # Intelligent editor
         nvim-lspconfig
         vim-nix
         coc-nvim
+        neoformat
       ];
       # Packages that might be lazy-loaded
       # with :packadd <name>

@@ -13,6 +13,9 @@ in {
         "JetBrainsMono"
       ];
     })
+    (pkgs.writeShellScriptBin "ssh" ''
+      ssh.exe "$@"
+    '')
   ];
   home.file.".vscode-server/server-env-setup" = {
     # source = "${vscode-remote-wsl-nixos}/flake/server-env-setup";

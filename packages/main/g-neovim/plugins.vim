@@ -1,4 +1,4 @@
-let g:transparent_enabled = v:true
+" let g:transparent_enabled = v:true
 let g:highlightedyank_highlight_duration = 3
 
 " coc config
@@ -16,3 +16,9 @@ endfunction
 
 " Comes from modeline
 set noshowmode
+
+" Autoformat on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END

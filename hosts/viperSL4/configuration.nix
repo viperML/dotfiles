@@ -30,8 +30,8 @@ in {
     automountPath = "/mnt";
     defaultUser = "ayats";
     startMenuLaunchers = true;
-
     wslConf.network.hostname = hn;
+    docker.enable = false;
   };
 
   networking.hostName = hn;
