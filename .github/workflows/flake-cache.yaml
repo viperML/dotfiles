@@ -32,7 +32,4 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - name: Cache flake inputs
       run: nix flake archive
-    - name: Cache devShell
-      run: nix build .#devShells.x86_64-linux.default.inputDerivation
-    - name: Cache overlays/pkgs-*
-      run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py
+    - run: nix run .#pkgs.python3 -- ./bin/pkgs_build.py

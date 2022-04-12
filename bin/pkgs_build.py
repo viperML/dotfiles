@@ -25,8 +25,11 @@ def build(output: str):
 # Load flake info from json command
 flake_info = json.loads(subprocess.check_output("nix flake show --json", shell=True))
 
+packages_exclude = ["g-papirus-icon-theme"]
+
 for package in flake_info["packages"]["x86_64-linux"]:
-    build(package)
+    if package not in packages_exclude:
+        build(package)
 
 extra_targets = [
     "devShells.x86_64-linux.default.inputDerivation",
