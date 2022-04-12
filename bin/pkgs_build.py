@@ -29,7 +29,7 @@ for package in flake_info["packages"]["x86_64-linux"]:
     build(package)
 
 extra_targets = [
-    "devShells.x86_64-linux.default",
+    "devShells.x86_64-linux.default.inputDerivation",
 ]
 
 for target in extra_targets:
