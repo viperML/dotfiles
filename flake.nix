@@ -22,14 +22,11 @@
         inherit config system;
         overlays = with inputs;
           [
-            # nur.overlay
-            # nixpkgs-wayland.overlay
             vim-extra-plugins.overlay
             emacs-overlay.overlay
             # (_: prev: {
             #   inherit
             #     (inputs.nixpkgs-stable.legacyPackages.${system})
-            #     mono
             #     ;
             # })
           ]
@@ -41,6 +38,7 @@
       system:
         import ./packages self.legacyPackages.${system}
         // {
+          # Packages to build in CI
           inherit (inputs.nix-dram.packages.${system}) nix-dram;
         }
     );
@@ -65,20 +63,10 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    nur.url = "github:nix-community/NUR";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
     vim-extra-plugins = {

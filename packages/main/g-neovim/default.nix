@@ -2,7 +2,7 @@
   wrapNeovim,
   neovim-unwrapped,
   vimPlugins,
-  # vimExtraPlugins,
+  vimExtraPlugins,
   formats,
   writeTextDir,
   ...
@@ -39,7 +39,7 @@ in
         auto-pairs
         nvim-comment
         editorconfig-vim
-        # vimExtraPlugins.nvim-transparent
+        vimExtraPlugins.nvim-transparent
 
         # Intelligent editor
         nvim-lspconfig

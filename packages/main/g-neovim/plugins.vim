@@ -1,4 +1,4 @@
-" let g:transparent_enabled = v:true
+let g:transparent_enabled = v:true
 let g:highlightedyank_highlight_duration = 3
 
 " coc config

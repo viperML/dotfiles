@@ -16,6 +16,7 @@ self.lib.mkSystem rec {
       inputs.nixos-flakes.nixosModules.channels-to-flakes
       inputs.home-manager.nixosModules.home-manager
       common
+      dram
     ];
     homeModules = with self.homeModules; [
       ./home.nix
