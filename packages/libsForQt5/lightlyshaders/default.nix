@@ -9,6 +9,7 @@
   libepoxy,
   libXdmcp,
   lib,
+  kwindowsystem,
 }:
 stdenv.mkDerivation rec {
   pname = "lightlyshaders";
@@ -32,6 +33,6 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Round corners and outline effect for KWin";
     homepage = "https://github.com/a-parhom/LightlyShaders";
-    platforms = platforms.linux;
+    inherit (kwindowsystem.meta) platforms;
   };
 }

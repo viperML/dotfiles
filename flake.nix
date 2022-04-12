@@ -37,9 +37,13 @@
           ++ (attrValues self.overlays);
       });
 
-    packages =
-      genAttrs supportedSystems (system:
-        import ./packages self.legacyPackages.${system});
+    packages = genAttrs supportedSystems (
+      system:
+        import ./packages self.legacyPackages.${system}
+        // {
+          inherit (inputs.nix-dram.packages.${system}) nix-dram;
+        }
+    );
 
     devShells = genAttrs supportedSystems (system: {
       default = self.legacyPackages.${system}.callPackage ./misc/devShell.nix {};

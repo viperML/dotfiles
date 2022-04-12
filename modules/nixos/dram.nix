@@ -1,6 +1,6 @@
 {packages, ...}: {
   nix = {
-    package = packages.nix-dram.nix-dram;
+    package = packages.self.nix-dram;
     extraOptions = "default-flake = self";
   };
 }

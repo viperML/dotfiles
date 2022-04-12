@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
+import json
+import os
 import subprocess
 from pathlib import Path
-from typing import Optional
-import os
 
 try:
-    dry = os.environ['DRY']
+    dry = os.environ["DRY"]
 except KeyError:
     dry = False
 
@@ -13,24 +13,24 @@ print(f"{dry = }")
 
 root_dir = Path(__file__).parent.parent
 
-def build(folder: str, namespace: Optional[str]):
-    for p in Path(root_dir / "overlays" / folder).iterdir():
-        if p.is_dir():
-            cmd = f"nix build {root_dir}#"
-            if namespace:
-                cmd += f"{namespace}."
-                subdir = f"{namespace}.{p.name}"
-            else:
-                subdir = p.name
-            cmd += f"{p.name} --out-link {root_dir / 'results' / subdir}"
-            print(f"$ {cmd}")
-            if not dry:
-                subprocess.run(cmd.split(" "), check=True)
 
-for p in Path(root_dir / "overlays").iterdir():
-    if "pkgs" in p.name:
-        n = p.name.split(".")
-        if len(n) == 1:
-            build(p.name, None)
-        else:
-            build(p.name, n[0])
+def build(output: str):
+    subprocess.check_output(f"mkdir -p {root_dir}/results", shell=True)
+    cmd = f"nix build {root_dir}#{output} --out-link {root_dir}/results/{output}"
+    print(f"$ {cmd}")
+    if not dry:
+        subprocess.check_output(cmd, shell=True)
+
+
+# Load flake info from json command
+flake_info = json.loads(subprocess.check_output("nix flake show --json", shell=True))
+
+for package in flake_info["packages"]["x86_64-linux"]:
+    build(package)
+
+extra_targets = [
+    "devShells.x86_64-linux.default",
+]
+
+for target in extra_targets:
+    build(target)

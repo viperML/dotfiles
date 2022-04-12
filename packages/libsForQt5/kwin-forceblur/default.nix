@@ -2,6 +2,7 @@
   stdenv,
   fetchFromGitHub,
   lib,
+  kwindowsystem,
 }:
 stdenv.mkDerivation rec {
   pname = "kwin-forceblur";
@@ -24,6 +25,6 @@ stdenv.mkDerivation rec {
     description = "Force-enable blur effect to user-specified windows";
     homepage = "https://github.com/esjeon/kwin-forceblur";
     license = licenses.mit;
-    platforms = platforms.linux;
+    inherit (kwindowsystem.meta) platforms;
   };
 }

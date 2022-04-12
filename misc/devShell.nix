@@ -2,17 +2,11 @@
 pkgs.mkShell {
   name = "dotfiles-basic-shell";
   packages = with pkgs; [
-    git
-    jq
-    nixos-install-tools
-    ripgrep
-    unzip
-    gh
-
     (python3.withPackages (p:
       with p; [
-        #keep
         grip
+        black
+        flake8
       ]))
   ];
   shellHook = ''
@@ -20,4 +14,5 @@ pkgs.mkShell {
     mkdir -p .venv/bin
     ln -sf `which python` .venv/bin/python
   '';
+  DRY = "1";
 }

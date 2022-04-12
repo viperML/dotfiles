@@ -9,6 +9,7 @@
   libsForQt5,
   plasma-desktop,
   qt5,
+  kwindowsystem,
 }:
 stdenv.mkDerivation rec {
   pname = "sierrabreezeenhanced";
@@ -54,6 +55,6 @@ stdenv.mkDerivation rec {
     description = "Fork of BreezeEnhanced to make it (arguably) more minimalistic and informative";
     homepage = "https://github.com/kupiqu/SierraBreezeEnhanced";
     license = licenses.gpl3;
-    platforms = platforms.linux;
+    inherit (kwindowsystem.meta) platforms;
   };
 }

@@ -18,6 +18,8 @@ in {
     # Keep
   ];
 
+  environment.defaultPackages = [];
+
   boot = {
     initrd = {
       availableKernelModules = ["ahci" "nvme" "usbhid"];
@@ -68,7 +70,7 @@ in {
     layout = "us";
     videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
-    displayManager.autoLogin.user = "ayats";
+    # displayManager.autoLogin.user = "ayats";
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
@@ -222,13 +224,8 @@ in {
   systemd.tmpfiles.rules = let
     inherit (config.users.users.mainUser) group name home;
   in [
-    "z /secrets/ssh 0700 ${name} ${group} - -"
-    "z /secrets/ssh/config 0600 ${name} ${group} - -"
-    "z /secrets/ssh/id_ed25519 0600 ${name} ${group} - -"
-    "z /secrets/ssh/id_ed25519.pub 0644 ${name} ${group} - -"
-    "z /secrets/ssh/known_hosts 0600 ${name} ${group} - -"
     "d /root/.ssh 0700 root root - -"
-    "L+ ${home}/.ssh - - - - /secrets/ssh"
+    "d /home/ayats/.ssh 0700 ayats users - -"
     #
     "L+ /etc/ssh/ssh_host_ed25519_key - - - - /secrets/ssh_host/ssh_host_ed25519_key"
     "L+ /etc/ssh/ssh_host_ed25519_key.pub - - - - /secrets/ssh_host/ssh_host_ed25519_key.pub"
@@ -238,10 +235,18 @@ in {
   systemd.services.bind-ssh = {
     serviceConfig.Type = "forking";
     script = ''
-      ${pkgs.bindfs}/bin/bindfs --map=1000/0:@100/@0 -p ugo-x /secrets/ssh /root/.ssh
+      ${pkgs.bindfs}/bin/bindfs /secrets/ssh /root/.ssh
+      ${pkgs.bindfs}/bin/bindfs --map=0/1000:@0/@100 /secrets/ssh /home/ayats/.ssh
     '';
     wantedBy = ["multi-user.target"];
+    after = ["systemd-tmpfiles-setup.service"];
   };
+
+  users.users.mainUser.passwordFile = "/secrets/password/ayats";
+
+  nix.extraOptions = ''
+    secret-key-files = /secrets/cache-priv-key.pem
+  '';
 
   powerManagement.cpuFreqGovernor = "powersave";
   hardware = {
@@ -277,10 +282,6 @@ in {
       }
     ];
   };
-
-  nix.extraOptions = ''
-    secret-key-files = /secrets/cache-priv-key.pem
-  '';
 
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
 }

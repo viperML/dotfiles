@@ -9,6 +9,7 @@
   qt5,
   libsForQt5,
   plasma-desktop,
+  kwindowsystem,
 }:
 stdenv.mkDerivation rec {
   pname = "lightly";
@@ -55,6 +56,6 @@ stdenv.mkDerivation rec {
     description = "Fork of breeze theme style that aims to be visually modern and minimalistic";
     homepage = "https://github.com/Luwx/Lightly";
     license = licenses.gpl2;
-    platforms = platforms.linux;
+    inherit (kwindowsystem.meta) platforms;
   };
 }

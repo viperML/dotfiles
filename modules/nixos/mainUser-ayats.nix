@@ -9,7 +9,6 @@
   home = "/home/ayats";
 in {
   users.mutableUsers = false;
-  # change passwords of users
 
   users.users.mainUser = {
     inherit name home;
@@ -25,7 +24,6 @@ in {
       "video"
       "wheel"
     ];
-    passwordFile = "/secrets/password/ayats";
   };
 
   security.sudo.extraRules = [
@@ -44,5 +42,5 @@ in {
     }
   ];
 
-  security.sudo.wheelNeedsPassword = false;
+  services.xserver.displayManager.autoLogin.user = name;
 }

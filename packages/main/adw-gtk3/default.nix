@@ -8,12 +8,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "adw-gtk3";
-  version = "unstable-2022-03-23";
+  version = "1.6";
+
   src = fetchFromGitHub {
     repo = pname;
     owner = "lassekongo83";
-    rev = "ecdcebb362d9ad38f4fc60eb338f58a3281bc6b0";
-    sha256 = "sha256-cGICzvhzkRiYXC47mmwmh/kpbplV1CKjgVXanL5ih3E=";
+    rev = "v${version}";
+    sha256 = "sha256-y6ivIRJoOSU0b3reri+BCTSwzRBaKxazJcRn3EEQC+E=";
   };
 
   nativeBuildInputs = [
@@ -21,4 +22,11 @@ stdenv.mkDerivation rec {
     ninja
     sassc
   ];
+
+  meta = with lib; {
+    description = "Reversal kde is a materia Design theme for KDE Plasma desktop.";
+    homepage = "https://github.com/yeyushengfan258/Reversal-kde";
+    license = licenses.gpl3;
+    platforms = platforms.linux;
+  };
 }
