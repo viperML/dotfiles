@@ -61,11 +61,6 @@ in {
     binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
-  networking = {
-    hostName = "gen6";
-    hostId = "01017f00";
-  };
-
   services.xserver = {
     layout = "us";
     videoDrivers = ["nvidia"];
@@ -78,56 +73,24 @@ in {
     };
   };
 
-  services.sanoid = {
-    enable = true;
-    templates = {
-      "normal" = {
-        "frequently" = 0;
-        "hourly" = 1;
-        "daily" = 1;
-        "monthly" = 4;
-        "yearly" = 0;
-        "autosnap" = true;
-        "autoprune" = true;
-      };
-      "slow" = {
-        "frequently" = 0;
-        "hourly" = 0;
-        "daily" = 0;
-        "monthly" = 4;
-        "yearly" = 0;
-        "autosnap" = true;
-        "autoprune" = true;
-      };
-    };
-    datasets = let
-      slow-datasets = [
-        # keep
-      ];
-      normal-datasets = [
-        # "zroot/data/downloads"
-        "zroot/data/documents"
-        "zroot/data/music"
-        "zroot/data/pictures"
-        "zroot/data/videos"
-        "zroot/secrets"
-      ];
-    in
-      (builtins.listToAttrs (
-        builtins.map (dataset: {
-          name = dataset;
-          value.use_template = ["slow"];
-        })
-        slow-datasets
-      ))
-      // (builtins.listToAttrs (
-        builtins.map (dataset: {
-          name = dataset;
-          value.use_template = ["normal"];
-        })
-        normal-datasets
-      ));
+  powerManagement.cpuFreqGovernor = "powersave";
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    enableRedistributableFirmware = true;
+    nvidia.modesetting.enable =
+      config.services.xserver.displayManager.gdm.enable;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    nvidia.powerManagement.enable = false;
+    opengl.enable = true;
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+    opengl.extraPackages = with pkgs; [
+      mesa.drivers
+    ];
   };
+
+  ### ZFS
 
   services.zfs = {
     autoScrub = {
@@ -137,10 +100,9 @@ in {
     };
   };
 
-  virtualisation.docker = {
-    storageDriver = "zfs";
-    enableNvidia = true;
-  };
+  virtualisation.docker.storageDriver = "zfs";
+
+  swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
 
   fileSystems = {
     # "/" = {
@@ -219,7 +181,58 @@ in {
     };
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
+  services.sanoid = {
+    enable = true;
+    templates = {
+      "normal" = {
+        "frequently" = 0;
+        "hourly" = 1;
+        "daily" = 1;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+      "slow" = {
+        "frequently" = 0;
+        "hourly" = 0;
+        "daily" = 0;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+    };
+    datasets = let
+      slow-datasets = [
+        # keep
+      ];
+      normal-datasets = [
+        # "zroot/data/downloads"
+        "zroot/data/documents"
+        "zroot/data/music"
+        "zroot/data/pictures"
+        "zroot/data/videos"
+        "zroot/secrets"
+      ];
+    in
+      (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["slow"];
+        })
+        slow-datasets
+      ))
+      // (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["normal"];
+        })
+        normal-datasets
+      ));
+  };
+
+  ### Secrets
 
   systemd.tmpfiles.rules = let
     inherit (config.users.users.mainUser) group name home;
@@ -248,30 +261,18 @@ in {
     secret-key-files = /secrets/cache-priv-key.pem
   '';
 
-  powerManagement.cpuFreqGovernor = "powersave";
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    nvidia.modesetting.enable =
-      config.services.xserver.displayManager.gdm.enable;
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-    nvidia.powerManagement.enable = false;
-    opengl.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-    pulseaudio.support32Bit = true;
-    opengl.extraPackages = with pkgs; [
-      mesa.drivers
-    ];
-  };
+  ### Network
 
-  networking.networkmanager = {
-    enable = true;
-    dns = "default";
+  networking = {
+    hostName = "gen6";
+    hostId = "01017f00";
+    networkmanager = {
+      enable = true;
+      dns = "default";
+    };
   };
 
   services.tailscale.enable = true;
-
   services.openssh = {
     enable = true;
     openFirewall = true;
@@ -282,6 +283,5 @@ in {
       }
     ];
   };
-
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
 }

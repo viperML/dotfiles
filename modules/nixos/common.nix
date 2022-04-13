@@ -28,19 +28,16 @@
     nixos.enable = false;
   };
 
-  nix = {
-    # package = packages.nix-dram.nix-dram;
-    extraOptions = ''
-      ${builtins.readFile "${self.outPath}/misc/nix.conf"}
-    '';
-  };
+  nix.extraOptions = ''
+    ${builtins.readFile "${self.outPath}/misc/nix.conf"}
+  '';
 
   security.sudo.extraConfig = ''
     Defaults pwfeedback
     Defaults env_keep += "EDITOR PATH"
     Defaults timestamp_timeout=300
     Defaults lecture=never
-    Defaults passprompt="^[[31msudo: password for %p@%h, running as %U:^[[0m "
+    Defaults passprompt="[31msudo: password for %p@%h, running as %U:[0m "
   '';
 
   environment.defaultPackages = [];
