@@ -12,5 +12,6 @@
     obs-studio
     obsidian
     streamlink
+    ffmpeg
   ];
 }
