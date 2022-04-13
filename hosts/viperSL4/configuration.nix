@@ -48,4 +48,16 @@ in {
       wantedBy = ["sockets.target"];
     };
   };
+
+  environment.etc."containers/registries.conf".text = lib.mkForce ''
+    unqualified-search-registries = ['docker.io']
+
+    [[registry]]
+    prefix="docker.io"
+    location="mirror.gcr.io"
+
+    [[registry]]
+    prefix="docker.io/library"
+    location="quay.io/libpod"
+  '';
 }
