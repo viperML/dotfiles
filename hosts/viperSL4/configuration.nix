@@ -32,4 +32,20 @@ in {
   };
 
   networking.hostName = hn;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  systemd.user = {
+    services.podman.serviceConfig.ExecStart = [
+      ""
+      "${pkgs.podman}/bin/podman $LOGGING system service"
+    ];
+    sockets.podman = {
+      enable = true;
+      wantedBy = ["sockets.target"];
+    };
+  };
 }
