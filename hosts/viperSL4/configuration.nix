@@ -13,10 +13,17 @@
     GDK_DPI_SCALE = "1.5";
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
+    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath (with pkgs; [
+      stdenv.cc.cc
+      openssl
+    ]);
+    # NIX_LD = builtins.readFile "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
+    NIX_LD = "$(${pkgs.coreutils}/bin/cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker)";
+    # NIX_AUTO_RUN = "1";
   };
 in {
   environment.variables = env;
-  environment.sessionVariables = env;
+  # environment.sessionVariables = env;
   home-manager.users.ayats = _: {
     home.sessionVariables = env;
   };
@@ -60,4 +67,7 @@ in {
     prefix="docker.io/library"
     location="quay.io/libpod"
   '';
+
+  # programs.nix-ld.enable = true;
+  # programs.command-not-found.enable = true;
 }
