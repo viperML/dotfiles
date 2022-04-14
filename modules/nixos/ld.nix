@@ -13,9 +13,11 @@
 in {
   environment.variables = env;
   environment.sessionVariables = env;
-  home-manager.users.mainUser = _: {
-    home.sessionVariables = env;
-  };
+  home-manager.sharedModules = [
+    {
+      home.sessionVariables = env;
+    }
+  ];
 
   programs.nix-ld.enable = true;
 }
