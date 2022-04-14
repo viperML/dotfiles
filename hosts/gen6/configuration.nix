@@ -6,12 +6,15 @@
   packages,
   ...
 }: let
-  FLAKE = "/home/ayats/Documents/dotfiles";
+  env = {
+    FLAKE = "/home/ayats/Documents/dotfiles";
+    NIX_AUTO_RUN = "1";
+  };
 in {
-  environment.variables = {inherit FLAKE;};
-  environment.sessionVariables = {inherit FLAKE;};
+  environment.variables = env;
+  environment.sessionVariables = env;
   home-manager.users.mainUser = _: {
-    home.sessionVariables = {inherit FLAKE;};
+    home.sessionVariables = env;
   };
 
   environment.systemPackages = with pkgs; [
@@ -279,6 +282,10 @@ in {
     listenAddresses = [
       {
         addr = "100.113.242.22";
+        port = 22;
+      }
+      {
+        addr = "127.0.0.1";
         port = 22;
       }
     ];

@@ -12,8 +12,4 @@ in {
       ssh.exe "$@"
     '')
   ];
-  # home.file.".vscode-server/server-env-setup" = {
-  #   text = ''${builtins.readFile "${vscode-remote-wsl-nixos}/flake/server-env-setup"}'';
-  #   executable = true;
-  # };
 }

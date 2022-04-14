@@ -26,6 +26,7 @@ self.lib.mkSystem rec {
         gaming
         # vfio
         netboot
+        ld
       ];
       homeModules = with self.homeModules; [
         ./home.nix

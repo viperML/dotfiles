@@ -17,7 +17,7 @@ self.lib.mkSystem rec {
       inputs.home-manager.nixosModules.home-manager
       common
       dram
-      vscode-server
+      ld
     ];
     homeModules = with self.homeModules; [
       ./home.nix
