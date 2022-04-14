@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   vscode-remote-wsl-nixos = pkgs.fetchFromGitHub {
     owner = "sonowz";
     repo = "vscode-remote-wsl-nixos";
@@ -12,4 +16,15 @@ in {
       ssh.exe "$@"
     '')
   ];
+
+  systemd.user.tmpfiles.rules = builtins.map (d: "L+ ${config.home.homeDirectory}/${d} - - - - /mnt/c/Users/${config.home.username}/${d}") [
+    "Desktop"
+    "Documents"
+    "Downloads"
+    "Music"
+    "Pictures"
+    "Videos"
+  ];
+
+  home.file.".vscode-server/server-env-setup".source = ./server-env-setup;
 }
