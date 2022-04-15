@@ -22,13 +22,15 @@
         inherit config system;
         overlays = with inputs;
           [
-            vim-extra-plugins.overlay
-            emacs-overlay.overlay
-            # (_: prev: {
-            #   inherit
-            #     (inputs.nixpkgs-stable.legacyPackages.${system})
-            #     ;
-            # })
+            # emacs-overlay.overlay
+            (_: prev: {
+              inherit
+                (inputs.nixpkgs-stable.legacyPackages.${system})
+                ;
+              inherit
+                (inputs.nixpkgs-master.legacyPackages.${system})
+                ;
+            })
           ]
           # Apply every exported overlay
           ++ (attrValues self.overlays);
@@ -36,7 +38,7 @@
 
     packages = genAttrs supportedSystems (
       system:
-        import ./packages self.legacyPackages.${system}
+        import ./packages inputs.nixpkgs.legacyPackages.${system}
         // {
           # Packages to build in CI
           inherit (inputs.nix-dram.packages.${system}) nix-dram;
@@ -50,8 +52,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     flake-utils.url = "github:numtide/flake-utils";
@@ -67,12 +67,6 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-    vim-extra-plugins = {
-      url = "github:m15a/nixpkgs-vim-extra-plugins/42beca2847d7e5528dfa5f6c8daea86f1d6747af";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
@@ -101,7 +95,7 @@
     };
     nix-dram = {
       url = "github:dramforever/nix-dram";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
     nixos-wsl = {
