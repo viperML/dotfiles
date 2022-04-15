@@ -42,6 +42,7 @@
         // {
           # Packages to build in CI
           inherit (inputs.nix-dram.packages.${system}) nix-dram;
+          inherit (inputs.nh.packages.${system}) nh;
         }
     );
 
