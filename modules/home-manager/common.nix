@@ -15,7 +15,7 @@ in {
     nix-prefetch-scripts
     update-nix-fetchgit
     statix
-    packages.alejandra.alejandra-x86_64-unknown-linux-gnu
+    alejandra
     packages.nh.nh
 
     # Misc utils
