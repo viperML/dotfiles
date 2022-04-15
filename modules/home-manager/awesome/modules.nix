@@ -34,7 +34,7 @@ in {
   bling = fetchFromGitHub {
     repo = "bling";
     owner = "BlingCorp";
-    rev = "3164486da072d22b1bd62e670805566f4418f8a1";
-    sha256 = "0p5zj84hq0nv3zaz685zqsrbrjykv13aczfmrzxa23picjklngf2";
+    rev = "fbb914a57226ce2a784098ec38afe7349e7dd9bd";
+    sha256 = "06y5prd3qpii1hsc54nf69nn0718ji42m1dzr895cazyw5ilyifi";
   };
 }

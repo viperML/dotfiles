@@ -45,8 +45,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "PatrickF1";
           repo = "fzf.fish";
-          rev = "17fcc74029bbd88445712752a5a71bc64aa3994c";
-          sha256 = "12fyg3ycj3fqqms9b5ncnyyjs0gl54yc5qcbp5yp4p5fy5vwy6jr";
+          rev = "8d877a973c1fa22f8bedd8b4cf70243ddcd983ac";
+          sha256 = "1njxn9ldby5lsd4rvgxqs4qgfsw7xchbf6v971ls06cyxrnzflf0";
         };
       }
       {
@@ -54,8 +54,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "oh-my-fish";
           repo = "plugin-foreign-env";
-          rev = "dddd9213272a0ab848d474d0cbde12ad034e65bc";
-          sha256 = "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs";
+          rev = "b3dd471bcc885b597c3922e4de836e06415e52dd";
+          sha256 = "13wdsvpazivlxk921ccqbk7gl6ya2md8f45rckbn8rn119ckf7fy";
         };
       }
     ];
@@ -64,7 +64,7 @@
     enable = true;
     nix-direnv.enable = false;
     config.whitelist.prefix = [
-      "/home"
+      config.home.homeDirectory
     ];
   };
 }

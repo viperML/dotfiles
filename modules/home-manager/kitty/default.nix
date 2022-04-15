@@ -6,8 +6,8 @@
   kitty-themes = pkgs.fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty-themes";
-    rev = "36e208df34b2ab7c21bae709e63486f84ac6d735";
-    sha256 = "14pmcjkl4d68gi6jv29cq07nvlr6jjjw1cws2lzalcai5k1qg356";
+    rev = "e41b826b7a896f870d4c893bfd28b419c989259d";
+    sha256 = "11a4vvmsxqqjrc81bsrqnv6512q01hi03sy36x5jx769yqs219f2";
   };
 in {
   home.packages = [pkgs.kitty];
