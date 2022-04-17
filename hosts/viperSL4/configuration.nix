@@ -13,6 +13,7 @@
     GDK_DPI_SCALE = "1.5";
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
+    BROWSER = "wslview";
   };
 in {
   environment.variables = env;
@@ -21,6 +22,9 @@ in {
     home.sessionVariables = env;
   };
   environment.defaultPackages = [];
+  environment.systemPackages = with pkgs; [
+    wslu
+  ];
 
   networking.hostName = hn;
 
