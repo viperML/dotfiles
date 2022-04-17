@@ -19,7 +19,10 @@
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
     legacyPackages = genAttrs supportedSystems (system:
       import inputs.nixpkgs {
-        inherit config system;
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
         overlays = with inputs;
           [
             # emacs-overlay.overlay
@@ -46,9 +49,30 @@
         }
     );
 
-    devShells = genAttrs supportedSystems (system: {
-      default = self.legacyPackages.${system}.callPackage ./misc/devShell.nix {};
-    });
+    devShells = genAttrs supportedSystems (system:
+      with self.legacyPackages.${system}; {
+        default = let
+          pyEnv = python3.withPackages (p:
+            with p; [
+              grip
+              black
+              flake8
+            ]);
+        in
+          mkShell {
+            name = "dotfiles-basic-shell";
+            packages = [
+              pyEnv
+            ];
+            shellHook = ''
+              ln -sf $PWD/bin/pre-commit.sh .git/hooks/pre-commit
+              mkdir -p .venv
+              # Vscode is dumb
+              ln -sf ${pyEnv}/bin .venv/
+            '';
+            DRY = "1";
+          };
+      });
   };
 
   inputs = {
@@ -56,7 +80,8 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
-    # TODO deleteme
+    # https://github.com/NixOS/nixpkgs/pull/168554
+    # https://nixpk.gs/pr-tracker.html?pr=168554
     nixpkgs-luks.url = "github:helsinki-systems/nixpkgs/feat/systemd-stage-1-luks";
 
     flake-utils.url = "github:numtide/flake-utils";

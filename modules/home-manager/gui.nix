@@ -56,4 +56,8 @@
       Install.WantedBy = ["timers.target"];
     };
   };
+
+  systemd.user.tmpfiles.rules = [
+    "L+ ${config.xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts/"
+  ];
 }

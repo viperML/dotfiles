@@ -13,9 +13,5 @@
     obsidian
     streamlink
     ffmpeg-full
-    microsoft-edge
-
-    tpm2-tools
-    cryptsetup
   ];
 }
