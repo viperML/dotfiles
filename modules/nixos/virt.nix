@@ -9,6 +9,7 @@
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
+    qemu.swtpm.enable = true;
   };
   programs.dconf.enable = true;
   environment.systemPackages = [

@@ -12,6 +12,10 @@
     obs-studio
     obsidian
     streamlink
-    ffmpeg
+    ffmpeg-full
+    microsoft-edge
+
+    tpm2-tools
+    cryptsetup
   ];
 }

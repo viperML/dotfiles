@@ -53,6 +53,16 @@ in {
       gfxmodeEfi = "2560x1440";
       configurationLimit = 10;
       default = "saved";
+      # useOSProber = true;
+      extraEntries = ''
+        menuentry 'Windows' --class windows --class os $menuentry_id_option 'osprober-efi-675A-4357' {
+          savedefault
+          insmod part_gpt
+          insmod fat
+          search --no-floppy --fs-uuid --set=root 675A-4357
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
     };
 
     loader.efi = {
@@ -291,4 +301,11 @@ in {
     ];
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
+  systemd.services.sshd.after = ["tailscaled.service"];
+
+  ## Unsorted
+  security.tpm2 = {
+    enable = true;
+    abrmd.enable = true;
+  };
 }

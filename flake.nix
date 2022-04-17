@@ -55,6 +55,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+
+    # TODO deleteme
+    nixpkgs-luks.url = "github:helsinki-systems/nixpkgs/feat/systemd-stage-1-luks";
+
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
