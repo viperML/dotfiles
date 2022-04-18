@@ -64,4 +64,7 @@ in {
     prefix="docker.io/library"
     location="quay.io/libpod"
   '';
+
+  # Not using /tmp on tmpfs
+  boot.cleanTmpDir = true;
 }
