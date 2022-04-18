@@ -26,7 +26,8 @@ in {
   boot = {
     initrd = {
       availableKernelModules = ["ahci" "nvme" "usbhid"];
-      kernelModules = [];
+      kernelModules = [
+      ];
       supportedFilesystems = ["zfs"];
       # Rollback ZFS on root
       # postDeviceCommands = lib.mkAfter ''
@@ -97,9 +98,8 @@ in {
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
-    pulseaudio.support32Bit = true;
-    opengl.extraPackages = with pkgs; [
-      mesa.drivers
+    opengl.extraPackages = [
+      pkgs.nvidia-vaapi-driver
     ];
   };
 

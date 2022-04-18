@@ -2,15 +2,14 @@
   self,
   inputs,
 }: {
-  # "sway" = {
-  #   nixosModules = with self.nixosModules; [
-  #     desktop-sway
-  #   ];
-  #   homeModules = with self.homeModules; [
-  #     sway
-  #     nwg-panel
-  #   ];
-  # };
+  "sway" = {
+    nixosModules = with self.nixosModules; [
+      desktop-sway
+    ];
+    homeModules = with self.homeModules; [
+      sway
+    ];
+  };
 
   "gnome" = {
     nixosModules = with self.nixosModules; [

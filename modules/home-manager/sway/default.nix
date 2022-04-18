@@ -10,7 +10,7 @@ args @ {
     # Use NixOS module system to install
     package = null;
     systemdIntegration = true;
-    inherit (import ./config.nix {inherit args;}) config extraConfig;
+    inherit (import ./config.nix args) config extraConfig;
   };
 
   home.packages = with pkgs; [
@@ -40,6 +40,12 @@ args @ {
     avizo = {
       Unit.Description = "Volume popup daemon";
       Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
+      Install.WantedBy = ["sway-session.target"];
+    };
+
+    waybar = {
+      Unit.Description = "System bar";
+      Service.ExecStart = "${pkgs.waybar}/bin/waybar";
       Install.WantedBy = ["sway-session.target"];
     };
   };

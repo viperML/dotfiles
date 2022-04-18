@@ -40,7 +40,7 @@ self.lib.mkSystem rec {
         neofetch
         neovim
         vscode
-        firefox
+        # firefox
         starship
         wezterm
         nh
@@ -55,7 +55,10 @@ self.lib.mkSystem rec {
       (self.specialisations)
       gnome
       kde
-      awesome
+      # awesome
+      
+      # sway
+      
       ;
   };
 }

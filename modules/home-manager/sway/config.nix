@@ -1,4 +1,4 @@
-{args}: let
+args: let
   modifier = "Mod4";
   inherit (args) pkgs;
   wayland-screenshot = pkgs.writeShellScript "wayland-screenshot" ''
@@ -20,9 +20,10 @@ in {
     inherit modifier;
 
     output = {
-      "DP-3" = {
-        mode = "2560x1440@119.998Hz";
+      "DP-2" = {
+        mode = "2560x1440@140Hz";
         bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
+        adaptive_sync = "on";
       };
     };
 
@@ -36,12 +37,12 @@ in {
     bars = args.lib.mkForce [];
 
     keybindings = args.lib.mkOptionDefault {
-      "${modifier}+Return" = "exec ${pkgs.wezterm}/bin/wezterm";
+      "${modifier}+Return" = "exec foot";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
       "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";
       "${modifier}+z" = "floating toggle";
-      "${modifier}+e" = "exec ${pkgs.gnome.nautilus}/bin/nautilus";
+      "${modifier}+e" = "exec dolphin";
       "Print" = "exec ${wayland-screenshot}";
       "XF86AudioRaiseVolume" = "exec ${volume} -u up";
       "XF86AudioLowerVolume" = "exec ${volume} -u down";

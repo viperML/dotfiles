@@ -29,24 +29,22 @@
     # noto-fonts-cjk
     noto-fonts-extra
     noto-fonts-emoji
-    roboto
-    #
-    etBook
+    # roboto
+    # etBook
     source-sans
-    packages.self.redaction
+    # packages.self.redaction
   ];
 
   systemd.user = {
     services.update-flatpak = {
       Unit.Description = "Update all flatpaks";
       Service.Type = "oneshot";
-      Service.ExecStart = let
-        script = pkgs.writeShellScript "update-flatpak" ''
+      Service.ExecStart =
+        (pkgs.writeShellScript "update-flatpak" ''
           ${pkgs.flatpak}/bin/flatpak update --noninteractive
           ${pkgs.flatpak}/bin/flatpak uninstall --unused --noninteractive
-        '';
-      in
-        script.outPath;
+        '')
+        .outPath;
     };
     timers.update-flatpak = {
       Unit.Description = "Update all flatpaks on a schedule";
@@ -58,6 +56,7 @@
   };
 
   systemd.user.tmpfiles.rules = [
-    "L+ ${config.xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts/"
+    "L+ ${config.xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts"
+    "L+ ${config.home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
   ];
 }
