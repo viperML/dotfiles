@@ -62,6 +62,5 @@
     abrmd.enable = true;
   };
 
-  # Gen 12 works
-  # Gen 13 works
+  # Gen 25 works
 }

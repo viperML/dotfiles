@@ -1,0 +1,19 @@
+[[apps]]
+id = "com.google.Chrome"
+origin = "flathub"
+
+[[apps]]
+id = "com.microsoft.Edge"
+origin = "flathub-beta"
+
+[[apps]]
+id = "com.github.tchx84.Flatseal"
+origin = "flathub"
+
+[[remotes]]
+name = "flathub"
+url = "https://dl.flathub.org/repo"
+
+[[remotes]]
+name = "flathub-beta"
+url = "https://dl.flathub.org/beta-repo"

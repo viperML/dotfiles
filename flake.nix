@@ -57,6 +57,8 @@
               grip
               black
               flake8
+              #
+              url-normalize
             ]);
         in
           mkShell {
