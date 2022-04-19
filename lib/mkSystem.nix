@@ -45,6 +45,7 @@ with lib;
               configuration = {
                 imports = value.nixosModules;
                 boot.loader.grub.configurationName = "${name}";
+                environment.etc."specialisation".text = name;
                 home-manager.sharedModules = value.homeModules;
               };
             })
