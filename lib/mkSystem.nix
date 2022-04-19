@@ -25,7 +25,8 @@ with lib;
   {
     system,
     pkgs,
-    lib,
+    lib ? pkgs.lib,
+    nixosSystem ? lib.nixosSystem,
     specialArgs,
     specialisations,
   }: let
@@ -67,7 +68,7 @@ with lib;
         inherit packages;
       };
   in
-    lib.nixosSystem {
+    nixosSystem {
       inherit system pkgs modules;
       specialArgs = specialArgs';
     }

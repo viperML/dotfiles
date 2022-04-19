@@ -19,7 +19,9 @@
   };
 
   system.stateVersion = "21.11";
-  system.configurationRevision = self.rev or null;
+  # system.configurationRevision = self.rev or null;
+  system.nixos.versionSuffix = lib.mkForce ".${lib.substring 0 8 (self.lastModifiedDate or self.lastModified or "19700101")}.${self.shortRev or "dirty"}";
+  system.nixos.revision = lib.mkForce self.rev or null;
 
   documentation = {
     man.enable = true;

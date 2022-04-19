@@ -308,4 +308,8 @@ in {
     enable = true;
     abrmd.enable = true;
   };
+
+  # boot.initrd.systemd = {
+  #   enable = true;
+  # };
 }

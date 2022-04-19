@@ -13,6 +13,5 @@
     obsidian
     streamlink
     ffmpeg-full
-    firefox
   ];
 }
