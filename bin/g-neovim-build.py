@@ -10,7 +10,7 @@ import json
 
 
 try:
-    dry = os.environ['DRY']
+    dry = os.environ["DRY"]
 except KeyError:
     dry = False
 print(f"{dry = }")
@@ -20,13 +20,13 @@ print(f"$ {cmd}")
 if not dry:
     subprocess.run(cmd.split(" "), check=True)
 
-drvPath = subprocess.check_output("nix eval --raw .#g-neovim.drvPath".split(" ")).decode()
+drvPath = subprocess.check_output("nix eval --raw .#neovim.drvPath".split(" ")).decode()
 print(f"{drvPath = }")
 with open(Path("./drvPath"), "w") as f:
     f.write(drvPath)
 
 # Read the command output as json
-cmd = 'gh run --repo viperML/dotfiles list --workflow g-neovim-release.yaml --json databaseId'
+cmd = "gh run --repo viperML/dotfiles list --workflow g-neovim-release.yaml --json databaseId"
 runs = subprocess.check_output(cmd, shell=True).decode()
 print(f"{runs = }")
 runs = json.loads(runs)
