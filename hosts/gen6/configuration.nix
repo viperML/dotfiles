@@ -8,7 +8,7 @@
 }: let
   env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
-    NIX_AUTO_RUN = "1";
+    # NIX_AUTO_RUN = "1";
   };
 in {
   environment.variables = env;
@@ -46,25 +46,6 @@ in {
       forceImportRoot = false;
     };
 
-    # loader.grub = {
-    #   device = "nodev";
-    #   enable = true;
-    #   efiSupport = true;
-    #   zfsSupport = true;
-    #   gfxmodeEfi = "2560x1440";
-    #   configurationLimit = 10;
-    #   default = "saved";
-    #   # useOSProber = true;
-    #   extraEntries = ''
-    #     menuentry 'Windows' --class windows --class os $menuentry_id_option 'osprober-efi-675A-4357' {
-    #       savedefault
-    #       insmod part_gpt
-    #       insmod fat
-    #       search --no-floppy --fs-uuid --set=root 675A-4357
-    #       chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-    #     }
-    #   '';
-    # };
     loader.systemd-boot = {
       enable = true;
       editor = true;

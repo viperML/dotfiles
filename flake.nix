@@ -15,15 +15,20 @@
     specialisations = import ./specialisations {inherit self inputs;};
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
 
-    # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
     legacyPackages = genAttrs supportedSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 
     packages = genAttrs supportedSystems (
       system:
         import ./packages inputs.nixpkgs-unfree.legacyPackages.${system}
+        # Packages to build and cache in CI
         // {
-          # Packages to build in CI
-          inherit (inputs.nix-dram.packages.${system}) nix-dram;
+          nix-dram = inputs.nix-dram.packages.${system}.nix-dram.overrideAttrs (prev: {
+            postInstallCheck =
+              (prev.postInstallCheck or "")
+              + ''
+                rm $out/bin/nix-channel
+              '';
+          });
           inherit (inputs.nh.packages.${system}) nh;
         }
     );

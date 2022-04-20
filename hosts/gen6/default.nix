@@ -32,10 +32,12 @@ in
     inherit system nixosSystem;
     pkgs = self.legacyPackages.${system};
     specialArgs = {inherit self inputs;};
+    defaultSpec = "kde";
     specialisations = {
       "base" = {
         nixosModules = with self.nixosModules; [
           ./configuration.nix
+          # ./systemd-boot.nix
           common
           mainUser-ayats
 

@@ -17,6 +17,7 @@
  homeModules = [ swayModule1 swayModule2 ];
  };
  }
+ - defaultSpec: specialisation that will be default in systemd-boot
  This would be used to create a NixOS system that has all the modules in base,
  and a spesialisation "sway" that adds some modules on top.
  */
@@ -29,6 +30,7 @@ with lib;
     nixosSystem ? lib.nixosSystem,
     specialArgs,
     specialisations,
+    defaultSpec ? "base",
   }: let
     # Create a system out of the base specialisation + any spec
     specs = filterAttrs (n: v: n != "base") specialisations;
@@ -44,13 +46,13 @@ with lib;
               inheritParentConfig = true;
               configuration = {
                 imports = value.nixosModules;
-                boot.loader.grub.configurationName = "${name}";
                 environment.etc."specialisation".text = name;
                 home-manager.sharedModules = value.homeModules;
               };
             })
             specs;
         }
+        (import ./systemd-boot.nix defaultSpec)
       ];
 
     # Insert `packages.<inputs>` in the argset, that contains legacyPackages or packages
