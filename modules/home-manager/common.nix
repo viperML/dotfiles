@@ -32,7 +32,7 @@ in {
     nmap
     pwgen
     ripgrep
-    stylua
+    packages.self.stylua
     sysstat
     tealdeer
     unar

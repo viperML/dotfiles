@@ -8,7 +8,7 @@
 }: {
   home.packages = [
     packages.self.plasma-applet-splitdigitalclock
-    pkgs.caffeine-ng
+    # pkgs.caffeine-ng
   ];
 
   systemd.user = {
@@ -31,14 +31,14 @@
         in "${apply-colorscheme-script}";
         Install.WantedBy = ["xdg-desktop-autostart.target"];
       };
-      caffeine = {
-        Unit.Description = "Caffeine";
-        Service.Environment = "NO_AT_BRIDGE=1";
-        Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
-        Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
-        Unit.After = ["plasma-plasmashell"];
-        Install.WantedBy = ["graphical-session.target"];
-      };
+      # caffeine = {
+      #   Unit.Description = "Caffeine";
+      #   Service.Environment = "NO_AT_BRIDGE=1";
+      #   Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
+      #   Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
+      #   Unit.After = ["plasma-plasmashell"];
+      #   Install.WantedBy = ["graphical-session.target"];
+      # };
       mailspring = {
         Unit.Description = "Mailspring";
         Service.Environment = "NO_AT_BRIDGE=1";

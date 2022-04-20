@@ -16,7 +16,7 @@
     enable = true;
     interactiveShellInit = ''
       ${pkgs.starship}/bin/starship init fish | source
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
+      ${packages.self.any-nix-shell}/bin/any-nix-shell fish | source
 
       ${builtins.readFile ./interactive.fish}
       ${builtins.readFile ./pushd-mod.fish}

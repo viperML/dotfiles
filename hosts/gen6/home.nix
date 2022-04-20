@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  packages,
   ...
 }: {
   home.packages = with pkgs; [
@@ -10,7 +11,7 @@
     ahoviewer
     krita
     obs-studio
-    obsidian
+    packages.self.obsidian
     streamlink
     ffmpeg-full
   ];

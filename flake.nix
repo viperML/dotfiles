@@ -13,35 +13,14 @@
     nixosModules = exportModulesDir ./modules/nixos;
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations {inherit self inputs;};
-    overlays = exportModulesDir ./overlays;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
 
     # Propagate self.legacyPackages to NixOS and Home-manager, instead of configuring nixpkgs there
-    legacyPackages = genAttrs supportedSystems (system:
-      import inputs.nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-        overlays = with inputs;
-          [
-            # emacs-overlay.overlay
-            (_: prev: {
-              inherit
-                (inputs.nixpkgs-stable.legacyPackages.${system})
-                ;
-              inherit
-                (inputs.nixpkgs-master.legacyPackages.${system})
-                ;
-            })
-          ]
-          # Apply every exported overlay
-          ++ (attrValues self.overlays);
-      });
+    legacyPackages = genAttrs supportedSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 
     packages = genAttrs supportedSystems (
       system:
-        import ./packages inputs.nixpkgs.legacyPackages.${system}
+        import ./packages inputs.nixpkgs-unfree.legacyPackages.${system}
         // {
           # Packages to build in CI
           inherit (inputs.nix-dram.packages.${system}) nix-dram;
@@ -135,6 +114,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
+    };
+    nixpkgs-unfree = {
+      url = "github:numtide/nixpkgs-unfree";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

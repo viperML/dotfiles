@@ -39,7 +39,7 @@
       lsof
       usbutils
       # Icons
-      (packages.self.g-papirus-icon-theme.override {color = "palebrown";})
+      (packages.self.papirus-icon-theme.override {color = "yaru";})
     ];
 
     xdg.portal = {

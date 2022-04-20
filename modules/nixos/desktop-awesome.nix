@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  packages,
   ...
 }: {
   services.xserver = {
@@ -9,6 +10,7 @@
     displayManager.autoLogin.enable = true;
     windowManager.awesome = {
       enable = true;
+      package = packages.self.awesome;
       luaModules = with pkgs.luaPackages; [
         #keep
       ];

@@ -9,6 +9,7 @@
   inherit (builtins) typeOf;
 
   xsettingsConfig = {
+    "Gtk/CursorThemeName" = "ePapirus";
     "Net/IconThemeName" = "Papirus";
     "Xft/Antialias" = true;
     "Xft/Hinting" = true;

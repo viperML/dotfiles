@@ -28,7 +28,6 @@ in {
       (pkgs)
       nitrogen
       lxrandr
-      rose-pine-gtk-theme
       # Required by keybinds
       
       pulseaudio
@@ -76,10 +75,10 @@ in {
       Unit.Description = "Network manager applet";
       Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
     };
-    caffeine = mkService {
-      Unit.Description = "Caffeine applet";
-      Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
-    };
+    # caffeine = mkService {
+    #   Unit.Description = "Caffeine applet";
+    #   Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
+    # };
     mailspring = mkService {
       Unit.Description = "Mail client";
       Service.ExecStart = "${pkgs.mailspring}/bin/mailspring --background";

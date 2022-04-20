@@ -7,6 +7,7 @@
   gtk_engines,
 }:
 stdenv.mkDerivation rec {
+  __nocachix = true;
   pname = "rose-pine-gtk-theme";
   version = "unstable-2021-11-23";
 
