@@ -1,7 +1,4 @@
-{
-  self,
-  inputs,
-}: {
+self: {
   "sway" = {
     nixosModules = with self.nixosModules; [
       desktop-sway

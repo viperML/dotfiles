@@ -1,6 +1,16 @@
 pkgs:
 with pkgs.lib;
 with builtins; let
+  callPackageOverrides = {
+    "libsForQt5" = pkgs.libsForQt5.callPackage;
+  };
+
+  overrides = {
+    # keep
+  };
+
+  folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
+
   recursiveMerge = attrList: let
     f = attrPath:
       zipAttrsWith (
@@ -15,16 +25,6 @@ with builtins; let
       );
   in
     f [] attrList;
-
-  folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
-
-  callPackageOverrides = {
-    "libsForQt5" = pkgs.libsForQt5.callPackage;
-  };
-
-  overrides = {
-    # keep
-  };
 
   pkgs_unmerged = map (f: let
     subfolders = readDir (./. + "/${f}");
