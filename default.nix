@@ -19,5 +19,4 @@
   };
 in
   assert args ? localSystem -> !(args ? system);
-  assert args ? system -> !(args ? localSystem);
-    flake.defaultNix.legacyPackages.${system}
+  assert args ? system -> !(args ? localSystem); (flake.defaultNix.legacyPackages.${system} // flake.defaultNix.packages.${system})
