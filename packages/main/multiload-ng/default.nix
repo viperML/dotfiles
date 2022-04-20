@@ -10,6 +10,7 @@
   pkgconfig,
 }:
 stdenv.mkDerivation {
+  __nocachix = true;
   pname = "multiload-ng";
   version = "unstable-2021-01-03";
 

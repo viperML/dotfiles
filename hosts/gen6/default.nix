@@ -7,24 +7,18 @@
   nixpkgs-src = self.lib.patch-nixpkgs {
     nixpkgs = inputs.nixpkgs;
     PRS = [
-      # rec {
-      #   PR = "168554";
-      #   url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
-      #   sha256 = "sha256-t+2LgUdbKbpxtT1wax2PCmzwGFQLrHJOs1QbskNVqV4=";
-      #   exclude = ["*/all-tests.nix"];
-      # }
       rec {
         PR = "168269";
         url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
         sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
-        # exclude = ["*/all-tests.nix"];
+        exclude = [];
       }
     ];
     pkgs = self.legacyPackages.${system};
   };
 
-  # nixosSystem = args: import "${nixpkgs-src}/nixos/lib/eval-config.nix" args;
-  nixosSystem = inputs.nixpkgs.lib.nixosSystem;
+  nixosSystem = args: import "${nixpkgs-src}/nixos/lib/eval-config.nix" args;
+  # nixosSystem = inputs.nixpkgs.lib.nixosSystem;
 
   modulesPath = "${nixpkgs-src}/nixos/modules";
 in
@@ -82,10 +76,6 @@ in
         (self.specialisations)
         gnome
         kde
-        # awesome
-        
-        # sway
-        
         ;
     };
   }

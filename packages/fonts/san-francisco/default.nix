@@ -1,9 +1,9 @@
 {
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
-  ...
+  lib,
 }:
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "san-francisco";
   version = "unstable-2015-06-10";
 
@@ -18,4 +18,11 @@ stdenv.mkDerivation {
     mkdir -p $out/share/fonts/truetype
     cp -r *.otf $out/share/fonts/truetype
   '';
+
+  meta = with lib; {
+    description = "San Francisco is a neo-grotesque sans-serif typeface made by Apple Inc";
+    homepage = "https://developer.apple.com/fonts/";
+    license = licenses.unfree;
+    platforms = platforms.all;
+  };
 }

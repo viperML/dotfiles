@@ -27,6 +27,7 @@ in {
     initrd = {
       availableKernelModules = ["ahci" "nvme" "usbhid"];
       kernelModules = [
+        "zfs"
       ];
       supportedFilesystems = ["zfs"];
       # Rollback ZFS on root
@@ -295,7 +296,7 @@ in {
     abrmd.enable = true;
   };
 
-  # boot.initrd.systemd = {
-  #   enable = true;
-  # };
+  boot.initrd.systemd = {
+    # enable = true;
+  };
 }

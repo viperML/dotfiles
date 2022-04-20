@@ -1,6 +1,6 @@
 pkgs:
-with builtins;
-with pkgs.lib; let
+with pkgs.lib;
+with builtins; let
   recursiveMerge = attrList: let
     f = attrPath:
       zipAttrsWith (
@@ -16,26 +16,25 @@ with pkgs.lib; let
   in
     f [] attrList;
 
-  # pnames.main = filterAttrs (n: v: v == "directory") (readDir ./main);
-  # pnames.libsForQt5 = filterAttrs (n: v: v == "directory") (readDir ./libsForQt5);
+  folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
 
-  pnames = listToAttrs (map (
-      name:
-        nameValuePair
-        name
-        (filterAttrs (_: v: v == "directory") (readDir (./. + "/${name}")))
-    ) [
-      "fonts"
-      "main"
-      "libsForQt5"
-      "overrides"
-    ]);
-
-  packages = {
-    main = mapAttrs (name: _: pkgs.callPackage (./main + "/${name}") {}) pnames.main;
-    libsForQt5 = mapAttrs (name: _: pkgs.libsForQt5.callPackage (./libsForQt5 + "/${name}") {}) pnames.libsForQt5;
-    fonts = mapAttrs (name: _: pkgs.callPackage (./fonts + "/${name}") {}) pnames.fonts;
-    overrides = mapAttrs (name: _: pkgs.callPackage (./overrides + "/${name}") {}) pnames.overrides;
+  callPackageOverrides = {
+    "libsForQt5" = pkgs.libsForQt5.callPackage;
   };
+
+  overrides = {
+    # keep
+  };
+
+  pkgs_unmerged = map (f: let
+    subfolders = readDir (./. + "/${f}");
+    result =
+      mapAttrs (
+        sf: _: (callPackageOverrides.${f} or pkgs.callPackage) (./. + "/${f}/${sf}") (overrides.${sf} or {})
+      )
+      subfolders;
+  in
+    result)
+  folders;
 in
-  recursiveMerge (attrValues packages)
+  recursiveMerge pkgs_unmerged
