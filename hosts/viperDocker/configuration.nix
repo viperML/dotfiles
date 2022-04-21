@@ -1,3 +1,3 @@
 {...}: {
-  users.users.mainUser.password = "1234";
+  users.users.ayats.password = "1234";
 }

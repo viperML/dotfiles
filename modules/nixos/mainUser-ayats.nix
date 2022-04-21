@@ -10,7 +10,7 @@
 in {
   users.mutableUsers = false;
 
-  users.users.mainUser = {
+  users.users.ayats = {
     inherit name home;
     createHome = true;
     description = "Fernando Ayats";

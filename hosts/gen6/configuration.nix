@@ -16,8 +16,13 @@ in {
   };
 
   environment.variables = env;
-  environment.sessionVariables = env;
-  home-manager.users.mainUser = _: {
+  environment.sessionVariables =
+    env
+    // {
+      # TODO remove
+      XDG_DATA_DIRS = ["/home/ayats/.local/share/flatpak/exports/share"];
+    };
+  home-manager.users.ayats = _: {
     home.sessionVariables = env;
   };
 
@@ -55,6 +60,7 @@ in {
       enable = true;
       editor = true;
       configurationLimit = 10;
+      consoleMode = "max";
     };
 
     loader.efi = {
@@ -123,7 +129,7 @@ in {
       ];
     };
     "/nix" = {
-      device = "zroot/nix";
+      device = "zroot/system/nix";
       fsType = "zfs";
     };
     "/secrets" = {
@@ -131,55 +137,76 @@ in {
       fsType = "zfs";
       neededForBoot = true;
     };
-    "/home" = {
-      device = "zroot/data/home";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
+    # "/home" = {
+    #   device = "zroot/data/home";
+    #   fsType = "zfs";
+    #   neededForBoot = true;
+    # };
     "/boot" = {
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
+      options = [
+        "x-systemd.automount"
+        "x-systemd.mount-timeout=15min"
+      ];
     };
     "/var/log" = {
-      device = "zroot/data/log";
+      device = "zroot/system/log";
       fsType = "zfs";
       neededForBoot = true;
     };
     "/var/lib/tailscale" = {
-      device = "zroot/data/tailscale";
+      device = "zroot/system/tailscale";
       fsType = "zfs";
     };
     "/var/lib/systemd" = {
-      device = "zroot/data/systemd";
+      device = "zroot/system/systemd";
+      fsType = "zfs";
+    };
+    "/var/lib/libvirt" = {
+      device = "zroot/system/libvirt";
+      fsType = "zfs";
+    };
+    "/var/lib/libvirt/clean" = {
+      device = "zroot/system/libvirt/clean";
+      fsType = "zfs";
+    };
+    "/var/lib/docker" = {
+      device = "zroot/system/docker";
       fsType = "zfs";
     };
     "/home/ayats/Music" = {
-      device = "zroot/data/music";
+      device = "zroot/ayats/music";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
     "/home/ayats/Downloads" = {
-      device = "zroot/data/downloads";
+      device = "zroot/ayats/downloads";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
     "/home/ayats/Pictures" = {
-      device = "zroot/data/pictures";
+      device = "zroot/ayats/pictures";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
     "/home/ayats/Games" = {
-      device = "zroot/data/games";
+      device = "zroot/ayats/games";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
     "/home/ayats/Videos" = {
-      device = "zroot/data/videos";
+      device = "zroot/ayats/videos";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
     "/home/ayats/Documents" = {
-      device = "zroot/data/documents";
+      device = "zroot/ayats/documents";
+      fsType = "zfs";
+      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats" = {
+      device = "zroot/ayats/home";
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
@@ -212,11 +239,11 @@ in {
         # keep
       ];
       normal-datasets = [
-        # "zroot/data/downloads"
-        "zroot/data/documents"
-        "zroot/data/music"
-        "zroot/data/pictures"
-        "zroot/data/videos"
+        "zroot/ayats/home"
+        "zroot/ayats/documents"
+        "zroot/ayats/music"
+        "zroot/ayats/pictures"
+        "zroot/ayats/videos"
         "zroot/secrets"
       ];
     in
@@ -239,7 +266,7 @@ in {
   ### Secrets
 
   systemd.tmpfiles.rules = let
-    inherit (config.users.users.mainUser) group name home;
+    inherit (config.users.users.ayats) group name home;
   in [
     "d /root/.ssh 0700 root root - -"
     "d /home/ayats/.ssh 0700 ayats users - -"
@@ -248,6 +275,7 @@ in {
     "L+ /etc/ssh/ssh_host_ed25519_key.pub - - - - /secrets/ssh_host/ssh_host_ed25519_key.pub"
     "L+ /etc/ssh/ssh_host_rsa_key - - - - /secrets/ssh_host/ssh_host_rsa_key"
     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
+    "z /home/ayats 700 ayats users - -"
   ];
   systemd.services.bind-ssh = {
     serviceConfig.Type = "forking";
@@ -259,7 +287,7 @@ in {
     after = ["systemd-tmpfiles-setup.service"];
   };
 
-  users.users.mainUser.passwordFile = "/secrets/password/ayats";
+  users.users.ayats.passwordFile = "/secrets/password/ayats";
 
   nix.extraOptions = ''
     secret-key-files = /secrets/cache-priv-key.pem

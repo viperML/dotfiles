@@ -80,13 +80,13 @@ class App:
         return self.id == other.id and self.origin == other.origin
 
     def install(self):
-        cmd = f"flatpak install --user --from={self.origin} {self.id}"
+        cmd = f"flatpak install --noninteractive --user {self.origin} {self.id}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
 
     def uninstall(self):
-        cmd = f"flatpak uninstall --user {self.id}"
+        cmd = f"flatpak uninstall --noninteractive --user {self.id}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
@@ -122,7 +122,7 @@ for app_unrequired in apps_current:
         print(f"Uninstalling app {app_unrequired.id}")
         app_unrequired.uninstall()
 
-cmd = "flatpak uninstall --user --unused"
+cmd = "flatpak uninstall --noninteractive --user --unused"
 print(f"$ {cmd}")
 if not DRY:
     subprocess.check_output(cmd, shell=True)

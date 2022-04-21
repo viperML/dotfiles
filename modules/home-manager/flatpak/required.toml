@@ -1,10 +1,14 @@
 [[apps]]
 id = "com.google.Chrome"
+origin = "flathub-beta"
+
+[[apps]]
+id = "org.mozilla.firefox"
 origin = "flathub"
 
 [[apps]]
-id = "com.microsoft.Edge"
-origin = "flathub-beta"
+id = "com.getmailspring.Mailspring"
+origin = "flathub"
 
 [[apps]]
 id = "com.github.tchx84.Flatseal"
