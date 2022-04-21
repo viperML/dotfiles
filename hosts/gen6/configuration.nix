@@ -11,6 +11,10 @@
     # NIX_AUTO_RUN = "1";
   };
 in {
+  viper = {
+    defaultSpec = "kde";
+  };
+
   environment.variables = env;
   environment.sessionVariables = env;
   home-manager.users.mainUser = _: {

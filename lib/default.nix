@@ -1,7 +1,7 @@
 lib: let
   modules = import ./modules.nix lib;
 in {
-  mkSystem = import ./mkSystem.nix lib;
+  mkSystem = import ./mkSystem lib;
   inherit (modules) exportModulesDir folderToList;
   kde = import ./kde.nix lib;
   patch-nixpkgs = import ./patch-nixpkgs.nix;

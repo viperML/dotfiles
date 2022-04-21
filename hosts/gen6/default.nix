@@ -26,7 +26,6 @@ in
     inherit system nixosSystem;
     pkgs = self.legacyPackages.${system};
     specialArgs = {inherit self inputs;};
-    defaultSpec = "kde";
     specialisations = {
       "base" = {
         nixosModules = with self.nixosModules; [
