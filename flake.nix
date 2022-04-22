@@ -41,6 +41,8 @@
               grip
               black
               flake8
+              mypy
+              types-toml
               #
               url-normalize
             ]);

@@ -16,12 +16,7 @@ in {
   };
 
   environment.variables = env;
-  environment.sessionVariables =
-    env
-    // {
-      # TODO remove
-      XDG_DATA_DIRS = ["/home/ayats/.local/share/flatpak/exports/share"];
-    };
+  environment.sessionVariables = env;
   home-manager.users.ayats = _: {
     home.sessionVariables = env;
   };

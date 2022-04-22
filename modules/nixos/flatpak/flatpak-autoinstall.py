@@ -1,13 +1,22 @@
+#! @python3@/bin/python -B
 import subprocess
 import os
+import argparse
 
 import toml
 
 DRY = os.environ.get("DRY", False)
 
 # Load from flatpaks.toml
-path = "modules/home-manager/flatpak/required.toml"
-with open(path, "r") as f:
+# path = "modules/home-manager/flatpak/required.toml"
+
+# Get the config file path as an argument
+parser = argparse.ArgumentParser()
+parser.add_argument("path", help="Path to the config file")
+args = parser.parse_args()
+
+
+with open(args.path, "r") as f:
     input = toml.load(f)
 
 
@@ -23,13 +32,13 @@ class Remote:
             return False
         return self.name == other.name and self.url == other.url
 
-    def add(self):
-        cmd = f"flatpak remote-add --user {self.name} {self.url}"
+    def add(self) -> None:
+        cmd = f"flatpak remote-add --user --if-not-exists --no-gpg-verify {self.name} {self.url}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
 
-    def remove(self):
+    def remove(self) -> None:
         cmd = f"flatpak remote-delete --user {self.name}"
         print(f"$ {cmd}")
         if not DRY:
@@ -54,15 +63,15 @@ def get_remotes() -> list[Remote]:
 
 remotes_current = get_remotes()
 
-for remote_missing in remotes_required:
-    if remote_missing not in remotes_current:
-        print(f"Adding remote {remote_missing.name}")
-        remote_missing.add()
-
 for remote_unrequired in remotes_current:
     if remote_unrequired not in remotes_required:
         print(f"Removing remote {remote_unrequired.name}")
         remote_unrequired.remove()
+
+for remote_missing in remotes_required:
+    if remote_missing not in remotes_current:
+        print(f"Adding remote {remote_missing.name}")
+        remote_missing.add()
 
 
 class App:
@@ -79,13 +88,13 @@ class App:
             return False
         return self.id == other.id and self.origin == other.origin
 
-    def install(self):
+    def install(self) -> None:
         cmd = f"flatpak install --noninteractive --user {self.origin} {self.id}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
 
-    def uninstall(self):
+    def uninstall(self) -> None:
         cmd = f"flatpak uninstall --noninteractive --user {self.id}"
         print(f"$ {cmd}")
         if not DRY:
@@ -97,7 +106,7 @@ for a in input["apps"]:
     apps_required.append(App(a["id"], a["origin"], remotes_required))
 
 
-def get_apps(remotes) -> list[App]:
+def get_apps(remotes: list[Remote]) -> list[App]:
     result = list()
     output = subprocess.check_output(
         "flatpak list --user --app --columns=application,origin", shell=True
@@ -111,16 +120,15 @@ def get_apps(remotes) -> list[App]:
 apps_current = get_apps(remotes_current)
 
 
-for app_missing in apps_required:
-    if app_missing not in apps_current:
-        print(f"Installing app {app_missing.id}")
-        app_missing.install()
-
-
 for app_unrequired in apps_current:
     if app_unrequired not in apps_required:
         print(f"Uninstalling app {app_unrequired.id}")
         app_unrequired.uninstall()
+
+for app_missing in apps_required:
+    if app_missing not in apps_current:
+        print(f"Installing app {app_missing.id}")
+        app_missing.install()
 
 cmd = "flatpak uninstall --noninteractive --user --unused"
 print(f"$ {cmd}")

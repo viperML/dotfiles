@@ -23,7 +23,6 @@
       ananicy.enable = true;
       thermald.enable = true;
       udev.packages = [pkgs.android-udev-rules];
-      flatpak.enable = true;
     };
 
     # replaced by pipewire
