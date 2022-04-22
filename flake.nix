@@ -73,10 +73,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
-    # https://github.com/NixOS/nixpkgs/pull/168554
-    # https://nixpk.gs/pr-tracker.html?pr=168554
-    nixpkgs-luks.url = "github:helsinki-systems/nixpkgs/feat/systemd-stage-1-luks";
-
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -92,19 +88,13 @@
       inputs.utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flakeUtils.follows = "flake-utils";
-      inputs.flakeCompat.follows = "flake-compat";
-    };
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # nix-doom-emacs = {
+    #   url = "github:nix-community/nix-doom-emacs";
+    #   inputs.emacs-overlay.follows = "emacs-overlay";
+    #   inputs.flake-utils.follows = "flake-utils";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";

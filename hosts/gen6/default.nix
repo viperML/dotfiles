@@ -48,6 +48,7 @@ in
           netboot
           ld
           flatpak
+          comma
         ];
         homeModules = with self.homeModules; [
           ./home.nix
