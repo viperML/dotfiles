@@ -11,9 +11,6 @@
   <a href="https://github.com/kamadorueda/alejandra">
   <img alt="style: Alejandra" src="https://img.shields.io/badge/code%20style-Alejandra-green.svg">
   </a>
-  <a href="https://github.com/viperML/dotfiles/actions/workflows/g-neovim-release.yaml">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/g-neovim%20release?label=g-neovim">
-  </a>
 </p>
 
 # 🗒 About
@@ -93,4 +90,4 @@ To run it:
 nix run github:viperML/dotfiles#neovim
 ```
 
-I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/blob/master/.github/workflows/g-neovim-release.yaml)
+I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/actions/workflows/g-neovim-release.yaml)

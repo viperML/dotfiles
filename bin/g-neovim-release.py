@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import os
 
+# This could use a rewrite but eh
+
 # Read the DRY environemt variable
 try:
     dry = os.environ["DRY"]

@@ -1,13 +1,9 @@
-"""
-Build the flake output g-neovim and push to cachix
-Try downloading the drvPath from the latest release
-If they are not the same, issue a new release
-"""
 import subprocess
 from pathlib import Path
 import os
 import json
 
+# This could use a rewrite but eh
 
 try:
     dry = os.environ["DRY"]
@@ -15,7 +11,7 @@ except KeyError:
     dry = False
 print(f"{dry = }")
 
-cmd = "nix build .#g-neovim -L"
+cmd = "nix build .#neovim -L"
 print(f"$ {cmd}")
 if not dry:
     subprocess.run(cmd.split(" "), check=True)

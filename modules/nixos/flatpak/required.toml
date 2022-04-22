@@ -4,7 +4,7 @@ origin = "flathub-beta"
 
 [[apps]]
 id = "org.mozilla.firefox"
-origin = "flathub"
+origin = "flathub-beta"
 
 [[apps]]
 id = "com.getmailspring.Mailspring"

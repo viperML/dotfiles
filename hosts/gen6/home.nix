@@ -14,5 +14,7 @@
     packages.self.obsidian
     streamlink
     ffmpeg-full
+
+    dhall-lsp-server
   ];
 }
