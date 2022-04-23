@@ -15,6 +15,7 @@
     streamlink
     ffmpeg-full
 
-    dhall-lsp-server
+    packages.nix-matlab.matlab
+    packages.nix-matlab.matlab-shell
   ];
 }

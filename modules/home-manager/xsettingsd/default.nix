@@ -16,7 +16,7 @@
         Install.WantedBy = ["graphical-session.target"];
       };
       xsettingsd-switch = let
-        xsettingsConfig = import ./settings.nix {inherit args;};
+        xsettingsConfig = import ./settings.nix args;
         xsettingsd-switch-script = pkgs.writeShellScript "xsettings-switch" ''
           export PATH="${pkgs.coreutils-full}/bin:${pkgs.systemd}/bin"
           mkdir -p ${config.xdg.configHome}/xsettingsd

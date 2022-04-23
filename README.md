@@ -87,7 +87,7 @@ Neovim is bundled with all the configuration and plugins, such that it doesn't r
 To run it:
 
 ```console
-nix run github:viperML/dotfiles#neovim
+nix run github:viperML/dotfiles#neovim -- /path/to/file
 ```
 
 I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/actions/workflows/g-neovim-release.yaml)

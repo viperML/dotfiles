@@ -18,6 +18,7 @@ self.lib.mkSystem rec {
       common
       dram
       ld
+      index
     ];
     homeModules = with self.homeModules; [
       ./home.nix

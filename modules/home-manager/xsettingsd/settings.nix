@@ -3,7 +3,7 @@
  
  Copied from https://github.com/nix-community/home-manager/blob/master/modules/services/xsettingsd.nix
  */
-{args}: let
+args: let
   inherit (args) pkgs lib;
   inherit (lib) concatStrings mapAttrsToList toString;
   inherit (builtins) typeOf;
@@ -11,6 +11,7 @@
   xsettingsConfig = {
     "Gtk/CursorThemeName" = "ePapirus";
     "Net/IconThemeName" = "Papirus";
+    "Gtk/FontName" = "Roboto,  10";
     "Xft/Antialias" = true;
     "Xft/Hinting" = true;
     "Xft/RGBA" = "rgb";

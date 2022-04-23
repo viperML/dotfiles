@@ -47,8 +47,8 @@ in
           # vfio
           netboot
           ld
+          index
           flatpak
-          comma
         ];
         homeModules = with self.homeModules; [
           ./home.nix

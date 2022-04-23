@@ -100,6 +100,29 @@
         "type": "github"
       }
     },
+    "nix-autobahn": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1650132562,
+        "narHash": "sha256-h51KOeqabmr6Ug7Cj8mO/EyMo/0wiTb5R364ovh2dp0=",
+        "owner": "Lassulus",
+        "repo": "nix-autobahn",
+        "rev": "9122088c5d58ca86b26ee4eda9ce6745f2c9555e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lassulus",
+        "repo": "nix-autobahn",
+        "type": "github"
+      }
+    },
     "nix-dram": {
       "inputs": {
         "flake-utils": [
@@ -121,6 +144,29 @@
         "owner": "dramforever",
         "repo": "nix-dram",
         "type": "github"
+      }
+    },
+    "nix-matlab": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1650726153,
+        "narHash": "sha256-19eZ1Ti/F1UExBc2VkUqJYZiclxNEugcsJSzKnWRWzs=",
+        "owner": "doronbehar",
+        "repo": "nix-matlab",
+        "rev": "b4d530ac2df9977140bd5cf206c9d808a9a2b2b9",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "doronbehar",
+        "repo": "nix-matlab",
+        "type": "gitlab"
       }
     },
     "nixos-flakes": {
@@ -250,7 +296,9 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nh": "nh",
+        "nix-autobahn": "nix-autobahn",
         "nix-dram": "nix-dram",
+        "nix-matlab": "nix-matlab",
         "nixos-flakes": "nixos-flakes",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
