@@ -1,17 +1,17 @@
 [[apps]]
-id = "com.google.Chrome"
+ref = "com.google.Chrome/x86_64/beta"
 origin = "flathub-beta"
 
 [[apps]]
-id = "org.mozilla.firefox"
+ref = "org.mozilla.firefox/x86_64/stable"
 origin = "flathub-beta"
 
 [[apps]]
-id = "com.getmailspring.Mailspring"
+ref = "com.getmailspring.Mailspring/x86_64/stable"
 origin = "flathub"
 
 [[apps]]
-id = "com.github.tchx84.Flatseal"
+ref = "com.github.tchx84.Flatseal/x86_64/stable"
 origin = "flathub"
 
 [[remotes]]

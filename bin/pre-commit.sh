@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-find . -name \*.nix -not -name deps.nix -exec alejandra {} \; > /dev/null
+fd -e nix -E deps --exec-batch alejandra {}
 nix flake check
 
 git add .

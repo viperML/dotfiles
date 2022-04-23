@@ -44,8 +44,6 @@ in
           docker
           printing
           gaming
-          # vfio
-          netboot
           ld
           index
           flatpak

@@ -7,9 +7,6 @@ import toml
 
 DRY = os.environ.get("DRY", False)
 
-# Load from flatpaks.toml
-# path = "modules/home-manager/flatpak/required.toml"
-
 # Get the config file path as an argument
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="Path to the config file")
@@ -75,8 +72,8 @@ for remote_missing in remotes_required:
 
 
 class App:
-    def __init__(self, id: str, origin: str, remotes: list[Remote]):
-        self.id = id
+    def __init__(self, ref: str, origin: str, remotes: list[Remote]):
+        self.ref = ref
         # Check if origin is in a remote
         if any(r.name == origin for r in remotes):
             self.origin = origin
@@ -86,16 +83,16 @@ class App:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, App):
             return False
-        return self.id == other.id and self.origin == other.origin
+        return self.ref == other.ref and self.origin == other.origin
 
     def install(self) -> None:
-        cmd = f"flatpak install --noninteractive --user {self.origin} {self.id}"
+        cmd = f"flatpak install --noninteractive --user {self.origin} {self.ref}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
 
     def uninstall(self) -> None:
-        cmd = f"flatpak uninstall --noninteractive --user {self.id}"
+        cmd = f"flatpak uninstall --noninteractive --user {self.ref}"
         print(f"$ {cmd}")
         if not DRY:
             subprocess.run(cmd, shell=True)
@@ -103,13 +100,13 @@ class App:
 
 apps_required = list()
 for a in input["apps"]:
-    apps_required.append(App(a["id"], a["origin"], remotes_required))
+    apps_required.append(App(a["ref"], a["origin"], remotes_required))
 
 
 def get_apps(remotes: list[Remote]) -> list[App]:
     result = list()
     output = subprocess.check_output(
-        "flatpak list --user --app --columns=application,origin", shell=True
+        "flatpak list --user --app --columns=ref,origin", shell=True
     ).decode()
     for line in output.split("\n"):
         if line:
@@ -122,12 +119,12 @@ apps_current = get_apps(remotes_current)
 
 for app_unrequired in apps_current:
     if app_unrequired not in apps_required:
-        print(f"Uninstalling app {app_unrequired.id}")
+        print(f"Uninstalling app {app_unrequired.ref}")
         app_unrequired.uninstall()
 
 for app_missing in apps_required:
     if app_missing not in apps_current:
-        print(f"Installing app {app_missing.id}")
+        print(f"Installing app {app_missing.ref}")
         app_missing.install()
 
 cmd = "flatpak uninstall --noninteractive --user --unused"

@@ -13,6 +13,7 @@
     inherit (builtins) mapAttrs readDir;
     inherit (nixpkgs.lib) attrValues genAttrs;
     inherit (self.lib) exportModulesDir;
+    genSystems = genAttrs supportedSystems;
   in {
     lib = import ./lib nixpkgs.lib;
     nixosModules = exportModulesDir ./modules/nixos;
@@ -20,9 +21,9 @@
     specialisations = import ./specialisations self;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
 
-    legacyPackages = genAttrs supportedSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
+    legacyPackages = genSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 
-    packages = genAttrs supportedSystems (
+    packages = genSystems (
       system:
         import ./packages inputs.nixpkgs-unfree.legacyPackages.${system}
         # Packages to build and cache in CI
@@ -38,34 +39,9 @@
         }
     );
 
-    devShells = genAttrs supportedSystems (system:
-      with self.legacyPackages.${system}; {
-        default = let
-          pyEnv = python3.withPackages (p:
-            with p; [
-              grip
-              black
-              flake8
-              mypy
-              types-toml
-              #
-              url-normalize
-            ]);
-        in
-          mkShell {
-            name = "dotfiles-basic-shell";
-            packages = [
-              pyEnv
-            ];
-            shellHook = ''
-              ln -sf $PWD/bin/pre-commit.sh .git/hooks/pre-commit
-              mkdir -p .venv
-              # Vscode is dumb
-              ln -sf ${pyEnv}/bin .venv/
-            '';
-            DRY = "1";
-          };
-      });
+    devShells = genSystems (system: {
+      default = import ./shell.nix {pkgs = self.legacyPackages.${system};};
+    });
   };
 
   inputs = {

@@ -29,6 +29,7 @@ in {
         Unit.Description = "Install and remove flatpaks to match the required packages";
         Service.ExecStart = "${autoinstallChecked} ${./required.toml}";
         Install.WantedBy = ["default.target"];
+        Unit.After = ["flatpak-session-helper.service"];
       };
       flatpak-update = {
         Unit.Description = "Update all flatpaks";
