@@ -56,7 +56,10 @@ jobs:
           --inputs-from .
           -o result
           .#neovim
+    # https://github.com/actions/upload-artifact/issues/92
+    - run: echo "UPLOAD_PATH=$(readlink -f result)" >> $GITHUB_ENV
+      name: Dereference artifact
     - name: Push artifacts
       uses: actions/upload-artifact@v3
       with:
-        path: result/*
+        path: ${{ env.UPLOAD_PATH }}/*
