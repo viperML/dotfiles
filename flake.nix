@@ -36,6 +36,8 @@
               '';
           });
           inherit (inputs.nh.packages.${system}) nh;
+          inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
+          devShell = self.devShells.${system}.default.inputDerivation;
         }
     );
 
