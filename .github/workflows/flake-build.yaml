@@ -9,6 +9,8 @@ jobs:
   check_flake:
     runs-on: ubuntu-latest
     steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - name: Flake check
       run: nix flake check
@@ -19,6 +21,8 @@ jobs:
       packages: ${{ steps.gen_packages.outputs.packages }}
       checks: ${{ steps.gen_checks.outputs.checks }}
     steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - name: Generate flake.json
       run: |
@@ -41,6 +45,8 @@ jobs:
       matrix:
         package: ${{fromJson(needs.generate_matrix.outputs.packages)}}
     steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - name: Build everything
       run: nix build .#${{ matrix.package }}
@@ -52,6 +58,8 @@ jobs:
     outputs:
       bundle_neovim: ${{ steps.compare_drvPath.outputs.bundle_neovim }}
     steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - name: Eval new neovim.drvPath
       run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
@@ -77,6 +85,8 @@ jobs:
     needs: [check_neovim_hash]
     if: needs.check_neovim_hash.outputs.bundle_neovim == 'true'
     steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - name: Run neovim-bundle.yaml
       run: gh workflow run --repo viperML/dotfiles neovim-bundle.yaml --ref master
