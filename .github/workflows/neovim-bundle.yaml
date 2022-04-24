@@ -51,10 +51,10 @@ jobs:
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
     - name: Build neovim
       run:
-        nix bundle \
-          --bundler github:NixOS/bundlers#bundlers.x86_64-linux.${{ matrix.bundler }} \
-          --inputs-from . \
-          -o result \
+        nix bundle
+          --bundler github:NixOS/bundlers#bundlers.x86_64-linux.${{ matrix.bundler }}
+          --inputs-from .
+          -o result
           .#neovim
     - name: Push artifacts
       uses: actions/upload-artifact@v3
