@@ -92,7 +92,7 @@ jobs:
         workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json databaseId | jq ".[0] | .databaseId")
         rm -f outPath
         gh run --repo viperML/dotfiles download $workflow_run -n outPath
-        echo "OUTPATH_NEW=$(cat outPath)" >> $GITHUB_ENV
+        echo "OUTPATH_OLD=$(cat outPath)" >> $GITHUB_ENV
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
     - name: Compare the outPath and set the exit status
