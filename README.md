@@ -2,14 +2,11 @@
 
 
 <p align="center">
-  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-check.yaml">
-  <img alt="check" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20check?label=flake%20check">
+  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-build.yaml">
+  <img alt="check" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/flake-build?label=flake%20build">
   </a>
-  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-cache.yaml">
-  <img alt="cache" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/Flake%20cache?label=flake%20cache">
-  </a>
-  <a href="https://github.com/kamadorueda/alejandra">
-  <img alt="style: Alejandra" src="https://img.shields.io/badge/code%20style-Alejandra-green.svg">
+  <a href="https://github.com/viperML/dotfiles/actions/workflows/neovim-bundle.yaml">
+  <img alt="cache" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/neovim-bundle?label=neovim%20bundle">
   </a>
 </p>
 
@@ -90,4 +87,4 @@ To run it:
 nix run github:viperML/dotfiles#neovim -- /path/to/file
 ```
 
-I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/actions/workflows/g-neovim-release.yaml)
+I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/actions/workflows/neovim-bundle.yaml)
