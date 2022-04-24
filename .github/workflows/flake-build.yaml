@@ -11,7 +11,8 @@ jobs:
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
-    - uses: ./.github/actions/setup
+    - name: Install nix
+      uses: ./.github/actions/install-nix
     - name: Flake check
       run: nix flake check
 
@@ -23,7 +24,14 @@ jobs:
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
-    - uses: ./.github/actions/setup
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Set up cachix
+      uses: cachix/cachix-action@master
+      with:
+        name: viperml
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        pathsToPush: result
     - name: Generate flake.json
       run: |
         nix flake show --json > flake.json
@@ -47,7 +55,14 @@ jobs:
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
-    - uses: ./.github/actions/setup
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Set up cachix
+      uses: cachix/cachix-action@master
+      with:
+        name: viperml
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        pathsToPush: result
     - name: Build everything
       run: nix build .#${{ matrix.package }}
 
@@ -60,7 +75,14 @@ jobs:
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
-    - uses: ./.github/actions/setup
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Set up cachix
+      uses: cachix/cachix-action@master
+      with:
+        name: viperml
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        pathsToPush: result
     - name: Eval new neovim.drvPath
       run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
     - name: Fetch old neovim.drvPath
@@ -87,7 +109,8 @@ jobs:
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
-    - uses: ./.github/actions/setup
+    - name: Install nix
+      uses: ./.github/actions/install-nix
     - name: Run neovim-bundle.yaml
       run: gh workflow run --repo viperML/dotfiles neovim-bundle.yaml --ref master
       env:
