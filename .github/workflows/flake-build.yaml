@@ -9,19 +9,7 @@ jobs:
   check_flake:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: cachix/install-nix-action@v17
-      with:
-        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
-        extra_nix_config: |
-          auto-optimise-store = true
-          experimental-features = nix-command flakes
-          extra-substituters = https://viperml.cachix.org
-          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-          extra-substituters = https://nix-community.cachix.org
-          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+    - uses: ./.github/actions/setup
     - name: Flake check
       run: nix flake check
 
@@ -31,19 +19,7 @@ jobs:
       packages: ${{ steps.gen_packages.outputs.packages }}
       checks: ${{ steps.gen_checks.outputs.checks }}
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: cachix/install-nix-action@v17
-      with:
-        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
-        extra_nix_config: |
-          auto-optimise-store = true
-          experimental-features = nix-command flakes
-          extra-substituters = https://viperml.cachix.org
-          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-          extra-substituters = https://nix-community.cachix.org
-          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+    - uses: ./.github/actions/setup
     - name: Generate flake.json
       run: |
         nix flake show --json > flake.json
@@ -65,25 +41,7 @@ jobs:
       matrix:
         package: ${{fromJson(needs.generate_matrix.outputs.packages)}}
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: cachix/install-nix-action@v17
-      with:
-        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
-        extra_nix_config: |
-          auto-optimise-store = true
-          experimental-features = nix-command flakes
-          extra-substituters = https://viperml.cachix.org
-          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-          extra-substituters = https://nix-community.cachix.org
-          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
-    - name: Set up cachix
-      uses: cachix/cachix-action@master # pathsToPush, please update once we have v11!
-      with:
-        name: viperml
-        signingKey: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-        pathsToPush: result
+    - uses: ./.github/actions/setup
     - name: Build everything
       run: nix build .#${{ matrix.package }}
 
@@ -94,19 +52,7 @@ jobs:
     outputs:
       bundle_neovim: ${{ steps.compare_drvPath.outputs.bundle_neovim }}
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: cachix/install-nix-action@v17
-      with:
-        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
-        extra_nix_config: |
-          auto-optimise-store = true
-          experimental-features = nix-command flakes
-          extra-substituters = https://viperml.cachix.org
-          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-          extra-substituters = https://nix-community.cachix.org
-          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+    - uses: ./.github/actions/setup
     - name: Eval new neovim.drvPath
       run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
     - name: Fetch old neovim.drvPath
@@ -131,6 +77,7 @@ jobs:
     needs: [check_neovim_hash]
     if: needs.check_neovim_hash.outputs.bundle_neovim == 'true'
     steps:
+    - uses: ./.github/actions/setup
     - name: Run neovim-bundle.yaml
       run: gh workflow run --repo viperML/dotfiles neovim-bundle.yaml --ref master
       env:
