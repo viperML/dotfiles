@@ -6,11 +6,6 @@ on:
 jobs:
   push_outPath:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      max-parallel: 5
-      matrix:
-        package: ["toDEB", "toRPM"]
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
