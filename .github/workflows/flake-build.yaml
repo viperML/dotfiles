@@ -90,6 +90,7 @@ jobs:
     - name: Fetch old neovim.outPath
       run: |
         workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json databaseId | jq ".[0] | .databaseId")
+        rm -f outPath
         gh run --repo viperML/dotfiles download $workflow_run -n outPath
         echo "OUTPATH_NEW=$(cat outPath)" >> $GITHUB_ENV
       env:
