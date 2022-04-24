@@ -89,7 +89,7 @@ jobs:
       run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
     - name: Fetch old neovim.drvPath
       run: |
-        workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json databaseId | jq ".[0] | .databaseId")
+        workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json status,databaseId | jq '[.[] | select(.status == "completed")][0].databaseId')
         rm -f drvPath
         gh run --repo viperML/dotfiles download $workflow_run -n drvPath
         echo "DRVPATH_OLD=$(cat drvPath)" >> $GITHUB_ENV
