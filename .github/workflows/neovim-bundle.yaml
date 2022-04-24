@@ -4,7 +4,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  push_outPath:
+  push_drvPath:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
@@ -20,13 +20,13 @@ jobs:
           extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
           extra-substituters = https://nix-community.cachix.org
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
-    - name: Evaluate neovim's outPath
-      run: nix eval --raw .#neovim.outPath > outPath
-    - name: Push outPath
+    - name: Evaluate neovim's drvPath
+      run: nix eval --raw .#neovim.drvPath > drvPath
+    - name: Push drvPath
       uses: actions/upload-artifact@v3
       with:
-        name: outPath
-        path: outPath
+        name: drvPath
+        path: drvPath
 
   bundle:
     runs-on: ubuntu-latest

@@ -66,11 +66,11 @@ jobs:
 #       run: nix build .#${{ matrix.package }}
 
   # https://github.community/t/cancelling-rest-of-job-if-condition-is-met/18181
-  check_neovim_outPath:
+  check_neovim_hash:
     runs-on: ubuntu-latest
     needs: []
     outputs:
-      bundle_neovim: ${{ steps.compare_outPath.outputs.bundle_neovim }}
+      bundle_neovim: ${{ steps.compare_drvPath.outputs.bundle_neovim }}
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
@@ -85,29 +85,30 @@ jobs:
           extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
           extra-substituters = https://nix-community.cachix.org
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
-    - name: Eval new neovim.outPath
-      run: echo "OUTPATH_NEW=$(nix eval --raw .#neovim.outPath)" >> $GITHUB_ENV
-    - name: Fetch old neovim.outPath
+    - name: Eval new neovim.drvPath
+      run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
+    - name: Fetch old neovim.drvPath
       run: |
         workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json databaseId | jq ".[0] | .databaseId")
-        rm -f outPath
-        gh run --repo viperML/dotfiles download $workflow_run -n outPath
-        echo "OUTPATH_OLD=$(cat outPath)" >> $GITHUB_ENV
+        rm -f drvPath
+        gh run --repo viperML/dotfiles download $workflow_run -n drvPath
+        echo "DRVPATH_OLD=$(cat drvPath)" >> $GITHUB_ENV
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
-    - name: Compare the outPath and set the exit status
-      id: compare_outPath
+    - name: Compare the drvPath and set the exit status
+      id: compare_drvPath
       run: |
-        if [[ ${{ env.OUTPATH_NEW }} == ${{ env.OUTPATH_OLD }} ]]; then
-          echo "::set-output name=bundle_neovim::false"
+        if [[ ${{ env.DRVPATH_NEW }} == ${{ env.DRVPATH_OLD }} ]]; then
+          # FIXME
+          echo "::set-output name=bundle_neovim::true"
         else
           echo "::set-output name=bundle_neovim::true"
         fi
 
   request_neovim_action:
     runs-on: ubuntu-latest
-    needs: [check_neovim_outPath]
-    if: needs.check_neovim_outPath.outputs.bundle_neovim == 'true'
+    needs: [check_neovim_hash]
+    if: needs.check_neovim_hash.outputs.bundle_neovim == 'true'
     steps:
     - name: foo
       run: exit 1
