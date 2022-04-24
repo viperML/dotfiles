@@ -59,7 +59,10 @@ jobs:
     # https://github.com/actions/upload-artifact/issues/92
     - run: echo "UPLOAD_PATH=$(readlink -f result)" >> $GITHUB_ENV
       name: Dereference artifact
+    - name: Set artifact name
+      run: echo "ARTIFACT_NAME=$(ls result)" >> $GITHUB_ENV
     - name: Push artifacts
       uses: actions/upload-artifact@v3
       with:
+        name: ${{ env.ARTIFACT_NAME }}
         path: ${{ env.UPLOAD_PATH }}/*
