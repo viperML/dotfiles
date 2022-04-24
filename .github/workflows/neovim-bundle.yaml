@@ -52,7 +52,7 @@ jobs:
     - name: Build neovim
       run:
         nix bundle \
-          --bundler github:NixOS/bundlers#bundlers.x86_64-linux.{{ matrix.bundler }} \
+          --bundler github:NixOS/bundlers#bundlers.x86_64-linux.${{ matrix.bundler }} \
           --inputs-from . \
           -o result \
           .#neovim
