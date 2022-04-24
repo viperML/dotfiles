@@ -30,10 +30,10 @@ jobs:
       run: |
         packages=$(jq -c '.packages."x86_64-linux" | keys' < flake.json)
         printf "::set-output name=packages::%s" "$packages"
-    - id: gen_checks
-      run: |
-        checks=$(jq -c '.checks."x86_64-linux" | keys' < flake.json)
-        printf "::set-output name=checks::%s" "$checks"
+    # - id: gen_checks
+    #   run: |
+    #     checks=$(jq -c '.checks."x86_64-linux" | keys' < flake.json)
+    #     printf "::set-output name=checks::%s" "$checks"
 
   build_flake:
     runs-on: ubuntu-latest
