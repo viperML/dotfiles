@@ -17,5 +17,6 @@
 
     packages.nix-matlab.matlab
     packages.nix-matlab.matlab-shell
+    yuzu-ea
   ];
 }

@@ -1,0 +1,67 @@
+name: flake-build
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  generate_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.gen_packages.outputs.packages }}
+      checks: ${{ steps.gen_checks.outputs.checks }}
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: cachix/install-nix-action@v17
+      with:
+        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
+        extra_nix_config: |
+          auto-optimise-store = true
+          experimental-features = nix-command flakes
+          extra-substituters = https://viperml.cachix.org
+          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
+          extra-substituters = https://nix-community.cachix.org
+          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+    - name: Generate flake.json
+      run: |
+        nix flake show --json > flake.json
+    - id: gen_packages
+      run: |
+        packages=$(jq -c '.packages."x86_64-linux" | keys' < flake.json)
+        printf "::set-output name=packages::%s" "$packages"
+    - id: gen_checks
+      run: |
+        checks=$(jq -c '.checks."x86_64-linux" | keys' < flake.json)
+        printf "::set-output name=checks::%s" "$checks"
+
+  build_flake:
+    runs-on: ubuntu-latest
+    needs: [generate_matrix]
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        package: ${{fromJson(needs.generate_matrix.outputs.packages)}}
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: cachix/install-nix-action@v17
+      with:
+        install_url: https://releases.nixos.org/nix/nix-2.8.0/install
+        extra_nix_config: |
+          auto-optimise-store = true
+          experimental-features = nix-command flakes
+          extra-substituters = https://viperml.cachix.org
+          extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
+          extra-substituters = https://nix-community.cachix.org
+          extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+    - name: Set up cachix
+      uses: cachix/cachix-action@master # pathsToPush, please update once we have v11!
+      with:
+        name: viperml
+        signingKey: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        pathsToPush: result
+    - name: Build everything
+      run: nix build .#${{ matrix.package }}

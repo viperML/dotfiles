@@ -93,6 +93,9 @@ in {
     opengl.extraPackages = [
       pkgs.nvidia-vaapi-driver
     ];
+    bluetooth = {
+      enable = true;
+    };
   };
 
   ### ZFS

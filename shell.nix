@@ -25,6 +25,9 @@ with lib; let
     dot-format = ''
       ${fd}/bin/fd -e nix -E deps --exec-batch ${alejandra}/bin/alejandra {}
     '';
+    dot-clean = ''
+      git clean -xfe .envrc
+    '';
   };
 in
   pkgs.mkShell {
