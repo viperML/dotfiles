@@ -16,7 +16,8 @@ in {
     update-nix-fetchgit
     statix
     alejandra
-    packages.nh.nh
+    packages.self.nh
+    packages.self.deploy-rs
 
     # Misc utils
     android-tools
