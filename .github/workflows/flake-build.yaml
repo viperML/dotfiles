@@ -95,10 +95,6 @@ jobs:
     needs: [check_neovim_hash]
     if: needs.check_neovim_hash.outputs.bundle_neovim == 'true'
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: ./.github/actions/install-nix
     - name: Run neovim-bundle.yaml
       run: gh workflow run --repo viperML/dotfiles neovim-bundle.yaml --ref master
       env:
