@@ -24,10 +24,11 @@
   system.nixos.revision = lib.mkForce self.rev or null;
 
   documentation = {
+    enable = true;
     man.enable = true;
-    doc.enable = false;
+    doc.enable = true;
     info.enable = false;
-    nixos.enable = false;
+    nixos.enable = true;
   };
 
   nix.extraOptions = ''
