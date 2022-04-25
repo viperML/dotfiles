@@ -1,29 +1,45 @@
 {
-  wrapNeovim,
+  wrapNeovimUnstable,
   neovim-unwrapped,
+  neovimUtils,
   vimPlugins,
   vimUtils,
   formats,
   writeTextDir,
   fetchFromGitHub,
   lib,
+  # Runtime deps
+  git,
 }:
-wrapNeovim neovim-unwrapped {
+wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
+  inherit (neovim-unwrapped) version;
+  extraLuaPackages = luaPackages:
+    with luaPackages; [
+      # keep
+    ];
   withNodeJs = true;
   withPython3 = true;
-  configure.customRC = ''
+  extraPython3Packages = pythonPackages:
+    with pythonPackages; [
+      # keep
+    ];
+  customRC = ''
     " Vanilla configs
     ${lib.fileContents ./vanilla.vim}
 
     " Plugins configs
     ${lib.fileContents ./plugins.vim}
-
     let g:coc_config_home="${writeTextDir "coc" ((formats.json {}).generate "coc-settings.json" (import ./coc.nix))}"
 
     " Lua config
     :luafile ${./plugins.lua}
   '';
-  configure.packages.plugins = with vimPlugins; let
+
+  # No idea of how all of this is passed down
+  # https://github.com/NixOS/nixpkgs/blob/2ea2f7b6d0cb7ce0712f2aa80303cda08deb0de2/pkgs/applications/editors/vim/plugins/vim-utils.nix#L267
+  # configure === vimrcContent
+
+  configure.plug.plugins = with vimPlugins; let
     nvim-transparent = vimUtils.buildVimPlugin {
       pname = "nvim-transparent";
       version = "unstable-2022-04-13";
@@ -38,31 +54,26 @@ wrapNeovim neovim-unwrapped {
         homepage = "https://github.com/xiyaowong/nvim-transparent";
       };
     };
-  in {
-    start = [
-      # Theming
-      vim-one
-      nvim-web-devicons
-      gitsigns-nvim
-      bufferline-nvim
-      lualine-nvim
+  in [
+    # Theming
+    vim-one
+    nvim-web-devicons
+    gitsigns-nvim
+    bufferline-nvim
+    lualine-nvim
 
-      # Misc
-      vim-highlightedyank
-      indent-blankline-nvim
-      auto-pairs
-      nvim-comment
-      editorconfig-vim
-      nvim-transparent
+    # Misc
+    vim-highlightedyank
+    indent-blankline-nvim
+    auto-pairs
+    nvim-comment
+    editorconfig-vim
+    nvim-transparent
 
-      # Intelligent editor
-      nvim-lspconfig
-      vim-nix
-      coc-nvim
-      neoformat
-    ];
-    # Packages that might be lazy-loaded
-    # with :packadd <name>
-    opt = [];
-  };
-}
+    # Intelligent editor
+    nvim-lspconfig
+    vim-nix
+    coc-nvim
+    neoformat
+  ];
+})
