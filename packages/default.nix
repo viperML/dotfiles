@@ -1,11 +1,16 @@
 pkgs: inputs:
 with pkgs.lib;
 with builtins; let
+  inherit (pkgs) system;
+
   callPackageOverrides = {
     "libsForQt5" = pkgs.libsForQt5.callPackage;
   };
 
   overrides = {
+    nix-dram = {
+      nix-dram = inputs.nix-dram.packages.${system}.nix-dram;
+    };
   };
 
   folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));

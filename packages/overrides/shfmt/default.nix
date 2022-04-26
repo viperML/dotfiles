@@ -4,7 +4,6 @@
   makeWrapper,
 }:
 symlinkJoin {
-  __nocachix = true;
   inherit (shfmt) name;
   paths = [shfmt];
   buildInputs = [makeWrapper];
