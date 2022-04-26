@@ -5,7 +5,6 @@
 with lib; let
   pyEnv = pkgs.python3.withPackages (p:
     with p; [
-      grip
       black
       flake8
       mypy
@@ -29,6 +28,14 @@ with lib; let
       git clean -xfe .envrc
     '';
   };
+  pre-commit = pkgs.writeShellScript "pre-commit" ''
+    treefmt --config-file misc/treefmt.toml --tree-root .
+    nix flake check
+    # This adds every change automatically
+    # Can be considered an antipattern but I don't care,
+    # as I always stage everything
+    git add .
+  '';
 in
   pkgs.mkShell {
     name = "dotfiles-basic-shell";
@@ -44,12 +51,17 @@ in
       pkgs.shfmt
     ];
     shellHook = ''
+      ln -sf ${pre-commit} .git/pre-commit
+
       # Vscode is dumb
-      mkdir -p .venv
-      ln -sf ${pyEnv}/bin .venv/
+      if [[ ! -d .venv ]]; then
+        ln -sf ${pyEnv} .venv
+      fi
       echo ""
+
       echo "Available commands:"
       ${concatMapStringsSep "\n" (n: "echo '- ${n}'") (attrNames commands)}
+
       echo ""
     '';
     DRY = "1";

@@ -9,13 +9,13 @@
     patches = [
       rec {
         name = "168554";
-        url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
+        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
         sha256 = "sha256-t+2LgUdbKbpxtT1wax2PCmzwGFQLrHJOs1QbskNVqV4=";
         exclude = ["*/all-tests.nix"];
       }
       rec {
         name = "168269";
-        url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
+        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
         sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
         # exclude = ["*/all-tests.nix"];
       }
