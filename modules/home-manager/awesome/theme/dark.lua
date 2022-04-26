@@ -31,7 +31,6 @@ theme.taglist_fg_urgent = "#21202e"
 theme.tasklist_bg_normal = "#403d52"
 theme.tasklist_bg_focus = "#e0def4"
 
-
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 
 theme.layout_tile = themes_path .. "zenburn/layouts/tile.png"
@@ -70,7 +69,6 @@ theme.titlebar_maximized_button_focus_active = themes_path .. "zenburn/titlebar/
 theme.titlebar_maximized_button_normal_active = themes_path .. "zenburn/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_inactive = themes_path .. "zenburn/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = themes_path .. "zenburn/titlebar/maximized_normal_inactive.png"
-
 
 theme.icon_theme = nil
 -- }}}

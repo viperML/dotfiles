@@ -3,8 +3,8 @@ import json
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('file', type=Path)
-parser.add_argument('version', type=str)
+parser.add_argument("file", type=Path)
+parser.add_argument("version", type=str)
 
 args = parser.parse_args()
 

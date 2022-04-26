@@ -5,7 +5,7 @@
 }:
 symlinkJoin {
   __nocachix = true;
-  name = "stylua";
+  inherit (stylua) name;
   paths = [stylua];
   buildInputs = [makeWrapper];
   postBuild = ''

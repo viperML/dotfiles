@@ -48,7 +48,7 @@ theme.titlebar_sticky_button_focus_inactive = btn_dir .. "pin1.svg"
 theme.titlebar_sticky_button_focus_inactive_hover = btn_dir .. "pin2.svg"
 theme.titlebar_sticky_button_focus_inactive_press = btn_dir .. "pin3.svg"
 
-theme.awesome_icon           = res .. "awesome.png"
+theme.awesome_icon = res .. "awesome.png"
 
 -- Custom
 theme.titlebar_height = dpi(35)
@@ -73,10 +73,10 @@ theme.tag_preview_widget_border_color = "#ffffff" -- The border color of the wid
 theme.tag_preview_widget_border_width = 0 -- The border width of the widget
 theme.tag_preview_widget_margin = dpi(5) -- The margin of the widget
 
-theme.task_preview_widget_border_radius = dpi(5)        -- Border radius of the widget (With AA)
-theme.task_preview_widget_bg = "#000000"           -- The bg color of the widget
+theme.task_preview_widget_border_radius = dpi(5) -- Border radius of the widget (With AA)
+theme.task_preview_widget_bg = "#000000" -- The bg color of the widget
 theme.task_preview_widget_border_color = "#ffffff" -- The border color of the widget
-theme.task_preview_widget_border_width = 0         -- The border width of the widget
-theme.task_preview_widget_margin = dpi(5)               -- The margin of the widget
+theme.task_preview_widget_border_width = 0 -- The border width of the widget
+theme.task_preview_widget_margin = dpi(5) -- The margin of the widget
 
 return theme

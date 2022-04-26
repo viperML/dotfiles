@@ -42,7 +42,9 @@
     );
 
     devShells = genSystems (system: {
-      default = import ./shell.nix {pkgs = self.legacyPackages.${system};};
+      default = import ./shell.nix {
+        pkgs = self.legacyPackages.${system} // self.packages.${system};
+      };
     });
   };
 

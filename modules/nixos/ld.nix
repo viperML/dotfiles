@@ -10,6 +10,9 @@
       openssl
       curl
       glib
+      # appimages
+      zlib
+      fuse
     ];
     graphical = [
       freetype

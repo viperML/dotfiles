@@ -46,7 +46,7 @@ ruled.client.connect_signal("request::rules", function()
         ".exe",
         "qemu-system-x86_64",
         "Blueman-manager",
-        "Nitrogen"
+        "Nitrogen",
       },
       -- Note that the name property shown in xprop might be set slightly after creation of the client
       -- and the name shown there might not match defined rules here.

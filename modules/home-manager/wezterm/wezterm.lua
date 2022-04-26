@@ -108,12 +108,12 @@ else
 end
 
 local shell = "fish"
-if os.getenv("HOME") then
-    cmd = {shell}
-    font_size = 11
+if os.getenv "HOME" then
+  cmd = { shell }
+  font_size = 11
 else
-    cmd = {"wsl", "-d", "NixOS", shell}
-    font_size = 12
+  cmd = { "wsl", "-d", "NixOS", shell }
+  font_size = 12
 end
 
 return {
@@ -137,5 +137,5 @@ return {
   enable_wayland = false,
   window_close_confirmation = "NeverPrompt",
   check_for_updates = false,
-  default_cursor_style = "SteadyBar";
+  default_cursor_style = "SteadyBar",
 }

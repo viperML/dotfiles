@@ -6,10 +6,10 @@
 
   nixpkgs-src = self.lib.patch-nixpkgs {
     nixpkgs = inputs.nixpkgs;
-    PRS = [
+    patches = [
       rec {
-        PR = "168269";
-        url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
+        name = "168269";
+        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
         sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
         exclude = [];
       }
@@ -30,7 +30,7 @@ in
       "base" = {
         nixosModules = with self.nixosModules; [
           ./configuration.nix
-          # ./systemd-boot.nix
+          ./systemd-initrd.nix
           common
           mainUser-ayats
 

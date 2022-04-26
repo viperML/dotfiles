@@ -22,7 +22,6 @@ require("bufferline").setup {
 -- require("lspconfig").rnix.setup{}
 require("gitsigns").setup {}
 
-
 vim.opt.list = true
 require("indent_blankline").setup {
   --space_char_blankline = " ",
@@ -39,4 +38,4 @@ require("lualine").setup {
 }
 
 -- LSP
-require'lspconfig'.rnix.setup{}
+require("lspconfig").rnix.setup {}

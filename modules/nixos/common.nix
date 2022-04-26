@@ -31,7 +31,8 @@
     # Whether to install documentation distributed in packages' /share/doc. Usually plain text and/or HTML. This also includes "doc" outputs.
     doc.enable = false;
     # Installs man and doc pages if they are enabled
-    nixos.enable = true;
+    # Takes too much time and are not cached
+    nixos.enable = false;
     # crap
     info.enable = false;
   };

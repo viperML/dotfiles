@@ -22,9 +22,12 @@ local menu_system = {
 
 C.menu = freedesktop.menu.build {
   before = {
-    { "Change wallpaper", function()
-      awful.spawn("nitrogen")
-    end},
+    {
+      "Change wallpaper",
+      function()
+        awful.spawn "nitrogen"
+      end,
+    },
     { "System", menu_system },
   },
   after = {},

@@ -26,6 +26,5 @@ require "rc.rules"
 require "rc.keybinds"
 require "rc.signals"
 
-
 require "ui.bar"
 require "ui.title"

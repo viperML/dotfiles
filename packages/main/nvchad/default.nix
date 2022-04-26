@@ -18,18 +18,7 @@
     sha256 = "sha256-RA+cGCRqleXZK4T55gsk0so1UEO+ImALNEcEPafe490=";
   };
 
-  # Make neovim write stuff to .local/share, instead of .config/nvim
-  neovim-unwrapped-fixed = symlinkJoin {
-    name = with neovim-unwrapped; "${pname}-fixed-${version}";
-    paths = [neovim-unwrapped];
-    buildInputs = [makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/nvim \
-        --set XDG_CONFIG_HOME \$HOME/.local/share/nvchad
-    '';
-  };
-in
-  wrapNeovimUnstable neovim-unwrapped-fixed (neovimUtils.makeNeovimConfig {
+  neovim-wrapped = wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
     extraLuaPackages = luaPackages:
       with luaPackages; [
         # keep
@@ -44,4 +33,17 @@ in
       set rtp+=${nvchad-src}
       :luafile ${nvchad-src}/init.lua
     '';
-  })
+  });
+in
+  symlinkJoin {
+    name = "nvchad-${neovim-unwrapped.version}";
+    paths = [neovim-wrapped];
+    buildInputs = [makeWrapper];
+    postBuild = ''
+      mv $out/bin/nvim $out/bin/.nvim-wrapped
+      makeWrapper $out/bin/.nvim-wrapped \
+        $out/bin/nvchad \
+        --set XDG_CONFIG_HOME \$HOME/.local/share/nvchad
+      rm $out/bin/nvim*
+    '';
+  }

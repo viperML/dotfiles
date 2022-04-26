@@ -14,7 +14,6 @@ client.connect_signal("request::titlebars", function(c)
     end),
   }
 
-
   awful.titlebar(c, {
     size = beautiful.titlebar_height,
     position = "top",
@@ -27,7 +26,7 @@ client.connect_signal("request::titlebars", function(c)
         -- awful.titlebar.widget.minimizebutton(c),
         awful.titlebar.widget.stickybutton(c),
         layout = wibox.layout.fixed.horizontal,
-        spacing =  beautiful.titlebar_icons_margin_internal,
+        spacing = beautiful.titlebar_icons_margin_internal,
       },
       widget = wibox.container.margin,
       -- TODO move to beautiful

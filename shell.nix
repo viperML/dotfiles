@@ -35,11 +35,17 @@ in
     packages = [
       pyEnv
       (attrValues (mapAttrs (name: value: pkgs.writeShellScriptBin name value) commands))
+
+      # Formatting
+      pkgs.treefmt
+      pkgs.alejandra
+      pkgs.black
+      pkgs.stylua
+      pkgs.shfmt
     ];
     shellHook = ''
-      ln -sf $PWD/bin/pre-commit.sh .git/hooks/pre-commit
-      mkdir -p .venv
       # Vscode is dumb
+      mkdir -p .venv
       ln -sf ${pyEnv}/bin .venv/
       echo ""
       echo "Available commands:"

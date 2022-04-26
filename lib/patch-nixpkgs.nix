@@ -1,10 +1,10 @@
 {
   # Nixpkgs source to patch
   nixpkgs,
-  PRS ? [
+  patches ? [
     # rec {
-    #   PR = "168554";
-    #   url = "https://github.com/NixOS/nixpkgs/pull/${PR}.patch";
+    #   name = "168554";
+    #   url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
     #   sha256 = "sha256-t+2LgUdbKbpxtT1wax2PCmzwGFQLrHJOs1QbskNVqV4=";
     #   exclude = ["*/all-tests.nix"];
     # }
@@ -12,20 +12,19 @@
   # pkgs to use for intermediate steps
   pkgs,
 }:
-with pkgs;
+with pkgs; let
+  patches-with-exclusions = map (p: let
+    patch = fetchpatch {
+      inherit (p) name sha256 url;
+    };
+  in
+    runCommandNoCC "${p.name}-patched" {} ''
+      ${patchutils}/bin/filterdiff ${lib.concatMapStringsSep " " (y: "-x '${y}'") (p.exclude or [])} ${patch} > $out
+    '')
+  patches;
+in
   applyPatches {
-    name = ''nixpkgs-${lib.concatMapStringsSep "-" (y: y.PR) PRS}'';
+    name = ''nixpkgs-${lib.concatMapStringsSep "-" (p: p.name) patches}'';
     src = nixpkgs;
-    patches = map (x: let
-      patch = fetchpatch {
-        name = x.PR;
-        # url = "https://github.com/NixOS/nixpkgs/pull/${x.PR}.patch";
-        inherit (x) sha256 url;
-      };
-      patched-patch = runCommandNoCC "${x.PR}-patched" {} ''
-        ${patchutils}/bin/filterdiff ${lib.concatMapStringsSep " " (y: "-x '${y}'") (x.exclude or [])} ${patch} > $out
-      '';
-    in
-      patched-patch)
-    PRS;
+    patches = patches-with-exclusions;
   }

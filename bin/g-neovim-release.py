@@ -37,9 +37,7 @@ def bundle(bundler: str):
 bundle(bundler="toRPM")
 bundle(bundler="toDEB")
 
-drvPath = subprocess.check_output(
-    "nix eval --raw .#neovim.drvPath".split(" ")
-).decode()
+drvPath = subprocess.check_output("nix eval --raw .#neovim.drvPath".split(" ")).decode()
 print(f"{drvPath = }")
 with open(Path("results/drvPath"), "w") as f:
     f.write(drvPath)
