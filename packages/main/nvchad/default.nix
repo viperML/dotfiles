@@ -20,7 +20,7 @@
 
   # Make neovim write stuff to .local/share, instead of .config/nvim
   neovim-unwrapped-fixed = symlinkJoin {
-    name = "neovim-unwrapped-fixed";
+    name = with neovim-unwrapped; "${pname}-fixed-${version}";
     paths = [neovim-unwrapped];
     buildInputs = [makeWrapper];
     postBuild = ''
