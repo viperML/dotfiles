@@ -1,4 +1,4 @@
-pkgs:
+pkgs: inputs:
 with pkgs.lib;
 with builtins; let
   callPackageOverrides = {
@@ -6,7 +6,6 @@ with builtins; let
   };
 
   overrides = {
-    # keep
   };
 
   folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));

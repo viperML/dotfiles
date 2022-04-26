@@ -25,7 +25,7 @@
 
     packages = genSystems (
       system:
-        import ./packages inputs.nixpkgs-unfree.legacyPackages.${system}
+        import ./packages inputs.nixpkgs-unfree.legacyPackages.${system} inputs
         # Packages to build and cache in CI
         // {
           nix-dram = inputs.nix-dram.packages.${system}.nix-dram.overrideAttrs (prev: {

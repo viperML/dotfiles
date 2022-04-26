@@ -24,11 +24,16 @@
   system.nixos.revision = lib.mkForce self.rev or null;
 
   documentation = {
+    # Whether to install documentation of packages from environment.systemPackages into the generated system path. See "Multiple-output packages" chapter in the nixpkgs manual for more info.
     enable = true;
+    # Whether to install manual pages and the man command. This also includes "man" outputs.
     man.enable = true;
-    doc.enable = true;
-    info.enable = false;
+    # Whether to install documentation distributed in packages' /share/doc. Usually plain text and/or HTML. This also includes "doc" outputs.
+    doc.enable = false;
+    # Installs man and doc pages if they are enabled
     nixos.enable = true;
+    # crap
+    info.enable = false;
   };
 
   nix.extraOptions = ''
