@@ -9,6 +9,7 @@ with lib; let
       flake8
       mypy
       types-toml
+      requests
       #
     ]);
   commands = with pkgs; {
@@ -51,7 +52,8 @@ in
       pkgs.shfmt
     ];
     shellHook = ''
-      ln -sf ${pre-commit} .git/pre-commit
+      mkdir -p .git/hooks
+      ln -sf ${pre-commit} .git/hooks/pre-commit
 
       # Vscode is dumb
       if [[ ! -d .venv ]]; then

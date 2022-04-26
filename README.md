@@ -44,6 +44,7 @@ Other configurations from where I learned and copied:
 - [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
 - [colemickens/nixcfg](https://github.com/colemickens/nixcfg)
 - [nuxshed/dotfiles](https://github.com/nuxshed)
+- [NobbZ/nixos-config](https://github.com/NobbZ/nixos-config)
 
 
 # 📦 Exported packages
