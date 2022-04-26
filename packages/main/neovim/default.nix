@@ -8,11 +8,8 @@
   writeTextDir,
   fetchFromGitHub,
   lib,
-  # Runtime deps
-  git,
 }:
 wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
-  inherit (neovim-unwrapped) version;
   extraLuaPackages = luaPackages:
     with luaPackages; [
       # keep
