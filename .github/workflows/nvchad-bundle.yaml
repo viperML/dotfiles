@@ -3,6 +3,7 @@ name: nvchad-bundle
 on:
   workflow_dispatch:
 
+jobs:
   bundle:
     runs-on: ubuntu-latest
     strategy:
