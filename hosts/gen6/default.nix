@@ -30,7 +30,6 @@ in
       "base" = {
         nixosModules = with self.nixosModules; [
           ./configuration.nix
-          ./systemd-initrd.nix
           common
           mainUser-ayats
 
@@ -41,12 +40,13 @@ in
           dram
 
           virt
-          docker
+          # docker
           printing
           gaming
           ld
           index
           flatpak
+          podman
         ];
         homeModules = with self.homeModules; [
           ./home.nix

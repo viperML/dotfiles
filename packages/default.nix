@@ -9,7 +9,7 @@ with builtins; let
 
   overrides = {
     nix-dram = {
-      nix-dram = inputs.nix-dram.packages.${system}.nix-dram;
+      inherit (inputs.nix-dram.packages.${system}) nix-dram;
     };
   };
 

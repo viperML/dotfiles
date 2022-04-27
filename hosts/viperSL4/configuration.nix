@@ -37,30 +37,6 @@ in {
     docker.enable = false;
   };
 
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
-  systemd.user = {
-    services.podman.serviceConfig.ExecStart = [
-      ""
-      "${pkgs.podman}/bin/podman $LOGGING system service"
-    ];
-    sockets.podman = {
-      enable = true;
-      wantedBy = ["sockets.target"];
-    };
-  };
-
-  environment.etc."containers/registries.conf".text = lib.mkForce ''
-    unqualified-search-registries = ['docker.io']
-
-    [[registry]]
-    prefix="docker.io"
-    location="mirror.gcr.io"
-  '';
-
   # Not using /tmp on tmpfs
   boot.cleanTmpDir = true;
 }

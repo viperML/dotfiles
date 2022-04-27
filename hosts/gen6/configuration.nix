@@ -56,6 +56,7 @@ in {
       editor = true;
       configurationLimit = 10;
       consoleMode = "max";
+      netbootxyz.enable = true;
     };
 
     loader.efi = {
@@ -113,10 +114,6 @@ in {
   swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
 
   fileSystems = {
-    # "/" = {
-    #   device = "zroot/gen6/nixos";
-    #   fsType = "zfs";
-    # };
     "/" = {
       fsType = "tmpfs";
       device = "none";
@@ -135,11 +132,6 @@ in {
       fsType = "zfs";
       neededForBoot = true;
     };
-    # "/home" = {
-    #   device = "zroot/data/home";
-    #   fsType = "zfs";
-    #   neededForBoot = true;
-    # };
     "/boot" = {
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
@@ -168,40 +160,6 @@ in {
     "/var/lib/libvirt/clean" = {
       device = "zroot/system/libvirt/clean";
       fsType = "zfs";
-    };
-    "/var/lib/docker" = {
-      device = "zroot/system/docker";
-      fsType = "zfs";
-    };
-    "/home/ayats/Music" = {
-      device = "zroot/ayats/music";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
-    };
-    "/home/ayats/Downloads" = {
-      device = "zroot/ayats/downloads";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
-    };
-    "/home/ayats/Pictures" = {
-      device = "zroot/ayats/pictures";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
-    };
-    "/home/ayats/Games" = {
-      device = "zroot/ayats/games";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
-    };
-    "/home/ayats/Videos" = {
-      device = "zroot/ayats/videos";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
-    };
-    "/home/ayats/Documents" = {
-      device = "zroot/ayats/documents";
-      fsType = "zfs";
-      options = ["x-gvfs-hide"];
     };
     "/home/ayats" = {
       device = "zroot/ayats/home";
@@ -318,7 +276,10 @@ in {
     ];
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
-  systemd.services.sshd.after = ["tailscaled.service"];
+  systemd.services.sshd = {
+    after = ["tailscaled.service"];
+    preStart = "${pkgs.coreutils}/bin/sleep 5";
+  };
 
   ## Unsorted
   security.tpm2 = {

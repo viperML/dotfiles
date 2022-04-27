@@ -19,6 +19,7 @@ self.lib.mkSystem rec {
       dram
       ld
       index
+      podman
     ];
     homeModules = with self.homeModules; [
       ./home.nix
