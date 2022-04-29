@@ -13,6 +13,17 @@
       # pull.ff = "only";
       # pull.rebase = "false";
       push.default = "simple";
+      core.excludesfile =
+        (pkgs.writeText "gitignore" ''
+          result
+          .direnv
+          *.qcow2
+          node_modules
+          .venv
+          *~
+          \#*\#
+        '')
+        .outPath;
     };
     delta = {
       enable = true;

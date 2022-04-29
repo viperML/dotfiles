@@ -15,6 +15,9 @@
 
     [[registry]]
     prefix="docker.io"
+    location="docker.io"
+
+    [[registry.mirror]]
     location="mirror.gcr.io"
   '';
 
