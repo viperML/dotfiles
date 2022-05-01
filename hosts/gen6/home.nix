@@ -4,7 +4,9 @@
   inputs,
   packages,
   ...
-}: {
+}: let
+  browser = "com.google.Chrome";
+in {
   home.packages = with pkgs; [
     mpv
     qbittorrent
@@ -18,5 +20,13 @@
     packages.nix-matlab.matlab
     packages.nix-matlab.matlab-shell
     yuzu-ea
+    (makeDesktopItem {
+      name = "Spotify";
+      desktopName = "Spotify";
+      exec = "${browser} --app=\"https://open.spotify.com\"";
+      icon = "spotify";
+      type = "Application";
+      categories = ["Network" "Audio"];
+    })
   ];
 }

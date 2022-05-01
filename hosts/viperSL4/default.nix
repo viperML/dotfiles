@@ -26,12 +26,8 @@ self.lib.mkSystem rec {
       common
       inputs.nixos-flakes.homeModules.channels-to-flakes
       git
-      bat
-      fish
-      lsd
-      neofetch
+      shell
       neovim
-      starship
     ];
   };
 }

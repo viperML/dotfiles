@@ -40,13 +40,12 @@ in
           dram
 
           virt
-          # docker
+          docker
           printing
           gaming
           ld
           index
           flatpak
-          podman
         ];
         homeModules = with self.homeModules; [
           ./home.nix
@@ -54,21 +53,11 @@ in
           inputs.nixos-flakes.homeModules.channels-to-flakes
           gui
           git
-          bat
-          fish
-          lsd
-          neofetch
+          shell
           neovim
           vscode
-          # firefox
-          starship
           wezterm
           nh
-          xonsh
-          # emacs
-          # wine
-          # inputs.nix-doom-emacs.hmModule
-          # emacs-doom
         ];
       };
       inherit

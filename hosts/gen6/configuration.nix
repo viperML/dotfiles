@@ -161,6 +161,10 @@ in {
       device = "zroot/system/libvirt/clean";
       fsType = "zfs";
     };
+    "/var/lib/docker" = {
+      device = "zroot/system/docker";
+      fsType = "zfs";
+    };
     "/home/ayats" = {
       device = "zroot/ayats/home";
       fsType = "zfs";
@@ -263,25 +267,10 @@ in {
   services.tailscale.enable = true;
   services.openssh = {
     enable = true;
-    openFirewall = true;
-    listenAddresses = [
-      {
-        addr = "100.113.242.22";
-        port = 22;
-      }
-      {
-        addr = "127.0.0.1";
-        port = 22;
-      }
-    ];
+    openFirewall = false;
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
-  systemd.services.sshd = {
-    after = ["tailscaled.service"];
-    preStart = "${pkgs.coreutils}/bin/sleep 5";
-  };
 
-  ## Unsorted
   security.tpm2 = {
     enable = true;
     abrmd.enable = true;

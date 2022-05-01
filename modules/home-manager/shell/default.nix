@@ -5,12 +5,23 @@
   packages,
   ...
 }: {
-  # home.sessionVariables.SHELL = lib.mkDefault "${pkgs.fish}/bin/fish";
+  home.sessionVariables.SHELL = "fish";
 
-  home.packages = [
-    pkgs.fzf
-    pkgs.exa
+  home.packages = with pkgs; [
+    fzf
+    exa
+    bat
+    packages.self.any-nix-shell
+    packages.self.neofetch
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = false;
+    config.whitelist.prefix = [
+      # config.home.homeDirectory
+    ];
+  };
 
   programs.fish = {
     enable = true;
@@ -22,24 +33,6 @@
       ${builtins.readFile ./pushd-mod.fish}
     '';
     plugins = [
-      # {
-      #   name = "done";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "franciscolourenco";
-      #     repo = "done";
-      #     rev = "d6abb267bb3fb7e987a9352bc43dcdb67bac9f06";
-      #     sha256 = "1h8v5jg9kkali50qq0jn0i1w68wp4c2l0fapnglnnpg0v4vv51za";
-      #   };
-      # }
-      # {
-      #   name = "autopair.fish";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "jorgebucaran";
-      #     repo = "autopair.fish";
-      #     rev = "1222311994a0730e53d8e922a759eeda815fcb62";
-      #     sha256 = "0lxfy17r087q1lhaz5rivnklb74ky448llniagkz8fy393d8k9cp";
-      #   };
-      # }
       {
         name = "fzf.fish";
         src = pkgs.fetchFromGitHub {
@@ -60,11 +53,8 @@
       }
     ];
   };
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = false;
-    config.whitelist.prefix = [
-      config.home.homeDirectory
-    ];
-  };
+
+  home.sessionVariables.MANPAGER = "sh -c 'col -bx | bat --paging=always -l man -p'";
+  xdg.configFile."bat/config".source = ./bat-config;
+  xdg.configFile."starship.toml".source = ./starship.toml;
 }

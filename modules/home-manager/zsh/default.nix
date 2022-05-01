@@ -1,37 +1,20 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   programs.zsh = {
     enable = true;
-    # enableAutosuggestions = true;
-    # enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
     dotDir = ".config/zsh";
 
     initExtra = ''
       eval "$(${pkgs.starship}/bin/starship init zsh)"
+      ${lib.fileContents ./init.zsh}
     '';
-
-    prezto = {
-      enable = true;
-      editor.keymap = "emacs";
-      utility.safeOps = true;
-      pmodules = [
-        "autosuggestions"
-        "command-not-found"
-        "completion"
-        "directory"
-        # "editor"
-        "environment"
-        "history"
-        # "prompt"
-        "syntax-highlighting"
-        "spectrum"
-        "terminal"
-        "utility"
-      ];
-    };
   };
 
   programs.direnv = {
