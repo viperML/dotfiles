@@ -3,10 +3,6 @@ function os_greeter
     set_color cyan
     echo (grep "PRETTY_NAME" /etc/os-release | sed 's/PRETTY_NAME=//g;s/"//g')
     set_color normal
-    # echo 'powered by'
-    # set_color brcyan
-    # echo ' Nix'
-    # set_color normal
 end
 
 set -g -x fish_greeting (os_greeter)
@@ -154,7 +150,11 @@ function set_colorscheme
     set fish_pager_color_description brblack
 end
 
-
 # Configure FZF keybinds
 # https://github.com/PatrickF1/fzf.fish
 fzf_configure_bindings --directory=\cf
+
+# Print newline after a command
+function postexec_test --on-event fish_postexec
+   echo
+end

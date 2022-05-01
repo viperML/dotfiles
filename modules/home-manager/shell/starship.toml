@@ -1,28 +1,31 @@
-# ~/.config/starship.toml
+"$schema" = 'https://starship.rs/config-schema.json'
 
-# Use custom format
-format = """$git_branch\
-$git_state\
-$git_status\
-$git_metrics\
-$python$custom$package
-$username$env_var
-[∆](bold) """
-# $directory\
-# $status\
-# $jobs\
-# $shlvl\
-# $cmd_duration
+format = """\
+(\\[ \
+$custom\
+$python\
+$package\
+$container\
+$terraform\
+\\]
+)\
+(\\[ $git_branch$git_state$git_status$git_metrics\\]
+)\
+(\\[ $username$hostname$status$cmd_duration$jobs\\]
+)\
+$env_var
+[\\$](bold) """
 
-# Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
-
-# Disable the blank line at the start of the prompt
 add_newline = false
 
 [username]
 show_always = false
-format = "[$user]($style) @ "
+format = "[$user@](fg:8)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](fg:8) "
 
 [directory]
 style = "bold blue"
@@ -39,67 +42,51 @@ format = " [$symbol$branch]($style) "
 symbol = ""
 
 [git_status]
-format = '([\[$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind \]]($style) )'
-conflicted = "="
-ahead =" ⇡$count"
-behind = " ⇣$count"
-diverged = " ⇕$count"
-up_to_date = ""
-untracked = " ?$count"
-stashed = " $$count"
-modified = " !$count"
-staged = " +$count"
-renamed = " »$count"
-deleted = " ✘$count"
-style = "bold cyan"
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+style       = "bold cyan"
+up_to_date  = ""
+conflicted  = "=$count "
+ahead       = "⇡$count "
+behind      = "⇣$count "
+diverged    = "⇕$count "
+untracked   = "?$count "
+stashed     = "$$count "
+modified    = "!$count "
+staged      = "+$count "
+renamed     = "»$count "
+deleted     = "✘$count "
 
 [git_metrics]
 disabled = false
-# format = """\[( [+$added]($added_style))( [-$deleted]($deleted_style)) \]
-format = """([+$added]($added_style) )([-$deleted]($deleted_style))
-"""
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
 [jobs]
 disabled = false
-format = """>>=  bg jobs: [$symbol$number]($style)
-"""
+format = " bg jobs: [$symbol$number]($style) "
 number_threshold = 1
 symbol = ""
-
 
 [python]
 format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
 symbol = " "
 
 [package]
-format = "[$symbol$version]($style)"
+format = "[$symbol$version]($style) "
 symbol = " "
 
 [cmd_duration]
 min_time = 60_000
 
-[shlvl]
-disabled = false
-format = '\[ $shlvl \]'
-
-
-[terraform]
-format = """>>= [$symbol$workspace]($style)
-"""
-symbol = "練 "
-
 [custom.dirstack]
 command = "echo $DIRSTACK"
-when = "set -q DIRSTACK"
+when = """test -n "$DIRSTACK" """
 style = "fg:8"
 symbol = " "
-format = """>>= [$symbol($output)]($style)
-"""
+format = "[$symbol($output)]($style) "
 
 [status]
 disabled = false
-format = """>>= [$symbol $status $common_meaning]($style)
-"""
+format = "[(✖ $status $common_meaning )](bold red)"
 
 [env_var.directory]
 variable = "PWD"

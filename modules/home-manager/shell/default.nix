@@ -29,8 +29,8 @@
       ${pkgs.starship}/bin/starship init fish | source
       ${packages.self.any-nix-shell}/bin/any-nix-shell fish | source
 
-      ${builtins.readFile ./interactive.fish}
-      ${builtins.readFile ./pushd-mod.fish}
+      ${lib.fileContents ./interactive.fish}
+      ${lib.fileContents ./pushd-mod.fish}
     '';
     plugins = [
       {
@@ -40,15 +40,6 @@
           repo = "fzf.fish";
           rev = "8d877a973c1fa22f8bedd8b4cf70243ddcd983ac";
           sha256 = "1njxn9ldby5lsd4rvgxqs4qgfsw7xchbf6v971ls06cyxrnzflf0";
-        };
-      }
-      {
-        name = "foreign-env";
-        src = pkgs.fetchFromGitHub {
-          owner = "oh-my-fish";
-          repo = "plugin-foreign-env";
-          rev = "b3dd471bcc885b597c3922e4de836e06415e52dd";
-          sha256 = "13wdsvpazivlxk921ccqbk7gl6ya2md8f45rckbn8rn119ckf7fy";
         };
       }
     ];

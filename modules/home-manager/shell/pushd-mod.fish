@@ -1,4 +1,5 @@
-# clone of builtin pushd/popd, but integrates with starship
+# clone of builtin pushd/popd
+# But exposes $DIRSTACK env variable to use in starship
 
 function pushd --description 'Push directory to stack'
     set -l rot_r
