@@ -32,14 +32,23 @@
       ${lib.fileContents ./interactive.fish}
       ${lib.fileContents ./pushd-mod.fish}
     '';
-    plugins = [
+    plugins = with pkgs; [
       {
         name = "fzf.fish";
-        src = pkgs.fetchFromGitHub {
+        src = fetchFromGitHub {
           owner = "PatrickF1";
           repo = "fzf.fish";
-          rev = "8d877a973c1fa22f8bedd8b4cf70243ddcd983ac";
-          sha256 = "1njxn9ldby5lsd4rvgxqs4qgfsw7xchbf6v971ls06cyxrnzflf0";
+          rev = "fdc1f4043b1ff4da76bb7c0a6a4f19084e9213ef";
+          sha256 = "1m5gqnjmm0gm906mrhl54pwmjpqfbjims7zvjk4hyhyx45hi94m8";
+        };
+      }
+      {
+        name = "sponge";
+        src = fetchFromGitHub {
+          owner = "andreiborisov";
+          repo = "sponge";
+          rev = "0f3bf8f10b81b25d2b3bbb3d6ec86f77408c0908";
+          sha256 = "0vsi872c58z7zzdr0kzfsx49fi7241dakjdp6h1ff3wfzw2zsi0i";
         };
       }
     ];

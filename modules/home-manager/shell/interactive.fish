@@ -158,3 +158,5 @@ fzf_configure_bindings --directory=\cf
 function postexec_test --on-event fish_postexec
    echo
 end
+
+set sponge_regex_patterns '(?:\d{1,3}\.){3}\d{1,3}'
