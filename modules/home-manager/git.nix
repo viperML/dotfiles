@@ -22,6 +22,8 @@
           .venv
           *~
           \#*\#
+          .DS_Store
+          Thumbs.db
         '')
         .outPath;
     };
@@ -44,6 +46,7 @@
 
   home.packages = with pkgs; [
     git-extras
+    gibo
   ];
   home.sessionVariables.LESS = "-r";
 }

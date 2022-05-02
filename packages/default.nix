@@ -11,6 +11,9 @@ with builtins; let
     nix-dram = {
       inherit (inputs.nix-dram.packages.${system}) nix-dram;
     };
+    vshell = {
+      inherit (inputs.self.packages.${system}) any-nix-shell;
+    };
   };
 
   folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));

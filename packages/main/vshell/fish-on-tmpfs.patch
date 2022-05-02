@@ -1,0 +1,10 @@
+--- a/src/path.cpp
++++ b/src/path.cpp
+@@ -384,7 +384,7 @@ static const base_directory_t &get_data_directory() {
+ }
+
+ static const base_directory_t &get_config_directory() {
+-    static base_directory_t s_dir = make_base_directory(L"XDG_CONFIG_HOME", L"/.config/fish");
++    static base_directory_t s_dir = make_base_directory(L"XDG_RUNTIME_DIR", L"/.config/fish");
+     return s_dir;
+ }

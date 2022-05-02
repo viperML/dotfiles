@@ -1,11 +1,11 @@
-function os_greeter
-    echo 'Welcome to'
-    set_color cyan
-    echo (grep "PRETTY_NAME" /etc/os-release | sed 's/PRETTY_NAME=//g;s/"//g')
-    set_color normal
-end
+# function os_greeter
+#     echo 'Welcome to'
+#     set_color cyan
+#     echo (grep "PRETTY_NAME" /etc/os-release | sed 's/PRETTY_NAME=//g;s/"//g')
+#     set_color normal
+# end
+# set -g -x fish_greeting (os_greeter)
 
-set -g -x fish_greeting (os_greeter)
 
 # Bindings
 bind \cH backward-kill-path-component
@@ -39,7 +39,7 @@ abbr --add --global pd pushd
 abbr --add --global ss sudo systemctl
 abbr --add --global us systemctl --user
 abbr --add --global se sudo -E systemctl edit
-abbr --add --global sf sudo --preserve-env=PATH (which fish)
+# abbr --add --global sf sudo --preserve-env=PATH (which fish)
 
 # Gentoo abbreviations
 abbr --add --global eq equery
