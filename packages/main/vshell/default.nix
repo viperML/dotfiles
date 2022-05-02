@@ -79,13 +79,12 @@
 
 
       set --prepend fish_function_path ${fishPlugins.foreign-env}/share/fish/vendor_functions.d
-      set -e fish_function_path[1]
       ${any-nix-shell}/bin/any-nix-shell fish | source
       ${direnv}/bin/direnv hook fish | source
+      ${lib.concatMapStringsSep "\n" (init: "source ${init}") fishPluginsInits}
 
       status --is-interactive; and begin
         ${starship}/bin/starship init fish | source
-        ${lib.concatMapStringsSep "\n" (init: "source ${init}") fishPluginsInits}
         ${lib.fileContents ./interactive.fish}
         ${lib.fileContents ./pushd-mod.fish}
       end

@@ -5,7 +5,7 @@
 #     set_color normal
 # end
 # set -g -x fish_greeting (os_greeter)
-
+set fish_greeting
 
 # Bindings
 bind \cH backward-kill-path-component
@@ -114,7 +114,7 @@ abbr -a gr "cd (git-root)"
 
 switch $TERM
     case 'st-*' # suckless' simple terminal
-                # Enable keypad, do it once before fish_postexec ever fires
+        # Enable keypad, do it once before fish_postexec ever fires
         tput smkx
         function st_smkx --on-event fish_postexec
             tput smkx
@@ -150,13 +150,15 @@ function set_colorscheme
     set fish_pager_color_description brblack
 end
 
+set_colorscheme
+
 # Configure FZF keybinds
 # https://github.com/PatrickF1/fzf.fish
 fzf_configure_bindings --directory=\cf
 
 # Print newline after a command
 function postexec_test --on-event fish_postexec
-   echo
+    echo
 end
 
 set sponge_regex_patterns '(?:\d{1,3}\.){3}\d{1,3}'
