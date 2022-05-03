@@ -5,7 +5,6 @@ result
 .direnv
 *.qcow2
 source
-.envrc
 node_modules
 outputs
 build

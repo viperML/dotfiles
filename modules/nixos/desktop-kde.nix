@@ -18,7 +18,7 @@
 
   environment.systemPackages = lib.attrValues {
     inherit
-      (pkgs.libsForQt5)
+      (pkgs.plasma5Packages)
       bismuth
       plasma-pa
       ark
@@ -27,7 +27,9 @@
       filelight
       gwenview
       kcolorchooser
-      kwalletmanager
+      # kwalletmanager
+      
+      plasma-disks
       ;
     inherit
       (pkgs)
@@ -36,7 +38,6 @@
     inherit
       (packages.self)
       adw-gtk3
-      kwin-forceblur
       lightly
       lightlyshaders
       reversal-kde

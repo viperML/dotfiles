@@ -12,11 +12,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # Autostart
-    flameshot
-    # Misc
-    syncthing
-
     # Fonts
     (pkgs.nerdfonts.override {
       fonts = [
@@ -31,4 +26,9 @@
 
     roboto
   ];
+
+  services.syncthing = {
+    enable = true;
+    tray.enable = true;
+  };
 }

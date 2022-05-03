@@ -12,6 +12,7 @@ in {
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
+    direnv
     nix-prefetch-scripts
     update-nix-fetchgit
     statix

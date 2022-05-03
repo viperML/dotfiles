@@ -46,5 +46,13 @@
       Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
       Install.WantedBy = ["timers.target"];
     };
+    targets.tray = {
+      Unit = {
+        Description = "Current graphical tray";
+        BindsTo = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+      };
+    };
   };
 }

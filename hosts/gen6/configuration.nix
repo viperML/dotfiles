@@ -96,6 +96,10 @@ in {
     bluetooth = {
       enable = true;
     };
+    logitech = {
+      wireless.enable = true;
+      wireless.enableGraphical = true;
+    };
   };
 
   ### ZFS
@@ -106,6 +110,11 @@ in {
       pools = ["zroot"];
       interval = "weekly";
     };
+  };
+
+  services.smartd = {
+    enable = true;
+    notifications.x11.enable = true;
   };
 
   virtualisation.docker.storageDriver = "zfs";
