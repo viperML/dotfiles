@@ -21,8 +21,6 @@
         $out
     '';
 in {
-  home.sessionVariables.XDG_DATA_DIRS = ["${config.xdg.dataHome}/flatpak/exports/share"];
-
   systemd.user = {
     services = {
       flatpak-autoinstall = {
@@ -40,6 +38,15 @@ in {
           '')
           .outPath;
       };
+      #
+      # mailspring = {
+      #   Unit.Description = "Mailspring";
+      #   Service.Environment = "NO_AT_BRIDGE=1";
+      #   Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
+      #   Service.ExecStart = "${config.xdg.dataHome}/flatpak/exports/bin/com.getmailspring.Mailspring --background";
+      #   Unit.After = ["graphical-session.target"];
+      #   Install.WantedBy = ["xdg-desktop-autostart.target"];
+      # };
     };
     timers = {
       flatpak-update = {

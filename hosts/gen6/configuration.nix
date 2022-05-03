@@ -8,7 +8,6 @@
 }: let
   env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
-    # NIX_AUTO_RUN = "1";
   };
 in {
   viper = {

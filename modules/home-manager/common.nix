@@ -19,22 +19,19 @@ in {
     packages.self.nh
     packages.self.deploy-rs
 
+    # Editor support
+    rnix-lsp
+    packages.self.stylua
+
     # Misc utils
     android-tools
     appimage-run
-    choose
     dogdns
     fd
     htop
-    hwloc
     jless
     jq
-    lshw
-    nmap
-    pwgen
     ripgrep
-    packages.self.stylua
-    sysstat
     tealdeer
     unar
   ];

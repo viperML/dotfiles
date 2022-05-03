@@ -5,8 +5,4 @@
     keybindings = [];
     userSettings = {};
   };
-
-  home.packages = [
-    pkgs.rnix-lsp
-  ];
 }

@@ -62,7 +62,6 @@ in
       };
       inherit
         (self.specialisations)
-        gnome
         kde
         ;
     };

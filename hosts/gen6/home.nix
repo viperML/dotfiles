@@ -14,12 +14,10 @@ in {
     krita
     obs-studio
     packages.self.obsidian
-    streamlink
     ffmpeg-full
 
     packages.nix-matlab.matlab
     packages.nix-matlab.matlab-shell
-    yuzu-ea
     (makeDesktopItem {
       name = "Spotify";
       desktopName = "Spotify";

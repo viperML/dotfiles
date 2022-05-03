@@ -107,6 +107,7 @@
     fd
     fzf
     any-nix-shell
+    direnv
   ];
 in
   symlinkJoin {

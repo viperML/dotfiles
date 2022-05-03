@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  packages,
-  ...
-}: {
+{packages, ...}: {
   home.sessionVariables.EDITOR = "nvim";
 
   home.packages = [

@@ -13,19 +13,7 @@
       # pull.ff = "only";
       # pull.rebase = "false";
       push.default = "simple";
-      core.excludesfile =
-        (pkgs.writeText "gitignore" ''
-          result
-          .direnv
-          *.qcow2
-          node_modules
-          .venv
-          *~
-          \#*\#
-          .DS_Store
-          Thumbs.db
-        '')
-        .outPath;
+      core.excludesfile = ./.gitignore;
     };
     delta = {
       enable = true;

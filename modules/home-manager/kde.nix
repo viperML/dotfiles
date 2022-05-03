@@ -8,37 +8,27 @@
 }: {
   home.packages = [
     packages.self.plasma-applet-splitdigitalclock
-    # pkgs.caffeine-ng
   ];
 
   systemd.user = {
     services = {
-      apply-colorscheme = {
+      apply-colorscheme = with pkgs; {
         Unit.Description = "Apply colorscheme to KDE";
         Unit.After = ["plasma-plasmashell.service"];
-        Service.Type = "oneshot";
-        Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 3";
-        Service.ExecStart = let
-          apply-colorscheme-script = pkgs.writeShellScript "apply-colorscheme-script" ''
+        Service.ExecStartPre = "${coreutils}/bin/sleep 3";
+        Service.ExecStart =
+          (writeShellScript "apply-colorscheme-script" ''
             if (( $(date +"%-H%M") < 1800 )) && (( $(date +"%-H%M") > 0500 )); then
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme BreezeLight
-              ${pkgs.dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3'
+              ${plasma-workspace}/bin/plasma-apply-colorscheme BreezeLight
+              ${dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3'
             else
-              ${pkgs.plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
-              ${pkgs.dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3-dark'
+              ${plasma-workspace}/bin/plasma-apply-colorscheme ReversalDark
+              ${dbus}/bin/dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme 'string:adw-gtk3-dark'
             fi
-          '';
-        in "${apply-colorscheme-script}";
+          '')
+          .outPath;
         Install.WantedBy = ["xdg-desktop-autostart.target"];
       };
-      # caffeine = {
-      #   Unit.Description = "Caffeine";
-      #   Service.Environment = "NO_AT_BRIDGE=1";
-      #   Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
-      #   Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
-      #   Unit.After = ["plasma-plasmashell"];
-      #   Install.WantedBy = ["graphical-session.target"];
-      # };
       # TODO
       # mailspring = {
       #   Unit.Description = "Mailspring";
