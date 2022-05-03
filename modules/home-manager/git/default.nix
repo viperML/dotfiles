@@ -13,7 +13,7 @@
       # pull.ff = "only";
       # pull.rebase = "false";
       push.default = "simple";
-      core.excludesfile = ./.gitignore;
+      core.excludesfile = builtins.toString ./.gitignore;
     };
     delta = {
       enable = true;
