@@ -2,8 +2,30 @@ name: update
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 */15 * *"
 
 jobs:
+  flake_update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Flake update
+      run: nix flake update
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: ${{ secrets.PAT }}
+        title: '[Flake Auto-update]'
+        commit-message: |
+          Automatic flake update
+        body: |
+          Automatic flake update
+        delete-branch: true
+
   generate_matrix:
     runs-on: ubuntu-latest
     outputs:

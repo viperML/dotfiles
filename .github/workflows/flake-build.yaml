@@ -1,8 +1,7 @@
 name: flake-build
 
 on:
-  # push:
-  # pull_request:
+  push:
   workflow_dispatch:
 
 jobs:
