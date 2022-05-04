@@ -32,5 +32,8 @@ jobs:
       uses: ./.github/actions/install-nix
     - name: Run update script
       run: |
+        nix profile install \
+          .#update-nix-fetchgit \
+          .#nix-update
         cd $(dirname ${{ matrix.script }})
         sh -c "./$(basename ${{ matrix.script }})"
