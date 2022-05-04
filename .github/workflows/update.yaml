@@ -33,4 +33,4 @@ jobs:
     - name: Run update script
       run: |
         cd $(dirname ${{ matrix.script }})
-        sh -c $(basename ${{ matrix.script }})
+        sh -c "./$(basename ${{ matrix.script }})"
