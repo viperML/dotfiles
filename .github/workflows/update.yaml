@@ -17,7 +17,7 @@ jobs:
       name: Find updater scripts
       run: nix run .#python3 -- ./bin/update_generate_matrix.py
 
-  run_update_script:
+  update:
     runs-on: ubuntu-latest
     needs: [generate_matrix]
     strategy:
@@ -34,7 +34,8 @@ jobs:
       run: |
         nix profile install \
           .#update-nix-fetchgit \
-          .#nix-update
+          .#nix-update \
+          .#git-extras
         cd $(dirname ${{ matrix.script }})
         sh -c "./$(basename ${{ matrix.script }})"
     - name: Create Pull Request
@@ -46,3 +47,4 @@ jobs:
           Automatic update for ${{ matrix.script }}
         body: |
           I ran the update script sucessfully
+        delete-branch: true
