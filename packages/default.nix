@@ -14,6 +14,13 @@ with builtins; let
     vshell = {
       inherit (inputs.self.packages.${system}) any-nix-shell;
     };
+    nix-prefetch = {
+      nix = inputs.self.packages.${system}.nix-dram;
+    };
+    nix-update = {
+      nix = inputs.self.packages.${system}.nix-dram;
+      nix-prefetch = inputs.self.packages.${system}.nix-dram;
+    };
   };
 
   folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));

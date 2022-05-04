@@ -50,6 +50,8 @@ in
       pkgs.black
       pkgs.stylua
       pkgs.shfmt
+      pkgs.nix-prefetch
+      pkgs.nix-update
     ];
     shellHook = ''
       mkdir -p .git/hooks

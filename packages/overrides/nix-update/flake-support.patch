@@ -1,0 +1,20 @@
+--- a/nix_update/eval.py
++++ b/nix_update/eval.py
+@@ -57,11 +57,16 @@ def eval_expression(import_path: str, attr: str) -> str:
+         raw_version_position
+       else
+         builtins.unsafeGetAttrPos "src" pkg;
++
++      skipStore = s: if lib.hasPrefix "/nix/store" s then
++        lib.concatStringsSep "/" (lib.drop 4 (lib.splitString "/" s))
++      else
++        s;
+     in {{
+       name = pkg.name;
+       old_version = (builtins.parseDrvName pkg.name).version;
+       inherit raw_version_position;
+-      filename = position.file;
++      filename = skipStore position.file;
+       line = position.line;
+       urls = pkg.src.urls or null;
+       url = pkg.src.url or null;
