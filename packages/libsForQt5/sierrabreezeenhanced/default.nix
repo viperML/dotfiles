@@ -13,7 +13,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "sierrabreezeenhanced";
-  version = "1.0.3";
+  version = "unstable-2021-10-25";
 
   src = fetchFromGitHub {
     owner = "kupiqu";
