@@ -124,29 +124,6 @@
         "type": "github"
       }
     },
-    "nix-dram": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1649569158,
-        "narHash": "sha256-Wtmiyu/1d+3YGGcRxTnQyEtnJaKKR/Ry0kNbOY48Afs=",
-        "owner": "dramforever",
-        "repo": "nix-dram",
-        "rev": "84c47c0dc93c77f7edfd996f71618d278844c1c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dramforever",
-        "repo": "nix-dram",
-        "type": "github"
-      }
-    },
     "nix-matlab": {
       "inputs": {
         "flake-compat": [
@@ -298,7 +275,6 @@
         "home-manager": "home-manager",
         "nh": "nh",
         "nix-autobahn": "nix-autobahn",
-        "nix-dram": "nix-dram",
         "nix-matlab": "nix-matlab",
         "nixos-flakes": "nixos-flakes",
         "nixos-wsl": "nixos-wsl",

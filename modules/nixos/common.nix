@@ -37,9 +37,12 @@
     info.enable = false;
   };
 
-  nix.extraOptions = ''
-    ${builtins.readFile "${self.outPath}/misc/nix.conf"}
-  '';
+  nix = {
+    package = packages.self.nix;
+    extraOptions = ''
+      ${builtins.readFile "${self.outPath}/misc/nix.conf"}
+    '';
+  };
 
   security.sudo.extraConfig = ''
     Defaults pwfeedback

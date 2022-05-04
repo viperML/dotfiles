@@ -8,18 +8,15 @@ with builtins; let
   };
 
   overrides = {
-    nix-dram = {
-      inherit (inputs.nix-dram.packages.${system}) nix-dram;
-    };
     vshell = {
       inherit (inputs.self.packages.${system}) any-nix-shell;
     };
     nix-prefetch = {
-      nix = inputs.self.packages.${system}.nix-dram;
+      nix = inputs.self.packages.${system}.nix;
     };
     nix-update = {
-      nix = inputs.self.packages.${system}.nix-dram;
-      nix-prefetch = inputs.self.packages.${system}.nix-dram;
+      nix = inputs.self.packages.${system}.nix;
+      nix-prefetch = inputs.self.packages.${system}.nix;
     };
   };
 

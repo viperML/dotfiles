@@ -37,7 +37,6 @@ in
           inputs.home-manager.nixosModules.home-manager
           desktop
           gnome-keyring
-          dram
 
           virt
           docker

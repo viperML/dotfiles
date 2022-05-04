@@ -16,7 +16,6 @@ self.lib.mkSystem rec {
       inputs.nixos-flakes.nixosModules.channels-to-flakes
       inputs.home-manager.nixosModules.home-manager
       common
-      dram
       ld
       index
       podman

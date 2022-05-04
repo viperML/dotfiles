@@ -31,6 +31,9 @@
           inherit (inputs.nh.packages.${system}) nh;
           inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
           devShell = self.devShells.${system}.default.inputDerivation;
+
+          # Target for the rest of the system
+          nix = inputs.nixpkgs.legacyPackages.${system}.nixUnstable;
         }
     );
 
@@ -79,11 +82,11 @@
       inputs.home-manager.follows = "home-manager";
       inputs.flake-compat.follows = "flake-compat";
     };
-    nix-dram = {
-      url = "github:dramforever/nix-dram";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # nix-dram = {
+    #   url = "github:dramforever/nix-dram";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -2,8 +2,8 @@ name: flake-build
 
 on:
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
   workflow_dispatch:
 
 jobs:
