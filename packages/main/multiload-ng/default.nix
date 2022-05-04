@@ -12,7 +12,7 @@
 stdenv.mkDerivation {
   __nocachix = true;
   pname = "multiload-ng";
-  version = "unstable-2021-01-03";
+  version = "unstable-1.5.2";
 
   src = fetchFromGitHub {
     owner = "udda";

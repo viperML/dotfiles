@@ -11,7 +11,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "tym";
-  version = "unstable-3.2.0";
+  version = "3.2.0";
 
   src = fetchFromGitHub {
     owner = "endaaman";

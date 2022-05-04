@@ -30,6 +30,7 @@ with lib; let
     '';
   };
   pre-commit = pkgs.writeShellScript "pre-commit" ''
+    ${pkgs.fd}/bin/fd update.sh -x chmod u+x {} \;
     treefmt --config-file misc/treefmt.toml --tree-root .
     nix flake check
     # This adds every change automatically
@@ -54,6 +55,7 @@ in
       pkgs.nix-update
     ];
     shellHook = ''
+      set -euo pipefail
       mkdir -p .git/hooks
       ln -sf ${pre-commit} .git/hooks/pre-commit
 

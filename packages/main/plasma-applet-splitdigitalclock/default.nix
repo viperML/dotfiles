@@ -5,7 +5,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "plasma-applet-splitdigitalclock";
-  version = "unstable-2021-12-27";
+  version = "unstable-0.2";
 
   src = fetchFromGitHub {
     owner = "viperML";

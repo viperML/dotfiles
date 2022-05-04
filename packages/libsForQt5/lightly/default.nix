@@ -13,7 +13,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "lightly";
-  version = "unstable-2021-11-17";
+  version = "0.4.1";
 
   src = fetchFromGitHub {
     owner = "Luwx";

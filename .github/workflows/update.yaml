@@ -1,0 +1,34 @@
+name: update
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      scripts: ${{ steps.find_scripts.outputs.scripts }}
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - id: find_scripts
+      name: Find updater scripts
+      run: nix run .#python3 -- ./bin/update_generate_matrix.py
+
+  run_update_script:
+    runs-on: ubuntu-latest
+    needs: [generate_matrix]
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        script: ${{fromJson(needs.generate_matrix.outputs.scripts)}}
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Run update script
+      run: sh -c {{ matrix.script }}
