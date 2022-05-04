@@ -19,11 +19,13 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.PAT }}
-        title: '[Flake Auto-update]'
+        title: '[Flake Auto-update] - ${{ env.DATE }}'
         commit-message: |
           Automatic flake update
         body: |
           Automatic flake update
+        branch: update-flake
+        branch-suffix: timestamp
         delete-branch: true
 
   generate_matrix:
@@ -62,13 +64,17 @@ jobs:
       run: |
         cd $(dirname ${{ matrix.script }})
         sh -c "./$(basename ${{ matrix.script }})"
+    - name: Get date
+      run: echo "DATE=$(date --rfc-3339=date)" >> $GITHUB_ENV
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.PAT }}
-        title: '[Auto-update] ${{ matrix.script }}'
+        title: '[Auto-update] ${{ matrix.script }} - ${{ env.date }}'
         commit-message: |
           Automatic update for ${{ matrix.script }}
         body: |
           I ran the update script sucessfully
+        branch: update-script
+        branch-suffix: random
         delete-branch: true
