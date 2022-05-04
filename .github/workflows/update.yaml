@@ -19,7 +19,7 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.PAT }}
-        title: '[Flake Auto-update] - ${{ env.DATE }}'
+        title: '[automatic] flake update'
         commit-message: |
           Automatic flake update
         body: |
@@ -70,11 +70,11 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.PAT }}
-        title: '[Auto-update] ${{ matrix.script }} - ${{ env.date }}'
+        title: '[automatic] script update ${{ matrix.script }}'
         commit-message: |
           Automatic update for ${{ matrix.script }}
         body: |
-          I ran the update script sucessfully
+          Beep-bop: I ran the update script sucessfully
         branch: update-script
         branch-suffix: random
         delete-branch: true
