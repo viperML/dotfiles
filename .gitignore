@@ -13,6 +13,7 @@ result*
 .venv
 *~
 drvPath
+.env
 
 **/emacs/*
 !**/emacs/custom.el
