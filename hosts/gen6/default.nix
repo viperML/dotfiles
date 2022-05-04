@@ -4,22 +4,22 @@
 }: let
   system = "x86_64-linux";
 
-  nixpkgs-src = self.lib.patch-nixpkgs {
-    nixpkgs = inputs.nixpkgs;
-    patches = [
-      rec {
-        name = "168269";
-        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
-        sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
-        exclude = [];
-      }
-    ];
-    pkgs = self.legacyPackages.${system};
-  };
+  # nixpkgs-src = self.lib.patch-nixpkgs {
+  #   nixpkgs = inputs.nixpkgs;
+  #   patches = [
+  #     rec {
+  #       name = "168269";
+  #       url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
+  #       sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
+  #       exclude = [];
+  #     }
+  #   ];
+  #   pkgs = self.legacyPackages.${system};
+  # };
+
+  nixpkgs-src = inputs.nixpkgs;
 
   nixosSystem = args: import "${nixpkgs-src}/nixos/lib/eval-config.nix" args;
-  # nixosSystem = inputs.nixpkgs.lib.nixosSystem;
-
   modulesPath = "${nixpkgs-src}/nixos/modules";
 in
   self.lib.mkSystem rec {
