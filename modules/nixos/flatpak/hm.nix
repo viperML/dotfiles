@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   autoinstall = pkgs.substituteAll {
@@ -11,21 +12,26 @@
     pkgs.runCommandNoCC "flatpak-autoinstall" {
       nativeBuildInputs = [
         (pkgs.python3.withPackages (pP: with pP; [mypy types-toml]))
+        pkgs.makeWrapper
       ];
     } ''
-      install -m755 ${autoinstall} $out
       mypy \
         --no-implicit-optional \
         --disallow-untyped-calls \
         --disallow-untyped-defs \
-        $out
+        ${autoinstall}
+      mkdir -p $out
+      install -Dm755 ${autoinstall} $out/main
+      wrapProgram $out/main \
+        --prefix PATH : ${lib.makeBinPath (with pkgs; [flatpak])}
     '';
 in {
   systemd.user = {
     services = {
       flatpak-autoinstall = {
         Unit.Description = "Install and remove flatpaks to match the required packages";
-        Service.ExecStart = "${autoinstallChecked} ${./required.toml}";
+        Service.ExecStart = "${autoinstallChecked}/main ${./required.toml}";
+        Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 10";
         Install.WantedBy = ["default.target"];
         Unit.After = ["flatpak-session-helper.service"];
       };

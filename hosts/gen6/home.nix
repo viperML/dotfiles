@@ -27,4 +27,10 @@ in {
       categories = ["Network" "Audio"];
     })
   ];
+
+  systemd.user.services.tailscale-systray = {
+    Unit.Description = "Tailscale tray icon";
+    Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
+    Install.WantedBy = ["xdg-desktop-autostart.target"];
+  };
 }

@@ -11,9 +11,12 @@
       enable = true;
       runUsingSystemd = true;
     };
-    displayManager.sddm.enable = true;
-    displayManager.defaultSession = "plasma";
-    displayManager.autoLogin.enable = true;
+    displayManager = {
+      gdm.enable = true;
+      sddm.enable = false;
+      defaultSession = "plasma";
+      autoLogin.enable = true;
+    };
   };
 
   environment.systemPackages = lib.attrValues {
@@ -27,9 +30,6 @@
       filelight
       gwenview
       kcolorchooser
-      # kwalletmanager
-      
-      plasma-disks
       ;
     inherit
       (pkgs)
@@ -42,8 +42,6 @@
       lightlyshaders
       reversal-kde
       sierrabreezeenhanced
-      # bismuth
-      
       ;
   };
 

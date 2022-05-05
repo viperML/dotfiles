@@ -278,6 +278,12 @@ in {
     openFirewall = false;
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
+  networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [
+    {
+      from = 8000;
+      to = 8999;
+    }
+  ];
 
   security.tpm2 = {
     enable = true;
