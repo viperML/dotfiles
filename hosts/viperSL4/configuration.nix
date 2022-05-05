@@ -45,4 +45,22 @@ in {
 
   # Not using /tmp on tmpfs
   boot.cleanTmpDir = true;
+
+  systemd.tmpfiles.rules = [
+    "d /home/ayats/.ssh 0700 ayats users - -"
+  ];
+
+  systemd.services.bind-ssh = {
+    serviceConfig.Type = "forking";
+    script = ''
+      ${pkgs.bindfs}/bin/bindfs -p 700 /mnt/c/Users/ayats/.ssh /home/ayats/.ssh
+    '';
+    wantedBy = ["multi-user.target"];
+    after = ["systemd-tmpfiles-setup.service"];
+  };
+
+  programs.ssh = {
+    startAgent = true;
+    agentTimeout = "1h";
+  };
 }
