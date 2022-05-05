@@ -45,6 +45,7 @@ in
           ld
           index
           flatpak
+          ./fix-bluetooth.nix
         ];
         homeModules = with self.homeModules; [
           ./home.nix
