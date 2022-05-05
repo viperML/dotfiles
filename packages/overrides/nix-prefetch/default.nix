@@ -4,6 +4,7 @@
   nix,
   symlinkJoin,
   makeWrapper,
+  nixpkgs,
 }: let
   nix-prefetch' =
     (nix-prefetch.override {
@@ -24,6 +25,6 @@ in
     buildInputs = [makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/nix-prefetch \
-        --set NIX_PATH "nixpkgs=/etc/nix/inputs/nixpkgs"
+        --set NIX_PATH "nixpkgs=${nixpkgs}"
     '';
   }

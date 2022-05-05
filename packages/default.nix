@@ -13,6 +13,7 @@ with builtins; let
     };
     nix-prefetch = {
       nix = inputs.self.packages.${system}.nix;
+      nixpkgs = inputs.nixpkgs;
     };
     nix-update = {
       nix = inputs.self.packages.${system}.nix;

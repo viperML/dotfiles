@@ -28,13 +28,19 @@ in {
 
   networking.hostName = hn;
 
+  nix = {
+    extraOptions = ''
+      auto-optimise-store = true
+    '';
+  };
+
   wsl = {
     enable = true;
     automountPath = "/mnt";
     defaultUser = "ayats";
     startMenuLaunchers = true;
     wslConf.network.hostname = hn;
-    docker.enable = false;
+    docker-desktop.enable = false;
   };
 
   # Not using /tmp on tmpfs
