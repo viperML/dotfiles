@@ -6,7 +6,7 @@
   nix.buildMachines = [
     {
       hostName = "gen6";
-      sshUser = "ayats";
+      sshUser = "builder";
       system = "x86_64-linux";
       systems = [
         "x86_64-linux"
@@ -21,4 +21,9 @@
       maxJobs = 16;
     }
   ];
+  users.users."builder" = {
+    isSystemUser = true;
+    openssh.authorizedKeys.keys = [
+    ];
+  };
 }
