@@ -14,6 +14,7 @@
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
     BROWSER = "wslview";
+    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
 in {
   environment.variables = env;
@@ -38,9 +39,12 @@ in {
     enable = true;
     automountPath = "/mnt";
     defaultUser = "ayats";
-    startMenuLaunchers = true;
     wslConf.network.hostname = hn;
     docker-desktop.enable = false;
+    docker-native.enable = false;
+    compatibility.interopPreserveArgvZero = true;
+    startMenuLaunchers = false;
+    tarball.includeConfig = false;
   };
 
   # Not using /tmp on tmpfs
@@ -48,15 +52,24 @@ in {
 
   systemd.tmpfiles.rules = [
     "d /home/ayats/.ssh 0700 ayats users - -"
+    "d /root/.ssh 0700 root root - -"
   ];
 
-  systemd.services.bind-ssh = {
-    serviceConfig.Type = "forking";
-    script = ''
-      ${pkgs.bindfs}/bin/bindfs -p 700 /mnt/c/Users/ayats/.ssh /home/ayats/.ssh
-    '';
-    wantedBy = ["multi-user.target"];
-    after = ["systemd-tmpfiles-setup.service"];
+  systemd.services = {
+    bind-ssh-ayats = {
+      serviceConfig.Type = "forking";
+      script = ''
+        ${pkgs.bindfs}/bin/bindfs -p 700 /mnt/c/Users/ayats/.ssh /home/ayats/.ssh
+      '';
+      wantedBy = ["multi-user.target"];
+      after = ["systemd-tmpfiles-setup.service"];
+    };
+    bind-ssh-root = {
+      serviceConfig.Type = "forking";
+      script = "${pkgs.bindfs}/bin/bindfs --map=1000/0:@100/@0 -p 700 /mnt/c/Users/ayats/.ssh /root/.ssh";
+      wantedBy = ["multi-user.target"];
+      after = ["systemd-tmpfiles-setup.service"];
+    };
   };
 
   programs.ssh = {
