@@ -47,4 +47,6 @@ in {
   ];
 
   services.xserver.displayManager.autoLogin.user = name;
+
+  nix.settings.trusted-users = ["ayats"];
 }

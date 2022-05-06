@@ -30,6 +30,8 @@ in
       "base" = {
         nixosModules = with self.nixosModules; [
           ./configuration.nix
+          # DELETEME
+          ./builder.nix
           common
           mainUser-ayats
 

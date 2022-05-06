@@ -13,6 +13,8 @@ self.lib.mkSystem rec {
       "${inputs.nixpkgs}/nixos/modules/profiles/minimal.nix"
       inputs.nixos-wsl.nixosModules.wsl
 
+      "${self.outPath}/hosts/gen6/builder.nix"
+
       inputs.nixos-flakes.nixosModules.channels-to-flakes
       inputs.home-manager.nixosModules.home-manager
       common

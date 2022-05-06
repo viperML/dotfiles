@@ -17,6 +17,7 @@ stdenv.mkDerivation {
   installPhase = ''
     install -Dm755 ./bin/vlmcsd $out/bin/vlmcsd
     install -Dm755 ./bin/vlmcs $out/bin/vlmcs
+    echo Test
   '';
 
   meta = with lib; {
