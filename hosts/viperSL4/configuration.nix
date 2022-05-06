@@ -14,7 +14,6 @@
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
     BROWSER = "wslview";
-    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
 in {
   environment.variables = env;
