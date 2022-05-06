@@ -1,4 +1,9 @@
-{...}: {
+{
+  packages,
+  self,
+  inputs,
+  ...
+} @ args: {
   nix.distributedBuilds = true;
   nix.extraOptions = ''
     builders-use-substitutes = true
@@ -6,7 +11,7 @@
   nix.buildMachines = [
     {
       hostName = "gen6";
-      sshUser = "builder";
+      sshUser = "ayats";
       system = "x86_64-linux";
       systems = [
         "x86_64-linux"
@@ -21,9 +26,4 @@
       maxJobs = 16;
     }
   ];
-  users.users."builder" = {
-    isSystemUser = true;
-    openssh.authorizedKeys.keys = [
-    ];
-  };
 }

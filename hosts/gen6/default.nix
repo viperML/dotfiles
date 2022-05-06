@@ -31,7 +31,7 @@ in
         nixosModules = with self.nixosModules; [
           ./configuration.nix
           # DELETEME
-          ./builder.nix
+          # ./builder.nix
           common
           mainUser-ayats
 
