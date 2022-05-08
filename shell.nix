@@ -3,15 +3,6 @@
   lib ? pkgs.lib,
 }:
 with lib; let
-  pyEnv = pkgs.python3.withPackages (p:
-    with p; [
-      black
-      flake8
-      mypy
-      types-toml
-      requests
-      #
-    ]);
   commands = with pkgs; {
     dot-update = ''
       ${fd}/bin/fd updater.sh --exec echo {}
@@ -21,9 +12,6 @@ with lib; let
     dot-check = ''
       ${fd}/bin/fd -e nix -x ${statix}/bin/statix check {}
       nix flake check
-    '';
-    dot-format = ''
-      ${fd}/bin/fd -e nix -E deps --exec-batch ${alejandra}/bin/alejandra {}
     '';
     dot-clean = ''
       git clean -xfe .envrc
@@ -38,11 +26,19 @@ with lib; let
     # as I always stage everything
     git add .
   '';
+  pyEnv = pkgs.python3.withPackages (p:
+    with p; [
+      black
+      flake8
+      mypy
+      types-toml
+      requests
+      #
+    ]);
 in
   pkgs.mkShell {
-    name = "dotfiles-basic-shell";
+    name = "dotfiles-shell";
     packages = [
-      pyEnv
       (attrValues (mapAttrs (name: value: pkgs.writeShellScriptBin name value) commands))
 
       # Formatting

@@ -124,33 +124,28 @@ switch $TERM
         end
 end
 
-# After resetting fish, set again each color for each component
-function set_colorscheme
-    set fish_color_normal brwhite
-    set fish_color_command green
-    set fish_color_keyword brblue
-    set fish_color_quote yellow
-    set fish_color_redirection brwhite
-    set fish_color_end brred
-    set fish_color_error -o red
-    set fish_color_param white
-    set fish_color_comment brblack
-    set fish_color_selection --background=brblack
-    # set fish_color_selection cyan
-    # set fish_color_search_match cyan
-    set fish_color_search_match --background=brblack
-    set fish_color_operator green
-    set fish_color_escape brblue
-    set fish_color_autosuggestion brblack
+set fish_color_normal brwhite
+set fish_color_command green
+set fish_color_keyword brblue
+set fish_color_quote yellow
+set fish_color_redirection brwhite
+set fish_color_end brred
+set fish_color_error -o red
+set fish_color_param white
+set fish_color_comment brblack
+set fish_color_selection --background=brblack
+# set fish_color_selection cyan
+# set fish_color_search_match cyan
+set fish_color_search_match --background=brblack
+set fish_color_operator green
+set fish_color_escape brblue
+set fish_color_autosuggestion brblack
 
-    # Completion Pager Colors
-    set fish_pager_color_progress brblack
-    set fish_pager_color_prefix green
-    set fish_pager_color_completion white
-    set fish_pager_color_description brblack
-end
-
-set_colorscheme
+# Completion Pager Colors
+set fish_pager_color_progress brblack
+set fish_pager_color_prefix green
+set fish_pager_color_completion white
+set fish_pager_color_description brblack
 
 # Configure FZF keybinds
 # https://github.com/PatrickF1/fzf.fish
