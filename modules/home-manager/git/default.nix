@@ -10,8 +10,8 @@
 
     extraConfig = {
       init.defaultBranch = "master";
-      # pull.ff = "only";
-      # pull.rebase = "false";
+      pull.ff = "only";
+      pull.rebase = "false";
       push.default = "simple";
       core.excludesfile = builtins.toString ./.gitignore;
     };

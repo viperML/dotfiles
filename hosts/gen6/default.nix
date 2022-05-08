@@ -29,9 +29,10 @@ in
     specialisations = {
       "base" = {
         nixosModules = with self.nixosModules; [
+          # ./init.nix
+
           ./configuration.nix
           # DELETEME
-          # ./builder.nix
           common
           mainUser-ayats
 
