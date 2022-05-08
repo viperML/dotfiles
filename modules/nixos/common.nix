@@ -53,4 +53,8 @@
   '';
 
   environment.defaultPackages = [];
+
+  programs.git.config = {
+    safe.directory = "/";
+  };
 }
