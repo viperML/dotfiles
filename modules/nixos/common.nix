@@ -55,6 +55,6 @@
   environment.defaultPackages = [];
 
   programs.git.config = {
-    safe.directory = "/";
+    safe.directory = config.environment.variables.FLAKE or null;
   };
 }

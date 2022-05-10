@@ -26,6 +26,7 @@ in {
       type = "Application";
       categories = ["Network" "Audio"];
     })
+    step-cli
   ];
 
   systemd.user.services.tailscale-systray = {

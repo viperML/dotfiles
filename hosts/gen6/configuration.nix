@@ -276,6 +276,9 @@ in {
   services.openssh = {
     enable = true;
     openFirewall = false;
+    extraConfig = ''
+      TrustedUserCAKeys /secrets/ssh-certs/ssh_user_key.pub
+    '';
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
   networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [
