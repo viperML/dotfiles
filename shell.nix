@@ -28,10 +28,11 @@ with lib; let
   '';
   pyEnv = pkgs.python3.withPackages (p:
     with p; [
+      mypy
+      toml
+      types-toml
       black
       flake8
-      mypy
-      types-toml
       requests
       #
     ]);
@@ -39,6 +40,7 @@ in
   pkgs.mkShell {
     name = "dotfiles-shell";
     packages = [
+      pyEnv
       (attrValues (mapAttrs (name: value: pkgs.writeShellScriptBin name value) commands))
 
       # Formatting

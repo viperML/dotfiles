@@ -1,18 +1,22 @@
+overrides = [
+  "--filesystem=/nix/store:ro",
+]
+
 [[apps]]
-ref = "com.google.Chrome/x86_64/beta"
 origin = "flathub-beta"
-
-# [[apps]]
-# ref = "org.mozilla.firefox/x86_64/stable"
-# origin = "flathub-beta"
-
-# [[apps]]
-# ref = "com.getmailspring.Mailspring/x86_64/stable"
-# origin = "flathub"
+ref = "com.google.Chrome/x86_64/beta"
 
 [[apps]]
-ref = "com.github.tchx84.Flatseal/x86_64/stable"
+ref = "com.getmailspring.Mailspring/x86_64/stable"
 origin = "flathub"
+
+[[apps]]
+origin = "flathub"
+ref = "com.github.tchx84.Flatseal/x86_64/stable"
+
+[[apps]]
+origin = "flathub"
+ref = "com.valvesoftware.Steam/x86_64/stable"
 
 [[remotes]]
 name = "flathub"

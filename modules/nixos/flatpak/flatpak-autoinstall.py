@@ -4,17 +4,23 @@ import os
 import argparse
 
 import toml
+from pathlib import Path
 
-DRY = os.environ.get("DRY", False)
+if DRY := os.environ.get("DRY", False):
+    path = Path(__file__).parent / "required.toml"
+else:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", help="Path to the config file")
+    path = parser.parse_args().path
 
-# Get the config file path as an argument
-parser = argparse.ArgumentParser()
-parser.add_argument("path", help="Path to the config file")
-args = parser.parse_args()
-
-
-with open(args.path, "r") as f:
+with open(path, "r") as f:
     input = toml.load(f)
+
+
+def run_command(cmd: str) -> None:
+    print(f"$ {cmd}")
+    if not DRY:
+        subprocess.run(cmd, shell=True)
 
 
 class Remote:
@@ -30,16 +36,12 @@ class Remote:
         return self.name == other.name and self.url == other.url
 
     def add(self) -> None:
-        cmd = f"flatpak remote-add --user --if-not-exists --no-gpg-verify {self.name} {self.url}"
-        print(f"$ {cmd}")
-        if not DRY:
-            subprocess.run(cmd, shell=True)
+        run_command(
+            f"flatpak remote-add --user --if-not-exists --no-gpg-verify {self.name} {self.url}"
+        )
 
     def remove(self) -> None:
-        cmd = f"flatpak remote-delete --user {self.name}"
-        print(f"$ {cmd}")
-        if not DRY:
-            subprocess.run(cmd, shell=True)
+        run_command(f"flatpak remote-delete --user {self.name}")
 
 
 remotes_required = list()
@@ -79,6 +81,7 @@ class App:
             self.origin = origin
         else:
             raise Exception(f"Origin {origin} not in remotes")
+        self.name = self.ref.split("/")[0]
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, App):
@@ -86,16 +89,10 @@ class App:
         return self.ref == other.ref and self.origin == other.origin
 
     def install(self) -> None:
-        cmd = f"flatpak install --noninteractive --user {self.origin} {self.ref}"
-        print(f"$ {cmd}")
-        if not DRY:
-            subprocess.run(cmd, shell=True)
+        run_command(f"flatpak install --noninteractive --user {self.origin} {self.ref}")
 
     def uninstall(self) -> None:
-        cmd = f"flatpak uninstall --noninteractive --user {self.ref}"
-        print(f"$ {cmd}")
-        if not DRY:
-            subprocess.run(cmd, shell=True)
+        run_command(f"flatpak uninstall --noninteractive --user {self.ref}")
 
 
 apps_required = list()
@@ -127,7 +124,11 @@ for app_missing in apps_required:
         print(f"Installing app {app_missing.ref}")
         app_missing.install()
 
-cmd = "flatpak uninstall --noninteractive --user --unused"
-print(f"$ {cmd}")
-if not DRY:
-    subprocess.check_output(cmd, shell=True)
+run_command("flatpak uninstall --noninteractive --user --unused")
+
+
+for app in apps_required:
+    run_command(f"flatpak override --user --reset {app.name}")
+
+    for o in input["overrides"]:
+        run_command(f"flatpak override --user {o} {app.name}")

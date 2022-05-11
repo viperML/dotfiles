@@ -29,15 +29,16 @@
     "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
     "--use-gl=desktop"
     "--ignore-gpu-blocklist"
-    "--enable-oop-rasterization"
-    "--enable-raw-draw"
-    "--enable-gpu-rasterization"
-    "--use-vulkan"
-    "--disable-reading-from-canvas"
-    "--disable-sync-preferences"
+    # "--enable-oop-rasterization"
+    # "--enable-raw-draw"
+    # "--enable-gpu-rasterization"
+    # "--use-vulkan"
+    # "--disable-reading-from-canvas"
+    # "--disable-sync-preferences"
     # "--enable-features=WebUIDarkMode"
     # "--force-dark-mode"
   ];
+  flags-conf = pkgs.writeText "flags.conf" (lib.concatStringsSep "\n" chromiumFlags);
 in {
   systemd.user = {
     services = {
@@ -57,15 +58,6 @@ in {
           '')
           .outPath;
       };
-      #
-      # mailspring = {
-      #   Unit.Description = "Mailspring";
-      #   Service.Environment = "NO_AT_BRIDGE=1";
-      #   Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
-      #   Service.ExecStart = "${config.xdg.dataHome}/flatpak/exports/bin/com.getmailspring.Mailspring --background";
-      #   Unit.After = ["graphical-session.target"];
-      #   Install.WantedBy = ["xdg-desktop-autostart.target"];
-      # };
     };
     timers = {
       flatpak-update = {
@@ -77,9 +69,8 @@ in {
       };
     };
     tmpfiles.rules = with config; [
-      "L+ ${xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts"
-      "L+ ${home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
-      "f+ ${home.homeDirectory}/.var/app/com.google.Chrome/config/chrome-flags.conf - - - - ${lib.concatStringsSep " " chromiumFlags}"
+      "L+ ${xdg.dataHome}/fonts - - - - /etc/profiles/per-user/${home.username}/share/fonts"
+      "L+ ${home.homeDirectory}/.var/app/com.google.Chrome/config/chrome-flags.conf - - - - ${flags-conf}"
     ];
   };
 }

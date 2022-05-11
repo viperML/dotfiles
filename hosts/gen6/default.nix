@@ -44,7 +44,6 @@ in
           virt
           docker
           printing
-          gaming
           ld
           index
           flatpak
