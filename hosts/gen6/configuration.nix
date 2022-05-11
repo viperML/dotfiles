@@ -22,7 +22,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     libva-utils
-    step-cli
   ];
 
   environment.defaultPackages = [];
@@ -279,8 +278,11 @@ in {
   services.openssh = {
     enable = true;
     openFirewall = false;
+    # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
     extraConfig = ''
       TrustedUserCAKeys /secrets/ssh-certs/ssh_user_key.pub
+      HostKey /secrets/ssh-certs/ssh_host_ecdsa_key2
+      HostCertificate /secrets/ssh-certs/ssh_host_ecdsa_key2-cert.pub
     '';
   };
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];

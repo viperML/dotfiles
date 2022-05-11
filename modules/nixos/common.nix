@@ -44,6 +44,9 @@ lib.mkMerge [
     '';
 
     environment.defaultPackages = [];
+    environment.systemPackages = [
+      pkgs.step-cli
+    ];
   }
   (lib.mkIf (lib.hasAttr "FLAKE" config.environment.variables) {
     environment.etc."gitconfig".text = ''
