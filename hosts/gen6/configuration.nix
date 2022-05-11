@@ -21,7 +21,8 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    # Keep
+    libva-utils
+    step-cli
   ];
 
   environment.defaultPackages = [];
@@ -91,6 +92,8 @@ in {
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
     opengl.extraPackages = [
+      pkgs.vaapiVdpau
+      pkgs.libvdpau-va-gl
       pkgs.nvidia-vaapi-driver
     ];
     bluetooth = {
