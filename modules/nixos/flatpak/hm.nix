@@ -25,6 +25,19 @@
       wrapProgram $out/main \
         --prefix PATH : ${lib.makeBinPath (with pkgs; [flatpak])}
     '';
+  chromiumFlags = [
+    "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+    "--use-gl=desktop"
+    "--ignore-gpu-blocklist"
+    "--enable-oop-rasterization"
+    "--enable-raw-draw"
+    "--enable-gpu-rasterization"
+    "--use-vulkan"
+    "--disable-reading-from-canvas"
+    "--disable-sync-preferences"
+    # "--enable-features=WebUIDarkMode"
+    # "--force-dark-mode"
+  ];
 in {
   systemd.user = {
     services = {
@@ -63,9 +76,10 @@ in {
         Install.WantedBy = ["timers.target"];
       };
     };
-    tmpfiles.rules = [
-      "L+ ${config.xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts"
-      "L+ ${config.home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
+    tmpfiles.rules = with config; [
+      "L+ ${xdg.dataHome}/fonts - - - - /etc/profiles/per-user/ayats/share/fonts"
+      "L+ ${home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
+      "f+ ${home.homeDirectory}/.var/app/com.google.Chrome/config/chrome-flags.conf - - - - ${lib.concatStringsSep " " chromiumFlags}"
     ];
   };
 }
