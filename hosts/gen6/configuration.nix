@@ -24,27 +24,36 @@ in {
 
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+        "tpm_crb"
+      ];
       kernelModules = [
         "zfs"
         "kvm-intel"
       ];
       supportedFilesystems = ["zfs"];
-      # Rollback ZFS on root
-      # postDeviceCommands = lib.mkAfter ''
-      #   zfs rollback -r zroot/gen6/nixos@empty
-      # '';
       luks.devices."LUKSROOT" = {
         device = "/dev/disk/by-label/LUKSCONTAINER";
         crypttabExtraOpts = [
           "tpm2-device=auto"
         ];
       };
+      systemd = {
+        enable = true;
+        emergencyAccess = true;
+      };
     };
     tmpOnTmpfs = true;
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     kernelModules = ["kvm-intel"];
-    kernelParams = [];
+    # https://github.com/NixOS/nixpkgs/pull/171680
+    kernelParams = ["nohibernate"];
     supportedFilesystems = ["zfs"];
 
     zfs = {
@@ -66,8 +75,11 @@ in {
       canTouchEfiVariables = true;
     };
 
-    # Build ARM
     binfmt.emulatedSystems = ["aarch64-linux"];
+
+    kernel.sysctl = {
+      "vm.swappiness" = 10;
+    };
   };
 
   services.xserver = {
@@ -83,13 +95,12 @@ in {
   };
 
   powerManagement.cpuFreqGovernor = "powersave";
+
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    nvidia.modesetting.enable =
-      config.services.xserver.displayManager.gdm.enable;
+    nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-    nvidia.powerManagement.enable = false;
     opengl.enable = true;
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
@@ -108,23 +119,23 @@ in {
   };
 
   ### ZFS
-  #
-  # services.zfs = {
-  #   autoScrub = {
-  #     enable = true;
-  #     pools = ["zroot"];
-  #     interval = "weekly";
-  #   };
-  # };
-  #
-  # services.smartd = {
-  #   enable = true;
-  #   notifications.x11.enable = true;
-  # };
+
+  services.zfs = {
+    autoScrub = {
+      enable = true;
+      pools = ["tank"];
+      interval = "weekly";
+    };
+  };
+
+  services.smartd = {
+    enable = true;
+    notifications.x11.enable = true;
+  };
 
   virtualisation.docker.storageDriver = "zfs";
 
-  # swapDevices = [{device = "/dev/disk/by-label/LINUXSWAP";}];
+  swapDevices = [{device = "/dev/tank/swap";}];
 
   fileSystems = {
     "/" = {
@@ -185,56 +196,56 @@ in {
     };
   };
 
-  # services.sanoid = {
-  #   enable = true;
-  #   templates = {
-  #     "normal" = {
-  #       "frequently" = 0;
-  #       "hourly" = 1;
-  #       "daily" = 1;
-  #       "monthly" = 4;
-  #       "yearly" = 0;
-  #       "autosnap" = true;
-  #       "autoprune" = true;
-  #     };
-  #     "slow" = {
-  #       "frequently" = 0;
-  #       "hourly" = 0;
-  #       "daily" = 0;
-  #       "monthly" = 4;
-  #       "yearly" = 0;
-  #       "autosnap" = true;
-  #       "autoprune" = true;
-  #     };
-  #   };
-  #   datasets = let
-  #     slow-datasets = [
-  #       # keep
-  #     ];
-  #     normal-datasets = [
-  #       "zroot/ayats/home"
-  #       "zroot/ayats/documents"
-  #       "zroot/ayats/music"
-  #       "zroot/ayats/pictures"
-  #       "zroot/ayats/videos"
-  #       "zroot/secrets"
-  #     ];
-  #   in
-  #     (builtins.listToAttrs (
-  #       builtins.map (dataset: {
-  #         name = dataset;
-  #         value.use_template = ["slow"];
-  #       })
-  #       slow-datasets
-  #     ))
-  #     // (builtins.listToAttrs (
-  #       builtins.map (dataset: {
-  #         name = dataset;
-  #         value.use_template = ["normal"];
-  #       })
-  #       normal-datasets
-  #     ));
-  # };
+  services.sanoid = {
+    enable = true;
+    templates = {
+      "normal" = {
+        "frequently" = 0;
+        "hourly" = 1;
+        "daily" = 1;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+      "slow" = {
+        "frequently" = 0;
+        "hourly" = 0;
+        "daily" = 0;
+        "monthly" = 4;
+        "yearly" = 0;
+        "autosnap" = true;
+        "autoprune" = true;
+      };
+    };
+    datasets = let
+      slow-datasets = [
+        # keep
+      ];
+      normal-datasets = [
+        "tank/ayats/home"
+        "tank/ayats/documents"
+        "tank/ayats/music"
+        "tank/ayats/pictures"
+        "tank/ayats/videos"
+        # "zroot/secrets"
+      ];
+    in
+      (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["slow"];
+        })
+        slow-datasets
+      ))
+      // (builtins.listToAttrs (
+        builtins.map (dataset: {
+          name = dataset;
+          value.use_template = ["normal"];
+        })
+        normal-datasets
+      ));
+  };
 
   ### Secrets
 

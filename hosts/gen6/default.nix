@@ -1,20 +1,21 @@
 inputs @ {self, ...}: let
   system = "x86_64-linux";
 
-  nixpkgs-src = self.lib.patch-nixpkgs {
-    nixpkgs = inputs.nixpkgs;
-    patches = [
-      # rec {
-      #   name = "172660";
-      #   url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
-      #   sha256 = "sha256-VZyztFkJ8TZXamwQ0f2E8p7wnW1Z/UZI0vXu24r3WY0=";
-      #   exclude = [];
-      # }
-    ];
-    pkgs = self.legacyPackages.${system};
-  };
+  # nixpkgs-src = self.lib.patch-nixpkgs {
+  #   nixpkgs = inputs.nixpkgs;
+  #   patches = [
+  #     # rec {
+  #     #   name = "172660";
+  #     #   url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
+  #     #   sha256 = "sha256-VZyztFkJ8TZXamwQ0f2E8p7wnW1Z/UZI0vXu24r3WY0=";
+  #     #   exclude = [];
+  #     # }
+  #   ];
+  #   pkgs = self.legacyPackages.${system};
+  # };
 
-  # nixpkgs-src = inputs.nixpkgs;
+  nixpkgs-src = inputs.nixpkgs;
+
   pkgs = import nixpkgs-src {
     inherit system;
     config.allowUnfree = true;
@@ -45,16 +46,10 @@ in
           printing
           ld
           index
-          # flatpak
+          flatpak
 
           # Experiments
           ./fix-bluetooth.nix
-          {
-            boot.initrd.systemd = {
-              enable = true;
-              emergencyAccess = true;
-            };
-          }
         ];
         homeModules = with self.homeModules; [
           ./home.nix
@@ -73,15 +68,5 @@ in
         (self.specialisations)
         kde
         ;
-      # "kde-open" = {
-      #   nixosModules =
-      #     self.specialisations.kde.nixosModules
-      #     ++ [
-      #       {
-      #         hardware.nvidia.open = true;
-      #       }
-      #     ];
-      #   homeModules = self.specialisations.kde.homeModules;
-      # };
     };
   }
