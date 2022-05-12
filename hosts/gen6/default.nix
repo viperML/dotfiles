@@ -29,15 +29,12 @@ in
     specialisations = {
       "base" = {
         nixosModules = with self.nixosModules; [
-          # ./init.nix
           ./configuration.nix
           {
             viper.defaultSpec = "kde";
           }
-
           common
           mainUser-ayats
-
           inputs.nixos-flakes.nixosModules.channels-to-flakes
           inputs.home-manager.nixosModules.home-manager
           desktop
@@ -49,7 +46,15 @@ in
           ld
           index
           flatpak
+
+          # Experiments
           ./fix-bluetooth.nix
+          {
+            boot.initrd.systemd = {
+              enable = true;
+              emergencyAccess = true;
+            };
+          }
         ];
         homeModules = with self.homeModules; [
           ./home.nix

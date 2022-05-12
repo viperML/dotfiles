@@ -12,8 +12,8 @@
       runUsingSystemd = true;
     };
     displayManager = {
-      gdm.enable = true;
-      sddm.enable = false;
+      gdm.enable = false;
+      sddm.enable = true;
       defaultSession = "plasma";
       autoLogin.enable = true;
     };
