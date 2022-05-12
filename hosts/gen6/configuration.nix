@@ -268,6 +268,8 @@ in {
       enable = true;
       dns = "default";
     };
+    # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
+    firewall.checkReversePath = "loose";
   };
 
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals

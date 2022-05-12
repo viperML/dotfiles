@@ -4,12 +4,12 @@ inputs @ {self, ...}: let
   nixpkgs-src = self.lib.patch-nixpkgs {
     nixpkgs = inputs.nixpkgs;
     patches = [
-      rec {
-        name = "172660";
-        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
-        sha256 = "sha256-VZyztFkJ8TZXamwQ0f2E8p7wnW1Z/UZI0vXu24r3WY0=";
-        exclude = [];
-      }
+      # rec {
+      #   name = "172660";
+      #   url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
+      #   sha256 = "sha256-VZyztFkJ8TZXamwQ0f2E8p7wnW1Z/UZI0vXu24r3WY0=";
+      #   exclude = [];
+      # }
     ];
     pkgs = self.legacyPackages.${system};
   };
@@ -68,15 +68,15 @@ in
         (self.specialisations)
         kde
         ;
-      "kde-open" = {
-        nixosModules =
-          self.specialisations.kde.nixosModules
-          ++ [
-            {
-              hardware.nvidia.open = true;
-            }
-          ];
-        homeModules = self.specialisations.kde.homeModules;
-      };
+      # "kde-open" = {
+      #   nixosModules =
+      #     self.specialisations.kde.nixosModules
+      #     ++ [
+      #       {
+      #         hardware.nvidia.open = true;
+      #       }
+      #     ];
+      #   homeModules = self.specialisations.kde.homeModules;
+      # };
     };
   }
