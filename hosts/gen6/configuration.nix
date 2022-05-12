@@ -10,10 +10,6 @@
     FLAKE = "/home/ayats/Documents/dotfiles";
   };
 in {
-  viper = {
-    defaultSpec = "kde";
-  };
-
   environment.variables = env;
   environment.sessionVariables = env;
   home-manager.users.ayats = _: {
@@ -274,11 +270,12 @@ in {
     };
   };
 
+  # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
   services.tailscale.enable = true;
   services.openssh = {
     enable = true;
     openFirewall = false;
-    # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
+    hostKeys = [];
     extraConfig = ''
       TrustedUserCAKeys /secrets/ssh-certs/ssh_user_key.pub
       HostKey /secrets/ssh-certs/ssh_host_ecdsa_key2

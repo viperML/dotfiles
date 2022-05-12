@@ -19,7 +19,7 @@
     nixosModules = exportModulesDir ./modules/nixos;
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations self;
-    nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") {inherit self inputs;}) (readDir ./hosts);
+    nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);
 
     legacyPackages = genSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 

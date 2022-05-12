@@ -1,7 +1,4 @@
-{
-  self,
-  inputs,
-}:
+inputs @ {self, ...}:
 self.lib.mkSystem rec {
   system = "x86_64-linux";
   pkgs = self.legacyPackages.${system};

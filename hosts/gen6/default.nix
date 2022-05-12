@@ -1,38 +1,40 @@
-{
-  self,
-  inputs,
-}: let
+inputs @ {self, ...}: let
   system = "x86_64-linux";
 
-  # nixpkgs-src = self.lib.patch-nixpkgs {
-  #   nixpkgs = inputs.nixpkgs;
-  #   patches = [
-  #     rec {
-  #       name = "168269";
-  #       url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
-  #       sha256 = "sha256-ptJ6P7qqN78FeS/v1qST8Ut99WyI4tRCnPv+aO/dAOQ=";
-  #       exclude = [];
-  #     }
-  #   ];
-  #   pkgs = self.legacyPackages.${system};
-  # };
+  nixpkgs-src = self.lib.patch-nixpkgs {
+    nixpkgs = inputs.nixpkgs;
+    patches = [
+      rec {
+        name = "172660";
+        url = "https://github.com/NixOS/nixpkgs/pull/${name}.patch";
+        sha256 = "sha256-VZyztFkJ8TZXamwQ0f2E8p7wnW1Z/UZI0vXu24r3WY0=";
+        exclude = [];
+      }
+    ];
+    pkgs = self.legacyPackages.${system};
+  };
 
-  nixpkgs-src = inputs.nixpkgs;
+  # nixpkgs-src = inputs.nixpkgs;
+  pkgs = import nixpkgs-src {
+    inherit system;
+    config.allowUnfree = true;
+  };
 
   nixosSystem = args: import "${nixpkgs-src}/nixos/lib/eval-config.nix" args;
   modulesPath = "${nixpkgs-src}/nixos/modules";
 in
   self.lib.mkSystem rec {
-    inherit system nixosSystem;
-    pkgs = self.legacyPackages.${system};
+    inherit system nixosSystem pkgs;
     specialArgs = {inherit self inputs;};
     specialisations = {
       "base" = {
         nixosModules = with self.nixosModules; [
           # ./init.nix
-
           ./configuration.nix
-          # DELETEME
+          {
+            viper.defaultSpec = "kde";
+          }
+
           common
           mainUser-ayats
 
@@ -66,5 +68,15 @@ in
         (self.specialisations)
         kde
         ;
+      "kde-open" = {
+        nixosModules =
+          self.specialisations.kde.nixosModules
+          ++ [
+            {
+              hardware.nvidia.open = true;
+            }
+          ];
+        homeModules = self.specialisations.kde.homeModules;
+      };
     };
   }
