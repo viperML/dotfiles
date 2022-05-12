@@ -45,7 +45,7 @@ in
           printing
           ld
           index
-          flatpak
+          # flatpak
 
           # Experiments
           ./fix-bluetooth.nix
