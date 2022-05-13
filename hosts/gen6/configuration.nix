@@ -18,6 +18,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     libva-utils
+    pv
   ];
 
   environment.defaultPackages = [];
@@ -31,7 +32,7 @@ in {
         "usb_storage"
         "usbhid"
         "sd_mod"
-        "tpm_crb"
+        "tpm"
       ];
       kernelModules = [
         "zfs"
@@ -164,31 +165,29 @@ in {
         "x-systemd.mount-timeout=15min"
       ];
     };
-    # "/var/log" = {
-    #   device = "zroot/system/log";
-    #   fsType = "zfs";
-    #   neededForBoot = true;
-    # };
-    # "/var/lib/tailscale" = {
-    #   device = "zroot/system/tailscale";
-    #   fsType = "zfs";
-    # };
+    ###
+    "/var/log" = {
+      device = "tank/system/log";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+    "/var/lib/tailscale" = {
+      device = "tank/system/tailscale";
+      fsType = "zfs";
+    };
     "/var/lib/systemd" = {
       device = "tank/system/sd";
       fsType = "zfs";
     };
-    # "/var/lib/libvirt" = {
-    #   device = "zroot/system/libvirt";
-    #   fsType = "zfs";
-    # };
-    # "/var/lib/libvirt/clean" = {
-    #   device = "zroot/system/libvirt/clean";
-    #   fsType = "zfs";
-    # };
+    "/var/lib/libvirt" = {
+      device = "tank/system/libvirt";
+      fsType = "zfs";
+    };
     "/var/lib/docker" = {
       device = "tank/system/docker";
       fsType = "zfs";
     };
+    ###
     "/home/ayats" = {
       device = "tank/ayats/home";
       fsType = "zfs";
@@ -293,7 +292,7 @@ in {
   };
 
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
-  # services.tailscale.enable = true;
+  services.tailscale.enable = true;
   # services.openssh = {
   #   enable = true;
   #   openFirewall = false;

@@ -28,9 +28,22 @@ in {
     #   })
   ];
 
-  # systemd.user.services.tailscale-systray = {
-  #   Unit.Description = "Tailscale tray icon";
-  #   Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
-  #   Install.WantedBy = ["xdg-desktop-autostart.target"];
-  # };
+  systemd.user.services = {
+    "tailscale-tray" = {
+      Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
+      Install.WantedBy = ["tray.target"];
+      Unit = {
+        Description = "Tailscale indicator for system tray";
+        After = ["tray.target"];
+      };
+    };
+    "solaar" = {
+      Service.ExecStart = "${pkgs.solaar}/bin/solaar -w hide";
+      Install.WantedBy = ["tray.target"];
+      Unit = {
+        Description = "LG mice controller";
+        After = ["tray.target"];
+      };
+    };
+  };
 }

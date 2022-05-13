@@ -29,6 +29,12 @@
           .outPath;
         Install.WantedBy = ["xdg-desktop-autostart.target"];
       };
+      tray-wait-online = {
+        Unit.Description = "Wait for KDE system tray";
+        Service.ExecStart = "${pkgs.coreutils}/bin/sleep 5";
+        Service.Type = "oneshot";
+        Install.WantedBy = ["tray.target"];
+      };
     };
     timers.apply-colorscheme = {
       Unit.Description = "Apply colorscheme on schedule";
@@ -37,13 +43,14 @@
       Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
       Install.WantedBy = ["timers.target"];
     };
-    targets.tray = {
+    targets."tray" = {
       Unit = {
-        Description = "Current graphical tray";
-        BindsTo = ["graphical-session.target"];
-        Wants = ["graphical-session.target"];
-        After = ["graphical-session.target"];
+        Description = "Home-manager tray target";
+        Requires = ["xdg-desktop-autostart.target" "tray-wait-online.service"];
+        After = ["xdg-desktop-autostart.target" "tray-wait-online.service"];
+        BindsTo = ["xdg-desktop-autostart.target"];
       };
+      Install.WantedBy = ["xdg-desktop-autostart.target"];
     };
   };
 }
