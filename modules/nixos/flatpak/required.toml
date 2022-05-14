@@ -25,3 +25,7 @@ url = "https://dl.flathub.org/repo"
 [[remotes]]
 name = "flathub-beta"
 url = "https://dl.flathub.org/beta-repo"
+
+[[apps]]
+origin = "flathub"
+ref = "org.fedoraproject.MediaWriter/x86_64/stable"

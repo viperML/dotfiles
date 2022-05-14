@@ -47,7 +47,7 @@ in {
       };
       systemd = {
         enable = true;
-        emergencyAccess = true;
+        emergencyAccess = false;
       };
     };
     tmpOnTmpfs = true;
@@ -65,18 +65,20 @@ in {
 
     loader.systemd-boot = {
       enable = true;
-      editor = true;
+      editor = false;
       configurationLimit = 10;
       consoleMode = "max";
       netbootxyz.enable = true;
     };
 
     loader.efi = {
-      efiSysMountPoint = "/boot";
+      efiSysMountPoint = "/efi";
       canTouchEfiVariables = true;
     };
 
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    binfmt = {
+      emulatedSystems = ["aarch64-linux"];
+    };
 
     kernel.sysctl = {
       "vm.swappiness" = 10;
@@ -101,15 +103,27 @@ in {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
     nvidia.modesetting.enable = true;
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-    opengl.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages = [
-      pkgs.vaapiVdpau
-      pkgs.libvdpau-va-gl
-      pkgs.nvidia-vaapi-driver
-    ];
+    nvidia.package = let
+      nv = config.boot.kernelPackages.nvidiaPackages;
+    in
+      if lib.versionAtLeast nv.stable.version nv.beta.version
+      then nv.stable
+      else nv.beta;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        vaapiVdpau
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+      ];
+    };
     bluetooth = {
       enable = true;
     };
@@ -152,12 +166,7 @@ in {
       device = "tank/system/nix";
       fsType = "zfs";
     };
-    # "/secrets" = {
-    #   device = "zroot/secrets";
-    #   fsType = "zfs";
-    #   neededForBoot = true;
-    # };
-    "/boot" = {
+    "/efi" = {
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
       options = [
@@ -166,6 +175,11 @@ in {
       ];
     };
     ###
+    "/var/lib/secrets" = {
+      device = "tank/system/secrets";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
     "/var/log" = {
       device = "tank/system/log";
       fsType = "zfs";
@@ -227,7 +241,7 @@ in {
         "tank/ayats/music"
         "tank/ayats/pictures"
         "tank/ayats/videos"
-        # "zroot/secrets"
+        "tank/system/secrets"
       ];
     in
       (builtins.listToAttrs (
@@ -292,27 +306,30 @@ in {
   };
 
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
+  services.openssh = {
+    enable = true;
+    openFirewall = false;
+    hostKeys = [];
+    extraConfig = ''
+      TrustedUserCAKeys /var/lib/secrets/certs/ssh_user_key.pub
+      HostKey /var/lib/secrets/certs/ssh_host_ecdsa_key
+      HostCertificate /var/lib/secrets/certs/ssh_host_ecdsa_key-cert.pub
+    '';
+  };
+
   services.tailscale.enable = true;
-  # services.openssh = {
-  #   enable = true;
-  #   openFirewall = false;
-  #   hostKeys = [];
-  #   extraConfig = ''
-  #     TrustedUserCAKeys /secrets/ssh-certs/ssh_user_key.pub
-  #     HostKey /secrets/ssh-certs/ssh_host_ecdsa_key2
-  #     HostCertificate /secrets/ssh-certs/ssh_host_ecdsa_key2-cert.pub
-  #   '';
-  # };
-  # networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
-  # networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [
-  #   {
-  #     from = 8000;
-  #     to = 8999;
-  #   }
-  # ];
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
+  networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [
+    {
+      from = 8000;
+      to = 8999;
+    }
+  ];
 
   security.tpm2 = {
     enable = true;
     abrmd.enable = true;
   };
+
+  fonts.fontconfig.cache32Bit = true;
 }

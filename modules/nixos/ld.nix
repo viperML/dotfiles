@@ -39,4 +39,11 @@ in {
   ];
 
   programs.nix-ld.enable = true;
+
+  environment.systemPackages = [pkgs.appimage-run];
+  boot.binfmt.registrations."appimage" = {
+    recognitionType = "extension";
+    magicOrExtension = "appimage";
+    interpreter = "/run/current-system/sw/bin/appimage-run";
+  };
 }

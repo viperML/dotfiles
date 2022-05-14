@@ -26,7 +26,6 @@ in {
 
     # Misc utils
     android-tools
-    appimage-run
     dogdns
     fd
     htop
