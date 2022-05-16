@@ -8,6 +8,7 @@
   writeTextDir,
   fetchFromGitHub,
   lib,
+  symlinkJoin,
 }:
 wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
   extraLuaPackages = luaPackages:
@@ -21,22 +22,13 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
       # keep
     ];
   customRC = ''
-    " Vanilla configs
-    ${lib.fileContents ./vanilla.vim}
-
-    " Plugins configs
-    ${lib.fileContents ./plugins.vim}
-    let g:coc_config_home="${writeTextDir "coc" ((formats.json {}).generate "coc-settings.json" (import ./coc.nix))}"
-
-    " Lua config
-    :luafile ${./plugins.lua}
+    source ${./init.vim}
+    :luafile ${./init.lua}
   '';
 
-  # No idea of how all of this is passed down
-  # https://github.com/NixOS/nixpkgs/blob/2ea2f7b6d0cb7ce0712f2aa80303cda08deb0de2/pkgs/applications/editors/vim/plugins/vim-utils.nix#L267
-  # configure === vimrcContent
+  # https://nixos.org/manual/nixpkgs/stable/#managing-plugins-with-vim-packages
 
-  configure.plug.plugins = with vimPlugins; let
+  configure.packages."placeholder".start = with vimPlugins; let
     nvim-transparent = vimUtils.buildVimPlugin {
       pname = "nvim-transparent";
       version = "unstable-2022-04-13";
@@ -51,6 +43,16 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
         homepage = "https://github.com/xiyaowong/nvim-transparent";
       };
     };
+    nvim-treesitter' = nvim-treesitter.withPlugins (p:
+      with p; [
+        tree-sitter-bash
+        tree-sitter-dockerfile
+        tree-sitter-json
+        tree-sitter-json5
+        tree-sitter-nix
+        tree-sitter-python
+        tree-sitter-toml
+      ]);
   in [
     # Theming
     vim-one
@@ -69,8 +71,14 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
 
     # Intelligent editor
     nvim-lspconfig
+    nvim-cmp
+    cmp-cmdline
+    cmp-nvim-lsp
+    cmp-buffer
+    cmp-path
+
+    nvim-treesitter'
     vim-nix
-    coc-nvim
     neoformat
   ];
 })
