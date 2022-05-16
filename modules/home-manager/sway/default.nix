@@ -15,7 +15,6 @@ args @ {
 
   home.packages = with pkgs; [
     wofi
-    nwg-panel
   ];
 
   systemd.user.services = {

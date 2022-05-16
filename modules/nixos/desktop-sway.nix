@@ -16,6 +16,13 @@
     SDL_VIDEODRIVER = "wayland";
     WLR_DRM_NO_ATOMIC = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
+    #
+    __GL_GSYNC_ALLOWED = "0";
+    __GL_VRR_ALLOWED = "0";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    GDK_BACKEND = "wayland";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 in {
   services.xserver = {
@@ -60,7 +67,5 @@ in {
   environment.variables = env;
   environment.sessionVariables = env;
 
-  programs = {
-    xwayland.enable = true;
-  };
+  programs.xwayland.enable = true;
 }
