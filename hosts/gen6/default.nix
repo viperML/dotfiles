@@ -57,8 +57,6 @@ in
           inputs.nixos-flakes.homeModules.channels-to-flakes
           gui
           git
-          shell
-          neovim
           vscode
           wezterm
           nh

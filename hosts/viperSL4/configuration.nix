@@ -14,6 +14,8 @@
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
     BROWSER = "wslview";
+    EDITOR = "nvim";
+    SHELL = "fish";
   };
 in {
   environment.variables = env;
@@ -24,6 +26,8 @@ in {
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
     wslu
+    packages.self.vshell
+    packages.self.neovim
   ];
 
   networking.hostName = hn;

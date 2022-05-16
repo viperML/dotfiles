@@ -8,6 +8,8 @@
 }: let
   env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
+    EDITOR = "nvim";
+    SHELL = "fish";
   };
 in {
   environment.variables = env;
@@ -19,6 +21,8 @@ in {
   environment.systemPackages = with pkgs; [
     libva-utils
     pv
+    packages.self.neovim
+    packages.self.vshell
   ];
 
   environment.defaultPackages = [];

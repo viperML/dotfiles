@@ -24,8 +24,6 @@ self.lib.mkSystem rec {
       common
       inputs.nixos-flakes.homeModules.channels-to-flakes
       git
-      shell
-      neovim
     ];
   };
 }

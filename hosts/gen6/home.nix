@@ -8,6 +8,7 @@
   browser = "com.google.Chrome";
 in {
   home.packages = with pkgs; [
+    packages.self.neofetch
     mpv
     qbittorrent
     ahoviewer

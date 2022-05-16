@@ -1,10 +1,12 @@
 {
   pkgs,
   config,
+  packages,
   ...
 }: {
   home.packages = with pkgs; [
     wget
+    packages.self.neofetch
     # (pkgs.writeShellScriptBin "ssh" ''
     #   ssh.exe "$@"
     # '')
