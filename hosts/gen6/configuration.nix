@@ -55,7 +55,7 @@ in {
       };
     };
     tmpOnTmpfs = true;
-    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelModules = ["kvm-intel"];
     # https://github.com/NixOS/nixpkgs/pull/171680
     kernelParams = ["nohibernate"];
@@ -91,7 +91,6 @@ in {
 
   services.xserver = {
     layout = "us";
-    videoDrivers = ["nvidia"];
     xkbOptions = "compose:rctrl";
     # displayManager.autoLogin.user = "ayats";
     libinput = {
@@ -106,28 +105,6 @@ in {
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    nvidia.modesetting.enable = true;
-    nvidia.package = let
-      nv = config.boot.kernelPackages.nvidiaPackages;
-    in
-      if lib.versionAtLeast nv.stable.version nv.beta.version
-      then nv.stable
-      else nv.beta;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        vaapiVdpau
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-      ];
-    };
     bluetooth = {
       enable = true;
     };

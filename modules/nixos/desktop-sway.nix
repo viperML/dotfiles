@@ -27,14 +27,13 @@
 in {
   services.xserver = {
     enable = true;
-    # videoDrivers = lib.mkForce ["nouveau"];
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
   };
 
   programs.sway = {
     enable = true;
-    extraOptions = ["--unsupported-gpu"];
+    # extraOptions = ["--unsupported-gpu"];
     wrapperFeatures = {
       gtk = true;
     };

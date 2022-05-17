@@ -78,6 +78,24 @@
         "type": "github"
       }
     },
+    "hyprland": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "wlroots": "wlroots"
+      },
+      "locked": {
+        "lastModified": 1652793677,
+        "narHash": "sha256-9r/qEDMYQwIsFjluEF71o6nTMssiMVs/8dny8n1OIhA=",
+        "path": "/home/ayats/Downloads/Hyprland",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/ayats/Downloads/Hyprland",
+        "type": "path"
+      }
+    },
     "nh": {
       "inputs": {
         "flake-utils": [
@@ -273,6 +291,7 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "hyprland": "hyprland",
         "nh": "nh",
         "nix-autobahn": "nix-autobahn",
         "nix-matlab": "nix-matlab",
@@ -282,6 +301,24 @@
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unfree": "nixpkgs-unfree"
+      }
+    },
+    "wlroots": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1652629480,
+        "narHash": "sha256-4mouFPYB2VwgPi92trvAk8JAGjvkYm+DX72sUzljCXA=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "8fe3aa29da56be16faa73aca947647bd60cd4a94",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
       }
     }
   },

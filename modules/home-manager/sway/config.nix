@@ -20,8 +20,8 @@ in {
     inherit modifier;
 
     output = {
-      "DP-2" = {
-        mode = "2560x1440@140Hz";
+      "DP-3" = {
+        mode = "2560x1440@119.998Hz";
         bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
         adaptive_sync = "on";
       };

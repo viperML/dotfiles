@@ -107,5 +107,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
+    hyprland = {
+      url = "path:/home/ayats/Downloads/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

@@ -38,4 +38,9 @@ self: {
       xsettingsd
     ];
   };
+
+  "hyprland" = {
+    nixosModules = [self.nixosModules.desktop-hyprland];
+    homeModules = [self.homeModules.hyprland];
+  };
 }

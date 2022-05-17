@@ -21,6 +21,8 @@ inputs @ {self, ...}: let
     config.allowUnfree = true;
   };
 
+  inherit (pkgs) lib;
+
   nixosSystem = args: import "${nixpkgs-src}/nixos/lib/eval-config.nix" args;
   modulesPath = "${nixpkgs-src}/nixos/modules";
 in
@@ -62,9 +64,21 @@ in
           nh
         ];
       };
-      inherit
-        (self.specialisations)
-        kde
-        ;
+      "kde" = {
+        nixosModules =
+          self.specialisations.kde.nixosModules
+          ++ [
+            self.nixosModules.hardware-nvidia
+          ];
+        inherit (self.specialisations.kde) homeModules;
+      };
+      "hyprland" = {
+        nixosModules =
+          self.specialisations.hyprland.nixosModules
+          ++ [
+            self.nixosModules.hardware-nouveau
+          ];
+        inherit (self.specialisations.hyprland) homeModules;
+      };
     };
   }
