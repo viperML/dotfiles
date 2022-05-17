@@ -108,7 +108,7 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     hyprland = {
-      url = "path:/home/ayats/Downloads/Hyprland";
+      url = "github:viperML/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

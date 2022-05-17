@@ -86,14 +86,17 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1652793677,
-        "narHash": "sha256-9r/qEDMYQwIsFjluEF71o6nTMssiMVs/8dny8n1OIhA=",
-        "path": "/home/ayats/Downloads/Hyprland",
-        "type": "path"
+        "lastModified": 1652793000,
+        "narHash": "sha256-naLHIe78XjYC7+fpcg8ipdQeqj2KEzNv/G+3WFU1oWk=",
+        "owner": "viperML",
+        "repo": "Hyprland",
+        "rev": "b3276d32077b7883e4cede784b6598fc3ca403c0",
+        "type": "github"
       },
       "original": {
-        "path": "/home/ayats/Downloads/Hyprland",
-        "type": "path"
+        "owner": "viperML",
+        "repo": "Hyprland",
+        "type": "github"
       }
     },
     "nh": {
