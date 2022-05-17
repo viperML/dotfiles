@@ -1,7 +1,7 @@
 {
-  config,
   pkgs,
   lib,
+  packages,
   ...
 }: let
   env = {
@@ -26,17 +26,19 @@
   };
 in
   with lib; {
+    environment.systemPackages = [packages.hyprland.default];
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;
       displayManager.gdm.wayland = true;
+      displayManager.sessionPackages = [packages.hyprland.default];
     };
     security.polkit.enable = true;
     hardware.opengl.enable = mkDefault true;
     fonts.enableDefaultFonts = mkDefault true;
     programs.dconf.enable = mkDefault true;
-    programs.xwayland.enable = mkDefault true;
     xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
     environment.variables = env;
     environment.sessionVariables = env;
+    programs.xwayland.enable = true;
   }
