@@ -6,10 +6,11 @@
   packages,
   ...
 }: let
+  prefix = "/run/current/system/sw/bin";
   env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
-    EDITOR = "nvim";
-    SHELL = "fish";
+    EDITOR = "${prefix}/nvim";
+    SHELL = "${prefix}/fish";
   };
 in {
   environment.variables = env;
@@ -313,4 +314,8 @@ in {
   };
 
   fonts.fontconfig.cache32Bit = true;
+
+  services.fwupd = {
+    enable = true;
+  };
 }

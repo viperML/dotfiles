@@ -30,6 +30,7 @@
       filelight
       gwenview
       kcolorchooser
+      discover
       ;
     inherit
       (pkgs)
@@ -45,7 +46,5 @@
       ;
   };
 
-  programs = {
-    xwayland.enable = true;
-  };
+  programs.xwayland.enable = true;
 }

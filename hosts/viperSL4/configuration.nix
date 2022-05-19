@@ -8,14 +8,15 @@
   ...
 }: let
   hn = "viperSL4";
+  prefix = "/run/current/system/sw/bin";
   env = {
     FLAKE = "/mnt/c/Users/ayats/Documents/dotfiles";
     GDK_DPI_SCALE = "1.5";
     QT_QPA_PLATFORM = "wayland";
     DONT_PROMPT_WSL_INSTALL = "1";
-    BROWSER = "wslview";
-    EDITOR = "nvim";
-    SHELL = "fish";
+    BROWSER = "${prefix}/wslu";
+    EDITOR = "${prefix}/nvim";
+    SHELL = "${prefix}/fish";
   };
 in {
   environment.variables = env;

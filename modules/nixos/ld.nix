@@ -10,6 +10,13 @@
       openssl
       curl
       glib
+      util-linux
+      glibc
+      icu
+      libunwind
+      libuuid
+      zlib
+      libsecret
     ];
     graphical = [
       freetype
@@ -18,6 +25,7 @@
       SDL2
       vulkan-loader
       gdk-pixbuf
+      xorg.libX11
     ];
   };
 
@@ -41,9 +49,9 @@ in {
   programs.nix-ld.enable = true;
 
   environment.systemPackages = [pkgs.appimage-run];
-  boot.binfmt.registrations."appimage" = {
+  boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (ext: {
     recognitionType = "extension";
-    magicOrExtension = "appimage";
+    magicOrExtension = ext;
     interpreter = "/run/current-system/sw/bin/appimage-run";
-  };
+  });
 }

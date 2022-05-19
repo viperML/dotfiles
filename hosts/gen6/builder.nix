@@ -22,7 +22,7 @@
         "kvm"
         "nixos-test"
       ];
-      speedFactor = 1;
+      speedFactor = 2;
       maxJobs = 16;
     }
   ];

@@ -40,11 +40,18 @@
   ];
   flags-conf = pkgs.writeText "flags.conf" (lib.concatStringsSep "\n" chromiumFlags);
 in {
+  xdg.dataFile."flatpak-required.toml" = {
+    source = ./required.toml;
+    onChange = ''
+      systemctl --user restart flatpak-autoinstall.service
+    '';
+  };
+
   systemd.user = {
     services = {
       flatpak-autoinstall = {
         Unit.Description = "Install and remove flatpaks to match the required packages";
-        Service.ExecStart = "${autoinstallChecked}/main ${./required.toml}";
+        Service.ExecStart = "${autoinstallChecked}/main ${config.xdg.dataHome}/flatpak-required.toml";
         Service.ExecStartPre = "${pkgs.coreutils}/bin/sleep 10";
         Install.WantedBy = ["default.target"];
         Unit.After = ["flatpak-session-helper.service"];
