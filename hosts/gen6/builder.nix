@@ -4,13 +4,17 @@
   inputs,
   ...
 } @ args: {
+  programs.ssh.extraConfig = ''
+    Host gen6
+        HostName gen6.ayatsfer.gmail.com.beta.tailscale.net
+  '';
   nix.distributedBuilds = true;
   nix.extraOptions = ''
     builders-use-substitutes = true
   '';
   nix.buildMachines = [
     {
-      hostName = "gen6";
+      hostName = "gen6.ayatsfer.gmail.com.beta.tailscale.net";
       sshUser = "ayats";
       system = "x86_64-linux";
       systems = [
@@ -26,4 +30,8 @@
       maxJobs = 16;
     }
   ];
+
+  systemd.services."nix-daemon" = {
+    environment.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+  };
 }

@@ -8,7 +8,7 @@
   ...
 }: let
   hn = "viperSL4";
-  prefix = "/run/current/system/sw/bin";
+  prefix = "/run/current-system/sw/bin";
   env = {
     FLAKE = "/mnt/c/Users/ayats/Documents/dotfiles";
     GDK_DPI_SCALE = "1.5";
@@ -17,6 +17,7 @@
     BROWSER = "${prefix}/wslu";
     EDITOR = "${prefix}/nvim";
     SHELL = "${prefix}/fish";
+    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
 in {
   environment.variables = env;
@@ -59,25 +60,8 @@ in {
     "d /root/.ssh 0700 root root - -"
   ];
 
-  systemd.services = {
-    bind-ssh-ayats = {
-      serviceConfig.Type = "forking";
-      script = ''
-        ${pkgs.bindfs}/bin/bindfs -p 700 /mnt/c/Users/ayats/.ssh /home/ayats/.ssh
-      '';
-      wantedBy = ["multi-user.target"];
-      after = ["systemd-tmpfiles-setup.service"];
-    };
-    bind-ssh-root = {
-      serviceConfig.Type = "forking";
-      script = "${pkgs.bindfs}/bin/bindfs --map=1000/0:@100/@0 -p 700 /mnt/c/Users/ayats/.ssh /root/.ssh";
-      wantedBy = ["multi-user.target"];
-      after = ["systemd-tmpfiles-setup.service"];
-    };
-  };
-
   programs.ssh = {
     startAgent = true;
-    agentTimeout = "1h";
+    agentTimeout = "3h";
   };
 }

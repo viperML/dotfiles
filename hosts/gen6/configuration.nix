@@ -6,7 +6,7 @@
   packages,
   ...
 }: let
-  prefix = "/run/current/system/sw/bin";
+  prefix = "/run/current-system/sw/bin";
   env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
     EDITOR = "${prefix}/nvim";
