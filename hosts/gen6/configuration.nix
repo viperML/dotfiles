@@ -58,8 +58,10 @@ in {
     tmpOnTmpfs = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelModules = ["kvm-intel"];
-    # https://github.com/NixOS/nixpkgs/pull/171680
-    kernelParams = ["nohibernate"];
+    kernelParams = [
+      # https://github.com/NixOS/nixpkgs/pull/171680
+      "nohibernate"
+    ];
     supportedFilesystems = ["zfs"];
 
     zfs = {

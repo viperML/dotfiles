@@ -1,12 +1,14 @@
-vim.cmd [[colorscheme one]]
-local current_time = tonumber(os.date "%H%M")
-if current_time < 1800 and current_time > 500 then
-  colorscheme = "light"
-else
-  colorscheme = "dark"
-end
+-- vim.cmd [[colorscheme one]]
+-- local current_time = tonumber(os.date "%H%M")
+-- if current_time < 1800 and current_time > 500 then
+--   colorscheme = "light"
+-- else
+--   colorscheme = "dark"
+-- end
 
-vim.opt.background = colorscheme
+-- vim.opt.background = colorscheme
+
+vim.cmd "colorscheme disco"
 
 require("nvim_comment").setup {}
 
@@ -31,7 +33,7 @@ require("indent_blankline").setup {
 
 require("lualine").setup {
   options = {
-    theme = "one" .. colorscheme,
+    theme = "wombat",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
@@ -79,6 +81,8 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "treesitter" },
+    { name = "path", option = { trailing_slash = true } },
+    { name = "buffer" },
     -- { name = "vsnip" }, -- For vsnip users.
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
