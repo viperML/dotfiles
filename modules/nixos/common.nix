@@ -46,6 +46,7 @@ lib.mkMerge [
     environment.defaultPackages = [];
     environment.systemPackages = [
       pkgs.step-cli
+      pkgs.cntr
     ];
   }
   (lib.mkIf (lib.hasAttr "FLAKE" config.environment.variables) {
