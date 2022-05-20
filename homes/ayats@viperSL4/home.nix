@@ -18,6 +18,7 @@ in {
   home.packages = [
     packages.home-manager.default
     pkgs.keychain
+    pkgs.step-cli
     packages.self.neofetch
     packages.self.vshell
     packages.self.neovim
