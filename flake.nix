@@ -43,6 +43,11 @@
         pkgs = self.legacyPackages.${system} // self.packages.${system};
       };
     });
+
+    templates = mapAttrs (name: _: {
+      inherit (import ./templ/${name}/flake.nix) description;
+      path = ./templ/${name};
+    }) (readDir ./templ);
   };
 
   inputs = {
