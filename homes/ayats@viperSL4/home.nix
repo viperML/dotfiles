@@ -25,7 +25,7 @@ in {
   ];
 
   xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
-    ${lib.fileContents ./nix.conf} 
+    ${lib.fileContents ./nix.conf}
   '';
 
   xdg.configFile."nix/rc".text = ''
@@ -34,4 +34,16 @@ in {
     . $HOME/.keychain/$(hostname)-sh
     ${lib.concatStringsSep "\n" (__attrValues (__mapAttrs (n: v: "export ${n}=${v}") config.home.sessionVariables))}
   '';
+
+  home.file =
+    lib.genAttrs [
+      "Documents"
+      "Desktop"
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Videos"
+    ] (folder: {
+      source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/ayats/${folder}";
+    });
 }
