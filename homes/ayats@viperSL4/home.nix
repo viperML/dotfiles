@@ -25,8 +25,7 @@ in {
   ];
 
   xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
-    auto-optimise-store = true
-    builders = ssh://ayats@gen6.ayatsfer.gmail.com.beta.tailscale.net
+    ${lib.fileContents ./nix.conf} 
   '';
 
   xdg.configFile."nix/rc".text = ''
