@@ -17,9 +17,10 @@
   flake = import flake-compat {
     src = ./.;
   };
-  
 in
   assert args ? localSystem -> !(args ? system);
-  assert args ? system -> !(args ? localSystem); (flake.defaultNix.legacyPackages.${system} // flake.defaultNix.packages.${system} // {
-    inherit (flake.defaultNix) homeConfigurations nixosConfigurations;
-  })
+  assert args ? system -> !(args ? localSystem); (flake.defaultNix.legacyPackages.${system}
+    // flake.defaultNix.packages.${system}
+    // {
+      inherit (flake.defaultNix) homeConfigurations nixosConfigurations;
+    })
