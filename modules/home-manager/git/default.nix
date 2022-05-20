@@ -35,6 +35,7 @@
   home.packages = with pkgs; [
     git-extras
     gibo
+    glab
   ];
   home.sessionVariables.LESS = "-r";
 }
