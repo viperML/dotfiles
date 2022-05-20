@@ -1,6 +1,8 @@
 {
   packages,
   pkgs,
+  lib,
+  self,
   ...
 }: let
   env = {
@@ -18,4 +20,9 @@ in {
     packages.self.vshell
     packages.self.neovim
   ];
+
+  xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
+    auto-optimise-store = true
+    builders = ssh://ayats@gen6.ayatsfer.gmail.com.beta.tailscale.net
+  '';
 }

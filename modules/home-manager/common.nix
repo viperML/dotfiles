@@ -38,5 +38,5 @@ in {
 
   home.stateVersion = "21.11";
 
-  home.file.".config/nix/nix.conf".source = "${self.outPath}/misc/nix.conf";
+  xdg.configFile."nix/nix.conf".text = lib.fileContents "${self}/misc/nix.conf";
 }
