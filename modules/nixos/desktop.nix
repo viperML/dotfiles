@@ -38,7 +38,10 @@
       lsof
       usbutils
       # Icons
-      (packages.self.papirus-icon-theme.override {color = "adwaita";})
+      # (packages.self.papirus-icon-theme.override {color = "adwaita";})
+      (packages.self.colloid.override {
+        theme = "yellow";
+      })
     ];
 
     xdg.portal = {

@@ -3,15 +3,13 @@
 ;;   :hook (text-mode . mixed-pitch-mode))
 (setq mixed-pitch-set-height t)
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'medium)
-      doom-variable-pitch-font (font-spec :family "Source Sans 3" :size 12)
-      doom-unicode-font (font-spec :family "Source Sans 3" :size 14)
+      doom-variable-pitch-font (font-spec :family "Roboto" :size 12)
+      doom-unicode-font (font-spec :family "Roboto" :size 14)
       doom-big-font (font-spec :family "JetBrainsMono Nerd Font"))
 (add-hook 'text-mode-hook #'+zen/toggle)
 ;; (add-hook 'text-mode-hook display-line-numbers nil)
 
 
-(use-package! good-scroll
-  :init (good-scroll-mode 1))
 
 (set-formatter! 'alejandra "alejandra" :modes '(nix-mode))
 (setq-hook! 'nix-mode-hook +format-with :none)
@@ -50,3 +48,6 @@
 
 
 (setq markdown-fontify-code-blocks-natively t)
+(setq pixel-scroll-precision-mode t)
+(setq pixel-scroll-precision-large-scroll-height 40.0)
+(setq pixel-scroll-precision-interpolation-factor 30)

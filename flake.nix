@@ -20,6 +20,7 @@
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations self;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);
+    homeConfigurations = mapAttrs (name: _: import (./homes + "/${name}") inputs) (readDir ./homes);
 
     legacyPackages = genSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 
@@ -64,13 +65,6 @@
       inputs.utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
-    # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    # nix-doom-emacs = {
-    #   url = "github:nix-community/nix-doom-emacs";
-    #   inputs.emacs-overlay.follows = "emacs-overlay";
-    #   inputs.flake-utils.follows = "flake-utils";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -109,6 +103,17 @@
     };
     hyprland = {
       url = "github:viperML/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    nix-doom-emacs = {
+      url = "github:nix-community/nix-doom-emacs";
+      inputs.emacs-overlay.follows = "emacs-overlay";
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

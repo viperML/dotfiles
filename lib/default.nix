@@ -16,4 +16,21 @@ in {
       else throw "Package ${pkg.name} has reached the desired version";
   in
     result;
+
+  /*
+   Takes a flake-defined `inputs` and a system, and returns an attribute set
+   containing the extracted packages or legacyPackages
+   
+   Example:
+     mkPackages inputs "x86_64-linux"
+     => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
+   */
+
+  mkPackages = inputs: system:
+    __mapAttrs (name: value: let
+      legacyPackages = value.legacyPackages.${system} or {};
+      packages = value.packages.${system} or {};
+    in
+      legacyPackages // packages)
+    inputs;
 }

@@ -62,6 +62,9 @@ in
           vscode
           wezterm
           nh
+
+          inputs.nix-doom-emacs.hmModule
+          emacs-doom
         ];
       };
       "kde" = {

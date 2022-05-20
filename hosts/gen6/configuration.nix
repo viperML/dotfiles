@@ -272,9 +272,10 @@ in {
 
   users.users.ayats.password = "1234";
 
-  # nix.extraOptions = ''
-  #   secret-key-files = /secrets/cache-priv-key.pem
-  # '';
+  nix = {
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+  };
 
   ### Network
 

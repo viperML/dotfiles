@@ -96,8 +96,9 @@
              :mode ("\\.md\\'" . gfm-mode)
              :init (setq markdown-command "multimarkdown"))
 
-(use-package good-scroll
-             :init (good-scroll-mode 1))
+;(use-package good-scroll
+;             :init (good-scroll-mode 1))
+(setq pixel-scroll-mode t)
 (use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode))
 

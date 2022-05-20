@@ -9,8 +9,8 @@ args: let
   inherit (builtins) typeOf;
 
   xsettingsConfig = {
-    "Gtk/CursorThemeName" = "ePapirus";
-    "Net/IconThemeName" = "Papirus";
+    # "Gtk/CursorThemeName" = "";
+    # "Net/IconThemeName" = "";
     "Gtk/FontName" = "Roboto,  10";
     "Xft/Antialias" = true;
     "Xft/Hinting" = true;
