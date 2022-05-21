@@ -239,11 +239,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1652793000,
-        "narHash": "sha256-naLHIe78XjYC7+fpcg8ipdQeqj2KEzNv/G+3WFU1oWk=",
+        "lastModified": 1653127675,
+        "narHash": "sha256-vXtbaoh3a3bhxeIjsG7Zjx0Ut2w+3AAkC9pZwHqg5k8=",
         "owner": "viperML",
         "repo": "Hyprland",
-        "rev": "b3276d32077b7883e4cede784b6598fc3ca403c0",
+        "rev": "9d89e0f08e1782ddeefa030755805387fb14dccf",
         "type": "github"
       },
       "original": {

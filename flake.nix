@@ -108,6 +108,7 @@
     };
     hyprland = {
       url = "github:viperML/Hyprland";
+      # url = "/home/ayats/Downloads/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay = {
