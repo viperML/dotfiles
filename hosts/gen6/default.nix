@@ -75,13 +75,15 @@ in
           ];
         inherit (self.specialisations.kde) homeModules;
       };
-      "hyprland" = {
-        nixosModules =
-          self.specialisations.hyprland.nixosModules
-          ++ [
-            self.nixosModules.hardware-nouveau
-          ];
-        inherit (self.specialisations.hyprland) homeModules;
-      };
+      /*
+       "hyprland" = {
+         nixosModules =
+           self.specialisations.hyprland.nixosModules
+           ++ [
+             self.nixosModules.hardware-nouveau
+           ];
+         inherit (self.specialisations.hyprland) homeModules;
+       };
+       */
     };
   }
