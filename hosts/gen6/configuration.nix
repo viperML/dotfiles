@@ -115,6 +115,10 @@ in {
       wireless.enable = true;
       wireless.enableGraphical = true;
     };
+    openrazer = {
+      enable = true;
+      users = config.users.groups.wheel.members;
+    };
   };
 
   ### ZFS

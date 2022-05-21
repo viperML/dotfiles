@@ -3,9 +3,14 @@
   pkgs,
   inputs,
   packages,
+  lib,
   ...
 }: let
   browser = "com.google.Chrome";
+  mkTrayService = lib.recursiveUpdate {
+    Install.WantedBy = ["tray.target"];
+    Unit.After = ["tray.target"];
+  };
 in {
   home.packages = with pkgs; [
     packages.self.neofetch
@@ -16,6 +21,7 @@ in {
     obs-studio
     packages.self.obsidian
     ffmpeg-full
+    packages.self.polychromatic
 
     #   packages.nix-matlab.matlab
     #   packages.nix-matlab.matlab-shell
@@ -30,21 +36,25 @@ in {
   ];
 
   systemd.user.services = {
-    "tailscale-tray" = {
+    "tailscale-tray" = mkTrayService {
       Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
-      Install.WantedBy = ["tray.target"];
-      Unit = {
-        Description = "Tailscale indicator for system tray";
-        After = ["tray.target"];
-      };
+      Unit .Description = "Tailscale indicator for system tray";
     };
-    "solaar" = {
-      Service.ExecStart = "${pkgs.solaar}/bin/solaar -w hide";
-      Install.WantedBy = ["tray.target"];
-      Unit = {
-        Description = "LG mice controller";
-        After = ["tray.target"];
-      };
+    # "solaar" = {
+    #   Service.ExecStart = "${pkgs.solaar}/bin/solaar -w hide";
+    #   Install.WantedBy = ["tray.target"];
+    #   Unit = {
+    #     Description = "LG mice controller";
+    #     After = ["tray.target"];
+    #   };
+    # };
+    "polychromatic" = {
+      Service.ExecStart = "${packages.self.polychromatic}/bin/polychromatic-tray-applet";
+      Unit.Description = "Razer controller";
+    };
+    "Mailspring" = mkTrayService {
+      Service.ExecStart = "${config.xdg.dataHome}/flatpak/exports/bin/com.getmailspring.Mailspring --background";
+      Unit.Description = "Mail client";
     };
   };
 }
