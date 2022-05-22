@@ -49,5 +49,5 @@
 
 (setq markdown-fontify-code-blocks-natively t)
 (setq pixel-scroll-precision-mode t)
-(setq pixel-scroll-precision-large-scroll-height 40.0)
-(setq pixel-scroll-precision-interpolation-factor 30)
+;; (setq pixel-scroll-precision-large-scroll-height )
+;; (setq pixel-scroll-precision-interpolation-factor 4.)

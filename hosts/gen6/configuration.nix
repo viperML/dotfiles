@@ -56,7 +56,14 @@ in {
       };
     };
     tmpOnTmpfs = true;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = let
+      latestCompatible = config.boot.zfs.package.latestCompatibleLinuxPackages.kernel.version;
+      targetKernel = pkgs.linuxPackages_xanmod_latest;
+      targetVersion = targetKernel.kernel.version;
+    in
+      if lib.versionAtLeast latestCompatible targetVersion
+      then targetKernel
+      else throw "The kernel ${targetKernel.kernel.name} is not compatible with ZFS";
     kernelModules = ["kvm-intel"];
     kernelParams = [
       # https://github.com/NixOS/nixpkgs/pull/171680
@@ -325,4 +332,6 @@ in {
   services.fwupd = {
     enable = true;
   };
+
+  programs.gamemode.enable = true;
 }
