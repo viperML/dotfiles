@@ -9,7 +9,11 @@ with builtins; let
 
   overrides = {
     vshell = {
-      inherit (inputs.self.packages.${system}) any-nix-shell;
+      inherit
+        (inputs.self.packages.${system})
+        any-nix-shell
+        nix-index
+        ;
     };
     nix-prefetch = {
       nix = inputs.self.packages.${system}.nix;

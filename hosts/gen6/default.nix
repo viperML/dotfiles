@@ -47,7 +47,6 @@ in
           docker
           printing
           ld
-          index
           flatpak
 
           # Experiments

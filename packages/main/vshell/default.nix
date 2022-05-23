@@ -17,6 +17,9 @@
   fd,
   fzf,
   direnv,
+  nix-index,
+  bash,
+  writeScript,
 }: let
   myFishPlugins = [
     rec {
@@ -70,6 +73,12 @@
     '')
   myFishPlugins;
 
+  nix-index-wrapper = writeScript "command-not-found" ''
+    #!${bash}/bin/bash
+    source ${nix-index}/etc/profile.d/command-not-found.sh
+    command_not_found_handle "$@"
+  '';
+
   fish-conf = writeTextFile {
     name = "config.fish";
     executable = false;
@@ -88,27 +97,35 @@
         ${lib.fileContents ./interactive.fish}
         ${lib.fileContents ./pushd-mod.fish}
       end
+
+      function __fish_command_not_found_handler --on-event fish_command_not_found
+        ${nix-index-wrapper} $argv
+      end
     '';
   };
 
-  myBat = symlinkJoin {
-    inherit (bat) name meta;
-    paths = [bat];
-    buildInputs = [makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/bat \
-        --add-flags "--theme=ansi --style=changes,header --plain --paging=auto"
-    '';
-  };
-
-  runtimeDeps = [
-    myBat
-    exa
-    fd
-    fzf
-    any-nix-shell
-    direnv
+  myWrappers = [
+    (symlinkJoin {
+      inherit (bat) name meta;
+      paths = [bat];
+      buildInputs = [makeWrapper];
+      postBuild = ''
+        wrapProgram $out/bin/bat \
+          --add-flags "--theme=ansi --style=changes,header --plain --paging=auto"
+      '';
+    })
   ];
+
+  runtimeDeps =
+    [
+      exa
+      fd
+      fzf
+      any-nix-shell
+      direnv
+      nix-index
+    ]
+    ++ myWrappers;
 in
   symlinkJoin {
     name = "vshell";
