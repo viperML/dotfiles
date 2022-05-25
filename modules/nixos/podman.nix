@@ -23,13 +23,32 @@
 
   # Fix for docker compat (vscode)
   systemd.user = {
-    services.podman.serviceConfig.ExecStart = [
-      ""
-      "${pkgs.podman}/bin/podman $LOGGING system service"
-    ];
-    sockets.podman = {
+    services = {
+      "podman".serviceConfig.ExecStart = [
+        ""
+        "${pkgs.podman}/bin/podman $LOGGING system service"
+      ];
+      "podman-prune" = {
+        description = "Cleanup podman images";
+        requires = ["podman.socket"];
+        after = ["podman.socket"];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${lib.getExe pkgs.podman} image prune --all --external --force";
+        };
+      };
+    };
+    sockets."podman" = {
       enable = true;
       wantedBy = ["sockets.target"];
+    };
+    timers."podman-prune" = {
+      partOf = ["podman-prune.service"];
+      timerConfig = {
+        OnCalendar = "weekly";
+        RandomizedDelaySec = "900";
+        Persistent = "true";
+      };
     };
   };
 }
