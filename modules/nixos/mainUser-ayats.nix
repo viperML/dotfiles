@@ -39,7 +39,7 @@ in {
           options = ["SETENV" "NOPASSWD"];
         }
         {
-          command = "${packages.nh.nh}/bin/nh";
+          command = "${packages.self.nh}/bin/nh";
           options = ["SETENV" "NOPASSWD"];
         }
       ];

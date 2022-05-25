@@ -100,11 +100,36 @@ local rose_pine_dawn = {
   },
 }
 
+local tomorrow_night = {
+  foreground = "#C5C8C6",
+  background = "#141414",
+  ansi = {
+    "#17191a",
+    "#CC6666",
+    "#B5BD68",
+    "#F0C674",
+    "#81A2BE",
+    "#B294BB",
+    "#8ABEB7",
+    "#C5C8C6",
+  },
+  brights = {
+    "#696969",
+    "#CC6666",
+    "#B5BD68",
+    "#F0C674",
+    "#81A2BE",
+    "#B294BB",
+    "#8ABEB7",
+    "#FFFFFF",
+  },
+}
+
 local current_time = tonumber(os.date "%H%M")
 if current_time < 1800 and current_time > 500 then
   colors = atom_one_light
 else
-  colors = atom_one_dark
+  colors = tomorrow_night
 end
 
 local shell = "fish"

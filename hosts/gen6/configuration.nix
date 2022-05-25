@@ -192,10 +192,14 @@ in {
       device = "tank/system/libvirt";
       fsType = "zfs";
     };
-    "/var/lib/docker" = {
-      device = "tank/system/docker";
-      fsType = "zfs";
-    };
+    # "/var/lib/docker" = {
+    #   device = "tank/system/docker";
+    #   fsType = "zfs";
+    # };
+    # "/var/lib/containerd/io.containerd.snapshotter.v1.zfs" = {
+    #   device = "tank/system/containerd";
+    #   fsType = "zfs";
+    # };
     ###
     "/home/ayats" = {
       device = "tank/ayats/home";
@@ -334,4 +338,8 @@ in {
   };
 
   programs.gamemode.enable = true;
+
+  # virtualisation.containerd = {
+  #   enable = true;
+  # };
 }

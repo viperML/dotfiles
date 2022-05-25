@@ -29,7 +29,7 @@
         import ./packages inputs.nixpkgs-unfree.legacyPackages.${system} inputs
         # Packages to build and cache in CI
         // {
-          inherit (inputs.nh.packages.${system}) nh;
+          nh = inputs.nh.packages.${system}.default;
           inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
           devShell = self.devShells.${system}.default.inputDerivation;
 

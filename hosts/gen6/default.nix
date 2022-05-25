@@ -44,7 +44,8 @@ in
           gnome-keyring
 
           virt
-          docker
+          # docker
+          podman
           printing
           ld
           flatpak
