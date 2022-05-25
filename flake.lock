@@ -254,19 +254,16 @@
     },
     "nh": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1650392234,
-        "narHash": "sha256-FAZiwDsxfHZ+OrRZcU/8ulZKB1TKeu3tTbsBvejShBI=",
+        "lastModified": 1653302705,
+        "narHash": "sha256-j958zrwPCRxKq5dckNrE6twuHdj+vUNGGEwtTPB9d2g=",
         "owner": "viperML",
         "repo": "nh",
-        "rev": "deed2c5e54bb0dd031380527069e13054f922c7b",
+        "rev": "3952a08f65db9c29557c2aa89e0ebd3c94851cb5",
         "type": "github"
       },
       "original": {
