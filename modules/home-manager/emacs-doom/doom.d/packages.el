@@ -1,1 +1,2 @@
 ;; Placeholder
+(package! simpleclip)

@@ -20,6 +20,7 @@
   nix-index,
   bash,
   writeScript,
+  nix-autobahn,
 }: let
   myFishPlugins = [
     rec {
@@ -124,6 +125,7 @@
       any-nix-shell
       direnv
       nix-index
+      nix-autobahn
     ]
     ++ myWrappers;
 in

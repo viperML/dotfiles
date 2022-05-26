@@ -14,6 +14,7 @@ with builtins; let
         any-nix-shell
         nix-index
         ;
+      inherit (inputs.nix-autobahn.packages.${system}) nix-autobahn;
     };
     nix-prefetch = {
       nix = inputs.self.packages.${system}.nix;

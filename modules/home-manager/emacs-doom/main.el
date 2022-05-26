@@ -1,14 +1,13 @@
-;; https://www.reddit.com/r/DoomEmacs/comments/sm0m0k/my_variable_space_font_is_looking_much_smaller/
-;; (use-package! mixed-pitch
-;;   :hook (text-mode . mixed-pitch-mode))
+;; https://github.com/nix-community/nix-doom-emacs/issues/88
+(add-hook! 'emacs-startup-hook #'doom-init-ui-h)
+
 (setq mixed-pitch-set-height t)
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "Roboto" :size 12)
-      doom-unicode-font (font-spec :family "Roboto" :size 14)
-      doom-big-font (font-spec :family "JetBrainsMono Nerd Font"))
+      ;; doom-unicode-font (font-spec :family "Roboto" :size 14)
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 20))
 (add-hook 'text-mode-hook #'+zen/toggle)
 ;; (add-hook 'text-mode-hook display-line-numbers nil)
-
 
 
 (set-formatter! 'alejandra "alejandra" :modes '(nix-mode))
@@ -16,21 +15,16 @@
 
 (map!
  :leader
- "b" #'treemacs)
+ "d" #'treemacs)
 
-(map!
- "C-v" #'paste-from-clipboard)
-(map!
- "C-c" #'copy-to-clipboard)
+(simpleclip-mode t)
 
 (setq confirm-kill-emacs nil)
-;; (setq doom-theme 'spacemacs-light)
+;; (setq auto-save-default t)
 
 (setq user-full-name "Fernando Ayats"
       user-mail-address "ayatsfer@gmail.com")
 
-(setq auto-save-default t)
-(setq doom-modeline-enable-word-count t)
 
 (defun synchronize-theme ()
   (let* ((light-theme 'doom-tomorrow-day)
@@ -41,13 +35,19 @@
          (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
                          light-theme dark-theme)))
     (load-theme next-theme t)))
-;; (use-package! spacemacs-theme
-;;   :config
-;;   (synchronize-theme))
 (synchronize-theme)
 
-
-(setq markdown-fontify-code-blocks-natively t)
-(setq pixel-scroll-precision-mode t)
+;; (setq markdown-fontify-code-blocks-natively t)
+;; (setq pixel-scroll-precision-mode t)
 ;; (setq pixel-scroll-precision-large-scroll-height )
 ;; (setq pixel-scroll-precision-interpolation-factor 4.)
+
+;; (setq initial-buffer-choice (lambda() (get-buffer "*dashboard*")))
+
+(setq fancy-splash-image
+      (concat (getenv "FLAKE") "/modules/home-manager/emacs-doom/logo"))
+
+(setq projectile-project-search-path '("~/Documents"))
+
+(provide 'main)
+;;; main.el ends here
