@@ -34,6 +34,7 @@ abbr --add --global p python
 abbr --add --global n nvim
 abbr --add --global x xdg-open
 abbr --add --global pd pushd
+abbr --add --global cdx cd \$XDG_RUNTIME_DIR
 
 # Admin
 abbr --add --global ss sudo systemctl
@@ -157,3 +158,7 @@ function postexec_test --on-event fish_postexec
 end
 
 set sponge_regex_patterns '(?:\d{1,3}\.){3}\d{1,3}'
+
+function rw
+    readlink -f (which $argv)
+end

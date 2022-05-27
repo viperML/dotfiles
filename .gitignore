@@ -20,3 +20,7 @@ drvPath
 !**/emacs/init.el
 !**/emacs/*.nix
 flake.json
+
+.clj-kondo
+.lsp
+.calva
