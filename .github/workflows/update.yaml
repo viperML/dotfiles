@@ -57,6 +57,7 @@ jobs:
     - name: Setup dependencies
       run: |
         nix profile install \
+          .#nix-prefetch \
           .#update-nix-fetchgit \
           .#nix-update \
           .#git-extras
