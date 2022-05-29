@@ -55,11 +55,10 @@
       # options = "--delete-older-than 7d";
       options = "-d";
     };
-  }
-  (lib.mkIf config.services.xserver.displayManager.gdm.enable {
-    # Fixes GDM autologin in Wayland
-    # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+
     systemd.services."getty@tty1".enable = false;
     systemd.services."autovt@tty1".enable = false;
-  })
+    systemd.services."getty@tty7".enable = false;
+    systemd.services."autovt@tty7".enable = false;
+  }
 ])

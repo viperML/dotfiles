@@ -23,7 +23,6 @@ in {
     ffmpeg-full
     packages.self.polychromatic
 
-    hello
     #   packages.nix-matlab.matlab
     #   packages.nix-matlab.matlab-shell
     #   (makeDesktopItem {

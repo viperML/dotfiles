@@ -342,4 +342,9 @@ in {
   # virtualisation.containerd = {
   #   enable = true;
   # };
+
+  console = {
+    font = "ter-v20n";
+    packages = [pkgs.terminus_font];
+  };
 }

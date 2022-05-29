@@ -5,10 +5,13 @@ serifs = "sans"
 no-cv-ss = true
 
   [buildPlans.iosevka-normal.variants]
-  inherits = "ss13"
+  inherits = "ss14"
 
   [buildPlans.iosevka-normal.ligations]
-  inherits = "clike"
+  inherits = "dlig"
+
+  [buildPlans.iosevka-normal.variants.design]
+    zero = "slashed"
 
 [buildPlans.iosevka-normal.weights.regular]
 shape = 400
@@ -29,13 +32,3 @@ css = 600
 shape = 700
 menu = 700
 css = 700
-
-[buildPlans.iosevka-normal.weights.extrabold]
-shape = 800
-menu = 800
-css = 800
-
-[buildPlans.iosevka-normal.weights.heavy]
-shape = 900
-menu = 900
-css = 900

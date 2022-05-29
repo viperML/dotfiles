@@ -63,8 +63,8 @@ in
           wezterm
           nh
 
-          inputs.nix-doom-emacs.hmModule
-          emacs-doom
+          # inputs.nix-doom-emacs.hmModule
+          # emacs-doom
         ];
       };
       "kde" = {
