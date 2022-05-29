@@ -54,7 +54,7 @@ abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/updater.s
 
 # Image cat
 abbr --add --global kat "kitty +icat"
-abbr --add --global wat "wezterm imgcat"
+alias wat="wezterm imgcat --height 50%"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
