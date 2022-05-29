@@ -25,6 +25,7 @@
     noto-fonts-cjk
 
     roboto
+    packages.self.iosevka
   ];
 
   services.syncthing = {

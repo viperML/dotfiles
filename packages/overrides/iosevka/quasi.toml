@@ -1,0 +1,41 @@
+[buildPlans.iosevka-quasi]
+family = "iosevka-quasi"
+spacing = "quasi-proportional"
+serifs = "sans"
+no-cv-ss = true
+
+  [buildPlans.iosevka-quasi.variants]
+  inherits = "ss13"
+
+  [buildPlans.iosevka-quasi.ligations]
+  inherits = "clike"
+
+[buildPlans.iosevka-quasi.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-quasi.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.iosevka-quasi.weights.semibold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.iosevka-quasi.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.iosevka-quasi.weights.extrabold]
+shape = 800
+menu = 800
+css = 800
+
+[buildPlans.iosevka-quasi.weights.heavy]
+shape = 900
+menu = 900
+css = 900

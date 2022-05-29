@@ -1,0 +1,41 @@
+[buildPlans.iosevka-normal]
+family = "iosevka-normal"
+spacing = "normal"
+serifs = "sans"
+no-cv-ss = true
+
+  [buildPlans.iosevka-normal.variants]
+  inherits = "ss13"
+
+  [buildPlans.iosevka-normal.ligations]
+  inherits = "clike"
+
+[buildPlans.iosevka-normal.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-normal.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.iosevka-normal.weights.semibold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.iosevka-normal.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.iosevka-normal.weights.extrabold]
+shape = 800
+menu = 800
+css = 800
+
+[buildPlans.iosevka-normal.weights.heavy]
+shape = 900
+menu = 900
+css = 900

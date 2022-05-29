@@ -135,15 +135,20 @@ end
 local shell = "fish"
 if os.getenv "HOME" then
   cmd = { shell }
-  font_size = 11
+  font_size = 12
 else
   cmd = { "wsl", "-d", "NixOS", shell }
   font_size = 12
 end
 
 return {
-  font = wezterm.font("JetBrainsMono Nerd Font", {
-    weight = "Medium",
+  -- font = wezterm.font("JetBrainsMono Nerd Font", {
+  --   weight = "Medium",
+  --   stretch = "Normal",
+  --   italic = false,
+  -- }),
+  font = wezterm.font("iosevka-normal", {
+    weight = 600,
     stretch = "Normal",
     italic = false,
   }),
