@@ -6,7 +6,7 @@
   fetchurl,
   runCommandNoCC,
 }: let
-  lock = import ./lock.nix;
+  lock = builtins.fromJSON (builtins.readFile ./lock.json);
 
   db = with lock;
     fetchurl {
