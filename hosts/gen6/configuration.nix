@@ -206,6 +206,15 @@ in {
       fsType = "zfs";
       options = ["x-gvfs-hide"];
     };
+    "/windows" = {
+      device = "/dev/sda2";
+      fsType = "ntfs";
+      options = [
+        "noatime"
+        "ro"
+        "noauto"
+      ];
+    };
   };
 
   services.sanoid = {
@@ -258,6 +267,10 @@ in {
         normal-datasets
       ));
   };
+
+  systemd.tmpfiles.rules = [
+    "d /windows 744 root root - -"
+  ];
 
   ### Secrets
 

@@ -33,6 +33,8 @@ in {
     #     type = "Application";
     #     categories = ["Network" "Audio"];
     #   })
+    freerdp
+    bc
   ];
 
   systemd.user.services = {
