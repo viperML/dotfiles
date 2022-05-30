@@ -6,7 +6,7 @@
   neofetch-small = neofetch.override {x11Support = false;};
 in
   symlinkJoin {
-    inherit (neofetch-small) name meta;
+    inherit (neofetch-small) name;
     paths = [neofetch-small];
     buildInputs = [makeWrapper];
     postBuild = ''

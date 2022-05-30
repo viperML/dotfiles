@@ -22,7 +22,7 @@
   inherit (nix-index-unwrapped) src;
 in
   symlinkJoin {
-    inherit (nix-index-unwrapped) name meta;
+    inherit (nix-index-unwrapped) name;
     paths = [nix-index-unwrapped];
     buildInputs = [makeWrapper];
     postBuild = ''

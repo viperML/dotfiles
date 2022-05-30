@@ -4,7 +4,7 @@
   makeWrapper,
 }:
 symlinkJoin {
-  inherit (shfmt) name meta;
+  inherit (shfmt) name;
   paths = [shfmt];
   buildInputs = [makeWrapper];
   postBuild = ''

@@ -4,7 +4,7 @@
   makeWrapper,
 }:
 symlinkJoin {
-  inherit (stylua) name meta;
+  inherit (stylua) name;
   paths = [stylua];
   buildInputs = [makeWrapper];
   postBuild = ''

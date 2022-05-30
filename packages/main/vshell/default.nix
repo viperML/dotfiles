@@ -74,11 +74,13 @@
     '')
   myFishPlugins;
 
-  nix-index-wrapper = writeScript "command-not-found" ''
-    #!${bash}/bin/bash
-    source ${nix-index}/etc/profile.d/command-not-found.sh
-    command_not_found_handle "$@"
-  '';
+  /*
+   nix-index-wrapper = writeScript "command-not-found" ''
+     #!${bash}/bin/bash
+     source ${nix-index}/etc/profile.d/command-not-found.sh
+     command_not_found_handle "$@"
+   '';
+   */
 
   fish-conf = writeTextFile {
     name = "config.fish";
@@ -99,15 +101,15 @@
         ${lib.fileContents ./pushd-mod.fish}
       end
 
-      function __fish_command_not_found_handler --on-event fish_command_not_found
-        ${nix-index-wrapper} $argv
-      end
+      # function __fish_command_not_found_handler --on-event fish_command_not_found
+      #   ''${nix-index-wrapper} $argv
+      # end
     '';
   };
 
   myWrappers = [
     (symlinkJoin {
-      inherit (bat) name meta;
+      inherit (bat) name;
       paths = [bat];
       buildInputs = [makeWrapper];
       postBuild = ''
@@ -124,7 +126,7 @@
       fzf
       any-nix-shell
       direnv
-      nix-index
+      # nix-index
       nix-autobahn
     ]
     ++ myWrappers;

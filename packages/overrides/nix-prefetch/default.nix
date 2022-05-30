@@ -20,7 +20,7 @@
     });
 in
   symlinkJoin {
-    inherit (nix-prefetch') name meta;
+    inherit (nix-prefetch') name;
     paths = [nix-prefetch'];
     buildInputs = [makeWrapper];
     postBuild = ''
