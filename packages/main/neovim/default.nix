@@ -43,14 +43,24 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
         homepage = "https://github.com/xiyaowong/nvim-transparent";
       };
     };
-    disco-vim = vimUtils.buildVimPlugin {
-      pname = "disco.vim";
-      version = "unstable-2021-07-07";
+    # disco-vim = vimUtils.buildVimPlugin {
+    #   pname = "disco.vim";
+    #   version = "unstable-2021-07-07";
+    #   src = fetchFromGitHub {
+    #     owner = "jsit";
+    #     repo = "disco.vim";
+    #     rev = "070d1f0f514a646211436967f6f207fbbef3a671";
+    #     sha256 = "0rl17rm00dax9afk096pjimx9ab9fd78lvyd6s80s6vc3ardn07k";
+    #   };
+    # };
+    vim-dim = vimUtils.buildVimPlugin {
+      pname = "vim-dim";
+      version = "unstable-2021-01-29";
       src = fetchFromGitHub {
-        owner = "jsit";
-        repo = "disco.vim";
-        rev = "070d1f0f514a646211436967f6f207fbbef3a671";
-        sha256 = "0rl17rm00dax9afk096pjimx9ab9fd78lvyd6s80s6vc3ardn07k";
+        owner = "jeffkreeftmeijer";
+        repo = "vim-dim";
+        rev = "8320a40f12cf89295afc4f13eb10159f29c43777";
+        sha256 = "0mnwr4kxhng4mzds8l72s5km1qww4bifn5pds68c7zzyyy17ffxh";
       };
     };
     nvim-treesitter' = nvim-treesitter.withPlugins (p:
@@ -70,7 +80,7 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
     gitsigns-nvim
     bufferline-nvim
     lualine-nvim
-    disco-vim
+    vim-dim
 
     # Misc
     vim-highlightedyank

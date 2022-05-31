@@ -26,16 +26,16 @@
     rec {
       name = "fzf.fish";
       src = fetchFromGitHub {
-        repo = name;
+        repo = "fzf.fish";
         owner = "PatrickF1";
-        rev = "fdc1f4043b1ff4da76bb7c0a6a4f19084e9213ef";
-        sha256 = "1m5gqnjmm0gm906mrhl54pwmjpqfbjims7zvjk4hyhyx45hi94m8";
+        rev = "702439613a0b531fa1df2ad1fb2676444cd88307";
+        sha256 = "0jk4njh94qy2wm08gwr34srrazdk4y99xv20fvqp0bav2p1ijs0p";
       };
     }
     rec {
       name = "sponge";
       src = fetchFromGitHub {
-        repo = name;
+        repo = "sponge";
         owner = "andreiborisov";
         rev = "0f3bf8f10b81b25d2b3bbb3d6ec86f77408c0908";
         sha256 = "0vsi872c58z7zzdr0kzfsx49fi7241dakjdp6h1ff3wfzw2zsi0i";

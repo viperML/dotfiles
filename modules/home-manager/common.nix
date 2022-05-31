@@ -6,9 +6,7 @@
   self,
   packages,
   ...
-}: let
-  inherit (pkgs) system;
-in {
+}: {
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
@@ -19,6 +17,7 @@ in {
     alejandra
     packages.self.nh
     packages.self.deploy-rs
+    nix-tree
 
     # Editor support
     rnix-lsp

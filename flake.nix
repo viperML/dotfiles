@@ -34,7 +34,7 @@
           devShell = self.devShells.${system}.default.inputDerivation;
 
           # Target for the rest of the system
-          nix = inputs.nixpkgs.legacyPackages.${system}.nixUnstable;
+          nix = inputs.nix.packages.${system}.nix;
         }
     );
 
@@ -120,6 +120,10 @@
       url = "github:nix-community/nix-doom-emacs";
       inputs.emacs-overlay.follows = "emacs-overlay";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix = {
+      url = "github:NixOS/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
