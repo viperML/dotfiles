@@ -3,16 +3,17 @@ with pkgs.lib;
 with builtins; let
   inherit (pkgs) system;
 
-  callPackageOverrides = {
-    "libsForQt5" = pkgs.libsForQt5.callPackage;
+  callPackageFor = {
+    libsForQt5 = pkgs.libsForQt5.callPackage;
   };
 
-  overrides = {
+  overridesFor = {
     vshell = {
       inherit
         (inputs.self.packages.${system})
         any-nix-shell
-        nix-index
+        # nix-index
+
         ;
       inherit (inputs.nix-autobahn.packages.${system}) nix-autobahn;
     };
@@ -26,7 +27,7 @@ with builtins; let
     };
   };
 
-  folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
+  # folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
 
   recursiveMerge = attrList: let
     f = attrPath:
@@ -43,15 +44,14 @@ with builtins; let
   in
     f [] attrList;
 
-  pkgs_unmerged = map (f: let
-    subfolders = readDir (./. + "/${f}");
-    result =
-      mapAttrs (
-        sf: _: (callPackageOverrides.${f} or pkgs.callPackage) (./. + "/${f}/${sf}") (overrides.${sf} or {})
-      )
-      subfolders;
-  in
-    result)
+  folders = filterAttrs (n: v: v == "directory") (readDir ./.);
+
+  packagesUnmerged = mapAttrs (f: _:
+    mapAttrs
+    (
+      pname: __:
+        callPackageFor.${f} or pkgs.callPackage (./. + "/${f}/${pname}") (overridesFor.${pname} or {})
+    ) (readDir (./. + "/${f}")))
   folders;
 in
-  recursiveMerge pkgs_unmerged
+  recursiveMerge (attrValues packagesUnmerged)

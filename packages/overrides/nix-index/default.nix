@@ -3,13 +3,12 @@
   symlinkJoin,
   nix-index-unwrapped,
   makeWrapper,
-  fetchurl,
   runCommandNoCC,
 }: let
   lock = builtins.fromJSON (builtins.readFile ./lock.json);
 
   db = with lock;
-    fetchurl {
+    builtins.fetchurl {
       url = "https://github.com/Mic92/nix-index-database/releases/download/${tagName}/index-x86_64-linux";
       inherit sha256;
     };
