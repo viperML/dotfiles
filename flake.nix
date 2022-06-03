@@ -11,7 +11,7 @@
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
     inherit (builtins) mapAttrs readDir;
-    inherit (nixpkgs.lib) attrValues genAttrs;
+    inherit (nixpkgs.lib) attrValues genAttrs recursiveUpdate;
     inherit (self.lib) exportModulesDir;
     genSystems = genAttrs supportedSystems;
   in {
@@ -24,19 +24,25 @@
 
     legacyPackages = genSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
 
-    packages = genSystems (
-      system:
-        import ./packages inputs.nixpkgs-unfree.legacyPackages.${system} inputs
-        # Packages to build and cache in CI
-        // {
-          nh = inputs.nh.packages.${system}.default;
-          inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
-          devShell = self.devShells.${system}.default.inputDerivation;
+    packages =
+      recursiveUpdate (genSystems (
+        system:
+          import ./packages inputs.nixpkgs-unfree.legacyPackages.${system} inputs
+          # Packages to build and cache in CI
+          // {
+            nh = inputs.nh.packages.${system}.default;
+            inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
 
-          # Target for the rest of the system
-          nix = inputs.nix.packages.${system}.nix;
-        }
-    );
+            # Target for the rest of the system
+            nix = inputs.nix.packages.${system}.nix;
+
+            _devShell = self.devShells.${system}.default.inputDerivation;
+          }
+      )) {
+        "x86_64-linux" = {
+          _homeConfigurations-ayats-viperSL4 = self.homeConfigurations."ayats@viperSL4".activationPackage;
+        };
+      };
 
     devShells = genSystems (system: {
       default = import ./shell.nix {
