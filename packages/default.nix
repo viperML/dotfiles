@@ -12,8 +12,7 @@ with builtins; let
       inherit
         (inputs.self.packages.${system})
         any-nix-shell
-        # nix-index
-
+        nix-index
         ;
       inherit (inputs.nix-autobahn.packages.${system}) nix-autobahn;
     };
@@ -26,8 +25,6 @@ with builtins; let
       nix-prefetch = inputs.self.packages.${system}.nix;
     };
   };
-
-  # folders = attrNames (filterAttrs (n: v: v == "directory") (readDir ./.));
 
   recursiveMerge = attrList: let
     f = attrPath:
