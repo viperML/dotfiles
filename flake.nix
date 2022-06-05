@@ -81,11 +81,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nixos-flakes = {
-      url = "github:viperML/nixos-flakes";
+    nix-common = {
+      url = "github:viperML/nix-common";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-compat.follows = "flake-compat";
     };
     # nix-dram = {
     #   url = "github:dramforever/nix-dram";

@@ -11,6 +11,6 @@ in
       "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
       ./configuration.nix
       # self.nixosModules.common
-      inputs.nixos-flakes.nixosModules.channels-to-flakes
+      inputs.nix-common.nixosModules.channels-to-flakes
     ];
   }

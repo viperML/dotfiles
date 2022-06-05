@@ -38,7 +38,7 @@ in
           }
           common
           mainUser-ayats
-          inputs.nixos-flakes.nixosModules.channels-to-flakes
+          inputs.nix-common.nixosModules.channels-to-flakes
           inputs.home-manager.nixosModules.home-manager
           desktop
           gnome-keyring
@@ -56,7 +56,7 @@ in
         homeModules = with self.homeModules; [
           ./home.nix
           common
-          inputs.nixos-flakes.homeModules.channels-to-flakes
+          inputs.nix-common.homeModules.channels-to-flakes
           gui
           git
           vscode

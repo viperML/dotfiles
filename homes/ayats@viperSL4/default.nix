@@ -19,7 +19,7 @@ in
     extraModules = with self.homeModules; [
       ./home.nix
       common
-      inputs.nixos-flakes.homeModules.channels-to-flakes
+      inputs.nix-common.homeModules.channels-to-flakes
       git
     ];
   }
