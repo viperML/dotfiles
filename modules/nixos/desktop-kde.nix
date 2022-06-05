@@ -27,15 +27,12 @@
       ark
       ffmpegthumbs
       kdegraphics-thumbnailers
-      filelight
       gwenview
       kcolorchooser
-      discover
       ;
-    inherit
-      (pkgs)
-      lxappearance
-      ;
+    # inherit
+    #   (pkgs)
+    #   ;
     inherit
       (packages.self)
       adw-gtk3

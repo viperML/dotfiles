@@ -21,5 +21,6 @@ in
       common
       inputs.nixos-flakes.homeModules.channels-to-flakes
       git
+      flatpak
     ];
   }

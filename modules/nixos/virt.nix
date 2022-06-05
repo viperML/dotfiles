@@ -14,8 +14,6 @@
   programs.dconf.enable = true;
   environment.systemPackages = [
     pkgs.virt-manager
-    pkgs.vagrant
-    pkgs.distrobox
   ];
   users.groups.libvirtd.members = config.users.groups.wheel.members;
 

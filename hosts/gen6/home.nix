@@ -21,7 +21,7 @@ in {
     obs-studio
     packages.self.obsidian
     ffmpeg-full
-    packages.self.polychromatic
+    # packages.self.polychromatic
 
     #   packages.nix-matlab.matlab
     #   packages.nix-matlab.matlab-shell
@@ -50,10 +50,10 @@ in {
     #     After = ["tray.target"];
     #   };
     # };
-    "polychromatic" = {
-      Service.ExecStart = "${packages.self.polychromatic}/bin/polychromatic-tray-applet";
-      Unit.Description = "Razer controller";
-    };
+    # "polychromatic" = {
+    #   Service.ExecStart = "${packages.self.polychromatic}/bin/polychromatic-tray-applet";
+    #   Unit.Description = "Razer controller";
+    # };
     "Mailspring" = mkTrayService {
       Service.ExecStart = "${config.xdg.dataHome}/flatpak/exports/bin/com.getmailspring.Mailspring --background";
       Unit.Description = "Mail client";

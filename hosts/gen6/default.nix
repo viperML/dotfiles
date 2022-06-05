@@ -62,6 +62,7 @@ in
           vscode
           wezterm
           nh
+          flatpak
 
           # inputs.nix-doom-emacs.hmModule
           # emacs-doom
