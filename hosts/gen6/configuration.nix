@@ -207,7 +207,7 @@ in {
       options = ["x-gvfs-hide"];
     };
     "/windows" = {
-      device = "/dev/sda2";
+      device = "/dev/nvme1n1p3";
       fsType = "ntfs";
       options = [
         "noatime"
