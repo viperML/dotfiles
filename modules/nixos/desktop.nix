@@ -32,7 +32,6 @@
     file
     xsel
     pciutils
-    wget
     lsof
     usbutils
     # Icons

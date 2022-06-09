@@ -20,5 +20,5 @@
     avahi.nssmdns = true;
   };
 
-  environment.systemPackages = lib.mkIf config.services.xserver.desktopManager.plasma5.enable [pkgs.libsForQt5.print-manager];
+  environment.systemPackages = lib.mkIf config.services.xserver.desktopManager.plasma5.enable [pkgs.plasma5Packages.print-manager];
 }

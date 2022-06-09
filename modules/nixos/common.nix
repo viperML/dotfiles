@@ -30,9 +30,7 @@ lib.mkMerge [
 
     nix = {
       package = packages.self.nix;
-      extraOptions = ''
-        ${builtins.readFile "${self.outPath}/misc/nix.conf"}
-      '';
+      extraOptions = builtins.readFile "${self.outPath}/misc/nix.conf";
     };
 
     security.sudo.extraConfig = ''
@@ -46,7 +44,6 @@ lib.mkMerge [
     environment.defaultPackages = [];
     environment.systemPackages = [
       pkgs.step-cli
-      pkgs.cntr
     ];
   }
   (lib.mkIf (lib.hasAttr "FLAKE" config.environment.variables) {

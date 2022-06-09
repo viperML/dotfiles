@@ -4,7 +4,7 @@ with builtins; let
   inherit (pkgs) system;
 
   callPackageFor = {
-    libsForQt5 = pkgs.libsForQt5.callPackage;
+    "qt5" = pkgs.libsForQt5.callPackage;
   };
 
   overridesFor = {

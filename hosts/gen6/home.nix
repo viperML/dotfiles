@@ -16,25 +16,13 @@ in {
     packages.self.neofetch
     mpv
     qbittorrent
-    ahoviewer
     krita
     obs-studio
     packages.self.obsidian
     ffmpeg-full
-    # packages.self.polychromatic
 
-    #   packages.nix-matlab.matlab
-    #   packages.nix-matlab.matlab-shell
-    #   (makeDesktopItem {
-    #     name = "Spotify";
-    #     desktopName = "Spotify";
-    #     exec = "${browser} --app=\"https://open.spotify.com\"";
-    #     icon = "spotify";
-    #     type = "Application";
-    #     categories = ["Network" "Audio"];
-    #   })
-    freerdp
-    bc
+    microsoft-edge-beta
+    mailspring
   ];
 
   systemd.user.services = {
@@ -42,20 +30,8 @@ in {
       Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
       Unit .Description = "Tailscale indicator for system tray";
     };
-    # "solaar" = {
-    #   Service.ExecStart = "${pkgs.solaar}/bin/solaar -w hide";
-    #   Install.WantedBy = ["tray.target"];
-    #   Unit = {
-    #     Description = "LG mice controller";
-    #     After = ["tray.target"];
-    #   };
-    # };
-    # "polychromatic" = {
-    #   Service.ExecStart = "${packages.self.polychromatic}/bin/polychromatic-tray-applet";
-    #   Unit.Description = "Razer controller";
-    # };
-    "Mailspring" = mkTrayService {
-      Service.ExecStart = "${config.xdg.dataHome}/flatpak/exports/bin/com.getmailspring.Mailspring --background";
+    "mailspring" = mkTrayService {
+      Service.ExecStart = "/usr/bin/env mailspring --background";
       Unit.Description = "Mail client";
     };
   };

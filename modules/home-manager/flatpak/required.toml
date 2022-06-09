@@ -2,21 +2,21 @@ overrides = [
   "--filesystem=/nix/store:ro",
 ]
 
-[[apps]]
-origin = "flathub-beta"
-ref = "com.google.Chrome/x86_64/beta"
+# [[apps]]
+# origin = "flathub-beta"
+# ref = "com.google.Chrome/x86_64/beta"
 
-[[apps]]
-ref = "com.getmailspring.Mailspring/x86_64/stable"
-origin = "flathub"
+# [[apps]]
+# ref = "com.getmailspring.Mailspring/x86_64/stable"
+# origin = "flathub"
 
 [[apps]]
 origin = "flathub"
 ref = "com.github.tchx84.Flatseal/x86_64/stable"
 
-[[apps]]
-origin = "flathub"
-ref = "com.valvesoftware.Steam/x86_64/stable"
+# [[apps]]
+# origin = "flathub"
+# ref = "com.valvesoftware.Steam/x86_64/stable"
 
 [[remotes]]
 name = "flathub"
@@ -26,14 +26,14 @@ url = "https://dl.flathub.org/repo"
 name = "flathub-beta"
 url = "https://dl.flathub.org/beta-repo"
 
-[[apps]]
-origin = "flathub"
-ref = "org.fedoraproject.MediaWriter/x86_64/stable"
+# [[apps]]
+# origin = "flathub"
+# ref = "org.fedoraproject.MediaWriter/x86_64/stable"
 
 [[apps]]
 origin = "flathub"
 ref = "com.usebottles.bottles/x86_64/stable"
 
-[[apps]]
-origin = "flathub"
-ref = "com.getpostman.Postman/x86_64/stable"
+# [[apps]]
+# origin = "flathub"
+# ref = "com.getpostman.Postman/x86_64/stable"

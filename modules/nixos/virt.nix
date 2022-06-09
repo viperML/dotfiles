@@ -23,6 +23,13 @@
     }
   ];
 
-  # Punch a hole to serve files to a VM
-  networking.firewall.interfaces.virbr0.allowedTCPPorts = [8000];
+  networking.firewall.interfaces.virbr0 = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 8000;
+        to = 8999;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
 }

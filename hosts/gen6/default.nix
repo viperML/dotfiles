@@ -41,7 +41,7 @@ in
           inputs.nix-common.nixosModules.channels-to-flakes
           inputs.home-manager.nixosModules.home-manager
           desktop
-          gnome-keyring
+          keyring
 
           virt
           # docker
@@ -71,20 +71,8 @@ in
       "kde" = {
         nixosModules =
           self.specialisations.kde.nixosModules
-          ++ [
-            self.nixosModules.hardware-nvidia
-          ];
+          ++ self.specialisations.nvidia.nixosModules;
         inherit (self.specialisations.kde) homeModules;
       };
-      /*
-       "hyprland" = {
-         nixosModules =
-           self.specialisations.hyprland.nixosModules
-           ++ [
-             self.nixosModules.hardware-nouveau
-           ];
-         inherit (self.specialisations.hyprland) homeModules;
-       };
-       */
     };
   }

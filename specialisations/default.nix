@@ -39,8 +39,11 @@ self: {
     ];
   };
 
-  "hyprland" = {
-    nixosModules = [self.nixosModules.desktop-hyprland];
-    homeModules = [self.homeModules.hyprland];
+  "nvidia" = {
+    nixosModules = [self.nixosModules.hardware-nvidia];
+  };
+
+  "nouveau" = {
+    nixosModules = [self.nixosModules.hardware-nouveau];
   };
 }

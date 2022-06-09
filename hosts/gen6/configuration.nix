@@ -52,7 +52,7 @@ in {
       };
       systemd = {
         enable = true;
-        emergencyAccess = false;
+        emergencyAccess = true;
       };
     };
     tmpOnTmpfs = true;
@@ -117,14 +117,6 @@ in {
     enableRedistributableFirmware = true;
     bluetooth = {
       enable = true;
-    };
-    logitech = {
-      wireless.enable = true;
-      wireless.enableGraphical = true;
-    };
-    openrazer = {
-      enable = true;
-      users = config.users.groups.wheel.members;
     };
   };
 
@@ -344,13 +336,13 @@ in {
     abrmd.enable = true;
   };
 
-  fonts.fontconfig.cache32Bit = true;
-
   services.fwupd = {
     enable = true;
   };
 
   programs.gamemode.enable = true;
+  programs.steam.enable = true;
+  fonts.fontconfig.cache32Bit = true;
 
   # virtualisation.containerd = {
   #   enable = true;

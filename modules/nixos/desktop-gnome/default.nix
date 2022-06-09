@@ -64,7 +64,7 @@ in {
       gnome.gnome-tweaks
       gnome.gnome-shell-extensions
       gnome.dconf-editor
-      libsForQt5.gwenview
+      plasma5Packages.gwenview
     ]
     ++ my-patched-extensions;
 
