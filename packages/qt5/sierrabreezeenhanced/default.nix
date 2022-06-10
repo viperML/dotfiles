@@ -6,12 +6,17 @@
   cmake,
   extra-cmake-modules,
   qtbase,
-  libsForQt5,
+  qtdeclarative,
+  qtx11extras,
   plasma-desktop,
-  qt5,
   kwindowsystem,
+  kdecoration,
+  kcoreaddons,
+  kguiaddons,
+  kconfigwidgets,
+  kiconthemes,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "sierrabreezeenhanced";
   version = "unstable-2021-10-25";
 
@@ -28,15 +33,15 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     qtbase
-    qt5.qtdeclarative
-    libsForQt5.kdecoration
-    qt5.qtx11extras
+    qtdeclarative
+    qtx11extras
     plasma-desktop
-    libsForQt5.kcoreaddons
-    libsForQt5.kguiaddons
-    libsForQt5.kconfigwidgets
-    libsForQt5.kwindowsystem
-    libsForQt5.kiconthemes
+    kdecoration
+    kcoreaddons
+    kguiaddons
+    kconfigwidgets
+    kwindowsystem
+    kiconthemes
   ];
 
   nativeBuildInputs = [

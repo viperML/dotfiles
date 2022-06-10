@@ -15,6 +15,7 @@
     syncthing-indicator
     caffeine
     just-perfection
+    forge
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);

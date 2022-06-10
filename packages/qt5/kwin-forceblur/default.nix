@@ -4,7 +4,7 @@
   lib,
   kwindowsystem,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "kwin-forceblur";
   version = "unstable-2022-02-13";
 

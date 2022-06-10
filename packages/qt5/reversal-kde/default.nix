@@ -5,7 +5,7 @@
   wrapQtAppsHook,
   kwindowsystem,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "reversal-kde";
   version = "unstable-2022-01-02";
 
