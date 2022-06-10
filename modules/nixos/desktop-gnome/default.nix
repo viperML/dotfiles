@@ -37,10 +37,8 @@ in {
       enable = true;
       wayland = true;
     };
-    # displayManager.gdm.enable = false;
-    # displayManager.sddm.enable = true;
-    displayManager.defaultSession = "gnome-xorg";
-    displayManager.autoLogin.enable = true;
+    # displayManager.defaultSession = "gnome-xorg";
+    # displayManager.autoLogin.enable = true;
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -68,7 +66,5 @@ in {
     ]
     ++ my-patched-extensions;
 
-  programs = {
-    xwayland.enable = true;
-  };
+  programs.xwayland.enable = true;
 }

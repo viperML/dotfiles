@@ -33,4 +33,12 @@ in {
     in
       legacyPackages // packages)
     inputs;
+
+  joinSpecialisations = specs: {
+    nixosModules = lib.flatten (map (s: s.nixosModules or []) specs);
+    homeModules = lib.flatten (map (s: s.homeModules or []) specs);
+    name = lib.concatMapStringsSep "-" (s: s.name) specs;
+
+    default = builtins.foldl' (x: y: x || y) false (lib.flatten (map (s: s.default or false) specs));
+  };
 }

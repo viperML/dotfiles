@@ -45,13 +45,12 @@ lib.mkMerge [
     environment.systemPackages = [
       pkgs.step-cli
     ];
-  }
-  (lib.mkIf (lib.hasAttr "FLAKE" config.environment.variables) {
+
     environment.etc."gitconfig".text = ''
       [safe]
           directory = ${config.environment.variables.FLAKE}
     '';
-  })
+  }
   (lib.mkIf (lib.hasAttr "home-manager" config) {
     home-manager = {
       useGlobalPkgs = true;

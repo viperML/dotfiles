@@ -1,4 +1,9 @@
-self: {
+self:
+builtins.mapAttrs (name: v: v // {inherit name;}) {
+  "default" = {
+    default = true;
+  };
+
   "sway" = {
     nixosModules = with self.nixosModules; [
       desktop-sway
@@ -13,7 +18,6 @@ self: {
       desktop-gnome
     ];
     homeModules = with self.homeModules; [
-      gnome
     ];
   };
 

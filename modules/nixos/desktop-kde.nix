@@ -30,9 +30,10 @@
       gwenview
       kcolorchooser
       ;
-    # inherit
-    #   (pkgs)
-    #   ;
+    inherit
+      (pkgs)
+      plasma-browser-integration
+      ;
     inherit
       (packages.self)
       adw-gtk3
