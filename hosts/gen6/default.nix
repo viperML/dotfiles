@@ -45,8 +45,8 @@ in
     ];
     specialisations = [
       (self.lib.joinSpecialisations (with self.specialisations; [kde nvidia default]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [gnome nvidia]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [sway nvidia]))
+      (self.lib.joinSpecialisations (with self.specialisations; [gnome nvidia]))
+      (self.lib.joinSpecialisations (with self.specialisations; [sway nvidia]))
       # (self.lib.joinSpecialisations (with self.specialisations; [sway nouveau]))
     ];
   }

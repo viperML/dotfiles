@@ -8,14 +8,16 @@
   my-extensions = with pkgs.gnomeExtensions; [
     appindicator
     blur-my-shell
-    pop-shell
     dash-to-panel
     sound-output-device-chooser
     system-monitor
     syncthing-indicator
     caffeine
     just-perfection
+    #
+    pop-shell
     forge
+    gtile
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);

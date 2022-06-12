@@ -27,13 +27,14 @@
 in {
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
+    displayManager = lib.genAttrs ["gdm" "lightdm" "sddm"] (_: {enable = false;});
+    # displayManager.gdm.enable = true;
+    # displayManager.gdm.wayland = true;
   };
 
   programs.sway = {
     enable = true;
-    # extraOptions = ["--unsupported-gpu"];
+    extraOptions = ["--unsupported-gpu"];
     wrapperFeatures = {
       gtk = true;
     };
