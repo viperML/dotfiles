@@ -24,6 +24,9 @@ with builtins; let
       nix = inputs.self.packages.${system}.nix;
       nix-prefetch = inputs.self.packages.${system}.nix;
     };
+    iosevka = {
+      nix-std = inputs.nix-std;
+    };
   };
 
   recursiveMerge = attrList: let

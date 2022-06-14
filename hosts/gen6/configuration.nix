@@ -184,6 +184,10 @@ in {
       device = "tank/system/libvirt";
       fsType = "zfs";
     };
+    "/var/lib/libvirt/images-clean" = {
+      device = "tank/system/libvirt-clean";
+      fsType = "zfs";
+    };
     # "/var/lib/docker" = {
     #   device = "tank/system/docker";
     #   fsType = "zfs";

@@ -147,10 +147,13 @@ return {
   --   stretch = "Normal",
   --   italic = false,
   -- }),
-  font = wezterm.font("iosevka-normal", {
-    weight = 600,
-    stretch = "Normal",
-    italic = false,
+  font = wezterm.font_with_fallback({
+    "iosevka-normal",
+    "Symbols Nerd Font",
+  }, {
+    weight = "DemiBold",
+    -- stretch = "Normal",
+    -- italic = false,
   }),
   font_size = font_size,
   default_prog = cmd,

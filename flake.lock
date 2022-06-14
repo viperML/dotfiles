@@ -419,6 +419,21 @@
         "type": "gitlab"
       }
     },
+    "nix-std": {
+      "locked": {
+        "lastModified": 1652574713,
+        "narHash": "sha256-HQw5VtHI4uYvWfwXtDwupP8SV/efZa3Vot5VNbH0RRU=",
+        "owner": "chessai",
+        "repo": "nix-std",
+        "rev": "082f38023b68f93cd3a6e3a8ddda54d3f5487c52",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chessai",
+        "repo": "nix-std",
+        "type": "github"
+      }
+    },
     "nix-straight": {
       "flake": false,
       "locked": {
@@ -671,6 +686,7 @@
         "nix-common": "nix-common",
         "nix-doom-emacs": "nix-doom-emacs",
         "nix-matlab": "nix-matlab",
+        "nix-std": "nix-std",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

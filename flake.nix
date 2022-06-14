@@ -130,5 +130,6 @@
       url = "github:NixOS/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-std.url = "github:chessai/nix-std";
   };
 }

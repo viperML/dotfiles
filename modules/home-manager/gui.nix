@@ -26,6 +26,7 @@
 
     roboto
     packages.self.iosevka
+    packages.self.nerd-fonts
   ];
 
   services.syncthing = {
