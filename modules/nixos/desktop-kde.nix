@@ -29,6 +29,7 @@
       kdegraphics-thumbnailers
       gwenview
       kcolorchooser
+      qttools
       ;
     inherit
       (pkgs)
