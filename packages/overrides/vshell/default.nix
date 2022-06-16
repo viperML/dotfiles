@@ -28,8 +28,8 @@
       src = fetchFromGitHub {
         repo = "fzf.fish";
         owner = "PatrickF1";
-        rev = "702439613a0b531fa1df2ad1fb2676444cd88307";
-        sha256 = "0jk4njh94qy2wm08gwr34srrazdk4y99xv20fvqp0bav2p1ijs0p";
+        rev = "6d8e962f3ed84e42583cec1ec4861d4f0e6c4eb3";
+        sha256 = "0lv2gl9iylllqp9v0wqib3rll2ii1sm2xkjfzlqhybvkhbrdvffj";
       };
     }
     rec {
