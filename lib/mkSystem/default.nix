@@ -2,6 +2,7 @@ lib: args:
 with lib; let
   args' = filterAttrs (name: value:
     ! builtins.elem name [
+      "lib"
       "specialisations"
       "nixosModules"
       "homeModules"
@@ -31,4 +32,4 @@ with lib; let
       }
     ];
 in
-  nixosSystem (args' // {inherit modules;})
+  (args.lib.nixosSystem or nixosSystem) (args' // {inherit modules;})

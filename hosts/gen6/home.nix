@@ -16,8 +16,8 @@ in {
     packages.self.neofetch
     mpv
     qbittorrent
-    krita
-    obs-studio
+    # krita
+    # obs-studio
     packages.self.obsidian
     ffmpeg-full
 

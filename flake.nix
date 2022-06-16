@@ -10,8 +10,8 @@
     inherit (inputs) self nixpkgs;
     supportedSystems = ["x86_64-linux"];
     config = import ./misc/nixpkgs.nix;
-    inherit (builtins) mapAttrs readDir;
-    inherit (nixpkgs.lib) attrValues genAttrs recursiveUpdate;
+    inherit (builtins) mapAttrs readDir elem;
+    inherit (nixpkgs.lib) attrValues genAttrs recursiveUpdate getName;
     inherit (self.lib) exportModulesDir;
     genSystems = genAttrs supportedSystems;
   in {
@@ -22,12 +22,16 @@
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);
     homeConfigurations = mapAttrs (name: _: import (./homes + "/${name}") inputs) (readDir ./homes);
 
-    legacyPackages = genSystems (system: inputs.nixpkgs-unfree.legacyPackages.${system});
+    legacyPackages = genSystems (system:
+      import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
 
     packages =
       recursiveUpdate (genSystems (
         system:
-          import ./packages inputs.nixpkgs-unfree.legacyPackages.${system} inputs
+          import ./packages self.legacyPackages.${system} inputs
           # Packages to build and cache in CI
           // {
             nh = inputs.nh.packages.${system}.default;
@@ -58,78 +62,51 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nix = {
+      url = "github:NixOS/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     nix-common = {
       url = "github:viperML/nix-common";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-dram = {
-    #   url = "github:dramforever/nix-dram";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-    nixpkgs-unfree = {
-      url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-autobahn = {
       url = "github:Lassulus/nix-autobahn";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     nix-matlab = {
       url = "gitlab:doronbehar/nix-matlab";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
     };
-    hyprland = {
-      url = "github:viperML/Hyprland";
-      # url = "/home/ayats/Downloads/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix = {
-      url = "github:NixOS/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # emacs-overlay = {
+    #   url = "github:nix-community/emacs-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # nix-doom-emacs = {
+    #   url = "github:nix-community/nix-doom-emacs";
+    #   inputs.emacs-overlay.follows = "emacs-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nix-std.url = "github:chessai/nix-std";
   };
 }

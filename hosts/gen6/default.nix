@@ -1,11 +1,17 @@
 inputs @ {self, ...}: let
   system = "x86_64-linux";
-  pkgs = import inputs.nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
+
+  # p = inputs.nixpkgs-master;
+  # pkgs = import p {
+  #   inherit system;
+  #   config.allowUnfree = true;
+  # };
+
+  p = inputs.nixpkgs;
+  pkgs = self.legacyPackages.${system};
 in
   self.lib.mkSystem {
+    inherit (p) lib;
     inherit system pkgs;
     specialArgs = {
       inherit self inputs;
@@ -45,8 +51,8 @@ in
     ];
     specialisations = [
       (self.lib.joinSpecialisations (with self.specialisations; [kde nvidia default]))
-      (self.lib.joinSpecialisations (with self.specialisations; [gnome nvidia]))
-      (self.lib.joinSpecialisations (with self.specialisations; [sway nvidia]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [gnome nvidia]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [sway nvidia]))
       # (self.lib.joinSpecialisations (with self.specialisations; [sway nouveau]))
     ];
   }

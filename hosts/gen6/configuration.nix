@@ -57,13 +57,15 @@ in {
     };
     tmpOnTmpfs = true;
     kernelPackages = let
-      latestCompatible = config.boot.zfs.package.latestCompatibleLinuxPackages.kernel.version;
-      targetKernel = pkgs.linuxPackages_xanmod_latest;
-      targetVersion = targetKernel.kernel.version;
+      compatible = config.boot.zfs.package.latestCompatibleLinuxPackages;
+      target = pkgs.linuxPackages_xanmod_latest;
     in
-      if lib.versionAtLeast latestCompatible targetVersion
-      then targetKernel
-      else throw "The kernel ${targetKernel.kernel.name} is not compatible with ZFS";
+      if lib.versionAtLeast compatible.kernel.version target.kernel.version
+      then target
+      else
+        builtins.trace
+        "The kernel ${target.kernel.name} is not compatible with ZFS, using the default"
+        compatible;
     kernelModules = ["kvm-intel"];
     kernelParams = [
       # https://github.com/NixOS/nixpkgs/pull/171680
@@ -229,7 +231,7 @@ in {
         "frequently" = 0;
         "hourly" = 0;
         "daily" = 0;
-        "monthly" = 4;
+        "monthly" = 1;
         "yearly" = 0;
         "autosnap" = true;
         "autoprune" = true;
@@ -237,7 +239,7 @@ in {
     };
     datasets = let
       slow-datasets = [
-        # keep
+        "tank/system/secrets"
       ];
       normal-datasets = [
         "tank/ayats/home"
@@ -268,32 +270,6 @@ in {
     "d /windows 744 root root - -"
   ];
 
-  ### Secrets
-
-  /*
-   systemd.tmpfiles.rules = let
-     inherit (config.users.users.ayats) group name home;
-   in [
-     "d /root/.ssh 0700 root root - -"
-     "d /home/ayats/.ssh 0700 ayats users - -"
-     #
-     "L+ /etc/ssh/ssh_host_ed25519_key - - - - /secrets/ssh_host/ssh_host_ed25519_key"
-     "L+ /etc/ssh/ssh_host_ed25519_key.pub - - - - /secrets/ssh_host/ssh_host_ed25519_key.pub"
-     "L+ /etc/ssh/ssh_host_rsa_key - - - - /secrets/ssh_host/ssh_host_rsa_key"
-     "L+ /etc/ssh/ssh_host_rsa_key.pub - - - - /secrets/ssh_host/ssh_host_rsa_key.pub"
-     "z /home/ayats 700 ayats users - -"
-   ];
-   systemd.services.bind-ssh = {
-     serviceConfig.Type = "forking";
-     script = ''
-       ${pkgs.bindfs}/bin/bindfs /secrets/ssh /root/.ssh
-       ${pkgs.bindfs}/bin/bindfs --map=0/1000:@0/@100 /secrets/ssh /home/ayats/.ssh
-     '';
-     wantedBy = ["multi-user.target"];
-     after = ["systemd-tmpfiles-setup.service"];
-     };
-   */
-
   users.users.ayats.password = "1234";
 
   nix = {
@@ -317,12 +293,14 @@ in {
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
   services.openssh = {
     enable = true;
+    # logLevel = "DEBUG1";
     openFirewall = false;
     hostKeys = [];
     extraConfig = ''
       TrustedUserCAKeys /var/lib/secrets/certs/ssh_user_key.pub
       HostKey /var/lib/secrets/certs/ssh_host_ecdsa_key
       HostCertificate /var/lib/secrets/certs/ssh_host_ecdsa_key-cert.pub
+      AuthorizedPrincipalsFile /var/lib/secrets/certs/principals/%u
     '';
   };
 
