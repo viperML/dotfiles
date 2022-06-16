@@ -38,7 +38,6 @@
       (packages.self)
       adw-gtk3
       lightly
-      lightlyshaders
       reversal-kde
       sierrabreezeenhanced
       ;
