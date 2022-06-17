@@ -4,13 +4,20 @@
   neovimUtils,
   vimPlugins,
   vimUtils,
-  formats,
-  writeTextDir,
   fetchFromGitHub,
-  lib,
   symlinkJoin,
+  makeWrapper,
 }:
-wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
+wrapNeovimUnstable (symlinkJoin {
+  inherit (neovim-unwrapped) name pname version;
+  paths = [neovim-unwrapped];
+  nativeBuildInputs = [makeWrapper];
+  postBuild = ''
+    wrapProgram $out/bin/nvim \
+      --unset NIX_LD \
+      --unset NIX_LD_LIBRARY_PATH
+  '';
+}) (neovimUtils.makeNeovimConfig {
   extraLuaPackages = luaPackages:
     with luaPackages; [
       # keep
@@ -43,24 +50,14 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
         homepage = "https://github.com/xiyaowong/nvim-transparent";
       };
     };
-    # disco-vim = vimUtils.buildVimPlugin {
-    #   pname = "disco.vim";
-    #   version = "unstable-2021-07-07";
-    #   src = fetchFromGitHub {
-    #     owner = "jsit";
-    #     repo = "disco.vim";
-    #     rev = "070d1f0f514a646211436967f6f207fbbef3a671";
-    #     sha256 = "0rl17rm00dax9afk096pjimx9ab9fd78lvyd6s80s6vc3ardn07k";
-    #   };
-    # };
-    vim-dim = vimUtils.buildVimPlugin {
-      pname = "vim-dim";
-      version = "unstable-2021-01-29";
+    vim-colors-bionik = vimUtils.buildVimPlugin {
+      pname = "vim-colors-bionik";
+      version = "unstable-2021-11-28";
       src = fetchFromGitHub {
-        owner = "jeffkreeftmeijer";
-        repo = "vim-dim";
-        rev = "8320a40f12cf89295afc4f13eb10159f29c43777";
-        sha256 = "0mnwr4kxhng4mzds8l72s5km1qww4bifn5pds68c7zzyyy17ffxh";
+        owner = "datMaffin";
+        repo = "vim-colors-bionik";
+        rev = "ed4440063bcf13e180b6e602dbad85e206afd73a";
+        sha256 = "1j39kg4raaw8cf0f4kgg31g6p8g89nrg8k9hzw3r30b43hnblbzl";
       };
     };
     nvim-treesitter' = nvim-treesitter.withPlugins (p:
@@ -80,7 +77,7 @@ wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
     gitsigns-nvim
     bufferline-nvim
     lualine-nvim
-    vim-dim
+    vim-colors-bionik
 
     # Misc
     vim-highlightedyank

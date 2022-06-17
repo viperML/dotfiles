@@ -157,6 +157,7 @@ function postexec_test --on-event fish_postexec
     echo
 end
 
+set sponge_allow_previously_successful true
 set sponge_regex_patterns '(?:\d{1,3}\.){3}\d{1,3}'
 
 function rw
