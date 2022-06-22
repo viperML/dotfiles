@@ -20,8 +20,9 @@ in {
     # obs-studio
     packages.self.obsidian
     ffmpeg-full
+    filelight
 
-    microsoft-edge-beta
+    packages.self.chromium
     mailspring
   ];
 

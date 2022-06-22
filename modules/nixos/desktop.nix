@@ -53,12 +53,16 @@
     options = "-d";
   };
 
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  systemd.services."getty@tty7".enable = false;
-  systemd.services."autovt@tty7".enable = false;
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=15s
-  '';
+  systemd = let
+    extraConfig = ''
+      DefaultTimeoutStopSec=15s
+    '';
+  in {
+    inherit extraConfig;
+    user = {inherit extraConfig;};
+    services."getty@tty1".enable = false;
+    services."autovt@tty1".enable = false;
+    services."getty@tty7".enable = false;
+    services."autovt@tty7".enable = false;
+  };
 }
