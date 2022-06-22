@@ -137,7 +137,7 @@ if os.getenv "HOME" then
   cmd = { shell }
   font_size = 12
 else
-  cmd = { "wsl", "-d", "NixOS", shell }
+  cmd = { "wsl", "bash", "--login", "-c", shell }
   font_size = 12
 end
 

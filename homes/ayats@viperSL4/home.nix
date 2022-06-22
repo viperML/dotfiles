@@ -22,6 +22,7 @@ in {
     packages.self.neofetch
     packages.self.vshell
     packages.self.neovim
+    packages.self.nix
   ];
 
   xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
