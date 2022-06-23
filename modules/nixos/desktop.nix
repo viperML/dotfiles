@@ -61,6 +61,9 @@
     inherit extraConfig;
     user = {inherit extraConfig;};
     services."getty@tty1".enable = false;
+    targets.network-online.wantedBy = lib.mkForce [];
+    services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
+    services.tailcaled.wantedBy = lib.mkForce [];
     services."autovt@tty1".enable = false;
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;

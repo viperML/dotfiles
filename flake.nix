@@ -23,10 +23,11 @@
     homeConfigurations = mapAttrs (name: _: import (./homes + "/${name}") inputs) (readDir ./homes);
 
     legacyPackages = genSystems (system:
-      import inputs.nixpkgs {
+      (import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-      });
+      })
+      // (import ./lib/perSystem.nix inputs.nixpkgs.legacyPackages.${system}));
 
     packages =
       recursiveUpdate (genSystems (

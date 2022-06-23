@@ -4,6 +4,7 @@
   inputs,
   packages,
   lib,
+  self,
   ...
 }: let
   browser = "com.google.Chrome";
@@ -22,7 +23,17 @@ in {
     ffmpeg-full
     filelight
 
-    packages.self.chromium
+    (packages.self.addFlags pkgs.microsoft-edge-beta [
+      "--disable-features=UseChromeOSDirectVideoDecoder"
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+      "--ignore-gpu-blocklist"
+      "--enable-gpu-rasterization"
+      "--enable-accelerated-2d-canvas"
+      "--enable-accelerated-video-decode"
+      "--enable-zero-copy"
+      "--ozone-platform-hint=x11"
+      "--use-gl=desktop"
+    ])
     mailspring
   ];
 
