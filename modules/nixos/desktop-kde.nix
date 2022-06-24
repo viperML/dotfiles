@@ -22,7 +22,8 @@
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs.plasma5Packages)
-      bismuth
+      # bismuth
+      
       plasma-pa
       ark
       ffmpegthumbs
@@ -41,6 +42,7 @@
       lightly
       reversal-kde
       sierrabreezeenhanced
+      bismuth
       ;
   };
 

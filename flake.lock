@@ -240,6 +240,26 @@
         "type": "github"
       }
     },
+    "nix-gaming": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1655807496,
+        "narHash": "sha256-lidzQO2duQudsar5pRzcZHcOrIYExtqABegY+Q0bfdQ=",
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "rev": "9c89cf15f7fc6fa70d84498c48deb3c570418079",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "type": "github"
+      }
+    },
     "nix-matlab": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -402,6 +422,7 @@
         "nix": "nix",
         "nix-autobahn": "nix-autobahn",
         "nix-common": "nix-common",
+        "nix-gaming": "nix-gaming",
         "nix-matlab": "nix-matlab",
         "nix-std": "nix-std",
         "nixos-wsl": "nixos-wsl",

@@ -34,6 +34,10 @@ in
       flatpak
 
       ./fix-bluetooth.nix
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
+      {
+        services.pipewire.lowLatency.enable = true;
+      }
     ];
     homeModules = with self.homeModules; [
       ./home.nix
