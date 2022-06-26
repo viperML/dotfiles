@@ -33,7 +33,7 @@
     ripgrep
     tealdeer
     unar
-    magic-wormhole-rs
+    bubblewrap
   ];
 
   home.stateVersion = "21.11";

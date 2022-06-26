@@ -40,11 +40,14 @@
   ];
   flags-conf = pkgs.writeText "flags.conf" (lib.concatStringsSep "\n" chromiumFlags);
 in {
-  xdg.dataFile."flatpak-required.toml" = {
-    source = ./required.toml;
-    onChange = ''
-      systemctl --user restart flatpak-autoinstall.service
-    '';
+  xdg.dataFile = {
+    "flatpak-required.toml" = {
+      source = ./required.toml;
+      onChange = ''
+        systemctl --user restart flatpak-autoinstall.service
+      '';
+    };
+    "fonts".source = "/etc/profiles/per-user/${home.username}/share/fonts";
   };
 
   systemd.user = {
@@ -75,9 +78,5 @@ in {
         Install.WantedBy = ["timers.target"];
       };
     };
-    tmpfiles.rules = with config; [
-      "L+ ${xdg.dataHome}/fonts - - - - /etc/profiles/per-user/${home.username}/share/fonts"
-      "L+ ${home.homeDirectory}/.var/app/com.google.Chrome/config/chrome-flags.conf - - - - ${flags-conf}"
-    ];
   };
 }

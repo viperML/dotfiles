@@ -7,7 +7,6 @@
   self,
   ...
 }: let
-  browser = "com.google.Chrome";
   mkTrayService = lib.recursiveUpdate {
     Install.WantedBy = ["tray.target"];
     Unit.After = ["tray.target"];
@@ -17,12 +16,9 @@ in {
     packages.self.neofetch
     mpv
     qbittorrent
-    # krita
-    # obs-studio
     packages.self.obsidian
     ffmpeg-full
     filelight
-
     (packages.self.addFlags pkgs.microsoft-edge-beta [
       "--disable-features=UseChromeOSDirectVideoDecoder"
       "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"

@@ -12,8 +12,7 @@
       runUsingSystemd = true;
     };
     displayManager = {
-      gdm.enable = true;
-      sddm.enable = false;
+      sddm.enable = true;
       defaultSession = "plasma";
       autoLogin.enable = true;
     };
@@ -22,8 +21,6 @@
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs.plasma5Packages)
-      # bismuth
-      
       plasma-pa
       ark
       ffmpegthumbs
@@ -31,10 +28,6 @@
       gwenview
       kcolorchooser
       qttools
-      ;
-    inherit
-      (pkgs)
-      plasma-browser-integration
       ;
     inherit
       (packages.self)

@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   packages,
+  lib,
   ...
 }: let
   name = "ayats";
@@ -48,4 +49,15 @@ in {
   services.getty.autologinUser = name;
 
   nix.settings.trusted-users = ["ayats"];
+
+  systemd.tmpfiles.rules = lib.flatten (map (d: [
+      "d ${home}/${d} 700 ${name} users - -"
+      "z ${home}/${d} 700 ${name} users - -"
+    ]) [
+      ".config"
+      ".local"
+      ".local/share"
+      ".cache"
+      ".ssh"
+    ]);
 }

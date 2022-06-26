@@ -25,6 +25,7 @@ in
       inputs.home-manager.nixosModules.home-manager
       desktop
       keyring
+      xdg-ninja
 
       virt
       # docker

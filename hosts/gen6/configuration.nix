@@ -190,19 +190,22 @@ in {
       device = "tank/system/libvirt-clean";
       fsType = "zfs";
     };
-    # "/var/lib/docker" = {
-    #   device = "tank/system/docker";
-    #   fsType = "zfs";
-    # };
-    # "/var/lib/containerd/io.containerd.snapshotter.v1.zfs" = {
-    #   device = "tank/system/containerd";
-    #   fsType = "zfs";
-    # };
     ###
-    "/home/ayats" = {
-      device = "tank/ayats/home";
+    "/home/ayats/.config" = {
+      device = "tank/ayats/dot-config";
       fsType = "zfs";
-      options = ["x-gvfs-hide"];
+    };
+    "/home/ayats/.local" = {
+      device = "tank/ayats/dot-local";
+      fsType = "zfs";
+    };
+    "/home/ayats/.cache" = {
+      device = "tank/ayats/dot-cache";
+      fsType = "zfs";
+    };
+    "/home/ayats/.ssh" = {
+      device = "tank/ayats/dot-ssh";
+      fsType = "zfs";
     };
     "/windows" = {
       device = "/dev/nvme1n1p3";
@@ -270,7 +273,7 @@ in {
     "d /windows 744 root root - -"
   ];
 
-  users.users.ayats.password = "1234";
+  users.users.ayats.passwordFile = "/var/lib/secrets/ayats.passwd";
 
   nix = {
     daemonCPUSchedPolicy = "idle";

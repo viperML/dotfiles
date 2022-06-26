@@ -5,6 +5,7 @@ with builtins; let
 
   callPackageFor = {
     "qt5" = pkgs.libsForQt5.callPackage;
+    "python" = pkgs.python3.pkgs.callPackage;
   };
 
   overridesFor = {

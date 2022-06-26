@@ -8,7 +8,7 @@
 
 -- vim.opt.background = colorscheme
 
-vim.cmd "colorscheme bionik"
+vim.cmd "colorscheme default"
 
 require("nvim_comment").setup {}
 
