@@ -5,7 +5,7 @@ inputs @ {self, ...}: let
 in
   self.lib.mkSystem {
     pkgs = pkgs';
-    lib = pkgs'lib;
+    lib = pkgs'.lib;
     inherit system;
     specialArgs = {
       inherit self inputs;
