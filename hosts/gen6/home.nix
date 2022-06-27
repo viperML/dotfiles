@@ -36,7 +36,7 @@ in {
   systemd.user.services = {
     "tailscale-tray" = mkTrayService {
       Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
-      Unit .Description = "Tailscale indicator for system tray";
+      Unit.Description = "Tailscale indicator for system tray";
     };
     "mailspring" = mkTrayService {
       Service.ExecStart = "/usr/bin/env mailspring --background";

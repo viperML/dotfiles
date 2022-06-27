@@ -20,8 +20,6 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    libva-utils
-    pv
     packages.self.neovim
     packages.self.vshell
   ];

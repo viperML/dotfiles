@@ -5,7 +5,7 @@
 }: {
   virtualisation.docker = {
     enable = true;
-    enableOnBoot = false;
+    enableOnBoot = true;
     extraOptions = "--registry-mirror=https://mirror.gcr.io --add-runtime crun=${pkgs.crun}/bin/crun --default-runtime=crun";
     enableNvidia = builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers;
   };

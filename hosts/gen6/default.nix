@@ -1,18 +1,12 @@
 inputs @ {self, ...}: let
   system = "x86_64-linux";
-
-  # p = inputs.nixpkgs-master;
-  # pkgs = import p {
-  #   inherit system;
-  #   config.allowUnfree = true;
-  # };
-
-  p = inputs.nixpkgs;
-  pkgs = self.legacyPackages.${system};
+  pkgs = inputs.nixpkgs.${system};
+  pkgs' = self.legacyPackages.${system};
 in
   self.lib.mkSystem {
-    inherit (p) lib;
-    inherit system pkgs;
+    pkgs = pkgs';
+    lib = pkgs'lib;
+    inherit system;
     specialArgs = {
       inherit self inputs;
       packages = self.lib.mkPackages inputs system;
@@ -28,8 +22,8 @@ in
       xdg-ninja
 
       virt
-      # docker
-      podman
+      docker
+      # podman
       printing
       ld
       flatpak
