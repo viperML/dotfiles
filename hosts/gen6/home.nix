@@ -31,6 +31,7 @@ in {
       "--use-gl=desktop"
     ])
     mailspring
+    (inputs.nix-gaming.overlays.default null pkgs).osu-lazer-bin
   ];
 
   systemd.user.services = {

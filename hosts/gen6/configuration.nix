@@ -56,14 +56,11 @@ in {
     tmpOnTmpfs = true;
     kernelPackages = let
       compatible = config.boot.zfs.package.latestCompatibleLinuxPackages;
-      target = pkgs.linuxPackages_xanmod_latest;
+      target = pkgs.linuxPackages_xanmod;
     in
       if lib.versionAtLeast compatible.kernel.version target.kernel.version
       then target
-      else
-        builtins.trace
-        "The kernel ${target.kernel.name} is not compatible with ZFS, using the default"
-        compatible;
+      else throw "=> gen6: selected kernel is not compatible with ZFS";
     kernelModules = ["kvm-intel"];
     kernelParams = [
       # https://github.com/NixOS/nixpkgs/pull/171680
@@ -265,6 +262,23 @@ in {
         })
         normal-datasets
       ));
+  };
+
+  systemd.services."zfs-rollback-dot-cache" = {
+    description = "Rollback tank/ayats/dot-cache@clean";
+    before = ["multi-user.target"];
+    serviceConfig.Type = "oneshot";
+    serviceConfig.ExecStart =
+      (pkgs.writeShellScript "exec-start" ''
+        ${pkgs.zfs}/bin/zfs rollback tank/ayats/dot-cache@clean
+        ${pkgs.systemd}/bin/systemd-tmpfiles --create
+      '')
+      .outPath;
+  };
+  systemd.timers."zfs-rollback-dot-cache" = {
+    timerConfig.OnCalendar = "monthly";
+    timerConfig.Persistent = true;
+    wantedBy = ["timers.target"];
   };
 
   systemd.tmpfiles.rules = [
