@@ -19,7 +19,7 @@
       inherit (nixpkgs) lib;
       inherit inputs;
     };
-    nixosModules = exportModulesDir ./modules/nixos;
+    nixosModules = builtins.removeAttrs (exportModulesDir ./modules/nixos) ["users"];
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations self;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);

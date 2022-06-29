@@ -1,4 +1,4 @@
-import ./users/template.nix {
+import ./users.nix {
   name = "ayats";
   uid = "1000";
 }
