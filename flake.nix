@@ -15,7 +15,10 @@
     inherit (self.lib) exportModulesDir;
     genSystems = genAttrs supportedSystems;
   in {
-    lib = import ./lib nixpkgs.lib;
+    lib = import ./lib {
+      inherit (nixpkgs) lib;
+      inherit inputs;
+    };
     nixosModules = exportModulesDir ./modules/nixos;
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations self;

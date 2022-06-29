@@ -9,7 +9,9 @@
 in {
   services.flatpak.enable = true;
   environment.sessionVariables = {inherit XDG_DATA_DIRS;};
-  home-manager.users.ayats = _: {
-    home.sessionVariables = {inherit XDG_DATA_DIRS;};
-  };
+  home-manager.sharedModules = [
+    {
+      home.sessionVariables = {inherit XDG_DATA_DIRS;};
+    }
+  ];
 }

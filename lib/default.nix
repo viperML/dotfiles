@@ -1,7 +1,10 @@
-lib: let
+{
+  lib,
+  inputs,
+}: let
   modules = import ./modules.nix lib;
 in {
-  mkSystem = import ./mkSystem lib;
+  mkSystem = import ./mkSystem {inherit lib inputs;};
   inherit (modules) exportModulesDir folderToList;
   kde = import ./kde.nix lib;
   patch-nixpkgs = import ./patch-nixpkgs.nix;

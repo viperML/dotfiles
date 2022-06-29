@@ -50,4 +50,12 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
   "nouveau" = {
     nixosModules = [self.nixosModules.hardware-nouveau];
   };
+
+  "ayats" = {
+    nixosModules = [self.nixosModules.user-ayats];
+  };
+
+  "soch" = {
+    nixosModules = [self.nixosModules.user-soch];
+  };
 }

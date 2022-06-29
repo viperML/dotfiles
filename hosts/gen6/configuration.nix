@@ -5,18 +5,11 @@
   lib,
   packages,
   ...
-}: let
-  prefix = "/run/current-system/sw/bin";
-  env = {
+}: {
+  viper.env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
-    EDITOR = "${prefix}/nvim";
-    SHELL = "${prefix}/fish";
-  };
-in {
-  environment.variables = env;
-  environment.sessionVariables = env;
-  home-manager.users.ayats = _: {
-    home.sessionVariables = env;
+    EDITOR = "nvim";
+    SHELL = "fish";
   };
 
   environment.systemPackages = with pkgs; [
@@ -284,8 +277,6 @@ in {
   systemd.tmpfiles.rules = [
     "d /windows 744 root root - -"
   ];
-
-  users.users.ayats.passwordFile = "/var/lib/secrets/ayats.passwd";
 
   nix = {
     daemonCPUSchedPolicy = "idle";

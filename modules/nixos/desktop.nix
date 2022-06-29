@@ -6,9 +6,11 @@
   inputs,
   packages,
   ...
-}: {
-  time.timeZone = "Europe/Madrid";
-
+}: let
+  env = {
+    SSH_ASKPASS_REQUIRE = "prefer";
+  };
+in {
   services = {
     pipewire = {
       enable = true;
@@ -39,6 +41,7 @@
     (packages.self.colloid.override {
       theme = "yellow";
     })
+    pkgs.gnome.seahorse
   ];
 
   xdg.portal = {
@@ -65,4 +68,11 @@
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
   };
+
+  services.gnome.gnome-keyring.enable = true;
+  programs.ssh.startAgent = true;
+  programs.ssh.agentTimeout = "3h";
+
+  environment.variables = env;
+  environment.sessionVariables = env;
 }

@@ -7,7 +7,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    displayManager.autoLogin.enable = true;
+    # displayManager.autoLogin.enable = true;
     windowManager.awesome = {
       enable = true;
       package = packages.self.awesome;

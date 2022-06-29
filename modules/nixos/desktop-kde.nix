@@ -14,7 +14,7 @@
     displayManager = {
       sddm.enable = true;
       defaultSession = "plasma";
-      autoLogin.enable = true;
+      # autoLogin.enable = true;
     };
   };
 

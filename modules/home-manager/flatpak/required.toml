@@ -30,9 +30,9 @@ url = "https://dl.flathub.org/beta-repo"
 # origin = "flathub"
 # ref = "org.fedoraproject.MediaWriter/x86_64/stable"
 
-[[apps]]
-origin = "flathub"
-ref = "com.usebottles.bottles/x86_64/stable"
+# [[apps]]
+# origin = "flathub"
+# ref = "com.usebottles.bottles/x86_64/stable"
 
 # [[apps]]
 # origin = "flathub"

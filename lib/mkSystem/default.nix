@@ -1,4 +1,7 @@
-lib: args:
+{
+  lib,
+  inputs,
+}: args:
 with lib; let
   args' = filterAttrs (name: value:
     ! builtins.elem name [
@@ -15,10 +18,23 @@ with lib; let
     (args.modules or [])
     ++ (args.nixosModules or [])
     ++ [
+      ./common.nix
       ./systemd-boot.nix
+      ./lib.nix
+      inputs.nix-common.nixosModules.channels-to-flakes
+      inputs.home-manager.nixosModules.home-manager
       {
-        home-manager.sharedModules = args.homeModules or [];
+        _module.args = {
+          inherit inputs;
+          inherit (inputs) self;
+          packages = inputs.self.lib.mkPackages inputs args.system;
+        };
         viper.defaultSpec = defaultSpec.name;
+        home-manager.sharedModules =
+          (args.homeModules or [])
+          ++ [
+            inputs.nix-common.homeModules.channels-to-flakes
+          ];
         specialisation = listToAttrs (map (s:
           nameValuePair s.name {
             inheritParentConfig = true;
@@ -32,4 +48,4 @@ with lib; let
       }
     ];
 in
-  (args.lib.nixosSystem or nixosSystem) (args' // {inherit modules;})
+  (args.lib.nixosSystem or lib.nixosSystem) (args' // {inherit modules;})
