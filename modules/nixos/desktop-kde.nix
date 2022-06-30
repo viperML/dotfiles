@@ -28,6 +28,7 @@
       gwenview
       kcolorchooser
       qttools
+      skanlite
       ;
     inherit
       (packages.self)

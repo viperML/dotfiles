@@ -4,11 +4,12 @@
 }:
 awesome.overrideAttrs (_: {
   __nocachix = true;
-  version = "unstable-2022-05-29";
+  version = "unstable-2022-06-30";
+  patches = [];
   src = fetchFromGitHub {
     owner = "awesomeWM";
     repo = "awesome";
-    rev = "3a542219f3bf129546ae79eb20e384ea28fa9798";
-    sha256 = "1qyy650rwxaakw4hmnvwv7lqxjz22xhbzq8vqlv6ry5g5gmg0gg3";
+    rev = "a5c84896efb80fa760ee1f952cb9c0d0fe01c38e";
+    sha256 = "0mvky7258w70shhzbb4p2znljkmfa7dd5hr96ghqciq2y8b39qa9";
   };
 })

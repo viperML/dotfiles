@@ -39,6 +39,10 @@
   '';
 
   environment.defaultPackages = [];
+  environment.systemPackages = [
+    pkgs.step-cli
+    pkgs.git
+  ];
 
   environment.etc."gitconfig".text = ''
     [safe]

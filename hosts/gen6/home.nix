@@ -19,7 +19,7 @@ in {
     packages.self.obsidian
     ffmpeg-full
     filelight
-    (packages.self.addFlags pkgs.microsoft-edge-beta [
+    (packages.self.addFlags pkgs.google-chrome-beta [
       "--disable-features=UseChromeOSDirectVideoDecoder"
       "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
       "--ignore-gpu-blocklist"
@@ -32,6 +32,7 @@ in {
     ])
     mailspring
     (inputs.nix-gaming.overlays.default null pkgs).osu-lazer-bin
+    krita
   ];
 
   systemd.user.services = {
