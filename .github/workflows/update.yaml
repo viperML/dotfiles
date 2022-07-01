@@ -39,7 +39,7 @@ jobs:
       uses: ./.github/actions/install-nix
     - id: find_scripts
       name: Find updater scripts
-      run: nix run .#python3 -- ./bin/update_generate_matrix.py
+      run: ./bin/update_generate_matrix.py
 
   update:
     runs-on: ubuntu-latest

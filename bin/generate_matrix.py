@@ -1,9 +1,12 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p "python3.withPackages (p: [p.requests])"
 import argparse
 import json
 import logging
 import subprocess
 
 import requests
+
 
 logging.basicConfig(
     filename="generate_matrix.log", encoding="utf-8", level=logging.DEBUG
