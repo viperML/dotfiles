@@ -34,8 +34,7 @@ jobs:
         nix flake show --json > flake.json
     - id: gen_packages
       name: Generate package matrix
-      run: |
-        nix run .#python3 -- ./bin/generate_matrix.py ./flake.json packages
+      run: ./bin/update_generate_matrix.py
     # - id: gen_checks
     #   run: |
     #     checks=$(jq -c '.checks."x86_64-linux" | keys' < flake.json)
