@@ -14,7 +14,7 @@
 }:
 mkDerivation {
   pname = "lightly";
-  version = "unstable-0.4.1";
+  version = "unstable-2022-05-02";
 
   src = fetchFromGitHub {
     owner = "Luwx";
