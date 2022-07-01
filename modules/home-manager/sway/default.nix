@@ -18,12 +18,6 @@ args @ {
   ];
 
   systemd.user.services = {
-    i3a = {
-      Unit.Description = "Master+stack tiling daemon";
-      Service.ExecStart = "${packages.self.i3a}/bin/i3a-master-stack --stack dwm";
-      Install.WantedBy = ["sway-session.target"];
-    };
-
     mako = {
       Unit.Description = "Notification daemon";
       Service.ExecStart = "${pkgs.mako}/bin/mako";
