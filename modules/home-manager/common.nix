@@ -12,7 +12,7 @@
     # Nix management
     direnv
     nix-prefetch-scripts
-    update-nix-fetchgit
+    packages.self.update-nix-fetchgit
     statix
     alejandra
     packages.self.nh

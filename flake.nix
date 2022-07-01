@@ -45,6 +45,10 @@
             nix = inputs.nix.packages.${system}.nix;
 
             _devShell = self.devShells.${system}.default.inputDerivation;
+
+            update-nix-fetchgit = inputs.nixpkgs.legacyPackages.${system}.update-nix-fetchgit.overrideAttrs (prev: {
+              doCheck = false;
+            });
           }
       )) {
         "x86_64-linux" = {
