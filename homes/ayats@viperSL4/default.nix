@@ -4,20 +4,17 @@ inputs @ {
   ...
 }: let
   system = "x86_64-linux";
-  username = "ayats";
   packages = self.lib.mkPackages inputs system;
 in
   home-manager.lib.homeManagerConfiguration {
-    inherit system username;
-    homeDirectory = "/home/${username}";
-    configuration = _: {};
-    stateVersion = "21.11";
-    extraSpecialArgs = {
-      inherit inputs self packages;
-    };
     pkgs = packages.self;
-    extraModules = with self.homeModules; [
+    modules = with self.homeModules; [
       ./home.nix
+      {
+        _module.args = {
+          inherit inputs self packages;
+        };
+      }
       common
       inputs.nix-common.homeModules.channels-to-flakes
       git

@@ -14,6 +14,9 @@
   };
 in {
   home.sessionVariables = env;
+  home.username = "ayats";
+  home.homeDirectory = "/home/ayats";
+  home.stateVersion = "21.11";
 
   home.packages = [
     packages.home-manager.default
