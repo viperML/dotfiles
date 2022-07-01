@@ -1,0 +1,115 @@
+DEBUG:root:Checking output='packages.x86_64-linux._devShell'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /zqkmh41sqpigzjg33n348cw58230lqvr.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux._homeConfigurations-ayats-viperSL4'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /nasv29p3grqsmvf3ggrbd6w7npwzljdd.narinfo HTTP/1.1" 404 None
+DEBUG:root:Checking output='packages.x86_64-linux._devShell'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /zqkmh41sqpigzjg33n348cw58230lqvr.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux._homeConfigurations-ayats-viperSL4'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /kvnn6avjj38bdxzwy6m49f58sdib4qhp.narinfo HTTP/1.1" 404 None
+DEBUG:root:Checking output='packages.x86_64-linux.adw-gtk3'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /3x1a6p0aq2p7cqdd9s5y020ykpahr0yz.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.any-nix-shell'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /87a228p26dmnzrfwzwr14kj0spd41gg8.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.awesome'
+DEBUG:root:Checking output='packages.x86_64-linux.bismuth'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /ynjwrspq6673g1ivj6k5ayn8q5lqr6mi.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.colloid'
+DEBUG:root:Checking output='packages.x86_64-linux.comic-code'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /rimp46cs5m6f4civ3pl5c9p1axz52r54.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.deploy-rs'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /79skhp3cpqcqnwfqisz52skng21vy7s9.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.hcl'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /njqalhvinqpifrcw4bxh5n6wf4bgy8vh.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.helix'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /qkqxilxl2c5ma14s7zbdz1bqr9fnk6jf.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.hoefler-text'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /rrbbckh57k0i9kjpx27b0zq8h921ng09.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.i3a'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /7cbnyjlz45rqhk57n9ldfjvnn9m2z7zy.narinfo HTTP/1.1" 404 None
+DEBUG:root:Checking output='packages.x86_64-linux.iosevka'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /3vqrjj1x98ncbxqvp1jzcsxyyqsylj2w.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.kwin-forceblur'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /mmlh9a0f7x934vbs78y9whab2pgp7ar5.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.lightly'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /0kvzznr01yzmkgs3s8cbif3a3gwwciq8.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.multiload-ng'
+DEBUG:root:Checking output='packages.x86_64-linux.neofetch'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /821a6k8gwr7p6nk3rkcp0kzknyfa0qm3.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.neovim'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /wigd290wr8f2hamhyq53fq50rnp0kb1d.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nerd-fonts'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /j31q1pkd7wpnk7yvcwv20lqkaj0jn94h.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nh'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /m59kdqdxrmxbs8awy41w27jr2frn0w0v.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nix'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /yifq2mkzh251df3cy2bwzlkzhyh5hgsc.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nix-index'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /zivrz0lvmfnj5naxcbva9icsqdwjy6dc.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nix-prefetch'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /v7bajki5mg5g2idaql2akwwcranrvgyc.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.nix-update'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /17da0cyaw77i6whv7pdjg3bjiwax6i2r.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.obsidian'
+DEBUG:root:Checking output='packages.x86_64-linux.papirus-icon-theme'
+DEBUG:root:Checking output='packages.x86_64-linux.picom'
+DEBUG:root:Checking output='packages.x86_64-linux.plasma-applet-splitdigitalclock'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /8yw28b0rpkp9if6y8izki6a4hnd8qsh6.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.redaction'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /7jmk8vsy64s3r9wpjvfsqai7wi2lfwhk.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.resolve-march-native'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /xvsjh71k00y5q3jxfchxv53rhffl53j2.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.reversal-kde'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /p7fjfy1p2l9ff6q03z0nskgsdj67gpaj.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.rose-pine-gtk-theme'
+DEBUG:root:Checking output='packages.x86_64-linux.san-francisco'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /089dyslcfsg8wqxzzjdifn82byy7b5l2.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.shfmt'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /z61656msladlq4ppq4mjygm98w7yya4a.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.sierrabreezeenhanced'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /svsyml7wwxf8j90cxifwqn0s1l991qdv.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.stylua'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /9dygg92kzbfh61dwiirw4y7f8c72mfwz.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.tailscale-systray'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /6kqrqz58jfc8k8wzvcjlzxipdrxgmx0c.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.tym'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /ag3wg3rv740fdarmavjf6zfn8r0qn1v0.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.vlmcsd'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /6v75wvay9af8nf3w1b1mvvzr2hy3n25a.narinfo HTTP/1.1" 200 None
+DEBUG:root:Checking output='packages.x86_64-linux.vshell'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): viperml.cachix.org:443
+DEBUG:urllib3.connectionpool:https://viperml.cachix.org:443 "GET /kkkbqcmbi0ksmbq1365gc6ryswawj4ll.narinfo HTTP/1.1" 200 None

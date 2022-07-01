@@ -5,6 +5,8 @@ on:
     # branches:
     #   - master
   workflow_dispatch:
+  pull_request:
+  pull_request_review:
 
 jobs:
   check_flake:
@@ -58,45 +60,5 @@ jobs:
         name: viperml
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
         pathsToPush: result
-    - name: Build everything
+    - name: Build output
       run: nix build .#${{ matrix.package }}
-
-  # https://github.community/t/cancelling-rest-of-job-if-condition-is-met/18181
-  check_neovim_hash:
-    runs-on: ubuntu-latest
-    needs: [build_flake]
-    outputs:
-      bundle_neovim: ${{ steps.compare_drvPath.outputs.bundle_neovim }}
-    steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: ./.github/actions/install-nix
-    - name: Eval new neovim.drvPath
-      run: echo "DRVPATH_NEW=$(nix eval --raw .#neovim.drvPath)" >> $GITHUB_ENV
-    - name: Fetch old neovim.drvPath
-      run: |
-        workflow_run=$(gh run --repo viperML/dotfiles list --workflow neovim-bundle.yaml --json status,databaseId --limit 5 | jq '[.[] | select(.status == "completed")][0].databaseId')
-        rm -f drvPath
-        gh run --repo viperML/dotfiles download $workflow_run -n drvPath
-        echo "DRVPATH_OLD=$(cat drvPath)" >> $GITHUB_ENV
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
-    - name: Compare the drvPath and set the exit status
-      id: compare_drvPath
-      run: |
-        if [[ ${{ env.DRVPATH_NEW }} == ${{ env.DRVPATH_OLD }} ]]; then
-          echo "::set-output name=bundle_neovim::false"
-        else
-          echo "::set-output name=bundle_neovim::true"
-        fi
-
-  request_neovim:
-    runs-on: ubuntu-latest
-    needs: [check_neovim_hash]
-    if: needs.check_neovim_hash.outputs.bundle_neovim == 'true'
-    steps:
-    - name: Run neovim-bundle.yaml
-      run: gh workflow run --repo viperML/dotfiles neovim-bundle.yaml --ref master
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
