@@ -16,7 +16,7 @@ in {
   users.users.${name} = {
     inherit name home;
     createHome = true;
-    description = "NixOS user";
+    description = name;
     isNormalUser = true;
     extraGroups = [
       "audio"
