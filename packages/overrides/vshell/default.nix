@@ -37,8 +37,8 @@
       src = fetchFromGitHub {
         repo = "sponge";
         owner = "andreiborisov";
-        rev = "0f3bf8f10b81b25d2b3bbb3d6ec86f77408c0908";
-        sha256 = "0vsi872c58z7zzdr0kzfsx49fi7241dakjdp6h1ff3wfzw2zsi0i";
+        rev = "dcfcc9089939f48b25b861a9254a39de8e9f33a0";
+        sha256 = "1nx9hkjjvscxkphi8ipg5iyplvrxg4xs5c6mkwyb07z15wa9yqgq";
       };
     }
   ];

@@ -8,7 +8,7 @@
 }:
 buildGoModule rec {
   pname = "tailscale-systray";
-  version = "unstable-2022-02-09";
+  version = "unstable-2022-06-26";
 
   nativeBuildInputs = [
     pkg-config
@@ -22,8 +22,8 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "mattn";
     repo = "tailscale-systray";
-    rev = "64347899f5c60ccc3a7c5ebfa193364b918a38ef";
-    sha256 = "1h1fm4ps28xzfg5n9bz346l0syxncpgrmff0jz5xjywh9a3z5153";
+    rev = "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72";
+    sha256 = "1ap8x5pmjiydi88rz2m65w9q8s104b56m6s7hyww8wwgda3sv0l8";
   };
 
   vendorSha256 = "sha256-dTznGNi54vGldvE8/eujiUmZZ/Ks0vRVxQQIabwyVH4=";

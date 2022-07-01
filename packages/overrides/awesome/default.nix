@@ -9,7 +9,7 @@ awesome.overrideAttrs (_: {
   src = fetchFromGitHub {
     owner = "awesomeWM";
     repo = "awesome";
-    rev = "a5c84896efb80fa760ee1f952cb9c0d0fe01c38e";
-    sha256 = "0mvky7258w70shhzbb4p2znljkmfa7dd5hr96ghqciq2y8b39qa9";
+    rev = "9ca7bb487a5d1d2d5c102f94cd9e8cb5b6e7ffaa";
+    sha256 = "0h7wn54hh546kpjwah9a3sl47r7nrvjzscldbhpllbhdhq0706j5";
   };
 })
