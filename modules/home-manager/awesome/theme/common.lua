@@ -9,10 +9,10 @@ local theme = {}
 
 -- Awesome stock
 theme.systray_icon_spacing = 10
-theme.font = "Source Sans 3 Regular 10"
-theme.font_name = "Source Sans 3" --custom
+theme.font = "Roboto 10"
+theme.font_name = "Roboto" --custom
 
-theme.useless_gap = dpi(5)
+theme.useless_gap = dpi(2)
 theme.border_width = dpi(0)
 
 theme.menu_height = dpi(20)
@@ -51,14 +51,14 @@ theme.titlebar_sticky_button_focus_inactive_press = btn_dir .. "pin3.svg"
 theme.awesome_icon = res .. "awesome.png"
 
 -- Custom
-theme.titlebar_height = dpi(35)
-theme.corners = dpi(12)
+theme.titlebar_height = dpi(30)
+theme.corners = dpi(5)
 theme.bar_thickness = dpi(46)
 
 theme.taglist_sidemargins = dpi(6)
 
-theme.titlebar_icons_margin_vertical = dpi(7)
-theme.titlebar_icons_margin_horizontal = dpi(8)
+theme.titlebar_icons_margin_vertical = dpi(5)
+theme.titlebar_icons_margin_horizontal = dpi(6)
 theme.titlebar_icons_margin_internal = dpi(6)
 
 -- Bling

@@ -1,4 +1,4 @@
-{pkgs}: let
+pkgs: let
   inherit (pkgs) fetchFromGitHub;
 in {
   sharedtags = fetchFromGitHub {

@@ -6,14 +6,10 @@
 }: {
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    # displayManager.autoLogin.enable = true;
+    displayManager."gdm".enable = true;
     windowManager.awesome = {
       enable = true;
       package = packages.self.awesome;
-      luaModules = with pkgs.luaPackages; [
-        #keep
-      ];
     };
   };
 
@@ -52,6 +48,8 @@
         #
         
         gwenview
+        kwallet
+        kwalletmanager
         ;
     };
 }

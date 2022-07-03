@@ -42,11 +42,11 @@ in
         ayats
         default
       ]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [
-      #   awesome
-      #   nvidia
-      #   ayats
-      # ]))
+      (self.lib.joinSpecialisations (with self.specialisations; [
+        awesome
+        nvidia
+        ayats
+      ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   gnome
       #   nvidia

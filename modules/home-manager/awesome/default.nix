@@ -15,7 +15,7 @@ args @ {
     else "${self.outPath}/modules/home-manager/awesome";
   finalPath = "${config.home.homeDirectory}/.config/awesome";
 
-  modules = import ./modules.nix {inherit pkgs;};
+  modules = import ./modules.nix pkgs;
 
   mkService = lib.recursiveUpdate {
     Unit.PartOf = ["graphical-session.target"];
@@ -46,16 +46,21 @@ in {
       ;
   };
 
-  systemd.user.tmpfiles.rules =
-    map (f: "L+ ${finalPath}/${f} - - - - ${selfPath}/${f}") [
-      "rc.lua"
-      "rc"
-      "ui"
-      "helpers.lua"
-      "theme"
-      "res"
-    ]
-    ++ attrValues (mapAttrs (name: value: "L+ ${finalPath}/${name} - - - - ${value.outPath}") modules);
+  xdg.configFile."awesome".source =
+    (pkgs.runCommandNoCC "awesome-config" {} ''
+      set -x
+      mkdir -p $out
+      for f in ${self}/modules/home-manager/awesome/*; do
+        n=$(basename $f)
+        ln -sfvT ${config.home.sessionVariables.FLAKE}/modules/home-manager/awesome/$n $out/$n
+      done
+      ${lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs (name: path: "ln -sfvT ${path} $out/${name}") modules))}
+    '')
+    .outPath;
+
+  home.file.".Xresources".text = ''
+    Xft.dpi: 96
+  '';
 
   systemd.user.targets.awesome-session = {
     Unit = {
@@ -79,11 +84,6 @@ in {
     #   Unit.Description = "Caffeine applet";
     #   Service.ExecStart = "${pkgs.caffeine-ng}/bin/caffeine";
     # };
-    mailspring = mkService {
-      Unit.Description = "Mail client";
-      Service.ExecStart = "${pkgs.mailspring}/bin/mailspring --background";
-      Service.Restart = "on-failure";
-    };
     autorandr-boot = mkService {
       Unit.Description = "Load autorandr on boot";
       Service.ExecStart = "${pkgs.autorandr}/bin/autorandr --change";
@@ -126,14 +126,21 @@ in {
   programs.autorandr = {
     enable = true;
     profiles = {
-      "gen6" = {
-        fingerprint."DP-2" = "00ffffffffffff003669a73f86030000091d0104a53c22783b1ad5ae5048a625125054bfcf00d1c0714f81c0814081809500b3000101695e00a0a0a029503020b80455502100001af8e300a0a0a032500820980455502100001e000000fd003090dede3c010a202020202020000000fc004d5349204d41473237314351520169020320714d0102031112130f1d1e0e901f04230917078301000065030c0010006fc200a0a0a055503020350055502100001a5a8700a0a0a03b503020350055502100001a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b8";
-        config."DP-2" = {
+      "gen6" = let
+        displays = [
+          # "DP-1"
+          # "DP-2"
+          # "DP-3"
+          "DP-4"
+        ];
+      in {
+        fingerprint = lib.genAttrs displays (d: "*");
+        config = lib.genAttrs displays (d: {
           crtc = 0;
           mode = "2560x1440";
           position = "0x0";
           rate = "144.00";
-        };
+        });
       };
     };
   };
