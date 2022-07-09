@@ -21,6 +21,8 @@
   bash,
   writeScript,
   nix-autobahn,
+  writeTextDir,
+  nix-direnv,
 }: let
   myFishPlugins = [
     rec {
@@ -80,6 +82,15 @@
     command_not_found_handle "$@"
   '';
 
+  direnvrc = writeTextDir "direnvrc" ''
+    source ${nix-direnv}/share/nix-direnv/direnvrc
+  '';
+
+  direnv-config = symlinkJoin {
+    name = "direnv-config";
+    paths = [direnvrc];
+  };
+
   fish-conf = writeTextFile {
     name = "config.fish";
     executable = false;
@@ -89,8 +100,13 @@
 
 
       set --prepend fish_function_path ${fishPlugins.foreign-env}/share/fish/vendor_functions.d
+
       ${any-nix-shell}/bin/any-nix-shell fish | source
+
+      set -g direnv_config_dir ${direnv-config}
       ${direnv}/bin/direnv hook fish | source
+
+
       ${lib.concatMapStringsSep "\n" (init: "source ${init}") fishPluginsInits}
 
       status --is-interactive; and begin
