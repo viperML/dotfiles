@@ -121,8 +121,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      # url = "github:hyprwm/Hyprland";
-      url = "/home/ayats/Documents/Hyprland";
+      url = "github:hyprwm/Hyprland";
+      # url = "/home/ayats/Documents/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

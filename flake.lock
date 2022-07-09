@@ -151,14 +151,17 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1657279197,
-        "narHash": "sha256-1MpUZCe8hJ/kiID407i0McA4R8h3+ZRj2gM8DEYUoOI=",
-        "type": "git",
-        "url": "file:///home/ayats/Documents/Hyprland"
+        "lastModified": 1657316275,
+        "narHash": "sha256-vTDdnGnjQNjBfPixX/s3H0YrTn3ArvTLscJXFamrIIg=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "ddc4cbbd7e572d5f81b73375395c9ba59a97556b",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/ayats/Documents/Hyprland"
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "type": "github"
       }
     },
     "lowdown-src": {
