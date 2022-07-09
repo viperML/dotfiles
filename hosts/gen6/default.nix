@@ -18,7 +18,6 @@ in
       printing
       ld
       flatpak
-      ./nspawn.nix
 
       ./fix-bluetooth.nix
       inputs.nix-gaming.nixosModules.pipewireLowLatency
@@ -53,6 +52,11 @@ in
       (self.lib.joinSpecialisations (with self.specialisations; [
         hyprland
         nvidia
+        ayats
+      ]))
+      (self.lib.joinSpecialisations (with self.specialisations; [
+        hyprland
+        nvidia-open
         ayats
       ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [

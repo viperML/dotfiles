@@ -56,6 +56,10 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     nixosModules = [self.nixosModules.hardware-nvidia];
   };
 
+  "nvidia-open" = {
+    nixosModules = [self.nixosModules.hardware-nvidia-open];
+  };
+
   "nouveau" = {
     nixosModules = [self.nixosModules.hardware-nouveau];
   };
