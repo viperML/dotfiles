@@ -120,5 +120,10 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland = {
+      # url = "github:hyprwm/Hyprland";
+      url = "/home/ayats/Documents/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

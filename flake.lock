@@ -143,6 +143,24 @@
         "type": "github"
       }
     },
+    "hyprland": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "wlroots": "wlroots"
+      },
+      "locked": {
+        "lastModified": 1657279197,
+        "narHash": "sha256-1MpUZCe8hJ/kiID407i0McA4R8h3+ZRj2gM8DEYUoOI=",
+        "type": "git",
+        "url": "file:///home/ayats/Documents/Hyprland"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/ayats/Documents/Hyprland"
+      }
+    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -389,6 +407,7 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
+        "hyprland": "hyprland",
         "nh": "nh",
         "nix": "nix",
         "nix-autobahn": "nix-autobahn",
@@ -430,6 +449,24 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "wlroots": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1655824477,
+        "narHash": "sha256-1kskHOLsnisR3kqIL5IHrQbQG/4xoXxeEf1ExMV6/RU=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "5c4384a1330faedf975c8b8644881d50390f3613",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
       }
     }
   },

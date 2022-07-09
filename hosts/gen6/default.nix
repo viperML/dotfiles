@@ -18,12 +18,15 @@ in
       printing
       ld
       flatpak
+      ./nspawn.nix
 
       ./fix-bluetooth.nix
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       {
         services.pipewire.lowLatency.enable = true;
       }
+
+      inputs.hyprland.nixosModules.default
     ];
     homeModules = with self.homeModules; [
       ./home.nix
@@ -44,6 +47,11 @@ in
       ]))
       (self.lib.joinSpecialisations (with self.specialisations; [
         awesome
+        nvidia
+        ayats
+      ]))
+      (self.lib.joinSpecialisations (with self.specialisations; [
+        hyprland
         nvidia
         ayats
       ]))

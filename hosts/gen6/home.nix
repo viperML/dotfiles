@@ -33,6 +33,8 @@ in {
     mailspring
     (inputs.nix-gaming.overlays.default null pkgs).osu-lazer-bin
     krita
+    packages.self.hcl
+    vault
   ];
 
   systemd.user.services = {

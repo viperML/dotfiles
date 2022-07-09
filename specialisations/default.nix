@@ -43,6 +43,15 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
   };
 
+  "hyprland" = {
+    nixosModules = with self.nixosModules; [
+      desktop-hyprland
+    ];
+    homeModules = with self.homeModules; [
+      hyprland
+    ];
+  };
+
   "nvidia" = {
     nixosModules = [self.nixosModules.hardware-nvidia];
   };
