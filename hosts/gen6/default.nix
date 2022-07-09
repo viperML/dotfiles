@@ -54,11 +54,11 @@ in
         nvidia
         ayats
       ]))
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        hyprland
-        nvidia-open
-        ayats
-      ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   hyprland
+      #   nvidia-open
+      #   ayats
+      # ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   gnome
       #   nvidia

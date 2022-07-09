@@ -34,6 +34,7 @@
     tealdeer
     unar
     bubblewrap
+    magic-wormhole-rs
   ];
 
   home.stateVersion = "21.11";
