@@ -1,4 +1,4 @@
-Set-PSReadLineOption -predictionsource history
-$env:GREP_OPTIONS = '--color=always'
+Set-PSReadLineOption -PredictionSource History
+$Env:DOTFILES = "C:\Users\ayats\Documents\dotfiles"
+$Env:STARSHIP_CONFIG = "$Env:DOTFILES\packages\overrides\vshell\starship.toml"
 Invoke-Expression (&starship init powershell)
-$ENV:STARSHIP_CONFIG = "C:\Users\ayats\.dotfiles\fish\starship.toml"

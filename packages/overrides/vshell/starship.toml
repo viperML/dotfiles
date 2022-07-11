@@ -13,7 +13,7 @@ $terraform\
 )\
 (\\[ $username$hostname$status$cmd_duration$jobs\\]
 )\
-$env_var
+$directory
 [\\$](bold) """
 
 scan_timeout = 10
@@ -28,14 +28,14 @@ ssh_only = true
 format = "[$hostname](fg:8) "
 
 [directory]
-style = "bold blue"
+style = "bold cyan"
 read_only = " "
 truncate_to_repo = false
-truncation_length = 0
+#truncation_length = 0
 format = "[ $path]($style)[$read_only]($read_only_style) "
-repo_root_style = "red"
-home_symbol = "$HOME"
-disabled = true
+#repo_root_style = "red"
+home_symbol = "~"
+#disabled = true
 
 [git_branch]
 format = " [$symbol$branch]($style) "
@@ -83,6 +83,7 @@ when = """test -n "$DIRSTACK" """
 style = "fg:8"
 symbol = " "
 format = "[$symbol($output)]($style) "
+os = "linux"
 
 [status]
 disabled = false
@@ -90,7 +91,7 @@ format = "[(✖ $status $common_meaning )](bold red)"
 
 [env_var.directory]
 variable = "PWD"
-format = "[ $env_value]($style) "
+format = "[ dir: $env_value]($style) "
 style = "bold blue"
 
 [custom.nix]
@@ -99,3 +100,4 @@ when = "nix-shell-info"
 symbol = ""
 style = "bold cyan"
 format = "[$symbol]($style) [$output]($style) "
+os = "linux"
