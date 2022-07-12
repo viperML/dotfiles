@@ -16,6 +16,7 @@ in {
   users.users.${name} = {
     inherit name home;
     createHome = true;
+    # description = "${name},,,,UMASK=077";
     description = name;
     isNormalUser = true;
     extraGroups = [
@@ -31,6 +32,10 @@ in {
     ];
     passwordFile = "/var/lib/secrets/users.passwd";
   };
+
+  # security.pam.services.login.text = lib.mkDefault ''
+  #   session optional pam_umask.so
+  # '';
 
   security.sudo.extraRules = [
     {

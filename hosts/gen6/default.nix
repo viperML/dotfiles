@@ -19,6 +19,8 @@ in
       ld
       flatpak
 
+      ./nspawn.nix
+
       ./fix-bluetooth.nix
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       {
