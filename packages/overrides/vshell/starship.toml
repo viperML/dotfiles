@@ -11,7 +11,13 @@ $terraform\
 )\
 (\\[ $git_branch$git_state$git_status$git_metrics\\]
 )\
-(\\[ $username$hostname$status$cmd_duration$jobs\\]
+(\\[ \
+$username\
+$hostname\
+$status\
+$cmd_duration\
+$jobs\
+\\]
 )\
 $directory
 [\\$](bold) """

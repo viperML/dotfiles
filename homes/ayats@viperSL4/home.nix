@@ -11,6 +11,7 @@
     # BROWSER = "${prefix}/wslu";
     EDITOR = "nvim";
     SHELL = "fish";
+    VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
   };
 in {
   home.sessionVariables = env;

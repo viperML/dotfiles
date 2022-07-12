@@ -1,0 +1,20 @@
+[core]
+  pager=delta
+  eol=lf
+  autocrlf=false
+[credential "https://github.com"]
+  helper=gh auth git-credential
+[delta]
+  side-by-side=true
+[init]
+  defaultbranch=master
+[interactive]
+  difffilter=delta --color-only
+[pull]
+  ff=only
+  rebase=false
+[push]
+  default=simple
+[user]
+  email=ayatsfer@gmail.com
+  name=Fernando Ayats
