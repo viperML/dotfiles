@@ -14,9 +14,8 @@ in {
   users.mutableUsers = false;
 
   users.users.${name} = {
-    inherit name home;
+    inherit name home uid;
     createHome = true;
-    # description = "${name},,,,UMASK=077";
     description = name;
     isNormalUser = true;
     extraGroups = [
@@ -32,10 +31,6 @@ in {
     ];
     passwordFile = "/var/lib/secrets/users.passwd";
   };
-
-  # security.pam.services.login.text = lib.mkDefault ''
-  #   session optional pam_umask.so
-  # '';
 
   security.sudo.extraRules = [
     {
@@ -53,10 +48,7 @@ in {
     }
   ];
 
-  # services.xserver.displayManager.autoLogin.user = name;
-  # services.getty.autologinUser = name;
-
-  nix.settings.trusted-users = ["${name}"];
+  nix.settings.trusted-users = [name];
 
   systemd.tmpfiles.rules =
     (lib.flatten (map (d: [
@@ -78,7 +70,7 @@ in {
 
   home-manager.users.${name} = {};
 
-  viper.users = ["${name}"];
+  viper.users = [name];
 
   services.xserver.displayManager = lib.mkIf ((builtins.length config.viper.users) == 1) {
     autoLogin.enable = true;

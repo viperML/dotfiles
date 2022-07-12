@@ -13,9 +13,31 @@ args @ {
     inherit (import ./config.nix args) config extraConfig;
   };
 
-  home.packages = with pkgs; [
-    wofi
-  ];
+  home.packages =
+    lib.attrValues
+    {
+      inherit
+        (pkgs)
+        qgnomeplatform
+        adwaita-qt
+        wofi
+        firefox
+        ;
+      inherit
+        (pkgs.plasma5Packages)
+        dolphin
+        ark
+        qtwayland
+        dolphin-plugins
+        ffmpegthumbs
+        kdegraphics-thumbnailers
+        kio
+        kio-extras
+        #
+        
+        gwenview
+        ;
+    };
 
   systemd.user.services = {
     mako = {

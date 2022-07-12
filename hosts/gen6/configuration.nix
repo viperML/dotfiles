@@ -143,7 +143,7 @@
       device = "tank/system/nix";
       fsType = "zfs";
     };
-    "/efi" = {
+    ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-label/LINUXESP";
       fsType = "vfat";
       options = [

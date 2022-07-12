@@ -46,16 +46,21 @@ in
         ayats
         default
       ]))
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        awesome
-        nvidia
-        ayats
-      ]))
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        hyprland
-        nvidia
-        ayats
-      ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   awesome
+      #   nvidia
+      #   ayats
+      # ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   hyprland
+      #   nvidia
+      #   ayats
+      # ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   sway
+      #   nvidia
+      #   ayats
+      # ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   hyprland
       #   nvidia-open

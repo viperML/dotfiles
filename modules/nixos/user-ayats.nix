@@ -1,4 +1,4 @@
 import ./users.nix {
   name = "ayats";
-  uid = "1000";
+  uid = 1000;
 }
