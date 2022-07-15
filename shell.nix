@@ -1,8 +1,5 @@
-{
-  pkgs ? import ./. {},
-  lib ? pkgs.lib,
-}:
-with lib; let
+pkgs:
+with pkgs.lib; let
   commands = with pkgs; {
     dot-update = ''
       ${fd}/bin/fd updater.sh --exec echo {}

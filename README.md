@@ -49,13 +49,19 @@ Other configurations from where I learned and copied:
 
 # 📦 Exported packages
 
-Install directly from the `packages` output. For example:
+Run packages directly with:
+
+```console
+nix run github:viperML/dotfiles#packageName
+```
+
+Or install from the `packages` output. For example:
 
 ```nix
 # flake.nix
 {
-  inputs.viperML-dotfiles.url = github:viperML/dotfiles;
-  # Override my nixpkgs, binary cache may have less hits
+  inputs.viperML-dotfiles.url = "github:viperML/dotfiles";
+  # Override my nixpkgs, binary cache will have less hits
   inputs.viperML-dotfiles.inputs.nixpkgs.follows = "nixpkgs";
 }
 
@@ -63,7 +69,7 @@ Install directly from the `packages` output. For example:
 { pkgs, inputs, ... }:
 {
   environment.systemPackages = [
-    inputs.viperML-dotfiles.packages.${pkgs.system}.thePkgName
+    inputs.viperML-dotfiles.packages."x86_64-linux".packageName
   ];
 }
 ```
@@ -72,20 +78,8 @@ A package cache is provided:
 
 ```nix
 # configuration.nix
-  nix.extraOptions = ''
-    extra-substituters = https://viperml.cachix.org
-    extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
-  '';
+nix.settings = [
+  extra-substituters = "https://viperml.cachix.org";
+  extra-trusted-public-keys = "viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=";
+];
 ```
-
-# Neovim distribution
-
-Neovim is bundled with all the configuration and plugins, such that it doesn't require any storage in the user's home directory.
-
-To run it:
-
-```console
-nix run github:viperML/dotfiles#neovim -- /path/to/file
-```
-
-I also build .DEB and .RPM bundles, that you can [download from CI](https://github.com/viperML/dotfiles/actions/workflows/neovim-bundle.yaml)

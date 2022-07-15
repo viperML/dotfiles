@@ -3,7 +3,11 @@
   eol=lf
   autocrlf=false
 [credential "https://github.com"]
-  helper=gh auth git-credential
+  helper=
+  helper=!gh auth git-credential
+[credential "https://gist.github.com"]
+  helper=
+  helper=!gh auth git-credential
 [delta]
   side-by-side=true
 [init]

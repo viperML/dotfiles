@@ -7,35 +7,49 @@
   };
 
   outputs = inputs: let
+    supportedSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+
     inherit (inputs) self nixpkgs;
-    supportedSystems = ["x86_64-linux"];
-    config = import ./misc/nixpkgs.nix;
+    inherit (nixpkgs) lib;
     inherit (builtins) mapAttrs readDir elem;
     inherit (nixpkgs.lib) attrValues genAttrs recursiveUpdate getName;
     inherit (self.lib) exportModulesDir;
+
     genSystems = genAttrs supportedSystems;
+    pkgsFor = builtins.listToAttrs (map (system:
+      lib.nameValuePair system (import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      }))
+    supportedSystems);
   in {
-    lib = import ./lib {
-      inherit (nixpkgs) lib;
-      inherit inputs;
-    };
     nixosModules = builtins.removeAttrs (exportModulesDir ./modules/nixos) ["users"];
     homeModules = exportModulesDir ./modules/home-manager;
     specialisations = import ./specialisations self;
     nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);
     homeConfigurations = mapAttrs (name: _: import (./homes + "/${name}") inputs) (readDir ./homes);
 
-    legacyPackages = genSystems (system:
-      (import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+    lib =
+      (import ./lib {
+        inherit (nixpkgs) lib;
+        inherit inputs;
       })
-      // (import ./lib/perSystem.nix inputs.nixpkgs.legacyPackages.${system}));
+      // genSystems (
+        system:
+          import ./lib/perSystem.nix pkgsFor.${system}
+      );
+
+    legacyPackages = pkgsFor;
 
     packages =
       recursiveUpdate (genSystems (
         system:
-          import ./packages self.legacyPackages.${system} inputs
+          import ./packages pkgsFor.${system} inputs
           # Packages to build and cache in CI
           // {
             nh = inputs.nh.packages.${system}.default;
@@ -44,9 +58,22 @@
             # Target for the rest of the system
             nix = inputs.nix.packages.${system}.nix;
 
+            nix-lto = inputs.nix.packages.${system}.nix.overrideAttrs (prev: {
+              __nocachix = true;
+              configureFlags =
+                prev.configureFlags
+                ++ [
+                  "--enable-lto"
+                ];
+            });
+
+            nix-static = inputs.nix.packages.${system}.nix-static.overrideAttrs (prev: {
+              __nocachix = true;
+            });
+
             _devShell = self.devShells.${system}.default.inputDerivation;
 
-            update-nix-fetchgit = inputs.nixpkgs.legacyPackages.${system}.update-nix-fetchgit.overrideAttrs (prev: {
+            update-nix-fetchgit = pkgsFor.${system}.update-nix-fetchgit.overrideAttrs (prev: {
               doCheck = false;
             });
           }
@@ -57,9 +84,7 @@
       };
 
     devShells = genSystems (system: {
-      default = import ./shell.nix {
-        pkgs = self.legacyPackages.${system} // self.packages.${system};
-      };
+      default = import ./shell.nix (pkgsFor.${system} // self.packages.${system});
     });
 
     templates = mapAttrs (name: _: {

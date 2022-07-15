@@ -51,6 +51,7 @@ abbr --add --global nr nix run pkgs#
 abbr --add --global no "sudo nixos-rebuild switch --flake \$FLAKE" -L
 abbr --add --global nb "sudo nixos-rebuild boot --flake \$FLAKE" -L
 abbr --add --global vl "\$FLAKE/modules/home-manager/vscode/extensions/updater.sh"
+abbr --add --global nb "nix build --impure -L --expr '(import <nixpkgs> {}).callPackage ./default.nix {}'"
 
 # Image cat
 abbr --add --global kat "kitty +icat"
