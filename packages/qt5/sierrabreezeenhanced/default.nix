@@ -18,18 +18,14 @@
 }:
 stdenv.mkDerivation {
   pname = "sierrabreezeenhanced";
-  version = "unstable-2021-10-25";
+  version = "unstable-2022-06-23";
 
   src = fetchFromGitHub {
     owner = "kupiqu";
     repo = "SierraBreezeEnhanced";
-    rev = "8800ff577ca5c16b2d8269eb34d555ec519c0682";
-    sha256 = "0kqbfn1jqsbii3hqcqlb93x8cg8dyh5mf66i9r237w41knks5mnw";
+    rev = "e32e43ed79a3ca60e0943a9db4d57757baf47b03";
+    sha256 = "sha256-G1Ra7ld34AMPLZM0+3iEJHRFRMHVewZKTTXfmiu7PAk=";
   };
-
-  patches = [
-    ./no-blur.patch
-  ];
 
   buildInputs = [
     qtbase
