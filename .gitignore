@@ -14,6 +14,7 @@ result*
 *~
 drvPath
 .env
+__pycache__
 
 **/emacs/*
 !**/emacs/custom.el

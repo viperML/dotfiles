@@ -67,6 +67,15 @@ in {
     services."autovt@tty1".enable = false;
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
+
+    services."gc-generations" = {
+      serviceConfig.ExecStart = (pkgs.writers.writePython3 "gc_generations" {} (builtins.readFile "${self}/bin/gc_generations.py")).outPath;
+      environment = {
+        ESP = config.boot.loader.efi.efiSysMountPoint;
+      };
+      wantedBy = ["nix-gc.service"];
+      after = ["nix-gc.service"];
+    };
   };
 
   services.gnome.gnome-keyring.enable = true;
