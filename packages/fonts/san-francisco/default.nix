@@ -11,7 +11,7 @@ stdenvNoCC.mkDerivation {
     owner = "AppleDesignResources";
     repo = "SanFranciscoFont";
     rev = "59cf0dc3660e99e66813665354f787895fb41fe1";
-    sha256 = "0fpfy884g81zsih0ldr8hj2jcxcm3xbw179zs0vbsqhsnq2p9wig";
+    sha256 = "1fih83r9ijyyfskwaf22id2yvgrddz4x63w1g0b6r1b3grf1x0gy";
   };
 
   installPhase = ''
