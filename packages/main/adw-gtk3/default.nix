@@ -8,13 +8,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "adw-gtk3";
-  version = "3.1";
+  version = "3.3";
 
   src = fetchFromGitHub {
     repo = pname;
     owner = "lassekongo83";
     rev = "v${version}";
-    sha256 = "sha256-3degTSyM13QxlWYda6dQjfNsli9klSwz7f3mE/0cXb4=";
+    sha256 = "sha256-yTzVBrnH/rfWzHHT/jr+p85ZO42kPMS/7qZyUHS2YIM=";
   };
 
   nativeBuildInputs = [
