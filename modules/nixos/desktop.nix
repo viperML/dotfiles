@@ -76,6 +76,8 @@ in {
       wantedBy = ["nix-gc.service"];
       after = ["nix-gc.service"];
     };
+
+    services."ModemManager".enable = false;
   };
 
   services.gnome.gnome-keyring.enable = true;
