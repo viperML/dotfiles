@@ -16,8 +16,8 @@
       ];
       webInterface = false;
     };
-    avahi.enable = true;
-    avahi.nssmdns = true;
+    # avahi.enable = true;
+    # avahi.nssmdns = true;
   };
 
   environment.systemPackages = lib.mkIf config.services.xserver.desktopManager.plasma5.enable [pkgs.plasma5Packages.print-manager];

@@ -319,10 +319,10 @@
     }
   ];
 
-  security.tpm2 = {
-    enable = true;
-    abrmd.enable = true;
-  };
+  # security.tpm2 = {
+  #   enable = true;
+  #   abrmd.enable = true;
+  # };
 
   services.fwupd = {
     enable = true;

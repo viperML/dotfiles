@@ -52,7 +52,7 @@ in
     shellHook = ''
       set -euo pipefail
       mkdir -p .git/hooks
-      ln -sf ${pre-commit} .git/hooks/pre-commit
+      # ln -sf ${pre-commit} .git/hooks/pre-commit
 
       # Vscode is dumb
       if [[ ! -d .venv ]]; then

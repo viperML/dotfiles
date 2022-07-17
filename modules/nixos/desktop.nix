@@ -21,7 +21,6 @@ in {
       Storage=volatile
     '';
 
-    ananicy.enable = true;
     thermald.enable = true;
     udev.packages = [pkgs.android-udev-rules];
   };
@@ -52,8 +51,8 @@ in {
   nix.gc = {
     automatic = true;
     dates = "04:00";
-    # options = "--delete-older-than 7d";
-    options = "-d";
+    options = "--delete-older-than 5d";
+    # options = "-d";
   };
 
   systemd = let
@@ -82,7 +81,7 @@ in {
 
   services.gnome.gnome-keyring.enable = true;
   programs.ssh.startAgent = true;
-  programs.ssh.agentTimeout = "3h";
+  programs.ssh.agentTimeout = "8h";
 
   environment.variables = env;
   environment.sessionVariables = env;
