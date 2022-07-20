@@ -1,4 +1,8 @@
 {
+  pname,
+  version,
+  src,
+  #
   stdenv,
   lib,
   fetchFromGitHub,
@@ -7,15 +11,7 @@
   ninja,
 }:
 stdenv.mkDerivation rec {
-  pname = "adw-gtk3";
-  version = "3.1";
-
-  src = fetchFromGitHub {
-    repo = pname;
-    owner = "lassekongo83";
-    rev = "v${version}";
-    sha256 = "sha256-3degTSyM13QxlWYda6dQjfNsli9klSwz7f3mE/0cXb4=";
-  };
+  inherit pname version src;
 
   nativeBuildInputs = [
     meson

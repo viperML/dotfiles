@@ -1,0 +1,21 @@
+{
+    "adw-gtk3": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "adw-gtk3",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lassekongo83",
+            "repo": "adw-gtk3",
+            "rev": "v3.4",
+            "sha256": "sha256-hDaEqiUq4vs8Rrv7iCkH2ul+5wuElRzgNJQW8LK1wxU=",
+            "type": "github"
+        },
+        "version": "v3.4"
+    }
+}

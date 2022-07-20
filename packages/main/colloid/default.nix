@@ -1,4 +1,8 @@
 {
+  pname,
+  version,
+  src,
+  #
   stdenv,
   lib,
   fetchFromGitHub,
@@ -7,18 +11,10 @@
   scheme ? "default",
 }:
 stdenv.mkDerivation {
+  inherit pname version src;
   __nocachix = true;
-  pname = "colloid";
-  version = "2022-04-22";
-
   nativeBuildInputs = [gtk3];
 
-  src = fetchFromGitHub {
-    owner = "vinceliuice";
-    repo = "Colloid-icon-theme";
-    rev = "94253e63401df7b8073ca65f6d8cdba0f36cd0bb";
-    sha256 = "sha256-0lUdsTjIfZ76Mm327jE1uudxtKVQbt17fsel6c2RdVM=";
-  };
 
   installPhase = ''
     mkdir -p $out/share/icons

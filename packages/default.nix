@@ -45,14 +45,24 @@ with builtins; let
   in
     f [] attrList;
 
+  myCallPackage = {
+    pname,
+    folder,
+  }: let
+    basePath = ./. + "/${folder}/${pname}";
+    callPackage = callPackageFor.${folder} or pkgs.callPackage;
+
+    nvfOverrides =
+      if hasAttr "generated.nix" (readDir basePath)
+      then (pkgs.callPackage (basePath + "/generated.nix") {}).${pname}
+      else {};
+
+    overrides = (overridesFor.${pname} or {}) // nvfOverrides;
+  in
+    callPackage basePath overrides;
+
   folders = filterAttrs (n: v: v == "directory") (readDir ./.);
 
-  packagesUnmerged = mapAttrs (f: _:
-    mapAttrs
-    (
-      pname: __:
-        callPackageFor.${f} or pkgs.callPackage (./. + "/${f}/${pname}") (overridesFor.${pname} or {})
-    ) (readDir (./. + "/${f}")))
-  folders;
+  packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir (./. + "/${folder}"))) folders;
 in
   recursiveMerge (attrValues packagesUnmerged)

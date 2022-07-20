@@ -7,10 +7,10 @@
   ...
 }: let
   env = {
-    FLAKE = "/mnt/c/Users/ayats/Documents/dotfiles";
+    FLAKE = "/home/ayats/Projects/dotfiles";
     # BROWSER = "${prefix}/wslu";
     EDITOR = "nvim";
-    SHELL = "fish";
+    # SHELL = "fish";
     VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
     NOMAD_ADDR = "http://sumati.ayatsfer.gmail.com.beta.tailscale.net:4646";
   };

@@ -1,0 +1,3 @@
+[tailscale-systray]
+src.git = "https://github.com/mattn/tailscale-systray"
+fetch.github = "mattn/tailscale-systray"

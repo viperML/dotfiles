@@ -1,0 +1,21 @@
+{
+    "hcl": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "hcl",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hashicorp",
+            "repo": "hcl",
+            "rev": "v2.12.0",
+            "sha256": "sha256-tL0jkddKmfQu3a4BDw/RCwQqhRrPf9XWXHl/nG09yVc=",
+            "type": "github"
+        },
+        "version": "v2.12.0"
+    }
+}

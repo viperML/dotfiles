@@ -1,0 +1,21 @@
+{
+    "tailscale-systray": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "tailscale-systray",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mattn",
+            "repo": "tailscale-systray",
+            "rev": "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72",
+            "sha256": "sha256-iIKth2qPc8S5h0ebasoiIGiEEy+mip8Ris1HWW/p6Ko=",
+            "type": "github"
+        },
+        "version": "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72"
+    }
+}
