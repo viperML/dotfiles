@@ -1,0 +1,3 @@
+[kwin-forceblur]
+src.git = "https://github.com/esjeon/kwin-forceblur"
+fetch.github = "esjeon/kwin-forceblur"

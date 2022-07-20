@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "san-francisco";
-  version = "unstable-2015-06-10";
+  version = "2015-06-10";
 
   src = fetchFromGitHub {
     owner = "AppleDesignResources";

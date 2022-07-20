@@ -1,0 +1,21 @@
+{
+    "sierrabreezeenhanced": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sierrabreezeenhanced",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "kupiqu",
+            "repo": "SierraBreezeEnhanced",
+            "rev": "e32e43ed79a3ca60e0943a9db4d57757baf47b03",
+            "sha256": "sha256-G1Ra7ld34AMPLZM0+3iEJHRFRMHVewZKTTXfmiu7PAk=",
+            "type": "github"
+        },
+        "version": "e32e43ed79a3ca60e0943a9db4d57757baf47b03"
+    }
+}

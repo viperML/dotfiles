@@ -1,0 +1,21 @@
+{
+    "lightly": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "lightly",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Luwx",
+            "repo": "lightly",
+            "rev": "121a61e5b67e5122449c80301e41b4de3649b0d5",
+            "sha256": "sha256-UmttzKFkuZupFpBrTQYIsLCpNRLcd5CkabQN5n5zkJQ=",
+            "type": "github"
+        },
+        "version": "121a61e5b67e5122449c80301e41b4de3649b0d5"
+    }
+}

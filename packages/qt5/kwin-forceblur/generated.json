@@ -1,0 +1,21 @@
+{
+    "kwin-forceblur": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "kwin-forceblur",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "esjeon",
+            "repo": "kwin-forceblur",
+            "rev": "1f92ed59d4e445587ad4245f374f90f61850f29f",
+            "sha256": "sha256-oYQt6w/jfvTTeZ1F5/aVT21QMS53JHgH0y1GskGnYOo=",
+            "type": "github"
+        },
+        "version": "1f92ed59d4e445587ad4245f374f90f61850f29f"
+    }
+}

@@ -1,4 +1,8 @@
 {
+  pname,
+  version,
+  src,
+  #
   lib,
   stdenv,
   fetchFromGitHub,
@@ -17,15 +21,7 @@
   kiconthemes,
 }:
 stdenv.mkDerivation {
-  pname = "sierrabreezeenhanced";
-  version = "unstable-2022-06-23";
-
-  src = fetchFromGitHub {
-    owner = "kupiqu";
-    repo = "SierraBreezeEnhanced";
-    rev = "e32e43ed79a3ca60e0943a9db4d57757baf47b03";
-    sha256 = "sha256-G1Ra7ld34AMPLZM0+3iEJHRFRMHVewZKTTXfmiu7PAk=";
-  };
+  inherit pname version src;
 
   buildInputs = [
     qtbase

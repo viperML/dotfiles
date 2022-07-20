@@ -7,7 +7,7 @@
 }:
 stdenv.mkDerivation {
   pname = "reversal-kde";
-  version = "unstable-2022-01-02";
+  version = "2022-01-02";
 
   src = fetchFromGitHub {
     owner = "yeyushengfan258";

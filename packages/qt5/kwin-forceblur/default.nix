@@ -1,19 +1,15 @@
 {
+  pname,
+  src,
+  version,
+  #
   stdenv,
   fetchFromGitHub,
   lib,
   kwindowsystem,
 }:
 stdenv.mkDerivation {
-  pname = "kwin-forceblur";
-  version = "unstable-2022-02-13";
-
-  src = fetchFromGitHub {
-    owner = "esjeon";
-    repo = "kwin-forceblur";
-    rev = "1f92ed59d4e445587ad4245f374f90f61850f29f";
-    sha256 = "1sk0lx0v4iidsc3ph93p5qqm0vagjpvfficxg79z8zp31zmjv151";
-  };
+  inherit pname src version;
 
   installPhase = ''
     install -d $out/share/kwin/scripts/forceblur

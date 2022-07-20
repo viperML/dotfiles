@@ -1,0 +1,21 @@
+{
+    "bismuth": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "bismuth",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Bismuth-Forge",
+            "repo": "bismuth",
+            "rev": "7c49292f1d2f0980931b187747361a9ac6046008",
+            "sha256": "sha256-sYehZ9f+V7xeqYaw5p6BCm2XWsC/mpmsak6pUFIWAbI=",
+            "type": "github"
+        },
+        "version": "7c49292f1d2f0980931b187747361a9ac6046008"
+    }
+}

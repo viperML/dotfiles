@@ -1,4 +1,8 @@
 {
+  pname,
+  version,
+  src,
+  #
   lib,
   mkDerivation,
   fetchFromGitHub,
@@ -13,15 +17,7 @@
   qtx11extras,
 }:
 mkDerivation {
-  pname = "lightly";
-  version = "unstable-2022-05-02";
-
-  src = fetchFromGitHub {
-    owner = "Luwx";
-    repo = "lightly";
-    rev = "121a61e5b67e5122449c80301e41b4de3649b0d5";
-    sha256 = "154hfdzfc3dld6j90xyw28sskc5h1034sswh2slrpfb4l766sssj";
-  };
+  inherit pname version src;
 
   extraCmakeFlags = ["-DBUILD_TESTING=OFF"];
 
