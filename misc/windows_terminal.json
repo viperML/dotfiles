@@ -60,9 +60,9 @@
             {
                 "commandline": "wsl -d Ubuntu-22.04 bash --login -c fish",
                 "guid": "{507aca48-2217-4164-8ca7-32a2faebe1a4}",
-                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\nixos.ico",
                 "name": "Ubuntu",
-                "startingDirectory": "%USERPROFILE%"
+                "startingDirectory": "~"
             },
             {
                 "altGrAliasing": true,
