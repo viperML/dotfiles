@@ -1,0 +1,21 @@
+{
+    "picom": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "picom",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yshui",
+            "repo": "picom",
+            "rev": "896acabab11e977a5a07e2a59d9b35bfeb167263",
+            "sha256": "sha256-QaEuewhAbaBW+rYt0eFwV1hD466ydI6ihGWasFICurI=",
+            "type": "github"
+        },
+        "version": "896acabab11e977a5a07e2a59d9b35bfeb167263"
+    }
+}

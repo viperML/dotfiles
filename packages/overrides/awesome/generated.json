@@ -1,0 +1,21 @@
+{
+    "awesome": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "awesome",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "awesomeWM",
+            "repo": "awesome",
+            "rev": "b7bac1dc761f7e231355e76351500a97b27b6803",
+            "sha256": "sha256-SxydaQScu0kvBn3VOnT29/Sji0Y+7my+tO46mpMggAQ=",
+            "type": "github"
+        },
+        "version": "b7bac1dc761f7e231355e76351500a97b27b6803"
+    }
+}

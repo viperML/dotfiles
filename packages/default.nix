@@ -53,8 +53,10 @@ with builtins; let
     callPackage = callPackageFor.${folder} or pkgs.callPackage;
 
     nvfOverrides =
-      if hasAttr "generated.nix" (readDir basePath)
+      if hasAttr "generated.nix" (readDir basePath) && hasAttr "nvfetcher.toml" (readDir basePath)
       then (pkgs.callPackage (basePath + "/generated.nix") {}).${pname}
+      else if hasAttr "generated.nix" (readDir basePath) && hasAttr "sources.toml" (readDir basePath)
+      then {sources = pkgs.callPackage (basePath + "/generated.nix") {};}
       else {};
 
     overrides = (overridesFor.${pname} or {}) // nvfOverrides;

@@ -1,0 +1,16 @@
+{
+    "nix-index": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nix-index",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-wCOH0w6Ximm8YFw4Xd/8w6QA3WmWbwz8xSOndBS7SMU=",
+            "type": "url",
+            "url": "https://github.com/Mic92/nix-index-database/releases/download/2022-07-17/index-x86_64-linux"
+        },
+        "version": "2022-07-17"
+    }
+}

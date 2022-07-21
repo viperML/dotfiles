@@ -1,6 +1,6 @@
 {
+  sources,
   # Wrapping
-  fetchFromGitHub,
   lib,
   makeWrapper,
   runCommandNoCC,
@@ -25,23 +25,13 @@
   nix-direnv,
 }: let
   myFishPlugins = [
-    rec {
-      name = "fzf.fish";
-      src = fetchFromGitHub {
-        repo = "fzf.fish";
-        owner = "PatrickF1";
-        rev = "6d8e962f3ed84e42583cec1ec4861d4f0e6c4eb3";
-        sha256 = "0lv2gl9iylllqp9v0wqib3rll2ii1sm2xkjfzlqhybvkhbrdvffj";
-      };
+    {
+      inherit (sources.fzf) pname version src;
+      name = "${sources.fzf.pname}-${sources.fzf.version}";
     }
-    rec {
-      name = "sponge";
-      src = fetchFromGitHub {
-        repo = "sponge";
-        owner = "andreiborisov";
-        rev = "dcfcc9089939f48b25b861a9254a39de8e9f33a0";
-        sha256 = "1nx9hkjjvscxkphi8ipg5iyplvrxg4xs5c6mkwyb07z15wa9yqgq";
-      };
+    {
+      inherit (sources.sponge) pname version src;
+      name = "${sources.sponge.pname}-${sources.sponge.version}";
     }
   ];
 

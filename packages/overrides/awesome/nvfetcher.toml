@@ -1,0 +1,3 @@
+[awesome]
+src.git = "https://github.com/awesomeWM/awesome"
+fetch.github = "awesomeWM/awesome"
