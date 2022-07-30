@@ -7,20 +7,34 @@
   lib,
   fetchFromGitHub,
   gtk3,
+  sassc,
   theme ? "default",
-  scheme ? "default",
+  tweaks ? "rimless",
 }:
 stdenv.mkDerivation {
   inherit pname version src;
   __nocachix = true;
-  nativeBuildInputs = [gtk3];
 
+  nativeBuildInputs = [
+    gtk3
+    sassc
+  ];
+
+  prePatch = ''
+    scripts=(build.sh clean-old-theme.sh install.sh)
+    for file in "''${scripts[@]}"; do
+      sed -i '1s%.*%#!/usr/bin/env bash%' "$file"
+      patchShebangs --build "$file"
+    done
+  '';
 
   installPhase = ''
+    HOME=$PWD
+
     mkdir -p $out/share/icons
-    bash ./install.sh --dest $out/share/icons \
+    ./install.sh --dest $out/share/icons \
       --theme ${theme} \
-      --scheme ${scheme}
+      --tweaks ${tweaks}
   '';
 
   meta = with lib; {
