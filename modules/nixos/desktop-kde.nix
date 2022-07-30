@@ -21,12 +21,15 @@
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs.plasma5Packages)
-      plasma-pa
       ark
+      dolphin-plugins
       ffmpegthumbs
-      kdegraphics-thumbnailers
       gwenview
       kcolorchooser
+      kdegraphics-thumbnailers
+      kio
+      kio-extras
+      plasma-pa
       qttools
       skanlite
       ;
