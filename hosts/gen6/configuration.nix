@@ -8,8 +8,8 @@
 }: {
   viper.env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
-    EDITOR = "nvim";
-    SHELL = "fish";
+    EDITOR = "/run/current-system/sw/bin/nvim";
+    SHELL = "/run/current-system/sw/bin/fish";
   };
 
   environment.systemPackages = with pkgs; [

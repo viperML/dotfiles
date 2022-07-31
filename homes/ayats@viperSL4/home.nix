@@ -6,29 +6,43 @@
   config,
   ...
 }: let
+  username = "ayats";
+  homeDirectory = "/home/${username}";
   env = {
-    FLAKE = "/home/ayats/Projects/dotfiles";
-    # BROWSER = "${prefix}/wslu";
-    EDITOR = "nvim";
-    # SHELL = "fish";
+    FLAKE = "${homeDirectory}/Projects/dotfiles";
+    EDITOR = "${homeDirectory}/.nix-profile/bin/nvim";
+    SHELL = "${homeDirectory}/.nix-profile/bin/fish";
     VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
     NOMAD_ADDR = "http://sumati.ayatsfer.gmail.com.beta.tailscale.net:4646";
   };
 in {
-  home.sessionVariables = env;
-  home.username = "ayats";
-  home.homeDirectory = "/home/ayats";
-  home.stateVersion = "21.11";
+  home = {
+    inherit username homeDirectory;
+    sessionVariables = env;
+    stateVersion = "21.11";
 
-  home.packages = [
-    packages.home-manager.default
-    pkgs.keychain
-    pkgs.step-cli
-    packages.self.neofetch
-    packages.self.vshell
-    packages.self.neovim
-    packages.self.nix
-  ];
+    packages = [
+      packages.home-manager.default
+      pkgs.keychain
+      pkgs.step-cli
+      packages.self.neofetch
+      packages.self.vshell
+      packages.self.neovim
+      packages.self.nix
+    ];
+
+    file =
+      lib.genAttrs [
+        "Documents"
+        "Desktop"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Videos"
+      ] (folder: {
+        source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/ayats/${folder}";
+      });
+  };
 
   xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
     ${lib.fileContents ./nix.conf}
@@ -40,16 +54,4 @@ in {
     . $HOME/.keychain/$(hostname)-sh
     ${lib.concatStringsSep "\n" (__attrValues (__mapAttrs (n: v: "export ${n}=${v}") config.home.sessionVariables))}
   '';
-
-  home.file =
-    lib.genAttrs [
-      "Documents"
-      "Desktop"
-      "Downloads"
-      "Music"
-      "Pictures"
-      "Videos"
-    ] (folder: {
-      source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/ayats/${folder}";
-    });
 }

@@ -35,11 +35,6 @@ in {
     pciutils
     lsof
     usbutils
-    # Icons
-    # (packages.self.papirus-icon-theme.override {color = "adwaita";})
-    (packages.self.colloid.override {
-      theme = "yellow";
-    })
     pkgs.gnome.seahorse
   ];
 
