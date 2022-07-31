@@ -39,5 +39,5 @@
 
   home.stateVersion = "21.11";
 
-  xdg.configFile."nix/nix.conf".text = lib.fileContents "${self}/misc/nix.conf";
+  nix.extraOptions = lib.fileContents "${self}/misc/nix.conf";
 }

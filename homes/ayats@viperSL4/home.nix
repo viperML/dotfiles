@@ -44,9 +44,10 @@ in {
       });
   };
 
-  xdg.configFile."nix/nix.conf".text = lib.mkAfter ''
-    ${lib.fileContents ./nix.conf}
-  '';
+  nix = {
+    package = packages.self.nix;
+    extraOptions = lib.fileContents ./nix.conf;
+  };
 
   xdg.configFile."nix/rc".text = ''
     eval "$(${lib.getExe pkgs.direnv} hook bash)"
