@@ -82,6 +82,14 @@
                 "snapOnInput": true,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
+            },
+            {
+                "commandline": "wsl -d Alpine bash --login -c /home/ayats/.nix-profile/bin/fish",
+                "guid": "{1777cdf0-b2c4-5a63-a204-eb60f349ea7c}",
+                "hidden": false,
+                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\alpine.png",
+                "name": "Alpine",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
