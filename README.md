@@ -5,9 +5,6 @@
   <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-build.yaml">
   <img alt="check" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/flake-build?label=flake%20build">
   </a>
-  <a href="https://github.com/viperML/dotfiles/actions/workflows/neovim-bundle.yaml">
-  <img alt="cache" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/neovim-bundle?label=neovim%20bundle">
-  </a>
 </p>
 
 # 🗒 About
@@ -16,7 +13,7 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src="./misc/img/20220222.png" width="100%"/>
+    <img alt="Desktop screenshot" src="./misc/img/20220731.png.png" width="100%"/>
   </div>
 </div>
 
