@@ -1,14 +1,14 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +20,7 @@
             "keys": "ctrl+v"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,25 +32,19 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "One Dark",
-            "font": 
+            "font":
             {
                 "face": "iosevka-normal"
             },
             "padding": "11"
         },
-        "list": 
+        "list":
         [
-            {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "powershell.exe"
-            },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -58,30 +52,10 @@
                 "name": "cmd.exe"
             },
             {
-                "commandline": "wsl -d Ubuntu-22.04 bash --login -c fish",
-                "guid": "{507aca48-2217-4164-8ca7-32a2faebe1a4}",
-                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\nixos.ico",
-                "name": "Ubuntu",
-                "startingDirectory": "~"
-            },
-            {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "graceful",
-                "commandline": "pwsh.exe -nologo",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "size": 12
-                },
-                "guid": "{9e4424f9-ac67-4d3d-ae80-b90698b7b21e}",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "pwsh",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
+                "name": "powershell.exe"
             },
             {
                 "commandline": "wsl -d Alpine bash --login -c /home/ayats/.nix-profile/bin/fish",
@@ -93,7 +67,7 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
