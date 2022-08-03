@@ -1,5 +1,5 @@
-```bash
-NIX_USER_CONF_FILES=$PWD/misc/nix.conf:$PWD/homes/ayats@viperSL4/nix.conf nix-build -A homeConfigurations."ayats@viperSL4".activationPackage $PWD
-
-echo ". $HOME/.config/nix/rc" >> $HOME/.bashrc
+```console
+nix build .#homeConfigurations.ayats.config.home.wsl.tarball
+cp -fvL result/wsl.tar.gz ~/Desktop/
+wsl --import Alpinix C:\WSL\Alpinix C:\Users\ayats\Desktop\wsl.tar.gz
 ```
