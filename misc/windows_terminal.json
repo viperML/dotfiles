@@ -1,14 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +16,11 @@
             "keys": "ctrl+v"
         },
         {
-            "command":
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,18 +32,18 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "colorScheme": "One Dark",
-            "font":
+            "font": 
             {
                 "face": "iosevka-normal"
             },
             "padding": "11"
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -64,10 +64,18 @@
                 "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\alpine.png",
                 "name": "Alpine",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "wsl -d Alpinix /bin/sh --login -c /home/ayats/.nix-profile/bin/fish",
+                "guid": "{72bfedc9-fdcd-5402-8751-7214c827e216}",
+                "hidden": false,
+                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\alpine.png",
+                "name": "Alpinix",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
