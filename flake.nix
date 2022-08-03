@@ -79,7 +79,7 @@
           }
       )) {
         "x86_64-linux" = {
-          _homeConfigurations-ayats-viperSL4 = self.homeConfigurations."ayats@viperSL4".activationPackage;
+          _homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
         };
       };
 
@@ -149,6 +149,9 @@
       url = "github:hyprwm/Hyprland";
       # url = "/home/ayats/Documents/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-wsl = {
+      url = "github:viperML/home-manager-wsl";
     };
   };
 }

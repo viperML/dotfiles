@@ -18,5 +18,7 @@ in
       common
       inputs.nix-common.homeModules.channels-to-flakes
       git
+
+      inputs.home-manager-wsl.homeModules.default
     ];
   }

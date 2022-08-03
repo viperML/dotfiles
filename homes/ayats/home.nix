@@ -23,7 +23,7 @@ in {
 
     packages = [
       packages.home-manager.default
-      pkgs.keychain
+      # pkgs.keychain
       pkgs.step-cli
       packages.self.neofetch
       packages.self.vshell
@@ -49,10 +49,10 @@ in {
     extraOptions = lib.fileContents ./nix.conf;
   };
 
-  xdg.configFile."nix/rc".text = ''
-    eval "$(${lib.getExe pkgs.direnv} hook bash)"
-    ${lib.getExe pkgs.keychain} -q --nogui
-    . $HOME/.keychain/$(hostname)-sh
-    ${lib.concatStringsSep "\n" (__attrValues (__mapAttrs (n: v: "export ${n}=${v}") config.home.sessionVariables))}
-  '';
+  # xdg.configFile."nix/rc".text = ''
+  #   eval "$(${lib.getExe pkgs.direnv} hook bash)"
+  #   # ${lib.getExe pkgs.keychain} -q --nogui
+  #   . $HOME/.keychain/$(hostname)-sh
+  #   ${lib.concatStringsSep "\n" (__attrValues (__mapAttrs (n: v: "export ${n}=${v}") config.home.sessionVariables))}
+  # '';
 }
