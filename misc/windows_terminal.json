@@ -58,14 +58,6 @@
                 "name": "powershell.exe"
             },
             {
-                "commandline": "wsl -d Alpine bash --login -c /home/ayats/.nix-profile/bin/fish",
-                "guid": "{1777cdf0-b2c4-5a63-a204-eb60f349ea7c}",
-                "hidden": false,
-                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\alpine.png",
-                "name": "Alpine",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
                 "commandline": "wsl -d Alpinix /bin/sh --login -c /home/ayats/.nix-profile/bin/fish",
                 "guid": "{72bfedc9-fdcd-5402-8751-7214c827e216}",
                 "hidden": false,
