@@ -29,6 +29,7 @@ in {
       packages.self.vshell
       packages.self.neovim
       packages.self.nix
+      pkgs.file
     ];
 
     file =
