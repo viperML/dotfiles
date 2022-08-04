@@ -20,5 +20,6 @@ in
       git
 
       inputs.home-manager-wsl.homeModules.default
+      {home.wsl.baseDistro = "void";}
     ];
   }
