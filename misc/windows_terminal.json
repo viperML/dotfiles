@@ -1,7 +1,7 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "find",
@@ -12,7 +12,7 @@
             "keys": "ctrl+v"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +20,7 @@
             "keys": "ctrl+c"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,19 +32,27 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "One Dark",
-            "font": 
+            "font":
             {
                 "face": "iosevka-normal"
             },
             "padding": "11"
         },
-        "list": 
+        "list":
         [
+            {
+                "commandline": "wsl -d Voidnix /usr/sbin/bash --login -c /home/ayats/.nix-profile/bin/fish",
+                "guid": "{eb96914c-81d4-5455-ab77-e714540f94b4}",
+                "hidden": false,
+                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\void.png",
+                "name": "Voidnix",
+                "source": "Windows.Terminal.Wsl"
+            },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -64,18 +72,10 @@
                 "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\alpine.png",
                 "name": "Alpinix",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "commandline": "wsl -d Voidnix /usr/sbin/bash --login -c /home/ayats/.nix-profile/bin/fish",
-                "guid": "{eb96914c-81d4-5455-ab77-e714540f94b4}",
-                "hidden": false,
-                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\void.png",
-                "name": "Voidnix",
-                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
