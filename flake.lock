@@ -149,11 +149,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1659815831,
-        "narHash": "sha256-SSG80ygDCTUdoPkgHDf7tI6tLKclyFMzX4MfIYLt7j8=",
+        "lastModified": 1659824333,
+        "narHash": "sha256-/sjWJ5/vnuGL7W/mt39i2gj8mOCp0pxopZPoXCK52WI=",
         "owner": "viperML",
         "repo": "home-manager-wsl",
-        "rev": "03c293fa3eb1170abd2073aa533b0179a716cc74",
+        "rev": "0b32074dfbaf6a2379065383a3a3d4b9afe5e915",
         "type": "github"
       },
       "original": {
