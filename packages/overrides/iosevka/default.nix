@@ -1,4 +1,8 @@
 {
+  pname,
+  src,
+  version,
+  #
   stdenv,
   iosevka,
   symlinkJoin,
@@ -59,7 +63,10 @@
   plansMerged;
 
   fonts = map (p:
-    iosevka.override {
+    (iosevka.overrideAttrs (prev: {
+      inherit src version;
+    }))
+    .override {
       privateBuildPlan = nix-std.lib.serde.toTOML p;
       set = lib.removePrefix "iosevka-" (builtins.head (builtins.attrNames p.buildPlans));
     })

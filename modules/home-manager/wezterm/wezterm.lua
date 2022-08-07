@@ -135,7 +135,7 @@ end
 local shell = "fish"
 if os.getenv "HOME" then
   cmd = { shell }
-  font_size = 12
+  font_size = 11
 else
   cmd = { "wsl", "bash", "--login", "-c", shell }
   font_size = 12
@@ -148,10 +148,10 @@ return {
   --   italic = false,
   -- }),
   font = wezterm.font_with_fallback({
-    "iosevka-normal",
+    "IBM Plex Mono",
     "Symbols Nerd Font",
   }, {
-    weight = "DemiBold",
+    weight = "Medium",
     -- stretch = "Normal",
     -- italic = false,
   }),

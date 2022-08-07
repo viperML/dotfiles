@@ -7,26 +7,22 @@
   xdg = {
     enable = true;
     mime.enable = true;
+    # configFile."fontconfig/conf.d/10-hm-fonts.conf"
   };
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     # Fonts
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-      ];
-    })
     corefonts
     noto-fonts
     noto-fonts-extra
     noto-fonts-emoji
     noto-fonts-cjk
-
     roboto
-    packages.self.iosevka
+
     packages.self.nerd-fonts
+    ibm-plex
   ];
 
   services.syncthing = {
