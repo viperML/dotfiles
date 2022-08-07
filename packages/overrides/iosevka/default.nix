@@ -98,4 +98,5 @@ in
   symlinkJoin {
     inherit (iosevka) name pname version;
     paths = fonts ++ plansTOML;
+    __nocachix = true;
   }
