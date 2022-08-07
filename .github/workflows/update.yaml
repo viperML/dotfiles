@@ -18,7 +18,7 @@ jobs:
     - name: Flake update
       run: nix flake update
     - name: Run update script
-      run: nix run .#python3Minimal -- ./bin/update.py $PWD
+      run: nix shell .#python3Minimal --command python3 ./bin/update.py .
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
