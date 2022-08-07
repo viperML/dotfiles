@@ -110,6 +110,10 @@
       url = "github:viperML/nix-common";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-wsl = {
+      url = "github:viperML/home-manager-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -150,13 +154,12 @@
       # url = "/home/ayats/Documents/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-wsl = {
-      url = "github:viperML/home-manager-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
     };
   };
 }

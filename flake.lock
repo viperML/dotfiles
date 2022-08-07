@@ -348,6 +348,21 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "locked": {
+        "lastModified": 1659844098,
+        "narHash": "sha256-w4DhlFAQ+sHyfh/r26r5R68/wIue4gkWEc3XPqiFMaM=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "4e277cf60f0a2172ebdb920ba37c0efbadfbb429",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-matlab": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -482,6 +497,7 @@
         "nix-autobahn": "nix-autobahn",
         "nix-common": "nix-common",
         "nix-gaming": "nix-gaming",
+        "nix-index-database": "nix-index-database",
         "nix-matlab": "nix-matlab",
         "nix-std": "nix-std",
         "nixos-wsl": "nixos-wsl",

@@ -1,19 +1,20 @@
 {
-  src,
-  version,
-  pname,
-  #
   stdenv,
   symlinkJoin,
   nix-index-unwrapped,
   makeWrapper,
-  runCommandNoCC,
+  runCommandLocal,
+  #
+  database,
+  databaseDate,
 }: let
   # Add a folder `files` in between
-  db = runCommandNoCC "nix-index-db" {original = src;} ''
+  database' = runCommandLocal "nix-index-database" {} ''
     mkdir -p $out
-    cp $original $out/files
+    ln -s ${database} $out/files
   '';
+  inherit (nix-index-unwrapped) pname;
+  version = "${nix-index-unwrapped.version}+db=${databaseDate}";
 in
   symlinkJoin {
     name = "${pname}-${version}";
@@ -28,8 +29,8 @@ in
         --replace '-e "$HOME/.nix-profile/manifest.json"' "true"
 
       wrapProgram $out/bin/nix-index \
-        --add-flags "--db ${db}"
+        --add-flags "--db ${database'}"
       wrapProgram $out/bin/nix-locate \
-        --add-flags "--db ${db}"
+        --add-flags "--db ${database'}"
     '';
   }

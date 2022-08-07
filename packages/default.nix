@@ -2,6 +2,7 @@ pkgs: inputs:
 with pkgs.lib;
 with builtins; let
   inherit (pkgs) system;
+  inherit (inputs.self.lib) mkDate;
 
   callPackageFor = {
     "qt5" = pkgs.libsForQt5.callPackage;
@@ -27,6 +28,10 @@ with builtins; let
     };
     iosevka = {
       nix-std = inputs.nix-std;
+    };
+    nix-index = {
+      database = inputs.nix-index-database.legacyPackages.${system}.database;
+      databaseDate = mkDate inputs.nix-index-database.lastModifiedDate;
     };
   };
 

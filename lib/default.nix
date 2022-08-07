@@ -21,13 +21,13 @@ in {
     result;
 
   /*
-   Takes a flake-defined `inputs` and a system, and returns an attribute set
-   containing the extracted packages or legacyPackages
-   
-   Example:
-     mkPackages inputs "x86_64-linux"
-     => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
-   */
+  Takes a flake-defined `inputs` and a system, and returns an attribute set
+  containing the extracted packages or legacyPackages
+
+  Example:
+    mkPackages inputs "x86_64-linux"
+    => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
+  */
 
   mkPackages = inputs: system:
     __mapAttrs (name: value: let
@@ -44,4 +44,10 @@ in {
 
     default = builtins.foldl' (x: y: x || y) false (lib.flatten (map (s: s.default or false) specs));
   };
+
+  mkDate = longDate: (lib.concatStringsSep "-" [
+    (__substring 0 4 longDate)
+    (__substring 4 2 longDate)
+    (__substring 6 2 longDate)
+  ]);
 }

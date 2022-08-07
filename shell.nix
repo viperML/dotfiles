@@ -48,6 +48,7 @@ in
       pkgs.shfmt
       pkgs.nix-prefetch
       pkgs.nix-update
+      pkgs.nvfetcher
     ];
     shellHook = ''
       set -euo pipefail
