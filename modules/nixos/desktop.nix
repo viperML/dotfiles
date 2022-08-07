@@ -40,7 +40,6 @@ in {
 
   xdg.portal = {
     enable = true;
-    gtkUsePortal = true;
   };
 
   nix.gc = {

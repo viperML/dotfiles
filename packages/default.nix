@@ -72,4 +72,11 @@ with builtins; let
 
   packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir ./${folder})) folders;
 in
-  recursiveMerge (attrValues packagesUnmerged)
+  builtins.removeAttrs (recursiveMerge (attrValues packagesUnmerged)) (
+    if system == "aarch64-linux"
+    then [
+      "nix-index"
+      "vshell"
+    ]
+    else []
+  )

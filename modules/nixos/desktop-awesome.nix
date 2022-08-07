@@ -22,8 +22,9 @@
 
   xdg.portal = {
     enable = true;
-    gtkUsePortal = true;
-    extraPortals = [pkgs.plasma5Packages.xdg-desktop-portal-kde];
+    extraPortals = [
+      pkgs.plasma5Packages.xdg-desktop-portal-kde
+    ];
   };
 
   environment.systemPackages =
@@ -39,14 +40,14 @@
         dolphin
         ark
         # Everything I tried to get thumbnails working
-        
+
         dolphin-plugins
         ffmpegthumbs
         kdegraphics-thumbnailers
         kio
         kio-extras
         #
-        
+
         gwenview
         kwallet
         kwalletmanager
