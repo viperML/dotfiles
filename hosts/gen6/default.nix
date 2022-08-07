@@ -26,8 +26,6 @@ in
       {
         services.pipewire.lowLatency.enable = true;
       }
-
-      inputs.hyprland.nixosModules.default
     ];
     homeModules = with self.homeModules; [
       ./home.nix
@@ -45,6 +43,11 @@ in
         nvidia
         ayats
         default
+      ]))
+      (self.lib.joinSpecialisations (with self.specialisations; [
+        hyprland
+        nvidia
+        soch
       ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   awesome

@@ -30,9 +30,9 @@
   in {
     nixosModules = builtins.removeAttrs (exportModulesDir ./modules/nixos) ["users"];
     homeModules = exportModulesDir ./modules/home-manager;
-    specialisations = import ./specialisations self;
-    nixosConfigurations = mapAttrs (name: _: import (./hosts + "/${name}") inputs) (readDir ./hosts);
-    homeConfigurations = mapAttrs (name: _: import (./homes + "/${name}") inputs) (readDir ./homes);
+    specialisations = import ./specialisations inputs;
+    nixosConfigurations = mapAttrs (name: _: import ./hosts/${name} inputs) (readDir ./hosts);
+    homeConfigurations = mapAttrs (name: _: import ./homes/${name} inputs) (readDir ./homes);
 
     lib =
       (import ./lib {
@@ -152,6 +152,11 @@
     };
     home-manager-wsl = {
       url = "github:viperML/home-manager-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

@@ -49,14 +49,14 @@ with builtins; let
     pname,
     folder,
   }: let
-    basePath = ./. + "/${folder}/${pname}";
+    basePath = ./${folder}/${pname};
     callPackage = callPackageFor.${folder} or pkgs.callPackage;
 
     nvfOverrides =
       if hasAttr "generated.nix" (readDir basePath) && hasAttr "nvfetcher.toml" (readDir basePath)
-      then (pkgs.callPackage (basePath + "/generated.nix") {}).${pname}
+      then (pkgs.callPackage "${basePath}/generated.nix" {}).${pname}
       else if hasAttr "generated.nix" (readDir basePath) && hasAttr "sources.toml" (readDir basePath)
-      then {sources = pkgs.callPackage (basePath + "/generated.nix") {};}
+      then {sources = pkgs.callPackage "${basePath}/generated.nix" {};}
       else {};
 
     overrides = (overridesFor.${pname} or {}) // nvfOverrides;
@@ -65,6 +65,6 @@ with builtins; let
 
   folders = filterAttrs (n: v: v == "directory") (readDir ./.);
 
-  packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir (./. + "/${folder}"))) folders;
+  packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir ./${folder})) folders;
 in
   recursiveMerge (attrValues packagesUnmerged)
