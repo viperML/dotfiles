@@ -1,0 +1,3 @@
+[xdg-ninja]
+src.git = "https://github.com/b3nj5m1n/xdg-ninja"
+fetch.github = "b3nj5m1n/xdg-ninja"
