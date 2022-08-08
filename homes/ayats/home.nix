@@ -29,7 +29,6 @@ in {
       packages.self.vshell
       packages.self.neovim
       packages.self.nix
-      pkgs.file
     ];
 
     file =
@@ -49,8 +48,6 @@ in {
     package = packages.self.nix;
     extraOptions = lib.fileContents ./nix.conf;
   };
-
-  xdg.enable = true;
 
   # xdg.configFile."nix/rc".text = ''
   #   eval "$(${lib.getExe pkgs.direnv} hook bash)"
