@@ -11,33 +11,34 @@
   home.packages = with pkgs; [
     # Nix management
     direnv
-    nix-prefetch-scripts
-    packages.self.update-nix-fetchgit
-    statix
     alejandra
-    packages.self.nh
-    packages.self.deploy-rs
-    nix-tree
 
     # Editor support
     rnix-lsp
-    packages.self.stylua
 
     # Misc utils
-    android-tools
+    file
+    lsof
     dogdns
     fd
     htop
-    jless
+    # jless
     jq
     ripgrep
-    tealdeer
+    # tealdeer
     unar
     bubblewrap
-    magic-wormhole-rs
+    wormhole-william
+    packages.self.neofetch
+    packages.self.vshell
+    packages.self.neovim
   ];
 
   home.stateVersion = "21.11";
 
   nix.extraOptions = lib.fileContents "${self}/misc/nix.conf";
+
+  xdg.configFile."direnv/direnvrc".text = ''
+    source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc
+  '';
 }

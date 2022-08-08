@@ -30,12 +30,12 @@ in {
 
   environment.systemPackages = with pkgs; [
     # CLI to be found by default in other distros
-    file
     xsel
     pciutils
-    lsof
     usbutils
     pkgs.gnome.seahorse
+    android-tools
+    packages.self.nh
   ];
 
   xdg.portal = {

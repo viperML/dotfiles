@@ -16,12 +16,12 @@
   exa,
   fd,
   fzf,
-  direnv,
   nix-index,
   bash,
   writeScript,
   nix-autobahn,
   writeTextDir,
+  direnv,
   nix-direnv,
 }: let
   myFishPlugins = [

@@ -35,6 +35,7 @@ in {
     krita
     packages.self.hcl
     vault
+    packages.self.deploy-rs
   ];
 
   systemd.user.services = {
