@@ -16,6 +16,7 @@ in
         };
       }
       common
+      xdg-ninja
       inputs.nix-common.homeModules.channels-to-flakes
       git
 

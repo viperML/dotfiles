@@ -30,6 +30,7 @@ in
     homeModules = with self.homeModules; [
       ./home.nix
       common
+      xdg-ninja
       gui
       git
       vscode

@@ -14,11 +14,6 @@
     SHELL = "${homeDirectory}/.nix-profile/bin/fish";
     VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
     NOMAD_ADDR = "http://sumati.ayatsfer.gmail.com.beta.tailscale.net:4646";
-    HISTFILE = "${config.xdg.dataHome}/bash/history";
-    LESSHISTFILE = "${config.xdg.dataHome}/less/history";
-    NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/config";
-    NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
-    NPM_CONFIG_TMP = "$XDG_RUNTIME_DIR/npm";
   };
 in {
   home = {
