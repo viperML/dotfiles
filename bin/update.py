@@ -15,7 +15,7 @@ except IndexError:
     rootdir = Path(os.getenv("FLAKE"))
 
 logging.info(f"{rootdir=}")
-assert(rootdir.exists())
+assert rootdir.exists()
 
 NVFETCHER_FILES = [
     "nvfetcher.toml",
@@ -25,12 +25,15 @@ NVFETCHER_FILES = [
 for dir in (g.parent for g in rootdir.glob("**/generated.json")):
     logging.info(f"Checking {dir=}")
     for filename in NVFETCHER_FILES:
-        if (dir/filename).exists():
+        if (dir / filename).exists():
             logging.info(f"Updating {dir/filename}")
-            subprocess.run([
-                "nvfetcher",
-                "--build-dir",
-                dir,
-                "--config",
-                (dir/filename),
-            ], check=True)
+            subprocess.run(
+                [
+                    "nvfetcher",
+                    "--build-dir",
+                    dir,
+                    "--config",
+                    (dir / filename),
+                ],
+                check=True,
+            )

@@ -1,8 +1,8 @@
 /*
- https://github.com/derat/xsettingsd/wiki/Settings
- 
- Copied from https://github.com/nix-community/home-manager/blob/master/modules/services/xsettingsd.nix
- */
+https://github.com/derat/xsettingsd/wiki/Settings
+
+Copied from https://github.com/nix-community/home-manager/blob/master/modules/services/xsettingsd.nix
+*/
 args: let
   inherit (args) pkgs lib;
   inherit (lib) concatStrings mapAttrsToList toString;

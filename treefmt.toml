@@ -1,6 +1,7 @@
 [formatter.nix]
 command = "alejandra"
 includes = ["*.nix"]
+excludes = ["generated.nix"]
 
 [formatter.python3]
 command = "black"

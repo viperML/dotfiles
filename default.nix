@@ -1,8 +1,8 @@
 /*
- Based on https://github.com/NixOS/nixpkgs/blob/7f9b6e2babf232412682c09e57ed666d8f84ac2d/pkgs/top-level/impure.nix
- 
- Exports flake's legacyPackages as packages to be used by legacy nix tools (nix-shell, nix-build, etc)
- */
+Based on https://github.com/NixOS/nixpkgs/blob/7f9b6e2babf232412682c09e57ed666d8f84ac2d/pkgs/top-level/impure.nix
+
+Exports flake's legacyPackages as packages to be used by legacy nix tools (nix-shell, nix-build, etc)
+*/
 {
   localSystem ? {system = args.system or builtins.currentSystem;},
   system ? localSystem.system,

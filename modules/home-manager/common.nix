@@ -12,6 +12,7 @@
     # Nix management
     direnv
     alejandra
+    nvfetcher
 
     # Editor support
     rnix-lsp

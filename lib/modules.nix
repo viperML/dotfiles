@@ -1,17 +1,17 @@
 /*
- exportModulesDir: creates and attrSet from a folder
- The folder may contain .nix files or folders with default.nix,
- which in turn contain lambdas (such as nixos modules or overlays).
- 
- As such, the result of running it on this repo:
- 
- nix-repl> exportModulesDir ./modules/nixos
- {
-   channels-to-flakes = «lambda @ ... »;
-   common = «lambda @ ... »;
-   # ...
- }
- */
+exportModulesDir: creates and attrSet from a folder
+The folder may contain .nix files or folders with default.nix,
+which in turn contain lambdas (such as nixos modules or overlays).
+
+As such, the result of running it on this repo:
+
+nix-repl> exportModulesDir ./modules/nixos
+{
+  channels-to-flakes = «lambda @ ... »;
+  common = «lambda @ ... »;
+  # ...
+}
+*/
 lib:
 with lib; let
   genAttrs' = func: values: listToAttrs (map func values);
