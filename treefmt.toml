@@ -6,6 +6,7 @@ excludes = ["generated.nix"]
 [formatter.python3]
 command = "black"
 includes = ["*.py"]
+options = ["--line-length", "79"]
 
 [formatter.lua]
 command = "stylua"
