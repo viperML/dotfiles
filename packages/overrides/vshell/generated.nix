@@ -3,24 +3,13 @@
 {
   fzf = {
     pname = "fzf";
-    version = "v9.1";
+    version = "v9.2";
     src = fetchFromGitHub ({
       owner = "PatrickF1";
       repo = "fzf.fish";
-      rev = "v9.1";
+      rev = "v9.2";
       fetchSubmodules = false;
-      sha256 = "sha256-OLmPtgUVX+/uiZg6lMl1xF4MHGVZUpTVota68coexWw=";
-    });
-  };
-  sponge = {
-    pname = "sponge";
-    version = "1.0.4";
-    src = fetchFromGitHub ({
-      owner = "andreiborisov";
-      repo = "sponge";
-      rev = "1.0.4";
-      fetchSubmodules = false;
-      sha256 = "sha256-+GGfFC/hH7A8n9Wwojt5PW96fSzvRhThnZ3pLeWEqds=";
+      sha256 = "sha256-XmRGe39O3xXmTvfawwT2mCwLIyXOlQm7f40mH5tzz+s=";
     });
   };
 }

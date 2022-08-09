@@ -29,10 +29,6 @@
       inherit (sources.fzf) pname version src;
       name = "${sources.fzf.pname}-${sources.fzf.version}";
     }
-    {
-      inherit (sources.sponge) pname version src;
-      name = "${sources.sponge.pname}-${sources.sponge.version}";
-    }
   ];
 
   myFish = fish.overrideAttrs (prev: {

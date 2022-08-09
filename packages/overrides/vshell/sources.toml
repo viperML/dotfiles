@@ -1,7 +1,3 @@
 [fzf]
 fetch.github = "PatrickF1/fzf.fish"
 src.github = "PatrickF1/fzf.fish"
-
-[sponge]
-fetch.github = "andreiborisov/sponge"
-src.github = "andreiborisov/sponge"
