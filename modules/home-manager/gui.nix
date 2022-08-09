@@ -22,7 +22,7 @@
     roboto
 
     packages.self.nerd-fonts
-    ibm-plex
+    packages.self.iosevka
   ];
 
   services.syncthing = {

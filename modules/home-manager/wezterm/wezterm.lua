@@ -1,6 +1,6 @@
 local wezterm = require "wezterm"
 
-local padding = 15
+local padding = 12
 
 atom_one_dark = {
   ansi = {
@@ -132,33 +132,19 @@ else
   colors = tomorrow_night
 end
 
-local shell = "fish"
-if os.getenv "HOME" then
-  cmd = { shell }
-  font_size = 11
-else
-  cmd = { "wsl", "bash", "--login", "-c", shell }
-  font_size = 12
-end
-
 return {
-  -- font = wezterm.font("JetBrainsMono Nerd Font", {
-  --   weight = "Medium",
-  --   stretch = "Normal",
-  --   italic = false,
-  -- }),
   font = wezterm.font_with_fallback({
-    "IBM Plex Mono",
+    "iosevka-normal",
     "Symbols Nerd Font",
   }, {
     weight = "Medium",
     -- stretch = "Normal",
     -- italic = false,
   }),
-  font_size = font_size,
-  default_prog = cmd,
+  font_size = 12,
+  default_prog = {os.getenv("SHELL")},
   window_background_opacity = 1.0,
-  -- enable_scroll_bar = true,
+  enable_scroll_bar = true,
   enable_tab_bar = false,
   window_padding = {
     left = padding,
