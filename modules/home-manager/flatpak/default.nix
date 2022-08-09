@@ -9,7 +9,7 @@
     python3 = pkgs.python3.withPackages (pP: with pP; [toml]);
   };
   autoinstallChecked =
-    pkgs.runCommandNoCC "flatpak-autoinstall" {
+    pkgs.runCommandLocal "flatpak-autoinstall" {
       nativeBuildInputs = [
         (pkgs.python3.withPackages (pP: with pP; [mypy types-toml]))
         pkgs.makeWrapper

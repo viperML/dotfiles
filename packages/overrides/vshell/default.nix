@@ -3,11 +3,9 @@
   # Wrapping
   lib,
   makeWrapper,
-  runCommandNoCC,
   symlinkJoin,
   writeText,
   writeTextFile,
-  # Runtime deps
   fish,
   any-nix-shell,
   fishPlugins,

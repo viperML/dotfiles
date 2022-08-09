@@ -29,14 +29,14 @@ in {
       nitrogen
       lxrandr
       # Required by keybinds
-      
+
       pulseaudio
       ;
 
     inherit
       (pkgs.xorg)
       # Required by bling
-      
+
       xwininfo
       ;
 
@@ -47,7 +47,7 @@ in {
   };
 
   xdg.configFile."awesome".source =
-    (pkgs.runCommandNoCC "awesome-config" {} ''
+    (pkgs.runCommandLocal "awesome-config" {} ''
       set -x
       mkdir -p $out
       for f in ${self}/modules/home-manager/awesome/*; do
