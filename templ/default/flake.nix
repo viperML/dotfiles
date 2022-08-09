@@ -1,27 +1,30 @@
 {
-  description = "Basic flake devShell boilerplate";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixos-22.05";
+    flake-parts = {
+      # url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
-  }: let
-    genSystems = nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-      "aarch-64-linux"
-    ];
-  in {
-    devShells = genSystems (system: {
-      default = with nixpkgs.legacyPackages.${system};
-        mkShell {
-          name = "my-shell";
-          packages = [
-            # keep
-          ];
-        };
-    });
-  };
+    flake-parts,
+  }:
+    flake-parts.lib.mkFlake {inherit self;} {
+      systems = nixpkgs.lib.systems.flakeExposed;
+      perSystem = {
+        pkgs,
+        self',
+        ...
+      }: {
+        devShells.default = with pkgs;
+          mkShellNoCC {
+            packages = [
+              # keep
+            ];
+          };
+      };
+    };
 }
