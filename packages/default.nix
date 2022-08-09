@@ -26,9 +26,9 @@ with builtins; let
       nix = inputs.self.packages.${system}.nix;
       nix-prefetch = inputs.self.packages.${system}.nix;
     };
-    iosevka = {
-      nix-std = inputs.nix-std;
-    };
+    # iosevka = {
+    #   nix-std = inputs.nix-std;
+    # };
     nix-index = {
       database = inputs.nix-index-database.legacyPackages.${system}.database;
       databaseDate = mkDate inputs.nix-index-database.lastModifiedDate;

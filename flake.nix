@@ -76,6 +76,8 @@
             update-nix-fetchgit = pkgsFor.${system}.update-nix-fetchgit.overrideAttrs (prev: {
               doCheck = false;
             });
+
+            iosevka = inputs.iosevka.packages.${system}.default;
           }
       )) {
         "x86_64-linux" = {
@@ -112,6 +114,10 @@
     };
     home-manager-wsl = {
       url = "github:viperML/home-manager-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    iosevka = {
+      url = "github:viperML/iosevka";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
