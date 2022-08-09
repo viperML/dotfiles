@@ -68,6 +68,14 @@ in {
       "L+ ${home}/.steampid - - - - ${home}/.steam/steam.pid"
     ];
 
+  systemd.services."home-manager-${name}".serviceConfig.ExecStartPre = let
+    file = "${home}/.config/fontconfig/conf.d/10-hm-fonts.conf";
+  in
+    (pkgs.writeShellScript "remove-fontconfig" ''
+      test -f ${file} && rm -fv ${file}
+    '')
+    .outPath;
+
   home-manager.users.${name} = {};
 
   viper.users = [name];
