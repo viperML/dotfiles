@@ -9,7 +9,7 @@ command_not_found_handle () {
         return 127
     fi
 
-    mapfile -t candidates < <(nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root "/bin/$1")
+    mapfile -t candidates < <("nix-locate" --minimal --no-group --type x --type s --top-level --whole-name --at-root "/bin/$1")
     candidates=("${candidates[@]%%.out}")
 
     >&2 printf "%s\n" "command not found: $1" ""

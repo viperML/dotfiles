@@ -1,5 +1,4 @@
 {
-  stdenv,
   symlinkJoin,
   nix-index-unwrapped,
   makeWrapper,
@@ -8,7 +7,7 @@
   database,
   databaseDate,
 }: let
-  # Add a folder `files` in between
+  # Add a folder in between and set name to `file`
   database' = runCommandLocal "nix-index-database" {} ''
     mkdir -p $out
     ln -s ${database} $out/files
@@ -25,7 +24,7 @@ in
       cp -fv ${./command-not-found.sh} $out/etc/profile.d/command-not-found.sh
 
       substituteInPlace $out/etc/profile.d/command-not-found.sh \
-        --replace "@out@" "$out"
+        --replace "nix-locate" "$out/bin/nix-locate"
 
       wrapProgram $out/bin/nix-index \
         --add-flags "--db ${database'}"
