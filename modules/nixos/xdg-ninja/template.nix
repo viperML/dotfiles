@@ -28,6 +28,7 @@ in {
     STEPPATH = "${XDG_DATA_HOME}/step";
     VSCODE_EXTENSIONS = "${XDG_DATA_HOME}/code/extensions";
     XCOMPOSECACHE = "${XDG_CACHE_HOME}/X11/xcompose";
+    INPUTRC = "${XDG_CONFIG_HOME}/readline/inputrc";
   };
 
   npmrc.text = ''

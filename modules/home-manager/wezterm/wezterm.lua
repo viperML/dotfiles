@@ -142,7 +142,7 @@ return {
     -- italic = false,
   }),
   font_size = 12,
-  default_prog = {os.getenv("SHELL")},
+  default_prog = { os.getenv "SHELL" },
   window_background_opacity = 1.0,
   enable_scroll_bar = true,
   enable_tab_bar = false,

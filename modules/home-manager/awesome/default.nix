@@ -29,14 +29,14 @@ in {
       nitrogen
       lxrandr
       # Required by keybinds
-
+      
       pulseaudio
       ;
 
     inherit
       (pkgs.xorg)
       # Required by bling
-
+      
       xwininfo
       ;
 
