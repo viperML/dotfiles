@@ -1,4 +1,6 @@
 {
+  description = "flake-parts based template";
+
   inputs = {
     # nixpkgs.url = "github:NixOS/nixos-22.05";
     flake-parts = {
