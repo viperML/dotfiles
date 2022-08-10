@@ -85,6 +85,11 @@ in {
     autoLogin.user = name;
   };
 
+  services.getty.autologinUser = name;
+
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."getty@tty7".enable = false;
+
   fileSystems = {
     "dot-steam-${name}" = {
       mountPoint = "${home}/.steam";

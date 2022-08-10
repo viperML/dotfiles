@@ -1,14 +1,13 @@
-{pkgs, ...}: {
-  xdg.configFile."hypr/hyprland.conf".source =
-    (pkgs.substituteAll {
-      src = ./hyprland.conf;
-    })
-    .outPath;
+{
+  pkgs,
+  config,
+  ...
+}: {
+  xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home-manager/hyprland/hyprland.conf";
 
   home.packages = [
     pkgs.foot
     pkgs.wofi
-    pkgs.firefox
   ];
 
   systemd.user.targets.hyprland-session = {
