@@ -22,11 +22,10 @@ in
     paths = [nix-index-unwrapped];
     buildInputs = [makeWrapper];
     postBuild = ''
-      cp -f ${nix-index-unwrapped.src}/command-not-found.sh $out/etc/profile.d/command-not-found.sh
+      cp -fv ${./command-not-found.sh} $out/etc/profile.d/command-not-found.sh
+
       substituteInPlace $out/etc/profile.d/command-not-found.sh \
         --replace "@out@" "$out"
-      substituteInPlace $out/etc/profile.d/command-not-found.sh \
-        --replace '-e "$HOME/.nix-profile/manifest.json"' "true"
 
       wrapProgram $out/bin/nix-index \
         --add-flags "--db ${database'}"
