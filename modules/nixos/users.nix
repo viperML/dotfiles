@@ -72,7 +72,12 @@ in {
     file = "${home}/.config/fontconfig/conf.d/10-hm-fonts.conf";
   in
     (pkgs.writeShellScript "remove-fontconfig" ''
-      test -f ${file} && rm -fv ${file}
+      if [ -e ${file} ]] && ! [ -L ${file} ]; then
+        echo "Removing existing ${file}"
+        rm -fv ${file}
+      else
+        echo "remove-fontconfig not needed"
+      fi
     '')
     .outPath;
 
