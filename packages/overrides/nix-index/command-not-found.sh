@@ -20,7 +20,8 @@ command_not_found_handle () {
         $result/bin/$@
         return $?
     else
-        for elem in "${candidates[@]}"; do
+        mapfile -t candidates_sorted < <(printf "%s\n" ${candidates[@]} | fzf --filter $1)
+        for elem in "${candidates_sorted[@]}"; do
             >&2 echo "nix shell nixpkgs#$elem"
         done
     fi
