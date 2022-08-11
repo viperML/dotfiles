@@ -33,15 +33,15 @@ You can directly reference this flake and import it into your NixOS configuratio
 
 # 💾 Resources
 
-Other configurations from where I learned and copied:
+Other configurations from where I learned and copied, in no particular order:
 
-- [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus)
-- [gytis-ivaskevicius/nixfiles](https://github.com/gytis-ivaskevicius/nixfiles)
-- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [NobbZ/nixos-config](https://github.com/NobbZ/nixos-config)
 - [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
 - [colemickens/nixcfg](https://github.com/colemickens/nixcfg)
+- [privatevoid-net/privatevoid-infrastructure](https://github.com/privatevoid-net/privatevoid-infrastructure)
 - [nuxshed/dotfiles](https://github.com/nuxshed)
-- [NobbZ/nixos-config](https://github.com/NobbZ/nixos-config)
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [gytis-ivaskevicius/nixfiles](https://github.com/gytis-ivaskevicius/nixfiles)
 
 
 # 📦 Exported packages
@@ -50,6 +50,8 @@ Run packages directly with:
 
 ```console
 nix run github:viperML/dotfiles#packageName
+# Or bring your own nixpkgs
+nix run --inputs-from <flakeref> github:viperML/dotfiles#packageName
 ```
 
 Or install from the `packages` output. For example:
