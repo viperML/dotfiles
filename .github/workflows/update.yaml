@@ -8,6 +8,8 @@ on:
 jobs:
   flake_update:
     runs-on: ubuntu-latest
+    env:
+      NIX_PATH: nixpkgs=${{ env.GITHUB_WORKSPACE }}
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
