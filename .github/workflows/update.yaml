@@ -13,12 +13,10 @@ jobs:
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
-    - name: Install deps
-      run: nix profile install .#python3Minimal
     - name: Flake update
       run: nix flake update
     - name: Run update script
-      run: nix shell .#python3Minimal --command python3 ./bin/update.py .
+      run: ./bin/update.py .
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
