@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell .#python3Minimal .#nvfetcher --command python3
+#!/usr/bin/env -S nix shell --ignore-environment .#python3 .#nvfetcher .#git --command python3
 import logging
 import os
 import sys
