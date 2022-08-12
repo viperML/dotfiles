@@ -16,7 +16,9 @@ jobs:
     - name: Flake update
       run: nix flake update
     - name: Run update script
-      run: ./bin/update.py .
+      run: |
+        export NIX_PATH=$(nix eval --raw .#legacyPackages.x86_64-linux.path)
+        ./bin/update.py .
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
