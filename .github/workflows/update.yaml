@@ -16,9 +16,7 @@ jobs:
     - name: Flake update
       run: nix flake update
     - name: Run update script
-      run: |
-        export NIX_PATH="nixpkgs=$PWD"
-        ./bin/update.py .
+      run: ./bin/update.py .
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
