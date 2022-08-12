@@ -71,7 +71,7 @@
               __nocachix = true;
             });
 
-            _devShell = self.devShells.${system}.default.inputDerivation;
+            zzz_devShell = self.devShells.${system}.default.inputDerivation;
 
             update-nix-fetchgit = pkgsFor.${system}.update-nix-fetchgit.overrideAttrs (prev: {
               doCheck = false;
@@ -81,7 +81,7 @@
           }
       )) {
         "x86_64-linux" = {
-          _homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
+          zzz_homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
         };
       };
 
