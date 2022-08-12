@@ -8,8 +8,6 @@ on:
 jobs:
   flake_update:
     runs-on: ubuntu-latest
-    env:
-      NIX_PATH: nixpkgs=${{ env.GITHUB_WORKSPACE }}
     steps:
     - name: Clone repository
       uses: actions/checkout@v3
@@ -18,7 +16,9 @@ jobs:
     - name: Flake update
       run: nix flake update
     - name: Run update script
-      run: ./bin/update.py .
+      run: |
+        export NIX_PATH="nixpkgs=$PWD"
+        ./bin/update.py .
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
