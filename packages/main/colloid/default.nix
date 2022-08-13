@@ -3,7 +3,7 @@
   version,
   src,
   #
-  stdenvNoCCC,
+  stdenvNoCC,
   lib,
   fetchFromGitHub,
   gtk3,

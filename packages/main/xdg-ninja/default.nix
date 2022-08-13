@@ -9,7 +9,7 @@
   glow,
   lib,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation rec {
   inherit pname version src;
 
   nativeBuildInputs = [

@@ -50,39 +50,24 @@
       recursiveUpdate (genSystems (
         system:
           import ./packages pkgsFor.${system} inputs
-          # Packages to build and cache in CI
           // {
+            # Packages to build and cache in CI
             nh = inputs.nh.packages.${system}.default;
             inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
             inherit (inputs.nil.packages.${system}) nil;
+            zzz_devShell = self.devShells.${system}.default.inputDerivation;
+            iosevka = inputs.iosevka.packages.${system}.default;
 
             # Target for the rest of the system
             nix = inputs.nix.packages.${system}.nix;
-
-            nix-lto = inputs.nix.packages.${system}.nix.overrideAttrs (prev: {
-              __nocachix = true;
-              configureFlags =
-                prev.configureFlags
-                ++ [
-                  "--enable-lto"
-                ];
-            });
-
-            nix-static = inputs.nix.packages.${system}.nix-static.overrideAttrs (prev: {
-              __nocachix = true;
-            });
-
-            zzz_devShell = self.devShells.${system}.default.inputDerivation;
-
-            update-nix-fetchgit = pkgsFor.${system}.update-nix-fetchgit.overrideAttrs (prev: {
-              doCheck = false;
-            });
-
-            iosevka = inputs.iosevka.packages.${system}.default;
           }
       )) {
         "x86_64-linux" = {
-          zzz_homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
+          # zzz_homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
+          zzz_home-ayats-cachix = pkgsFor."x86_64-linux".linkFarmFromDrvs "home-ayats-cachix" [
+            self.homeConfigurations.ayats.activationPackage
+            self.homeConfigurations.ayats.config.home.path
+          ];
         };
       };
 
@@ -108,6 +93,7 @@
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     nix-common = {
       url = "github:viperML/nix-common";
@@ -116,41 +102,41 @@
     home-manager-wsl = {
       url = "github:viperML/home-manager-wsl";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     iosevka = {
       url = "github:viperML/iosevka";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
     };
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
     nix-autobahn = {
       url = "github:Lassulus/nix-autobahn";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
     nix-matlab = {
       url = "gitlab:doronbehar/nix-matlab";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
-    # emacs-overlay = {
-    #   url = "github:nix-community/emacs-overlay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # nix-doom-emacs = {
-    #   url = "github:nix-community/nix-doom-emacs";
-    #   inputs.emacs-overlay.follows = "emacs-overlay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nix-std.url = "github:chessai/nix-std";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -171,6 +157,7 @@
     nil = {
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 }
