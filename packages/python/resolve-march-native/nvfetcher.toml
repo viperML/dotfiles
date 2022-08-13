@@ -1,0 +1,3 @@
+[resolve-march-native]
+src.git = "https://github.com/hartwork/resolve-march-native"
+fetch.github = "hartwork/resolve-march-native"

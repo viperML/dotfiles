@@ -3,9 +3,9 @@
   fetchFromGitHub,
   lib,
 }:
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "vlmcsd";
-  version = "unstable-2020-05-19";
+  version = "2020-05-19";
 
   src = fetchFromGitHub {
     owner = "Wind4";
@@ -15,14 +15,15 @@ stdenv.mkDerivation {
   };
 
   installPhase = ''
-    install -Dm755 ./bin/vlmcsd $out/bin/vlmcsd
-    install -Dm755 ./bin/vlmcs $out/bin/vlmcs
-    echo Test
+    runHook preInstall
+    install -Dm555 ./bin/vlmcsd $out/bin/vlmcsd
+    install -Dm555 ./bin/vlmcs $out/bin/vlmcs
+    runHook postInstall
   '';
 
   meta = with lib; {
     description = "KMS Emulator written in C";
-    homepage = "https://github.com/Wind4/vlmcsd";
+    inherit (src.meta) homepage;
     platforms = platforms.all;
   };
 }

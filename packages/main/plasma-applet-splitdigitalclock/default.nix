@@ -1,11 +1,11 @@
 {
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   lib,
 }:
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "plasma-applet-splitdigitalclock";
-  version = "unstable-0.2";
+  version = "0.0.0";
 
   src = fetchFromGitHub {
     owner = "viperML";
@@ -15,8 +15,10 @@ stdenv.mkDerivation rec {
   };
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/plasma/plasmoids/org.kde.plasma.splitdigitalclock
     cp -r * $out/share/plasma/plasmoids/org.kde.plasma.splitdigitalclock
+    runHook postInstall
   '';
 
   meta = with lib; {

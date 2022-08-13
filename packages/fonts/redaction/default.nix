@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "redaction";
-  version = "1.0.0";
+  version = "0.0.0";
 
   src = fetchzip {
     url = "https://www.cdnfonts.com/download/redaction-cdnfonts.zip";
@@ -14,8 +14,10 @@ stdenvNoCC.mkDerivation {
   };
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/fonts/truetype
     install -Dm644 *.otf $out/share/fonts/truetype
+    runHook postInstall
   '';
 
   meta = with lib; {

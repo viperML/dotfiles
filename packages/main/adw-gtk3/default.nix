@@ -3,14 +3,14 @@
   version,
   src,
   #
-  stdenv,
+  stdenvNoCC,
   lib,
   fetchFromGitHub,
   sassc,
   meson,
   ninja,
 }:
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   inherit pname version src;
 
   nativeBuildInputs = [
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Reversal kde is a materia Design theme for KDE Plasma desktop.";
-    homepage = "https://github.com/yeyushengfan258/Reversal-kde";
+    inherit (src.meta) homepage;
     license = licenses.gpl3;
     platforms = platforms.linux;
   };

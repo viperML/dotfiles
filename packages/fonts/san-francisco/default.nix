@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "san-francisco";
-  version = "2015-06-10";
+  version = "0.0.0";
 
   src = fetchFromGitHub {
     owner = "AppleDesignResources";
@@ -15,8 +15,10 @@ stdenvNoCC.mkDerivation {
   };
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/fonts/truetype
     cp -r *.otf $out/share/fonts/truetype
+    runHook postInstall
   '';
 
   meta = with lib; {

@@ -1,0 +1,21 @@
+{
+    "resolve-march-native": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "resolve-march-native",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hartwork",
+            "repo": "resolve-march-native",
+            "rev": "385e153f86d6dc96e766b4fc6565478ca741f3fc",
+            "sha256": "sha256-9r+pv9ew67XbJnadG0DHzr5/5WP6vWeQ9eCWKnLBWHE=",
+            "type": "github"
+        },
+        "version": "385e153f86d6dc96e766b4fc6565478ca741f3fc"
+    }
+}

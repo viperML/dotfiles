@@ -3,7 +3,7 @@
   version,
   src,
   #
-  stdenv,
+  stdenvNoCCC,
   lib,
   fetchFromGitHub,
   gtk3,
@@ -11,7 +11,7 @@
   theme ? "default",
   tweaks ? "rimless",
 }:
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   inherit pname version src;
   __nocachix = true;
 
@@ -29,12 +29,14 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
+    runHook preInstall
     HOME=$PWD
 
     mkdir -p $out/share/icons
     ./install.sh --dest $out/share/icons \
       --theme ${theme} \
       --tweaks ${tweaks}
+    runHook postInstall
   '';
 
   meta = with lib; {

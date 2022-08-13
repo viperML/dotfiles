@@ -4,13 +4,15 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "comic-code";
-  version = "1.0";
+  version = "0.0.0";
 
   src = ./otf;
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/fonts/truetype
-    install -Dm644 *.otf $out/share/fonts/truetype
+    install -Dm444 *.otf $out/share/fonts/truetype
+    runHook postInstall
   '';
 
   meta = with lib; {
