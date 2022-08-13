@@ -50,11 +50,11 @@ in
         nvidia
         soch
       ]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [
-      #   awesome
-      #   nvidia
-      #   ayats
-      # ]))
+      (self.lib.joinSpecialisations (with self.specialisations; [
+        awesome
+        nvidia
+        ayats
+      ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   hyprland
       #   nvidia
