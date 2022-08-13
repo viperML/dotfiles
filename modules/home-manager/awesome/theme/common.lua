@@ -48,7 +48,7 @@ theme.titlebar_sticky_button_focus_inactive = btn_dir .. "pin1.svg"
 theme.titlebar_sticky_button_focus_inactive_hover = btn_dir .. "pin2.svg"
 theme.titlebar_sticky_button_focus_inactive_press = btn_dir .. "pin3.svg"
 
-theme.awesome_icon = res .. "awesome.png"
+theme.awesome_icon = res .. "awesome.svg"
 
 -- Custom
 theme.titlebar_height = dpi(30)

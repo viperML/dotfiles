@@ -31,6 +31,7 @@ in {
       # Required by keybinds
       
       pulseaudio
+      flameshot
       ;
 
     inherit

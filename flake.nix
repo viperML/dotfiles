@@ -54,6 +54,7 @@
           // {
             nh = inputs.nh.packages.${system}.default;
             inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
+            inherit (inputs.nil.packages.${system}) nil;
 
             # Target for the rest of the system
             nix = inputs.nix.packages.${system}.nix;
@@ -166,6 +167,10 @@
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
+    };
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

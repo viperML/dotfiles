@@ -6,30 +6,37 @@ local dpi = require("beautiful.xresources").apply_dpi
 -- Load base theme
 local theme = require "theme.common"
 
+local BG1 = "#121212"
+local BG2 = "#202020"
+local BG3 = "#505050"
+
+local FG1 = "#dddddd"
+local FG2 = "#cccccc"
+
 -- Awesome stock
-theme.fg_normal = "#e0def4"
-theme.fg_focus = "#e0def4"
+theme.fg_normal = FG1
+theme.fg_focus = FG1
 theme.fg_urgent = "#CC9393"
-theme.bg_normal = "#191724"
-theme.bg_focus = "#1E2320"
+theme.bg_normal = BG1
+theme.bg_focus = BG2
 theme.bg_urgent = "#3F3F3F"
-theme.bg_systray = "#403d52"
+theme.bg_systray = BG2
 
 theme.border_color_normal = "#3F3F3F"
 theme.border_color_active = "#6F6F6F"
 theme.border_color_marked = "#CC9393"
 
-theme.titlebar_bg_focus = "#21202e"
-theme.titlebar_bg_normal = "#191724"
+theme.titlebar_bg_normal = BG1
+theme.titlebar_bg_focus = BG2
 
-theme.taglist_fg_focus = "#21202e"
-theme.taglist_bg_focus = "#e0def4"
-theme.taglist_bg_occupied = "#403d52"
+theme.taglist_fg_focus = BG2
+theme.taglist_bg_focus = FG2
+theme.taglist_bg_occupied = BG3
 theme.taglist_bg_urgent = "#eb6f92"
-theme.taglist_fg_urgent = "#21202e"
+theme.taglist_fg_urgent = BG2
 
-theme.tasklist_bg_normal = "#403d52"
-theme.tasklist_bg_focus = "#e0def4"
+theme.tasklist_bg_normal = BG2
+theme.tasklist_bg_focus = FG2
 
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 

@@ -1,4 +1,8 @@
-{packages, ...}: {
+{
+  packages,
+  config,
+  ...
+}: {
   systemd.user.services = {
     picom = {
       Unit.Description = "X11 compositor";
@@ -7,10 +11,5 @@
     };
   };
 
-  xdg.configFile."picom/picom.conf" = {
-    source = ./picom.conf;
-    onChange = ''
-      systemctl --user is-active picom.service --quiet && systemctl --user restart picom.service
-    '';
-  };
+  xdg.configFile."picom/picom.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home-manager/picom/picom.conf";
 }

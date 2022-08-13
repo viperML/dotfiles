@@ -16,6 +16,7 @@
 
     # Editor support
     rnix-lsp
+    packages.self.nil
 
     # Misc utils
     file
