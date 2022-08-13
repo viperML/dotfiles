@@ -28,7 +28,6 @@
     jq
     ripgrep
     # tealdeer
-    unar
     bubblewrap
     wormhole-william
     packages.self.neofetch
