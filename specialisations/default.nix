@@ -7,7 +7,6 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
   "sway" = {
     nixosModules = with self.nixosModules; [
       desktop-sway
-      desktop-wayland
     ];
     homeModules = with self.homeModules; [
       sway
@@ -47,7 +46,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
   "hyprland" = {
     nixosModules = with self.nixosModules; [
       desktop-hyprland
-      desktop-wayland
+      # desktop-wayland
       inputs.hyprland.nixosModules.default
     ];
     homeModules = with self.homeModules; [

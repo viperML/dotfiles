@@ -1,78 +1,56 @@
-args @ {
+{
   config,
   lib,
   self,
   pkgs,
   packages,
   ...
-}: let
-  inherit (builtins) mapAttrs attrValues;
-  inherit (pkgs) fetchFromGitHub;
+}: {
+  home.packages = [
+    pkgs.nitrogen
+    pkgs.lxrandr
+    pkgs.flameshot
+    pkgs.xorg.xwininfo
+    packages.self.adw-gtk3
+  ];
 
-  selfPath =
-    if lib.hasAttr "FLAKE" config.home.sessionVariables
-    then "${config.home.sessionVariables.FLAKE}/modules/home-manager/awesome"
-    else "${self.outPath}/modules/home-manager/awesome";
-  finalPath = "${config.home.homeDirectory}/.config/awesome";
-
-  modules = import ./modules.nix pkgs;
-
-  mkService = lib.recursiveUpdate {
-    Unit.PartOf = ["graphical-session.target"];
-    Unit.After = ["graphical-session.target"];
-    Install.WantedBy = ["awesome-session.target"];
-  };
-in {
-  home.packages = attrValues {
-    inherit
-      (pkgs)
-      nitrogen
-      lxrandr
-      # Required by keybinds
-      
-      pulseaudio
-      flameshot
-      ;
-
-    inherit
-      (pkgs.xorg)
-      # Required by bling
-      
-      xwininfo
-      ;
-
-    inherit
-      (packages.self)
-      adw-gtk3
-      ;
-  };
-
-  xdg.configFile."awesome".source =
-    (pkgs.runCommandLocal "awesome-config" {} ''
-      set -x
+  xdg.configFile."awesome".source = let
+    modules = builtins.removeAttrs (pkgs.callPackage ./generated.nix {}) ["override" "overrideDerivation"];
+    result = pkgs.runCommandLocal "awesome-config" {} ''
+      set -ex
       mkdir -p $out
+      echo "awesomewm: linking self"
       for f in ${self}/modules/home-manager/awesome/*; do
         n=$(basename $f)
         ln -sfvT ${config.home.sessionVariables.FLAKE}/modules/home-manager/awesome/$n $out/$n
       done
-      ${lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs (name: path: "ln -sfvT ${path} $out/${name}") modules))}
-    '')
-    .outPath;
+
+      echo "awesomewm: linking modules"
+      ${lib.concatMapStringsSep "\n" (item: "ln -sfvT ${item.src} $out/${item.pname}") (builtins.attrValues modules)}
+      set +x
+    '';
+  in
+    result.outPath;
 
   home.file.".Xresources".text = ''
     Xft.dpi: 96
   '';
 
-  systemd.user.targets.awesome-session = {
+  systemd.user.targets.tray = {
     Unit = {
-      Description = "awesome window manager session";
+      Description = "tray target";
       BindsTo = ["graphical-session.target"];
       Wants = ["graphical-session-pre.target"];
       After = ["graphical-session-pre.target"];
     };
   };
 
-  systemd.user.services = {
+  systemd.user.services = let
+    mkService = lib.recursiveUpdate {
+      Unit.After = ["graphical-session.target"];
+      Install.WantedBy = ["graphical-session.target"];
+    };
+  in {
     nitrogen = mkService {
       Unit.Description = "Wallpaper chooser";
       Service.ExecStart = "${pkgs.nitrogen}/bin/nitrogen --restore";
@@ -94,32 +72,30 @@ in {
       Service.ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     };
 
-    redshift = let
-      redshift-conf = pkgs.writeText "redshift-conf" ''
-        [redshift]
-        location-provider=manual
-        temp-day=6500
-        temp-night=3500
-        transition=1
-        adjustment-method=randr
-        [manual]
-        lat=41
-        lon=-3
-      '';
-    in
-      mkService {
-        Unit.Description = "Night color filter";
-        Service.ExecStart = "${pkgs.redshift}/bin/redshift-gtk -c ${redshift-conf}";
-      };
+    redshift = mkService {
+      Unit.Description = "Night color filter";
+      Service.ExecStart = "${pkgs.redshift}/bin/redshift-gtk -c ${
+        (pkgs.formats.ini {}).generate "redshift-configuration" {
+          redshift = {
+            location-provider = "manual";
+            temp-day = 6500;
+            temp-night = 3500;
+            transition = 1;
+            adjustment-method = "randr";
+          };
+          manual = {
+            lat = 41;
+            lon = -3;
+          };
+        }
+      }";
+    };
     xob = let
-      pyenv = pkgs.python3.withPackages (p3: [p3.pulsectl]);
-      xob-daemon = pkgs.writeShellScript "xob-daemon" ''
-        ${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}
-      '';
+      pyenv = pkgs.python3.withPackages (p: [p.pulsectl]);
     in
       mkService {
         Unit.Description = "Visual overlay of current volume";
-        Service.ExecStart = xob-daemon.outPath;
+        Service.ExecStart = "${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}";
         Unit.After = ["pipewire-pulse.service"];
       };
   };

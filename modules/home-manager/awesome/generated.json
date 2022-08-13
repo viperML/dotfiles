@@ -1,0 +1,116 @@
+{
+    "awesome-wm-widgets": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "awesome-wm-widgets",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "streetturtle",
+            "repo": "awesome-wm-widgets",
+            "rev": "5358c40a029252c1bfcabb4132e05621934a2cf6",
+            "sha256": "sha256-3pTAErLSrN8sDc/45fNxNqZdL0td+1rn3C9SOPgafSk=",
+            "type": "github"
+        },
+        "version": "5358c40a029252c1bfcabb4132e05621934a2cf6"
+    },
+    "bling": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "bling",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "BlingCorp",
+            "repo": "bling",
+            "rev": "70c894e58bb88dea55e9799ad373fdaea309da9e",
+            "sha256": "sha256-sUUMgdAmXAB/2ocwoo2OTZlWRbSRLdKi1oZB20qRNWU=",
+            "type": "github"
+        },
+        "version": "70c894e58bb88dea55e9799ad373fdaea309da9e"
+    },
+    "freedesktop": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "freedesktop",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lcpz",
+            "repo": "awesome-freedesktop",
+            "rev": "c82ad2960c5f0c84e765df68554c266ea7e9464d",
+            "sha256": "sha256-lQstCcTPUYUt5hzAJIyQ16crPngeOnUla7I4QiG6gEs=",
+            "type": "github"
+        },
+        "version": "c82ad2960c5f0c84e765df68554c266ea7e9464d"
+    },
+    "lain": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "lain",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lcpz",
+            "repo": "lain",
+            "rev": "c489aa63acc1364851e0e51152be3db5c75e145d",
+            "sha256": "sha256-s80jruDrLoR5lN+FkfwWf8jb7MtlIJWo7gT8TeVZgtc=",
+            "type": "github"
+        },
+        "version": "c489aa63acc1364851e0e51152be3db5c75e145d"
+    },
+    "revelation": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "revelation",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "guotsuan",
+            "repo": "awesome-revelation",
+            "rev": "d8b58e3776ec0ace45b5bc1160e322b69fa16d6f",
+            "sha256": "sha256-YwIQxjKJFgJdCwPs1Vq7JrmmdN3PVxLKofVOiWQZu7Y=",
+            "type": "github"
+        },
+        "version": "d8b58e3776ec0ace45b5bc1160e322b69fa16d6f"
+    },
+    "sharedtags": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sharedtags",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Drauthius",
+            "repo": "awesome-sharedtags",
+            "rev": "2a4396ea777de75258777948a93389714206bd93",
+            "sha256": "sha256-YTDKuUqUanh4AWOyEQUKjf3LwkicEuS1gJIVOg6U8iE=",
+            "type": "github"
+        },
+        "version": "2a4396ea777de75258777948a93389714206bd93"
+    }
+}

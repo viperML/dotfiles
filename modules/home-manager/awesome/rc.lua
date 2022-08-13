@@ -14,7 +14,7 @@ naughty.connect_signal("request::display_error", function(message, startup)
   }
 end)
 
-awful.spawn 'bash -c "systemctl --user import-environment && systemctl --user start awesome-session.target"'
+awful.spawn 'systemctl --user start graphical-session.target'
 
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/dark.lua")
 

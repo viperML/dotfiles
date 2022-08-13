@@ -43,32 +43,22 @@ in
         kde
         nvidia
         ayats
-        default
       ]))
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        hyprland
-        nvidia
-        soch
-      ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   hyprland
+      #   nvidia
+      #   soch
+      # ]))
       (self.lib.joinSpecialisations (with self.specialisations; [
         awesome
         nvidia
         ayats
+        default
       ]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [
-      #   hyprland
-      #   nvidia
-      #   ayats
-      # ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   sway
       #   nvidia
-      #   ayats
-      # ]))
-      # (self.lib.joinSpecialisations (with self.specialisations; [
-      #   hyprland
-      #   nvidia-open
-      #   ayats
+      #   soch
       # ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   gnome
