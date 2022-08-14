@@ -106,7 +106,7 @@
     };
     iosevka = {
       url = "github:viperML/iosevka";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
