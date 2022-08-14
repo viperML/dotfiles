@@ -41,9 +41,12 @@
             "colorScheme": "One Dark",
             "font": 
             {
-                "face": "iosevka-normal"
+                "face": "iosevka-normal",
+                "weight": "semi-bold"
             },
-            "padding": "11"
+            "opacity": 100,
+            "padding": "11",
+            "useAcrylic": false
         },
         "list": 
         [
