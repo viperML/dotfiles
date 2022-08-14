@@ -21,7 +21,6 @@
     noto-fonts-cjk
     roboto
 
-    packages.self.nerd-fonts
     packages.self.iosevka
   ];
 
