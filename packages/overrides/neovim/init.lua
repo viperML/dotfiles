@@ -21,7 +21,6 @@ require("bufferline").setup {
   },
 }
 
--- require("lspconfig").rnix.setup{}
 require("gitsigns").setup {}
 
 vim.opt.list = true
@@ -40,7 +39,6 @@ require("lualine").setup {
 }
 
 -- LSP
--- require("lspconfig").rnix.setup {}
 local cmp = require "cmp"
 
 cmp.setup {
@@ -123,6 +121,8 @@ cmp.setup.cmdline(":", {
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require("lspconfig")["rnix"].setup {
   capabilities = capabilities,
+  autostart = true,
+  cmd = { "nil" },
 }
 
 require("nvim-treesitter.configs").setup {
