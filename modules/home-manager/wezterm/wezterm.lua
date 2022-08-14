@@ -138,12 +138,13 @@ local default_prog
 local set_environment_variables = {}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  -- Use OSC 7 as per the above example
-  set_environment_variables["prompt"] = "$E]7;file://localhost/$P$E\\$E[32m$T$E[0m $E[35m$P$E[36m$_$G$E[0m "
+  -- clink
+  -- set_environment_variables["prompt"] = "$E]7;file://localhost/$P$E\\$E[32m$T$E[0m $E[35m$P$E[36m$_$G$E[0m "
   -- use a more ls-like output format for dir
-  set_environment_variables["DIRCMD"] = "/d"
-  -- And inject clink into the command prompt
-  default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
+  -- set_environment_variables["DIRCMD"] = "/d"
+  -- default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
+
+  default_prog = { "wsl.exe",  "-d",  "Voidnix", "bash",  "--login", "-c",  "/home/ayats/.nix-profile/bin/fish" }
 else
   default_prog = { os.getenv "SHELL" }
 end

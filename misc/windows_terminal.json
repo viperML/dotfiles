@@ -38,11 +38,11 @@
         {
             "antialiasingMode": "cleartype",
             "closeOnExit": "always",
-            "colorScheme": "One Dark",
+            "colorScheme": "Tango Light",
             "font": 
             {
                 "face": "iosevka-normal",
-                "weight": "semi-bold"
+                "weight": "medium"
             },
             "opacity": 100,
             "padding": "11",
