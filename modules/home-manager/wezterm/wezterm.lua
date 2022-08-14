@@ -2,7 +2,7 @@ local wezterm = require "wezterm"
 
 local padding = 12
 
-atom_one_dark = {
+local atom_one_dark = {
   ansi = {
     -- Base Colors
     "#282c34",
@@ -125,11 +125,27 @@ local tomorrow_night = {
   },
 }
 
+local colors
+
 local current_time = tonumber(os.date "%H%M")
 if current_time < 1800 and current_time > 500 then
   colors = atom_one_light
 else
   colors = tomorrow_night
+end
+
+local default_prog
+local set_environment_variables = {}
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  -- Use OSC 7 as per the above example
+  set_environment_variables["prompt"] = "$E]7;file://localhost/$P$E\\$E[32m$T$E[0m $E[35m$P$E[36m$_$G$E[0m "
+  -- use a more ls-like output format for dir
+  set_environment_variables["DIRCMD"] = "/d"
+  -- And inject clink into the command prompt
+  default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
+else
+  default_prog = { os.getenv "SHELL" }
 end
 
 return {
@@ -142,7 +158,8 @@ return {
     -- italic = false,
   }),
   font_size = 12,
-  default_prog = { os.getenv "SHELL" },
+  default_prog = default_prog,
+  set_environment_variables = set_environment_variables,
   window_background_opacity = 1.0,
   enable_scroll_bar = true,
   enable_tab_bar = false,

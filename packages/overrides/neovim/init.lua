@@ -8,7 +8,12 @@
 
 -- vim.opt.background = colorscheme
 
-vim.cmd "colorscheme default"
+local current_time = tonumber(os.date "%H%M")
+if current_time < 1800 and current_time > 500 then
+  vim.cmd "colorscheme base16-tomorrow"
+else
+  vim.cmd "colorscheme base16-tomorrow-night"
+end
 
 require("nvim_comment").setup {}
 

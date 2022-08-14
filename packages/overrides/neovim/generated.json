@@ -1,0 +1,78 @@
+{
+    "nvim-base-16": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nvim-base-16",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "RRethy",
+            "repo": "nvim-base16",
+            "rev": "5ca2b50a0c71b631b40dc65430187acb88858b51",
+            "sha256": "sha256-r5xNXQ+ez6E7Vfry78M+LDpqJolIAWYHi38xOJjLSJg=",
+            "type": "github"
+        },
+        "version": "5ca2b50a0c71b631b40dc65430187acb88858b51"
+    },
+    "nvim-transparent": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nvim-transparent",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "xiyaowong",
+            "repo": "nvim-transparent",
+            "rev": "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2",
+            "sha256": "sha256-ollCztmgulpMTyoks9ENMSmzE52dF9sMXti9ZF1SHnE=",
+            "type": "github"
+        },
+        "version": "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2"
+    },
+    "vim-colors-bionik": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vim-colors-bionik",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "datMaffin",
+            "repo": "vim-colors-bionik",
+            "rev": "ed4440063bcf13e180b6e602dbad85e206afd73a",
+            "sha256": "sha256-9C+6LBxkgZEH/zBN9LJN6KFrXhjvTeKAY4grlcmbacg=",
+            "type": "github"
+        },
+        "version": "ed4440063bcf13e180b6e602dbad85e206afd73a"
+    },
+    "vim-dim": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vim-dim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jeffkreeftmeijer",
+            "repo": "vim-dim",
+            "rev": "8320a40f12cf89295afc4f13eb10159f29c43777",
+            "sha256": "sha256-sDt3gvf+/8OQ0e0W6+IinONQZ9HiUKTbr+RZ2CfJ3FY=",
+            "type": "github"
+        },
+        "version": "8320a40f12cf89295afc4f13eb10159f29c43777"
+    }
+}

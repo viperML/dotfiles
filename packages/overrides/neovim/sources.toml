@@ -1,0 +1,15 @@
+[nvim-transparent]
+src.git = "https://github.com/xiyaowong/nvim-transparent"
+fetch.github = "xiyaowong/nvim-transparent"
+
+[vim-colors-bionik]
+src.git = "https://github.com/datMaffin/vim-colors-bionik"
+fetch.github = "datMaffin/vim-colors-bionik"
+
+[vim-dim]
+src.git = "https://github.com/jeffkreeftmeijer/vim-dim"
+fetch.github = "jeffkreeftmeijer/vim-dim"
+
+[nvim-base-16]
+src.git = "https://github.com/RRethy/nvim-base16"
+fetch.github = "RRethy/nvim-base16"
