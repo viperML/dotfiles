@@ -90,14 +90,14 @@
         }
       }";
     };
-    xob = let
-      pyenv = pkgs.python3.withPackages (p: [p.pulsectl]);
-    in
-      mkService {
-        Unit.Description = "Visual overlay of current volume";
-        Service.ExecStart = "${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}";
-        Unit.After = ["pipewire-pulse.service"];
-      };
+    # xob = let
+    #   pyenv = pkgs.python3.withPackages (p: [p.pulsectl]);
+    # in
+    #   mkService {
+    #     Unit.Description = "Visual overlay of current volume";
+    #     Service.ExecStart = "${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}";
+    #     Unit.After = ["pipewire-pulse.service"];
+    #   };
   };
 
   programs.autorandr = {
