@@ -54,7 +54,7 @@
 
     fpath=(${sources.zsh-completions.src}/src $fpath)
 
-    ${lib.fileContents ./zshrc.static}
+    ${lib.fileContents ./rc.zsh}
 
     ${lib.fileContents ./comp.zsh}
     
@@ -65,6 +65,7 @@
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
 
+    # Last one
     source ${sources.zsh-syntax-highlighting.src}/zsh-syntax-highlighting.zsh
     export _NIX_ZSHRC_SOURCED=1
   '';
