@@ -1,23 +1,4 @@
 {
-    "zsh-abbr": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "zsh-abbr",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "olets",
-            "repo": "zsh-abbr",
-            "rev": "v4.7.1",
-            "sha256": "sha256-6T27TTD4V3nzx1D8vhMpn2FIodYtLkOBoi6J7GYNV6k=",
-            "type": "github"
-        },
-        "version": "v4.7.1"
-    },
     "zsh-autosuggestions": {
         "cargoLocks": null,
         "extract": null,

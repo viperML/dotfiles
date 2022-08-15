@@ -37,9 +37,11 @@
     unalias shopt
     emulate zsh
 
-    export HISTFILE="$XDG_CACHE_HOME/zsh-histfile"
+    export HISTFILE="$XDG_CACHE_HOME/zsh/histfile"
     export HISTSIZE=10000
     export SAVEHIST=10000
+
+    export SHELL=$0
 
     export _NIX_ZSHENV_SOURCED=1
   '';
@@ -48,9 +50,14 @@
   `.zshrc' is sourced in interactive shells. It should contain commands to set up aliases, functions, options, key bindings, etc.
   */
   zshrc = writeTextDir "${zdotdir}/.zshrc" ''
-    fpath=(${sources.zsh-completions.src} $fpath)
+    typeset -U path cdpath fpath manpath
+
+    fpath=(${sources.zsh-completions.src}/src $fpath)
 
     ${lib.fileContents ./zshrc.static}
+
+    ${lib.fileContents ./comp.zsh}
+    
 
     unset STARSHIP_CONFIG # FIXME
     eval "$(${starship}/bin/starship init zsh)"
