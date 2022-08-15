@@ -18,20 +18,12 @@ with builtins; let
         ;
       inherit (inputs.nix-autobahn.packages.${system}) nix-autobahn;
     };
-    nix-prefetch = {
-      nix = inputs.self.packages.${system}.nix;
-      nixpkgs = inputs.nixpkgs;
-    };
-    nix-update = {
-      nix = inputs.self.packages.${system}.nix;
-      nix-prefetch = inputs.self.packages.${system}.nix;
-    };
-    # iosevka = {
-    #   nix-std = inputs.nix-std;
-    # };
     nix-index = {
       database = inputs.nix-index-database.legacyPackages.${system}.database;
       databaseDate = mkDate inputs.nix-index-database.lastModifiedDate;
+    };
+    supernix = {
+      nix = inputs.nix.packages.${system}.nix;
     };
   };
 

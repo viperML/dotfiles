@@ -1,0 +1,59 @@
+{
+    "Minion3665-nix-original": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "Minion3665-nix-original",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Minion3665",
+            "repo": "nix",
+            "rev": "a9fab18a9176e72402a4ad4ce73ccc6c2804bd53",
+            "sha256": "sha256-fY6bs8tSAxJ75jfE/bGyw7P5zNemVDqmpDE57LHkLGM=",
+            "type": "github"
+        },
+        "version": "a9fab18a9176e72402a4ad4ce73ccc6c2804bd53"
+    },
+    "Minion3665-nix-patched": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "Minion3665-nix-patched",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Minion3665",
+            "repo": "nix",
+            "rev": "c7302640120ff9fff6c3a653c22fa678efbeb903",
+            "sha256": "sha256-Nh7+fyVqPyvrxHQaCBNY1ytBAKcS0jnImkH/XpoxDRE=",
+            "type": "github"
+        },
+        "version": "c7302640120ff9fff6c3a653c22fa678efbeb903"
+    },
+    "dramforever": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "dramforever",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "dramforever",
+            "repo": "nix-dram",
+            "rev": "ae7f0b7c5d39eec5941fe21e9f202106bdea9ac2",
+            "sha256": "sha256-oPO+keK4S9daL9ubU51hZ+QOWVSMbZ56F20iFI9Px3s=",
+            "type": "github"
+        },
+        "version": "ae7f0b7c5d39eec5941fe21e9f202106bdea9ac2"
+    }
+}

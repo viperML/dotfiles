@@ -1,0 +1,13 @@
+[Minion3665-nix-patched]
+src.git = "https://github.com/Minion3665/nix"
+src.branch = "5567-make-installables-expr-context"
+fetch.github = "Minion3665/nix"
+
+[Minion3665-nix-original]
+src.git = "https://github.com/Minion3665/nix"
+src.branch = "master"
+fetch.github = "Minion3665/nix"
+
+[dramforever]
+src.git = "https://github.com/dramforever/nix-dram"
+fetch.github = "dramforever/nix-dram"
