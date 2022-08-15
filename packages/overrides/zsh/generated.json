@@ -1,0 +1,78 @@
+{
+    "zsh-abbr": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zsh-abbr",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "olets",
+            "repo": "zsh-abbr",
+            "rev": "v4.7.1",
+            "sha256": "sha256-6T27TTD4V3nzx1D8vhMpn2FIodYtLkOBoi6J7GYNV6k=",
+            "type": "github"
+        },
+        "version": "v4.7.1"
+    },
+    "zsh-autosuggestions": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zsh-autosuggestions",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zsh-users",
+            "repo": "zsh-autosuggestions",
+            "rev": "a411ef3e0992d4839f0732ebeb9823024afaaaa8",
+            "sha256": "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=",
+            "type": "github"
+        },
+        "version": "a411ef3e0992d4839f0732ebeb9823024afaaaa8"
+    },
+    "zsh-completions": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zsh-completions",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zsh-users",
+            "repo": "zsh-completions",
+            "rev": "0.34.0",
+            "sha256": "sha256-qSobM4PRXjfsvoXY6ENqJGI9NEAaFFzlij6MPeTfT0o=",
+            "type": "github"
+        },
+        "version": "0.34.0"
+    },
+    "zsh-syntax-highlighting": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zsh-syntax-highlighting",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zsh-users",
+            "repo": "zsh-syntax-highlighting",
+            "rev": "caa749d030d22168445c4cb97befd406d2828db0",
+            "sha256": "sha256-YV9lpJ0X2vN9uIdroDWEize+cp9HoKegS3sZiSpNk50=",
+            "type": "github"
+        },
+        "version": "caa749d030d22168445c4cb97befd406d2828db0"
+    }
+}

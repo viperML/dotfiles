@@ -1,10 +1,11 @@
 {
   zsh,
-  makeWrapper,
   makeBinaryWrapper,
   symlinkJoin,
   writeTextDir,
+  lib,
   #
+  sources,
   starship,
 }: let
   zsh' = zsh.overrideAttrs (old: {
@@ -36,7 +37,9 @@
     unalias shopt
     emulate zsh
 
-    export HISTFILE="$XDG_DATA_HOME/zsh-histfile"
+    export HISTFILE="$XDG_CACHE_HOME/zsh-histfile"
+    export HISTSIZE=10000
+    export SAVEHIST=10000
 
     export _NIX_ZSHENV_SOURCED=1
   '';
@@ -45,8 +48,17 @@
   `.zshrc' is sourced in interactive shells. It should contain commands to set up aliases, functions, options, key bindings, etc.
   */
   zshrc = writeTextDir "${zdotdir}/.zshrc" ''
+    fpath=(${sources.zsh-completions.src} $fpath)
+
+    ${lib.fileContents ./zshrc.static}
+
     unset STARSHIP_CONFIG # FIXME
     eval "$(${starship}/bin/starship init zsh)"
+    
+    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
+
+    source ${sources.zsh-syntax-highlighting.src}/zsh-syntax-highlighting.zsh
     export _NIX_ZSHRC_SOURCED=1
   '';
 
@@ -75,8 +87,8 @@ in
       zlogout
     ];
     nativeBuildInputs = [
-      makeWrapper
-      # makeBinaryWrapper
+      # Can get overriden
+      makeBinaryWrapper
     ];
     postBuild = ''
       wrapProgram $out/bin/zsh \
