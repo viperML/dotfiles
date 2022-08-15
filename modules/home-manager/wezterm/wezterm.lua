@@ -136,6 +136,7 @@ end
 
 local default_prog
 local set_environment_variables = {}
+local enable_tab_bar
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- clink
@@ -145,8 +146,10 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
 
   default_prog = { "wsl.exe",  "-d",  "Voidnix", "bash",  "--login", "-c",  "/home/ayats/.nix-profile/bin/fish" }
+  enable_tab_bar = true
 else
   default_prog = { os.getenv "SHELL" }
+  enable_tab_bar = false
 end
 
 return {
@@ -163,7 +166,7 @@ return {
   set_environment_variables = set_environment_variables,
   window_background_opacity = 1.0,
   enable_scroll_bar = true,
-  enable_tab_bar = false,
+  enable_tab_bar = enable_tab_bar,
   window_padding = {
     left = padding,
     right = padding,

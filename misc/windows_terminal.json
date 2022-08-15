@@ -1,18 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +12,15 @@
             "keys": "ctrl+c"
         },
         {
-            "command": 
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,32 +32,19 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
-            "antialiasingMode": "cleartype",
-            "closeOnExit": "always",
-            "colorScheme": "Tango Light",
-            "font": 
+            "colorScheme": "One Dark",
+            "font":
             {
                 "face": "iosevka-normal",
                 "weight": "medium"
-            },
-            "opacity": 100,
-            "padding": "11",
-            "useAcrylic": false
+            }
         },
-        "list": 
+        "list":
         [
-            {
-                "commandline": "wsl -d Voidnix /usr/sbin/bash --login -c /home/ayats/.nix-profile/bin/fish",
-                "guid": "{eb96914c-81d4-5455-ab77-e714540f94b4}",
-                "hidden": false,
-                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\void.png",
-                "name": "Voidnix",
-                "source": "Windows.Terminal.Wsl"
-            },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -69,10 +56,24 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "powershell.exe"
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "commandline": "wsl -d Voidnix /usr/sbin/bash --login -c /home/ayats/.nix-profile/bin/fish",
+                "guid": "{eb96914c-81d4-5455-ab77-e714540f94b4}",
+                "hidden": false,
+                "icon": "C:\\Users\\ayats\\Documents\\dotfiles\\misc\\img\\void.png",
+                "name": "Voidnix",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
@@ -119,29 +120,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#CCCCCC",
             "yellow": "#C19C00"
-        },
-        {
-            "background": "#1E1E1E",
-            "black": "#171421",
-            "blue": "#12488B",
-            "brightBlack": "#5E5C64",
-            "brightBlue": "#2A7BDE",
-            "brightCyan": "#33C7DE",
-            "brightGreen": "#33DA7A",
-            "brightPurple": "#C061CB",
-            "brightRed": "#F66151",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#E9AD0C",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#2AA1B3",
-            "foreground": "#E8E8E8",
-            "green": "#26A269",
-            "name": "Fedora Remix for WSL",
-            "purple": "#A347BA",
-            "red": "#C01C28",
-            "selectionBackground": "#FFFFFF",
-            "white": "#D0CFCC",
-            "yellow": "#A2734C"
         },
         {
             "background": "#121212",
@@ -211,29 +189,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#FAFAFA",
             "yellow": "#C18301"
-        },
-        {
-            "background": "#F9F9F9",
-            "black": "#000000",
-            "blue": "#4078F2",
-            "brightBlack": "#383A42",
-            "brightBlue": "#4078F2",
-            "brightCyan": "#0184BC",
-            "brightGreen": "#50A14F",
-            "brightPurple": "#A626A4",
-            "brightRed": "#E45649",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#986801",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#0184BC",
-            "foreground": "#383A42",
-            "green": "#50A14F",
-            "name": "One Light",
-            "purple": "#A626A4",
-            "red": "#E45649",
-            "selectionBackground": "#FFFFFF",
-            "white": "#A0A1A7",
-            "yellow": "#986801"
         },
         {
             "background": "#002B36",
@@ -328,52 +283,6 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#300A24",
-            "black": "#171421",
-            "blue": "#0037DA",
-            "brightBlack": "#767676",
-            "brightBlue": "#08458F",
-            "brightCyan": "#2C9FB3",
-            "brightGreen": "#26A269",
-            "brightPurple": "#A347BA",
-            "brightRed": "#C01C28",
-            "brightWhite": "#F2F2F2",
-            "brightYellow": "#A2734C",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#3A96DD",
-            "foreground": "#FFFFFF",
-            "green": "#26A269",
-            "name": "Ubuntu-22.04-ColorScheme",
-            "purple": "#881798",
-            "red": "#C21A23",
-            "selectionBackground": "#FFFFFF",
-            "white": "#CCCCCC",
-            "yellow": "#A2734C"
-        },
-        {
-            "background": "#300A24",
-            "black": "#171421",
-            "blue": "#0037DA",
-            "brightBlack": "#767676",
-            "brightBlue": "#08458F",
-            "brightCyan": "#2C9FB3",
-            "brightGreen": "#26A269",
-            "brightPurple": "#A347BA",
-            "brightRed": "#C01C28",
-            "brightWhite": "#F2F2F2",
-            "brightYellow": "#A2734C",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#3A96DD",
-            "foreground": "#FFFFFF",
-            "green": "#26A269",
-            "name": "Ubuntu-ColorScheme",
-            "purple": "#881798",
-            "red": "#C21A23",
-            "selectionBackground": "#FFFFFF",
-            "white": "#CCCCCC",
-            "yellow": "#A2734C"
-        },
-        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -397,6 +306,7 @@
             "yellow": "#808000"
         }
     ],
+    "theme": "dark",
     "useAcrylicInTabRow": true,
     "windowingBehavior": "useAnyExisting"
 }
