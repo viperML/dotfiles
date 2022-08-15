@@ -99,6 +99,7 @@
         ${lib.fileContents ./pushd-mod.fish}
       end
 
+      set NIX_AUTO_RUN 0
       function __fish_command_not_found_handler --on-event fish_command_not_found
         ${nix-index-wrapper} $argv
       end

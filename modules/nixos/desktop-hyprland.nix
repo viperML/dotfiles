@@ -11,12 +11,18 @@
   };
 
   environment.variables = {
-    # CLUTTER_BACKEND = "wayland";
+    CLUTTER_BACKEND = "wayland";
     XDG_SESSION_TYPE = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    # WLR_BACKEND = "vulkan";
-    # QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    XCURSOR_SIZE = "24";
   };
+
+  # TODO only for nvidia
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
+  '';
 }
