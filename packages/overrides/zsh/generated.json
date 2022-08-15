@@ -37,6 +37,25 @@
         },
         "version": "0.34.0"
     },
+    "zsh-history-substring-search": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zsh-history-substring-search",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zsh-users",
+            "repo": "zsh-history-substring-search",
+            "rev": "4abed97b6e67eb5590b39bcd59080aa23192f25d",
+            "sha256": "sha256-8kiPBtgsjRDqLWt0xGJ6vBBLqCWEIyFpYfd+s1prHWk=",
+            "type": "github"
+        },
+        "version": "4abed97b6e67eb5590b39bcd59080aa23192f25d"
+    },
     "zsh-syntax-highlighting": {
         "cargoLocks": null,
         "extract": null,

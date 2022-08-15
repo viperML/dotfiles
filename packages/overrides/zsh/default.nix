@@ -7,6 +7,8 @@
   #
   sources,
   starship,
+  fzf,
+  bat
 }: let
   zsh' = zsh.overrideAttrs (old: {
     postInstall = ''
@@ -37,7 +39,7 @@
     unalias shopt
     emulate zsh
 
-    export HISTFILE="$XDG_CACHE_HOME/zsh/histfile"
+    export HISTFILE="$XDG_CACHE_HOME/zsh-histfile"
     export HISTSIZE=10000
     export SAVEHIST=10000
 
@@ -57,16 +59,19 @@
     ${lib.fileContents ./rc.zsh}
 
     ${lib.fileContents ./comp.zsh}
-    
 
-    unset STARSHIP_CONFIG # FIXME
+
+    set STARSHIP_CONFIG=${./starship.toml}
     eval "$(${starship}/bin/starship init zsh)"
-    
+
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
 
+
     # Last one
     source ${sources.zsh-syntax-highlighting.src}/zsh-syntax-highlighting.zsh
+    # After syntax
+    source ${sources.zsh-history-substring-search.src}/zsh-history-substring-search.zsh
     export _NIX_ZSHRC_SOURCED=1
   '';
 
@@ -83,23 +88,32 @@
   zlogout = writeTextDir "${zdotdir}/.zlogout" ''
     :
   '';
+
+  extraPackages = [
+    fzf
+    starship
+    bat
+  ];
 in
   symlinkJoin {
     name = with zsh; "${pname}-${version}";
     inherit (zsh) pname version;
-    paths = [
-      zsh'
-      zshenv
-      zshrc
-      zlogin
-      zlogout
-    ];
+    paths =
+      [
+        zsh'
+        zshenv
+        zshrc
+        zlogin
+        zlogout
+      ]
+      ++ extraPackages;
     nativeBuildInputs = [
       # Can get overriden
       makeBinaryWrapper
     ];
     postBuild = ''
       wrapProgram $out/bin/zsh \
-        --set ZDOTDIR $out/${zdotdir}
+        --set ZDOTDIR $out/${zdotdir} \
+        --prefix PATH ':' $out/bin
     '';
   }

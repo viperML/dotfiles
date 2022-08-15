@@ -26,6 +26,8 @@ in {
       # pkgs.keychain
       pkgs.step-cli
       packages.self.nix
+
+      packages.self.zsh
     ];
 
     file =
