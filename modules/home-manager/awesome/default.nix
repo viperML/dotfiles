@@ -65,6 +65,7 @@
     # };
     autorandr-boot = mkService {
       Unit.Description = "Load autorandr on boot";
+      Service.Type = "oneshot";
       Service.ExecStart = "${pkgs.autorandr}/bin/autorandr --change";
     };
     polkit-agent = mkService {
@@ -98,6 +99,21 @@
     #     Service.ExecStart = "${pyenv}/bin/python ${./xob/xob_receiver.py} | ${pkgs.xob}/bin/xob -c ${./xob/xob.cfg}";
     #     Unit.After = ["pipewire-pulse.service"];
     #   };
+    keyboard = mkService {
+      Unit.Description = "Set keyboard layout";
+      Service.Type = "oneshot";
+      Service.ExecStart = with pkgs;
+        (writeShellScript "systemd-keyboard" ''
+          set -xe
+          ${lib.getExe xorg.setxkbmap} es
+        '')
+        .outPath;
+    };
+
+    flameshot = mkService {
+      Unit.Description = "Screenshot capture";
+      Service.ExecStart = lib.getExe pkgs.flameshot;
+    };
   };
 
   programs.autorandr = {

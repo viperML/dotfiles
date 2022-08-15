@@ -12,7 +12,6 @@
     SHELL = "/run/current-system/sw/bin/fish";
     VAULT_ADDR = "http://kalypso:8200";
     NOMAD_ADDR = "http://sumati:4646";
-    NIX_AUTO_RUN = "1";
   };
 
   environment.systemPackages = with pkgs; [

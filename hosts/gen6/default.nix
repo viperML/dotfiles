@@ -1,6 +1,5 @@
 inputs @ {self, ...}: let
   system = "x86_64-linux";
-  pkgs = inputs.nixpkgs.${system};
   pkgs' = self.legacyPackages.${system};
 in
   self.lib.mkSystem {
@@ -43,18 +42,19 @@ in
         kde
         nvidia
         ayats
+        default
       ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   hyprland
       #   nvidia
-      #   soch
+      #   ayats
       # ]))
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        awesome
-        nvidia
-        ayats
-        default
-      ]))
+      # (self.lib.joinSpecialisations (with self.specialisations; [
+      #   awesome
+      #   nvidia
+      #   ayats
+      #   default
+      # ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   sway
       #   nvidia

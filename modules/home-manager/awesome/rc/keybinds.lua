@@ -50,7 +50,7 @@ awful.keyboard.append_global_keybindings {
     awful.spawn "dolphin"
   end, { description = "file explorer", group = "launcher" }),
 
-  awful.key({ "Any" }, "Print", function()
+  awful.key({ modkey, "Shift" }, "s", function()
     awful.spawn "flameshot gui"
   end, { description = "take screenshot", group = "launcher" }),
 
@@ -68,13 +68,13 @@ awful.keyboard.append_global_keybindings {
   end, { description = "select previous layout", group = "layout" }),
 
   awful.key({}, "XF86AudioRaiseVolume", function()
-    awful.spawn [[ pactl -- set-sink-volume 0 +5% ]]
+    awful.spawn [[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ ]]
   end),
   awful.key({}, "XF86AudioLowerVolume", function()
-    awful.spawn [[ pactl -- set-sink-volume 0 -5% ]]
+    awful.spawn [[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ]]
   end),
   awful.key({}, "XF86AudioMute", function()
-    awful.spawn [[ pactl set-sink-mute 0 toggle ]]
+    awful.spawn [[ wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ]]
   end),
   -- awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
   -- awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
