@@ -60,9 +60,6 @@
             zsh-debug = self.packages.${system}.zsh.override {
               debug = true;
             };
-            neovim-debug = self.packages.${system}.neovim.override {
-              debug = true;
-            };
 
             # Target for the rest of the system
             nix = inputs.nix.packages.${system}.nix;
