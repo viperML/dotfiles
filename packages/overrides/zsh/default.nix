@@ -99,8 +99,9 @@
     bindkey '^[[1;3A' insert-last-word
     bindkey '^[[1;3B' insert-first-word
 
-    # Last one
-    source ${sources.zsh-syntax-highlighting.src}/zsh-syntax-highlighting.zsh
+    typeset -gA FAST_BLIST_PATTERNS 
+    FAST_BLIST_PATTERNS[/mnt/*]=1
+    source ${sources.fast-syntax-highlighting.src}/fast-syntax-highlighting.plugin.zsh
     export _NIX_ZSHRC_SOURCED=1
   '';
 

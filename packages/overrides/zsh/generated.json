@@ -1,4 +1,23 @@
 {
+    "fast-syntax-highlighting": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fast-syntax-highlighting",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zdharma-continuum",
+            "repo": "fast-syntax-highlighting",
+            "rev": "13dd94ba828328c18de3f216ec4a746a9ad0ef55",
+            "sha256": "sha256-Vc/i0W+beKphNisGFS435r+9IL6BhQsYeGAFRlP8+tA=",
+            "type": "github"
+        },
+        "version": "13dd94ba828328c18de3f216ec4a746a9ad0ef55"
+    },
     "zsh-autosuggestions": {
         "cargoLocks": null,
         "extract": null,
@@ -55,24 +74,5 @@
             "type": "github"
         },
         "version": "4a8fa599792b6d52eadbb3921880a40872013d28"
-    },
-    "zsh-syntax-highlighting": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "zsh-syntax-highlighting",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "zsh-users",
-            "repo": "zsh-syntax-highlighting",
-            "rev": "caa749d030d22168445c4cb97befd406d2828db0",
-            "sha256": "sha256-YV9lpJ0X2vN9uIdroDWEize+cp9HoKegS3sZiSpNk50=",
-            "type": "github"
-        },
-        "version": "caa749d030d22168445c4cb97befd406d2828db0"
     }
 }
