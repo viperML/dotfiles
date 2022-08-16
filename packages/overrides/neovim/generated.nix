@@ -23,26 +23,4 @@
       sha256 = "sha256-ollCztmgulpMTyoks9ENMSmzE52dF9sMXti9ZF1SHnE=";
     });
   };
-  vim-colors-bionik = {
-    pname = "vim-colors-bionik";
-    version = "ed4440063bcf13e180b6e602dbad85e206afd73a";
-    src = fetchFromGitHub ({
-      owner = "datMaffin";
-      repo = "vim-colors-bionik";
-      rev = "ed4440063bcf13e180b6e602dbad85e206afd73a";
-      fetchSubmodules = false;
-      sha256 = "sha256-9C+6LBxkgZEH/zBN9LJN6KFrXhjvTeKAY4grlcmbacg=";
-    });
-  };
-  vim-dim = {
-    pname = "vim-dim";
-    version = "8320a40f12cf89295afc4f13eb10159f29c43777";
-    src = fetchFromGitHub ({
-      owner = "jeffkreeftmeijer";
-      repo = "vim-dim";
-      rev = "8320a40f12cf89295afc4f13eb10159f29c43777";
-      fetchSubmodules = false;
-      sha256 = "sha256-sDt3gvf+/8OQ0e0W6+IinONQZ9HiUKTbr+RZ2CfJ3FY=";
-    });
-  };
 }
