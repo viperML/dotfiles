@@ -65,7 +65,7 @@ ealias gl='git log --pretty=format:"%Cgreen%h%Creset - %Cblue%an%Creset @ %ar : 
 ealias gl2='git log --pretty="format:%Cgreen%h%Creset %an - %s" --graph'
 ealias glv='git log --stat'
 ealias gpom='git pull origin master'
-ealias gcd='cd '`git rev-parse --show-toplevel`''
+ealias gcd='cd $(git rev-parse --show-toplevel)'
 ealias gcf='git clean -fd'
 ealias gcod='git checkout -- .'
 ealias gpum='git pull upstream master'
