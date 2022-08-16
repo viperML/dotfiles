@@ -98,6 +98,8 @@
     source ${sources.zsh-edit.src}/zsh-edit.plugin.zsh
     bindkey '^[[1;3A' insert-last-word
     bindkey '^[[1;3B' insert-first-word
+    bindkey "^[[1;3C" forward-subword
+    bindkey "^[[1;3D" backward-subword
 
     typeset -gA FAST_BLIST_PATTERNS 
     FAST_BLIST_PATTERNS[/mnt/*]=1
@@ -122,7 +124,6 @@
   extraPackages = [
     fzf
     starship
-    bat
     direnv
     nix-index
     exa
