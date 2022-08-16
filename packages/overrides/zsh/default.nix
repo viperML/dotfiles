@@ -11,10 +11,18 @@
   #
   starship,
   fzf,
-  bat,
   direnv,
   nix-direnv,
+  nix-index,
+  any-nix-shell,
+  bat,
+  exa,
 }: let
+  myWrapper =
+    if debug
+    then makeWrapper
+    else makeBinaryWrapper;
+
   zsh' = zsh.overrideAttrs (old: {
     postInstall = ''
       make install.info install.html
@@ -53,6 +61,7 @@
     export SAVEHIST=10000
 
     export SHELL=$0
+    expot MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'"
 
     export _NIX_ZSHENV_SOURCED=1
   '';
@@ -61,6 +70,7 @@
   `.zshrc' is sourced in interactive shells. It should contain commands to set up aliases, functions, options, key bindings, etc.
   */
   zshrc = writeTextDir "${zdotdir}/.zshrc" ''
+    if [[ -z _NIX_ZSHRC_SOURCED ]]; then; exit; fi
     typeset -U path cdpath fpath manpath
 
     fpath=(${sources.zsh-completions.src}/src $fpath)
@@ -75,6 +85,11 @@
 
     export direnv_config_dir=${direnvConfig}
     eval "$(direnv hook zsh)"
+
+    export NIX_AUTO_RUN=0
+    source ${nix-index}/etc/profile.d/command-not-found.sh
+
+    ${any-nix-shell}/bin/any-nix-shell zsh | source /dev/stdin
 
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
@@ -106,6 +121,19 @@
     starship
     bat
     direnv
+    nix-index
+    exa
+    (symlinkJoin {
+      inherit (bat) name pname version;
+      paths = [bat];
+      buildInputs = [myWrapper];
+      postBuild = ''
+        set -ex
+        wrapProgram $out/bin/bat --add-flags "--theme=ansi --style=changes,header --plain --paging=auto"
+        echo test $out/bin/test
+        set +ex
+      '';
+    })
   ];
 in
   symlinkJoin {
@@ -122,12 +150,7 @@ in
       ]
       ++ extraPackages;
     nativeBuildInputs = [
-      # Can get overriden
-      (
-        if debug
-        then makeWrapper
-        else makeBinaryWrapper
-      )
+      myWrapper
     ];
     postBuild = ''
       wrapProgram $out/bin/zsh \

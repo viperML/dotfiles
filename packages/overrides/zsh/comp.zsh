@@ -9,3 +9,16 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zstyle ':completion:*' list-suffixes true
 
 bindkey '^I' complete-word
+
+setopt completealiases
+alias n='nvim'
+
+alias ls="exa --icons"
+alias la="exa --icons --all"
+alias ll="exa --icons --long --header --group"
+alias lla="exa --icons --all --long --header --group"
+alias lal="exa --icons --all --long --header --group"
+alias lt="exa --sort modified -1"
+
+alias ip="ip -c=auto"
+alias svim="sudoedit"

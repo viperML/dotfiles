@@ -25,6 +25,12 @@ with builtins; let
     supernix = {
       nix = inputs.nix.packages.${system}.nix;
     };
+    zsh = {
+      inherit
+        (inputs.self.packages.${system})
+        nix-index
+        ;
+    };
   };
 
   recursiveMerge = attrList: let
