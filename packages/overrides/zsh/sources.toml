@@ -13,3 +13,7 @@ fetch.github = "marlonrichert/zsh-edit"
 [fast-syntax-highlighting]
 src.git = "https://github.com/zdharma-continuum/fast-syntax-highlighting"
 fetch.github = "zdharma-continuum/fast-syntax-highlighting"
+
+[expand-ealias]
+src.git = "https://github.com/zigius/expand-ealias.plugin.zsh"
+fetch.github = "zigius/expand-ealias.plugin.zsh"

@@ -1,4 +1,23 @@
 {
+    "expand-ealias": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "expand-ealias",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zigius",
+            "repo": "expand-ealias.plugin.zsh",
+            "rev": "051a1697769b7f74e81d5e376cb330f6394785d8",
+            "sha256": "sha256-qTgM2ERFlIH/iSOKnqR/WcCEmuzh/km6bmt20za9jqk=",
+            "type": "github"
+        },
+        "version": "051a1697769b7f74e81d5e376cb330f6394785d8"
+    },
     "fast-syntax-highlighting": {
         "cargoLocks": null,
         "extract": null,

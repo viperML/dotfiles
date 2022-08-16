@@ -76,6 +76,8 @@
 
     fpath=(${sources.zsh-completions.src}/src $fpath)
 
+    source ${sources.expand-ealias.src}/expand-ealias.plugin.zsh
+
     ${lib.fileContents ./rc.zsh}
 
     ${lib.fileContents ./comp.zsh}
