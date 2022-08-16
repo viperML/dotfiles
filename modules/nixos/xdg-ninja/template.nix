@@ -29,6 +29,7 @@ in {
     VSCODE_EXTENSIONS = "${XDG_DATA_HOME}/code/extensions";
     XCOMPOSECACHE = "${XDG_CACHE_HOME}/X11/xcompose";
     INPUTRC = "${XDG_CONFIG_HOME}/readline/inputrc";
+    GOPATH = "${XDG_DATA_HOME}/go";
   };
 
   npmrc.text = ''

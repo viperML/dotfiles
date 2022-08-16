@@ -4,7 +4,7 @@
   nix,
   git,
   runCommand,
-  patchutils
+  patchutils,
 }: let
   nix-5567-patch =
     runCommand "nix-5567-patch" {

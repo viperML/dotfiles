@@ -1,74 +1,53 @@
 {
   sources,
   #
-  wrapNeovimUnstable,
-  neovim-unwrapped,
+  neovim,
   neovimUtils,
-  vimPlugins,
   vimUtils,
-  fetchFromGitHub,
-  symlinkJoin,
-  makeWrapper,
-}:
-wrapNeovimUnstable (symlinkJoin {
-  inherit (neovim-unwrapped) name pname version;
-  paths = [neovim-unwrapped];
-  nativeBuildInputs = [makeWrapper];
-  postBuild = ''
-    wrapProgram $out/bin/nvim \
-      --unset NIX_LD \
-      --unset NIX_LD_LIBRARY_PATH
-  '';
-}) (neovimUtils.makeNeovimConfig {
-  withNodeJs = false;
-  withPython3 = false;
-  customRC = ''
-    source ${./init.vim}
-    :luafile ${./init.lua}
-  '';
+  vimPlugins,
+}: let
+  sources' = builtins.attrValues (builtins.removeAttrs sources ["override" "overrideDerivation"]);
+  nvfetcherPlugins = builtins.map (src: vimUtils.buildVimPlugin src) sources';
+in
+  # https://nixos.org/manual/nixpkgs/unstable/#custom-configuration
+  neovim.override {
+    extraMakeWrapperArgs = "--unset NIX_LD --unset NIX_LD_LIBRARY_PATH";
+    withPython3 = false;
+    withNodeJs = false;
+    withRuby = false;
+    configure = {
+      customRC = ''
+        source ${./init.vim}
+        :luafile ${./init.lua}
+      '';
+      BIG_PACKAGE.start = with vimPlugins;
+        nvfetcherPlugins
+        ++ [
+          # Theming
+          # vim-one
+          nvim-web-devicons
+          gitsigns-nvim
+          bufferline-nvim
+          lualine-nvim
 
-  # https://nixos.org/manual/nixpkgs/stable/#managing-plugins-with-vim-packages
+          # Misc
+          vim-highlightedyank
+          indent-blankline-nvim
+          auto-pairs
+          nvim-comment
+          editorconfig-vim
 
-  configure.packages."placeholder".start = with vimPlugins; let
-    _extraPlugins = builtins.mapAttrs (_: value: vimUtils.buildVimPlugin value) sources;
-    extraPlugins = builtins.removeAttrs _extraPlugins ["override" "overrideDerivation"];
-    nvim-treesitter' = nvim-treesitter.withPlugins (p:
-      with p; [
-        tree-sitter-bash
-        tree-sitter-dockerfile
-        tree-sitter-json
-        tree-sitter-json5
-        # tree-sitter-nix
-        tree-sitter-python
-        tree-sitter-toml
-      ]);
-  in
-    [
-      # Theming
-      # vim-one
-      nvim-web-devicons
-      gitsigns-nvim
-      bufferline-nvim
-      lualine-nvim
+          # Intelligent editor
+          nvim-lspconfig
+          nvim-cmp
+          cmp-cmdline
+          cmp-nvim-lsp
+          cmp-buffer
+          cmp-path
 
-      # Misc
-      vim-highlightedyank
-      indent-blankline-nvim
-      auto-pairs
-      nvim-comment
-      editorconfig-vim
-
-      # Intelligent editor
-      nvim-lspconfig
-      nvim-cmp
-      cmp-cmdline
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-
-      nvim-treesitter'
-      vim-nix
-      neoformat
-    ]
-    ++ builtins.attrValues extraPlugins;
-})
+          nvim-treesitter'
+          vim-nix
+          neoformat
+        ];
+    };
+  }

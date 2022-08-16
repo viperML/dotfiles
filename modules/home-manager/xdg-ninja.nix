@@ -8,6 +8,7 @@ in {
   home.sessionVariables = template.env;
   home.packages = [packages.self.xdg-ninja];
   xdg.configFile = {
-    inherit (template) npmrc pythonrc;
+    inherit (template) npmrc;
+    "python/pythonrc" = template.pythonrc;
   };
 }

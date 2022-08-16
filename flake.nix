@@ -14,8 +14,8 @@
 
     inherit (inputs) self nixpkgs;
     inherit (nixpkgs) lib;
-    inherit (builtins) mapAttrs readDir elem;
-    inherit (nixpkgs.lib) attrValues genAttrs recursiveUpdate getName;
+    inherit (builtins) mapAttrs readDir;
+    inherit (nixpkgs.lib) genAttrs recursiveUpdate;
     inherit (self.lib) exportModulesDir;
 
     genSystems = genAttrs supportedSystems;
@@ -58,6 +58,9 @@
             zzz_devShell = self.devShells.${system}.default.inputDerivation;
             iosevka = inputs.iosevka.packages.${system}.default;
             zsh-debug = self.packages.${system}.zsh.override {
+              debug = true;
+            };
+            neovim-debug = self.packages.${system}.neovim.override {
               debug = true;
             };
 
