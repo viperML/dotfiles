@@ -20,7 +20,7 @@ $jobs\
 \\]
 )\
 $directory
-[λ](bold) """
+[%](bold) """
 
 scan_timeout = 10
 add_newline = false
@@ -34,7 +34,7 @@ ssh_only = true
 format = "[$hostname](fg:8) "
 
 [directory]
-style = "bold purple"
+style = "bold cyan"
 read_only = " "
 truncate_to_repo = false
 #truncation_length = 0

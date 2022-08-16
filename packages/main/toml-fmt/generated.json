@@ -1,0 +1,21 @@
+{
+    "toml-fmt": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "toml-fmt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "fenollp",
+            "repo": "toml-fmt",
+            "rev": "22ab50f4d64831cffd28777870526cc97e430474",
+            "sha256": "sha256-hkwgcjziB4Ax38A4v2HPfkMRIVlmYb4tfHOU/xLlXik=",
+            "type": "github"
+        },
+        "version": "22ab50f4d64831cffd28777870526cc97e430474"
+    }
+}

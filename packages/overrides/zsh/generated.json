@@ -37,10 +37,10 @@
         },
         "version": "0.34.0"
     },
-    "zsh-history-substring-search": {
+    "zsh-edit": {
         "cargoLocks": null,
         "extract": null,
-        "name": "zsh-history-substring-search",
+        "name": "zsh-edit",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -48,13 +48,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "zsh-users",
-            "repo": "zsh-history-substring-search",
-            "rev": "4abed97b6e67eb5590b39bcd59080aa23192f25d",
-            "sha256": "sha256-8kiPBtgsjRDqLWt0xGJ6vBBLqCWEIyFpYfd+s1prHWk=",
+            "owner": "marlonrichert",
+            "repo": "zsh-edit",
+            "rev": "4a8fa599792b6d52eadbb3921880a40872013d28",
+            "sha256": "sha256-PI4nvzB/F0mHlc0UZJdD49vjzB6pXhhJYNTSmBhY8iU=",
             "type": "github"
         },
-        "version": "4abed97b6e67eb5590b39bcd59080aa23192f25d"
+        "version": "4a8fa599792b6d52eadbb3921880a40872013d28"
     },
     "zsh-syntax-highlighting": {
         "cargoLocks": null,

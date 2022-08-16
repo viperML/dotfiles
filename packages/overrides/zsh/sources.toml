@@ -10,7 +10,6 @@ fetch.github = "zsh-users/zsh-syntax-highlighting"
 src.git = "https://github.com/zsh-users/zsh-autosuggestions"
 fetch.github = "zsh-users/zsh-autosuggestions"
 
-
-[zsh-history-substring-search]
-src.git = "https://github.com/zsh-users/zsh-history-substring-search"
-fetch.github = "zsh-users/zsh-history-substring-search"
+[zsh-edit]
+src.git = "https://github.com/marlonrichert/zsh-edit"
+fetch.github = "marlonrichert/zsh-edit"

@@ -61,7 +61,8 @@
     export SAVEHIST=10000
 
     export SHELL=$0
-    expot MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'"
+    # FIXME
+    # export MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'"
 
     export _NIX_ZSHENV_SOURCED=1
   '';
@@ -94,11 +95,12 @@
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
 
+    source ${sources.zsh-edit.src}/zsh-edit.plugin.zsh
+    bindkey '^[[1;3A' insert-last-word
+    bindkey '^[[1;3B' insert-first-word
 
     # Last one
     source ${sources.zsh-syntax-highlighting.src}/zsh-syntax-highlighting.zsh
-    # After syntax
-    source ${sources.zsh-history-substring-search.src}/zsh-history-substring-search.zsh
     export _NIX_ZSHRC_SOURCED=1
   '';
 

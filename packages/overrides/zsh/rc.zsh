@@ -9,10 +9,12 @@ bindkey -r "^[[C"
 bindkey -r "^[[D"
 bindkey -r "^["
 
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+# set by zsh-edit
+# bindkey "^[[1;3C" forward-word
+# bindkey "^[[1;3D" backward-word
+# bindkey ";5C" forward-word
+# bindkey ";5D" backward-word
+
 bindkey "^[[C" autosuggest-accept
 
 export WORDCHARS='*?_-.[]~=&;!$%^(){}<>'

@@ -23,15 +23,15 @@
       sha256 = "sha256-qSobM4PRXjfsvoXY6ENqJGI9NEAaFFzlij6MPeTfT0o=";
     });
   };
-  zsh-history-substring-search = {
-    pname = "zsh-history-substring-search";
-    version = "4abed97b6e67eb5590b39bcd59080aa23192f25d";
+  zsh-edit = {
+    pname = "zsh-edit";
+    version = "4a8fa599792b6d52eadbb3921880a40872013d28";
     src = fetchFromGitHub ({
-      owner = "zsh-users";
-      repo = "zsh-history-substring-search";
-      rev = "4abed97b6e67eb5590b39bcd59080aa23192f25d";
+      owner = "marlonrichert";
+      repo = "zsh-edit";
+      rev = "4a8fa599792b6d52eadbb3921880a40872013d28";
       fetchSubmodules = false;
-      sha256 = "sha256-8kiPBtgsjRDqLWt0xGJ6vBBLqCWEIyFpYfd+s1prHWk=";
+      sha256 = "sha256-PI4nvzB/F0mHlc0UZJdD49vjzB6pXhhJYNTSmBhY8iU=";
     });
   };
   zsh-syntax-highlighting = {
