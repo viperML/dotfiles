@@ -100,10 +100,11 @@ variable = "PWD"
 format = "[ dir: $env_value]($style) "
 style = "bold blue"
 
-[custom.nix]
-command = "nix-shell-info"
-when = "nix-shell-info"
-symbol = ""
-style = "bold cyan"
-format = "[$symbol]($style) [$output]($style) "
-os = "linux"
+# FIXME Laggy
+# [custom.nix]
+# command = "nix-shell-info"
+# when = "nix-shell-info"
+# symbol = ""
+# style = "bold cyan"
+# format = "[$symbol]($style) [$output]($style) "
+# os = "linux"
