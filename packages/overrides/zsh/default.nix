@@ -61,7 +61,7 @@
     ${lib.fileContents ./comp.zsh}
 
 
-    set STARSHIP_CONFIG=${./starship.toml}
+    export STARSHIP_CONFIG=${./starship.toml}
     eval "$(${starship}/bin/starship init zsh)"
 
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

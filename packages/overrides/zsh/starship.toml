@@ -20,7 +20,7 @@ $jobs\
 \\]
 )\
 $directory
-[\\λ](bold) """
+[λ](bold) """
 
 scan_timeout = 10
 add_newline = false
