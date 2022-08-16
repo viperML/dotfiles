@@ -70,11 +70,13 @@ with builtins; let
 
   packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir ./${folder})) folders;
 in
+  # nix-index flake only distributes x86_64-linux or x86_64-darwin
   builtins.removeAttrs (recursiveMerge (attrValues packagesUnmerged)) (
-    if system == "aarch64-linux"
+    if system != "x86_64-linux"
     then [
       "nix-index"
       "vshell"
+      "zsh"
     ]
     else []
   )
