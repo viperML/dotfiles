@@ -1,14 +1,19 @@
 {
+  sources,
+  debug ? false,
+  #
   zsh,
-  makeBinaryWrapper,
   symlinkJoin,
   writeTextDir,
   lib,
+  makeWrapper,
+  makeBinaryWrapper,
   #
-  sources,
   starship,
   fzf,
-  bat
+  bat,
+  direnv,
+  nix-direnv,
 }: let
   zsh' = zsh.overrideAttrs (old: {
     postInstall = ''
@@ -28,6 +33,10 @@
   });
 
   zdotdir = "etc/zdotdir";
+
+  direnvConfig = writeTextDir "direnvrc" ''
+    source ${nix-direnv}/share/nix-direnv/direnvrc
+  '';
 
   /*
   `.zshenv' is sourced on all invocations of the shell, unless the -f option is set. It should contain commands to set the command search path, plus other important environment variables. `.zshenv' should not contain commands that produce output or assume the shell is attached to a tty.
@@ -64,6 +73,9 @@
     export STARSHIP_CONFIG=${./starship.toml}
     eval "$(${starship}/bin/starship init zsh)"
 
+    export direnv_config_dir=${direnvConfig}
+    eval "$(direnv hook zsh)"
+
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
 
@@ -93,11 +105,13 @@
     fzf
     starship
     bat
+    direnv
   ];
 in
   symlinkJoin {
     name = with zsh; "${pname}-${version}";
     inherit (zsh) pname version;
+    __nocachix = debug;
     paths =
       [
         zsh'
@@ -109,7 +123,11 @@ in
       ++ extraPackages;
     nativeBuildInputs = [
       # Can get overriden
-      makeBinaryWrapper
+      (
+        if debug
+        then makeWrapper
+        else makeBinaryWrapper
+      )
     ];
     postBuild = ''
       wrapProgram $out/bin/zsh \

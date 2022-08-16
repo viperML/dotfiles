@@ -34,7 +34,7 @@ ssh_only = true
 format = "[$hostname](fg:8) "
 
 [directory]
-style = "bold cyan"
+style = "bold purple"
 read_only = " "
 truncate_to_repo = false
 #truncation_length = 0

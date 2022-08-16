@@ -57,11 +57,9 @@
             inherit (inputs.nil.packages.${system}) nil;
             zzz_devShell = self.devShells.${system}.default.inputDerivation;
             iosevka = inputs.iosevka.packages.${system}.default;
-            zsh-debug =
-              (self.packages.${system}.zsh.override {
-                makeBinaryWrapper = pkgsFor.${system}.makeWrapper;
-              })
-              .overrideAttrs (_: {__nocachix = true;});
+            zsh-debug = self.packages.${system}.zsh.override {
+              debug = true;
+            };
 
             # Target for the rest of the system
             nix = inputs.nix.packages.${system}.nix;
