@@ -9,12 +9,10 @@
 }: let
   sources' = builtins.attrValues (builtins.removeAttrs sources ["override" "overrideDerivation"]);
   nvfetcherPlugins = builtins.map (src: vimUtils.buildVimPlugin src) sources';
-in
-  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/neovim/wrapper.nix
-  wrapNeovimUnstable neovim-unwrapped (neovimUtils.makeNeovimConfig {
-    wrapperArgs = "--unset NIX_LD --unset NIX_LD_LIBRARY_PATH";
+  config = neovimUtils.makeNeovimConfig {
     withPython3 = false;
     withNodeJs = false;
+    withRuby = false;
     customRC = ''
       source ${./init.vim}
       :luafile ${./init.lua}
@@ -55,4 +53,18 @@ in
         vim-nix
         neoformat
       ];
-  })
+  };
+in
+  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/neovim/wrapper.nix
+  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/neovim/utils.nix
+  wrapNeovimUnstable neovim-unwrapped (config
+    // {
+      wrapperArgs =
+        config.wrapperArgs
+        ++ [
+          "--unset"
+          "NIX_LD"
+          "--unset"
+          "NIX_LD_LIBRARY_PATH"
+        ];
+    })
