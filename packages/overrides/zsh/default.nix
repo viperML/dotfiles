@@ -56,13 +56,7 @@
     unalias shopt
     emulate zsh
 
-    export HISTFILE="$XDG_CACHE_HOME/zsh-histfile"
-    export HISTSIZE=10000
-    export SAVEHIST=10000
-
     export SHELL=$0
-    # FIXME
-    # export MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'"
 
     export _NIX_ZSHENV_SOURCED=1
   '';
@@ -71,41 +65,67 @@
   `.zshrc' is sourced in interactive shells. It should contain commands to set up aliases, functions, options, key bindings, etc.
   */
   zshrc = writeTextDir "${zdotdir}/.zshrc" ''
-    if [[ -z _NIX_ZSHRC_SOURCED ]]; then; exit; fi
-    typeset -U path cdpath fpath manpath
+    # Only source this file once
+    # if ! [ -z ''${_NIX_ZSHRC_SOURCED+x} ]; then
+    #   exit
+    # fi
 
+    if [ -z ''${XDG_CACHE_HOME+x} ]; then
+        export ZSH_CACHE="''${XDG_CACHE_HOME}/zsh"
+    else
+        export ZSH_CACHE="''${HOME}/.cache/zsh"
+    fi
+
+    if ! mkdir -p "$ZSH_CACHE"; then
+        echo "Warning: error creating $ZSH_CACHE"
+        export ZSH_CACHE=/tmp
+        echo "Setting it to $ZSH_CACHE"
+    fi
+
+
+    typeset -U path cdpath fpath manpath
     fpath=(${sources.zsh-completions.src}/src $fpath)
 
+    # expand-ealias init
     source ${sources.expand-ealias.src}/expand-ealias.plugin.zsh
 
+    # static config init
     ${lib.fileContents ./rc.zsh}
 
+    # completion init
     ${lib.fileContents ./comp.zsh}
 
-
+    # Starship init
     export STARSHIP_CONFIG=${./starship.toml}
     eval "$(${starship}/bin/starship init zsh)"
 
+    # Direnv init
     export direnv_config_dir=${direnvConfig}
     eval "$(direnv hook zsh)"
 
+    # command-not-found init
     export NIX_AUTO_RUN=0
     source ${nix-index}/etc/profile.d/command-not-found.sh
 
+    # any-nix-shell init
     ${any-nix-shell}/bin/any-nix-shell zsh | source /dev/stdin
 
-    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    # zsh-autosuggestions init
+    export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
     source ${sources.zsh-autosuggestions.src}/zsh-autosuggestions.zsh
 
+    # zsh-edit init
     source ${sources.zsh-edit.src}/zsh-edit.plugin.zsh
     bindkey '^[[1;3A' insert-last-word
     bindkey '^[[1;3B' insert-first-word
     bindkey "^[[1;3C" forward-subword
     bindkey "^[[1;3D" backward-subword
 
-    typeset -gA FAST_BLIST_PATTERNS 
+    # fast-syntax-highlighting init
+    typeset -gA FAST_BLIST_PATTERNS
     FAST_BLIST_PATTERNS[/mnt/*]=1
     source ${sources.fast-syntax-highlighting.src}/fast-syntax-highlighting.plugin.zsh
+
     export _NIX_ZSHRC_SOURCED=1
   '';
 
@@ -161,6 +181,7 @@ in
     postBuild = ''
       wrapProgram $out/bin/zsh \
         --set ZDOTDIR $out/${zdotdir} \
+        --set MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'" \
         --prefix PATH ':' $out/bin
     '';
   }

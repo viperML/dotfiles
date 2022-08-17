@@ -20,8 +20,8 @@ zstyle ':completion:*' substitute 1
 zstyle ':completion:*' verbose true
 
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh-compcache"
-zstyle :compinstall filename "$XDG_CACHE_HOME/zsh-compinstall"
+zstyle ':completion:*' cache-path "$ZSH_CACHE/compcache"
+zstyle :compinstall filename "$ZSH_CACHE/compinstall"
 
 autoload -Uz compinit
 compinit

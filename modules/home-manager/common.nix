@@ -34,6 +34,10 @@
     packages.self.neovim
   ];
 
+  home.sessionVariables = {
+    LESS = "-RiF --mouse --wheel-lines=3";
+  };
+
   home.stateVersion = "21.11";
 
   nix.extraOptions = lib.fileContents "${self}/misc/nix.conf";

@@ -61,4 +61,8 @@
   };
 
   time.timeZone = "Europe/Madrid";
+
+  environment.variables = {
+    LESS = "-RiF --mouse --wheel-lines=3";
+  };
 }
