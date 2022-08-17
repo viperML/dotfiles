@@ -16,7 +16,7 @@ command_not_found_handle() {
     # Sort by proximity
     mapfile -t selections < <(printf "%s\n" ${candidates[@]} | fzf --filter=$1)
 
-    if [ -n "${NIX_AUTO_RUN}" ]; then
+    if [ -z ${NIX_AUTO_RUN+x} ]; then
         result="$(nix build --no-link --print-out-paths nixpkgs#${selections[0]}.out)"
         $result/bin/$@
         return $?
@@ -54,19 +54,19 @@ command_not_found_handler() {
     # Sort by proximity
     selections=("${(@f)$(printf "%s\n" ${candidates[@]} | fzf --filter=$1)}")
 
-    if [ -n "${NIX_AUTO_RUN}" ]; then
+    if [ -z ${NIX_AUTO_RUN+x} ]; then
         result="$(nix build --no-link --print-out-paths nixpkgs\#${selections[1]}.out)"
         $result/bin/$@
         return $?
     else
         # Iterate through sorted programs
         for elem in "${selections[@]}"; do
-            echo >&2 "nix shell nixpkgs\#$elem"
+            echo >&2 "nix shell nixpkgs#$elem"
         done
         # Iterate through the rest of programs not in fzf output
         for elem in "${candidates[@]}"; do
             if [[ ! " ${selections[*]} " =~ " ${elem} " ]]; then
-                echo >&2 "nix shell nixpkgs\#$elem"
+                echo >&2 "nix shell nixpkgs#$elem"
             fi
         done
     fi
