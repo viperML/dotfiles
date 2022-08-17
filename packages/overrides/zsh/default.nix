@@ -105,7 +105,7 @@
 
     # command-not-found init
     export NIX_AUTO_RUN=0
-    source ${nix-index}/etc/profile.d/command-not-found.zsh
+    source ${nix-index}/etc/profile.d/command-not-found.sh
 
     # any-nix-shell init
     ${any-nix-shell}/bin/any-nix-shell zsh | source /dev/stdin
