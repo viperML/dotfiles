@@ -2,13 +2,12 @@
   self,
   pkgs,
   lib,
+  packages,
+  config,
   ...
 }: let
   inherit (pkgs) system;
-  target = "/home/nixos/dotfiles";
 in {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (subject.isInGroup("wheel")) {
@@ -23,7 +22,7 @@ in {
   powerManagement.enable = true;
   hardware.pulseaudio.enable = true;
   services.spice-vdagentd.enable = true;
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
 
   services.xserver = {
     desktopManager.plasma5 = {
@@ -32,33 +31,32 @@ in {
     displayManager = {
       sddm.enable = true;
       autoLogin = {
-        enable = true;
-        user = "nixos";
+        enable = false;
       };
     };
   };
 
+  users.users.nixos.password = "nixos";
+
   systemd.tmpfiles.rules = [
-    "C ${target} - - - - ${self}"
-    "Z ${target} 0774 nixos nixos - -"
+    "C ${config.users.users.nixos.home}/dotfiles - - - - ${self}"
+    "Z ${config.users.users.nixos.home}/dotfiles 0774 nixos nixos - -"
   ];
 
   environment.etc."gitconfig".text = ''
     [safe]
-        directory = ${target}
+        directory = ${config.users.users.nixos.home}/dotfiles
   '';
 
   nix = {
-    package = self.packages.${system}.nix;
-    extraOptions = ''
-      ${builtins.readFile "${self.outPath}/misc/nix.conf"}
-    '';
+    package = packages.self.nix;
+    extraOptions = builtins.readFile "${self.outPath}/misc/nix.conf";
   };
 
   environment.systemPackages = [
     pkgs.firefox
-    self.packages.${system}.vshell
-    self.packages.${system}.neovim
+    packages.self.zsh
+    packages.self.neovim
   ];
 
   isoImage.edition = "plasma5";

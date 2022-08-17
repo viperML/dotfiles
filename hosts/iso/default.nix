@@ -1,4 +1,4 @@
-inputs @ {self, ...}: let
+inputs @ {self, nixpkgs, ...}: let
   inherit (inputs) nixpkgs;
   system = "x86_64-linux";
   modulesPath = "${nixpkgs}/nixos/modules";
@@ -6,11 +6,15 @@ inputs @ {self, ...}: let
 in
   nixpkgs.lib.nixosSystem {
     inherit system pkgs;
-    specialArgs = {inherit self inputs;};
+    specialArgs = {
+      inherit self inputs;
+      packages = self.lib.mkPackages inputs system;
+    };
     modules = [
       "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
       ./configuration.nix
-      # self.nixosModules.common
       inputs.nix-common.nixosModules.channels-to-flakes
+
+      inputs.nixos-hardware.nixosModules.microsoft-surface
     ];
   }

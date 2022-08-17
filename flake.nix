@@ -71,6 +71,11 @@
           zsh-debug = self.packages."x86_64-linux".zsh.override {
             debug = true;
           };
+          iso =
+            self.nixosConfigurations.iso.config.system.build.isoImage
+            // {
+              __nocachix = true;
+            };
         };
       };
 
@@ -162,5 +167,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 }
