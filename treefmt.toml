@@ -14,4 +14,4 @@ includes = ["*.lua"]
 
 [formatter.sh]
 command = "shfmt"
-includes = ["*.sh", "*.zsh"]
+includes = ["*.sh"]

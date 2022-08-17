@@ -1,4 +1,4 @@
-command_not_found_handle() {
+command_not_found_handler() {
     # do not run when inside Midnight Commander or within a Pipe
     if [ -n "${MC_SID-}" ] || ! [ -t 1 ]; then
         echo -e >&2 "\e[31m$1: command not found\e[39m"
@@ -7,13 +7,13 @@ command_not_found_handle() {
 
     echo -e >&2 "\n\e[31m-> $1: command not found\e[39m\n"
 
-    mapfile -t candidates < <("nix-locate" --minimal --no-group --type x --type s --top-level --whole-name --at-root "/bin/$1")
+    candidates=("${(@f)$(nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root /bin/$1)}")
 
     # Remove .out suffix
     candidates=("${candidates[@]%%.out}")
 
     # Sort by proximity
-    mapfile -t selections < <(printf "%s\n" ${candidates[@]} | fzf --filter=$1)
+    selections=("${(@f)$(printf "%s\n" ${candidates[@]} | fzf --filter=$1)}")
 
     if [ -n "${NIX_AUTO_RUN}" ]; then
         result="$(nix build --no-link --print-out-paths nixpkgs#${selections[0]}.out)"
