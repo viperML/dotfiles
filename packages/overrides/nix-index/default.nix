@@ -2,10 +2,14 @@
   symlinkJoin,
   nix-index-unwrapped,
   makeWrapper,
+  makeBinaryWrapper,
   runCommandLocal,
+  fzf,
   #
   database,
   databaseDate,
+  #
+  myWrapper ? makeBinaryWrapper,
 }: let
   # Add a folder in between and set name to `file`
   database' = runCommandLocal "nix-index-database" {} ''
@@ -19,12 +23,13 @@ in
     name = "${pname}-${version}";
     inherit pname version;
     paths = [nix-index-unwrapped];
-    buildInputs = [makeWrapper];
+    buildInputs = [myWrapper];
     postBuild = ''
       cp -fv ${./command-not-found.sh} $out/etc/profile.d/command-not-found.sh
 
       substituteInPlace $out/etc/profile.d/command-not-found.sh \
-        --replace "nix-locate" "$out/bin/nix-locate"
+        --replace "nix-locate" "$out/bin/nix-locate" \
+        --replace "fzf" "${fzf}/bin/fzf"
 
       wrapProgram $out/bin/nix-index \
         --add-flags "--db ${database'}"
