@@ -57,26 +57,28 @@
   fish_user_config = writeText "user_config.fish" ''
     # Only source once
     set -q __fish_config_sourced; and exit
-    set -g __fish_config_sourced 1
+    set -gx __fish_config_sourced 1
 
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
-    set -g NIX_AUTO_RUN 0
+    set -gx NIX_AUTO_RUN 0
     function __fish_command_not_found_handler --on-event fish_command_not_found
       echo "FIXME"
     end
 
-    status --is-login; and begin
+    if status is-login
     end
 
-    status --is-interactive; and begin
+    if status is-interactive
       ${lib.fileContents ./interactive.fish}
       ${lib.fileContents ./pushd_mod.fish}
 
-      set -g STARSHIP_CONFIG ${./starship.toml}
+      set -gx STARSHIP_CONFIG ${./starship.toml}
       ${starship}/bin/starship init fish | source
 
-      set -g direnv_config_dir ${direnvConfig}
+      echo "working" >> /tmp/fish_sourced
+
+      set -gx direnv_config_dir ${direnvConfig}
       ${direnv}/bin/direnv hook fish | source
 
       ${any-nix-shell}/bin/any-nix-shell fish | source
@@ -90,8 +92,9 @@
     doCheck = false;
     postInstall =
       old.postInstall
+      # echo "$(<${fish_user_config})" >> $out/etc/fish/config.fish
       + ''
-        echo "$(<${fish_user_config})" >> $out/etc/fish/config.fish
+        echo "source ${fish_user_config}" >> $out/etc/fish/config.fish
       '';
   });
 

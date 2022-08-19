@@ -1,4 +1,4 @@
-set -g fish_greeting
+set -gx fish_greeting
 
 # Bindings
 bind \cH backward-kill-path-component
@@ -69,27 +69,26 @@ abbr -a -g grs "git shortlog -s -n --all --no-merges"
 abbr -a -g gss "git status --short"
 abbr -a -g gr "cd (git-root)"
 
-set -g fish_color_normal brwhite
-set -g fish_color_command green
-set -g fish_color_keyword brblue
-set -g fish_color_quote yellow
-set -g fish_color_redirection brwhite
-set -g fish_color_end brred
-set -g fish_color_error -o red
-set -g fish_color_param white
-set -g fish_color_comment brblack
-set -g fish_color_selection --background=brblack
-# set -g fish_color_selection cyan
-# set -g fish_color_search_match cyan
-set -g fish_color_search_match --background=brblack
-set -g fish_color_operator green
-set -g fish_color_escape brblue
-set -g fish_color_autosuggestion brblack
-
-set -g fish_pager_color_progress brblack
-set -g fish_pager_color_prefix green
-set -g fish_pager_color_completion white
-set -g fish_pager_color_description brblack
+set -gx fish_color_normal brwhite
+set -gx fish_color_command green
+set -gx fish_color_keyword brblue
+set -gx fish_color_quote yellow
+set -gx fish_color_redirection brwhite
+set -gx fish_color_end brred
+set -gx fish_color_error -o red
+set -gx fish_color_param white
+set -gx fish_color_comment brblack
+set -gx fish_color_selection --background=brblack
+# set -gx fish_color_selection cyan
+# set -gx fish_color_search_match cyan
+set -gx fish_color_search_match --background=brblack
+set -gx fish_color_operator green
+set -gx fish_color_escape brblue
+set -gx fish_color_autosuggestion brblack
+set -gx fish_pager_color_progress brblack
+set -gx fish_pager_color_prefix green
+set -gx fish_pager_color_completion white
+set -gx fish_pager_color_description brblack
 
 # Configure FZF keybinds
 # https://github.com/PatrickF1/fzf.fish
