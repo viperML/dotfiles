@@ -138,8 +138,8 @@
       device = "none";
       options = [
         "defaults"
-        "size=2G"
-        "mode=755"
+        "size=4G"
+        "mode=0755"
       ];
     };
     "/nix" = {
