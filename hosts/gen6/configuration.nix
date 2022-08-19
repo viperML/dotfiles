@@ -16,7 +16,7 @@
 
   environment.systemPackages = [
     packages.self.neovim
-    packages.self.vshell
+    packages.self.fish
     packages.self.zsh
   ];
 

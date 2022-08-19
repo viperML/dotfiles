@@ -10,14 +10,6 @@ with builtins; let
   };
 
   overridesFor = {
-    vshell = {
-      inherit
-        (inputs.self.packages.${system})
-        any-nix-shell
-        nix-index
-        ;
-      inherit (inputs.nix-autobahn.packages.${system}) nix-autobahn;
-    };
     nix-index = {
       database = inputs.nix-index-database.legacyPackages.${system}.database;
       databaseDate = mkDate inputs.nix-index-database.lastModifiedDate;
@@ -29,6 +21,13 @@ with builtins; let
       inherit
         (inputs.self.packages.${system})
         nix-index
+        ;
+    };
+    fish = {
+      inherit
+        (inputs.self.packages.${system})
+        nix-index
+        any-nix-shell
         ;
     };
   };
@@ -75,8 +74,8 @@ in
     if system != "x86_64-linux"
     then [
       "nix-index"
-      "vshell"
       "zsh"
+      "fish"
     ]
     else []
   )

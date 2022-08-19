@@ -30,7 +30,7 @@
     bubblewrap
     wormhole-william
     packages.self.neofetch
-    packages.self.vshell
+    packages.self.fish
     packages.self.neovim
   ];
 

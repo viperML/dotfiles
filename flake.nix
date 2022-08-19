@@ -71,6 +71,9 @@
           zsh-debug = self.packages."x86_64-linux".zsh.override {
             debug = true;
           };
+          fish-debug = self.packages."x86_64-linux".fish.override {
+            debug = true;
+          };
           iso =
             self.nixosConfigurations.iso.config.system.build.isoImage
             // {
