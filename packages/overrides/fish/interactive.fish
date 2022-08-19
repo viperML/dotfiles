@@ -28,7 +28,7 @@ abbr -a -g us systemctl --user
 
 # Image cat
 abbr -a -g kat "kitty +icat"
-abbr -a -g wat="wezterm imgcat --height 50%"
+abbr -a -g wat "wezterm imgcat --height 50%"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

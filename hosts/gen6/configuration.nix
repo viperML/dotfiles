@@ -9,7 +9,7 @@
   viper.env = {
     FLAKE = "/home/ayats/Documents/dotfiles";
     EDITOR = "/run/current-system/sw/bin/nvim";
-    SHELL = "/run/current-system/sw/bin/zsh";
+    SHELL = "/run/current-system/sw/bin/fish";
     VAULT_ADDR = "http://kalypso:8200";
     NOMAD_ADDR = "http://sumati:4646";
   };
