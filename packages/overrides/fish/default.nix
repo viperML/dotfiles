@@ -56,8 +56,8 @@
 
   fish_user_config = writeText "user_config.fish" ''
     # Only source once
-    set -q __fish_config_sourced; and exit
-    set -gx __fish_config_sourced 1
+    # set -q __fish_config_sourced; and exit
+    # set -gx __fish_config_sourced 1
 
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
