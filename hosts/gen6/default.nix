@@ -6,44 +6,8 @@ in
     inherit system;
     pkgs = pkgs';
     lib = pkgs'.lib;
-    nixosModules = with self.nixosModules; [
-      ./configuration.nix
-      desktop
-      xdg-ninja
 
-      virt
-      docker
-      # podman
-      printing
-      ld
-      flatpak
 
-      ./nspawn.nix
-
-      ./fix-bluetooth.nix
-      inputs.nix-gaming.nixosModules.pipewireLowLatency
-      {
-        services.pipewire.lowLatency.enable = true;
-      }
-    ];
-    homeModules = with self.homeModules; [
-      ./home.nix
-      common
-      xdg-ninja
-      gui
-      git
-      vscode
-      wezterm
-      nh
-      flatpak
-    ];
-    specialisations = [
-      (self.lib.joinSpecialisations (with self.specialisations; [
-        kde
-        nvidia
-        ayats
-        default
-      ]))
       # (self.lib.joinSpecialisations (with self.specialisations; [
       #   hyprland
       #   nvidia

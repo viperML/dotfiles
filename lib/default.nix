@@ -1,53 +1,51 @@
 {
-  lib,
   inputs,
+  self,
+  config,
+  withSystem,
+  ...
 }: let
-  modules = import ./modules.nix lib;
+  inherit (inputs.nixpkgs) lib;
 in {
-  mkSystem = import ./mkSystem {inherit lib inputs;};
-  inherit (modules) exportModulesDir folderToList;
-  kde = import ./kde.nix lib;
-  patch-nixpkgs = import ./patch-nixpkgs.nix;
+  flake.lib = {
+    mkSystem = import ./mkSystem {
+      inherit lib;
+      inputs = inputs // {inherit self;};
+    };
 
-  versionGate = pkg: newAttrs: let
-    newVersion = newAttrs.version;
-    oldVersion = pkg.version;
-    newPkg = pkg.overrideAttrs (_: newAttrs);
-    result =
-      if lib.versionOlder oldVersion newVersion
-      then newPkg
-      else throw "Package ${pkg.name} has reached the desired version";
-  in
-    result;
+    mkDate = longDate: (lib.concatStringsSep "-" [
+      (__substring 0 4 longDate)
+      (__substring 4 2 longDate)
+      (__substring 6 2 longDate)
+    ]);
 
-  /*
-  Takes a flake-defined `inputs` and a system, and returns an attribute set
-  containing the extracted packages or legacyPackages
+    inherit (import ./modules.nix lib) exportModulesDir;
 
-  Example:
-    mkPackages inputs "x86_64-linux"
-    => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
-  */
+    /*
+    Takes a flake-defined `inputs` and a system, and returns an attribute set
+    containing the extracted packages or legacyPackages
 
-  mkPackages = inputs: system:
-    __mapAttrs (name: value: let
-      legacyPackages = value.legacyPackages.${system} or {};
-      packages = value.packages.${system} or {};
-    in
-      legacyPackages // packages)
-    inputs;
+    Example:
+      mkPackages inputs "x86_64-linux"
+      => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
+    */
 
-  joinSpecialisations = specs: {
-    nixosModules = lib.flatten (map (s: s.nixosModules or []) specs);
-    homeModules = lib.flatten (map (s: s.homeModules or []) specs);
-    name = lib.concatMapStringsSep "-" (s: s.name) specs;
+    mkPackages = inputs: system:
+      __mapAttrs (name: value: let
+        legacyPackages = value.legacyPackages.${system} or {};
+        packages = value.packages.${system} or {};
+      in
+        legacyPackages // packages)
+      inputs;
 
-    default = builtins.foldl' (x: y: x || y) false (lib.flatten (map (s: s.default or false) specs));
+    joinSpecialisations = specs: {
+      nixosModules = lib.flatten (map (s: s.nixosModules or []) specs);
+      homeModules = lib.flatten (map (s: s.homeModules or []) specs);
+      name = lib.concatMapStringsSep "-" (s: s.name) specs;
+
+      default = builtins.foldl' (x: y: x || y) false (lib.flatten (map (s: s.default or false) specs));
+    };
   };
 
-  mkDate = longDate: (lib.concatStringsSep "-" [
-    (__substring 0 4 longDate)
-    (__substring 4 2 longDate)
-    (__substring 6 2 longDate)
-  ]);
+  flake.libFor = lib.genAttrs config.systems (system: withSystem system (ctx: import ./perSystem.nix ctx.pkgs));
 }

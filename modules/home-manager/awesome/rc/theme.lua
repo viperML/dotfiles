@@ -1,5 +1,5 @@
-local gears = require "gears"
-local wibox = require "wibox"
+local gears = require("gears")
+local wibox = require("wibox")
 
 local config_dir = "~/.config/awesome/"
 local res_dir = config_dir .. "res/"
@@ -8,15 +8,15 @@ local res_dir = config_dir .. "res/"
 -- Default awesome theme --
 ---------------------------
 
-local theme_assets = require "beautiful.theme_assets"
-local xresources = require "beautiful.xresources"
+local theme_assets = require("beautiful.theme_assets")
+local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local gfs = require "gears.filesystem"
-local gears = require "gears"
+local gfs = require("gears.filesystem")
+local gears = require("gears")
 local themes_path = gfs.get_themes_dir()
 
-local helpers = require "helpers"
+local helpers = require("helpers")
 
 local theme = {}
 

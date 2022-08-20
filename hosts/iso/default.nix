@@ -1,4 +1,8 @@
-inputs @ {self, nixpkgs, ...}: let
+inputs @ {
+  self,
+  nixpkgs,
+  ...
+}: let
   inherit (inputs) nixpkgs;
   system = "x86_64-linux";
   modulesPath = "${nixpkgs}/nixos/modules";

@@ -1,81 +1,96 @@
-pkgs: inputs:
-with pkgs.lib;
-with builtins; let
-  inherit (pkgs) system;
-  inherit (inputs.self.lib) mkDate;
+{
+  self,
+  inputs,
+  ...
+}: let
+  /*
+  wrapperFor returns a wrapper w for a set of pkgs
 
-  callPackageFor = {
-    "qt5" = pkgs.libsForQt5.callPackage;
-    "python" = pkgs.python3.pkgs.callPackage;
-  };
+  wrapper incudes automatic overrides for a callPackage definition
+  */
+  wrapperFor = _pkgs: _callPackage: path: extraOverrides: let
+    # args :: set
+    args = builtins.functionArgs (import path);
 
-  overridesFor = {
-    nix-index = {
-      database = inputs.nix-index-database.legacyPackages.${system}.database;
-      databaseDate = mkDate inputs.nix-index-database.lastModifiedDate;
+    nvfetcherOverrides =
+      if builtins.hasAttr "sources" args
+      then {
+        # Use a standard callPackage for the sources
+        sources = _pkgs.callPackage (path + "/generated.nix") {};
+      }
+      else if builtins.hasAttr "src" args
+      then builtins.head (builtins.attrValues (builtins.removeAttrs (_pkgs.callPackage (path + "/generated.nix") {}) ["override" "overrideDerivation"]))
+      else {};
+  in
+    _callPackage path (nvfetcherOverrides // extraOverrides);
+in {
+  flake.packages."x86_64-linux" = let
+    pkgs = self.legacyPackages."x86_64-linux";
+    w = wrapperFor pkgs;
+  in {
+    nix-index = w pkgs.callPackage ./overrides/nix-index {
+      database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
+      databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
     };
-    supernix = {
-      nix = inputs.nix.packages.${system}.nix;
-    };
-    zsh = {
+    fish = w pkgs.callPackage ./overrides/fish {
       inherit
-        (inputs.self.packages.${system})
-        nix-index
-        ;
-    };
-    fish = {
-      inherit
-        (inputs.self.packages.${system})
+        (self.packages."x86_64-linux")
         nix-index
         any-nix-shell
         ;
     };
+    zsh = w pkgs.callPackage ./overrides/zsh {
+      inherit
+        (self.packages."x86_64-linux")
+        nix-index
+        ;
+    };
   };
 
-  recursiveMerge = attrList: let
-    f = attrPath:
-      zipAttrsWith (
-        n: values:
-          if tail values == []
-          then head values
-          else if all isList values
-          then unique (concatLists values)
-          else if all isAttrs values
-          then f (attrPath ++ [n]) values
-          else last values
-      );
-  in
-    f [] attrList;
+  perSystem = {pkgs, ...}: let
+    w = wrapperFor pkgs;
+  in {
+    legacyPackages = {
+    };
+    packages = {
+      # Main
+      adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
+      colloid = w pkgs.callPackage ./main/colloid {};
+      hcl = w pkgs.callPackage ./main/hcl {};
+      plasma-applet-splitdigitalclock = w pkgs.callPackage ./main/plasma-applet-splitdigitalclock {};
+      present = w pkgs.callPackage ./main/present {};
+      tailscale-systray = w pkgs.callPackage ./main/tailscale-systray {};
+      toml-fmt = w pkgs.callPackage ./main/toml-fmt {};
+      vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
+      xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
 
-  myCallPackage = {
-    pname,
-    folder,
-  }: let
-    basePath = ./${folder}/${pname};
-    callPackage = callPackageFor.${folder} or pkgs.callPackage;
+      # Python
+      resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};
 
-    nvfOverrides =
-      if hasAttr "generated.nix" (readDir basePath) && hasAttr "nvfetcher.toml" (readDir basePath)
-      then (pkgs.callPackage "${basePath}/generated.nix" {}).${pname}
-      else if hasAttr "generated.nix" (readDir basePath) && hasAttr "sources.toml" (readDir basePath)
-      then {sources = pkgs.callPackage "${basePath}/generated.nix" {};}
-      else {};
+      # Qt5
+      bismuth = w pkgs.libsForQt5.callPackage ./qt5/bismuth {};
+      kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};
+      lightly = w pkgs.libsForQt5.callPackage ./qt5/lightly {};
+      reversal-kde = w pkgs.libsForQt5.callPackage ./qt5/reversal-kde {};
+      sierrabreezeenhanced = w pkgs.libsForQt5.callPackage ./qt5/sierrabreezeenhanced {};
 
-    overrides = (overridesFor.${pname} or {}) // nvfOverrides;
-  in
-    callPackage basePath overrides;
+      # Fonts
+      comic-code = w pkgs.callPackage ./fonts/comic-code {};
+      hoefler-text = w pkgs.callPackage ./fonts/hoefler-text {};
+      redaction = w pkgs.callPackage ./fonts/redaction {};
+      san-francisco = w pkgs.callPackage ./fonts/san-francisco {};
 
-  folders = filterAttrs (n: v: v == "directory") (readDir ./.);
-
-  packagesUnmerged = mapAttrs (folder: _: mapAttrs (pname: __: myCallPackage {inherit pname folder;}) (readDir ./${folder})) folders;
-in
-  # nix-index flake only distributes x86_64-linux or x86_64-darwin
-  builtins.removeAttrs (recursiveMerge (attrValues packagesUnmerged)) (
-    if system != "x86_64-linux"
-    then [
-      "nix-index"
-      "zsh"
-      "fish"
-    ]
-    else []
-  )
+      # Overrides
+      any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
+      awesome = w pkgs.callPackage ./overrides/awesome {};
+      neofetch = w pkgs.callPackage ./overrides/neofetch {};
+      neovim = w pkgs.callPackage ./overrides/neovim {};
+      obsidian = w pkgs.callPackage ./overrides/obsidian {};
+      papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
+      picom = w pkgs.callPackage ./overrides/picom {};
+      rose-pine-gtk-theme = w pkgs.callPackage ./overrides/rose-pine-gtk-theme {};
+      shfmt = w pkgs.callPackage ./overrides/shfmt {};
+      stylua = w pkgs.callPackage ./overrides/stylua {};
+    };
+  };
+}

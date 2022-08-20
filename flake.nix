@@ -6,91 +6,73 @@
     extra-trusted-public-keys = ["viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8="];
   };
 
-  outputs = inputs: let
-    supportedSystems = [
-      "x86_64-linux"
-      "aarch64-linux"
-    ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    flake-parts,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit self;} {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
-    inherit (inputs) self nixpkgs;
-    inherit (nixpkgs) lib;
-    inherit (builtins) mapAttrs readDir;
-    inherit (nixpkgs.lib) genAttrs recursiveUpdate;
-    inherit (self.lib) exportModulesDir;
+      imports = [
+        ./packages
+        ./lib
+        ./homes
+        ./misc/shell.nix
+        ./hosts
+      ];
 
-    genSystems = genAttrs supportedSystems;
-    pkgsFor = builtins.listToAttrs (map (system:
-      lib.nameValuePair system (import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      }))
-    supportedSystems);
-  in {
-    nixosModules = builtins.removeAttrs (exportModulesDir ./modules/nixos) ["users"];
-    homeModules = exportModulesDir ./modules/home-manager;
-    specialisations = import ./specialisations inputs;
-    nixosConfigurations = mapAttrs (name: _: import ./hosts/${name} inputs) (readDir ./hosts);
-    homeConfigurations = mapAttrs (name: _: import ./homes/${name} inputs) (readDir ./homes);
-
-    lib =
-      (import ./lib {
-        inherit (nixpkgs) lib;
-        inherit inputs;
-      })
-      // genSystems (
-        system:
-          import ./lib/perSystem.nix pkgsFor.${system}
-      );
-
-    legacyPackages = pkgsFor;
-
-    packages =
-      recursiveUpdate (genSystems (
-        system:
-          import ./packages pkgsFor.${system} inputs
-          // {
-            # Packages to build and cache in CI
-            nh = inputs.nh.packages.${system}.default;
-            inherit (inputs.deploy-rs.packages.${system}) deploy-rs;
-            inherit (inputs.nil.packages.${system}) nil;
-            zzz_devShell = self.devShells.${system}.default.inputDerivation;
-            iosevka = inputs.iosevka.packages.${system}.default;
-
-            # Target for the rest of the system
-            nix = inputs.nix.packages.${system}.nix;
-          }
-      )) {
-        "x86_64-linux" = {
-          # zzz_homeConfigurations-ayats-activationPackage = self.homeConfigurations.ayats.activationPackage;
-          zzz_home-ayats-cachix = pkgsFor."x86_64-linux".linkFarmFromDrvs "home-ayats-cachix" [
-            self.homeConfigurations.ayats.activationPackage
-            self.homeConfigurations.ayats.config.home.path
-          ];
-          zsh-debug = self.packages."x86_64-linux".zsh.override {
-            debug = true;
-          };
-          fish-debug = self.packages."x86_64-linux".fish.override {
-            debug = true;
-          };
-          iso =
-            self.nixosConfigurations.iso.config.system.build.isoImage
-            // {
-              __nocachix = true;
-            };
-        };
+      flake = {
+        homeModules = self.lib.exportModulesDir ./modules/home-manager;
+        nixosModules = builtins.removeAttrs (self.lib.exportModulesDir ./modules/nixos) ["users"];
+        specialisations = import ./misc/specialisations.nix inputs;
+        templates = builtins.mapAttrs (name: _: {
+          inherit (import ./templ/${name}/flake.nix) description;
+          path = ./templ/${name};
+        }) (builtins.readDir ./templ);
       };
 
-    devShells = genSystems (system: {
-      default = import ./shell.nix (pkgsFor.${system} // self.packages.${system});
-    });
+      perSystem = {
+        pkgs,
+        system,
+        inputs',
+        config,
+        ...
+      }: {
+        _module.args.pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfreePredicate = drv:
+            builtins.elem (nixpkgs.lib.getName drv) [
+              "steam"
+              "steam-original"
+              "vscode"
+              "corefonts"
+              "obsidian"
+              "google-chrome-beta"
+              "osu-lazer-bin"
+              "nvidia-x11"
+              "nvidia-settings"
+              "nvidia-persistenced"
+            ];
+        };
 
-    templates = mapAttrs (name: _: {
-      inherit (import ./templ/${name}/flake.nix) description;
-      path = ./templ/${name};
-    }) (readDir ./templ);
-  };
+        legacyPackages = pkgs;
+
+        packages = {
+          nh = inputs'.nh.packages.default;
+          nil = inputs'.nil.packages.nil;
+          deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
+          iosevka = inputs'.iosevka.packages.default;
+          nix = inputs'.nix.packages.nix;
+
+          zzz_devshell = config.devShells.default;
+        };
+      };
+    };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

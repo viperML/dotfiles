@@ -1,10 +1,10 @@
-local gears = require "gears"
+local gears = require("gears")
 local themes_path = gears.filesystem.get_themes_dir()
-local rnotification = require "ruled.notification"
+local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Load base theme
-local theme = require "theme.common"
+local theme = require("theme.common")
 
 local BG1 = "#121212"
 local BG2 = "#202020"
@@ -83,10 +83,10 @@ theme.icon_theme = nil
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal("request::rules", function()
-  rnotification.append_rule {
-    rule = { urgency = "critical" },
-    properties = { bg = "#ff0000", fg = "#ffffff" },
-  }
+	rnotification.append_rule({
+		rule = { urgency = "critical" },
+		properties = { bg = "#ff0000", fg = "#ffffff" },
+	})
 end)
 
 return theme

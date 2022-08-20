@@ -19,7 +19,7 @@ in {
     packages.self.obsidian
     ffmpeg-full
     filelight
-    (self.lib.${system}.addFlags pkgs.google-chrome-beta [
+    (self.libFor.${system}.addFlags pkgs.google-chrome-beta [
       "--disable-features=UseChromeOSDirectVideoDecoder"
       "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
       "--ignore-gpu-blocklist"
