@@ -24,7 +24,8 @@ stdenvNoCC.mkDerivation {
   meta = with lib; {
     description = "San Francisco is a neo-grotesque sans-serif typeface made by Apple Inc";
     homepage = "https://developer.apple.com/fonts/";
-    license = licenses.unfree;
+    # Doesn't matter
+    # license = licenses.unfree;
     platforms = platforms.all;
   };
 }

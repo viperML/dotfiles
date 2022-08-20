@@ -18,7 +18,8 @@ stdenvNoCC.mkDerivation {
   meta = with lib; {
     description = "Monospaced adaptation of the most infamous yet most popular casual font";
     homepage = "https://tosche.net/fonts/comic-code";
-    license = licenses.unfree;
+    # Doesn't matter
+    # license = licenses.unfree;
     platforms = platforms.all;
   };
 }

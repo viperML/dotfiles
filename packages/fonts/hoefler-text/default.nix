@@ -18,7 +18,8 @@ stdenvNoCC.mkDerivation {
   meta = with lib; {
     description = "Comprehensive family of typefaces from the dawn of the digital age";
     homepage = "https://www.typography.com/fonts/latest-releases";
-    license = licenses.unfree;
+    # Doesn't matter
+    # license = licenses.unfree;
     platforms = platforms.all;
   };
 }
