@@ -26,11 +26,13 @@ in
     buildInputs = [myWrapper];
     postBuild = ''
       cp -fv ${./command-not-found.sh} $out/etc/profile.d/command-not-found.sh
+      substituteInPlace $out/etc/profile.d/command-not-found.sh \
+        --replace "nix-locate" "$out/bin/nix-locate" \
+        --replace "fzf" "${fzf}/bin/fzf"
 
       mkdir -p $out/share/fish/vendor_functions.d
       cp -v ${./command-not-found.fish} $out/share/fish/vendor_functions.d/nix-index.fish
-
-      substituteInPlace $out/etc/profile.d/command-not-found.sh \
+      substituteInPlace $out/share/fish/vendor_functions.d/nix-index.fish \
         --replace "nix-locate" "$out/bin/nix-locate" \
         --replace "fzf" "${fzf}/bin/fzf"
 
