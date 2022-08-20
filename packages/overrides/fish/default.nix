@@ -61,10 +61,7 @@
 
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
-    set -gx NIX_AUTO_RUN 0
-    function __fish_command_not_found_handler --on-event fish_command_not_found
-      echo "FIXME"
-    end
+    source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
 
     if status is-login
     end

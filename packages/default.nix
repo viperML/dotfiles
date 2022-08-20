@@ -32,6 +32,7 @@ in {
       database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
       databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
     };
+
     fish = w pkgs.callPackage ./overrides/fish {
       inherit
         (self.packages."x86_64-linux")
@@ -39,6 +40,8 @@ in {
         any-nix-shell
         ;
     };
+    fish-debug = self.packages."x86_64-linux".fish.override {debug = true;};
+
     zsh = w pkgs.callPackage ./overrides/zsh {
       inherit
         (self.packages."x86_64-linux")

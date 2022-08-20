@@ -24,6 +24,9 @@ in
     inherit pname version;
     paths = [nix-index-unwrapped];
     buildInputs = [myWrapper];
+    /*
+    Install broken, command-not-found is not detected by fish by using the vendor functions
+    */
     postBuild = ''
       cp -fv ${./command-not-found.sh} $out/etc/profile.d/command-not-found.sh
       substituteInPlace $out/etc/profile.d/command-not-found.sh \
