@@ -104,6 +104,7 @@
     direnv
     nix-index
     exa
+    any-nix-shell
     (symlinkJoin {
       inherit (bat) name pname version;
       paths = [bat];
