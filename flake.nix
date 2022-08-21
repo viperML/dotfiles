@@ -13,22 +13,16 @@
     ...
   }:
     flake-parts.lib.mkFlake {inherit self;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
       imports = [
         ./packages
         ./lib
         ./homes
         ./misc/shell.nix
         ./hosts
+        ./modules
       ];
 
       flake = {
-        homeModules = self.lib.exportModulesDir ./modules/home-manager;
-        nixosModules = builtins.removeAttrs (self.lib.exportModulesDir ./modules/nixos) ["users"];
         specialisations = import ./misc/specialisations.nix inputs;
         templates = builtins.mapAttrs (name: _: {
           inherit (import ./misc/templ/${name}/flake.nix) description;
@@ -72,6 +66,11 @@
           zzz_devshell = config.devShells.default;
         };
       };
+
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
     };
 
   inputs = {
