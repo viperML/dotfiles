@@ -38,7 +38,6 @@
             common
             xdg-ninja
             gui
-            git
             vscode
             wezterm
             nh

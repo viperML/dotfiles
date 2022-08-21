@@ -94,6 +94,7 @@ in {
       rose-pine-gtk-theme = w pkgs.callPackage ./overrides/rose-pine-gtk-theme {};
       shfmt = w pkgs.callPackage ./overrides/shfmt {};
       stylua = w pkgs.callPackage ./overrides/stylua {};
+      git = w pkgs.callPackage ./overrides/git {};
     };
   };
 }

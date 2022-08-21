@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  packages,
   ...
 }: let
   libpkgs = with pkgs; {
@@ -39,14 +40,10 @@
   };
 in {
   environment.variables = env;
-  environment.sessionVariables = env;
-  home-manager.sharedModules = [
-    {
-      home.sessionVariables = env;
-    }
-  ];
 
   programs.nix-ld.enable = true;
+
+  systemd.tmpfiles.packages = [pkgs.nix-ld];
 
   environment.systemPackages = [pkgs.appimage-run];
   boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (ext: {

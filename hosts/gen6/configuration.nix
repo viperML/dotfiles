@@ -15,9 +15,7 @@
   };
 
   environment.systemPackages = [
-    packages.self.neovim
     packages.self.fish
-    packages.self.zsh
   ];
 
   environment.defaultPackages = [];

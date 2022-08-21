@@ -32,6 +32,7 @@
     packages.self.neofetch
     packages.self.fish
     packages.self.neovim
+    packages.self.git
   ];
 
   home.sessionVariables = {
