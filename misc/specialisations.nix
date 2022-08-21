@@ -46,7 +46,6 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
   "hyprland" = {
     nixosModules = with self.nixosModules; [
       desktop-hyprland
-      # desktop-wayland
       inputs.hyprland.nixosModules.default
     ];
     homeModules = with self.homeModules; [

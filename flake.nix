@@ -31,9 +31,9 @@
         nixosModules = builtins.removeAttrs (self.lib.exportModulesDir ./modules/nixos) ["users"];
         specialisations = import ./misc/specialisations.nix inputs;
         templates = builtins.mapAttrs (name: _: {
-          inherit (import ./templ/${name}/flake.nix) description;
-          path = ./templ/${name};
-        }) (builtins.readDir ./templ);
+          inherit (import ./misc/templ/${name}/flake.nix) description;
+          path = ./misc/templ/${name};
+        }) (builtins.readDir ./misc/templ);
       };
 
       perSystem = {

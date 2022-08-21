@@ -1,0 +1,53 @@
+{
+  withSystem,
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosConfigurations."gen6" = withSystem "x86_64-linux" (
+    {
+      pkgs,
+      system,
+      ...
+    }:
+      self.lib.mkSystem {
+        inherit system pkgs;
+        nixosModules = with self.nixosModules; [
+          ./configuration.nix
+          desktop
+          xdg-ninja
+
+          virt
+          docker
+          # podman
+          printing
+          ld
+          flatpak
+
+          ./nspawn.nix
+
+          ./fix-bluetooth.nix
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          {
+            services.pipewire.lowLatency.enable = true;
+          }
+        ];
+        homeModules = with self.homeModules; [
+          ./home.nix
+          common
+          xdg-ninja
+          gui
+          nh
+          flatpak
+        ];
+        specialisations = [
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            kde
+            nvidia
+            ayats
+            default
+          ]))
+        ];
+      }
+  );
+}

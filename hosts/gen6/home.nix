@@ -37,6 +37,7 @@ in {
     vault
     packages.self.deploy-rs
     pkgs.vscode
+    packages.self.wezterm
   ];
 
   systemd.user.services = {

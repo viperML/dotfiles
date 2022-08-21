@@ -1,26 +1,33 @@
-inputs @ {
+{
   self,
-  home-manager,
+  inputs,
+  withSystem,
   ...
-}: let
-  system = "x86_64-linux";
-  packages = self.lib.mkPackages inputs system;
-in
-  home-manager.lib.homeManagerConfiguration {
-    pkgs = packages.self;
-    modules = with self.homeModules; [
-      ./home.nix
-      {
-        _module.args = {
-          inherit inputs self packages;
+}: {
+  flake.homeConfigurations = {
+    "ayats" = withSystem "x86_64-linux" ({
+      pkgs,
+      system,
+      ...
+    }:
+      inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit self inputs;
+          packages = self.lib.mkPackages (inputs
+            // {
+              inherit self;
+            })
+          system;
         };
-      }
-      common
-      xdg-ninja
-      inputs.nix-common.homeModules.channels-to-flakes
-      git
-
-      inputs.home-manager-wsl.homeModules.default
-      {wsl.baseDistro = "void";}
-    ];
-  }
+        modules = with self.homeModules; [
+          ./home.nix
+          common
+          xdg-ninja
+          inputs.nix-common.homeModules.channels-to-flakes
+          inputs.home-manager-wsl.homeModules.default
+          {wsl.baseDistro = "void";}
+        ];
+      });
+  };
+}

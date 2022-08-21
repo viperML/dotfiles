@@ -14,7 +14,7 @@
 
   home.packages = with pkgs; [
     # Fonts
-    corefonts
+    # corefonts
     noto-fonts
     noto-fonts-extra
     noto-fonts-emoji

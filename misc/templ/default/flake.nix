@@ -2,31 +2,26 @@
   description = "flake-parts based template";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixos-22.05";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     flake-parts = {
       # url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     flake-parts,
+    ...
   }:
     flake-parts.lib.mkFlake {inherit self;} {
       systems = nixpkgs.lib.systems.flakeExposed;
-      perSystem = {
-        pkgs,
-        self',
-        ...
-      }: {
-        devShells.default = with pkgs;
-          mkShellNoCC {
-            packages = [
-              # keep
-            ];
-          };
+      perSystem = {pkgs, ...}: {
+        devShells.default = pkgs.mkShellNoCC {
+          name = "my-awesome-devshell";
+          packages = [];
+        };
       };
     };
 }

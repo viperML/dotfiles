@@ -33,6 +33,7 @@ in {
     xsel
     pciutils
     usbutils
+
     pkgs.gnome.seahorse
     android-tools
     packages.self.nh

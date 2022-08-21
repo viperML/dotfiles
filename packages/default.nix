@@ -95,6 +95,7 @@ in {
       shfmt = w pkgs.callPackage ./overrides/shfmt {};
       stylua = w pkgs.callPackage ./overrides/stylua {};
       git = w pkgs.callPackage ./overrides/git {};
+      wezterm = w pkgs.callPackage ./overrides/wezterm {};
     };
   };
 }

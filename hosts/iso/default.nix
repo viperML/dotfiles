@@ -1,24 +1,21 @@
-inputs @ {
-  self,
+{
+  withSystem,
   nixpkgs,
+  self,
+  inputs,
   ...
-}: let
-  inherit (inputs) nixpkgs;
-  system = "x86_64-linux";
-  modulesPath = "${nixpkgs}/nixos/modules";
-  pkgs = self.legacyPackages.${system};
-in
-  nixpkgs.lib.nixosSystem {
-    inherit system pkgs;
-    specialArgs = {
-      inherit self inputs;
-      packages = self.lib.mkPackages inputs system;
-    };
-    modules = [
-      "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
-      ./configuration.nix
-      inputs.nix-common.nixosModules.channels-to-flakes
-
-      inputs.nixos-hardware.nixosModules.microsoft-surface
-    ];
-  }
+}: {
+  flake.nixosConfigurations.iso = withSystem "x86_64-linux" ({pkgs, ...}:
+    nixpkgs.lib.nixosSystem {
+      inherit pkgs;
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit self inputs;
+      };
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+        ./configuration.nix
+        inputs.nix-common.nixosModules.channels-to-flakes
+      ];
+    });
+}

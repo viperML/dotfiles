@@ -27,6 +27,7 @@ in
     nativeBuildInputs = [
       makeBinaryWrapper
     ];
+    __nocachix = true;
   } ''
     mkdir -p $out
     ${lndir}/bin/lndir -silent $git $out

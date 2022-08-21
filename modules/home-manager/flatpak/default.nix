@@ -25,20 +25,6 @@
       wrapProgram $out/main \
         --prefix PATH : ${lib.makeBinPath (with pkgs; [flatpak])}
     '';
-  chromiumFlags = [
-    "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
-    "--use-gl=desktop"
-    "--ignore-gpu-blocklist"
-    # "--enable-oop-rasterization"
-    # "--enable-raw-draw"
-    # "--enable-gpu-rasterization"
-    # "--use-vulkan"
-    # "--disable-reading-from-canvas"
-    # "--disable-sync-preferences"
-    # "--enable-features=WebUIDarkMode"
-    # "--force-dark-mode"
-  ];
-  flags-conf = pkgs.writeText "flags.conf" (lib.concatStringsSep "\n" chromiumFlags);
 in {
   xdg.dataFile = {
     "flatpak-required.toml" = {

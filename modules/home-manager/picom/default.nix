@@ -9,7 +9,7 @@ in {
     picom = {
       Unit.Description = "X11 compositor";
       Service.ExecStart = "${pkg}/bin/picom --experimental-backends";
-      Install.WantedBy = ["awesome-session.target"];
+      Install.WantedBy = ["graphical-session.target"];
     };
   };
 
