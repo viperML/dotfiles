@@ -120,17 +120,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
-    nix-autobahn = {
-      url = "github:Lassulus/nix-autobahn";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-    nix-matlab = {
-      url = "gitlab:doronbehar/nix-matlab";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-    nix-std.url = "github:chessai/nix-std";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -152,6 +141,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 }

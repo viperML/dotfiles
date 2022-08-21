@@ -50,7 +50,7 @@ in {
 
   nix = {
     package = packages.self.nix;
-    extraOptions = builtins.readFile "${self.outPath}/misc/nix.conf";
+    settings = import "${self}/misc/nix-conf.nix";
   };
 
   environment.systemPackages = [

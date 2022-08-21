@@ -24,15 +24,13 @@ with lib; let
       inputs.nix-common.nixosModules.channels-to-flakes
       inputs.home-manager.nixosModules.home-manager
       {
-        _module.args = {
-          inherit inputs;
-          inherit (inputs) self;
-          packages = inputs.self.lib.mkPackages inputs args.system;
-        };
         viper.defaultSpec = defaultSpec.name;
         home-manager.sharedModules =
           (args.homeModules or [])
           ++ [
+            {
+              extraSpecialArgs = args.specialArgs;
+            }
             inputs.nix-common.homeModules.channels-to-flakes
           ];
         specialisation = listToAttrs (map (s:

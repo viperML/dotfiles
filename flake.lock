@@ -287,29 +287,6 @@
         "type": "github"
       }
     },
-    "nix-autobahn": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1650132562,
-        "narHash": "sha256-h51KOeqabmr6Ug7Cj8mO/EyMo/0wiTb5R364ovh2dp0=",
-        "owner": "Lassulus",
-        "repo": "nix-autobahn",
-        "rev": "9122088c5d58ca86b26ee4eda9ce6745f2c9555e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lassulus",
-        "repo": "nix-autobahn",
-        "type": "github"
-      }
-    },
     "nix-common": {
       "inputs": {
         "nixpkgs": [
@@ -362,59 +339,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "type": "github"
-      }
-    },
-    "nix-matlab": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1660575790,
-        "narHash": "sha256-zEsFzJ0KEC5e+1CZS8c1+qh7rxURCYCGRDo61HxIYis=",
-        "owner": "doronbehar",
-        "repo": "nix-matlab",
-        "rev": "051cc05423565d71a50013433aa9c0543643d9b8",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "doronbehar",
-        "repo": "nix-matlab",
-        "type": "gitlab"
-      }
-    },
-    "nix-std": {
-      "locked": {
-        "lastModified": 1658944356,
-        "narHash": "sha256-+nBrRSPsDIjrmLfLdiB/a22Gj4bhEF53ubWN0z33NJo=",
-        "owner": "chessai",
-        "repo": "nix-std",
-        "rev": "9500903a19ef2720469578de0e10ce9e66623bdf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chessai",
-        "repo": "nix-std",
-        "type": "github"
-      }
-    },
-    "nixos-hardware": {
-      "locked": {
-        "lastModified": 1660407119,
-        "narHash": "sha256-04lWO0pDbhAXFdL4v2VzzwgxrZ5IefKn+TmZPiPeKxg=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "12620020f76b1b5d2b0e6fbbda831ed4f5fe56e1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
         "type": "github"
       }
     },
@@ -511,13 +435,9 @@
         "nh": "nh",
         "nil": "nil",
         "nix": "nix",
-        "nix-autobahn": "nix-autobahn",
         "nix-common": "nix-common",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
-        "nix-matlab": "nix-matlab",
-        "nix-std": "nix-std",
-        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable"

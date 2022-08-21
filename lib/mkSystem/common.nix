@@ -27,7 +27,7 @@
 
   nix = {
     package = packages.self.nix;
-    extraOptions = builtins.readFile "${self.outPath}/misc/nix.conf";
+    settings = import "${self}/misc/nix-conf.nix";
   };
 
   security.sudo.extraConfig = ''
@@ -38,20 +38,17 @@
     Defaults passprompt="[31m sudo: password for %p@%h, running as %U:[0m "
   '';
 
-  environment.defaultPackages = [];
-  environment.systemPackages = [
+  environment.defaultPackages = [
+    pkgs.xsel
+    pkgs.pciutils
+    pkgs.usbutils
     pkgs.step-cli
-    pkgs.git
+    packages.self.git
   ];
 
-  environment.etc."gitconfig".text = ''
-    [safe]
-        directory = ${config.environment.variables.FLAKE}
-  '';
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs self packages;};
     sharedModules = [
       {
         home.stateVersion = lib.mkForce config.system.stateVersion;

@@ -29,11 +29,6 @@ in {
   hardware.pulseaudio.enable = false;
 
   environment.systemPackages = with pkgs; [
-    # CLI to be found by default in other distros
-    xsel
-    pciutils
-    usbutils
-
     pkgs.gnome.seahorse
     android-tools
     packages.self.nh

@@ -18,18 +18,16 @@
     packages.self.fish
   ];
 
-  environment.defaultPackages = [];
-
   boot = {
     initrd = {
       availableKernelModules = [
         "xhci_pci"
         "ahci"
         "nvme"
-        "usb_storage"
         "usbhid"
-        "sd_mod"
-        "tpm"
+        # "sd_mod"
+        # "usb_storage"
+        # "tpm"
       ];
       kernelModules = [
         "zfs"
@@ -82,7 +80,9 @@
     };
 
     binfmt = {
-      emulatedSystems = ["aarch64-linux"];
+      emulatedSystems = [
+        "aarch64-linux"
+      ];
     };
 
     kernel.sysctl = {

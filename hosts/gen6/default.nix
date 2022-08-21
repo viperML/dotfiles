@@ -12,6 +12,10 @@
     }:
       self.lib.mkSystem {
         inherit system pkgs;
+        specialArgs = {
+          inherit inputs self;
+          packages = self.lib.mkPackages (inputs // {inherit self;}) system;
+        };
         nixosModules = with self.nixosModules; [
           ./configuration.nix
           desktop

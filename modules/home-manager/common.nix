@@ -41,7 +41,10 @@
 
   home.stateVersion = "21.11";
 
-  nix.extraOptions = lib.fileContents "${self}/misc/nix.conf";
+  nix = {
+    package = packages.self.nix;
+    settings = import "${self}/misc/nix-conf.nix";
+  };
 
   xdg.configFile."direnv/direnvrc".text = ''
     source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc

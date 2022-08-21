@@ -41,11 +41,6 @@ in {
       });
   };
 
-  nix = {
-    package = packages.self.nix;
-    extraOptions = lib.fileContents ./nix.conf;
-  };
-
   # xdg.configFile."nix/rc".text = ''
   #   eval "$(${lib.getExe pkgs.direnv} hook bash)"
   #   # ${lib.getExe pkgs.keychain} -q --nogui
