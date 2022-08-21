@@ -38,7 +38,6 @@
             common
             xdg-ninja
             gui
-            vscode
             wezterm
             nh
             flatpak

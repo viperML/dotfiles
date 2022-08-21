@@ -36,6 +36,7 @@ in {
     packages.self.hcl
     vault
     packages.self.deploy-rs
+    pkgs.vscode
   ];
 
   systemd.user.services = {
