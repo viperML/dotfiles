@@ -25,7 +25,6 @@ in {
       packages.home-manager.default
       # pkgs.keychain
       pkgs.step-cli
-      packages.self.nix
     ];
 
     file =

@@ -25,14 +25,8 @@ with lib; let
       inputs.home-manager.nixosModules.home-manager
       {
         viper.defaultSpec = defaultSpec.name;
-        home-manager.sharedModules =
-          (args.homeModules or [])
-          ++ [
-            {
-              extraSpecialArgs = args.specialArgs;
-            }
-            inputs.nix-common.homeModules.channels-to-flakes
-          ];
+        home-manager.sharedModules = (args.homeModules or []) ++ [inputs.nix-common.homeModules.channels-to-flakes];
+        home-manager.extraSpecialArgs = args.specialArgs;
         specialisation = listToAttrs (map (s:
           nameValuePair s.name {
             inheritParentConfig = true;

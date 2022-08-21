@@ -52,7 +52,6 @@
     sharedModules = [
       {
         home.stateVersion = lib.mkForce config.system.stateVersion;
-        nix.package = packages.self.nix;
       }
     ];
   };

@@ -10,6 +10,7 @@
   # Generic programs
   home.packages = with pkgs; [
     # Nix management
+    packages.self.nix
     direnv
     alejandra
     nvfetcher
