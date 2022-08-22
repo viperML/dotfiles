@@ -14,7 +14,6 @@
   };
 
   services.autorandr.enable = true;
-  hardware.nvidia.modesetting.enable = true;
 
   programs.ssh.askPassword = "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
 
@@ -40,14 +39,14 @@
         dolphin
         ark
         # Everything I tried to get thumbnails working
-        
+
         dolphin-plugins
         ffmpegthumbs
         kdegraphics-thumbnailers
         kio
         kio-extras
         #
-        
+
         gwenview
         kwallet
         kwalletmanager

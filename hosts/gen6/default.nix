@@ -35,6 +35,8 @@
           {
             services.pipewire.lowLatency.enable = true;
           }
+
+          hardware-nvidia
         ];
         homeModules = with self.homeModules; [
           ./home.nix
@@ -47,9 +49,12 @@
         specialisations = [
           (self.lib.joinSpecialisations (with self.specialisations; [
             kde
-            nvidia
             ayats
             default
+          ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            awesome
+            ayats
           ]))
         ];
       }
