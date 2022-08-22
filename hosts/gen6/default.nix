@@ -22,7 +22,7 @@
           xdg-ninja
 
           virt
-          docker
+          # docker
           # podman
           printing
           ld
@@ -50,11 +50,12 @@
           (self.lib.joinSpecialisations (with self.specialisations; [
             kde
             ayats
-            default
+            # default
           ]))
           (self.lib.joinSpecialisations (with self.specialisations; [
             awesome
             ayats
+            default
           ]))
         ];
       }

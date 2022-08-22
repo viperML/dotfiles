@@ -46,7 +46,7 @@
               "vscode"
               "corefonts"
               "obsidian"
-              "google-chrome-beta"
+              "google-chrome"
               "osu-lazer-bin"
               "nvidia-x11"
               "nvidia-settings"

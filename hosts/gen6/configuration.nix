@@ -7,6 +7,7 @@
   ...
 }: {
   viper.env = {
+    # FIXME move to module.args
     FLAKE = "/home/ayats/Documents/dotfiles";
     EDITOR = "/run/current-system/sw/bin/nvim";
     SHELL = "/run/current-system/sw/bin/fish";
@@ -34,12 +35,6 @@
         "kvm-intel"
       ];
       supportedFilesystems = ["zfs"];
-      luks.devices."LUKSROOT" = {
-        device = "/dev/disk/by-label/LUKSCONTAINER";
-        crypttabExtraOpts = [
-          "tpm2-device=auto"
-        ];
-      };
       systemd = {
         enable = true;
         emergencyAccess = true;
@@ -91,9 +86,8 @@
   };
 
   services.xserver = {
-    layout = "us";
+    layout = "es";
     xkbOptions = "compose:rctrl";
-    # displayManager.autoLogin.user = "ayats";
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
@@ -116,7 +110,7 @@
   services.zfs = {
     autoScrub = {
       enable = true;
-      pools = ["tank"];
+      pools = ["bigz"];
       interval = "weekly";
     };
   };
@@ -128,7 +122,7 @@
 
   virtualisation.docker.storageDriver = "zfs";
 
-  swapDevices = [{device = "/dev/tank/swap";}];
+  # swapDevices = [{device = "/dev/tank/swap";}];
 
   fileSystems = {
     "/" = {
@@ -141,7 +135,7 @@
       ];
     };
     "/nix" = {
-      device = "tank/system/nix";
+      device = "bigz/nixos/nix";
       fsType = "zfs";
     };
     ${config.boot.loader.efi.efiSysMountPoint} = {
@@ -154,56 +148,63 @@
     };
     ###
     "/var/lib/secrets" = {
-      device = "tank/system/secrets";
+      device = "bigz/nixos/secrets";
       fsType = "zfs";
       neededForBoot = true;
     };
     "/var/log" = {
-      device = "tank/system/log";
+      device = "bigz/nixos/log";
       fsType = "zfs";
       neededForBoot = true;
     };
     "/var/lib/tailscale" = {
-      device = "tank/system/tailscale";
+      device = "bigz/nixos/tailscale";
       fsType = "zfs";
     };
     "/var/lib/systemd" = {
-      device = "tank/system/sd";
-      fsType = "zfs";
-    };
-    "/var/lib/libvirt" = {
-      device = "tank/system/libvirt";
-      fsType = "zfs";
-    };
-    "/var/lib/libvirt/images-clean" = {
-      device = "tank/system/libvirt-clean";
+      device = "bigz/nixos/systemd";
       fsType = "zfs";
     };
     ###
     "/home/ayats/.config" = {
-      device = "tank/ayats/dot-config";
+      device = "bigz/ayats/dot-config";
       fsType = "zfs";
     };
-    "/home/ayats/.local" = {
-      device = "tank/ayats/dot-local";
+    "/home/ayats/.local/share" = {
+      device = "bigz/ayats/dot-local-share";
       fsType = "zfs";
     };
     "/home/ayats/.cache" = {
-      device = "tank/ayats/dot-cache";
+      device = "bigz/ayats/dot-cache";
       fsType = "zfs";
     };
     "/home/ayats/.ssh" = {
-      device = "tank/ayats/dot-ssh";
+      device = "bigz/ayats/dot-ssh";
       fsType = "zfs";
     };
-    "/windows" = {
-      device = "/dev/nvme1n1p3";
-      fsType = "ntfs";
-      options = [
-        "noatime"
-        "ro"
-        "noauto"
-      ];
+    "/home/ayats/Documents" = {
+      device = "bigz/ayats/documents";
+      fsType = "zfs";
+    };
+    "/home/ayats/Pictures" = {
+      device = "bigz/ayats/pictures";
+      fsType = "zfs";
+    };
+    "/home/ayats/Music" = {
+      device = "bigz/ayats/music";
+      fsType = "zfs";
+    };
+    "/home/ayats/Videos" = {
+      device = "bigz/ayats/videos";
+      fsType = "zfs";
+    };
+    "/home/ayats/Downloads" = {
+      device = "bigz/ayats/downloads";
+      fsType = "zfs";
+    };
+    "/home/ayats/Desktop" = {
+      device = "bigz/ayats/desktop";
+      fsType = "zfs";
     };
   };
 
@@ -231,15 +232,16 @@
     };
     datasets = let
       slow-datasets = [
-        "tank/system/secrets"
       ];
       normal-datasets = [
-        "tank/ayats/home"
-        "tank/ayats/documents"
-        "tank/ayats/music"
-        "tank/ayats/pictures"
-        "tank/ayats/videos"
-        "tank/system/secrets"
+        "bigz/ayats/documents"
+        "bigz/ayats/dot-config"
+        "bigz/ayats/dot-ssh"
+        "bigz/ayats/downloads"
+        "bigz/ayats/music"
+        "bigz/ayats/pictures"
+        "bigz/ayats/videos"
+        "bigz/nixos/secrets"
       ];
     in
       (builtins.listToAttrs (
@@ -259,12 +261,12 @@
   };
 
   systemd.services."zfs-rollback-dot-cache" = {
-    description = "Rollback tank/ayats/dot-cache@clean";
+    description = "Rollback dot-cache@clean";
     before = ["multi-user.target"];
     serviceConfig.Type = "oneshot";
     serviceConfig.ExecStart =
       (pkgs.writeShellScript "exec-start" ''
-        ${pkgs.zfs}/bin/zfs rollback tank/ayats/dot-cache@clean
+        ${pkgs.zfs}/bin/zfs rollback ${config.fileSystems."/home/ayats/.cache".device}@clean
         ${pkgs.systemd}/bin/systemd-tmpfiles --create
       '')
       .outPath;
@@ -274,10 +276,6 @@
     timerConfig.Persistent = true;
     wantedBy = ["timers.target"];
   };
-
-  systemd.tmpfiles.rules = [
-    "d /windows 744 root root - -"
-  ];
 
   nix = {
     daemonCPUSchedPolicy = "idle";
@@ -299,7 +297,8 @@
 
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
   services.openssh = {
-    enable = true;
+    # FIXME
+    enable = false;
     # logLevel = "DEBUG1";
     openFirewall = false;
     hostKeys = [];

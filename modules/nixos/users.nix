@@ -61,7 +61,14 @@ in {
         ".cache"
         ".ssh"
         ".local/share/dot-steam"
-        ".local/share/flatpak-var"
+        ".local/share/dot-var"
+
+        "Desktop"
+        "Documents"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Videos"
       ]))
     ++ [
       "L+ ${home}/.steampath - - - - ${home}/.steam/sdk32/steam"
@@ -101,9 +108,9 @@ in {
       device = "${home}/.local/share/dot-steam";
       options = ["bind"];
     };
-    "flatpak-var-${name}" = {
+    "dot-var-${name}" = {
       mountPoint = "${home}/.var";
-      device = "${home}/.local/share/flatpak-var";
+      device = "${home}/.local/share/dot-var";
       options = ["bind"];
     };
   };
