@@ -160,6 +160,9 @@
     "/var/lib/tailscale" = {
       device = "bigz/nixos/tailscale";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/var/lib/systemd" = {
       device = "bigz/nixos/systemd";
@@ -169,42 +172,72 @@
     "/home/ayats/.config" = {
       device = "bigz/ayats/dot-config";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/.local/share" = {
       device = "bigz/ayats/dot-local-share";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/.cache" = {
       device = "bigz/ayats/dot-cache";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/.ssh" = {
       device = "bigz/ayats/dot-ssh";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Documents" = {
       device = "bigz/ayats/documents";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Pictures" = {
       device = "bigz/ayats/pictures";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Music" = {
       device = "bigz/ayats/music";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Videos" = {
       device = "bigz/ayats/videos";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Downloads" = {
       device = "bigz/ayats/downloads";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
     "/home/ayats/Desktop" = {
       device = "bigz/ayats/desktop";
       fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
     };
   };
 

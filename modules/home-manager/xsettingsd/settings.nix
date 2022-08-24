@@ -9,12 +9,18 @@ args: let
   inherit (builtins) typeOf;
 
   xsettingsConfig = {
-    # "Gtk/CursorThemeName" = "";
-    # "Net/IconThemeName" = "";
-    "Gtk/FontName" = "Roboto,  10";
+    "Gtk/CursorThemeName" = "Adwaita";
+    "Net/EnableEventSounds" = false;
+    "Net/EnableInputFeedbackSounds" = false;
+    "Net/IconThemeName" = "Papirus";
+
     "Xft/Antialias" = true;
+    # "Xft/DPI" = 96;
     "Xft/Hinting" = true;
     "Xft/RGBA" = "rgb";
+    "Xft/HintStyle" = "hintfull";
+
+    "Gtk/FontName" = "Roboto,  10";
   };
 
   renderSettings = settings:
@@ -26,7 +32,7 @@ args: let
 
   renderValue = value:
     {
-      int = toString value;
+      int = builtins.toString value;
       bool =
         if value
         then "1"

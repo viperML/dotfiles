@@ -11,7 +11,6 @@
     pkgs.lxrandr
     pkgs.flameshot
     pkgs.xorg.xwininfo
-    packages.self.adw-gtk3
   ];
 
   xdg.configFile."awesome".source = let
@@ -31,10 +30,6 @@
     '';
   in
     result.outPath;
-
-  home.file.".Xresources".text = ''
-    Xft.dpi: 96
-  '';
 
   systemd.user.targets.tray = {
     Unit = {
@@ -113,6 +108,19 @@
     flameshot = mkService {
       Unit.Description = "Screenshot capture";
       Service.ExecStart = lib.getExe pkgs.flameshot;
+    };
+  };
+
+  xdg.configFile."flameshot/flameshot.ini".source = (pkgs.formats.ini {}).generate "flameshot-ini" {
+    General = {
+      buttons = ''@Variant(\0\0\0\x7f\0\0\0\vQList<int>\0\0\0\0\n\0\0\0\x2\0\0\0\x3\0\0\0\x6\0\0\0\x12\0\0\0\xf\0\0\0\b\0\0\0\t\0\0\0\x10\0\0\0\n\0\0\0\v)'';
+      contrastOpacity = "219";
+      copyPathAfterSave = "true";
+      disabledTrayIcon = "true";
+      filenamePattern = "Screenshot_%Y%m%e_%H%M%S";
+      savePath = "${config.home.homeDirectory}/Pictures/Screenshots";
+      showHelp = "false";
+      uiColor = "#ffffff";
     };
   };
 

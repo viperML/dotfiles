@@ -73,8 +73,6 @@
       set -gx STARSHIP_CONFIG ${./starship.toml}
       ${starship}/bin/starship init fish | source
 
-      echo "working" >> /tmp/fish_sourced
-
       set -gx direnv_config_dir ${direnvConfig}
       ${direnv}/bin/direnv hook fish | source
 

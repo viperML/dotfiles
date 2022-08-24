@@ -50,13 +50,32 @@
           (self.lib.joinSpecialisations (with self.specialisations; [
             kde
             ayats
-            # default
-          ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            awesome
-            ayats
             default
           ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   gnome
+          #   ayats
+          # ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   {
+          #     name = "cinnamon";
+          #     nixosModules = [
+          #       (args: {
+          #         services.xserver = {
+          #           enable = true;
+          #           desktopManager.cinnamon = {
+          #             enable = true;
+          #           };
+          #           displayManager.lightdm = {
+          #             enable = true;
+          #           };
+          #         };
+          #       })
+          #     ];
+          #   }
+          #   ayats
+          #   default
+          # ]))
         ];
       }
   );

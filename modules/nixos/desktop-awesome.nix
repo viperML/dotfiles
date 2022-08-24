@@ -17,8 +17,6 @@
 
   programs.ssh.askPassword = "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
 
-  environment.variables.QT_QPA_PLATFORMTHEME = "gnome";
-
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -26,14 +24,20 @@
     ];
   };
 
+  qt5 = {
+    enable = true;
+    style = "adwaita";
+    platformTheme = "gnome";
+  };
+
   environment.systemPackages =
     lib.attrValues
     {
-      inherit
-        (pkgs)
-        qgnomeplatform
-        adwaita-qt
-        ;
+      # inherit
+      #   (pkgs)
+      #   qgnomeplatform
+      #   adwaita-qt
+      #   ;
       inherit
         (pkgs.plasma5Packages)
         dolphin

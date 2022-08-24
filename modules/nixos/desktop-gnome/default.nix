@@ -41,8 +41,8 @@ in {
       enable = true;
       wayland = true;
     };
-    # displayManager.defaultSession = "gnome-xorg";
-    # displayManager.autoLogin.enable = true;
+    displayManager.defaultSession = "gnome-xorg";
+    displayManager.autoLogin.enable = true;
   };
 
   environment.gnome.excludePackages = with pkgs; [
