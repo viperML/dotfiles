@@ -30,11 +30,9 @@
         # "usb_storage"
         # "tpm"
       ];
-      kernelModules = [
+      supportedFilesystems = [
         "zfs"
-        "kvm-intel"
       ];
-      supportedFilesystems = ["zfs"];
       systemd = {
         enable = true;
         emergencyAccess = true;
@@ -48,12 +46,12 @@
       if lib.versionAtLeast compatible.kernel.version target.kernel.version
       then target
       else throw "=> gen6: selected kernel is not compatible with ZFS";
-    kernelModules = ["kvm-intel"];
     kernelParams = [
-      # https://github.com/NixOS/nixpkgs/pull/171680
-      "nohibernate"
     ];
-    supportedFilesystems = ["zfs"];
+
+    supportedFilesystems = [
+      "zfs"
+    ];
 
     zfs = {
       enableUnstable = true;
@@ -73,6 +71,8 @@
       efiSysMountPoint = "/efi";
       canTouchEfiVariables = true;
     };
+
+    loader.timeout = 1;
 
     binfmt = {
       emulatedSystems = [
@@ -372,5 +372,7 @@
   console = {
     font = "ter-v20n";
     packages = [pkgs.terminus_font];
+    useXkbConfig = true;
+    earlySetup = false;
   };
 }

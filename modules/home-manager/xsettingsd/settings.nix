@@ -12,7 +12,7 @@ args: let
     "Gtk/CursorThemeName" = "Adwaita";
     "Net/EnableEventSounds" = false;
     "Net/EnableInputFeedbackSounds" = false;
-    "Net/IconThemeName" = "Papirus";
+    # "Net/IconThemeName" = "Colloid";
 
     "Xft/Antialias" = true;
     # "Xft/DPI" = 96;

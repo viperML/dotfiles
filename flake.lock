@@ -90,6 +90,26 @@
         "type": "github"
       }
     },
+    "guix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1661430671,
+        "narHash": "sha256-4l7BQjOIP45hKo5XGUzL2Exxp7AGh4rxrmlSv5hDGhI=",
+        "owner": "viperML",
+        "repo": "guix-flake",
+        "rev": "4499fedab862b64bdbf29e1885bf41e2104aa00f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "guix-flake",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -428,6 +448,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "guix": "guix",
         "home-manager": "home-manager",
         "home-manager-wsl": "home-manager-wsl",
         "hyprland": "hyprland",

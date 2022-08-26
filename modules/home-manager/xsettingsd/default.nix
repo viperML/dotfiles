@@ -13,48 +13,6 @@
     pkgs.xsettingsd
   ];
 
-  # xdg.configFile."gtk-3.0/settings.ini".source = (pkgs.formats.ini {}).generate "gtk3-settings" {
-  #   Settings = {
-  #     gtk-cursor-theme-name = "Adwaita";
-  #     gtk-enable-event-sounds = "0";
-  #     gtk-icon-theme-name = "Papirus";
-
-  #     gtk-xft-antialias = "1";
-  #     gtk-xft-dpi = "96";
-  #     gtk-xft-hintstyle = "hintfull";
-  #     gtk-xft-hinting = "1";
-  #     gtk-xft-rgba = "rgb";
-  #   };
-  # };
-
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      name = "Adwaita";
-    };
-    font = {
-      name = "Roboto";
-      size = 10;
-    };
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus";
-    };
-    theme = {
-      package = packages.self.adw-gtk3;
-      name = "adw-gtk3-dark";
-    };
-  };
-
-  # qt5 = {
-  #   enable = true;
-  #   platformTheme = "gnome";
-  #   style = {
-  #     name = "adwaita-dark";
-  #     package = pkgs.adwaita-qt;
-  #   };
-  # };
-
   systemd.user = {
     services = {
       xsettingsd = {

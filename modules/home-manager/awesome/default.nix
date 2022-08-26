@@ -145,4 +145,23 @@
       };
     };
   };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Adwaita";
+    };
+    font = {
+      name = "Roboto";
+      size = 10;
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
+    };
+    theme = {
+      package = packages.self.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+  };
 }
