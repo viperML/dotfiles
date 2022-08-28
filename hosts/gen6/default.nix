@@ -22,7 +22,7 @@
           xdg-ninja
 
           virt
-          # docker
+          docker
           # podman
           printing
           ld

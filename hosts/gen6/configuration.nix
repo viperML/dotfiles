@@ -125,7 +125,15 @@
 
   # swapDevices = [{device = "/dev/tank/swap";}];
 
-  fileSystems = {
+  fileSystems = let
+    mkMount = dataset: {
+      device = dataset;
+      fsType = "zfs";
+      options = [
+        "x-systemd.automount"
+      ];
+    };
+  in {
     "/" = {
       fsType = "tmpfs";
       device = "none";
@@ -158,88 +166,23 @@
       fsType = "zfs";
       neededForBoot = true;
     };
-    "/var/lib/tailscale" = {
-      device = "bigz/nixos/tailscale";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
     "/var/lib/systemd" = {
       device = "bigz/nixos/systemd";
       fsType = "zfs";
     };
+    "/var/lib/tailscale" = mkMount "bigz/nixos/tailscale";
+    "/var/lib/docker" = mkMount "bigz/nixos/docker";
     ###
-    "/home/ayats/.config" = {
-      device = "bigz/ayats/dot-config";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/.local/share" = {
-      device = "bigz/ayats/dot-local-share";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/.cache" = {
-      device = "bigz/ayats/dot-cache";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/.ssh" = {
-      device = "bigz/ayats/dot-ssh";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Documents" = {
-      device = "bigz/ayats/documents";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Pictures" = {
-      device = "bigz/ayats/pictures";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Music" = {
-      device = "bigz/ayats/music";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Videos" = {
-      device = "bigz/ayats/videos";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Downloads" = {
-      device = "bigz/ayats/downloads";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
-    "/home/ayats/Desktop" = {
-      device = "bigz/ayats/desktop";
-      fsType = "zfs";
-      options = [
-        "x-systemd.automount"
-      ];
-    };
+    "/home/ayats/.config" = mkMount "bigz/ayats/dot-config";
+    "/home/ayats/.local/share" = mkMount "bigz/ayats/dot-local-share";
+    "/home/ayats/.cache" = mkMount "bigz/ayats/dot-cache";
+    "/home/ayats/.ssh" = mkMount "bigz/ayats/dot-ssh";
+    "/home/ayats/Documents" = mkMount "bigz/ayats/documents";
+    "/home/ayats/Pictures" = mkMount "bigz/ayats/pictures";
+    "/home/ayats/Music" = mkMount "bigz/ayats/music";
+    "/home/ayats/Videos" = mkMount "bigz/ayats/videos";
+    "/home/ayats/Downloads" = mkMount "bigz/ayats/downloads";
+    "/home/ayats/Desktop" = mkMount "bigz/ayats/desktop";
   };
 
   services.sanoid = {
@@ -375,7 +318,6 @@
   programs.gamemode.enable = true;
   programs.steam.enable = true;
   fonts.fontconfig.cache32Bit = true;
-
 
   console = {
     font = "ter-v20n";
