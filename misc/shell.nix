@@ -20,8 +20,9 @@ _: {
           ]))
 
           alejandra
-          stylua
+          config.packages.stylua
           shfmt
+          treefmt
         ];
         shellHook = ''
           venv="$(cd $(dirname $(which python)); cd ..; pwd)"

@@ -3,7 +3,7 @@
     "nix-command"
     "flakes"
   ];
-  
+
   accept-flake-config = true;
 
   extra-substituters = [

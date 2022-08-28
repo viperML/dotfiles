@@ -330,9 +330,7 @@
 
   # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
   services.openssh = {
-    # FIXME
-    enable = false;
-    # logLevel = "DEBUG1";
+    enable = true;
     openFirewall = false;
     hostKeys = [];
     extraConfig = ''

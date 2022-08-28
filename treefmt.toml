@@ -12,6 +12,6 @@ options = ["--line-length", "79"]
 command = "stylua"
 includes = ["*.lua"]
 
-[formatter.sh]
-command = "shfmt"
-includes = ["*.sh"]
+# [formatter.sh]
+# command = "shfmt"
+# includes = ["*.sh"]

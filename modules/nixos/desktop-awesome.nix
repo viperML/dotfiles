@@ -43,14 +43,14 @@
         dolphin
         ark
         # Everything I tried to get thumbnails working
-
+        
         dolphin-plugins
         ffmpegthumbs
         kdegraphics-thumbnailers
         kio
         kio-extras
         #
-
+        
         gwenview
         kwallet
         kwalletmanager
