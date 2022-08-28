@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  self,
   lib,
   packages,
   ...
@@ -328,7 +329,6 @@
     firewall.checkReversePath = "loose";
   };
 
-  # AuthorizedPrincipalsFile /secrets/ssh-certs/principals
   services.openssh = {
     enable = true;
     openFirewall = false;
@@ -341,6 +341,24 @@
     '';
   };
 
+  systemd.services."step-renew" = {
+    description = "Renew SSH certificates with step-ca and SSHPOP";
+    serviceConfig = {
+      ExecStart =
+        (pkgs.stdenvNoCC.mkDerivation {
+          name = "step-renew-exec-start";
+          dontUnpack = true;
+          installPhase = "install -Dm555 ${self}/bin/renew_cert.sh $out";
+        })
+        .outPath;
+    };
+  };
+  systemd.timers."step-renew" = {
+    timerConfig.OnCalendar = "daily";
+    timerConfig.Persistent = true;
+    wantedBy = ["timers.target"];
+  };
+
   services.tailscale.enable = true;
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [22];
   networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [
@@ -350,11 +368,6 @@
     }
   ];
 
-  # security.tpm2 = {
-  #   enable = true;
-  #   abrmd.enable = true;
-  # };
-
   services.fwupd = {
     enable = true;
   };
@@ -363,9 +376,6 @@
   programs.steam.enable = true;
   fonts.fontconfig.cache32Bit = true;
 
-  # virtualisation.containerd = {
-  #   enable = true;
-  # };
 
   console = {
     font = "ter-v20n";
