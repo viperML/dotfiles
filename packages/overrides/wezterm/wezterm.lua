@@ -127,12 +127,13 @@ local tomorrow_night = {
 
 local colors
 
-local current_time = tonumber(os.date "%H%M")
-if current_time < 1800 and current_time > 500 then
-  colors = atom_one_light
-else
-  colors = tomorrow_night
-end
+-- local current_time = tonumber(os.date("%H%M"))
+-- if current_time < 1800 and current_time > 500 then
+-- 	colors = atom_one_light
+-- else
+-- 	colors = tomorrow_night
+-- end
+colors = tomorrow_night
 
 local default_prog
 local set_environment_variables = {}
