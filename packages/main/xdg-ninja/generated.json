@@ -12,10 +12,10 @@
             "name": null,
             "owner": "b3nj5m1n",
             "repo": "xdg-ninja",
-            "rev": "b9bc03ae1fb0cabf14e43904c350a89fd28bf588",
-            "sha256": "sha256-2xMA4r9WFaNoNA6OwSHTlD/hgNgl+OldUQcD1qTKZ9s=",
+            "rev": "49d2919c5b10aa675d5ac969bc048a86380d04e5",
+            "sha256": "sha256-30n0naPncfH3cegYS1JqPaqZL1u/abCQWQNZ5CMtPtw=",
             "type": "github"
         },
-        "version": "b9bc03ae1fb0cabf14e43904c350a89fd28bf588"
+        "version": "49d2919c5b10aa675d5ac969bc048a86380d04e5"
     }
 }
