@@ -12,11 +12,11 @@
             "name": null,
             "owner": "RRethy",
             "repo": "nvim-base16",
-            "rev": "5ca2b50a0c71b631b40dc65430187acb88858b51",
-            "sha256": "sha256-r5xNXQ+ez6E7Vfry78M+LDpqJolIAWYHi38xOJjLSJg=",
+            "rev": "d2a56671ed19fb471acf0c39af261568ea47ee26",
+            "sha256": "sha256-nF7AAP5wSY+AHSn20Vu8+1GwOJatKpP1pPL/b8AHjfA=",
             "type": "github"
         },
-        "version": "5ca2b50a0c71b631b40dc65430187acb88858b51"
+        "version": "d2a56671ed19fb471acf0c39af261568ea47ee26"
     },
     "nvim-transparent": {
         "cargoLocks": null,

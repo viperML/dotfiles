@@ -3,13 +3,13 @@
 {
   nvim-base-16 = {
     pname = "nvim-base-16";
-    version = "5ca2b50a0c71b631b40dc65430187acb88858b51";
+    version = "d2a56671ed19fb471acf0c39af261568ea47ee26";
     src = fetchFromGitHub ({
       owner = "RRethy";
       repo = "nvim-base16";
-      rev = "5ca2b50a0c71b631b40dc65430187acb88858b51";
+      rev = "d2a56671ed19fb471acf0c39af261568ea47ee26";
       fetchSubmodules = false;
-      sha256 = "sha256-r5xNXQ+ez6E7Vfry78M+LDpqJolIAWYHi38xOJjLSJg=";
+      sha256 = "sha256-nF7AAP5wSY+AHSn20Vu8+1GwOJatKpP1pPL/b8AHjfA=";
     });
   };
   nvim-transparent = {
