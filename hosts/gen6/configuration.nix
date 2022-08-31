@@ -10,8 +10,8 @@
   viper.env = {
     # FIXME move to module.args
     FLAKE = "/home/ayats/Documents/dotfiles";
-    EDITOR = "/run/current-system/sw/bin/nvim";
-    SHELL = "/run/current-system/sw/bin/fish";
+    EDITOR = "nvim";
+    SHELL = "fish";
     VAULT_ADDR = "http://kalypso:8200";
     NOMAD_ADDR = "http://sumati:4646";
   };
