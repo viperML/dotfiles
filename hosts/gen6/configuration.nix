@@ -286,6 +286,7 @@
 
   systemd.services."step-renew" = {
     description = "Renew SSH certificates with step-ca and SSHPOP";
+    path = [pkgs.step-cli];
     serviceConfig = {
       ExecStart =
         (pkgs.stdenvNoCC.mkDerivation {
