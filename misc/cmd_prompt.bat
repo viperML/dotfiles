@@ -1,0 +1,1 @@
+setx prompt $E[1;96m$P$S$_$E[1;0m$G$S
