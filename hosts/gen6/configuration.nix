@@ -280,7 +280,7 @@
       TrustedUserCAKeys /var/lib/secrets/certs/ssh_user_key.pub
       HostKey /var/lib/secrets/certs/ssh_host_ecdsa_key
       HostCertificate /var/lib/secrets/certs/ssh_host_ecdsa_key-cert.pub
-      AuthorizedPrincipalsFile /var/lib/secrets/certs/principals/%u
+      AuthorizedPrincipalsFile /var/lib/secrets/principals/%u
     '';
   };
 
