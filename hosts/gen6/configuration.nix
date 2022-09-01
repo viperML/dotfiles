@@ -185,6 +185,12 @@
     "/home/ayats/Desktop" = mkMount "bigz/ayats/desktop";
   };
 
+  swapDevices = [
+    {
+      label = "LINUXSWAP";
+    }
+  ];
+
   services.sanoid = {
     enable = true;
     templates = {
