@@ -58,7 +58,7 @@
 
   time.timeZone = "Europe/Madrid";
 
-  environment.variables = {
+  environment.sessionVariables = {
     LESS = "-RiF --mouse --wheel-lines=3";
   };
 }

@@ -50,6 +50,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
     homeModules = with self.homeModules; [
       hyprland
+      eww
     ];
   };
 

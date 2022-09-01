@@ -39,7 +39,7 @@
     NIX_LD = "$(${pkgs.coreutils}/bin/cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker)";
   };
 in {
-  environment.variables = env;
+  environment.sessionVariables = env;
 
   programs.nix-ld.enable = true;
 

@@ -124,8 +124,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # url = "/home/ayats/Documents/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      url = "github:viperML/Hyprland/nix-wlroots";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts = {
