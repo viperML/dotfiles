@@ -20,6 +20,7 @@
         ./misc/shell.nix
         ./hosts
         ./modules
+        ./misc/flake-parts.nix
       ];
 
       flake = {

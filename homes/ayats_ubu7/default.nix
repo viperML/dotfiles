@@ -5,7 +5,7 @@
   ...
 }: {
   flake.homeConfigurations = {
-    "ayats" = withSystem "x86_64-linux" ({
+    "ayats@ubu7" = withSystem "x86_64-linux" ({
       pkgs,
       system,
       ...
@@ -25,11 +25,7 @@
           common
           xdg-ninja
           inputs.nix-common.homeModules.channels-to-flakes
-          inputs.home-manager-wsl.homeModules.default
-          {wsl.baseDistro = "void";}
         ];
       });
   };
-
-  flake.packages."x86_64-linux".zzz_home_ayats = self.homeConfigurations."ayats".config.home.activationPackage;
 }
