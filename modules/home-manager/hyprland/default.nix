@@ -11,6 +11,7 @@
     pkgs.foot
     pkgs.wofi
     packages.hyprland-contrib.grimblast
+    pkgs.swaybg
   ];
 
   systemd.user.targets.hyprland-session = {
@@ -30,7 +31,7 @@
     # };
     swaybg = {
       Unit.Description = "Wallpaper";
-      Service.ExecStart = "${lib.getExe pkgs.swaybg} -c '#121212'";
+      Service.ExecStart = "${lib.getExe pkgs.swaybg} --image ${config.home.homeDirectory}/Pictures/wallpaper --mode fill";
       Install.WantedBy = ["graphical-session.target"];
     };
   };

@@ -1,8 +1,10 @@
+(include "./modules.yuck")
+
 (defwidget left []
   (box
     :space-evenly false
     :halign "start"
-    ; (launcher)
+    (launcher)
     ; (workspaces)
   ))
 
@@ -19,7 +21,7 @@
     ; (mem)
     ; (bat)
     ; (sep)
-    ; (clock_module)
+    (clock_module)
   )
 )
 
