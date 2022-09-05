@@ -4,6 +4,7 @@
   lib,
   self,
   packages,
+  flakePath,
   ...
 }:
 # https://old.reddit.com/r/VFIO/comments/p42x2k/single_gpu_etclibvirthooksqemu_hook_is_never/
@@ -31,7 +32,7 @@ let
   # $ grep Hugepagesize /proc/meminfo
   vlmcsd-port = 1688;
 
-  myPath = config.environment.variables.FLAKE or self.outPath;
+  myPath = flakePath;
 
   ## Scripts
   lsiommu = pkgs.writeShellScriptBin "lsiommu" ''

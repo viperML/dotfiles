@@ -1,6 +1,7 @@
 {
   packages,
   config,
+  flakePath,
   ...
 }: let
   pkg = packages.self.picom;
@@ -15,5 +16,5 @@ in {
 
   home.packages = [pkg];
 
-  xdg.configFile."picom/picom.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home-manager/picom/picom.conf";
+  xdg.configFile."picom/picom.conf".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/home-manager/picom/picom.conf";
 }

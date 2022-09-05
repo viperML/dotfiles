@@ -4,12 +4,13 @@
   lib,
   self,
   config,
+  flakePath,
   ...
 }: let
   username = "ayats";
   homeDirectory = "/home/${username}";
   env = {
-    FLAKE = "${homeDirectory}/Projects/dotfiles";
+    FLAKE = flakePath;
     EDITOR = "${homeDirectory}/.nix-profile/bin/nvim";
     SHELL = "${homeDirectory}/.nix-profile/bin/fish";
     VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";

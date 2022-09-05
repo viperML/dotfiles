@@ -4,6 +4,7 @@
   self,
   pkgs,
   packages,
+  flakePath,
   ...
 }: {
   home.packages = [
@@ -21,7 +22,7 @@
       echo "awesomewm: linking self"
       for f in ${self}/modules/home-manager/awesome/*; do
         n=$(basename $f)
-        ln -sfvT ${config.home.sessionVariables.FLAKE}/modules/home-manager/awesome/$n $out/$n
+        ln -sfvT ${flakePath}/modules/home-manager/awesome/$n $out/$n
       done
 
       echo "awesomewm: linking modules"

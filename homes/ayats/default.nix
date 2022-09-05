@@ -2,6 +2,7 @@
   self,
   inputs,
   withSystem,
+  _inputs,
   ...
 }: {
   flake.homeConfigurations = {
@@ -13,12 +14,10 @@
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit self inputs;
-          packages = self.lib.mkPackages (inputs
-            // {
-              inherit self;
-            })
-          system;
+          inherit self;
+          inputs = _inputs;
+          packages = self.lib.mkPackages _inputs system;
+          flakePath = "/home/ayats/Projects/dotfiles";
         };
         modules = with self.homeModules; [
           ./home.nix

@@ -2,6 +2,7 @@
   withSystem,
   self,
   inputs,
+  _inputs,
   ...
 }: {
   flake.nixosConfigurations."gen6" = withSystem "x86_64-linux" (
@@ -13,8 +14,10 @@
       self.lib.mkSystem {
         inherit system pkgs;
         specialArgs = {
-          inherit inputs self;
-          packages = self.lib.mkPackages (inputs // {inherit self;}) system;
+          inherit self;
+          inputs = _inputs;
+          packages = self.lib.mkPackages _inputs system;
+          flakePath = "/home/ayats/Documents/dotfiles";
         };
         nixosModules = with self.nixosModules; [
           ./configuration.nix

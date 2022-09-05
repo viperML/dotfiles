@@ -4,9 +4,6 @@ import requests
 from types import SimpleNamespace
 import datetime
 
-# TODO ratelimited what tf
-# TODO multithread
-
 with open("flake.lock", "r") as f:
     lock = json.load(f)["nodes"]
 

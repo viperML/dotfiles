@@ -38,6 +38,7 @@ in {
     packages.self.deploy-rs
     pkgs.vscode
     packages.self.wezterm
+    pkgs.polymc
   ];
 
   systemd.user.services = {

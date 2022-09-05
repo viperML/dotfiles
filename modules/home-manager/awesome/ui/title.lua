@@ -31,7 +31,6 @@ client.connect_signal("request::titlebars", function(c)
           spacing = beautiful.titlebar_icons_margin_internal,
         },
         widget = wibox.container.margin,
-        -- TODO move to beautiful
         top = beautiful.titlebar_icons_margin_vertical,
         bottom = beautiful.titlebar_icons_margin_vertical,
         left = beautiful.titlebar_icons_margin_horizontal,

@@ -5,11 +5,11 @@
   self,
   lib,
   packages,
+  flakePath,
   ...
 }: {
   viper.env = {
-    # FIXME move to module.args
-    FLAKE = "/home/ayats/Documents/dotfiles";
+    FLAKE = flakePath;
     EDITOR = "nvim";
     SHELL = "fish";
     VAULT_ADDR = "http://kalypso:8200";

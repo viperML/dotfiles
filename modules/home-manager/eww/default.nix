@@ -1,10 +1,11 @@
 {
   pkgs,
   config,
+  flakePath,
   ...
 }: let
   eww = pkgs.eww-wayland;
-  configPath = "${config.home.sessionVariables.FLAKE}/modules/home-manager/eww";
+  configPath = "${flakePath}/modules/home-manager/eww";
 in {
   home.packages = [eww];
 
