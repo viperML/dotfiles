@@ -8,8 +8,8 @@
   ...
 }: {
   system.stateVersion = "21.11";
-  system.nixos.versionSuffix = lib.mkForce ".${lib.substring 0 8 (self.lastModifiedDate or self.lastModified or "19700101")}.${self.shortRev or "dirty"}";
-  system.nixos.revision = lib.mkForce self.rev or null;
+  # system.nixos.versionSuffix = lib.mkForce ".${lib.substring 0 8 (self.lastModifiedDate or self.lastModified or "19700101")}.${self.shortRev or "dirty"}";
+  # system.nixos.revision = lib.mkForce self.rev or null;
 
   documentation = {
     # Whether to install documentation of packages from environment.systemPackages into the generated system path. See "Multiple-output packages" chapter in the nixpkgs manual for more info.
