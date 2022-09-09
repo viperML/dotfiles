@@ -1,7 +1,5 @@
-#!/usr/bin/env -S nix shell .#python3 .#nvfetcher .#git --command python3
 import logging
 import os
-import sys
 from pathlib import Path
 import subprocess
 
@@ -9,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 try:
-    rootdir = Path(sys.argv[1])
+    rootdir = Path(os.getcwd())
 except IndexError:
     logging.warning("No flake passed as input")
     rootdir = Path(os.getenv("FLAKE"))
