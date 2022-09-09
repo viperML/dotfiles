@@ -59,7 +59,7 @@ class FlakeOutput:
             self.build = False
             self.info("cachix_needed: __nocachix SET")
         except subprocess.CalledProcessError:
-            self.info("cachix_needed: __nocachix not NOT SET")
+            self.info("cachix_needed: __nocachix NOT SET")
 
     async def check_online(self) -> None:
         cmd = f"nix eval --raw {FLAKE_PATH}#{self.name}.outPath"
