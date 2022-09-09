@@ -29,7 +29,7 @@ jobs:
       uses: ./.github/actions/install-nix
     - id: gen_packages
       name: Generate package matrix
-      run: nix shell .#python3Minimal --command python3 ./bin/generate_matrix.py
+      run: nix run .#generate_matrix
 
   build_flake:
     runs-on: ubuntu-latest

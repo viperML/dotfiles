@@ -17,7 +17,7 @@ if not NIX_SYSTEM:
     NIX_SYSTEM = "x86_64-linux"
 info(f"{NIX_SYSTEM=}")
 
-FLAKE_PATH = (Path(__file__) / ".." / "..").resolve()
+FLAKE_PATH = Path(os.getcwd()).resolve()
 info(f"{FLAKE_PATH=}")
 
 
@@ -99,8 +99,12 @@ outputs = [FlakeOutput(o) for o in flake["packages"][NIX_SYSTEM]]
 async def run_group():
     await asyncio.gather(*[o.check() for o in outputs])
 
+
 asyncio.run(run_group())
 
-print(
-    f"::set-output name=packages::{[f'packages.{NIX_SYSTEM}.{o.name}' for o in outputs if o.build]}"
-)
+
+final_output_names = [
+    f"packages.{NIX_SYSTEM}.{o.name}" for o in outputs if o.build
+]
+
+print(f"::set-output name=packages::{final_output_names}")
