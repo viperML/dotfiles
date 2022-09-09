@@ -92,8 +92,8 @@ class FlakeOutput:
         pass
 
 
-# outputs = [FlakeOutput(o) for o in flake["packages"][NIX_SYSTEM]]
-outputs = [FlakeOutput(o) for o in ["adw-gtk3", "awesome", "zzz_home_ayats"]]
+outputs = [FlakeOutput(o) for o in flake["packages"][NIX_SYSTEM]]
+# outputs = [FlakeOutput(o) for o in ["adw-gtk3", "awesome", "zzz_home_ayats"]]
 
 
 async def run_group():
