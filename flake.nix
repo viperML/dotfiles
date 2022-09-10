@@ -21,6 +21,7 @@
         ./misc/shell.nix
         ./hosts
         ./modules
+        ./bin
       ];
 
       flake = {
@@ -63,8 +64,6 @@
           deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
           iosevka = inputs'.iosevka.packages.default;
           nix = inputs'.nix.packages.nix;
-
-          zzz_devshell = config.devShells.default;
         };
       };
 

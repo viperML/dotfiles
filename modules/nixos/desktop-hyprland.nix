@@ -39,7 +39,6 @@
         dolphin
         ark
         gwenview
-
         dolphin-plugins
         ffmpegthumbs
         kdegraphics-thumbnailers

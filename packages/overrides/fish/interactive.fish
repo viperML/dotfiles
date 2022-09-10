@@ -102,3 +102,7 @@ end
 # function rw
 #     readlink -f (which $argv)
 # end
+
+function ssh
+    SHELL=/bin/sh env ssh $argv
+end

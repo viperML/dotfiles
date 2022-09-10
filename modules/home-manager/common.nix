@@ -24,10 +24,10 @@
     dogdns
     fd
     htop
+    libarchive
     # jless
     jq
     ripgrep
-    # tealdeer
     bubblewrap
     wormhole-william
     packages.self.neofetch
