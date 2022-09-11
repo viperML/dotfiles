@@ -2,5 +2,4 @@
 
 DIR="$(cd $(dirname $BASH_SOURCE); pwd)"
 
-
-find $DIR -exec sed -i "s#PNAME#$1" {} \;
+find $DIR -type f -exec sed -i "s#PNAME#$1#" {} \;
