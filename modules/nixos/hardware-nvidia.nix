@@ -22,6 +22,7 @@
       if lib.versionAtLeast nv.stable.version nv.beta.version
       then nv.stable
       else nv.beta;
+    nvidia.powerManagement.enable = true;
     opengl = {
       enable = true;
       driSupport = true;
@@ -38,4 +39,10 @@
       ];
     };
   };
+
+  services.xserver.screenSection = ''
+    Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
+  '';
 }
