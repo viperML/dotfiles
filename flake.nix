@@ -39,25 +39,6 @@
         config,
         ...
       }: {
-        _module.args.pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfreePredicate = drv:
-            builtins.elem (nixpkgs.lib.getName drv) [
-              "steam"
-              "steam-original"
-              "vscode"
-              "corefonts"
-              "obsidian"
-              "google-chrome"
-              "osu-lazer-bin"
-              "nvidia-x11"
-              "nvidia-settings"
-              "nvidia-persistenced"
-            ];
-        };
-
-        legacyPackages = pkgs;
-
         packages = {
           nh = inputs'.nh.packages.default;
           nil = inputs'.nil.packages.nil;

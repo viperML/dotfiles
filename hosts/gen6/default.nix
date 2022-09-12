@@ -55,29 +55,17 @@
             ayats
             default
           ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            hyprland
-            ayats
-          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   {
-          #     name = "cinnamon";
-          #     nixosModules = [
-          #       (args: {
-          #         services.xserver = {
-          #           enable = true;
-          #           desktopManager.cinnamon = {
-          #             enable = true;
-          #           };
-          #           displayManager.lightdm = {
-          #             enable = true;
-          #           };
-          #         };
-          #       })
-          #     ];
-          #   }
+          #   hyprland
           #   ayats
-          #   default
+          # ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   gnome
+          #   soch
+          # ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   sway
+          #   soch
           # ]))
         ];
       }

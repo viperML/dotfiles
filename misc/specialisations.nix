@@ -31,6 +31,14 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
   };
 
+  "cinnamon" = {
+    nixosModules = with self.nixosModules; [
+      desktop-cinnamon
+    ];
+    homeModules = with self.homeModules; [
+    ];
+  };
+
   "awesome" = {
     nixosModules = with self.nixosModules; [
       desktop-awesome
@@ -57,10 +65,6 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
 
   "nvidia" = {
     nixosModules = [self.nixosModules.hardware-nvidia];
-  };
-
-  "nvidia-open" = {
-    nixosModules = [self.nixosModules.hardware-nvidia-open];
   };
 
   "nouveau" = {

@@ -14,11 +14,6 @@
     syncthing-indicator
     caffeine
     just-perfection
-    #
-    pop-shell
-    forge
-    gtile
-    paperwm
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);
@@ -39,7 +34,7 @@ in {
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
-      wayland = true;
+      wayland = false;
     };
     displayManager.defaultSession = "gnome-xorg";
     displayManager.autoLogin.enable = true;
@@ -69,6 +64,4 @@ in {
       plasma5Packages.gwenview
     ]
     ++ my-patched-extensions;
-
-  programs.xwayland.enable = true;
 }

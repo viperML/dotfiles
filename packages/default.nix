@@ -50,11 +50,33 @@ in {
     };
   };
 
-  perSystem = {pkgs, ...}: let
+  flake.overlays.wlroots-nvidia = final: prev: {
+    wlroots = prev.wlroots.overrideAttrs (old: {
+      pname = "wlroots-nvidia";
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+      '';
+    });
+  };
+
+  perSystem = {
+    pkgs,
+    system,
+    config,
+    ...
+  }: let
     w = wrapperFor pkgs;
   in {
-    legacyPackages = {
+    _module.args.pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [
+        self.overlays.wlroots-nvidia
+      ];
     };
+
+    legacyPackages = pkgs;
+
     packages = {
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
