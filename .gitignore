@@ -1,6 +1,6 @@
 .idea
 .directory
-.vscode
+# ./.vscode/**
 result
 .direnv
 *.qcow2
