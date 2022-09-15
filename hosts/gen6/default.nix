@@ -55,10 +55,10 @@
             ayats
             default
           ]))
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   hyprland
-          #   ayats
-          # ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            hyprland
+            ayats
+          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   gnome
           #   soch
