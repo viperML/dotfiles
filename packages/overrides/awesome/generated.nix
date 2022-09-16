@@ -3,13 +3,13 @@
 {
   awesome = {
     pname = "awesome";
-    version = "f3cf88593c15a233092972c997528297e546f325";
+    version = "bde785ee64f91887cfe669f9db0dd8d9e90d32fc";
     src = fetchFromGitHub ({
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "f3cf88593c15a233092972c997528297e546f325";
+      rev = "bde785ee64f91887cfe669f9db0dd8d9e90d32fc";
       fetchSubmodules = false;
-      sha256 = "sha256-U/+aLp4fHUTULk+EqP2vtzeVD5FDcUPH53owQ835G7k=";
+      sha256 = "sha256-aKXdZ/F7drzk5mePI+ViHcBvDzAmC8Xp/9Kro9reFbI=";
     });
   };
 }
