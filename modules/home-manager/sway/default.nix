@@ -34,7 +34,7 @@ args @ {
         kio
         kio-extras
         #
-        
+
         gwenview
         ;
     };

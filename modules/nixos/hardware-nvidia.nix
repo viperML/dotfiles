@@ -9,6 +9,9 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
+    # https://forums.developer.nvidia.com/t/the-situation-on-kde-kwin-plasma-performance/57811/35
+    KWIN_TRIPLE_BUFFER = "1";
+    __GL_MaxFramesAllowed = "1";
   };
 
   hardware = {

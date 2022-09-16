@@ -31,6 +31,23 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
   };
 
+  "kde-wayland" = {
+    nixosModules = with self.nixosModules; [
+      desktop-kde
+      (args: {
+        environment.sessionVariables.NIXOS_OZONE_WL = "1";
+        services.xserver.displayManager.defaultSession = args.lib.mkForce "plasmawayland";
+        environment.systemPackages = [
+          args.packages.self.foot
+        ];
+      })
+    ];
+    homeModules = with self.homeModules; [
+      kde
+      xsettingsd
+    ];
+  };
+
   "cinnamon" = {
     nixosModules = with self.nixosModules; [
       desktop-cinnamon

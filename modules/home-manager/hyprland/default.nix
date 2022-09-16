@@ -9,7 +9,7 @@
   xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/home-manager/hyprland/hyprland.conf";
 
   home.packages = [
-    pkgs.foot
+    packages.self.foot
     pkgs.wofi
     packages.hyprland-contrib.grimblast
     pkgs.swaybg
