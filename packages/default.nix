@@ -24,32 +24,6 @@
   in
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
-  flake.packages."x86_64-linux" = let
-    pkgs = self.legacyPackages."x86_64-linux";
-    w = wrapperFor pkgs;
-  in {
-    nix-index = w pkgs.callPackage ./overrides/nix-index {
-      database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
-      databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
-    };
-
-    fish = w pkgs.callPackage ./overrides/fish {
-      inherit
-        (self.packages."x86_64-linux")
-        nix-index
-        any-nix-shell
-        ;
-    };
-    fish-debug = self.packages."x86_64-linux".fish.override {debug = true;};
-
-    zsh = w pkgs.callPackage ./overrides/zsh {
-      inherit
-        (self.packages."x86_64-linux")
-        nix-index
-        ;
-    };
-  };
-
   flake.overlays.wlroots-nvidia = final: prev: {
     wlroots = prev.wlroots.overrideAttrs (old: {
       pname = "wlroots-nvidia";
@@ -108,6 +82,19 @@ in {
       san-francisco = w pkgs.callPackage ./fonts/san-francisco {};
 
       # Overrides
+      nix-index = w pkgs.callPackage ./overrides/nix-index {
+        # TODO it should build under aarch64
+        database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
+        databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
+      };
+      fish = w pkgs.callPackage ./overrides/fish {
+        inherit (config.packages) nix-index any-nix-shell;
+      };
+      fish-debug = config.packages.fish.override {debug = true;};
+      zsh = w pkgs.callPackage ./overrides/zsh {
+        inherit (config.packages) nix-index;
+      };
+      #
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
       awesome = w pkgs.callPackage ./overrides/awesome {};
       neofetch = w pkgs.callPackage ./overrides/neofetch {};
