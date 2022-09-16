@@ -1,4 +1,4 @@
-_: {
+{inputs, ...}: {
   perSystem = {pkgs, ...}: {
     packages = {
       generate_matrix = pkgs.writers.writePython3Bin "generate_matrix" {
@@ -18,7 +18,8 @@ _: {
               lib.makeBinPath [
                 git
                 nvfetcher
-              ]}
+              ]} \
+              --set NIX_PATH 'nixpkgs=${inputs.nixpkgs}'
           '';
         };
     };
