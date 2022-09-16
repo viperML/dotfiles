@@ -149,7 +149,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   default_prog = { "wsl.exe", "-d", "Voidnix", "bash", "--login", "-c", "/home/ayats/.nix-profile/bin/fish" }
   enable_tab_bar = true
 else
-  default_prog = { os.getenv "SHELL" }
+  default_prog = { "fish" }
   enable_tab_bar = false
 end
 

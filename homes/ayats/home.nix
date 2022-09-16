@@ -26,5 +26,4 @@ in {
       packages.home-manager.default
     ];
   };
-
 }

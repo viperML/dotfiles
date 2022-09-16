@@ -8,28 +8,28 @@
   ...
 }: {
   # Generic programs
-  home.packages = with pkgs; [
+  home.packages = [
     # Nix management
     packages.self.nix
-    direnv
-    alejandra
-    nvfetcher
+    pkgs.direnv
+    pkgs.alejandra
+    pkgs.nvfetcher
 
     # Editor support
     packages.self.nil
 
     # Misc utils
-    file
-    lsof
-    dogdns
-    fd
-    htop
-    libarchive
-    # jless
-    jq
-    ripgrep
-    bubblewrap
-    wormhole-william
+    pkgs.file
+    pkgs.lsof
+    pkgs.dogdns
+    pkgs.fd
+    pkgs.htop
+    pkgs.libarchive
+    pkgs.jq
+    pkgs.ripgrep
+    pkgs.bubblewrap
+    pkgs.wormhole-william
+
     packages.self.neofetch
     packages.self.fish
     packages.self.neovim

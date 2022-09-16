@@ -19,7 +19,6 @@
       systems = nixpkgs.lib.systems.flakeExposed;
 
       flake.overlays.default = final: prev: {
-
         PNAME = final.callPackage ./package.nix {};
 
         PNAME-dev =
