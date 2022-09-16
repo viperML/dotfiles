@@ -3,13 +3,13 @@
 {
   sierrabreezeenhanced = {
     pname = "sierrabreezeenhanced";
-    version = "e32e43ed79a3ca60e0943a9db4d57757baf47b03";
+    version = "fb8e1652f8058956610d6783deb5d4ab6ba73cb4";
     src = fetchFromGitHub ({
       owner = "kupiqu";
       repo = "SierraBreezeEnhanced";
-      rev = "e32e43ed79a3ca60e0943a9db4d57757baf47b03";
+      rev = "fb8e1652f8058956610d6783deb5d4ab6ba73cb4";
       fetchSubmodules = false;
-      sha256 = "sha256-G1Ra7ld34AMPLZM0+3iEJHRFRMHVewZKTTXfmiu7PAk=";
+      sha256 = "sha256-x3OTLH8gcWrqpFGQPZHwvyPFwLhEGeHhU4cRqvtPupQ=";
     });
   };
 }

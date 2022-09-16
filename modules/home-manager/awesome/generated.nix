@@ -3,13 +3,13 @@
 {
   awesome-wm-widgets = {
     pname = "awesome-wm-widgets";
-    version = "5358c40a029252c1bfcabb4132e05621934a2cf6";
+    version = "3bb3d56c26ac3500aab33381af0cccebf6aaa05c";
     src = fetchFromGitHub ({
       owner = "streetturtle";
       repo = "awesome-wm-widgets";
-      rev = "5358c40a029252c1bfcabb4132e05621934a2cf6";
+      rev = "3bb3d56c26ac3500aab33381af0cccebf6aaa05c";
       fetchSubmodules = false;
-      sha256 = "sha256-3pTAErLSrN8sDc/45fNxNqZdL0td+1rn3C9SOPgafSk=";
+      sha256 = "sha256-zXAiEeAJibdmF5lpSJc7zZrgUJP/+l/dKcBR1HdUf9k=";
     });
   };
   bling = {
