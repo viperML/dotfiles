@@ -146,7 +146,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- set_environment_variables["DIRCMD"] = "/d"
   -- default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
 
-  default_prog = { "wsl.exe", "-d", "Voidnix", "bash", "--login", "-c", "/home/ayats/.nix-profile/bin/fish" }
+  default_prog = { "wsl.exe", "-d", "micronix", "bash", "--login", "-c", "/home/ayats/.nix-profile/bin/fish" }
   enable_tab_bar = true
 else
   default_prog = { "fish" }
