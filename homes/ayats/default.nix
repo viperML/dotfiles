@@ -40,6 +40,14 @@ in {
           {wsl.baseDistro = "void";}
         ];
       };
+      "ayats@DESKTOP-M5NKMGG" = mkHome "x86_64-linux" {
+        extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
+        modules = [
+          ./extra-viperSL4.nix
+          inputs.home-manager-wsl.homeModules.default
+          {wsl.baseDistro = "ubuntu";}
+        ];
+      };
       "ayats@chandra" = mkHome "aarch64-linux" {
         extraSpecialArgs.flakePath = "/home/ayats/dotfiles";
         modules = [
