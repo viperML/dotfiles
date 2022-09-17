@@ -461,7 +461,8 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "vscode-server": "vscode-server"
       }
     },
     "rust-overlay": {
@@ -501,6 +502,27 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vscode-server": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1663402851,
+        "narHash": "sha256-GW7XLRpggePVoEEu20hjyh8assIIVYYx1yBhD79tz10=",
+        "owner": "viperML",
+        "repo": "nixos-vscode-server",
+        "rev": "e198ccf0355b7a0e10d9b3f6285219f6d6161b18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "ref": "custom-path",
+        "repo": "nixos-vscode-server",
         "type": "github"
       }
     },

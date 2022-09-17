@@ -125,5 +125,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    vscode-server = {
+      url = "github:viperML/nixos-vscode-server/custom-path";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

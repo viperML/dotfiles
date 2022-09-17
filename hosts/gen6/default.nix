@@ -29,6 +29,13 @@
           # podman
           printing
           ld
+          inputs.vscode-server.nixosModules.default
+          {
+            services.vscode-server = {
+              enable = true;
+              path = "~/.local/share/code-server/.vscode-server";
+            };
+          }
           flatpak
 
           ./nspawn.nix
