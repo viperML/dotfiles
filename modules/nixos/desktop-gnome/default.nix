@@ -14,6 +14,7 @@
     syncthing-indicator
     caffeine
     just-perfection
+    tiling-assistant
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);
@@ -34,10 +35,14 @@ in {
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
-      wayland = false;
+      wayland = true;
     };
-    displayManager.defaultSession = "gnome-xorg";
+    # displayManager.defaultSession = "gnome-xorg";
     displayManager.autoLogin.enable = true;
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 
   environment.gnome.excludePackages = with pkgs; [

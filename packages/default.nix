@@ -25,14 +25,14 @@
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
   flake.overlays.wlroots-nvidia = final: prev: {
-    wlroots = prev.wlroots.overrideAttrs (old: {
-      pname = "wlroots-nvidia";
-      postPatch =
-        (old.postPatch or "")
-        + ''
-          substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-        '';
-    });
+    # wlroots = prev.wlroots.overrideAttrs (old: {
+    #   pname = "wlroots-nvidia";
+    #   postPatch =
+    #     (old.postPatch or "")
+    #     + ''
+    #       substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+    #     '';
+    # });
   };
 
   perSystem = {

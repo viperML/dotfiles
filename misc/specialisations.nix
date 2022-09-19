@@ -18,6 +18,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
       desktop-gnome
     ];
     homeModules = with self.homeModules; [
+      gnome
     ];
   };
 

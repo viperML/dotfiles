@@ -12,6 +12,7 @@
     # https://forums.developer.nvidia.com/t/the-situation-on-kde-kwin-plasma-performance/57811/35
     KWIN_TRIPLE_BUFFER = "1";
     __GL_MaxFramesAllowed = "1";
+    WLR_RENDERER = "vulkan"; # only affects sway
   };
 
   hardware = {
