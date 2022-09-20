@@ -16,7 +16,6 @@ in {
     packages.self.neofetch
     mpv
     qbittorrent
-    packages.self.obsidian
     ffmpeg-full
     filelight
     (self.libFor.${system}.addFlags pkgs.google-chrome [
@@ -32,12 +31,12 @@ in {
     ])
     mailspring
     (inputs.nix-gaming.overlays.default null pkgs).osu-lazer-bin
-    krita
     vault
     packages.self.deploy-rs
     pkgs.vscode
     packages.self.wezterm
     pkgs.polymc
+    pkgs.firefox
   ];
 
   systemd.user.services = {
@@ -45,9 +44,9 @@ in {
       Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
       Unit.Description = "Tailscale indicator for system tray";
     };
-    "mailspring" = mkTrayService {
-      Service.ExecStart = "/usr/bin/env mailspring --background";
-      Unit.Description = "Mail client";
-    };
+    # "mailspring" = mkTrayService {
+    #   Service.ExecStart = "/usr/bin/env mailspring --background";
+    #   Unit.Description = "Mail client";
+    # };
   };
 }

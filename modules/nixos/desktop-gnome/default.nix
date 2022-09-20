@@ -43,6 +43,8 @@ in {
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -66,7 +68,7 @@ in {
       gnome.gnome-tweaks
       gnome.gnome-shell-extensions
       gnome.dconf-editor
-      plasma5Packages.gwenview
+      libsForQt5.qtwayland
     ]
     ++ my-patched-extensions;
 }

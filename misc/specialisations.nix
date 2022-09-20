@@ -36,7 +36,10 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     nixosModules = with self.nixosModules; [
       desktop-kde
       (args: {
-        environment.sessionVariables.NIXOS_OZONE_WL = "1";
+        environment.sessionVariables = {
+          NIXOS_OZONE_WL = "1";
+          MOZ_ENABLE_WAYLAND = "1";
+        };
         services.xserver.displayManager.defaultSession = args.lib.mkForce "plasmawayland";
         environment.systemPackages = [
           args.packages.self.foot

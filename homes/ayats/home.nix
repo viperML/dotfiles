@@ -11,7 +11,7 @@
   homeDirectory = "/home/${username}";
   env = {
     FLAKE = flakePath;
-    EDITOR = "${homeDirectory}/.nix-profile/bin/nvim";
+    EDITOR = "nvim";
     # SHELL = "${homeDirectory}/.nix-profile/bin/fish";
     VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
     NOMAD_ADDR = "http://sumati.ayatsfer.gmail.com.beta.tailscale.net:4646";

@@ -175,7 +175,7 @@ return {
     bottom = padding - 5,
   },
   colors = colors,
-  enable_wayland = false,
+  enable_wayland = true,
   window_close_confirmation = "NeverPrompt",
   check_for_updates = false,
   default_cursor_style = "SteadyBar",

@@ -9,10 +9,6 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
-    # https://forums.developer.nvidia.com/t/the-situation-on-kde-kwin-plasma-performance/57811/35
-    KWIN_TRIPLE_BUFFER = "1";
-    __GL_MaxFramesAllowed = "1";
-    WLR_RENDERER = "vulkan"; # only affects sway
   };
 
   hardware = {
@@ -42,8 +38,16 @@
   };
 
   services.xserver.screenSection = ''
-    Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
+    Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On,AllowGSYNCCompatible=On}"
     Option         "AllowIndirectGLXProtocol" "off"
     Option         "TripleBuffer" "on"
+  '';
+
+  services.xserver.extraConfig = ''
+    Section "Device"
+      Identifier     "Device0"
+      Driver         "nvidia"
+      Option         "TripleBuffer"  "On"
+    EndSection
   '';
 }

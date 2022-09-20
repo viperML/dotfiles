@@ -27,12 +27,12 @@
   services.syncthing = {
     enable = true;
   };
-  systemd.user.services."syncthingtray" = {
-    Install.WantedBy = ["tray.target"];
-    Service = {ExecStart = "${pkgs.syncthingtray}/bin/syncthingtray";};
-    Unit = {
-      Description = "syncthingtray";
-      After = ["tray.target"];
-    };
-  };
+  # systemd.user.services."syncthingtray" = {
+  #   Install.WantedBy = ["tray.target"];
+  #   Service = {ExecStart = "${pkgs.syncthingtray}/bin/syncthingtray";};
+  #   Unit = {
+  #     Description = "syncthingtray";
+  #     After = ["tray.target"];
+  #   };
+  # };
 }

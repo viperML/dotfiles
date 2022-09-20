@@ -57,7 +57,7 @@ in {
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
 
-    services."gc-generations" = {
+    services."nix-gc-generations" = {
       serviceConfig.ExecStart = (pkgs.writers.writePython3 "gc_generations" {} (builtins.readFile "${self}/bin/gc_generations.py")).outPath;
       environment = {
         ESP = config.boot.loader.efi.efiSysMountPoint;

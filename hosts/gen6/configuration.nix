@@ -11,7 +11,7 @@
   viper.env = {
     FLAKE = flakePath;
     EDITOR = "nvim";
-    SHELL = "fish";
+    # SHELL = "fish";
     VAULT_ADDR = "http://kalypso:8200";
     NOMAD_ADDR = "http://sumati:4646";
   };

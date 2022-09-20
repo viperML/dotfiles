@@ -38,8 +38,6 @@
           }
           flatpak
 
-          ./nspawn.nix
-
           ./fix-bluetooth.nix
           inputs.nix-gaming.nixosModules.pipewireLowLatency
           {
@@ -60,6 +58,7 @@
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   kde
           #   ayats
+          #   default
           # ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   kde-wayland
