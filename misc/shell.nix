@@ -19,7 +19,6 @@ _: {
             p.requests
           ]))
 
-          alejandra
           config.packages.stylua
           shfmt
           treefmt
