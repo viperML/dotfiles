@@ -62,6 +62,7 @@ in {
         ".ssh"
         ".local/share/dot-steam"
         ".local/share/dot-var"
+        ".local/share/mozilla"
 
         "Desktop"
         "Documents"
@@ -111,6 +112,10 @@ in {
     "dot-var-${name}" = {
       mountPoint = "${home}/.var";
       device = "${home}/.local/share/dot-var";
+      options = ["bind"];
+    };
+    "${home}/.mozilla" = {
+      device = "${home}/.local/share/mozilla";
       options = ["bind"];
     };
   };
