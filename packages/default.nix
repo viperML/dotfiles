@@ -83,7 +83,6 @@ in {
 
       # Overrides
       nix-index = w pkgs.callPackage ./overrides/nix-index {
-        # TODO it should build under aarch64
         database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
         databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
       };

@@ -55,11 +55,11 @@
           flatpak
         ];
         specialisations = [
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   kde
-          #   ayats
-          #   default
-          # ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            kde
+            ayats
+            default
+          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   kde-wayland
           #   ayats
@@ -69,11 +69,11 @@
           #   hyprland
           #   ayats
           # ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            gnome
-            ayats
-            default
-          ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   gnome
+          #   ayats
+          #   default
+          # ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   sway
           #   soch

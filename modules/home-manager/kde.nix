@@ -36,13 +36,13 @@
         Install.WantedBy = ["tray.target"];
       };
     };
-    timers.apply-colorscheme = {
-      Unit.Description = "Apply colorscheme on schedule";
-      Unit.PartOf = ["apply-colorscheme.service"];
-      # DayOfWeek Year-Month-Day Hour:Minute:Second
-      Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
-      Install.WantedBy = ["timers.target"];
-    };
+    # timers.apply-colorscheme = {
+    #   Unit.Description = "Apply colorscheme on schedule";
+    #   Unit.PartOf = ["apply-colorscheme.service"];
+    #   # DayOfWeek Year-Month-Day Hour:Minute:Second
+    #   Timer.OnCalendar = ["*-*-* 18:01:00" "*-*-* 05:01:00"];
+    #   Install.WantedBy = ["timers.target"];
+    # };
     targets."tray" = {
       Unit = {
         Description = "Home-manager tray target";
