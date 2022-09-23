@@ -3,6 +3,11 @@
   inputs,
   ...
 }: let
+  inherit
+    (builtins)
+    hasAttr
+    ;
+
   /*
   wrapperFor returns a wrapper w for a set of pkgs
 
@@ -12,27 +17,33 @@
     # args :: set
     args = builtins.functionArgs (import path);
 
+    usesNvfetcher = hasAttr "src" args || hasAttr "sources" args;
+
+    sources = builtins.removeAttrs (_pkgs.callPackage (path + "/generated.nix") {}) [
+      "override"
+      "overrideDerivation"
+    ];
+
+    firstSource = builtins.head (builtins.attrValues sources);
+
     nvfetcherOverrides =
-      if builtins.hasAttr "sources" args
-      then {
-        # Use a standard callPackage for the sources
-        sources = _pkgs.callPackage (path + "/generated.nix") {};
-      }
-      else if builtins.hasAttr "src" args
-      then builtins.head (builtins.attrValues (builtins.removeAttrs (_pkgs.callPackage (path + "/generated.nix") {}) ["override" "overrideDerivation"]))
-      else {};
+      if ! usesNvfetcher
+      then {}
+      else if hasAttr "sources" args
+      then {inherit sources;}
+      else builtins.intersectAttrs args firstSource;
   in
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
   flake.overlays.wlroots-nvidia = final: prev: {
-    # wlroots = prev.wlroots.overrideAttrs (old: {
-    #   pname = "wlroots-nvidia";
-    #   postPatch =
-    #     (old.postPatch or "")
-    #     + ''
-    #       substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-    #     '';
-    # });
+    wlroots = prev.wlroots.overrideAttrs (old: {
+      pname = "wlroots-nvidia";
+      postPatch =
+        (old.postPatch or "")
+        + ''
+          substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+        '';
+    });
   };
 
   perSystem = {
@@ -47,7 +58,7 @@ in {
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        self.overlays.wlroots-nvidia
+        # self.overlays.wlroots-nvidia
       ];
     };
 
