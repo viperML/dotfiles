@@ -148,20 +148,15 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 
   default_prog = { "wsl.exe", "-d", "micronix", "bash", "--login", "-c", "/home/ayats/.nix-profile/bin/fish" }
   enable_tab_bar = true
+  font = wezterm.font("iosevka-normal", { weight = 600, })
 else
   default_prog = { "fish" }
   enable_tab_bar = false
+  font = wezterm.font("iosevka NFM", { weight = 600, })
 end
 
 return {
-  font = wezterm.font_with_fallback({
-    "iosevka-normal",
-    "Symbols Nerd Font",
-  }, {
-    weight = "Medium",
-    -- stretch = "Normal",
-    -- italic = false,
-  }),
+  font = font,
   font_size = 12,
   default_prog = default_prog,
   set_environment_variables = set_environment_variables,
