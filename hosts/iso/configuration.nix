@@ -5,9 +5,7 @@
   packages,
   config,
   ...
-}: let
-  inherit (pkgs) system;
-in {
+}: {
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (subject.isInGroup("wheel")) {

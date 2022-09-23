@@ -1,6 +1,5 @@
 {
   inputs,
-  self,
   config,
   withSystem,
   ...

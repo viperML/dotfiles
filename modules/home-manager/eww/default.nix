@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   flakePath,
   ...
 }: let

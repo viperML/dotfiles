@@ -5,7 +5,6 @@
   #
   stdenvNoCC,
   lib,
-  fetchFromGitHub,
   gtk3,
   sassc,
   theme ? "default",

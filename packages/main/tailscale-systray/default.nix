@@ -5,7 +5,6 @@
   #
   lib,
   buildGoModule,
-  fetchFromGitHub,
   gtk3,
   pkg-config,
   libappindicator-gtk3,

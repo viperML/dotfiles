@@ -5,7 +5,6 @@
   #
   lib,
   mkDerivation,
-  fetchFromGitHub,
   cmake,
   extra-cmake-modules,
   kdecoration,

@@ -1,7 +1,6 @@
 {
   symlinkJoin,
   nix-index-unwrapped,
-  makeWrapper,
   makeBinaryWrapper,
   runCommandLocal,
   fzf,

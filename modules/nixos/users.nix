@@ -4,7 +4,6 @@
 }: {
   config,
   pkgs,
-  inputs,
   packages,
   lib,
   ...

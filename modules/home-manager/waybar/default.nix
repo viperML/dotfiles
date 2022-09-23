@@ -1,6 +1,4 @@
 {
-  pkgs,
-  config,
   packages,
   flakePath,
   ...

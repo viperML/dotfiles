@@ -8,7 +8,6 @@
 
   outputs = inputs @ {
     self,
-    nixpkgs,
     flake-parts,
     ...
   }:
@@ -33,10 +32,7 @@
       };
 
       perSystem = {
-        pkgs,
-        system,
         inputs',
-        config,
         ...
       }: {
         packages = {

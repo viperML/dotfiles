@@ -1,5 +1,4 @@
 {
-  sources,
   debug ? false,
   #
   makeWrapper,

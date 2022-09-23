@@ -5,7 +5,6 @@
   #
   stdenvNoCC,
   lib,
-  fetchFromGitHub,
   sassc,
   meson,
   ninja,

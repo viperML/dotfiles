@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     flake-parts,

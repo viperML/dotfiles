@@ -4,7 +4,6 @@
   version,
   #
   stdenv,
-  fetchFromGitHub,
   lib,
   kwindowsystem,
 }:

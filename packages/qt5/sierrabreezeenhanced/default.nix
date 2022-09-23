@@ -5,7 +5,6 @@
   #
   lib,
   stdenv,
-  fetchFromGitHub,
   wrapQtAppsHook,
   cmake,
   extra-cmake-modules,

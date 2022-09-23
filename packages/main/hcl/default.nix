@@ -4,7 +4,6 @@
   src,
   #
   buildGoModule,
-  fetchFromGitHub,
   lib,
 }:
 buildGoModule {
