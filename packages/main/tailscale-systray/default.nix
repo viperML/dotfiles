@@ -1,6 +1,6 @@
 {
   pname,
-  version,
+  date,
   src,
   #
   lib,
@@ -10,7 +10,8 @@
   libappindicator-gtk3,
 }:
 buildGoModule rec {
-  inherit pname version src;
+  inherit pname src;
+  version = date;
 
   nativeBuildInputs = [
     pkg-config

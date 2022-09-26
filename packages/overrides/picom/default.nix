@@ -1,11 +1,12 @@
 {
   pname,
-  version,
+  date,
   src,
   #
   picom,
 }:
 picom.overrideAttrs (_: {
   __nocachix = true;
-  inherit pname version src;
+  inherit pname src;
+  version = date;
 })

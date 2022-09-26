@@ -3,13 +3,14 @@
 {
   bismuth = {
     pname = "bismuth";
-    version = "042123bdd2d3654512d371e3dc690efae5bcefd9";
+    version = "ded252194b94fc2aee4af8bc53e807c41adcc61a";
     src = fetchFromGitHub ({
       owner = "Bismuth-Forge";
       repo = "bismuth";
-      rev = "042123bdd2d3654512d371e3dc690efae5bcefd9";
+      rev = "ded252194b94fc2aee4af8bc53e807c41adcc61a";
       fetchSubmodules = false;
-      sha256 = "sha256-IWwFsYqoqW3924+pf8L+acIt31aU/mhqakXbT9Q4Bqw=";
+      sha256 = "sha256-c13OFEw6E/I8j/mqeLnuc9Chi6pc3+AgwAMPpCzh974=";
     });
+    date = "2022-09-23";
   };
 }

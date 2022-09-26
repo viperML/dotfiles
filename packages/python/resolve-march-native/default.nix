@@ -1,14 +1,15 @@
 {
   pname,
   src,
-  version,
+  date,
   #
   stdenv,
   buildPythonPackage,
   lib,
 }:
 buildPythonPackage rec {
-  inherit pname src version;
+  inherit pname src;
+  version = date;
 
   propagatedBuildInputs = [
     stdenv.cc

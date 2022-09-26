@@ -59,12 +59,16 @@ in {
       config.allowUnfree = true;
       overlays = [
         # self.overlays.wlroots-nvidia
+        inputs.nvfetcher.overlay
       ];
     };
 
     legacyPackages = pkgs;
 
     packages = {
+      # cachix
+      nvfetcher = pkgs.nvfetcher-bin;
+
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
       colloid = w pkgs.callPackage ./main/colloid {};

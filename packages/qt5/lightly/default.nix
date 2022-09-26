@@ -1,6 +1,6 @@
 {
   pname,
-  version,
+  date,
   src,
   #
   lib,
@@ -16,7 +16,8 @@
   qtx11extras,
 }:
 mkDerivation {
-  inherit pname version src;
+  inherit pname src;
+  version = date;
 
   extraCmakeFlags = ["-DBUILD_TESTING=OFF"];
 

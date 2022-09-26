@@ -11,5 +11,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-iIKth2qPc8S5h0ebasoiIGiEEy+mip8Ris1HWW/p6Ko=";
     });
+    date = "2022-06-26";
   };
 }

@@ -1,6 +1,7 @@
 {
     "tailscale-systray": {
         "cargoLocks": null,
+        "date": "2022-06-26",
         "extract": null,
         "name": "tailscale-systray",
         "passthru": null,

@@ -75,7 +75,7 @@
     };
     iosevka = {
       url = "github:viperML/iosevka";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
@@ -124,6 +124,12 @@
     vscode-server = {
       url = "github:viperML/nixos-vscode-server/custom-path";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nvfetcher = {
+      url = "github:berberman/nvfetcher";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
     };
   };
 }

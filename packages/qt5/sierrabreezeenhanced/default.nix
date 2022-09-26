@@ -1,6 +1,6 @@
 {
   pname,
-  version,
+  date,
   src,
   #
   lib,
@@ -20,7 +20,8 @@
   kiconthemes,
 }:
 stdenv.mkDerivation {
-  inherit pname version src;
+  inherit pname src;
+  version = date;
 
   buildInputs = [
     qtbase

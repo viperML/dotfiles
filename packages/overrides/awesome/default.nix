@@ -1,12 +1,13 @@
 {
   pname,
-  version,
   src,
+  date,
   #
   awesome,
 }:
 awesome.overrideAttrs (_: {
   __nocachix = true;
-  inherit pname version src;
+  inherit pname src;
+  version = date;
   patches = [];
 })

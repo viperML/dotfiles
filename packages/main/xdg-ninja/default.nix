@@ -1,6 +1,6 @@
 {
   pname,
-  version,
+  date,
   src,
   #
   stdenvNoCC,
@@ -10,7 +10,8 @@
   lib,
 }:
 stdenvNoCC.mkDerivation rec {
-  inherit pname version src;
+  inherit pname  src;
+  version = date;
 
   nativeBuildInputs = [
     makeWrapper

@@ -1,6 +1,7 @@
 {
     "toml-fmt": {
         "cargoLocks": null,
+        "date": "2022-08-02",
         "extract": null,
         "name": "toml-fmt",
         "passthru": null,

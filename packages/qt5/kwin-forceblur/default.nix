@@ -1,14 +1,15 @@
 {
   pname,
   src,
-  version,
+  date,
   #
   stdenv,
   lib,
   kwindowsystem,
 }:
 stdenv.mkDerivation {
-  inherit pname src version;
+  inherit pname src;
+  version = date;
 
   installPhase = ''
     install -d $out/share/kwin/scripts/forceblur

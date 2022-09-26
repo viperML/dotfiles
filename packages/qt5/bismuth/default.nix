@@ -1,9 +1,10 @@
 {
   src,
-  version,
+  date,
   #
   bismuth,
 }:
 bismuth.overrideAttrs (prev: {
-  inherit src version;
+  inherit src;
+  version = date;
 })

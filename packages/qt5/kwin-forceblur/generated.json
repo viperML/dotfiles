@@ -1,6 +1,7 @@
 {
     "kwin-forceblur": {
         "cargoLocks": null,
+        "date": "2022-02-13",
         "extract": null,
         "name": "kwin-forceblur",
         "passthru": null,
