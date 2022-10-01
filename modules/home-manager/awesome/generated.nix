@@ -11,6 +11,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-zXAiEeAJibdmF5lpSJc7zZrgUJP/+l/dKcBR1HdUf9k=";
     });
+    date = "2022-09-02";
   };
   bling = {
     pname = "bling";
@@ -22,6 +23,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-sUUMgdAmXAB/2ocwoo2OTZlWRbSRLdKi1oZB20qRNWU=";
     });
+    date = "2022-07-23";
   };
   freedesktop = {
     pname = "freedesktop";
@@ -33,6 +35,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-lQstCcTPUYUt5hzAJIyQ16crPngeOnUla7I4QiG6gEs=";
     });
+    date = "2022-06-23";
   };
   lain = {
     pname = "lain";
@@ -44,6 +47,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-s80jruDrLoR5lN+FkfwWf8jb7MtlIJWo7gT8TeVZgtc=";
     });
+    date = "2022-06-25";
   };
   revelation = {
     pname = "revelation";
@@ -55,6 +59,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-YwIQxjKJFgJdCwPs1Vq7JrmmdN3PVxLKofVOiWQZu7Y=";
     });
+    date = "2020-08-07";
   };
   sharedtags = {
     pname = "sharedtags";
@@ -66,5 +71,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-YTDKuUqUanh4AWOyEQUKjf3LwkicEuS1gJIVOg6U8iE=";
     });
+    date = "2022-01-02";
   };
 }

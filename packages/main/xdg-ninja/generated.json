@@ -1,7 +1,7 @@
 {
     "xdg-ninja": {
         "cargoLocks": null,
-        "date": "2022-09-25",
+        "date": "2022-09-27",
         "extract": null,
         "name": "xdg-ninja",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "b3nj5m1n",
             "repo": "xdg-ninja",
-            "rev": "2a4c7beed9991ed3c112a75799a4d2cb1d1efd50",
-            "sha256": "sha256-Q6mK+qwrC3jWuQYkr7s3nCNRiux091ISdHB6ifJ+WZY=",
+            "rev": "ab01e79d3a5414638c3c215b7d4098ba79bf41e8",
+            "sha256": "sha256-jx4oxLUdyskZ0OVrL34G37edoiDxC/ehLQnzNlyU7XQ=",
             "type": "github"
         },
-        "version": "2a4c7beed9991ed3c112a75799a4d2cb1d1efd50"
+        "version": "ab01e79d3a5414638c3c215b7d4098ba79bf41e8"
     }
 }

@@ -1,6 +1,7 @@
 {
     "awesome-wm-widgets": {
         "cargoLocks": null,
+        "date": "2022-09-02",
         "extract": null,
         "name": "awesome-wm-widgets",
         "passthru": null,
@@ -20,6 +21,7 @@
     },
     "bling": {
         "cargoLocks": null,
+        "date": "2022-07-23",
         "extract": null,
         "name": "bling",
         "passthru": null,
@@ -39,6 +41,7 @@
     },
     "freedesktop": {
         "cargoLocks": null,
+        "date": "2022-06-23",
         "extract": null,
         "name": "freedesktop",
         "passthru": null,
@@ -58,6 +61,7 @@
     },
     "lain": {
         "cargoLocks": null,
+        "date": "2022-06-25",
         "extract": null,
         "name": "lain",
         "passthru": null,
@@ -77,6 +81,7 @@
     },
     "revelation": {
         "cargoLocks": null,
+        "date": "2020-08-07",
         "extract": null,
         "name": "revelation",
         "passthru": null,
@@ -96,6 +101,7 @@
     },
     "sharedtags": {
         "cargoLocks": null,
+        "date": "2022-01-02",
         "extract": null,
         "name": "sharedtags",
         "passthru": null,

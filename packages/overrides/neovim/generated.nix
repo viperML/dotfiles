@@ -11,6 +11,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-nF7AAP5wSY+AHSn20Vu8+1GwOJatKpP1pPL/b8AHjfA=";
     });
+    date = "2022-08-28";
   };
   nvim-transparent = {
     pname = "nvim-transparent";
@@ -22,5 +23,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-ollCztmgulpMTyoks9ENMSmzE52dF9sMXti9ZF1SHnE=";
     });
+    date = "2022-07-11";
   };
 }

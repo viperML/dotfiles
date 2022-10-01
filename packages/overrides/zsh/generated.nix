@@ -11,17 +11,19 @@
       fetchSubmodules = false;
       sha256 = "sha256-qTgM2ERFlIH/iSOKnqR/WcCEmuzh/km6bmt20za9jqk=";
     });
+    date = "2017-03-10";
   };
   fast-syntax-highlighting = {
     pname = "fast-syntax-highlighting";
-    version = "13dd94ba828328c18de3f216ec4a746a9ad0ef55";
+    version = "770bcd986620d6172097dc161178210855808ee0";
     src = fetchFromGitHub ({
       owner = "zdharma-continuum";
       repo = "fast-syntax-highlighting";
-      rev = "13dd94ba828328c18de3f216ec4a746a9ad0ef55";
+      rev = "770bcd986620d6172097dc161178210855808ee0";
       fetchSubmodules = false;
-      sha256 = "sha256-Vc/i0W+beKphNisGFS435r+9IL6BhQsYeGAFRlP8+tA=";
+      sha256 = "sha256-T4k0pbT7aqLrIRIi2EM15LXCnpRFHzFilAYfRG6kbeY=";
     });
+    date = "2022-09-30";
   };
   zsh-autosuggestions = {
     pname = "zsh-autosuggestions";
@@ -33,6 +35,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
     });
+    date = "2021-06-04";
   };
   zsh-completions = {
     pname = "zsh-completions";
@@ -55,5 +58,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-PI4nvzB/F0mHlc0UZJdD49vjzB6pXhhJYNTSmBhY8iU=";
     });
+    date = "2022-05-05";
   };
 }
