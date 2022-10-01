@@ -1,6 +1,7 @@
 {
     "adw-gtk3": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "adw-gtk3",
         "passthru": null,

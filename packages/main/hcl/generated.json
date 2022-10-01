@@ -1,6 +1,7 @@
 {
     "hcl": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "hcl",
         "passthru": null,
@@ -12,10 +13,10 @@
             "name": null,
             "owner": "hashicorp",
             "repo": "hcl",
-            "rev": "v2.14.0",
-            "sha256": "sha256-Rx073Ob7CqaPEGIskJHW/xmt4S+WE/AWKewXpjY3kQ4=",
+            "rev": "v2.14.1",
+            "sha256": "sha256-XH/qSl16LQThj9ghwlSGJuSsez7VxsZS9Sun7F2sT7Y=",
             "type": "github"
         },
-        "version": "v2.14.0"
+        "version": "v2.14.1"
     }
 }

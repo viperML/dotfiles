@@ -1,6 +1,7 @@
 {
     "nvim-base-16": {
         "cargoLocks": null,
+        "date": "2022-08-28",
         "extract": null,
         "name": "nvim-base-16",
         "passthru": null,
@@ -20,6 +21,7 @@
     },
     "nvim-transparent": {
         "cargoLocks": null,
+        "date": "2022-07-11",
         "extract": null,
         "name": "nvim-transparent",
         "passthru": null,

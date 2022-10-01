@@ -1,6 +1,7 @@
 {
     "expand-ealias": {
         "cargoLocks": null,
+        "date": "2017-03-10",
         "extract": null,
         "name": "expand-ealias",
         "passthru": null,
@@ -20,6 +21,7 @@
     },
     "fast-syntax-highlighting": {
         "cargoLocks": null,
+        "date": "2022-09-30",
         "extract": null,
         "name": "fast-syntax-highlighting",
         "passthru": null,
@@ -31,14 +33,15 @@
             "name": null,
             "owner": "zdharma-continuum",
             "repo": "fast-syntax-highlighting",
-            "rev": "13dd94ba828328c18de3f216ec4a746a9ad0ef55",
-            "sha256": "sha256-Vc/i0W+beKphNisGFS435r+9IL6BhQsYeGAFRlP8+tA=",
+            "rev": "770bcd986620d6172097dc161178210855808ee0",
+            "sha256": "sha256-T4k0pbT7aqLrIRIi2EM15LXCnpRFHzFilAYfRG6kbeY=",
             "type": "github"
         },
-        "version": "13dd94ba828328c18de3f216ec4a746a9ad0ef55"
+        "version": "770bcd986620d6172097dc161178210855808ee0"
     },
     "zsh-autosuggestions": {
         "cargoLocks": null,
+        "date": "2021-06-04",
         "extract": null,
         "name": "zsh-autosuggestions",
         "passthru": null,
@@ -58,6 +61,7 @@
     },
     "zsh-completions": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "zsh-completions",
         "passthru": null,
@@ -77,6 +81,7 @@
     },
     "zsh-edit": {
         "cargoLocks": null,
+        "date": "2022-05-05",
         "extract": null,
         "name": "zsh-edit",
         "passthru": null,

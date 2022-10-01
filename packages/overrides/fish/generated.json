@@ -1,6 +1,7 @@
 {
     "fzf": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "fzf",
         "passthru": null,
@@ -12,10 +13,10 @@
             "name": null,
             "owner": "PatrickF1",
             "repo": "fzf.fish",
-            "rev": "v9.2",
-            "sha256": "sha256-XmRGe39O3xXmTvfawwT2mCwLIyXOlQm7f40mH5tzz+s=",
+            "rev": "v9.3",
+            "sha256": "sha256-1Rx17Y/NgPQR4ibMnsZ/1UCnNbkx6vZz43IKfESxcCA=",
             "type": "github"
         },
-        "version": "v9.2"
+        "version": "v9.3"
     }
 }
