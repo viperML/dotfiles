@@ -40,8 +40,8 @@ stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     description = "Colloid icon theme for linux desktops";
-    inherit (src) homepage;
+    inherit (src.meta) homepage;
     license = licenses.gpl3;
-    platform = platforms.linux;
+    platforms = platforms.linux;
   };
 }
