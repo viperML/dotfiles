@@ -9,7 +9,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone repository
+    - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix

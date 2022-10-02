@@ -10,7 +10,7 @@ jobs:
   check_flake:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone repository
+    - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
@@ -23,7 +23,7 @@ jobs:
       packages: ${{ steps.gen_packages.outputs.packages }}
       checks: ${{ steps.gen_checks.outputs.checks }}
     steps:
-    - name: Clone repository
+    - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
@@ -40,7 +40,7 @@ jobs:
       matrix:
         package: ${{fromJson(needs.generate_matrix.outputs.packages)}}
     steps:
-    - name: Clone repository
+    - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
