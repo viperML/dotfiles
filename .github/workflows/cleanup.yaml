@@ -1,4 +1,4 @@
-name: Cleanup old branches
+name: Cleanup
 
 on:
   workflow_dispatch:

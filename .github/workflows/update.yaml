@@ -1,4 +1,4 @@
-name: update
+name: Update
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "0 3 */15 * *"
 
 jobs:
-  flake_update:
+  main:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
@@ -20,7 +20,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.PAT }}
+        token: ${{ github.token }}
         title: '[automatic] flake update'
         commit-message: |
           Automatic flake update
