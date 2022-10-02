@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Run delete-old-branches-action
         uses: beatlabs/delete-old-branches-action@v0.0.9
         with:
@@ -29,8 +30,10 @@ jobs:
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
+
     - name: Run cleanup script
       run: nix run .#cleanup
+      
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:

@@ -13,21 +13,25 @@ jobs:
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
+
     - name: Flake update
       run: nix flake update
     - name: Run update script
       run: nix run .#update
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ github.token }}
         title: '[automatic] flake update'
         commit-message: |
-          Automatic flake update
+          - Flake update
+
+          Auto-generated in GH actions
+
+          Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         body: |
           Automatic flake update
-        committer: GitHub <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        author: GitHub <noreply@github.com>
         branch: update-flake
         branch-suffix: timestamp
         delete-branch: true
