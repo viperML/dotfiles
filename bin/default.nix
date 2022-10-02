@@ -22,6 +22,11 @@
               --set NIX_PATH 'nixpkgs=${inputs.nixpkgs}'
           '';
         };
+
+      cleanup = pkgs.writeShellScriptBin "cleanup" ''
+        ${pkgs.fd}/bin/fd '\.nix' --exclude 'generated\.nix' --exec ${pkgs.deadnix}/bin/deadnix -e -l
+        ${pkgs.treefmt}/bin/treefmt
+      '';
     };
   };
 }

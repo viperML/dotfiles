@@ -20,3 +20,25 @@ jobs:
           dry_run: false
           delete_tags: false
           exclude_open_pr_branches: true
+
+  code:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Run cleanup script
+      run: nix run .#cleanup
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: ${{ github.token }}
+        title: '[automatic] flake cleanup'
+        commit-message: |
+          Automatic flake cleanup
+        body: |
+          Automatic flake cleanup
+        branch: cleanup-flake
+        branch-suffix: timestamp
+        delete-branch: true
