@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    config,
+    ...
+  }: {
     packages = {
       generate_matrix = pkgs.writers.writePython3Bin "generate_matrix" {
         libraries = [pkgs.python3.pkgs.requests];
@@ -23,10 +27,19 @@
           '';
         };
 
-      cleanup = pkgs.writeShellScriptBin "cleanup" ''
-        ${pkgs.fd}/bin/fd '\.nix' --exclude 'generated\.nix' --exec ${pkgs.deadnix}/bin/deadnix -e -l
-        ${pkgs.treefmt}/bin/treefmt
-      '';
+      cleanup = with pkgs;
+        writeShellScriptBin "cleanup" ''
+          export PATH="${lib.makeBinPath [
+            fd
+            deadnix
+            alejandra
+            black
+            config.packages.stylua
+            treefmt
+          ]}"
+          fd '\.nix' --exclude 'generated\.nix' --exec deadnix -e -l
+          treefmt
+        '';
     };
   };
 }
