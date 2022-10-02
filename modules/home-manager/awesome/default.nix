@@ -5,10 +5,6 @@
   pkgs,
   packages,
   flakePath,
-
-
-
-
   ...
 }: {
   home.packages = [
