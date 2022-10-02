@@ -26,6 +26,8 @@ jobs:
           Automatic flake update
         body: |
           Automatic flake update
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         branch: update-flake
         branch-suffix: timestamp
         delete-branch: true

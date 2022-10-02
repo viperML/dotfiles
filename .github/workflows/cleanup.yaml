@@ -40,6 +40,8 @@ jobs:
           Automatic flake cleanup
         body: |
           Automatic flake cleanup
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         branch: cleanup-flake
         branch-suffix: timestamp
         delete-branch: true
