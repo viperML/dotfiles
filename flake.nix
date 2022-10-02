@@ -31,10 +31,7 @@
         }) (builtins.readDir ./misc/templ);
       };
 
-      perSystem = {
-        inputs',
-        ...
-      }: {
+      perSystem = {inputs', ...}: {
         packages = {
           nh = inputs'.nh.packages.default;
           nil = inputs'.nil.packages.nil;

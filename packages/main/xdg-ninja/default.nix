@@ -10,7 +10,7 @@
   lib,
 }:
 stdenvNoCC.mkDerivation rec {
-  inherit pname  src;
+  inherit pname src;
   version = date;
 
   nativeBuildInputs = [
