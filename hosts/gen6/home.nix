@@ -16,7 +16,6 @@ in {
     mpv
     qbittorrent
     ffmpeg-full
-    filelight
     (self.libFor.${system}.addFlags pkgs.google-chrome [
       "--disable-features=UseChromeOSDirectVideoDecoder"
       "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
@@ -28,18 +27,16 @@ in {
       "--ozone-platform-hint=x11"
       "--use-gl=desktop"
     ])
-    mailspring
-    (inputs.nix-gaming.overlays.default null pkgs).osu-lazer-bin
     vault
     packages.self.deploy-rs
     pkgs.vscode
     packages.self.wezterm
-    pkgs.polymc
-    pkgs.firefox
+    synology-drive-client
   ];
 
   systemd.user.services = {
     "tailscale-tray" = mkTrayService {
+      Service.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 5";
       Service.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
       Unit.Description = "Tailscale indicator for system tray";
     };
