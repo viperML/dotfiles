@@ -54,6 +54,12 @@ in {
           ./extra-chandra.nix
         ];
       };
+      "ayats@ubu7" = mkHome "x86_64-linux" {
+        extraSpecialArgs.flakePath = "/home/ayats/Documents/dotfiles";
+        modules = [
+          ./extra-ubu7.nix
+        ];
+      };
     };
 
     packages."x86_64-linux".zzz_home_ayats_vipersl4 = self.homeConfigurations."ayats@viperSL4".config.home.activationPackage;

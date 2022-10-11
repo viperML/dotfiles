@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+DIR="$(cd "$(dirname "${BASH_SOURCE[@]}")"; pwd)"
+NIX_USER_CONF_FILES="$DIR/nix.conf" $@
