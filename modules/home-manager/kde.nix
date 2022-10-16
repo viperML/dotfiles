@@ -9,6 +9,7 @@
 
   systemd.user = {
     services = {
+      /*
       apply-colorscheme = with pkgs; {
         Unit.Description = "Apply colorscheme to KDE";
         Unit.After = ["plasma-plasmashell.service"];
@@ -26,6 +27,7 @@
           .outPath;
         Install.WantedBy = ["xdg-desktop-autostart.target"];
       };
+      */
       tray-wait-online = {
         Unit.Description = "Wait for KDE system tray";
         Service.ExecStart = "${pkgs.coreutils}/bin/sleep 5";

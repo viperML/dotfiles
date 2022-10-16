@@ -28,7 +28,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
     homeModules = with self.homeModules; [
       kde
-      xsettingsd
+      # xsettingsd
     ];
   };
 
@@ -48,7 +48,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
     homeModules = with self.homeModules; [
       kde
-      xsettingsd
+      # xsettingsd
     ];
   };
 
