@@ -31,13 +31,18 @@
         }) (builtins.readDir ./misc/templ);
       };
 
-      perSystem = {inputs', ...}: {
+      perSystem = {
+        inputs',
+        pkgs,
+        ...
+      }: {
         packages = {
           nh = inputs'.nh.packages.default;
           nil = inputs'.nil.packages.nil;
           deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
           iosevka = inputs'.iosevka.packages.ttf-nerd-linux;
-          nix = inputs'.nix.packages.nix;
+          # nix = inputs'.nix.packages.nix;
+          nix = pkgs.nix;
         };
       };
 
