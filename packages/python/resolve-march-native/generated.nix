@@ -3,14 +3,14 @@
 {
   resolve-march-native = {
     pname = "resolve-march-native";
-    version = "60d24b21a125cef6132fa973fda22a5012a5bd83";
+    version = "5d996b273510e1b35ad4ad6a33b4febcc746788c";
     src = fetchFromGitHub ({
       owner = "hartwork";
       repo = "resolve-march-native";
-      rev = "60d24b21a125cef6132fa973fda22a5012a5bd83";
+      rev = "5d996b273510e1b35ad4ad6a33b4febcc746788c";
       fetchSubmodules = false;
-      sha256 = "sha256-Q4rlnC0donYtfjep/3tIqlNaTzNErocrDATI0Fzj9no=";
+      sha256 = "sha256-g8b7NM0l6DCLsLJO1KiWEGPoJAXledp4ByvTekLhgLs=";
     });
-    date = "2022-09-30";
+    date = "2022-10-14";
   };
 }
