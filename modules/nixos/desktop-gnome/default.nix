@@ -34,16 +34,16 @@ in {
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
-      wayland = true;
+      wayland = false;
     };
-    # displayManager.defaultSession = "gnome-xorg";
+    displayManager.defaultSession = "gnome-xorg";
     displayManager.autoLogin.enable = true;
   };
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
+    # NIXOS_OZONE_WL = "1";
+    # MOZ_ENABLE_WAYLAND = "1";
+    # QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   environment.gnome.excludePackages = with pkgs; [
