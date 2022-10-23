@@ -10,7 +10,6 @@
     dash-to-panel
     sound-output-device-chooser
     system-monitor
-    syncthing-indicator
     caffeine
     just-perfection
     tiling-assistant

@@ -22,6 +22,17 @@ in {
     "org/gnome/mutter" = {
       "focus-change-on-pointer-rest" = gvariant.mkBoolean false;
     };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = gvariant.mkString "<Super>e";
+      command = gvariant.mkString "nautilus";
+      name = gvariant.mkString "explorer";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = gvariant.mkString "<Super>Return";
+      command = gvariant.mkString "wezterm";
+      name = gvariant.mkString "terminal";
+    };
+    # binding '<Super>e'"
   };
 
   systemd.user = {
