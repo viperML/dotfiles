@@ -8,10 +8,7 @@
     appindicator
     blur-my-shell
     dash-to-panel
-    sound-output-device-chooser
-    system-monitor
     caffeine
-    just-perfection
     tiling-assistant
   ];
 
