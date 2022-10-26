@@ -48,7 +48,6 @@ in {
   };
 
   home.packages = [
-    packages.self.foot
-    pkgs.plasma5Packages.gwenview
+    pkgs.libsForQt5.gwenview
   ];
 }

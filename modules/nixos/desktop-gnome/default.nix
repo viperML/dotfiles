@@ -35,6 +35,7 @@ in {
     };
     displayManager.defaultSession = "gnome-xorg";
     displayManager.autoLogin.enable = true;
+    desktopManager.xterm.enable = false;
   };
 
   environment.sessionVariables = {
@@ -56,6 +57,20 @@ in {
     gnome.geary
     gnome.gnome-screenshot
     gnome.eog
+    orca
+    baobab
+    gnome.gnome-maps
+    gnome.gnome-weather
+    gnome-connections
+    gnome.gnome-logs
+    gnome.yelp
+    gnome.gnome-calculator
+    evince
+    gnome.gnome-disk-utility
+    gnome.gnome-contacts
+    gnome-text-editor
+    gnome.gnome-clocks
+    gnome-console
   ];
 
   environment.systemPackages = with pkgs;
