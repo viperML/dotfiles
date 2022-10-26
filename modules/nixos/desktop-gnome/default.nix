@@ -10,6 +10,7 @@
     dash-to-panel
     caffeine
     tiling-assistant
+    pop-shell
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);
