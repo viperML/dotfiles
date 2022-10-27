@@ -29,10 +29,17 @@ in {
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = gvariant.mkString "<Super>Return";
-      command = gvariant.mkString "wezterm";
+      command = gvariant.mkString (
+        if config.viper.isWayland
+        then "foot"
+        else "wezterm"
+      );
       name = gvariant.mkString "terminal";
     };
-    # binding '<Super>e'"
+    "org/gnome/shell/extensions/pop-shell" = {
+      "tile-by-default" = gvariant.mkBoolean true;
+      "tile-enter" = gvariant.mkArray gvariant.type.string [];
+    };
   };
 
   systemd.user = {
@@ -46,4 +53,8 @@ in {
       Install.WantedBy = ["gnome-session.target"];
     };
   };
+
+  home.packages = lib.mkIf config.viper.isWayland [
+    packages.self.foot
+  ];
 }

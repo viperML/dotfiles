@@ -27,8 +27,10 @@ in {
     environment.variables = cfg.env;
     environment.sessionVariables = cfg.env;
     home-manager.sharedModules = [
+      ./lib-home.nix
       {
         home.sessionVariables = cfg.env;
+        viper.isWayland = cfg.isWayland;
       }
     ];
   };
