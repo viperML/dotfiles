@@ -39,6 +39,7 @@ in {
     "org/gnome/shell/extensions/pop-shell" = {
       "tile-by-default" = gvariant.mkBoolean true;
       "tile-enter" = gvariant.mkArray gvariant.type.string [];
+      "tile-accept" = gvariant.mkArray gvariant.type.string [];
     };
   };
 
