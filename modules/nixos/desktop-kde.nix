@@ -2,6 +2,7 @@
   pkgs,
   lib,
   packages,
+  config,
   ...
 }: {
   services.xserver = {
@@ -12,16 +13,25 @@
     };
     displayManager = {
       sddm.enable = true;
-      defaultSession = "plasma";
-      # autoLogin.enable = true;
+      defaultSession =
+        if config.viper.isWayland
+        then "plasmawayland"
+        else "plasma";
+      autoLogin.enable = true;
     };
   };
 
-  environment.sessionVariables = {
-    KWIN_TRIPLE_BUFFER = "1";
-    __GL_MaxFramesAllowed = "1";
-    __GL_YIELD = "USLEEP";
-  };
+  environment.sessionVariables = lib.mkMerge [
+    {
+      KWIN_TRIPLE_BUFFER = "1";
+      __GL_MaxFramesAllowed = "1";
+      __GL_YIELD = "USLEEP";
+    }
+    (lib.mkIf config.viper.isWayland {
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+    })
+  ];
 
   environment.systemPackages = lib.attrValues {
     inherit
@@ -47,6 +57,4 @@
       bismuth
       ;
   };
-
-  environment.etc."chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 }

@@ -39,10 +39,6 @@
           flatpak
 
           ./fix-bluetooth.nix
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
-          {
-            services.pipewire.lowLatency.enable = true;
-          }
 
           hardware-nvidia
         ];
@@ -55,29 +51,16 @@
           flatpak
         ];
         specialisations = [
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   kde
-          #   ayats
-          #   default
-          # ]))
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   kde-wayland
-          #   ayats
-          #   default
-          # ]))
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   hyprland
-          #   ayats
-          # ]))
           (self.lib.joinSpecialisations (with self.specialisations; [
             gnome
             ayats
+          ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            gnome
+            wayland
+            ayats
             default
           ]))
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   sway
-          #   soch
-          # ]))
         ];
       }
   );

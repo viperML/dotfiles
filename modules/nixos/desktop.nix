@@ -4,11 +4,7 @@
   self,
   packages,
   ...
-}: let
-  env = {
-    SSH_ASKPASS_REQUIRE = "prefer";
-  };
-in {
+}: {
   services = {
     pipewire = {
       enable = true;
@@ -71,6 +67,7 @@ in {
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "8h";
 
-  environment.variables = env;
-  environment.sessionVariables = env;
+  environment.sessionVariables = {
+    SSH_ASKPASS_REQUIRE = "prefer";
+  };
 }

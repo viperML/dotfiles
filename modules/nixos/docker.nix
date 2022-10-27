@@ -20,7 +20,10 @@
     timers.docker-prune = {
       wantedBy = ["timers.target"];
       partOf = ["docker-prune.service"];
-      timerConfig.OnCalendar = "weekly";
+      timerConfig = {
+        OnCalendar = "weekly";
+        Persistent = true;
+      };
     };
     services.docker-prune = {
       serviceConfig.Type = "oneshot";

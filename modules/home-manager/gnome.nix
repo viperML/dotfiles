@@ -46,8 +46,4 @@ in {
       Install.WantedBy = ["gnome-session.target"];
     };
   };
-
-  home.packages = [
-    pkgs.libsForQt5.gwenview
-  ];
 }

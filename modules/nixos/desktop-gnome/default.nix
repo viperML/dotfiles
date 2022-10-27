@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   packages,
   ...
 }: let
@@ -31,17 +32,20 @@ in {
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
-      wayland = false;
+      wayland = config.viper.isWayland;
     };
-    displayManager.defaultSession = "gnome-xorg";
+    displayManager.defaultSession =
+      if config.viper.isWayland
+      then "gnome"
+      else "gnome-xorg";
     displayManager.autoLogin.enable = true;
     desktopManager.xterm.enable = false;
   };
 
-  environment.sessionVariables = {
-    # NIXOS_OZONE_WL = "1";
-    # MOZ_ENABLE_WAYLAND = "1";
-    # QT_QPA_PLATFORM = "wayland;xcb";
+  environment.sessionVariables = lib.mkIf config.viper.isWayland {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -51,7 +55,6 @@ in {
 
     gnome.gnome-characters
     gnome.cheese
-    gnome.gnome-terminal
     gnome.gedit
     gnome.totem
     gnome.geary
@@ -70,7 +73,6 @@ in {
     gnome.gnome-contacts
     gnome-text-editor
     gnome.gnome-clocks
-    gnome-console
   ];
 
   environment.systemPackages = with pkgs;
@@ -80,6 +82,7 @@ in {
       gnome.gnome-shell-extensions
       gnome.dconf-editor
       libsForQt5.qtwayland
+      libsForQt5.gwenview
     ]
     ++ my-patched-extensions;
 }

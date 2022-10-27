@@ -16,6 +16,11 @@ in {
       default = [];
       type = with types; listOf str;
     };
+
+    isWayland = mkOption {
+      default = false;
+      type = types.bool;
+    };
   };
 
   config = {

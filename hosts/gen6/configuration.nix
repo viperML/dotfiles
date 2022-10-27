@@ -254,8 +254,10 @@
       .outPath;
   };
   systemd.timers."zfs-rollback-dot-cache" = {
-    timerConfig.OnCalendar = "monthly";
-    timerConfig.Persistent = true;
+    timerConfig = {
+      OnCalendar = "monthly";
+      Persistent = true;
+    };
     wantedBy = ["timers.target"];
   };
 
@@ -303,8 +305,10 @@
     };
   };
   systemd.timers."step-renew" = {
-    timerConfig.OnCalendar = "daily";
-    timerConfig.Persistent = true;
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+    };
     wantedBy = ["timers.target"];
   };
 
