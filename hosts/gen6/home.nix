@@ -3,6 +3,7 @@
   packages,
   lib,
   self,
+  config,
   ...
 }: let
   mkTrayService = lib.recursiveUpdate {
@@ -15,17 +16,24 @@ in {
     mpv
     qbittorrent
     ffmpeg-full
-    (self.libFor.${system}.addFlags pkgs.google-chrome [
-      "--disable-features=UseChromeOSDirectVideoDecoder"
-      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
-      "--ignore-gpu-blocklist"
-      "--enable-gpu-rasterization"
-      "--enable-accelerated-2d-canvas"
-      "--enable-accelerated-video-decode"
-      "--enable-zero-copy"
-      "--ozone-platform-hint=x11"
-      "--use-gl=desktop"
-    ])
+    (self.libFor.${system}.addFlags pkgs.google-chrome (
+      if config.viper.isWayland
+      then [
+        "--enable-features=UseOzonePlatform,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+        "--ozone-platform=wayland"
+      ]
+      else [
+        "--disable-features=UseChromeOSDirectVideoDecoder"
+        "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+        "--ignore-gpu-blocklist"
+        "--enable-gpu-rasterization"
+        "--enable-accelerated-2d-canvas"
+        "--enable-accelerated-video-decode"
+        "--enable-zero-copy"
+        "--ozone-platform-hint=x11"
+        "--use-gl=desktop"
+      ]
+    ))
     vault
     packages.self.deploy-rs
     pkgs.vscode
