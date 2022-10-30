@@ -30,6 +30,7 @@ in {
     XCOMPOSECACHE = "${XDG_CACHE_HOME}/X11/xcompose";
     INPUTRC = "${XDG_CONFIG_HOME}/readline/inputrc";
     GOPATH = "${XDG_DATA_HOME}/go";
+    CARGO_HOME = "${XDG_DATA_HOME}/cargo";
   };
 
   npmrc.text = ''
@@ -38,6 +39,7 @@ in {
     tmp=''${XDG_RUNTIME_DIR}/npm
     init-module=''${XDG_CONFIG_HOME}/npm/config/npm-init.js
   '';
+
   pythonrc.text = ''
     import os
     import atexit
