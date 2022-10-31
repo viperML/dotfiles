@@ -5,9 +5,9 @@
   #
   lib,
   buildGoModule,
-  gtk3,
   pkg-config,
-  libappindicator-gtk3,
+  libayatana-appindicator-gtk3,
+  gtk3,
 }:
 buildGoModule rec {
   inherit pname src;
@@ -19,10 +19,10 @@ buildGoModule rec {
 
   buildInputs = [
     gtk3
-    libappindicator-gtk3
+    libayatana-appindicator-gtk3
   ];
 
-  vendorSha256 = "sha256-dTznGNi54vGldvE8/eujiUmZZ/Ks0vRVxQQIabwyVH4=";
+  vendorSha256 = "sha256-cztIq7Kkj5alAYDtbPU/6h5S+nG+KAyxJzHBb3pJujs=";
 
   meta = with lib; {
     description = "Linux port of tailscale system tray menu";
