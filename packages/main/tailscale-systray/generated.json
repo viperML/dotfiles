@@ -1,7 +1,7 @@
 {
     "tailscale-systray": {
         "cargoLocks": null,
-        "date": "2022-06-26",
+        "date": "2022-10-20",
         "extract": null,
         "name": "tailscale-systray",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "mattn",
             "repo": "tailscale-systray",
-            "rev": "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72",
-            "sha256": "sha256-iIKth2qPc8S5h0ebasoiIGiEEy+mip8Ris1HWW/p6Ko=",
+            "rev": "e7f8893684e7b8779f34045ca90e5abe6df6056d",
+            "sha256": "sha256-3kozp6jq0xGllxoK2lGCNUahy/FvXyq11vNSxfDehKE=",
             "type": "github"
         },
-        "version": "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72"
+        "version": "e7f8893684e7b8779f34045ca90e5abe6df6056d"
     }
 }

@@ -3,14 +3,14 @@
 {
   tailscale-systray = {
     pname = "tailscale-systray";
-    version = "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72";
+    version = "e7f8893684e7b8779f34045ca90e5abe6df6056d";
     src = fetchFromGitHub ({
       owner = "mattn";
       repo = "tailscale-systray";
-      rev = "8e943debe7801a79c0e146cf9f53f0b9aa9d5e72";
+      rev = "e7f8893684e7b8779f34045ca90e5abe6df6056d";
       fetchSubmodules = false;
-      sha256 = "sha256-iIKth2qPc8S5h0ebasoiIGiEEy+mip8Ris1HWW/p6Ko=";
+      sha256 = "sha256-3kozp6jq0xGllxoK2lGCNUahy/FvXyq11vNSxfDehKE=";
     });
-    date = "2022-06-26";
+    date = "2022-10-20";
   };
 }
