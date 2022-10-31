@@ -50,5 +50,28 @@ jobs:
         name: viperml
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
         pathsToPush: result
-    - name: Build everything
+    - name: Build output
       run: nix build .#${{ matrix.package }}
+
+  build_extra:
+    runs-on: ubuntu-latest
+    needs: [build_flake]
+    strategy:
+      fail-fast: false
+      matrix:
+        output: [
+          homeConfigurations.ayats@viperSL4.config.home.activationPackage
+        ]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+    - name: Set up cachix
+      uses: cachix/cachix-action@master
+      with:
+        name: viperml
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        pathsToPush: result
+    - name: Build output
+      run: nix build .#${{ matrix.output }}
