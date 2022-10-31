@@ -35,33 +35,27 @@ in {
       "ayats@viperSL4" = mkHome "x86_64-linux" {
         extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
         modules = [
-          ./extra-viperSL4.nix
+          ./extra-wsl.nix
           inputs.home-manager-wsl.homeModules.default
-          {wsl.baseDistro = "void";}
+          {wsl.baseDistro = "ubuntu";}
         ];
       };
       "ayats@DESKTOP-M5NKMGG" = mkHome "x86_64-linux" {
         extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
         modules = [
-          ./extra-viperSL4.nix
+          ./extra-wsl.nix
           inputs.home-manager-wsl.homeModules.default
           {wsl.baseDistro = "ubuntu";}
         ];
       };
       "ayats@chandra" = mkHome "aarch64-linux" {
         extraSpecialArgs.flakePath = "/home/ayats/dotfiles";
-        modules = [
-          ./extra-chandra.nix
-        ];
+        modules = [];
       };
-      "ayats@ubu7" = mkHome "x86_64-linux" {
-        extraSpecialArgs.flakePath = "/home/ayats/Documents/dotfiles";
-        modules = [
-          ./extra-ubu7.nix
-        ];
-      };
+      # "ayats@ubu7" = mkHome "x86_64-linux" {
+      #   extraSpecialArgs.flakePath = "/home/ayats/Documents/dotfiles";
+      #   modules = [];
+      # };
     };
-
-    packages."x86_64-linux".zzz_home_ayats_vipersl4 = self.homeConfigurations."ayats@viperSL4".config.home.activationPackage;
   };
 }
