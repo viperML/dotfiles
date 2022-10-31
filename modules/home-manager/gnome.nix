@@ -2,7 +2,6 @@
   config,
   lib,
   packages,
-  pkgs,
   ...
 }: let
   inherit (config.lib) gvariant;
