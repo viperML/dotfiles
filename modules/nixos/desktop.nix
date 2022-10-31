@@ -67,7 +67,8 @@
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "8h";
 
-  environment.sessionVariables = {
-    SSH_ASKPASS_REQUIRE = "prefer";
-  };
+  # Not working on GNOME?
+  # environment.sessionVariables = {
+  #   SSH_ASKPASS_REQUIRE = "prefer";
+  # };
 }
