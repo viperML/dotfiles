@@ -1,7 +1,7 @@
 {
     "awesome": {
         "cargoLocks": null,
-        "date": "2022-10-22",
+        "date": "2022-10-31",
         "extract": null,
         "name": "awesome",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "awesomeWM",
             "repo": "awesome",
-            "rev": "a436478731936812e82ef17b78cc4979d5db6ad6",
-            "sha256": "sha256-zFeAzujjEGNBDmWIO/BS7mE6Dy4wsfINxsvcUx32nMg=",
+            "rev": "5077c8381b6bf7fb8215d24d1f0c683816e27a55",
+            "sha256": "sha256-wfGjMckMFmmrREtst0N1uC51zRKwwYcIgVKhqpPl8VQ=",
             "type": "github"
         },
-        "version": "a436478731936812e82ef17b78cc4979d5db6ad6"
+        "version": "5077c8381b6bf7fb8215d24d1f0c683816e27a55"
     }
 }
