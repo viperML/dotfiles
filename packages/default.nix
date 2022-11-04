@@ -79,6 +79,7 @@ in {
       toml-fmt = w pkgs.callPackage ./main/toml-fmt {};
       vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
+      nix-software-center = w pkgs.callPackage ./main/nix-software-center {};
 
       # Python
       resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};
