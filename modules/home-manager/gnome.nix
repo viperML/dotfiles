@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   packages,
   ...
 }: let
@@ -30,7 +31,7 @@ in {
       binding = gvariant.mkString "<Super>Return";
       command = gvariant.mkString (
         if config.viper.isWayland
-        then "foot"
+        then "tilix"
         else "wezterm"
       );
       name = gvariant.mkString "terminal";
@@ -54,7 +55,12 @@ in {
     };
   };
 
-  home.packages = lib.mkIf config.viper.isWayland [
-    packages.self.foot
-  ];
+  home.packages =
+    if config.viper.isWayland
+    then [
+      pkgs.tilix
+    ]
+    else [
+      packages.self.wezterm
+    ];
 }

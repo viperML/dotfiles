@@ -37,7 +37,6 @@ in {
     vault
     packages.self.deploy-rs
     pkgs.vscode
-    packages.self.wezterm
     synology-drive-client
   ];
 
