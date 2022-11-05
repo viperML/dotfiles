@@ -29,11 +29,7 @@ in {
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = gvariant.mkString "<Super>Return";
-      command = gvariant.mkString (
-        if config.viper.isWayland
-        then "tilix"
-        else "wezterm"
-      );
+      command = gvariant.mkString "tilix";
       name = gvariant.mkString "terminal";
     };
     "org/gnome/shell/extensions/pop-shell" = {
@@ -55,12 +51,5 @@ in {
     };
   };
 
-  home.packages =
-    if config.viper.isWayland
-    then [
-      pkgs.tilix
-    ]
-    else [
-      packages.self.wezterm
-    ];
+  home.packages = [pkgs.tilix];
 }
