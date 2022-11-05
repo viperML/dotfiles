@@ -38,16 +38,9 @@
   };
 
   services.xserver.screenSection = ''
+    Option         "UseNvKmsCompositionPipeline" "false"
     Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On,AllowGSYNCCompatible=On}"
-    Option         "AllowIndirectGLXProtocol" "off"
-    Option         "TripleBuffer" "on"
   '';
-
-  services.xserver.extraConfig = ''
-    Section "Device"
-      Identifier     "Device0"
-      Driver         "nvidia"
-      Option         "TripleBuffer"  "On"
-    EndSection
-  '';
+  # Option         "AllowIndirectGLXProtocol" "off"
+  # Option         "TripleBuffer" "on"
 }
