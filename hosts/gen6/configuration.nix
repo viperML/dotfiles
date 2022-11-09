@@ -77,6 +77,7 @@
     binfmt = {
       emulatedSystems = [
         "aarch64-linux"
+        "wasm32-wasi"
       ];
     };
 
