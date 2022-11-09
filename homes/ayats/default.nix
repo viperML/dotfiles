@@ -50,12 +50,10 @@ in {
       };
       "ayats@chandra" = mkHome "aarch64-linux" {
         extraSpecialArgs.flakePath = "/home/ayats/dotfiles";
-        modules = [];
+        modules = [
+          self.homeModules.podman
+        ];
       };
-      # "ayats@ubu7" = mkHome "x86_64-linux" {
-      #   extraSpecialArgs.flakePath = "/home/ayats/Documents/dotfiles";
-      #   modules = [];
-      # };
     };
   };
 }
