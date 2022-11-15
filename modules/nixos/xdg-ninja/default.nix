@@ -1,4 +1,4 @@
-{packages, ...}: let
+{...}: let
   template = import ./template.nix "nixos";
 in {
   environment.sessionVariables = template.env;
