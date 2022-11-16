@@ -1,7 +1,7 @@
 {
     "resolve-march-native": {
         "cargoLocks": null,
-        "date": "2022-10-14",
+        "date": "2022-11-15",
         "extract": null,
         "name": "resolve-march-native",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "hartwork",
             "repo": "resolve-march-native",
-            "rev": "5d996b273510e1b35ad4ad6a33b4febcc746788c",
-            "sha256": "sha256-g8b7NM0l6DCLsLJO1KiWEGPoJAXledp4ByvTekLhgLs=",
+            "rev": "8441e89b36fd83d4041992abe8ca09d880555764",
+            "sha256": "sha256-9YkMzNI2DJE/TrAmjQs+rnrwgRnVLLe3XfEcThG2O10=",
             "type": "github"
         },
-        "version": "5d996b273510e1b35ad4ad6a33b4febcc746788c"
+        "version": "8441e89b36fd83d4041992abe8ca09d880555764"
     }
 }

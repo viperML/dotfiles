@@ -21,7 +21,7 @@
     },
     "bling": {
         "cargoLocks": null,
-        "date": "2022-07-23",
+        "date": "2022-11-05",
         "extract": null,
         "name": "bling",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "BlingCorp",
             "repo": "bling",
-            "rev": "70c894e58bb88dea55e9799ad373fdaea309da9e",
-            "sha256": "sha256-sUUMgdAmXAB/2ocwoo2OTZlWRbSRLdKi1oZB20qRNWU=",
+            "rev": "5995a7f4b1850c66f9f7848c62c9e120b2079d87",
+            "sha256": "sha256-EZ4J+/lp01O9//nh7QCSN76CzZBsyYKZhYnuZ/e3RYo=",
             "type": "github"
         },
-        "version": "70c894e58bb88dea55e9799ad373fdaea309da9e"
+        "version": "5995a7f4b1850c66f9f7848c62c9e120b2079d87"
     },
     "freedesktop": {
         "cargoLocks": null,
