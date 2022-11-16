@@ -13,10 +13,10 @@
             "name": null,
             "owner": "vinceliuice",
             "repo": "Colloid-gtk-theme",
-            "rev": "2022-07-18",
-            "sha256": "sha256-dWYRTwfQRMBdg+htxpWatF325rToaovF/43LxX6I1GI=",
+            "rev": "2022.11.11",
+            "sha256": "sha256-3uiQYiseNEKDahjurjnDj9pakx1p94BfsR3LBO2dd/s=",
             "type": "github"
         },
-        "version": "2022-07-18"
+        "version": "2022.11.11"
     }
 }
