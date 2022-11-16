@@ -62,7 +62,8 @@ in {
         ".local/share/dot-steam"
         ".local/share/dot-var"
         ".local/share/mozilla"
-        ".local/share/arduino"
+        ".local/share/arduino-priv"
+        ".local/share/arduino-public"
 
         "Desktop"
         "Documents"
@@ -74,7 +75,8 @@ in {
     ++ [
       "L+ ${home}/.steampath - - - - ${home}/.steam/sdk32/steam"
       "L+ ${home}/.steampid - - - - ${home}/.steam/steam.pid"
-      "L+ ${home}/.arduino15 - - - - ${home}/.local/share/arduino"
+      "L+ ${home}/.arduino15 - - - - ${home}/.local/share/arduino-priv"
+      "L+ ${home}/Arduino - - - - ${home}/.local/share/arduino-public"
     ];
 
   systemd.services."home-manager-${name}".serviceConfig.ExecStartPre = let
