@@ -2,6 +2,7 @@
   pkgs,
   self,
   packages,
+  lib,
   ...
 }: {
   # Generic programs
@@ -41,7 +42,7 @@
   home.stateVersion = "21.11";
 
   nix = {
-    package = packages.self.nix;
+    package = lib.mkForce packages.self.nix;
     settings = import "${self}/misc/nix-conf.nix";
   };
 
