@@ -13,16 +13,4 @@
     });
     date = "2022-11-02";
   };
-  nvim-transparent = {
-    pname = "nvim-transparent";
-    version = "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2";
-    src = fetchFromGitHub ({
-      owner = "xiyaowong";
-      repo = "nvim-transparent";
-      rev = "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2";
-      fetchSubmodules = false;
-      sha256 = "sha256-ollCztmgulpMTyoks9ENMSmzE52dF9sMXti9ZF1SHnE=";
-    });
-    date = "2022-07-11";
-  };
 }
