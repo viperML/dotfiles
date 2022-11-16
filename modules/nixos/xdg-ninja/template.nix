@@ -32,6 +32,7 @@ in {
     GOPATH = "${XDG_DATA_HOME}/go";
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     NODE_REPL_HISTORY = "${XDG_DATA_HOME}/node_repl_history";
+    PLATFORMIO_CORE_DIR = "${XDG_DATA_HOME}/platformio";
   };
 
   npmrc.text = ''
