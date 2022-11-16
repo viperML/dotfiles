@@ -25,6 +25,7 @@ in {
       "uucp"
       "video"
       "wheel"
+      "dialout"
     ];
     openssh.authorizedKeys.keys = [
     ];
