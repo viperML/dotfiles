@@ -12,7 +12,7 @@
     EDITOR = "nvim";
     # SHELL = "fish";
     VAULT_ADDR = "http://kalypso:8200";
-    NOMAD_ADDR = "http://sumati:4646";
+    NOMAD_ADDR = "http://chandra:4646";
   };
 
   environment.systemPackages = [
