@@ -49,7 +49,7 @@ in {
         ];
       };
       "ayats@chandra" = mkHome "aarch64-linux" {
-        extraSpecialArgs.flakePath = "/home/ayats/dotfiles";
+        extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
         modules = [
           self.homeModules.podman
         ];
