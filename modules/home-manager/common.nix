@@ -12,6 +12,7 @@
     pkgs.direnv
     pkgs.alejandra
     pkgs.nvfetcher
+    packages.self.nh
 
     # Editor support
     packages.self.nil

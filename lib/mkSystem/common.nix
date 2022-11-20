@@ -26,7 +26,7 @@
 
   nix = {
     package = packages.self.nix;
-    settings = import "${self}/misc/nix-conf.nix";
+    settings = (import "${self}/misc/nix-conf.nix") // (import "${self}/misc/nix-conf-privileged.nix");
   };
 
   security.sudo.extraConfig = ''

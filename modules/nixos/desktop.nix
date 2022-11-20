@@ -25,7 +25,7 @@
   environment.systemPackages = with pkgs; [
     pkgs.gnome.seahorse
     android-tools
-    packages.self.nh
+    # packages.self.nh
   ];
 
   xdg.portal = {

@@ -47,7 +47,7 @@
           common
           xdg-ninja
           gui
-          nh
+          # nh # FIXME
           flatpak
         ];
         specialisations = [

@@ -37,11 +37,11 @@ in {
       groups = ["wheel"];
       commands = [
         {
-          command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+          command = "/run/current-system/sw/bin/nixos-rebuild";
           options = ["SETENV" "NOPASSWD"];
         }
         {
-          command = "${packages.self.nh}/bin/nh";
+          command = "/run/current-system/sw/bin/nh";
           options = ["SETENV" "NOPASSWD"];
         }
       ];
