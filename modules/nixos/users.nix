@@ -32,21 +32,21 @@ in {
     passwordFile = "/var/lib/secrets/users.passwd";
   };
 
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/nixos-rebuild";
-          options = ["SETENV" "NOPASSWD"];
-        }
-        {
-          command = "/run/current-system/sw/bin/nh";
-          options = ["SETENV" "NOPASSWD"];
-        }
-      ];
-    }
-  ];
+  # security.sudo.extraRules = [
+  #   {
+  #     groups = ["wheel"];
+  #     commands = [
+  #       {
+  #         command = "/run/current-system/sw/bin/nixos-rebuild";
+  #         options = ["SETENV" "NOPASSWD"];
+  #       }
+  #       {
+  #         command = "/run/current-system/sw/bin/nh";
+  #         options = ["SETENV" "NOPASSWD"];
+  #       }
+  #     ];
+  #   }
+  # ];
 
   nix.settings.trusted-users = [name];
 

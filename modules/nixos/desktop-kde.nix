@@ -22,11 +22,11 @@
   };
 
   environment.sessionVariables = lib.mkMerge [
-    {
-      KWIN_TRIPLE_BUFFER = "1";
-      __GL_MaxFramesAllowed = "1";
-      __GL_YIELD = "USLEEP";
-    }
+    # {
+    #   KWIN_TRIPLE_BUFFER = "1";
+    #   __GL_MaxFramesAllowed = "1";
+    #   __GL_YIELD = "USLEEP";
+    # }
     (lib.mkIf config.viper.isWayland {
       NIXOS_OZONE_WL = "1";
       MOZ_ENABLE_WAYLAND = "1";
@@ -48,6 +48,7 @@
       qttools
       skanlite
       ;
+      
     inherit
       (packages.self)
       adw-gtk3

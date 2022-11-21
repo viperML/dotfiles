@@ -5,6 +5,7 @@
 }: {
   home.packages = [
     packages.self.plasma-applet-splitdigitalclock
+    pkgs.tilix
   ];
 
   systemd.user = {
