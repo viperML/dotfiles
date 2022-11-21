@@ -51,11 +51,10 @@
           flatpak
         ];
         specialisations = [
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            gnome
-            ayats
-            # default
-          ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   gnome
+          #   ayats
+          # ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   gnome
           #   wayland
