@@ -6,10 +6,19 @@
 }: {
   services.xserver.videoDrivers = ["nvidia"];
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
+  environment.sessionVariables = lib.mkMerge [
+    {
+      LIBVA_DRIVER_NAME = "nvidia";
+    }
+    (lib.mkIf config.viper.isWayland {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      # WLR_RENDERER = "vulkan"; # crashes sway
+      GBM_BACKEND = "nvidia-drm";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    })
+  ];
 
   hardware = {
     nvidia.modesetting.enable = true;

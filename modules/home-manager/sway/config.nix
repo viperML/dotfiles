@@ -20,17 +20,20 @@ in {
     inherit modifier;
 
     output = {
-      "DP-3" = {
-        mode = "2560x1440@119.998Hz";
+      "DP-2" = {
+        mode = "2560x1440@144Hz";
         bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
         adaptive_sync = "on";
       };
     };
 
     input = {
-      "1133:16514:Logitech_MX_Master_3" = {
+      "type:mouse" = {
         accel_profile = "flat";
         pointer_accel = "0.0";
+      };
+      "type:keyboard" = {
+        xkb_layout = "es";
       };
     };
 

@@ -123,6 +123,7 @@ in {
       git = w pkgs.callPackage ./overrides/git {};
       wezterm = w pkgs.callPackage ./overrides/wezterm {};
       foot = w pkgs.callPackage ./overrides/foot {};
+      kitty = w pkgs.callPackage ./overrides/kitty {};
     };
   };
 }

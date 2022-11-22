@@ -66,6 +66,11 @@
             ayats
             default
           ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   sway
+          #   wayland
+          #   ayats
+          # ]))
         ];
       }
   );
