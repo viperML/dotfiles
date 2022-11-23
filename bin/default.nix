@@ -54,7 +54,7 @@
           ];
           text =
             ''
-              export NIX_PATH nixpkgs=${inputs.nixpkgs}
+              export NIX_PATH=nixpkgs=${inputs.nixpkgs}
             ''
             + lib.getExe (pkgs.writers.writePython3Bin "update" {} (builtins.readFile ./update.py));
         };
