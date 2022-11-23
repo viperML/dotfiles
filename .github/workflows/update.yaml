@@ -14,10 +14,14 @@ jobs:
     - name: Install nix
       uses: ./.github/actions/install-nix
 
-    - name: Flake update
+    - name: Pre-build update script
+      run: nix build .#update
+
+    - name: Update flake.lock
       run: nix flake update
+
     - name: Run update script
-      run: nix run .#update
+      run: ./result/bin/dotfiles-update
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4

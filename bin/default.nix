@@ -42,8 +42,10 @@
             libraries = [python3.pkgs.requests];
           } (builtins.readFile ./generate_matrix.py)
       );
+    };
 
-      update = mkApp (with pkgs;
+    packages = {
+      update = with pkgs;
         writeShellApplication {
           name = "dotfiles-update";
           runtimeInputs = [
@@ -55,7 +57,7 @@
               export NIX_PATH nixpkgs=${inputs.nixpkgs}
             ''
             + lib.getExe (pkgs.writers.writePython3Bin "update" {} (builtins.readFile ./update.py));
-        });
+        };
     };
   };
 }
