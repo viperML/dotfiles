@@ -77,6 +77,7 @@ in {
       "L+ ${home}/.steampid - - - - ${home}/.steam/steam.pid"
       "L+ ${home}/.arduino15 - - - - ${home}/.local/share/arduino-priv"
       "L+ ${home}/Arduino - - - - ${home}/.local/share/arduino-public"
+      "L+ ${home}/.config/plasma-localerc - - - - /dev/null"
     ];
 
   systemd.services."home-manager-${name}".serviceConfig.ExecStartPre = let

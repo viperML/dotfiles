@@ -336,4 +336,7 @@
     useXkbConfig = true;
     earlySetup = false;
   };
+
+  # https://flokli.de/posts/2022-11-18-nsncd/
+  services.nscd.enableNsncd = true;
 }

@@ -57,6 +57,29 @@
 
   time.timeZone = "Europe/Madrid";
 
+  i18n = let
+    defaultLocale = "en_US.UTF-8";
+    es = "es_ES.UTF-8";
+  in {
+    inherit defaultLocale;
+    extraLocaleSettings = {
+      LANG = defaultLocale;
+      LC_COLLATE = defaultLocale;
+      LC_CTYPE = defaultLocale;
+      LC_MESSAGES = defaultLocale;
+
+      LC_ADDRESS = es;
+      LC_IDENTIFICATION = es;
+      LC_MEASUREMENT = es;
+      LC_MONETARY = es;
+      LC_NAME = es;
+      LC_NUMERIC = es;
+      LC_PAPER = es;
+      LC_TELEPHONE = es;
+      LC_TIME = es;
+    };
+  };
+
   environment.sessionVariables = {
     LESS = "-RiF --mouse --wheel-lines=3";
   };
