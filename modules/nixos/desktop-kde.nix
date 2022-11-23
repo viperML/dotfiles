@@ -48,7 +48,7 @@
       qttools
       skanlite
       ;
-      
+
     inherit
       (packages.self)
       adw-gtk3

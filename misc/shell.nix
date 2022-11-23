@@ -30,6 +30,6 @@ _: {
         DRY = "1";
       };
 
-    packages.zzz_devshell = config.devShells.default;
+    packages._devshells_default = config.devShells.default.inputDerivation;
   };
 }
