@@ -124,6 +124,7 @@ in {
       wezterm = w pkgs.callPackage ./overrides/wezterm {};
       foot = w pkgs.callPackage ./overrides/foot {};
       kitty = w pkgs.callPackage ./overrides/kitty {};
+      nushell = w pkgs.callPackage ./overrides/nushell {};
     };
   };
 }
