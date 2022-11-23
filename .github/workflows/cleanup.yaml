@@ -33,7 +33,10 @@ jobs:
 
     - name: Run cleanup script
       run: nix run .#cleanup
-      
+
+    - name: Run formatting script
+      run: nix run .#format
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
