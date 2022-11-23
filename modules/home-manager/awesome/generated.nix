@@ -15,15 +15,15 @@
   };
   bling = {
     pname = "bling";
-    version = "5995a7f4b1850c66f9f7848c62c9e120b2079d87";
+    version = "e6de047ced41051236a390b081105f598cb0ad8b";
     src = fetchFromGitHub ({
       owner = "BlingCorp";
       repo = "bling";
-      rev = "5995a7f4b1850c66f9f7848c62c9e120b2079d87";
+      rev = "e6de047ced41051236a390b081105f598cb0ad8b";
       fetchSubmodules = false;
-      sha256 = "sha256-EZ4J+/lp01O9//nh7QCSN76CzZBsyYKZhYnuZ/e3RYo=";
+      sha256 = "sha256-ehFUAhLUEOfqB/2Dung7fBPTCvuXepZB6oVLUv+rkTk=";
     });
-    date = "2022-11-05";
+    date = "2022-11-20";
   };
   freedesktop = {
     pname = "freedesktop";
