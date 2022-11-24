@@ -17,9 +17,5 @@ in {
     inherit username homeDirectory;
     sessionVariables = env;
     stateVersion = "21.11";
-
-    packages = [
-      packages.home-manager.default
-    ];
   };
 }
