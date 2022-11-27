@@ -32,7 +32,6 @@
     });
 in
   symlinkJoin {
-    __nocachix = true;
     inherit (myTym) name pname version;
     paths = [myTym];
     nativeBuildInputs = [makeWrapper];
