@@ -1,0 +1,41 @@
+{
+    "tym": {
+        "cargoLocks": null,
+        "date": "2022-11-25",
+        "extract": null,
+        "name": "tym",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "endaaman",
+            "repo": "tym",
+            "rev": "e0e1e5249c6038294392acb06e91f92363d4d611",
+            "sha256": "sha256-aJTlO8JFNTVVfTEZcQdFyd4vfM7u9ezEFW3xb/41+3k=",
+            "type": "github"
+        },
+        "version": "e0e1e5249c6038294392acb06e91f92363d4d611"
+    },
+    "vte": {
+        "cargoLocks": null,
+        "date": "2022-11-16",
+        "extract": null,
+        "name": "vte",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "edddaaea9d35011ed1c74a7caf75fe639ebddaa7",
+            "sha256": "sha256-UkjqKoM9S43ZCQaADYULR7O4FJK+2XGo5T+AD3WD2FQ=",
+            "type": "git",
+            "url": "https://gitlab.gnome.org/GNOME/vte"
+        },
+        "version": "edddaaea9d35011ed1c74a7caf75fe639ebddaa7"
+    }
+}

@@ -1,0 +1,7 @@
+[vte]
+src.git = "https://gitlab.gnome.org/GNOME/vte"
+fetch.git = "https://gitlab.gnome.org/GNOME/vte"
+
+[tym]
+src.git = "https://github.com/endaaman/tym"
+fetch.github = "endaaman/tym"
