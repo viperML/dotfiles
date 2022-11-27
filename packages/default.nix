@@ -125,6 +125,7 @@ in {
       foot = w pkgs.callPackage ./overrides/foot {};
       kitty = w pkgs.callPackage ./overrides/kitty {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
+      tym = w pkgs.callPackage ./overrides/tym {};
     };
   };
 }
