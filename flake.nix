@@ -54,12 +54,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nix = {
-      url = "github:NixOS/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nh = {
       url = "github:viperML/nh";

@@ -222,22 +222,6 @@
         "type": "github"
       }
     },
-    "lowdown-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1633514407,
-        "narHash": "sha256-Dw32tiMjdK9t3ETl5fzGrutQTzh2rufgZV4A/BbxuD4=",
-        "owner": "kristapsdz",
-        "repo": "lowdown",
-        "rev": "d2c2b44ff6c27b936ec27358a2653caaef8f73b8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kristapsdz",
-        "repo": "lowdown",
-        "type": "github"
-      }
-    },
     "napalm": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -306,28 +290,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "nil",
-        "type": "github"
-      }
-    },
-    "nix": {
-      "inputs": {
-        "lowdown-src": "lowdown-src",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nixpkgs-regression": "nixpkgs-regression"
-      },
-      "locked": {
-        "lastModified": 1668527469,
-        "narHash": "sha256-WC4cnIdzonT+jPqCA/P105O5gYXuYnhZHODT3LI1TKQ=",
-        "owner": "NixOS",
-        "repo": "nix",
-        "rev": "4bf70b74a78bf10f3f19ed122ae7377963e14003",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nix",
         "type": "github"
       }
     },
@@ -435,54 +397,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1668568764,
-        "narHash": "sha256-8lzcK4mAt0W+DbWVm2RnE33uRT+O/lgvysrKKDuHdSo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "10181346e6db3f327700e944cc73e0ea4ae44099",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-regression": {
-      "locked": {
-        "lastModified": 1643052045,
-        "narHash": "sha256-uGJ0VXIhWKGXxkeNnq4TvV3CIOkUJ3PAoLZ3HMzNVMw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1668459637,
-        "narHash": "sha256-HqnWCKujmtu8v0CjzOT0sr7m2AR7+vpbZJOp1R0rodY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "16f4e04658c2ab10114545af2f39db17d51bd1bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-22.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nvfetcher": {
       "inputs": {
         "flake-compat": [
@@ -522,13 +436,10 @@
         "iosevka": "iosevka",
         "nh": "nh",
         "nil": "nil",
-        "nix": "nix",
         "nix-common": "nix-common",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-stable": "nixpkgs-stable",
         "nvfetcher": "nvfetcher",
         "vscode-server": "vscode-server"
       }
