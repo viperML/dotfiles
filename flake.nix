@@ -62,6 +62,7 @@
     };
     nix-common = {
       url = "github:viperML/nix-common";
+      # url = "path:/home/ayats/Documents/nix-common";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-wsl = {

@@ -22,6 +22,8 @@ with lib; let
       ./systemd-boot.nix
       ./lib.nix
       inputs.nix-common.nixosModules.channels-to-flakes
+      inputs.nix-common.nixosModules.hm-standalone-shim
+      inputs.nix-common.nixosModules.xdg
       inputs.home-manager.nixosModules.home-manager
       {
         viper.defaultSpec = defaultSpec.name;
