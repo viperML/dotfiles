@@ -71,4 +71,18 @@
   # environment.sessionVariables = {
   #   SSH_ASKPASS_REQUIRE = "prefer";
   # };
+
+  fonts = {
+    fonts = with pkgs; [
+      packages.self.corefonts
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-emoji
+      noto-fonts-cjk
+      liberation_ttf
+      roboto
+
+      packages.self.iosevka
+    ];
+  };
 }

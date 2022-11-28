@@ -9,20 +9,6 @@
     # configFile."fontconfig/conf.d/10-hm-fonts.conf"
   };
 
-  fonts.fontconfig.enable = true;
-
-  home.packages = with pkgs; [
-    # Fonts
-    # corefonts
-    noto-fonts
-    noto-fonts-extra
-    noto-fonts-emoji
-    noto-fonts-cjk
-    roboto
-
-    packages.self.iosevka
-  ];
-
   # services.syncthing = {
   #   enable = true;
   # };

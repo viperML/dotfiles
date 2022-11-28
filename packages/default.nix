@@ -68,6 +68,7 @@ in {
     packages = {
       # cachix
       nvfetcher = pkgs.nvfetcher-bin;
+      inherit (pkgs) corefonts;
 
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
