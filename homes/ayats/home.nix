@@ -1,8 +1,4 @@
-{
-  packages,
-  flakePath,
-  ...
-}: let
+{flakePath, ...}: let
   username = "ayats";
   homeDirectory = "/home/${username}";
   env = {

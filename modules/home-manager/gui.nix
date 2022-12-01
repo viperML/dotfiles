@@ -1,8 +1,4 @@
-{
-  pkgs,
-  packages,
-  ...
-}: {
+{...}: {
   xdg = {
     enable = true;
     mime.enable = true;
