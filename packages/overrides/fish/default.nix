@@ -60,6 +60,8 @@
 
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
+    fenv source /etc/profile
+
     source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
 
     if status is-login
@@ -86,7 +88,6 @@
     doCheck = false;
     postInstall =
       old.postInstall
-      # echo "$(<${fish_user_config})" >> $out/etc/fish/config.fish
       + ''
         echo "source ${fish_user_config}" >> $out/etc/fish/config.fish
       '';

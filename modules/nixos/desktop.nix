@@ -64,13 +64,12 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
-  programs.ssh.startAgent = true;
-  programs.ssh.agentTimeout = "8h";
 
-  # Not working on GNOME?
-  # environment.sessionVariables = {
-  #   SSH_ASKPASS_REQUIRE = "prefer";
-  # };
+  programs.ssh = {
+    startAgent = true;
+    agentTimeout = "8h";
+    enableAskPassword = false;
+  };
 
   fonts = {
     fonts = with pkgs; [
