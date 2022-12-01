@@ -37,6 +37,7 @@
             };
           }
           flatpak
+          inputs.envfs.nixosModules.envfs
 
           ./fix-bluetooth.nix
 

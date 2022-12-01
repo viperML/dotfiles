@@ -22,11 +22,19 @@
   # replaced by pipewire
   hardware.pulseaudio.enable = false;
 
-  environment.systemPackages = with pkgs; [
-    pkgs.gnome.seahorse
-    android-tools
-    # packages.self.nh
-  ];
+  environment.systemPackages = with pkgs; ([
+      pkgs.gnome.seahorse
+      android-tools
+    ]
+    ++ (
+      if config.viper.isWayland
+      then [
+        wl-clipboard
+      ]
+      else [
+        xclip
+      ]
+    ));
 
   xdg.portal = {
     enable = true;

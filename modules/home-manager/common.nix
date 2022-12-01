@@ -28,7 +28,7 @@
     pkgs.ripgrep
     pkgs.bubblewrap
     pkgs.wormhole-william
-    pkgs.zellij
+    packages.self.zellij
 
     packages.self.neofetch
     packages.self.fish

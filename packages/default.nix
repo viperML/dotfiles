@@ -127,6 +127,7 @@ in {
       kitty = w pkgs.callPackage ./overrides/kitty {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
       tym = w pkgs.callPackage ./overrides/tym {};
+      zellij = w pkgs.callPackage ./overrides/zellij {};
     };
   };
 }

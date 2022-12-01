@@ -126,5 +126,9 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
+    envfs = {
+      url = "github:Mic92/envfs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
