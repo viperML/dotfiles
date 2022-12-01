@@ -21,6 +21,7 @@ abbr -a -g p python
 abbr -a -g n nvim
 abbr -a -g pd pushd
 abbr -a -g cdx cd \$XDG_RUNTIME_DIR
+abbr -a -g z zellij attach -c main
 
 # Admin
 abbr -a -g ss sudo systemctl
