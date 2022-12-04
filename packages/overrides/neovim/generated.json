@@ -1,4 +1,24 @@
 {
+    "hlargs": {
+        "cargoLocks": null,
+        "date": "2022-10-20",
+        "extract": null,
+        "name": "hlargs",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "m-demare",
+            "repo": "hlargs.nvim",
+            "rev": "e75b0501f47564099a6c3b4502232e650fdd8e82",
+            "sha256": "sha256-K5I0+9If7zXydbFxciMoWYh67mZsICVI4/HG0mgCKAM=",
+            "type": "github"
+        },
+        "version": "e75b0501f47564099a6c3b4502232e650fdd8e82"
+    },
     "nvim-base-16": {
         "cargoLocks": null,
         "date": "2022-11-02",
@@ -18,5 +38,25 @@
             "type": "github"
         },
         "version": "bd172d833538c48bd3d589fbc8bc2f3a395ecc7b"
+    },
+    "nvim-transparent": {
+        "cargoLocks": null,
+        "date": "2022-07-11",
+        "extract": null,
+        "name": "nvim-transparent",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "xiyaowong",
+            "repo": "nvim-transparent",
+            "rev": "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2",
+            "sha256": "sha256-ollCztmgulpMTyoks9ENMSmzE52dF9sMXti9ZF1SHnE=",
+            "type": "github"
+        },
+        "version": "1a3d7d3b7670fecbbfddd3fc999ddea5862ac3c2"
     }
 }

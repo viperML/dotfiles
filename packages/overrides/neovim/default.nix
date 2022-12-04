@@ -49,6 +49,8 @@
           tp.tree-sitter-json5
           tp.tree-sitter-python
           tp.tree-sitter-toml
+          tp.tree-sitter-rust
+          tp.tree-sitter-nix
         ]))
         vim-nix
         neoformat

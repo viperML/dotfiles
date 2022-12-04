@@ -38,7 +38,7 @@ au VimLeave * set guicursor=a:ver100
 " Fuck Ex mode
 :map Q <Nop>
 
-" let g:transparent_enabled = v:true
+let g:transparent_enabled = v:true
 let g:highlightedyank_highlight_duration = 3
 
 " coc config

@@ -8,12 +8,12 @@
 
 -- vim.opt.background = colorscheme
 
-local current_time = tonumber(os.date "%H%M")
-if current_time < 1800 and current_time > 500 then
-  vim.cmd "colorscheme base16-tomorrow"
-else
-  vim.cmd "colorscheme base16-tomorrow-night"
-end
+-- local current_time = tonumber(os.date "%H%M")
+-- if current_time < 1800 and current_time > 500 then
+--   vim.cmd "colorscheme base16-tomorrow"
+-- else
+vim.cmd "colorscheme base16-tomorrow-night"
+-- end
 
 require("nvim_comment").setup {}
 
@@ -39,7 +39,7 @@ require("indent_blankline").setup {
 
 require("lualine").setup {
   options = {
-    theme = "wombat",
+    theme = "base16",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
@@ -141,3 +141,5 @@ require("nvim-treesitter.configs").setup {
     -- additional_vim_regex_highlighting = false,
   },
 }
+
+require('hlargs').setup()

@@ -1,7 +1,11 @@
-# [nvim-transparent]
-# src.git = "https://github.com/xiyaowong/nvim-transparent"
-# fetch.github = "xiyaowong/nvim-transparent"
+[nvim-transparent]
+src.git = "https://github.com/xiyaowong/nvim-transparent"
+fetch.github = "xiyaowong/nvim-transparent"
 
 [nvim-base-16]
 src.git = "https://github.com/RRethy/nvim-base16"
 fetch.github = "RRethy/nvim-base16"
+
+[hlargs]
+src.git = "https://github.com/m-demare/hlargs.nvim"
+fetch.github = "m-demare/hlargs.nvim"
