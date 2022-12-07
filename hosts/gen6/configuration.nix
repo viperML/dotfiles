@@ -262,11 +262,6 @@
     wantedBy = ["timers.target"];
   };
 
-  nix = {
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
-  };
-
   ### Network
 
   networking = {

@@ -24,6 +24,7 @@ with lib; let
       inputs.nix-common.nixosModules.channels-to-flakes
       inputs.nix-common.nixosModules.hm-standalone-shim
       inputs.nix-common.nixosModules.xdg
+      inputs.nix-common.nixosModules.light-daemon
       inputs.home-manager.nixosModules.home-manager
       {
         viper.defaultSpec = defaultSpec.name;

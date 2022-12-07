@@ -319,11 +319,11 @@
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
-        "lastModified": 1669632523,
-        "narHash": "sha256-ZPTnFJJR0nxAg8MZycrxdJHMRqc/i5PAJNHzTY9HXqs=",
+        "lastModified": 1670450289,
+        "narHash": "sha256-Gd37VH0RlVuxliLOwWiwhm+gQA/gPsW0S8Yro9Lbn70=",
         "owner": "viperML",
         "repo": "nix-common",
-        "rev": "cd98decbe2decfc223a467a80c363894f646ca63",
+        "rev": "51730d56fae7e746bb120d1692271b13586747ec",
         "type": "github"
       },
       "original": {
