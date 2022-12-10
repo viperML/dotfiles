@@ -45,28 +45,6 @@
         "type": "github"
       }
     },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "nh",
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1669357571,
-        "narHash": "sha256-jKMZjewUOD6s71xP8zaTZ/oB3dtHM2D/cLgHoNQ9s80=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "0d4b86633d6c5438a7b97d485f02e7e18101a541",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -267,7 +245,6 @@
     },
     "nh": {
       "inputs": {
-        "fenix": "fenix",
         "flake-parts": [
           "flake-parts"
         ],
@@ -277,11 +254,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1670262077,
-        "narHash": "sha256-xTmfSHo08AF40y1E8yq8etcosSjmX5Unf090b5EXHxg=",
+        "lastModified": 1670603059,
+        "narHash": "sha256-+irXxGdPHHehh3hZ2irDRFT1MgedvAqpFrhyNGzu1JM=",
         "owner": "viperML",
         "repo": "nh",
-        "rev": "087c5fc17202e14800fcece6e56505c221ba27e9",
+        "rev": "3191bf5d17dfbb9aa6301c8a754c97f0e5e89fcd",
         "type": "github"
       },
       "original": {
@@ -480,23 +457,6 @@
         "nixpkgs": "nixpkgs",
         "nvfetcher": "nvfetcher",
         "vscode-server": "vscode-server"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1669325252,
-        "narHash": "sha256-c4cqmy1lrPRC/Uwf+Sim4xxptVk7fH/STHeqe9BKOVU=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "1e6a49a801708a8bcbe429ce03f614a7951bdb11",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "rust-overlay": {
