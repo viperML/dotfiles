@@ -41,7 +41,7 @@
 
           ./fix-bluetooth.nix
 
-          hardware-nvidia
+          hardware-amd
         ];
         homeModules = with self.homeModules; [
           ./home.nix

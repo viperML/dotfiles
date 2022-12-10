@@ -50,6 +50,4 @@
     Option         "UseNvKmsCompositionPipeline" "false"
     Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On,AllowGSYNCCompatible=On}"
   '';
-  # Option         "AllowIndirectGLXProtocol" "off"
-  # Option         "TripleBuffer" "on"
 }
