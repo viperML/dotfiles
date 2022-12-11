@@ -20,11 +20,6 @@ in {
     inherit modifier;
 
     output = {
-      # "DP-3" = {
-      #   mode = "2560x1440@144Hz";
-      #   # bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
-      #   adaptive_sync = "on";
-      # };
     };
 
     input = {
@@ -34,12 +29,13 @@ in {
       };
       "type:keyboard" = {
         xkb_layout = "es";
+        # xkb_options =
       };
     };
 
     bars = args.lib.mkForce [];
 
-    keybindings = args.lib.mkOptionDefault {
+    keybindings = args.lib.mkOptionDefault rec {
       "${modifier}+Return" = "exec tym";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
@@ -47,15 +43,17 @@ in {
       "${modifier}+z" = "floating toggle";
       "${modifier}+e" = "exec dolphin";
       "Print" = "exec ${wayland-screenshot}";
-      "XF86AudioRaiseVolume" = "exec ${volume} -u up";
-      "XF86AudioLowerVolume" = "exec ${volume} -u down";
+      XF86AudioRaiseVolume = "exec ${volume} -u up";
+      XF86AudioLowerVolume = "exec ${volume} -u down";
+      "Prior" = XF86AudioRaiseVolume; # PageUp
+      "Next" = XF86AudioLowerVolume; # PageDown
       "XF86AudioMute" = "exec ${volume} toggle-mute";
       "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
     };
 
     window = {
       # titlebar = true;
-      border = 8;
+      border = 2;
     };
 
     colors = {

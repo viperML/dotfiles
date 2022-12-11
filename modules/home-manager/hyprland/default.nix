@@ -13,6 +13,7 @@
     pkgs.wofi
     packages.hyprland-contrib.grimblast
     pkgs.swaybg
+    packages.self.tym
   ];
 
   systemd.user.targets.hyprland-session = {

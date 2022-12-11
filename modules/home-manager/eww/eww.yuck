@@ -6,7 +6,7 @@
     :halign "start"
     (launcher)
     ; (workspaces)
-  ))
+))
 
 (defwidget right []
   (box

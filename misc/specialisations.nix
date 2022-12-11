@@ -11,6 +11,7 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     homeModules = with self.homeModules; [
       sway
       way-displays
+      waybar
     ];
   };
 

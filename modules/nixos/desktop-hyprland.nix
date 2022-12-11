@@ -7,13 +7,12 @@
   programs.hyprland = {
     enable = true;
     package = packages.hyprland.default.override {
-      nvidiaPatches = true;
+      # nvidiaPatches = true;
     };
   };
   services.xserver = {
     enable = true;
     displayManager = {
-      lightdm.enable = false;
       sddm.enable = true;
     };
   };

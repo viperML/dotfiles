@@ -1,12 +1,12 @@
 {
-  packages,
   flakePath,
+  pkgs,
   ...
 }: let
   configPath = "${flakePath}/modules/home-manager/waybar/config";
   stylePath = "${flakePath}/modules/home-manager/waybar/style.css";
 
-  waybarPackage = packages.hyprland.waybar-hyprland;
+  waybarPackage = pkgs.waybar;
 in {
   home.packages = [waybarPackage];
 

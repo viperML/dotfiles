@@ -72,16 +72,11 @@
             wayland
             ayats
           ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            river
-            wayland
-            ayats
-          ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            sway
-            wayland
-            soch
-          ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   river
+          #   wayland
+          #   ayats
+          # ]))
         ];
       }
   );

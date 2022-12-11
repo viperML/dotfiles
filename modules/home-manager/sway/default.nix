@@ -36,7 +36,7 @@ args @ {
     mkService = lib.recursiveUpdate {
       Install.WantedBy = ["graphical-session.target"];
     };
-  in  {
+  in {
     mako = mkService {
       Unit.Description = "Notification daemon";
       Service.ExecStart = "${pkgs.mako}/bin/mako";
@@ -52,14 +52,18 @@ args @ {
       Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
     };
 
-    waybar = mkService {
-      Unit.Description = "System bar";
-      Service.ExecStart = "${pkgs.waybar}/bin/waybar";
-    };
-
     wallpaper = mkService {
       Unit.Description = "Wallpaper daemon";
       Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#121212'";
+    };
+  };
+
+  systemd.user.targets.tray = lib.mkForce {
+    Unit = {
+      Description = "tray target";
+      BindsTo = ["graphical-session.target"];
+      Wants = ["graphical-session-pre.target"];
+      After = ["graphical-session-pre.target"];
     };
   };
 
