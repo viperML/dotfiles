@@ -13,55 +13,53 @@ args @ {
     inherit (import ./config.nix args) config extraConfig;
   };
 
-  home.packages =
-    lib.attrValues
-    {
-      inherit
-        (pkgs)
-        qgnomeplatform
-        adwaita-qt
-        wofi
-        firefox
-        ;
-      inherit
-        (pkgs.plasma5Packages)
-        dolphin
-        ark
-        qtwayland
-        dolphin-plugins
-        ffmpegthumbs
-        kdegraphics-thumbnailers
-        kio
-        kio-extras
-        #
-        
-        gwenview
-        ;
-    };
+  home.packages = [
+    pkgs.qgnomeplatform
+    pkgs.adwaita-qt
+    pkgs.wofi
+    pkgs.firefox
 
-  systemd.user.services = {
-    mako = {
+    pkgs.libsForQt5.dolphin
+    pkgs.libsForQt5.ark
+    pkgs.libsForQt5.qtwayland
+    pkgs.libsForQt5.dolphin-plugins
+    pkgs.libsForQt5.ffmpegthumbs
+    pkgs.libsForQt5.kdegraphics-thumbnailers
+    pkgs.libsForQt5.kio
+    pkgs.libsForQt5.kio-extras
+    pkgs.libsForQt5.gwenview
+
+    packages.self.tym
+  ];
+
+  systemd.user.services = let
+    mkService = lib.recursiveUpdate {
+      Install.WantedBy = ["graphical-session.target"];
+    };
+  in  {
+    mako = mkService {
       Unit.Description = "Notification daemon";
       Service.ExecStart = "${pkgs.mako}/bin/mako";
-      Install.WantedBy = ["sway-session.target"];
     };
 
-    gammastep = {
+    gammastep = mkService {
       Unit.Description = "Night time color filter";
       Service.ExecStart = "${pkgs.gammastep}/bin/gammastep -m wayland -l 40:-2 -t 6500:3000";
-      Install.WantedBy = ["sway-session.target"];
     };
 
-    avizo = {
+    avizo = mkService {
       Unit.Description = "Volume popup daemon";
       Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
-      Install.WantedBy = ["sway-session.target"];
     };
 
-    waybar = {
+    waybar = mkService {
       Unit.Description = "System bar";
       Service.ExecStart = "${pkgs.waybar}/bin/waybar";
-      Install.WantedBy = ["sway-session.target"];
+    };
+
+    wallpaper = mkService {
+      Unit.Description = "Wallpaper daemon";
+      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#121212'";
     };
   };
 

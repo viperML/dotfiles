@@ -20,15 +20,15 @@ in {
     inherit modifier;
 
     output = {
-      "DP-2" = {
-        mode = "2560x1440@144Hz";
-        bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
-        adaptive_sync = "on";
-      };
+      # "DP-3" = {
+      #   mode = "2560x1440@144Hz";
+      #   # bg = "${args.config.home.homeDirectory}/.config/sway/bg fill";
+      #   adaptive_sync = "on";
+      # };
     };
 
     input = {
-      "type:mouse" = {
+      "type:pointer" = {
         accel_profile = "flat";
         pointer_accel = "0.0";
       };
@@ -40,7 +40,7 @@ in {
     bars = args.lib.mkForce [];
 
     keybindings = args.lib.mkOptionDefault {
-      "${modifier}+Return" = "exec foot";
+      "${modifier}+Return" = "exec tym";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
       "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";

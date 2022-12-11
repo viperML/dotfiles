@@ -128,6 +128,7 @@ in {
       nushell = w pkgs.callPackage ./overrides/nushell {};
       tym = w pkgs.callPackage ./overrides/tym {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
+      river = w pkgs.callPackage ./overrides/river {};
     };
   };
 }

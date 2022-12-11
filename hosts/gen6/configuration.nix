@@ -86,6 +86,8 @@
     };
   };
 
+  # environment.sessionVariables.XKB_DEFAULT_LAYOUT = "es,en";
+
   services.xserver = {
     layout = "es";
     xkbOptions = "compose:rctrl";

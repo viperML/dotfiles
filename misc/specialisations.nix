@@ -10,6 +10,16 @@ builtins.mapAttrs (name: v: v // {inherit name;}) {
     ];
     homeModules = with self.homeModules; [
       sway
+      way-displays
+    ];
+  };
+
+  "river" = {
+    nixosModules = with self.nixosModules; [
+      desktop-river
+    ];
+    homeModules = with self.homeModules; [
+      # sway
     ];
   };
 

@@ -1,16 +1,14 @@
-{...}: {
+{packages, ...}: {
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
+    displayManager.sessionPackages = [packages.self.river];
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures = {
-      gtk = true;
-    };
-    extraPackages = [];
-  };
+  environment.systemPackages = [
+    packages.self.river
+    packages.self.foot
+  ];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
