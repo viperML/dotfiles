@@ -1,13 +1,29 @@
 args: let
   modifier = "Mod4";
-  inherit (args) pkgs;
-  wayland-screenshot = pkgs.writeShellScript "wayland-screenshot" ''
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
-  '';
-  volume = pkgs.writeShellScript "volume" ''
-    export PATH="$PATH:${pkgs.pamixer}/bin"
-    ${pkgs.avizo}/bin/volumectl "$@"
-  '';
+  inherit (args) pkgs lib;
+
+  volume = pkgs.writeShellApplication {
+    name = "volume";
+    runtimeInputs = with pkgs; [
+      pamixer
+      avizo
+    ];
+    text = ''
+      volumectl "$@"
+    '';
+  };
+
+  wayland-screenshot = pkgs.writeShellApplication {
+    name = "wayland-screenshot";
+    runtimeInputs = with pkgs; [
+      grim
+      slurp
+      swappy
+    ];
+    text = ''
+      grim -g "$(slurp)" - | swappfy -f -
+    '';
+  };
 
   nocolor = "#FF0000";
 in {
@@ -42,11 +58,11 @@ in {
       "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";
       "${modifier}+z" = "floating toggle";
       "${modifier}+e" = "exec dolphin";
-      "Print" = "exec ${wayland-screenshot}";
-      XF86AudioRaiseVolume = "exec ${volume} -u up";
-      XF86AudioLowerVolume = "exec ${volume} -u down";
-      "Prior" = XF86AudioRaiseVolume; # PageUp
-      "Next" = XF86AudioLowerVolume; # PageDown
+      "Print" = "exec ${lib.getExe wayland-screenshot}";
+      XF86AudioRaiseVolume = "exec ${lib.getExe volume} -u up";
+      XF86AudioLowerVolume = "exec ${lib.getExe volume} -u down";
+      "Prior" = XF86AudioRaiseVolume; # PageDown
+      "Next" = XF86AudioLowerVolume; # PageUp
       "XF86AudioMute" = "exec ${volume} toggle-mute";
       "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
     };
