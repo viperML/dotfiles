@@ -24,8 +24,6 @@ args: let
       grim -g "$(slurp)" - | swappfy -f -
     '';
   };
-
-  nocolor = "#FF0000";
 in {
   config = {
     gaps = {
@@ -35,8 +33,9 @@ in {
 
     inherit modifier;
 
-    output = {
-    };
+    output = args.lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
+      adaptive_sync = "off";
+    });
 
     input = {
       "type:pointer" = {
@@ -68,24 +67,26 @@ in {
     };
 
     window = {
-      # titlebar = true;
+      titlebar = true;
       border = 2;
     };
 
-    colors = {
+    colors = let
+      nocolor = "#FF0000";
+    in {
       focused = rec {
         border = "#83abd4AA";
         indicator = border;
-        background = nocolor;
+        background = "#DDDDDD";
         childBorder = border;
-        text = nocolor;
+        text = "#121212";
       };
       unfocused = rec {
         border = "#444444AA";
         indicator = border;
-        background = nocolor;
+        background = border;
         childBorder = border;
-        text = nocolor;
+        text = "#DDDDDD";
       };
       focusedInactive = rec {
         border = "#444444AA";
@@ -94,6 +95,14 @@ in {
         childBorder = border;
         text = nocolor;
       };
+    };
+
+    fonts = {
+      names = [
+        "Roboto"
+        "sans-serif"
+      ];
+      size = 10.0;
     };
   };
 

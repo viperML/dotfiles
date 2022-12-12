@@ -73,7 +73,7 @@
             ayats
           ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   river
+          #   hyprland
           #   wayland
           #   ayats
           # ]))

@@ -22,7 +22,7 @@
         "cpu",
         "memory",
         "temperature",
-        "backlight",
+        // "backlight",
         // "keyboard-state",
         // "sway/language",
         // "battery",
