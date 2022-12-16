@@ -1,4 +1,8 @@
-{river, symlinkJoin}: symlinkJoin {
+{
+  river,
+  symlinkJoin,
+}:
+symlinkJoin {
   paths = [river];
   inherit (river) name pname version;
   __nocachix = true;
