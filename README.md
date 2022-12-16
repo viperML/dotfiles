@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-build.yaml">
-  <img alt="check" src="https://img.shields.io/github/workflow/status/viperML/dotfiles/flake-build?label=flake%20build">
+  <img alt="check" src="https://img.shields.io/github/actions/workflow/status/viperML/dotfiles/flake-build.yaml?branch=master&label=flake-build">
   </a>
 </p>
 
