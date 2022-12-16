@@ -3,15 +3,15 @@
 {
   hlargs = {
     pname = "hlargs";
-    version = "e75b0501f47564099a6c3b4502232e650fdd8e82";
+    version = "88b925d699fb39633cdda02c24f0b3ba5d0e6964";
     src = fetchFromGitHub ({
       owner = "m-demare";
       repo = "hlargs.nvim";
-      rev = "e75b0501f47564099a6c3b4502232e650fdd8e82";
+      rev = "88b925d699fb39633cdda02c24f0b3ba5d0e6964";
       fetchSubmodules = false;
-      sha256 = "sha256-K5I0+9If7zXydbFxciMoWYh67mZsICVI4/HG0mgCKAM=";
+      sha256 = "sha256-0N89OjtY7faw6vyCDHGyXFEboluAPj5K+z6csopWJYM=";
     });
-    date = "2022-10-20";
+    date = "2022-12-14";
   };
   nvim-base-16 = {
     pname = "nvim-base-16";
