@@ -37,7 +37,7 @@ in {
         modules = [
           ./extra-wsl.nix
           inputs.home-manager-wsl.homeModules.default
-          {wsl.baseDistro = "ubuntu";}
+          {wsl.baseDistro = "void";}
         ];
       };
       "ayats@DESKTOP-M5NKMGG" = mkHome "x86_64-linux" {
