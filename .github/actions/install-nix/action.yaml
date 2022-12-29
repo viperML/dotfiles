@@ -3,12 +3,11 @@ description: "Common steps for workflows"
 runs:
   using: "composite"
   steps:
-    - name: Install nix
-      uses: cachix/install-nix-action@v17
+    - uses: DeterminateSystems/nix-installer@main
+      name: Install nix
       with:
-        install_url: https://nixos.org/nix/install
-        extra_nix_config: |
-          experimental-features = nix-command flakes
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        extra-conf: |
           extra-substituters = https://viperml.cachix.org
           extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
           extra-substituters = https://nix-community.cachix.org
