@@ -1,0 +1,23 @@
+name: WSL tarball
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+
+    - name: Build tarball
+      run: nix build .#homeConfigurations.ayats@viperSL4.config.wsl.tarball -L
+
+    - run: echo "UPLOAD_PATH=$(readlink -f result)" >> $GITHUB_ENV
+      name: Dereference artifact path
+    - name: Push artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifacts
+        path: ${{ env.UPLOAD_PATH }}/*
