@@ -5,6 +5,7 @@ on:
 
 jobs:
   main:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -19,5 +20,5 @@ jobs:
     - name: Push artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: artifacts
+        name: artifact
         path: ${{ env.UPLOAD_PATH }}/*
