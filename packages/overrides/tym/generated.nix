@@ -15,15 +15,15 @@
   };
   vte = {
     pname = "vte";
-    version = "adc5e8fa46cd328354570738aeb3418562b7695e";
+    version = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
     src = fetchgit {
       url = "https://gitlab.gnome.org/GNOME/vte";
-      rev = "adc5e8fa46cd328354570738aeb3418562b7695e";
+      rev = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-ULxdwH/kSgrMdTm1gmXrlz2+khEoDmuhfF6Cgc59YF0=";
+      sha256 = "sha256-MMMGdrn4d77kUyl+Ob9tpG3yTVoFDZeu/l5KtSZoe3o=";
     };
-    date = "2022-11-29";
+    date = "2022-12-30";
   };
 }
