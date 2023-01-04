@@ -3,14 +3,14 @@
 {
   picom = {
     pname = "picom";
-    version = "17b34ce3909d7e847670d6c121e1f3e5f499bf40";
+    version = "60ac2b64db78363fe04189cc734daea3d721d87e";
     src = fetchFromGitHub ({
       owner = "yshui";
       repo = "picom";
-      rev = "17b34ce3909d7e847670d6c121e1f3e5f499bf40";
+      rev = "60ac2b64db78363fe04189cc734daea3d721d87e";
       fetchSubmodules = false;
-      sha256 = "sha256-2Zps/3I6+yjr3COqflTiyiYZvFVSoqy0/bQYFwHx+Nw=";
+      sha256 = "sha256-DcTnulkhWPMqGDLD7V17f9Lxs4i44/H26gHo+dmbSCc=";
     });
-    date = "2022-12-14";
+    date = "2022-12-23";
   };
 }

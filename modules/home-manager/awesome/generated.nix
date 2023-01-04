@@ -39,15 +39,15 @@
   };
   lain = {
     pname = "lain";
-    version = "438dd7481026519f1e924a2b3087e7cda559df57";
+    version = "506ecf2ea27306c205ed816d614b1349df30b7f9";
     src = fetchFromGitHub ({
       owner = "lcpz";
       repo = "lain";
-      rev = "438dd7481026519f1e924a2b3087e7cda559df57";
+      rev = "506ecf2ea27306c205ed816d614b1349df30b7f9";
       fetchSubmodules = false;
-      sha256 = "sha256-sSgDhbvuy1AN0b5yd0qmjrun3y/HQbrhQ3jyYgeU7rI=";
+      sha256 = "sha256-KFTegs3nimquylepeqnAD25HdhCbACHxce0Sbv2CysY=";
     });
-    date = "2022-10-20";
+    date = "2023-01-03";
   };
   revelation = {
     pname = "revelation";

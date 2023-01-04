@@ -1,7 +1,7 @@
 {
     "picom": {
         "cargoLocks": null,
-        "date": "2022-12-14",
+        "date": "2022-12-23",
         "extract": null,
         "name": "picom",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "yshui",
             "repo": "picom",
-            "rev": "17b34ce3909d7e847670d6c121e1f3e5f499bf40",
-            "sha256": "sha256-2Zps/3I6+yjr3COqflTiyiYZvFVSoqy0/bQYFwHx+Nw=",
+            "rev": "60ac2b64db78363fe04189cc734daea3d721d87e",
+            "sha256": "sha256-DcTnulkhWPMqGDLD7V17f9Lxs4i44/H26gHo+dmbSCc=",
             "type": "github"
         },
-        "version": "17b34ce3909d7e847670d6c121e1f3e5f499bf40"
+        "version": "60ac2b64db78363fe04189cc734daea3d721d87e"
     }
 }
