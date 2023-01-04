@@ -73,6 +73,7 @@
       url = "github:viperML/iosevka";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.napalm.follows = "napalm";
     };
 
     flake-compat = {
@@ -128,6 +129,10 @@
     };
     envfs = {
       url = "github:Mic92/envfs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    napalm = {
+      url = "github:nix-community/napalm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

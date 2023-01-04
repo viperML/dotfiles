@@ -236,7 +236,9 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "napalm": "napalm",
+        "napalm": [
+          "napalm"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -259,16 +261,15 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "iosevka",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1663263996,
-        "narHash": "sha256-nJ6NydI0dm0ZsGfKhu1uyyj6icxZ4fvmsgXqKgYZc2s=",
+        "lastModified": 1672245824,
+        "narHash": "sha256-i596lbPiA/Rfx3DiJiCluxdgxWY7oGSgYMT7OmM+zik=",
         "owner": "nix-community",
         "repo": "napalm",
-        "rev": "cfb58e79f2ef995387102debb084f2c2fb674085",
+        "rev": "7c25a05cef52dc405f4688422ce0046ca94aadcf",
         "type": "github"
       },
       "original": {
@@ -483,6 +484,7 @@
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
         "iosevka": "iosevka",
+        "napalm": "napalm",
         "nh": "nh",
         "nil": "nil",
         "nix-common": "nix-common",
