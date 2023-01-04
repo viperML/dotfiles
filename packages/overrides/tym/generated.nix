@@ -3,27 +3,27 @@
 {
   tym = {
     pname = "tym";
-    version = "e0e1e5249c6038294392acb06e91f92363d4d611";
+    version = "0d5585cae41d347b691f9e3712875a97945c4cd4";
     src = fetchFromGitHub ({
       owner = "endaaman";
       repo = "tym";
-      rev = "e0e1e5249c6038294392acb06e91f92363d4d611";
+      rev = "0d5585cae41d347b691f9e3712875a97945c4cd4";
       fetchSubmodules = false;
-      sha256 = "sha256-aJTlO8JFNTVVfTEZcQdFyd4vfM7u9ezEFW3xb/41+3k=";
+      sha256 = "sha256-lbat4eUKU75HaNH0MmzOd4FL4Cvpwfv/uC0h14FdxPc=";
     });
-    date = "2022-11-25";
+    date = "2023-01-04";
   };
   vte = {
     pname = "vte";
-    version = "adc5e8fa46cd328354570738aeb3418562b7695e";
+    version = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
     src = fetchgit {
       url = "https://gitlab.gnome.org/GNOME/vte";
-      rev = "adc5e8fa46cd328354570738aeb3418562b7695e";
+      rev = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-ULxdwH/kSgrMdTm1gmXrlz2+khEoDmuhfF6Cgc59YF0=";
+      sha256 = "sha256-MMMGdrn4d77kUyl+Ob9tpG3yTVoFDZeu/l5KtSZoe3o=";
     };
-    date = "2022-11-29";
+    date = "2022-12-30";
   };
 }
