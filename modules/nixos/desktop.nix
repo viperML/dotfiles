@@ -40,13 +40,6 @@
     enable = true;
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "04:00";
-    options = "--delete-older-than 5d";
-    # options = "-d";
-  };
-
   systemd = let
     extraConfig = ''
       DefaultTimeoutStopSec=15s
@@ -59,15 +52,19 @@
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
 
-    # FIXME
-    # services."nix-gc-generations" = {
-    #   serviceConfig.ExecStart = (pkgs.writers.writePython3 "gc_generations" {} (builtins.readFile "${self}/bin/gc_generations.py")).outPath;
-    #   environment = {
-    #     ESP = config.boot.loader.efi.efiSysMountPoint;
-    #   };
-    #   wantedBy = ["nix-gc.service"];
-    #   after = ["nix-gc.service"];
-    # };
+    services."nh-gc" = {
+      script = ''
+        ${packages.self.nh}/bin/nh clean
+      '';
+      startAt = "04:00";
+      path = [config.nix.package];
+    };
+
+    timers."nh-gc" = {
+      timerConfig = {
+        Persistent = true;
+      };
+    };
 
     services."ModemManager".enable = false;
   };
