@@ -4,9 +4,10 @@
   config,
   packages,
   ...
-}: let
-  libpkgs = with pkgs; {
-    base = [
+}: {
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
       stdenv.cc.cc
       openssl
       curl
@@ -18,8 +19,7 @@
       libuuid
       zlib
       libsecret
-    ];
-    graphical = [
+      # graphical
       freetype
       libglvnd
       libnotify
@@ -29,21 +29,6 @@
       xorg.libX11
     ];
   };
-
-  env = {
-    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath (
-      if config.services.xserver.enable
-      then libpkgs.base
-      else libpkgs.base ++ libpkgs.graphical
-    );
-    NIX_LD = "$(${pkgs.coreutils}/bin/cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker)";
-  };
-in {
-  environment.sessionVariables = env;
-
-  programs.nix-ld.enable = true;
-
-  systemd.tmpfiles.packages = [pkgs.nix-ld];
 
   environment.systemPackages = [pkgs.appimage-run];
   boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (ext: {

@@ -59,14 +59,15 @@
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
 
-    services."nix-gc-generations" = {
-      serviceConfig.ExecStart = (pkgs.writers.writePython3 "gc_generations" {} (builtins.readFile "${self}/bin/gc_generations.py")).outPath;
-      environment = {
-        ESP = config.boot.loader.efi.efiSysMountPoint;
-      };
-      wantedBy = ["nix-gc.service"];
-      after = ["nix-gc.service"];
-    };
+    # FIXME
+    # services."nix-gc-generations" = {
+    #   serviceConfig.ExecStart = (pkgs.writers.writePython3 "gc_generations" {} (builtins.readFile "${self}/bin/gc_generations.py")).outPath;
+    #   environment = {
+    #     ESP = config.boot.loader.efi.efiSysMountPoint;
+    #   };
+    #   wantedBy = ["nix-gc.service"];
+    #   after = ["nix-gc.service"];
+    # };
 
     services."ModemManager".enable = false;
   };

@@ -15,25 +15,26 @@ in {
     packages.self.neofetch
     mpv
     qbittorrent
-    ffmpeg-full
-    (self.libFor.${system}.addFlags pkgs.google-chrome (
-      if config.viper.isWayland
-      then [
-        "--enable-features=UseOzonePlatform,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
-        "--ozone-platform=wayland"
-      ]
-      else [
-        "--disable-features=UseChromeOSDirectVideoDecoder"
-        "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
-        "--ignore-gpu-blocklist"
-        "--enable-gpu-rasterization"
-        "--enable-accelerated-2d-canvas"
-        "--enable-accelerated-video-decode"
-        "--enable-zero-copy"
-        "--ozone-platform-hint=x11"
-        "--use-gl=desktop"
-      ]
-    ))
+    # ffmpeg-full
+    # (self.libFor.${system}.addFlags pkgs.google-chrome (
+    #   if config.viper.isWayland
+    #   then [
+    #     "--enable-features=UseOzonePlatform,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+    #     "--ozone-platform=wayland"
+    #   ]
+    #   else [
+    #     "--disable-features=UseChromeOSDirectVideoDecoder"
+    #     "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization"
+    #     "--ignore-gpu-blocklist"
+    #     "--enable-gpu-rasterization"
+    #     "--enable-accelerated-2d-canvas"
+    #     "--enable-accelerated-video-decode"
+    #     "--enable-zero-copy"
+    #     "--ozone-platform-hint=x11"
+    #     "--use-gl=desktop"
+    #   ]
+    # ))
+    firefox
     vault
     packages.self.deploy-rs
     pkgs.vscode

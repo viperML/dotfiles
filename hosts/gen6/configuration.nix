@@ -39,13 +39,16 @@
       };
     };
     tmpOnTmpfs = true;
-    kernelPackages = let
-      compatible = config.boot.zfs.package.latestCompatibleLinuxPackages;
-      target = pkgs.linuxPackages_xanmod;
-    in
-      if lib.versionAtLeast compatible.kernel.version target.kernel.version
-      then target
-      else throw "=> gen6: selected kernel is not compatible with ZFS";
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
+    # kernelPackages = let
+    #   compatible = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    #   target = pkgs.linuxPackages_xanmod;
+    # in
+    #   if lib.versionAtLeast compatible.kernel.version target.kernel.version
+    #   then target
+    #   else throw "=> gen6: selected kernel is not compatible with ZFS";
+
     kernelParams = [
     ];
 

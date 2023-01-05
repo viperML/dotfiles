@@ -67,11 +67,11 @@
             ayats
             default
           ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            sway
-            wayland
-            ayats
-          ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   sway
+          #   wayland
+          #   ayats
+          # ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   hyprland
           #   wayland
