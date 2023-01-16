@@ -3,7 +3,6 @@
   packages,
   lib,
   self,
-  config,
   ...
 }: let
   mkTrayService = lib.recursiveUpdate {

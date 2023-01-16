@@ -2,7 +2,6 @@
   config,
   pkgs,
   self,
-  lib,
   packages,
   flakePath,
   ...
