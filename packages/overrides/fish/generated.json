@@ -13,10 +13,10 @@
             "name": null,
             "owner": "PatrickF1",
             "repo": "fzf.fish",
-            "rev": "v9.5",
-            "sha256": "sha256-ZdHfIZNCtY36IppnufEIyHr+eqlvsIUOs0kY5I9Df6A=",
+            "rev": "v9.6",
+            "sha256": "sha256-89uquxtYN2NXNgV6u72LzuE83IwjMvGquvTpGue8OWQ=",
             "type": "github"
         },
-        "version": "v9.5"
+        "version": "v9.6"
     }
 }

@@ -21,7 +21,7 @@
     },
     "nvim-base-16": {
         "cargoLocks": null,
-        "date": "2022-12-21",
+        "date": "2023-01-10",
         "extract": null,
         "name": "nvim-base-16",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "RRethy",
             "repo": "nvim-base16",
-            "rev": "be09864ae8b60f6f96d42ed60752dcfa3b7d31b5",
-            "sha256": "sha256-xu2LswDrO8LXo3JLVlgagGPyMvqHEx35Ra5hicogHgo=",
+            "rev": "cf8252058c8fc486bc565a815083a2eb390f7621",
+            "sha256": "sha256-sOwFpsUnFadqHm3zu5Fi3sbJLsezmjjFEsPGr9EEksE=",
             "type": "github"
         },
-        "version": "be09864ae8b60f6f96d42ed60752dcfa3b7d31b5"
+        "version": "cf8252058c8fc486bc565a815083a2eb390f7621"
     },
     "nvim-transparent": {
         "cargoLocks": null,

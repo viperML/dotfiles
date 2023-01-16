@@ -3,15 +3,15 @@
 {
   tym = {
     pname = "tym";
-    version = "0d5585cae41d347b691f9e3712875a97945c4cd4";
+    version = "2e151bf8b3954c2900d5dba195ccc0df0f61b2c0";
     src = fetchFromGitHub ({
       owner = "endaaman";
       repo = "tym";
-      rev = "0d5585cae41d347b691f9e3712875a97945c4cd4";
+      rev = "2e151bf8b3954c2900d5dba195ccc0df0f61b2c0";
       fetchSubmodules = false;
-      sha256 = "sha256-lbat4eUKU75HaNH0MmzOd4FL4Cvpwfv/uC0h14FdxPc=";
+      sha256 = "sha256-iIABG3eFbSqnHocOoGcbHoXkUJ28qbUJaEnwLIlvm8M=";
     });
-    date = "2023-01-04";
+    date = "2023-01-12";
   };
   vte = {
     pname = "vte";
