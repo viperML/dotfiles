@@ -59,7 +59,7 @@ in {
       config.allowUnfree = true;
       overlays = [
         # self.overlays.wlroots-nvidia
-        inputs.nvfetcher.overlay
+        inputs.nvfetcher.overlays.default
       ];
     };
 
