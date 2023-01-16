@@ -3,13 +3,13 @@
 {
   fzf = {
     pname = "fzf";
-    version = "v9.5";
+    version = "v9.6";
     src = fetchFromGitHub ({
       owner = "PatrickF1";
       repo = "fzf.fish";
-      rev = "v9.5";
+      rev = "v9.6";
       fetchSubmodules = false;
-      sha256 = "sha256-ZdHfIZNCtY36IppnufEIyHr+eqlvsIUOs0kY5I9Df6A=";
+      sha256 = "sha256-89uquxtYN2NXNgV6u72LzuE83IwjMvGquvTpGue8OWQ=";
     });
   };
 }

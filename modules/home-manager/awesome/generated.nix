@@ -39,15 +39,15 @@
   };
   lain = {
     pname = "lain";
-    version = "506ecf2ea27306c205ed816d614b1349df30b7f9";
+    version = "88f5a8abd2649b348ffec433a24a263b37f122c0";
     src = fetchFromGitHub ({
       owner = "lcpz";
       repo = "lain";
-      rev = "506ecf2ea27306c205ed816d614b1349df30b7f9";
+      rev = "88f5a8abd2649b348ffec433a24a263b37f122c0";
       fetchSubmodules = false;
-      sha256 = "sha256-KFTegs3nimquylepeqnAD25HdhCbACHxce0Sbv2CysY=";
+      sha256 = "sha256-MH/aiYfcO3lrcuNbnIu4QHqPq25LwzTprOhEJUJBJ7I=";
     });
-    date = "2023-01-03";
+    date = "2023-01-12";
   };
   revelation = {
     pname = "revelation";
@@ -63,14 +63,14 @@
   };
   sharedtags = {
     pname = "sharedtags";
-    version = "2a4396ea777de75258777948a93389714206bd93";
+    version = "47fbce14337600124d49d33eb2476b5ed96a966c";
     src = fetchFromGitHub ({
       owner = "Drauthius";
       repo = "awesome-sharedtags";
-      rev = "2a4396ea777de75258777948a93389714206bd93";
+      rev = "47fbce14337600124d49d33eb2476b5ed96a966c";
       fetchSubmodules = false;
-      sha256 = "sha256-YTDKuUqUanh4AWOyEQUKjf3LwkicEuS1gJIVOg6U8iE=";
+      sha256 = "sha256-7YqRMiqIOhyorug2ju1XrSB3b+qne6fIpy8RuHbQTZc=";
     });
-    date = "2022-01-02";
+    date = "2023-01-14";
   };
 }
