@@ -1,16 +1,19 @@
-args @ {
+{
   config,
   pkgs,
   lib,
   packages,
   ...
 }: {
+  imports = [
+    ./config.nix
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     # Use NixOS module system to install
     package = null;
     systemdIntegration = true;
-    inherit (import ./config.nix args) config extraConfig;
   };
 
   home.packages = [
@@ -18,6 +21,7 @@ args @ {
     pkgs.adwaita-qt
     pkgs.wofi
     pkgs.firefox
+    packages.self.papirus-icon-theme
 
     pkgs.libsForQt5.dolphin
     pkgs.libsForQt5.ark
@@ -29,7 +33,7 @@ args @ {
     pkgs.libsForQt5.kio-extras
     pkgs.libsForQt5.gwenview
 
-    packages.self.tym
+    packages.self.wezterm
   ];
 
   systemd.user.services = let
@@ -56,6 +60,11 @@ args @ {
       Unit.Description = "Wallpaper daemon";
       Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#121212'";
     };
+
+    nm-applet = mkService {
+      Unit.Description = "Network applet";
+      Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
+    };
   };
 
   systemd.user.targets.tray = lib.mkForce {
@@ -68,4 +77,41 @@ args @ {
   };
 
   xdg.configFile."avizo/config.ini".source = ./avizo.ini;
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = packages.self.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+    iconTheme = {
+      package = packages.self.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+    cursorTheme = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 24;
+    };
+    font = {
+      package = pkgs.roboto;
+      name = "Roboto";
+      size = 10.0;
+    };
+  };
+
+  services.xsettingsd = {
+    enable = true;
+    settings = {
+      # "Gtk/CursorThemeName" = "Vanilla-DMZ";
+      "Net/EnableEventSounds" = false;
+      "Net/EnableInputFeedbackSounds" = false;
+      "Net/IconThemeName" = "Papirus-Dark";
+      "Xft/Antialias" = true;
+      "Xft/Hinting" = true;
+      "Xft/RGBA" = "rgb";
+      "Xft/HintStyle" = "hintfull";
+      # "Gtk/FontName" = "Roboto, 10";
+    };
+  };
 }

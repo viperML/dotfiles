@@ -1,6 +1,9 @@
-args: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   modifier = "Mod4";
-  inherit (args) pkgs lib;
 
   volume = pkgs.writeShellApplication {
     name = "volume";
@@ -25,7 +28,7 @@ args: let
     '';
   };
 in {
-  config = {
+  wayland.windowManager.sway.config = {
     gaps = {
       outer = 0;
       inner = 10;
@@ -33,7 +36,7 @@ in {
 
     inherit modifier;
 
-    output = args.lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
+    output = lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
       adaptive_sync = "off";
     });
 
@@ -48,10 +51,10 @@ in {
       };
     };
 
-    bars = args.lib.mkForce [];
+    bars = lib.mkForce [];
 
-    keybindings = args.lib.mkOptionDefault rec {
-      "${modifier}+Return" = "exec tym";
+    keybindings = lib.mkOptionDefault rec {
+      "${modifier}+Return" = "exec wezterm";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
       "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";
@@ -75,21 +78,21 @@ in {
       nocolor = "#FF0000";
     in {
       focused = rec {
-        border = "#83abd4AA";
+        border = "#83abd4";
         indicator = border;
-        background = "#DDDDDD";
+        background = "#83abd4";
         childBorder = border;
         text = "#121212";
       };
       unfocused = rec {
-        border = "#444444AA";
+        border = "#3A3A3A";
         indicator = border;
         background = border;
         childBorder = border;
-        text = "#DDDDDD";
+        text = "#aaaaaa";
       };
       focusedInactive = rec {
-        border = "#444444AA";
+        border = "#3A3A3A";
         indicator = border;
         background = nocolor;
         childBorder = border;
@@ -104,8 +107,12 @@ in {
       ];
       size = 10.0;
     };
+
+    seat."*" = {
+      xcursor_theme = "Vanilla-DMZ 24";
+    };
   };
 
-  extraConfig = ''
+  wayland.windowManager.sway.extraConfig = ''
   '';
 }
