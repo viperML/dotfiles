@@ -56,7 +56,7 @@
     ];
 
     zfs = {
-      enableUnstable = true;
+      enableUnstable = false;
       forceImportAll = false;
       forceImportRoot = false;
     };
