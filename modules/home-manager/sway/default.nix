@@ -58,7 +58,7 @@
 
     wallpaper = mkService {
       Unit.Description = "Wallpaper daemon";
-      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#121212'";
+      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#000000'";
     };
 
     nm-applet = mkService {
