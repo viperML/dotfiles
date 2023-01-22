@@ -65,6 +65,11 @@
       Unit.Description = "Network applet";
       Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
     };
+
+    autotiling = mkService {
+      Unit.Description = "Autotiling";
+      Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+    };
   };
 
   systemd.user.targets.tray = lib.mkForce {
@@ -113,5 +118,15 @@
       "Xft/HintStyle" = "hintfull";
       # "Gtk/FontName" = "Roboto, 10";
     };
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 600;
+        command = "systemctl suspend";
+      }
+    ];
   };
 }

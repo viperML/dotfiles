@@ -76,7 +76,7 @@ in {
 
     colors = let
       nocolor = "#FF0000";
-    in {
+    in rec {
       focused = rec {
         border = "#83abd4";
         indicator = border;
@@ -91,13 +91,7 @@ in {
         childBorder = border;
         text = "#aaaaaa";
       };
-      focusedInactive = rec {
-        border = "#3A3A3A";
-        indicator = border;
-        background = nocolor;
-        childBorder = border;
-        text = nocolor;
-      };
+      focusedInactive = unfocused;
     };
 
     fonts = {
