@@ -61,16 +61,17 @@
           #   wayland
           #   ayats
           # ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            kde
-            wayland
-            ayats
-            default
-          ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   kde
+          #   wayland
+          #   ayats
+          #   default
+          # ]))
           (self.lib.joinSpecialisations (with self.specialisations; [
             sway
             wayland
             ayats
+            default
           ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   hyprland
