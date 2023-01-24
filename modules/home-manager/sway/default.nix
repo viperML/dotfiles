@@ -40,6 +40,9 @@
     mkService = lib.recursiveUpdate {
       Install.WantedBy = ["graphical-session.target"];
     };
+    mkTray = lib.recursiveUpdate {
+      Install.WantedBy = ["graphical-session.target"];
+    };
   in {
     mako = mkService {
       Unit.Description = "Notification daemon";
@@ -61,7 +64,7 @@
       Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#000000'";
     };
 
-    nm-applet = mkService {
+    nm-applet = mkTray {
       Unit.Description = "Network applet";
       Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
     };
@@ -69,15 +72,6 @@
     autotiling = mkService {
       Unit.Description = "Autotiling";
       Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
-    };
-  };
-
-  systemd.user.targets.tray = lib.mkForce {
-    Unit = {
-      Description = "tray target";
-      BindsTo = ["graphical-session.target"];
-      Wants = ["graphical-session-pre.target"];
-      After = ["graphical-session-pre.target"];
     };
   };
 

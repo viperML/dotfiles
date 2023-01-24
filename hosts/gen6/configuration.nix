@@ -110,6 +110,8 @@
     };
   };
 
+  services.blueman.enable = true;
+
   ### ZFS
 
   services.zfs = {
