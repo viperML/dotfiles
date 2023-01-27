@@ -24,7 +24,7 @@
       swappy
     ];
     text = ''
-      grim -g "$(slurp)" - | swappfy -f -
+      grim -g "$(slurp)" - | swappy -f -
     '';
   };
 in {
