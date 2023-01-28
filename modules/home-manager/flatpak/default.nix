@@ -33,7 +33,7 @@ in {
         systemctl --user restart flatpak-autoinstall.service
       '';
     };
-    "fonts".source = config.lib.file.mkOutOfStoreSymlink "/etc/profiles/per-user/${config.home.username}/share/fonts";
+    # "fonts".source = config.lib.file.mkOutOfStoreSymlink "/etc/profiles/per-user/${config.home.username}/share/fonts";
   };
 
   systemd.user = {
