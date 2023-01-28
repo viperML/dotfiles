@@ -57,7 +57,7 @@ in {
       "${modifier}+Return" = "exec wezterm";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
-      "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun";
+      "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun -I --define=image_size=30 --style=${./style.css}";
       "${modifier}+z" = "floating toggle";
       "${modifier}+e" = "exec dolphin";
       "Print" = "exec ${lib.getExe wayland-screenshot}";

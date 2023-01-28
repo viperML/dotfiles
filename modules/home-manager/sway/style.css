@@ -1,0 +1,35 @@
+window {
+    margin: 0px;
+    border-radius: 15px;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    color: #f8f8f2;
+    border-radius: 10px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+}
+
+#entry:selected {
+    border-radius: 10px;
+}
