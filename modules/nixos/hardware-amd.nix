@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   boot.initrd.availableKernelModules = ["amdgpu"];
@@ -19,7 +20,7 @@
   hardware.opengl = {
     enable = true;
     driSupport = lib.mkDefault true;
-    driSupport32Bit = lib.mkDefault true;
+    driSupport32Bit = lib.mkIf config.programs.steam.enable;
   };
 
   environment.variables.AMD_VULKAN_ICD = lib.mkDefault "RADV";

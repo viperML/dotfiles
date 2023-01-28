@@ -4,6 +4,7 @@
   self,
   packages,
   flakePath,
+  lib,
   ...
 }: {
   viper.env = {
@@ -328,8 +329,8 @@
   };
 
   programs.gamemode.enable = true;
-  programs.steam.enable = true;
-  fonts.fontconfig.cache32Bit = true;
+  programs.steam.enable = false;
+  fonts.fontconfig.cache32Bit = lib.mkIf config.programs.steam.enable;
 
   console = {
     font = "ter-v20n";
