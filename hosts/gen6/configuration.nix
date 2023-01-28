@@ -330,7 +330,8 @@
 
   programs.gamemode.enable = true;
   programs.steam.enable = false;
-  fonts.fontconfig.cache32Bit = lib.mkIf config.programs.steam.enable;
+
+  fonts.fontconfig.cache32Bit = config.programs.steam.enable;
 
   console = {
     font = "ter-v20n";
