@@ -37,7 +37,7 @@ in {
     inherit modifier;
 
     output = lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
-      adaptive_sync = "on";
+      adaptive_sync = "off";
     });
 
     input = {
@@ -76,11 +76,12 @@ in {
 
     colors = let
       nocolor = "#FF0000";
+      accent = "#cc6666";
     in rec {
       focused = rec {
-        border = "#83abd4";
+        border = accent;
         indicator = border;
-        background = "#83abd4";
+        background = accent;
         childBorder = border;
         text = "#121212";
       };
