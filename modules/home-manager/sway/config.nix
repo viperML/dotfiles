@@ -109,6 +109,7 @@ in {
 
   wayland.windowManager.sway.extraConfig = ''
     title_align center
+    titlebar_padding 7
 
     corner_radius 11
   '';
