@@ -37,7 +37,7 @@ in {
     inherit modifier;
 
     output = lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
-      adaptive_sync = "off";
+      adaptive_sync = "on";
     });
 
     input = {
@@ -71,7 +71,7 @@ in {
 
     window = {
       titlebar = true;
-      border = 2;
+      border = 0;
     };
 
     colors = let
@@ -108,5 +108,8 @@ in {
   };
 
   wayland.windowManager.sway.extraConfig = ''
+    title_align center
+
+    corner_radius 11
   '';
 }

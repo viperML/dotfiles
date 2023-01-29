@@ -61,7 +61,20 @@
 
     wallpaper = mkService {
       Unit.Description = "Wallpaper daemon";
-      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --color '#000000'";
+      Service.ExecStart = lib.getExe (pkgs.writeShellApplication {
+        name = "wallpaper";
+        runtimeInputs = with pkgs; [swaybg];
+        text = ''
+          f=${config.xdg.configHome}/sway/bg
+          if [[ -f $f ]]; then
+            echo Using $f
+            swaybg --image $f --mode fill
+          else
+            echo $f not found
+            swaybg --color '#000000'
+          fi
+        '';
+      });
     };
 
     nm-applet = mkTray {

@@ -35,15 +35,23 @@
   in
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
-  flake.overlays.wlroots-nvidia = final: prev: {
-    wlroots = prev.wlroots.overrideAttrs (old: {
-      pname = "wlroots-nvidia";
-      postPatch =
-        (old.postPatch or "")
-        + ''
-          substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-        '';
-    });
+  flake.overlays = {
+    wlroots-nvidia = final: prev: {
+      wlroots = prev.wlroots.overrideAttrs (old: {
+        pname = "wlroots-nvidia";
+        postPatch =
+          (old.postPatch or "")
+          + ''
+            substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+          '';
+      });
+    };
+
+    swayfx = final: prev: {
+      sway = prev.sway.override {
+        sway-unwrapped = self.packages.${final.system}.swayfx-unwrapped;
+      };
+    };
   };
 
   perSystem = {
@@ -59,6 +67,7 @@ in {
       config.allowUnfree = true;
       overlays = [
         # self.overlays.wlroots-nvidia
+        self.overlays.swayfx
         inputs.nvfetcher.overlays.default
       ];
     };
@@ -81,6 +90,7 @@ in {
       vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
       nix-software-center = w pkgs.callPackage ./main/nix-software-center {};
+      swayfx-unwrapped = w pkgs.callPackage ./main/swayfx-unwrapped {};
 
       # Python
       resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};
