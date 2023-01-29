@@ -76,7 +76,7 @@ in {
 
     colors = let
       nocolor = "#FF0000";
-      accent = "#cc6666";
+      accent = "#81a2be";
     in rec {
       focused = rec {
         border = accent;
