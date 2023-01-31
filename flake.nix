@@ -15,7 +15,6 @@
       ];
 
       flake = {
-        specialisations = import ./misc/specialisations.nix inputs;
         templates = builtins.mapAttrs (name: _: {
           inherit (import ./misc/templ/${name}/flake.nix) description;
           path = ./misc/templ/${name};
@@ -34,11 +33,11 @@
           iosevka = inputs'.iosevka.packages.ttf-nerd-linux;
           # nix = inputs'.nix.packages.nix;
           # nix = pkgs.nix;
-          nix = pkgs.symlinkJoin {
-            inherit (pkgs.nix) name pname version;
-            __nocachix = true;
-            paths = [pkgs.nix];
-          };
+          # nix = pkgs.symlinkJoin {
+          #   inherit (pkgs.nix) name pname version;
+          #   __nocachix = true;
+          #   paths = [pkgs.nix];
+          # };
         };
       };
 

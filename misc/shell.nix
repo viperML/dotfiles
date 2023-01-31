@@ -1,4 +1,4 @@
-_: {
+{
   perSystem = {
     pkgs,
     config,
