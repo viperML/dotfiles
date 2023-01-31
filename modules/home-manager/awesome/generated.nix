@@ -3,27 +3,27 @@
 {
   awesome-wm-widgets = {
     pname = "awesome-wm-widgets";
-    version = "3bb3d56c26ac3500aab33381af0cccebf6aaa05c";
+    version = "ef70d16c43c2f566a4fe2955b8d6c08f6c185af8";
     src = fetchFromGitHub ({
       owner = "streetturtle";
       repo = "awesome-wm-widgets";
-      rev = "3bb3d56c26ac3500aab33381af0cccebf6aaa05c";
+      rev = "ef70d16c43c2f566a4fe2955b8d6c08f6c185af8";
       fetchSubmodules = false;
-      sha256 = "sha256-zXAiEeAJibdmF5lpSJc7zZrgUJP/+l/dKcBR1HdUf9k=";
+      sha256 = "sha256-td9uE+b3DrE+JJ3NCmIkQAuxJLJCGd79J5LZLqBw9KI=";
     });
-    date = "2022-09-02";
+    date = "2023-01-18";
   };
   bling = {
     pname = "bling";
-    version = "e6de047ced41051236a390b081105f598cb0ad8b";
+    version = "57786e08f403d855a6ffa4ed34995cba155da23a";
     src = fetchFromGitHub ({
       owner = "BlingCorp";
       repo = "bling";
-      rev = "e6de047ced41051236a390b081105f598cb0ad8b";
+      rev = "57786e08f403d855a6ffa4ed34995cba155da23a";
       fetchSubmodules = false;
-      sha256 = "sha256-ehFUAhLUEOfqB/2Dung7fBPTCvuXepZB6oVLUv+rkTk=";
+      sha256 = "sha256-QJxoQ7axFigulFOrvSjICgK7nrwSILNwZV1f/g0pwfk=";
     });
-    date = "2022-11-20";
+    date = "2023-01-28";
   };
   freedesktop = {
     pname = "freedesktop";
