@@ -3,27 +3,27 @@
 {
   tym = {
     pname = "tym";
-    version = "2e151bf8b3954c2900d5dba195ccc0df0f61b2c0";
+    version = "57e5e4bc312544d9ee03f628a016c4c6c5fbf852";
     src = fetchFromGitHub ({
       owner = "endaaman";
       repo = "tym";
-      rev = "2e151bf8b3954c2900d5dba195ccc0df0f61b2c0";
+      rev = "57e5e4bc312544d9ee03f628a016c4c6c5fbf852";
       fetchSubmodules = false;
-      sha256 = "sha256-iIABG3eFbSqnHocOoGcbHoXkUJ28qbUJaEnwLIlvm8M=";
+      sha256 = "sha256-vcOEnBsxfCAtUFJyS7tFePTb6BkG+hzNQUYPm+sxz1I=";
     });
-    date = "2023-01-12";
+    date = "2023-01-30";
   };
   vte = {
     pname = "vte";
-    version = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
+    version = "1d1896427fb28b0aa32f5dd401f2a86e97452cf1";
     src = fetchgit {
       url = "https://gitlab.gnome.org/GNOME/vte";
-      rev = "015ca4d2fdc57b625add7b23b0afa7193adc45a9";
+      rev = "1d1896427fb28b0aa32f5dd401f2a86e97452cf1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-MMMGdrn4d77kUyl+Ob9tpG3yTVoFDZeu/l5KtSZoe3o=";
+      sha256 = "sha256-gwbSyrNLNiDXvcoLCauOmZftiYmYuMyVTQUeyDxcr0c=";
     };
-    date = "2022-12-30";
+    date = "2023-01-21";
   };
 }

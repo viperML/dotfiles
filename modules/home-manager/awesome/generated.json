@@ -1,7 +1,7 @@
 {
     "awesome-wm-widgets": {
         "cargoLocks": null,
-        "date": "2022-09-02",
+        "date": "2023-01-18",
         "extract": null,
         "name": "awesome-wm-widgets",
         "passthru": null,
@@ -13,15 +13,15 @@
             "name": null,
             "owner": "streetturtle",
             "repo": "awesome-wm-widgets",
-            "rev": "3bb3d56c26ac3500aab33381af0cccebf6aaa05c",
-            "sha256": "sha256-zXAiEeAJibdmF5lpSJc7zZrgUJP/+l/dKcBR1HdUf9k=",
+            "rev": "ef70d16c43c2f566a4fe2955b8d6c08f6c185af8",
+            "sha256": "sha256-td9uE+b3DrE+JJ3NCmIkQAuxJLJCGd79J5LZLqBw9KI=",
             "type": "github"
         },
-        "version": "3bb3d56c26ac3500aab33381af0cccebf6aaa05c"
+        "version": "ef70d16c43c2f566a4fe2955b8d6c08f6c185af8"
     },
     "bling": {
         "cargoLocks": null,
-        "date": "2022-11-20",
+        "date": "2023-01-28",
         "extract": null,
         "name": "bling",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "BlingCorp",
             "repo": "bling",
-            "rev": "e6de047ced41051236a390b081105f598cb0ad8b",
-            "sha256": "sha256-ehFUAhLUEOfqB/2Dung7fBPTCvuXepZB6oVLUv+rkTk=",
+            "rev": "57786e08f403d855a6ffa4ed34995cba155da23a",
+            "sha256": "sha256-QJxoQ7axFigulFOrvSjICgK7nrwSILNwZV1f/g0pwfk=",
             "type": "github"
         },
-        "version": "e6de047ced41051236a390b081105f598cb0ad8b"
+        "version": "57786e08f403d855a6ffa4ed34995cba155da23a"
     },
     "freedesktop": {
         "cargoLocks": null,
