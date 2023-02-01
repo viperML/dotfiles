@@ -4,7 +4,6 @@
   self,
   packages,
   flakePath,
-  lib,
   ...
 }: {
   viper.env = {
