@@ -3,9 +3,13 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./nixos
+  ];
+
   flake = {
     homeModules = config.flake.lib.exportModulesDir ./home-manager;
-    nixosModules = builtins.removeAttrs (config.flake.lib.exportModulesDir ./nixos) ["users"];
+    # nixosModules = builtins.removeAttrs (config.flake.lib.exportModulesDir ./nixos) ["users"];
 
     specialisations = let
       inherit (config.flake) homeModules nixosModules;
