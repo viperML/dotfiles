@@ -12,6 +12,9 @@ Set-PSReadLineKeyHandler -Key Alt+f -Function ShellForwardWord
 Set-PSReadLineKeyHandler -Key Alt+B -Function SelectShellBackwardWord
 Set-PSReadLineKeyHandler -Key Alt+F -Function SelectShellForwardWord
 
+Remove-PSReadLineKeyHandler -Chord "ctrl+v"
+# Remove-PSReadLineKeyHandler -Chord "ctrl+v" -ViMode Command
+
 $ESC = [char]27
 
 function prompt {
