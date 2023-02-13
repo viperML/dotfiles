@@ -113,7 +113,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     vscode-server = {
-      url = "github:viperML/nixos-vscode-server/custom-path";
+      url = "github:msteen/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvfetcher = {

@@ -33,7 +33,7 @@
           {
             services.vscode-server = {
               enable = true;
-              path = "~/.local/share/code-server/.vscode-server";
+              installPath = "~/.local/share/code-server/.vscode-server";
             };
           }
           flatpak

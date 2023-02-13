@@ -571,16 +571,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1663403388,
-        "narHash": "sha256-gd0joi/xDuouynMZWeegmvkinC45Qc54MWFNkLH0Umc=",
-        "owner": "viperML",
+        "lastModified": 1676159144,
+        "narHash": "sha256-/TJD9hZ0+u7oSJkNxmAE/UlxndFkZCu1fC6re7I/DYY=",
+        "owner": "msteen",
         "repo": "nixos-vscode-server",
-        "rev": "d9003614d4f71cbf4542bddf66ac2762e6b0c88b",
+        "rev": "43ca5e6d4e45ae6933aaeb1850b4cdf62c25a11f",
         "type": "github"
       },
       "original": {
-        "owner": "viperML",
-        "ref": "custom-path",
+        "owner": "msteen",
         "repo": "nixos-vscode-server",
         "type": "github"
       }
