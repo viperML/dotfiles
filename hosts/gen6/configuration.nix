@@ -110,7 +110,6 @@
     };
   };
 
-  services.blueman.enable = true;
 
   ### ZFS
 

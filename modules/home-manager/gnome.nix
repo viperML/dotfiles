@@ -7,6 +7,7 @@
 }: let
   inherit (config.lib) gvariant;
   term = packages.self.wezterm;
+  term_exe = "wezterm";
 in {
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" =
@@ -30,13 +31,40 @@ in {
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = gvariant.mkString "<Super>Return";
-      command = gvariant.mkString (lib.getExe term);
+      command = gvariant.mkString term_exe;
       name = gvariant.mkString "terminal";
     };
     "org/gnome/shell/extensions/pop-shell" = {
       "tile-by-default" = gvariant.mkBoolean true;
       "tile-enter" = gvariant.mkArray gvariant.type.string [];
       "tile-accept" = gvariant.mkArray gvariant.type.string [];
+    };
+    "org/gnome/desktop/interface" = {"enable-hot-corners" = gvariant.mkBoolean false;};
+    "org/gnome/shell" = {
+      "enabled-extensions" = gvariant.mkArray gvariant.type.string [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+      ];
+    };
+    "org/gnome/desktop/interface" = {
+      "gtk-theme" = gvariant.mkString "adw-gtk3-dark";
+      "font-hinting" = gvariant.mkString "full";
+      "font-antialiasing" = gvariant.mkString "rgba";
+      "font-name" = gvariant.mkString "Roboto 11";
+      "document-font-name" = gvariant.mkString "Roboto 11";
+      "gtk-enable-primary-paste" = gvariant.mkBoolean false;
+      "color-scheme" = gvariant.mkString "prefer-dark";
+      "icon-theme" = gvariant.mkString "Papirus-Dark";
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      "titlebar-font" = gvariant.mkString "Roboto Bold 11";
+    };
+    "org/gnome/desktop/peripherals/mouse" = {
+      "accel-profile" = gvariant.mkString "flat";
+    };
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      "panel/blur" = gvariant.mkBoolean false;
+      "applications/blur" = gvariant.mkBoolean false;
     };
   };
 

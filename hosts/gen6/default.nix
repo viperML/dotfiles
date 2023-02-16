@@ -62,8 +62,14 @@
           #   ayats
           #   default
           # ]))
+          # (self.lib.joinSpecialisations (with self.specialisations; [
+          #   kde
+          #   wayland
+          #   ayats
+          #   default
+          # ]))
           (self.lib.joinSpecialisations (with self.specialisations; [
-            kde
+            gnome
             wayland
             ayats
             default

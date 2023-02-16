@@ -51,6 +51,4 @@ in {
     #   Unit.Description = "Mail client";
     # };
   };
-
-  services.blueman-applet.enable = true;
 }

@@ -22,4 +22,6 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
+
+  services.blueman.enable = true;
 }

@@ -9,9 +9,11 @@
     appindicator
     blur-my-shell
     dash-to-panel
-    caffeine
-    tiling-assistant
-    pop-shell
+    # caffeine
+    # tiling-assistant
+    # pop-shell
+    forge
+    just-perfection
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);

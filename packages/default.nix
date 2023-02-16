@@ -97,7 +97,6 @@ in {
       resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};
 
       # Qt5
-      bismuth = w pkgs.libsForQt5.callPackage ./qt5/bismuth {};
       kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};
       lightly = w pkgs.libsForQt5.callPackage ./qt5/lightly {};
       reversal-kde = w pkgs.libsForQt5.callPackage ./qt5/reversal-kde {};

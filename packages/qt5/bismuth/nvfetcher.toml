@@ -1,4 +1,0 @@
-[bismuth]
-src.git = "https://github.com/Bismuth-Forge/bismuth"
-fetch.github = "Bismuth-Forge/bismuth"
-git.date_format = "%Y-%m-%d"

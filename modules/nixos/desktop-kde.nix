@@ -55,7 +55,6 @@
       lightly
       reversal-kde
       sierrabreezeenhanced
-      bismuth
       ;
   };
 }
