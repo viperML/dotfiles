@@ -75,7 +75,6 @@ in {
     };
 
     colors = let
-      nocolor = "#FF0000";
       accent = "#81a2be";
     in rec {
       focused = rec {
