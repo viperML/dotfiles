@@ -3,13 +3,13 @@
 {
   nix-software-center = {
     pname = "nix-software-center";
-    version = "0.1.0";
+    version = "0.1.1";
     src = fetchFromGitHub ({
       owner = "vlinkz";
       repo = "nix-software-center";
-      rev = "0.1.0";
+      rev = "0.1.1";
       fetchSubmodules = false;
-      sha256 = "sha256-d4LAIaiCU91LAXfgPCWOUr2JBkHj6n0JQ25EqRIBtBM=";
+      sha256 = "sha256-NpA2w1EOi+zE3JiB/oRC9RtSWlAqWr0cvNP5r5d6MTs=";
     });
   };
 }
