@@ -10,6 +10,9 @@
       gtk = true;
     };
     extraPackages = [];
+    extraSessionCommands = ''
+      source /etc/profile
+    '';
   };
 
   environment.sessionVariables = {

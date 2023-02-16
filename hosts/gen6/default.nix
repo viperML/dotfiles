@@ -56,11 +56,11 @@
           #   gnome
           #   ayats
           # ]))
-          # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   gnome
-          #   wayland
-          #   ayats
-          # ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            gnome
+            wayland
+            ayats
+          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   kde
           #   wayland
