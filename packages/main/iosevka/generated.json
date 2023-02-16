@@ -1,0 +1,17 @@
+{
+    "iosevka-normal": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "iosevka-normal",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-HWKz73HvWc88Mfrtqkso4fCbdSj3bxKRH0Qk0oUWji8=",
+            "type": "url",
+            "url": "https://github.com/viperML/iosevka/releases/download/v1.3.0/iosevka.zip"
+        },
+        "version": "v1.3.0"
+    }
+}

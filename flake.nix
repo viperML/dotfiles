@@ -26,7 +26,6 @@
           nh = inputs'.nh.packages.default;
           nil = inputs'.nil.packages.nil;
           deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
-          iosevka = inputs'.iosevka.packages.ttf-nerd-linux;
           # nix = inputs'.nix.packages.nix;
           # nix = pkgs.nix;
           # nix = pkgs.symlinkJoin {

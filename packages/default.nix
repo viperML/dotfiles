@@ -91,6 +91,7 @@ in {
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
       nix-software-center = w pkgs.callPackage ./main/nix-software-center {};
       swayfx-unwrapped = w pkgs.callPackage ./main/swayfx-unwrapped {};
+      iosevka = w pkgs.callPackage ./main/iosevka {};
 
       # Python
       resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};

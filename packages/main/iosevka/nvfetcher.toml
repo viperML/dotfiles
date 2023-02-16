@@ -1,0 +1,3 @@
+[iosevka]
+src.github = "viperML/iosevka"
+fetch.url = "https://github.com/viperML/iosevka/releases/download/$ver/iosevka.zip"
