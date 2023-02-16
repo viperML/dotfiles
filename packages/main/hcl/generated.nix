@@ -3,13 +3,13 @@
 {
   hcl = {
     pname = "hcl";
-    version = "v2.16.0";
+    version = "v2.16.1";
     src = fetchFromGitHub ({
       owner = "hashicorp";
       repo = "hcl";
-      rev = "v2.16.0";
+      rev = "v2.16.1";
       fetchSubmodules = false;
-      sha256 = "sha256-dsso9KQMZhFgnN6CxoQbXRnjbfaKeLRA8ZEYc9NYEe0=";
+      sha256 = "sha256-EsqOpVCsn0bD0BAOoFifH1hfEF8Wu8bUpM0/BSXAewY=";
     });
   };
 }
