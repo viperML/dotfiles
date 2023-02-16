@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (config.lib) gvariant;
+  term = packages.self.wezterm;
 in {
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" =
@@ -29,7 +30,7 @@ in {
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = gvariant.mkString "<Super>Return";
-      command = gvariant.mkString "tilix";
+      command = gvariant.mkString (lib.getExe term);
       name = gvariant.mkString "terminal";
     };
     "org/gnome/shell/extensions/pop-shell" = {
@@ -51,5 +52,5 @@ in {
     };
   };
 
-  home.packages = [pkgs.tilix];
+  home.packages = [term];
 }
