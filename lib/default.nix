@@ -61,7 +61,8 @@ in {
         in
           if builtins.pathExists file
           then file
-          else folder)) files);
+          else folder))
+      files);
   };
 
   flake.libFor = lib.genAttrs config.systems (system: withSystem system (ctx: import ./perSystem.nix ctx.pkgs));
