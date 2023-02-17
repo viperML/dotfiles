@@ -9,7 +9,20 @@
   term = packages.self.wezterm;
   term_exe = "wezterm";
 in {
-  dconf.settings = {
+  dconf.settings = let
+    shortcuts = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = gvariant.mkString "<Super>e";
+        command = gvariant.mkString "nautilus";
+        name = gvariant.mkString "explorer";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = gvariant.mkString "<Super>Return";
+        command = gvariant.mkString term_exe;
+        name = gvariant.mkString "terminal";
+      };
+    };
+  in {
     "org/gnome/desktop/wm/keybindings" =
       (builtins.listToAttrs (map (number: lib.nameValuePair "switch-to-workspace-${number}" (gvariant.mkArray gvariant.type.string ["<Super>${number}"])) (map builtins.toString (lib.range 1 9))))
       // (builtins.listToAttrs (map (number: lib.nameValuePair "move-to-workspace-${number}" (gvariant.mkArray gvariant.type.string ["<Super><Shift>${number}"])) (map builtins.toString (lib.range 1 9))))
@@ -24,15 +37,8 @@ in {
     "org/gnome/mutter" = {
       "focus-change-on-pointer-rest" = gvariant.mkBoolean false;
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = gvariant.mkString "<Super>e";
-      command = gvariant.mkString "nautilus";
-      name = gvariant.mkString "explorer";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      binding = gvariant.mkString "<Super>Return";
-      command = gvariant.mkString term_exe;
-      name = gvariant.mkString "terminal";
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      "custom-keybindings" = gvariant.mkArray gvariant.type.string (map (key: "/${key}/") (builtins.attrNames shortcuts));
     };
     "org/gnome/shell/extensions/pop-shell" = {
       "tile-by-default" = gvariant.mkBoolean true;
@@ -65,6 +71,17 @@ in {
     "org/gnome/shell/extensions/blur-my-shell" = {
       "panel/blur" = gvariant.mkBoolean false;
       "applications/blur" = gvariant.mkBoolean false;
+    };
+    "org/gnome/desktop/session" = {
+      "idle-delay" = gvariant.mkUint32 600;
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      "sleep-inactive-ac-timeout" = gvariant.mkInt32 900;
+    };
+    "org/gnome/settings-daemon/plugins/color" = {
+      "night-light-enabled" = gvariant.mkBoolean true;
+      "night-light-schedule-automatic" = gvariant.mkBoolean true;
+      "night-light-temperature" = gvariant.mkUint32 2355;
     };
   };
 
