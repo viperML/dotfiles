@@ -67,7 +67,7 @@ in {
       config.allowUnfree = true;
       overlays = [
         # self.overlays.wlroots-nvidia
-        self.overlays.swayfx
+        # self.overlays.swayfx
         inputs.nvfetcher.overlays.default
       ];
     };

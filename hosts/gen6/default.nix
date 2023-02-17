@@ -67,18 +67,18 @@
           #   wayland
           #   ayats
           # ]))
-          (self.lib.joinSpecialisations (with self.specialisations; [
-            gnome
-            wayland
-            ayats
-            default
-          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
-          #   sway
+          #   gnome
           #   wayland
           #   ayats
           #   default
           # ]))
+          (self.lib.joinSpecialisations (with self.specialisations; [
+            sway
+            wayland
+            ayats
+            default
+          ]))
           # (self.lib.joinSpecialisations (with self.specialisations; [
           #   hyprland
           #   wayland

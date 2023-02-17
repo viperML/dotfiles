@@ -38,6 +38,7 @@ in {
 
     output = lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
       adaptive_sync = "off";
+      # max_render_time = "6";
     });
 
     input = {
@@ -111,6 +112,6 @@ in {
     title_align center
     titlebar_padding 7
 
-    corner_radius 11
+    # corner_radius 11
   '';
 }
