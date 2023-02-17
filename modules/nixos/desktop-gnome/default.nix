@@ -7,13 +7,13 @@
 }: let
   my-extensions = with pkgs.gnomeExtensions; [
     appindicator
-    blur-my-shell
-    dash-to-panel
+    # blur-my-shell
+    # dash-to-panel
     # caffeine
     # tiling-assistant
     # pop-shell
     forge
-    just-perfection
+    # just-perfection
   ];
 
   fix_extension = pkgs.writers.writePython3 "fix_extension" {} (builtins.readFile ./fix_extension.py);

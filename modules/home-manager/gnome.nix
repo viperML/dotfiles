@@ -49,7 +49,7 @@ in {
     "org/gnome/shell" = {
       "enabled-extensions" = gvariant.mkArray gvariant.type.string [
         "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
+        # "blur-my-shell@aunetx"
       ];
     };
     "org/gnome/desktop/interface" = {
@@ -68,10 +68,10 @@ in {
     "org/gnome/desktop/peripherals/mouse" = {
       "accel-profile" = gvariant.mkString "flat";
     };
-    "org/gnome/shell/extensions/blur-my-shell" = {
-      "panel/blur" = gvariant.mkBoolean false;
-      "applications/blur" = gvariant.mkBoolean false;
-    };
+    # "org/gnome/shell/extensions/blur-my-shell" = {
+    #   "panel/blur" = gvariant.mkBoolean false;
+    #   "applications/blur" = gvariant.mkBoolean false;
+    # };
     "org/gnome/desktop/session" = {
       "idle-delay" = gvariant.mkUint32 600;
     };
