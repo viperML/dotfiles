@@ -3,4 +3,6 @@
     "nix-command"
     "flakes"
   ];
+
+  allow-import-from-derivation = false;
 }

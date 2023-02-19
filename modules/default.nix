@@ -6,6 +6,7 @@
   imports = [
     ./nixos
     ./home-manager
+    ./new-nixos
   ];
 
   flake = {
