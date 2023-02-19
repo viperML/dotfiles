@@ -13,6 +13,8 @@ flake-parts-args @ {
   }: {
     imports = [
       inputs.home-manager.nixosModules.home-manager
+      inputs.nh.nixosModules.default
+      ./hm-shim.nix
     ];
 
     options = {
@@ -28,6 +30,11 @@ flake-parts-args @ {
     };
 
     config = {
+      nh = {
+        enable = true;
+        clean.enable = true;
+      };
+
       documentation = {
         # Whether to install documentation of packages from environment.systemPackages into the generated system path. See "Multiple-output packages" chapter in the nixpkgs manual for more info.
         enable = true;
@@ -67,7 +74,6 @@ flake-parts-args @ {
         vim
 
         config.inputs.self.packages.git
-        config.inputs.nh.packages.default
 
         android-tools
       ];
@@ -147,7 +153,7 @@ flake-parts-args @ {
 
       home-manager = {
         # useGlobalPkgs = true;
-        # useUserPackages = true;
+        useUserPackages = true;
         sharedModules = [
           {
             home.stateVersion = lib.mkForce config.system.stateVersion;
