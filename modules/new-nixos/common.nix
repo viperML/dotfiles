@@ -1,6 +1,7 @@
 flake-parts-args @ {
   _inputs,
   inputs,
+  withSystem,
   ...
 }: {
   flake.newxosModules.common = {
@@ -15,10 +16,14 @@ flake-parts-args @ {
     ];
 
     options = {
-      viper.packages = lib.mkOption {
-        type = with lib.types; attrsOf (lazyAttrsOf package);
-        # TODO is this lazy?
-        default = flake-parts-args.config.flake.lib.mkPackages flake-parts-args._inputs config.nixpkgs.hostPlatform.system;
+      inputs = lib.mkOption {
+        type = with lib.types; lazyAttrsOf anything;
+        default = withSystem config.nixpkgs.hostPlatform.system ({
+          inputs',
+          config,
+          ...
+        }:
+          inputs' // {self = config;});
       };
     };
 
@@ -61,8 +66,8 @@ flake-parts-args @ {
         pciutils
         vim
 
-        config.viper.packages.self.git
-        config.viper.packages.nh.default
+        config.inputs.self.packages.git
+        config.inputs.nh.packages.default
 
         android-tools
       ];
@@ -158,7 +163,7 @@ flake-parts-args @ {
 
       fonts.fonts = [
         pkgs.roboto
-        config.viper.packages.self.iosevka
+        config.inputs.self.packages.iosevka
       ];
 
       # Avoid TOFU

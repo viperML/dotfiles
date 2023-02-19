@@ -29,7 +29,7 @@
   };
 
   environment.systemPackages = [
-    config.viper.packages.self.reversal-kde
+    config.inputs.self.packages.reversal-kde
   ];
 
   # environment.systemPackages = lib.attrValues {
