@@ -48,20 +48,15 @@
     firewall.checkReversePath = "loose";
   };
 
-  environment.systemPackages = with pkgs; [
-    # FIXME
-    alejandra
-    nil
+  environment.systemPackages = [
+    config.packages.nh.default
+    config.packages.self.git
   ];
 
   users.mutableUsers = false;
   users.users.ayats = {
     isNormalUser = true;
     extraGroups = ["wheel"];
-    packages = with pkgs; [
-      firefox
-      vscode
-    ];
     password = "1234";
     createHome = true;
   };

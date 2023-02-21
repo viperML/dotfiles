@@ -17,19 +17,13 @@
     };
   };
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
   };
 
   environment.systemPackages = [
-    config.inputs.self.packages.reversal-kde
+    config.packages.self.reversal-kde
   ];
 
   # environment.systemPackages = lib.attrValues {

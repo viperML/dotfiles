@@ -12,6 +12,15 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = with config.flake.newxosModules; [
+        inputs.nh.nixosModules.default
+        inputs.home-manager.nixosModules.home-manager
+
+        inputs.nix-common.nixosModules.default
+        inputs.nix-common.nixosModules.hm-module
+        {
+          inherit inputs;
+        }
+
         ./configuration.nix
         common
         kde
