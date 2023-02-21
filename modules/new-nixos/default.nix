@@ -11,11 +11,8 @@
 
   config = {
     flake.newxosModules = {
-      kde = import ./kde.nix;
+      kde = ./kde.nix;
+      common = ./common.nix;
     };
   };
-
-  imports = [
-    ./common.nix
-  ];
 }
