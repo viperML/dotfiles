@@ -1,7 +1,5 @@
 {
   lib,
-  inputs,
-  self,
   ...
 }:
 with lib; {

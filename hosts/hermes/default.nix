@@ -5,7 +5,6 @@
   ...
 }: {
   flake.nixosConfigurations.hermes = withSystem "x86_64-linux" ({
-    pkgs,
     system,
     ...
   }: let
