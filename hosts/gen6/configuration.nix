@@ -110,7 +110,6 @@
     };
   };
 
-
   ### ZFS
 
   services.zfs = {

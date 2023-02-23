@@ -1,7 +1,4 @@
-{
-  packages,
-  ...
-}: {
+{packages, ...}: {
   services.xserver = {
     enable = true;
     desktopManager.plasma5 = {
