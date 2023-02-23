@@ -29,6 +29,7 @@
         ./configuration.nix
         common
         kde
+        podman
       ];
     });
 }
