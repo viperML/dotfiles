@@ -87,7 +87,7 @@
   };
 
   home-manager = {
-    # useGlobalPkgs = true;
+    useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = [
       {
@@ -105,18 +105,5 @@
   fonts.fonts = [
     pkgs.roboto
     packages.self.iosevka
-  ];
-
-  # TODO is this working?
-  nixpkgs.overlays = [
-    (_final: prev: {
-      arcanPackages = prev.arcanPackages.overrideScope' (_arcan_final: arcan_prev: {
-        espeak = arcan_prev.espeak.override {
-          mbrolaSupport = false;
-          pcaudiolibSupport = false;
-          sonicSupport = false;
-        };
-      });
-    })
   ];
 }

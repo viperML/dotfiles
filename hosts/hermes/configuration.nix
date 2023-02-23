@@ -102,7 +102,6 @@
   time.timeZone = "Europe/Madrid";
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "22.11";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

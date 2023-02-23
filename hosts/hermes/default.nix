@@ -4,14 +4,14 @@
   config,
   ...
 }: {
-  flake.nixosConfigurations.hermes = withSystem "x86_64-linux" ({system, ...}: let
+  flake.nixosConfigurations.hermes = withSystem "x86_64-linux" ({system, pkgs, ...}: let
     specialArgs = {
       inherit inputs;
       packages = inputs.nix-common.lib.mkPackages system inputs;
     };
   in
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system specialArgs;
+      inherit system specialArgs pkgs;
 
       modules = with config.flake; [
         inputs.nh.nixosModules.default

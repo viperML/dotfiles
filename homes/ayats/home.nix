@@ -14,6 +14,4 @@
   };
 
   unsafeFlakePath = lib.mkDefault "${config.home.homeDirectory}/Documents/dotfiles";
-
-  nixpkgs.config.allowUnfree = true;
 }

@@ -52,6 +52,19 @@ in {
         sway-unwrapped = self.packages.${final.system}.swayfx-unwrapped;
       };
     };
+
+    # TODO is this working?
+    # nixpkgs.overlays = [
+    #   (_final: prev: {
+    #     arcanPackages = prev.arcanPackages.overrideScope' (_arcan_final: arcan_prev: {
+    #       espeak = arcan_prev.espeak.override {
+    #         mbrolaSupport = false;
+    #         pcaudiolibSupport = false;
+    #         sonicSupport = false;
+    #       };
+    #     });
+    #   })
+    # ];
   };
 
   perSystem = {
