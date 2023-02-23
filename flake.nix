@@ -6,7 +6,6 @@
       imports = [
         ./packages
         ./lib
-        ./lib/flake-parts.nix
         ./homes
         ./misc/shell.nix
         ./hosts

@@ -1,17 +1,20 @@
-{flakePath, ...}: let
-  username = "ayats";
-  homeDirectory = "/home/${username}";
-  env = {
-    FLAKE = flakePath;
-    EDITOR = "nvim";
-    # SHELL = "${homeDirectory}/.nix-profile/bin/fish";
-    VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
-    NOMAD_ADDR = "http://chandra.ayatsfer.gmail.com.beta.tailscale.net:4646";
-  };
-in {
+{
+  packages,
+  lib,
+  config,
+  ...
+}: {
   home = {
-    inherit username homeDirectory;
-    sessionVariables = env;
-    stateVersion = "21.11";
+    username = "ayats";
+    homeDirectory = "/home/${config.home.username}";
+    sessionVariables = {
+      VAULT_ADDR = "http://kalypso.ayatsfer.gmail.com.beta.tailscale.net:8200";
+      NOMAD_ADDR = "http://chandra.ayatsfer.gmail.com.beta.tailscale.net:4646";
+    };
+    stateVersion = lib.mkDefault "21.11";
   };
+
+  unsafeFlakePath = lib.mkDefault "${config.home.homeDirectory}/Documents/dotfiles";
+
+  nixpkgs.config.allowUnfree = true;
 }

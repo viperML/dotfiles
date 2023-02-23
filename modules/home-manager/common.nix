@@ -42,6 +42,7 @@
   home.stateVersion = lib.mkDefault "21.11";
 
   nix = {
+    package = pkgs.nix;
     settings = import ../../misc/nix-conf.nix;
   };
 

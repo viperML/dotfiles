@@ -1,59 +1,29 @@
 {
-  self,
   inputs,
   withSystem,
-  _inputs,
+  config,
   ...
 }: let
-  mkHome = system: customArgs:
-    withSystem system ({pkgs, ...}:
-      inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs =
-          {
-            inherit self;
-            inputs = _inputs;
-            packages = self.lib.mkPackages _inputs system;
-          }
-          // customArgs.extraSpecialArgs;
-        modules = with self.homeModules;
-          [
-            ./home.nix
-            common
-            xdg-ninja
-            inputs.nix-common.homeModules.channels-to-flakes
-          ]
-          ++ customArgs.modules;
-      });
-in {
-  flake = {
-    homeConfigurations = {
-      "ayats" = mkHome "x86_64-linux" {
-        extraSpecialArgs = {};
-        modules = [];
-      };
-      "ayats@viperSL4" = mkHome "x86_64-linux" {
-        extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
-        modules = [
-          ./extra-wsl.nix
-          inputs.home-manager-wsl.homeModules.default
-          {wsl.baseDistro = "void";}
-        ];
-      };
-      "ayats@DESKTOP-M5NKMGG" = mkHome "x86_64-linux" {
-        extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
-        modules = [
-          ./extra-wsl.nix
-          inputs.home-manager-wsl.homeModules.default
-          {wsl.baseDistro = "ubuntu";}
-        ];
-      };
-      "ayats@chandra" = mkHome "aarch64-linux" {
-        extraSpecialArgs.flakePath = "/home/ayats/Projects/dotfiles";
-        modules = [
-          self.homeModules.podman
-        ];
+  mkHome = system: extraModules:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = withSystem system ({pkgs, ...}: pkgs);
+      modules =
+        [
+          inputs.nix-common.homeModules.default
+          ./home.nix
+          config.flake.homeModules.common
+        ]
+        ++ extraModules;
+      extraSpecialArgs = {
+        inherit inputs;
+        packages = inputs.nix-common.lib.mkPackages system inputs;
       };
     };
+in {
+  flake.homeConfigurations = {
+    "ayats" = mkHome "x86_64-linux" [];
+    "ayats@chandra" = mkHome "aarch64-linux" [
+      # "./@chandra.nix"
+    ];
   };
 }
