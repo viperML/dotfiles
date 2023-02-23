@@ -5,7 +5,7 @@
 }:
 symlinkJoin {
   __nocachix = true;
-  inherit (nushell) name pname version;
+  inherit (nushell) name pname version meta;
   paths = [nushell];
   nativeBuildInputs = [makeWrapper];
   postBuild = ''

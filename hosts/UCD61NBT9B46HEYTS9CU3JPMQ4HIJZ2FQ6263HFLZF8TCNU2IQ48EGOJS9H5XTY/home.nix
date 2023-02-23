@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  packages,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -10,10 +11,12 @@
   };
 
   home.packages = [
-    config.packages.self.nil
+    packages.self.nil
     pkgs.alejandra
     pkgs.firefox
     pkgs.vscode
-    config.packages.self.fish
+    packages.self.fish
+    packages.self.neofetch
+    pkgs.vault
   ];
 }

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  packages,
   ...
 }: {
   services.xserver = {
@@ -23,7 +24,7 @@
   };
 
   environment.systemPackages = [
-    config.packages.self.reversal-kde
+    packages.self.reversal-kde
   ];
 
   # environment.systemPackages = lib.attrValues {

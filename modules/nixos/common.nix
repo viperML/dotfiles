@@ -3,6 +3,7 @@
   pkgs,
   self,
   lib,
+  packages,
   ...
 }: {
   nh = {
@@ -25,7 +26,8 @@
     pciutils
     vim
 
-    config.packages.self.git
+    packages.self.git
+    packages.nh.default
 
     android-tools
   ];
@@ -96,7 +98,7 @@
 
   fonts.fonts = [
     pkgs.roboto
-    config.packages.self.iosevka
+    packages.self.iosevka
   ];
 
   # TODO is this working?

@@ -49,8 +49,6 @@
   };
 
   environment.systemPackages = [
-    config.packages.nh.default
-    config.packages.self.git
   ];
 
   users.mutableUsers = false;
