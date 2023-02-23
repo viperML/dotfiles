@@ -41,7 +41,7 @@
   };
 
   networking = {
-    hostName = "UCD61NBT9B46HEYTS9CU3JPMQ4HIJZ2FQ6263HFLZF8TCNU2IQ48EGOJS9H5XTY";
+    hostName = "hermes";
     hostId = builtins.substring 0 8 (builtins.hashString "md5" config.networking.hostName);
     networkmanager.enable = true;
     # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
