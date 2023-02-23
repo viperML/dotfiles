@@ -6,9 +6,7 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  home.sessionVariables = {
-    FLAKE = "/home/ayats/Documents/dotfiles";
-  };
+  unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
     pkgs.firefox
