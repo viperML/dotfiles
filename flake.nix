@@ -23,8 +23,8 @@
 
       perSystem = {inputs', ...}: {
         packages = {
-          nh = inputs'.nh.packages.default;
-          nil = inputs'.nil.packages.nil;
+          # nh = inputs'.nh.packages.default;
+          # nil = inputs'.nil.packages.nil;
           deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
           # nix = inputs'.nix.packages.nix;
           # nix = pkgs.nix;
@@ -44,6 +44,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix = {
+      url = "github:NixOS/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nh = {
       url = "github:viperML/nh";

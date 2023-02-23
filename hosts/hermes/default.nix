@@ -17,19 +17,23 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system specialArgs;
 
-      modules = with config.flake.nixosModules; [
+      modules = with config.flake; [
         inputs.nh.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-common.nixosModules.default
         {
           home-manager.sharedModules = [inputs.nix-common.homeModules.default];
           home-manager.extraSpecialArgs = specialArgs;
+          home-manager.users.ayats.imports = [
+            ./home.nix
+            homeModules.common
+          ];
         }
 
         ./configuration.nix
-        common
-        kde
-        podman
+        nixosModules.common
+        nixosModules.kde
+        nixosModules.podman
       ];
     });
 }

@@ -1,11 +1,7 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  flake.nixosModules = {
-    kde = ./kde.nix;
-    common = ./common.nix;
-    podman = ./podman.nix;
-  };
+{config, ...}: {
+  flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
+    "common"
+    "kde"
+    "podman"
+  ];
 }

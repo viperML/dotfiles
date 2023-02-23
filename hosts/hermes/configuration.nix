@@ -147,10 +147,4 @@
 
   # https://flokli.de/posts/2022-11-18-nsncd
   services.nscd.enableNsncd = true;
-
-  home-manager.users.ayats = {
-    imports = [
-      ./home.nix
-    ];
-  };
 }

@@ -9,6 +9,4 @@ with lib; {
     type = types.attrs;
     default = {};
   };
-
-  config._module.args._inputs = inputs // {inherit self;};
 }

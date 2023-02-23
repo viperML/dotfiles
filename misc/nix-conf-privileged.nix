@@ -1,4 +1,6 @@
 {
+  use-xdg-base-directories = true;
+
   extra-substituters = [
     "https://nix-community.cachix.org"
     "https://viperml.cachix.org"

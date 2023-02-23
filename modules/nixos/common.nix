@@ -12,6 +12,11 @@
   };
 
   nix = {
+    package =
+      if lib.versionAtLeast pkgs.nix.version "2.14.0"
+      then pkgs.nix
+      else packages.nix.default;
+
     daemonCPUSchedPolicy = "idle";
     settings = import ../../misc/nix-conf.nix // import ../../misc/nix-conf-privileged.nix;
   };

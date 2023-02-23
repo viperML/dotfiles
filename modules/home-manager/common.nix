@@ -8,27 +8,26 @@
   # Generic programs
   home.packages = [
     # Nix management
-    packages.self.nix
     pkgs.direnv
     pkgs.alejandra
     pkgs.nvfetcher
-    packages.self.nh
+    packages.nh.default
 
     # Editor support
-    packages.self.nil
+    packages.nil.default
 
     # Misc utils
-    pkgs.file
-    pkgs.lsof
-    pkgs.dogdns
-    pkgs.fd
-    pkgs.htop
-    pkgs.libarchive
-    pkgs.jq
+    # pkgs.file
+    # pkgs.lsof
+    # pkgs.dogdns
+    # pkgs.fd
+    # pkgs.htop
+    # pkgs.libarchive
+    # pkgs.jq
     pkgs.ripgrep
-    pkgs.bubblewrap
+    # pkgs.bubblewrap
     pkgs.wormhole-william
-    packages.self.zellij
+    # packages.self.zellij
 
     packages.self.neofetch
     packages.self.fish
@@ -36,15 +35,14 @@
     packages.self.git
   ];
 
-  home.sessionVariables = {
-    LESS = "-RiF --mouse --wheel-lines=3";
-  };
+  # home.sessionVariables = {
+  #   LESS = "-RiF --mouse --wheel-lines=3";
+  # };
 
-  home.stateVersion = "21.11";
+  home.stateVersion = lib.mkDefault "21.11";
 
   nix = {
-    package = lib.mkForce packages.self.nix;
-    settings = import "${self}/misc/nix-conf.nix";
+    settings = import ../../misc/nix-conf.nix;
   };
 
   xdg.configFile."direnv/direnvrc".text = ''

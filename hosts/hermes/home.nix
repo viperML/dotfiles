@@ -11,12 +11,8 @@
   };
 
   home.packages = [
-    packages.self.nil
-    pkgs.alejandra
     pkgs.firefox
     pkgs.vscode
-    packages.self.fish
-    packages.self.neofetch
     pkgs.vault
   ];
 }
