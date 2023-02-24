@@ -3,17 +3,42 @@
   config,
   lib,
   packages,
-  flakePath,
   ...
-}: {
-  xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/home-manager/hyprland/hyprland.conf";
+}: let
+  mutablePath = "${config.unsafeFlakePath}/modules/home-manager/hyprland/hyprland.conf";
+in {
+  imports = [
+    ../waybar
+    ../wayland-compositors
+  ];
+
+  programs.waybar.package = packages.hyprland.waybar-hyprland;
+
+  xdg.configFile."hypr/hyprland.conf".text = let
+    volume = pkgs.writeShellApplication {
+      name = "volume";
+      runtimeInputs = with pkgs; [
+        pamixer
+        avizo
+      ];
+      text = ''
+        volumectl "$@"
+      '';
+    };
+  in ''
+    source=${mutablePath}
+
+    bind=,XF86AudioRaiseVolume,exec,${lib.getExe volume} -u up
+    bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} -u down
+    bind=,Prior,exec,${lib.getExe volume} -u up
+    bind=,Next,exec,${lib.getExe volume} -u down
+  '';
 
   home.packages = [
-    packages.self.foot
+    packages.self.wezterm
     pkgs.wofi
     packages.hyprland-contrib.grimblast
     pkgs.swaybg
-    packages.self.tym
   ];
 
   systemd.user.targets.hyprland-session = {
@@ -25,11 +50,20 @@
     };
   };
 
-  systemd.user.services = {
-    swaybg = {
-      Unit.Description = "Wallpaper";
-      Service.ExecStart = "${lib.getExe pkgs.swaybg} --image ${config.home.homeDirectory}/Pictures/wallpaper --mode fill";
-      Install.WantedBy = ["graphical-session.target"];
-    };
-  };
+  # systemd.user.services = let
+  #   mkService = lib.recursiveUpdate {
+  #     Install.WantedBy = ["graphical-session.target"];
+  #   };
+  # in {
+  #   swaybg = {
+  #     Unit.Description = "Wallpaper";
+  #     Service.ExecStart = "${lib.getExe pkgs.swaybg} --image ${config.home.homeDirectory}/Pictures/wallpaper --mode fill";
+  #     Install.WantedBy = ["graphical-session.target"];
+  #   };
+
+  #   avizo = mkService {
+  #     Unit.Description = "Volume popup daemon";
+  #     Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
+  #   };
+  # };
 }

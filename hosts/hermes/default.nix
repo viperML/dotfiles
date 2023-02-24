@@ -23,12 +23,15 @@
           home-manager.users.ayats.imports = [
             ./home.nix
             homeModules.common
+
+            homeModules.hyprland
           ];
         }
 
         ./configuration.nix
         nixosModules.common
-        nixosModules.kde
+        # nixosModules.kde
+        nixosModules.hyprland
         nixosModules.podman
         nixosModules.tailscale
       ];

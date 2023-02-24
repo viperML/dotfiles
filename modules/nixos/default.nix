@@ -4,5 +4,6 @@
     "kde"
     "podman"
     "tailscale"
+    "hyprland"
   ];
 }

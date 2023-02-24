@@ -153,6 +153,21 @@ in {
       nushell = w pkgs.callPackage ./overrides/nushell {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
       river = w pkgs.callPackage ./overrides/river {};
+      hyprland = inputs'.hyprland.packages.default.overrideAttrs (old: {
+        __nocachix = true;
+        nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
+        postInstall =
+          (old.postInstall or "")
+          + ''
+            mv -vf $out/bin/Hyprland $out/bin/.Hyprland_wrapped
+            tee $out/bin/Hyprland <<EOF
+            #!${pkgs.stdenv.shell}
+            . /etc/profile
+            $out/bin/.Hyprland_wrapped
+            EOF
+            chmod +x $out/bin/Hyprland
+          '';
+      });
     };
   };
 }

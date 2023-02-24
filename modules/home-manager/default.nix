@@ -5,6 +5,9 @@
 }: {
   flake.homeModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
+    "hyprland"
+    "waybar"
+    "wayland-compositors"
     # "awesome"
     # "common"
     # "eww"

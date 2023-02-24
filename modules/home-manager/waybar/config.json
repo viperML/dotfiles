@@ -7,13 +7,13 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "custom/media"
+        "wlr/workspaces"
+        // "sway/mode",
+        // "custom/media"
     ],
-    "modules-center": [
-        "sway/window"
-    ],
+    // "modules-center": [
+    //     // "sway/window"
+    // ],
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
@@ -31,9 +31,10 @@
         "tray"
     ],
     // Modules configuration
-    "sway/workspaces": {
+    "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
+        "on-click": "activate",
         // "format": "{name}: {icon}",
         // "format-icons": {
         //     "1": "",

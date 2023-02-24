@@ -1,12 +1,12 @@
 {
-  flakePath,
   pkgs,
+  config,
   ...
 }: let
-  configPath = "${flakePath}/modules/home-manager/waybar/config";
-  stylePath = "${flakePath}/modules/home-manager/waybar/style.css";
+  configPath = "${config.unsafeFlakePath}/modules/home-manager/waybar/config.json";
+  stylePath = "${config.unsafeFlakePath}/modules/home-manager/waybar/style.css";
 
-  waybarPackage = pkgs.waybar;
+  waybarPackage = config.programs.waybar.package;
 in {
   home.packages = [waybarPackage];
 
