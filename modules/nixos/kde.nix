@@ -1,4 +1,8 @@
-{packages, ...}: {
+{
+  packages,
+  pkgs,
+  ...
+}: {
   services.xserver = {
     enable = true;
     desktopManager.plasma5 = {
@@ -45,4 +49,23 @@
   #     sierrabreezeenhanced
   #     ;
   # };
+
+  systemd.user = {
+    services."tray-wait-online" = {
+      description = "Wait for KDE system tray to be online";
+      serviceConfig = {
+        ExecStart = "${pkgs.coreutils-full}/bin/sleep 5";
+        Type = "oneshot";
+      };
+      wantedBy = ["tray.target"];
+    };
+
+    targets."tray" = {
+      description = "Home-manager common tray target";
+      requires = ["xdg-desktop-autostart.target" "tray-wait-online.service"];
+      after = ["xdg-desktop-autostart.target" "tray-wait-online.service"];
+      bindsTo = ["xdg-desktop-autostart.target"];
+      wantedBy = ["xdg-desktop-autostart.target"];
+    };
+  };
 }

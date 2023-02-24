@@ -29,7 +29,6 @@
     pkgs.wormhole-william
     # packages.self.zellij
 
-    packages.self.neofetch
     packages.self.fish
     packages.self.neovim
     packages.self.git

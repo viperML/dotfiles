@@ -24,6 +24,8 @@
       systemd-boot = {
         enable = true;
         consoleMode = "max";
+        editor = false;
+        configurationLimit = 10;
       };
       efi = {
         canTouchEfiVariables = true;
@@ -38,6 +40,10 @@
       "aarch64-linux"
       "wasm32-wasi"
     ];
+
+    kernel.sysctl = {
+      "vm.swappiness" = 10;
+    };
   };
 
   networking = {
@@ -99,8 +105,6 @@
     }
   ];
 
-  time.timeZone = "Europe/Madrid";
-
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "22.11";
 
@@ -146,4 +150,6 @@
 
   # https://flokli.de/posts/2022-11-18-nsncd
   services.nscd.enableNsncd = true;
+
+  services.fwupd.enable = true;
 }

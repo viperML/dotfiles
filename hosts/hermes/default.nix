@@ -30,6 +30,7 @@
         nixosModules.common
         nixosModules.kde
         nixosModules.podman
+        nixosModules.tailscale
       ];
     });
 }

@@ -12,5 +12,7 @@
     pkgs.firefox
     pkgs.vscode
     pkgs.vault
+    pkgs.step-cli
+    packages.self.wezterm
   ];
 }

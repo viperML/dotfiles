@@ -106,4 +106,6 @@
     pkgs.roboto
     packages.self.iosevka
   ];
+
+  time.timeZone = "Europe/Madrid";
 }

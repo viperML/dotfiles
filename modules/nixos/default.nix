@@ -3,5 +3,6 @@
     "common"
     "kde"
     "podman"
+    "tailscale"
   ];
 }
