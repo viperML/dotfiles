@@ -64,7 +64,7 @@
     # };
 
     wob = mkService {
-      Service.ExecStart = "${lib.getExe pkgs.wob} -v";
+      Service.ExecStart = lib.getExe pkgs.wob;
       Service.StandardInput = "socket";
     };
   };
