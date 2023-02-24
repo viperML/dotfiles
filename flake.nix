@@ -20,21 +20,6 @@
         }) (builtins.readDir ./misc/templ);
       };
 
-      perSystem = {inputs', ...}: {
-        packages = {
-          # nh = inputs'.nh.packages.default;
-          # nil = inputs'.nil.packages.nil;
-          deploy-rs = inputs'.deploy-rs.packages.deploy-rs;
-          # nix = inputs'.nix.packages.nix;
-          # nix = pkgs.nix;
-          # nix = pkgs.symlinkJoin {
-          #   inherit (pkgs.nix) name pname version;
-          #   __nocachix = true;
-          #   paths = [pkgs.nix];
-          # };
-        };
-      };
-
       systems = [
         "x86_64-linux"
         "aarch64-linux"

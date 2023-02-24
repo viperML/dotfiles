@@ -30,6 +30,6 @@
         DRY = "1";
       };
 
-    packages._devshells_default = config.devShells.default.inputDerivation;
+    checks.devshell = config.devShells.default.inputDerivation;
   };
 }

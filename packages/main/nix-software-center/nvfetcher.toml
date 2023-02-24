@@ -1,3 +1,0 @@
-[nix-software-center]
-src.github_tag = "vlinkz/nix-software-center"
-fetch.github = "vlinkz/nix-software-center"

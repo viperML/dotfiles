@@ -7,16 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  check_flake:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: ./.github/actions/install-nix
-    - name: Flake check
-      run: nix flake check
-
   generate_matrix:
     runs-on: ubuntu-latest
     outputs:

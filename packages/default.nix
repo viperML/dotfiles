@@ -3,11 +3,6 @@
   inputs,
   ...
 }: let
-  inherit
-    (builtins)
-    hasAttr
-    ;
-
   /*
   wrapperFor returns a wrapper w for a set of pkgs
 
@@ -17,7 +12,7 @@
     # args :: set
     args = builtins.functionArgs (import path);
 
-    usesNvfetcher = hasAttr "src" args || hasAttr "sources" args;
+    usesNvfetcher = builtins.hasAttr "src" args || builtins.hasAttr "sources" args;
 
     sources = builtins.removeAttrs (_pkgs.callPackage (path + "/generated.nix") {}) [
       "override"
@@ -29,7 +24,7 @@
     nvfetcherOverrides =
       if ! usesNvfetcher
       then {}
-      else if hasAttr "sources" args
+      else if builtins.hasAttr "sources" args
       then {inherit sources;}
       else builtins.intersectAttrs args firstSource;
   in
@@ -71,6 +66,7 @@ in {
     pkgs,
     system,
     config,
+    inputs',
     ...
   }: let
     w = wrapperFor pkgs;
@@ -83,6 +79,12 @@ in {
         # self.overlays.swayfx
         inputs.nvfetcher.overlays.default
       ];
+    };
+
+    checks = {
+      deploy-rs = inputs'.deploy-rs.packages.default;
+      nix = inputs'.nix.packages.default;
+      nh = inputs'.nh.packages.default;
     };
 
     legacyPackages = pkgs;
@@ -102,7 +104,6 @@ in {
       toml-fmt = w pkgs.callPackage ./main/toml-fmt {};
       vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
-      nix-software-center = w pkgs.callPackage ./main/nix-software-center {};
       swayfx-unwrapped = w pkgs.callPackage ./main/swayfx-unwrapped {};
       iosevka = w pkgs.callPackage ./main/iosevka {};
 
