@@ -23,6 +23,12 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  services.blueman.enable = true;
+
+  environment.systemPackages = [
+    pkgs.gnome.seahorse
+  ];
+
   # environment.sessionVariables = {
   #   NIXOS_OZONE_WL = "1";
   # };
