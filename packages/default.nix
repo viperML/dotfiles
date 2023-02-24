@@ -85,6 +85,7 @@ in {
       deploy-rs = inputs'.deploy-rs.packages.default;
       nix = inputs'.nix.packages.default;
       nh = inputs'.nh.packages.default;
+      nil = inputs'.nil.packages.default;
     };
 
     legacyPackages = pkgs;
