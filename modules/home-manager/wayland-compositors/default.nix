@@ -5,6 +5,13 @@
   packages,
   ...
 }: {
+  xdg.configFile."wofi/style.css".source = ./wofi-style.css;
+  xdg.configFile."wob/wob.ini".source = ./wob.ini;
+
+  home.packages = [
+    pkgs.wofi
+  ];
+
   systemd.user.services = let
     mkService = lib.recursiveUpdate {
       Install.WantedBy = ["graphical-session.target"];
@@ -55,6 +62,23 @@
     #   Unit.Description = "Autotiling";
     #   Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
     # };
+
+    wob = mkService {
+      Service.ExecStart = "${lib.getExe pkgs.wob} -v";
+      Service.StandardInput = "socket";
+    };
+  };
+
+  systemd.user.sockets = {
+    wob = {
+      Socket = {
+        ListenFIFO = "%t/wob.sock";
+        SocketMode = "0600";
+        RemoveOnStop = "on";
+        FlushPending = "yes";
+      };
+      Install.WantedBy = ["sockets.target"];
+    };
   };
 
   gtk = {

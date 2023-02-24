@@ -19,24 +19,23 @@ in {
       name = "volume";
       runtimeInputs = with pkgs; [
         pamixer
-        avizo
       ];
       text = ''
-        volumectl "$@"
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
+        pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
       '';
     };
   in ''
     source=${mutablePath}
 
-    bind=,XF86AudioRaiseVolume,exec,${lib.getExe volume} -u up
-    bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} -u down
-    bind=,Prior,exec,${lib.getExe volume} -u up
-    bind=,Next,exec,${lib.getExe volume} -u down
+    bind=,XF86AudioRaiseVolume,exec,${lib.getExe volume} 5%+
+    bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} 5%-
+    bind=,Prior,exec,${lib.getExe volume} 5%+
+    bind=,Next,exec,${lib.getExe volume} 5%-
   '';
 
   home.packages = [
     packages.self.wezterm
-    pkgs.wofi
     packages.hyprland-contrib.grimblast
     pkgs.swaybg
   ];
