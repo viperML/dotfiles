@@ -41,6 +41,7 @@
     nativeBuildInputs = [pkg-config];
     buildInputs = [openssl];
     doCheck = false;
+    buildFeatures = ["dataframe"];
   };
 in
   symlinkJoin {
