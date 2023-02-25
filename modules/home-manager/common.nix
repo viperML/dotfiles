@@ -30,6 +30,7 @@
     # packages.self.zellij
 
     packages.self.fish
+    packages.self.nushell
     packages.self.neovim
     packages.self.git
   ];

@@ -28,6 +28,9 @@ in {
   in ''
     source=${mutablePath}
 
+    ${lib.concatMapStringsSep "\n" (n: "bind=SUPER,${toString n},workspace,${toString n}") (lib.range 1 9)}
+    ${lib.concatMapStringsSep "\n" (n: "bind=SUPERSHIFT,${toString n},movetoworkspace,${toString n}") (lib.range 1 9)}
+
     bind=,XF86AudioRaiseVolume,exec,${lib.getExe volume} 5%+
     bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} 5%-
     bind=,Prior,exec,${lib.getExe volume} 5%+
