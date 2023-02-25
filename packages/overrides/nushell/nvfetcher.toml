@@ -1,0 +1,5 @@
+[nushell]
+src.git = "https://github.com/nushell/nushell"
+fetch.github = "nushell/nushell"
+git.date_format = "%Y-%m-%d"
+cargo_locks = ["Cargo.lock"]
