@@ -99,6 +99,7 @@ in {
         tailscale-systray
         update
         xdg-ninja
+        hyprland
         ;
     };
 
