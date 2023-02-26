@@ -1,0 +1,110 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """\
+(\\[ \
+$custom\
+$python\
+$package\
+$container\
+$terraform\
+\\]
+)\
+(\\[ $git_branch$git_state$git_status$git_metrics\\]
+)\
+(\\[ \
+$username\
+$hostname\
+$status\
+$cmd_duration\
+$jobs\
+\\]
+)\
+$directory
+
+"""
+
+scan_timeout = 10
+add_newline = false
+
+[username]
+show_always = false
+format = "[$user@](fg:8)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](fg:8) "
+
+[directory]
+style = "bold cyan"
+read_only = " "
+truncate_to_repo = false
+#truncation_length = 0
+format = "[ $path]($style)[$read_only]($read_only_style) "
+#repo_root_style = "red"
+home_symbol = "~"
+#disabled = true
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = ""
+
+[git_status]
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+style       = "bold cyan"
+up_to_date  = ""
+conflicted  = "=$count "
+ahead       = "⇡$count "
+behind      = "⇣$count "
+diverged    = "⇕$count "
+untracked   = "?$count "
+stashed     = "$$count "
+modified    = "!$count "
+staged      = "+$count "
+renamed     = "»$count "
+deleted     = "✘$count "
+
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+[jobs]
+disabled = false
+format = " bg jobs: [$symbol$number]($style) "
+number_threshold = 1
+symbol = ""
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
+symbol = " "
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = " "
+
+[cmd_duration]
+min_time = 60_000
+
+[custom.dirstack]
+command = "echo $DIRSTACK"
+when = """test -n "$DIRSTACK" """
+style = "fg:8"
+symbol = " "
+format = "[$symbol($output)]($style) "
+os = "linux"
+
+[status]
+disabled = false
+format = "[(✖ $status $common_meaning )](bold red)"
+
+[env_var.directory]
+variable = "PWD"
+format = "[ dir: $env_value]($style) "
+style = "bold blue"
+
+[custom.nix]
+command = "nix-shell-info"
+when = "nix-shell-info"
+symbol = ""
+style = "bold cyan"
+format = "[$symbol]($style) [$output]($style) "
+os = "linux"

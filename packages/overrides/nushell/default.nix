@@ -57,6 +57,7 @@ in
       wrapProgram $out/bin/nu \
         --add-flags "--env-config ${./env.nu}" \
         --add-flags "--config ${./config.nu}" \
-        --prefix PATH ':' $out/bin
+        --prefix PATH ':' $out/bin \
+        --set STARSHIP_CONFIG ${./starship.toml}
     '';
   }
