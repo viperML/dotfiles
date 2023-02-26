@@ -129,4 +129,15 @@
       }
     ];
   };
+
+  services.kanshi = {
+    enable = true;
+    systemdTarget = "graphical-session.target";
+    profiles.main.outputs = [
+      {
+        criteria = "DP-3";
+        mode = "2560x1440@144Hz";
+      }
+    ];
+  };
 }

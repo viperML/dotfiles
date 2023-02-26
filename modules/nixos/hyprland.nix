@@ -7,31 +7,13 @@
 }: {
   imports = [
     inputs.hyprland.nixosModules.default
+    ./wayland-compositors.nix
   ];
 
   programs.hyprland = {
     enable = true;
     package = packages.self.hyprland;
   };
-
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm.enable = true;
-    };
-  };
-
-  services.gnome.gnome-keyring.enable = true;
-
-  services.blueman.enable = true;
-
-  environment.systemPackages = [
-    pkgs.gnome.seahorse
-  ];
-
-  # environment.sessionVariables = {
-  #   NIXOS_OZONE_WL = "1";
-  # };
 
   # environment.systemPackages =
   #   lib.attrValues

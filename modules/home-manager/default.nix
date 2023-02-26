@@ -8,6 +8,7 @@
     "hyprland"
     "waybar"
     "wayland-compositors"
+    "sway"
     # "awesome"
     # "common"
     # "eww"

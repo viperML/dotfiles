@@ -9,10 +9,10 @@
     name = "volume";
     runtimeInputs = with pkgs; [
       pamixer
-      avizo
     ];
     text = ''
-      volumectl "$@"
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
+      pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
     '';
   };
 
@@ -58,12 +58,12 @@ in {
       "${modifier}+Return" = "exec wezterm";
       "${modifier}+q" = "kill";
       "${modifier}+Shift+r" = "reload";
-      "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -S drun -I --define=image_size=30 --style=${./style.css}";
+      "${modifier}+space" = "exec ${lib.getExe pkgs.wofi} -S drun -I";
       "${modifier}+z" = "floating toggle";
       "${modifier}+e" = "exec dolphin";
       "Print" = "exec ${lib.getExe wayland-screenshot}";
-      XF86AudioRaiseVolume = "exec ${lib.getExe volume} -u up";
-      XF86AudioLowerVolume = "exec ${lib.getExe volume} -u down";
+      XF86AudioRaiseVolume = "exec ${lib.getExe volume} 5%+";
+      XF86AudioLowerVolume = "exec ${lib.getExe volume} 5%-";
       "Prior" = XF86AudioRaiseVolume; # PageDown
       "Next" = XF86AudioLowerVolume; # PageUp
       "XF86AudioMute" = "exec ${volume} toggle-mute";

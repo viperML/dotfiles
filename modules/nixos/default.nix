@@ -5,5 +5,7 @@
     "podman"
     "tailscale"
     "hyprland"
+    "sway"
+    "wayland-compositors"
   ];
 }
