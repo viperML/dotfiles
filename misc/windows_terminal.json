@@ -9,7 +9,7 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{30f1517e-bf80-4b2a-afd0-ce2eb19c65df}",
     "profiles": {
         "defaults": {
             "closeOnExit": "always",
@@ -33,11 +33,10 @@
                 "name": "powershell.exe"
             },
             {
-                "commandline": "wsl -d micronix bash --login -c /home/ayats/.nix-profile/bin/fish",
-                "guid": "{c1b33fe1-daf2-5901-a6d7-69745b26a238}",
-                "hidden": false,
-                "name": "micronix",
-                "source": "Windows.Terminal.Wsl"
+                "commandline": "nu",
+                "guid": "{30f1517e-bf80-4b2a-afd0-ce2eb19c65df}",
+                "name": "nushell",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
@@ -274,6 +273,7 @@
         }
     ],
     "theme": "dark",
+    "themes": [],
     "useAcrylicInTabRow": true,
     "windowingBehavior": "useAnyExisting"
 }
