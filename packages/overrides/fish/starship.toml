@@ -1,23 +1,23 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """\
-(\\[ \
+([\\[](fg:8) \
 $custom\
 $python\
 $package\
 $container\
 $terraform\
-\\]
+[\\]](fg:8)
 )\
-(\\[ $git_branch$git_state$git_status$git_metrics\\]
+([\\[](fg:8) $git_branch$git_state$git_status$git_metrics[\\]](fg:8)
 )\
-(\\[ \
+([\\[](fg:8) \
 $username\
 $hostname\
 $status\
 $cmd_duration\
 $jobs\
-\\]
+[\\]](fg:8)
 )\
 $directory
 [\\$](bold) """
@@ -94,11 +94,6 @@ os = "linux"
 [status]
 disabled = false
 format = "[(✖ $status $common_meaning )](bold red)"
-
-[env_var.directory]
-variable = "PWD"
-format = "[ dir: $env_value]($style) "
-style = "bold blue"
 
 [custom.nix]
 command = "nix-shell-info"
