@@ -165,7 +165,6 @@ in
   symlinkJoin {
     name = with zsh; "${pname}-${version}";
     inherit (zsh) pname version;
-    __nocachix = debug;
     paths =
       [
         zsh'

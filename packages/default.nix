@@ -100,6 +100,7 @@ in {
         update
         xdg-ninja
         hyprland
+        fish
         ;
     };
 
