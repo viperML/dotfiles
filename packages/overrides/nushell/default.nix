@@ -42,6 +42,7 @@
     buildInputs = [openssl];
     doCheck = false;
     buildFeatures = ["dataframe"];
+    meta.mainProgram = "nu";
   };
 in
   symlinkJoin {

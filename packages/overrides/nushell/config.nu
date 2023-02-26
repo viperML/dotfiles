@@ -1,23 +1,21 @@
-let carapace_completer = {|spans|
-  carapace $spans.0 nushell $spans | from json
-}
-
 let-env config = {
   show_banner: false
   use_ansi_coloring: true
   completions: {
-    external: {
-      completer: $carapace_completer
-    }
+    external: (if ((which carapace | length)  > 0) { {
+      completer: { |spans| carapace $spans.0 nushell $spans | from json }
+    } } else { {} })
   }
   hooks: {
-    pre_prompt: [{
-      code: "
-          let direnv = (direnv export json | from json)
-          let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
-          $direnv | load-env
-      "
-    }]
+    pre_prompt: (if ((which direnv | length) > 0) {
+      [{
+        code: "
+            let direnv = (direnv export json | from json)
+            let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
+            $direnv | load-env
+        "
+      }]
+    } else {[]})
   }
   keybindings: [
     {
