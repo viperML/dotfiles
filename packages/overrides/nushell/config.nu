@@ -1,6 +1,7 @@
 let-env config = {
   show_banner: false
   use_ansi_coloring: true
+  render_right_prompt_on_last_line: true
   completions: {
     external: (if ((which carapace | length)  > 0) { {
       completer: { |spans| carapace $spans.0 nushell $spans | from json }
