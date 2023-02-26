@@ -41,7 +41,7 @@
         name = "wallpaper";
         runtimeInputs = with pkgs; [swaybg];
         text = ''
-          f=${config.xdg.configHome}/sway/bg
+          f=${config.xdg.configHome}/Pictures/bg
           if [[ -f $f ]]; then
             echo Using $f
             swaybg --image $f --mode fill
