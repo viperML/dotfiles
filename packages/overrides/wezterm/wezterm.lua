@@ -150,7 +150,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   enable_tab_bar = true
   font = wezterm.font("iosevka-normal", { weight = 600 })
 else
-  default_prog = { "nu" }
+  default_prog = { "fish" }
   enable_tab_bar = false
   font = wezterm.font("iosevka NFM", { weight = 600 })
 end

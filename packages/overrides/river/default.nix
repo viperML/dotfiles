@@ -5,7 +5,7 @@
 symlinkJoin {
   paths = [river];
   inherit (river) name pname version;
-  __nocachix = true;
+
   postBuild = ''
     mkdir -p $out/share/wayland-sessions
     tee $out/share/wayland-sessions/river.desktop <<EOF

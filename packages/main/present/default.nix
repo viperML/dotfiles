@@ -1,6 +1,5 @@
 {runCommandLocal}:
 runCommandLocal "present" {
-  __nocachix = true;
 } ''
   mkdir -p $out
   for ((i=0;i<NIX_BUILD_CORES;i++)); do

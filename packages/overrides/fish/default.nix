@@ -76,8 +76,6 @@
 
       set -gx direnv_config_dir ${direnvConfig}
       ${direnv}/bin/direnv hook fish | source
-
-      ${any-nix-shell}/bin/any-nix-shell fish | source
     end
   '';
 

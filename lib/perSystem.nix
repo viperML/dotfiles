@@ -19,6 +19,5 @@ in {
         sed -i "s:/nix/store/.*/bin/[a-zA-Z-]*$:$out/bin/${exe}:" $f
       done
     '';
-    __nocachix = true;
   });
 }

@@ -4,7 +4,6 @@
   makeWrapper,
 }:
 symlinkJoin {
-  __nocachix = true;
   inherit (kitty) name pname version;
   paths = [kitty];
   nativeBuildInputs = [makeWrapper];

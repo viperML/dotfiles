@@ -1,28 +1,4 @@
-# {
-#   nushell,
-#   symlinkJoin,
-#   makeWrapper,
-#   carapace,
-# }: let
-#   muNushell = nushell;
-# in
-# symlinkJoin {
-#   __nocachix = true;
-#   inherit (myU) name pname version meta;
-#   paths = [
-#     nushell
-#     carapace
-#   ];
-#   nativeBuildInputs = [makeWrapper];
-#   postBuild = ''
-#     wrapProgram $out/bin/nu \
-#       --add-flags "--env-config ${./env.nu}" \
-#       --add-flags "--config ${./config.nu}" \
-#       --prefix PATH ':' $out/bin
-#   '';
-# }
 {
-  nushell,
   pname,
   version,
   src,
@@ -46,7 +22,6 @@
   };
 in
   symlinkJoin {
-    __nocachix = true;
     inherit (package) name pname version meta;
     paths = [
       package

@@ -12,7 +12,6 @@
 }:
 stdenvNoCC.mkDerivation {
   inherit pname version src;
-  __nocachix = true;
 
   nativeBuildInputs = [
     gtk3

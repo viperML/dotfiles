@@ -4,7 +4,6 @@
   gnused,
 }:
 obsidian.overrideAttrs (_: {
-  __nocachix = true;
   patchPhase = ''
     ${nodePackages.asar}/bin/asar extract resources/obsidian.asar resources/obsidian
     rm resources/obsidian.asar

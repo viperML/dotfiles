@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  lib,
   ...
 }: let
   /*
@@ -86,12 +87,24 @@ in {
       nix = inputs'.nix.packages.default;
       nh = inputs'.nh.packages.default;
       nil = inputs'.nil.packages.default;
+
+      inherit
+        (config.packages)
+        adw-gtk3
+        git
+        iosevka
+        neovim
+        nix-index
+        nvfetcher
+        tailscale-systray
+        update
+        xdg-ninja
+        ;
     };
 
     legacyPackages = pkgs;
 
     packages = {
-      # cachix
       nvfetcher = pkgs.nvfetcher-bin;
       inherit (pkgs) corefonts;
 
@@ -154,7 +167,6 @@ in {
       zellij = w pkgs.callPackage ./overrides/zellij {};
       river = w pkgs.callPackage ./overrides/river {};
       hyprland = inputs'.hyprland.packages.default.overrideAttrs (old: {
-        __nocachix = true;
         nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
         postInstall =
           (old.postInstall or "")

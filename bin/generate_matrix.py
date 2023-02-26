@@ -93,7 +93,7 @@ class FlakeOutput:
 
 
 outputs = list()
-for category in ["packages", "checks"]:
+for category in ["checks"]:
     for o in flake[category][NIX_SYSTEM]:
         outputs.append(FlakeOutput(f"{category}.{NIX_SYSTEM}.{o}"))
 
@@ -105,8 +105,6 @@ async def run_group():
 asyncio.run(run_group())
 
 
-final_output_names = [
-    o.name for o in outputs if o.build
-]
+final_output_names = [o.name for o in outputs if o.build]
 
 print(f"::set-output name=packages::{final_output_names}")

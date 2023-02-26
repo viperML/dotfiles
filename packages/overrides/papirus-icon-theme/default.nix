@@ -3,7 +3,6 @@
   color ? "blue",
 }:
 papirus-icon-theme.overrideAttrs (prev: {
-  __nocachix = true;
   # https://github.com/PapirusDevelopmentTeam/papirus-folders/
   # valid_colors=("black" "blue" "bluegrey" "breeze" "brown"
   # 	"carmine" "cyan" "darkcyan" "deeporange" "green" "grey"

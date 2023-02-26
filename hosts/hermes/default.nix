@@ -4,7 +4,11 @@
   config,
   ...
 }: {
-  flake.nixosConfigurations.hermes = withSystem "x86_64-linux" ({system, pkgs, ...}: let
+  flake.nixosConfigurations.hermes = withSystem "x86_64-linux" ({
+    system,
+    pkgs,
+    ...
+  }: let
     specialArgs = {
       inherit inputs;
       packages = inputs.nix-common.lib.mkPackages system inputs;

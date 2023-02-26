@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{config, ...}: let
   configPath = "${config.unsafeFlakePath}/modules/home-manager/waybar/config.json";
   stylePath = "${config.unsafeFlakePath}/modules/home-manager/waybar/style.css";
 

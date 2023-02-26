@@ -4,7 +4,6 @@
   makeWrapper,
 }:
 symlinkJoin {
-  __nocachix = true;
   inherit (zellij) name pname version;
   paths = [zellij];
   nativeBuildInputs = [makeWrapper];

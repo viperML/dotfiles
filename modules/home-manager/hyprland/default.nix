@@ -41,8 +41,6 @@ in {
     packages.self.wezterm
     packages.hyprland-contrib.grimblast
     pkgs.swaybg
-
-    packages.self.kitty
   ];
 
   systemd.user.targets.hyprland-session = {
