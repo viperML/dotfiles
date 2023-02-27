@@ -120,7 +120,6 @@ in
     postBuild = ''
       wrapProgram $out/bin/fish \
         --set MANPAGER 'sh -c "col -bx | bat --paging=always -l man -p"' \
-        --set SHELL "fish" \
         --prefix PATH ':' $out/bin \
     '';
   }
