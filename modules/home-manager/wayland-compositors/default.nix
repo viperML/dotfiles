@@ -30,11 +30,6 @@
       Service.ExecStart = "${pkgs.gammastep}/bin/gammastep -m wayland -l 40:-2 -t 6500:3000";
     };
 
-    avizo = mkService {
-      Unit.Description = "Volume popup daemon";
-      Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
-    };
-
     wallpaper = mkService {
       Unit.Description = "Wallpaper daemon";
       Service.ExecStart = lib.getExe (pkgs.writeShellApplication {
@@ -57,11 +52,6 @@
       Unit.Description = "Network applet";
       Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
     };
-
-    # autotiling = mkService {
-    #   Unit.Description = "Autotiling";
-    #   Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
-    # };
 
     wob = mkService {
       Service.ExecStart = lib.getExe pkgs.wob;
