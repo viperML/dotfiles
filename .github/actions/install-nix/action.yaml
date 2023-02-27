@@ -7,7 +7,6 @@ runs:
       uses: cachix/install-nix-action@master
       with:
         install_url: https://nixos.org/nix/install
-        github_access_token: ${{ secrets.GITHUB_TOKEN }}
         extra_nix_config: |
           experimental-features = nix-command flakes
           allow-import-from-derivation = false
