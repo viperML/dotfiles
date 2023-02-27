@@ -3,17 +3,17 @@ description: "Common steps for workflows"
 runs:
   using: "composite"
   steps:
-    # - name: Install nix
-    #   uses: cachix/install-nix-action@v17
-    #   with:
-    #     install_url: https://nixos.org/nix/install
-    #     extra_nix_config: |
-    #       experimental-features = nix-command flakes
     - name: Install nix
-      uses: DeterminateSystems/nix-installer-action@main
+      uses: cachix/install-nix-action@master
       with:
-        extra-conf: |
+        install_url: https://nixos.org/nix/install
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        extra_nix_config: |
+          experimental-features = nix-command flakes
+          allow-import-from-derivation = false
+          use-xdg-base-directories = true
           extra-substituters = https://viperml.cachix.org
           extra-trusted-public-keys = viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=
           extra-substituters = https://nix-community.cachix.org
           extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+        install_options: --no-channel-add
