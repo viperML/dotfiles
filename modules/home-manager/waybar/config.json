@@ -11,13 +11,14 @@
         // "sway/mode",
         // "custom/media"
     ],
-    // "modules-center": [
-    //     // "sway/window"
-    // ],
+    "modules-center": [
+        "clock"
+        // "sway/window"
+    ],
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
-        "pulseaudio",
+        "wireplumber",
         // "network",
         "cpu",
         "memory",
@@ -27,7 +28,6 @@
         // "sway/language",
         // "battery",
         // "battery#bat2",
-        "clock",
         "tray"
     ],
     // Modules configuration
@@ -163,6 +163,15 @@
             ]
         },
         "on-click": "pavucontrol"
+    },
+    "wireplumber": {
+        "format": "{volume}% {node_name} {icon}",
+        "format-muted": "",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "custom/media": {
         "format": "{icon} {}",
