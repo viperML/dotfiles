@@ -1,7 +1,7 @@
 {
     "swayfx": {
         "cargoLocks": null,
-        "date": "2023-02-14",
+        "date": "2023-02-20",
         "extract": null,
         "name": "swayfx",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "WillPower3309",
             "repo": "swayfx",
-            "rev": "9f20a5263814f325035d3569768060e04c7dcb96",
-            "sha256": "sha256-vRIhqkDpdO7T4CA+prKsOQjhJaTkZuyiCvdiaGwrseU=",
+            "rev": "4222b98a390f6c377be77b4152e229a89b5276b2",
+            "sha256": "sha256-tFEDktAWWSzESUccsD3UP/FCbFTwpmESEjIA3FOufRE=",
             "type": "github"
         },
-        "version": "9f20a5263814f325035d3569768060e04c7dcb96"
+        "version": "4222b98a390f6c377be77b4152e229a89b5276b2"
     }
 }
