@@ -1,4 +1,4 @@
-name: flake-build
+name: Build flake
 
 on:
   pull_request:
