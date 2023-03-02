@@ -1,5 +1,7 @@
 name: Build flake
 
+concurrency: build
+
 on:
   pull_request:
   push:
