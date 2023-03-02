@@ -1,18 +1,20 @@
-name: Update
+name: Update all
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 3 */15 * *"
+    - cron: "0 4 1 * *"
+    - cron: "0 4 15 * *"
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Pre-build update script
       run: nix build .#update
@@ -29,14 +31,11 @@ jobs:
         token: '${{ secrets.PAT }}'
         title: '[automatic] flake update'
         commit-message: |
-          - Flake update
+          Update all
 
-          Auto-generated in GH actions
 
           Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        body: |
-          Automatic flake update
         author: GitHub <noreply@github.com>
-        branch: update-flake
+        branch: update
         branch-suffix: timestamp
         delete-branch: true

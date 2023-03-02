@@ -3,7 +3,8 @@ name: Cleanup
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 */15 * *"
+    - cron: "0 4 0 * *"
+    - cron: "0 4 15 * *"
 
 jobs:
   branches:
@@ -42,13 +43,10 @@ jobs:
       with:
         title: '[automatic] flake cleanup'
         commit-message: |
-          - Flake cleanup
+          Cleanup
 
-          Auto-generated in GH actions
 
           Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        body: |
-          Automatic flake cleanup
         author: GitHub <noreply@github.com>
         branch: cleanup-flake
         branch-suffix: timestamp
