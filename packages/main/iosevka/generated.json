@@ -1,9 +1,9 @@
 {
-    "iosevka-normal": {
+    "iosevka": {
         "cargoLocks": null,
         "date": null,
         "extract": null,
-        "name": "iosevka-normal",
+        "name": "iosevka",
         "passthru": null,
         "pinned": false,
         "src": {

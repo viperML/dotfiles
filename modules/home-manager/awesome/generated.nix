@@ -15,15 +15,15 @@
   };
   bling = {
     pname = "bling";
-    version = "affc165bda9dd8a88de8c7d9b22d5ccb466f2742";
+    version = "4fc68f7c24f6eb7d9ce96d15da098a4b04b162e1";
     src = fetchFromGitHub ({
       owner = "BlingCorp";
       repo = "bling";
-      rev = "affc165bda9dd8a88de8c7d9b22d5ccb466f2742";
+      rev = "4fc68f7c24f6eb7d9ce96d15da098a4b04b162e1";
       fetchSubmodules = false;
-      sha256 = "sha256-khHAM26TGwhfXO8RppGia/ViIhxi7wDdLw7P2lg161U=";
+      sha256 = "sha256-VgGHb4rGeSb7+P4Cy1JR5KaHdvy3QFJ5aliia0BQEZ8=";
     });
-    date = "2023-02-09";
+    date = "2023-02-22";
   };
   freedesktop = {
     pname = "freedesktop";
