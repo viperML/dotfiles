@@ -14,7 +14,7 @@
   nix = {
     package =
       if lib.versionAtLeast pkgs.nix.version "2.14.0"
-      then pkgs.nix
+      then builtins.trace "Nix reached desired version" pkgs.nix
       else packages.nix.default;
 
     daemonCPUSchedPolicy = "idle";
@@ -36,14 +36,6 @@
 
     android-tools
   ];
-
-  # environment.defaultPackages = [
-  #   pkgs.xsel
-  #   pkgs.pciutils
-  #   pkgs.usbutils
-  #   pkgs.step-cli
-  #   packages.self.git
-  # ];
 
   i18n = let
     defaultLocale = "en_US.UTF-8";
