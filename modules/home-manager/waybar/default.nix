@@ -1,14 +1,26 @@
-{config, ...}: let
-  configPath = "${config.unsafeFlakePath}/modules/home-manager/waybar/config.json";
-  stylePath = "${config.unsafeFlakePath}/modules/home-manager/waybar/style.css";
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+  };
 
-  waybarPackage = config.programs.waybar.package;
-in {
-  home.packages = [waybarPackage];
-
-  systemd.user.services.waybar = {
-    Unit.Description = "System bar";
-    Service.ExecStart = "${waybarPackage}/bin/waybar --config ${configPath} --style ${stylePath}";
-    Install.WantedBy = ["graphical-session.target"];
+  xdg.configFile = let
+    onChange = ''
+      ${pkgs.procps}/bin/pkill -u $USER -USR2 waybar || true
+    '';
+  in {
+    "waybar/config" = {
+      inherit onChange;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.unsafeFlakePath}/modules/home-manager/waybar/config.json";
+    };
+    "waybar/style.css" = {
+      inherit onChange;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.unsafeFlakePath}/modules/home-manager/waybar/style.css";
+    };
   };
 }
