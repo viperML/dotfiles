@@ -18,7 +18,7 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 </div>
 
 
-A [nix flake](https://nixos.wiki/wiki/Flakes) is provided, whith [NixOS](https://nixos.wiki/wiki/NixOS) and [home-manager](https://github.com/nix-community/home-manager) configurations.
+A [nix flake](https://nixos.wiki/wiki/Flakes) is provided, with [NixOS](https://nixos.wiki/wiki/NixOS) and [home-manager](https://github.com/nix-community/home-manager) configurations.
 
 You can directly reference this flake and import it into your NixOS configuration, but you may want to copy code snippets instead.
 
