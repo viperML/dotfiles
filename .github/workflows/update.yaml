@@ -17,13 +17,10 @@ jobs:
       uses: ./.github/actions/install-nix
 
     - name: Pre-build update script
-      run: nix build .#update
-
-    - name: Update flake.lock
-      run: nix flake update
+      run: nix build .#dotfiles-update
 
     - name: Run update script
-      run: ./result/bin/dotfiles-update
+      run: ./result/bin/dotfiles-update $PWD
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4

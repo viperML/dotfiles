@@ -9,6 +9,6 @@
                     "--build-dir" parent
                     "--config" file])))
 
-(defn -main []
-  (lib/shell-vec ["nix flake update" lib/flake-root])
-  (mapv update-file (fs/glob lib/flake-root "**/{nvfetcher}.toml")))
+(defn -main [flake-root & _args]
+  (lib/shell-vec ["nix flake update" flake-root])
+  (mapv update-file (fs/glob flake-root "**/{nvfetcher}.toml")))

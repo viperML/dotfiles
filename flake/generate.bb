@@ -4,27 +4,20 @@
             [babashka.fs :as fs]
             [lib]))
 
-(def template_file
-  (fs/file lib/flake-root "flake" "template.nix"))
-
-(def output_file
-  (fs/file lib/flake-root "flake.nix"))
-
-(def inputs
-  (->> (fs/file lib/flake-root "flake" "generated.json")
+(defn get-inputs [root]
+  (->> (fs/file root "flake" "generated.json")
        slurp
        json/parse-string))
 
-(defn get_version [input]
-  (let [match (second input)]
-    (get-in inputs [match "src" "rev"])))
+(defn get-version [inputs input-name]
+  (get-in inputs [input-name "src" "rev"]))
 
+(defn replace-matches [inputs flake-text]
+  (replace flake-text #"%([a-zA-Z]+)%" #(get-version inputs (second %))))
 
-(def output (-> template_file
-                fs/file
-                slurp
-                (replace #"%([a-zA-Z]+)%" #(get_version %))))
-
-(defn -main []
-  (fs/write-lines output_file (split-lines output))
-  (lib/shell-vec ["nix" "flake" "lock" lib/flake-root]))
+(defn -main [flake-root]
+  (let [inputs (json/parse-string (slurp (fs/file flake-root "flake" "generated.json")))
+        old-text (slurp (fs/file flake-root "flake" "template.nix"))
+        new-text (replace-matches inputs old-text)]
+    (fs/write-lines (fs/file flake-root "flake.nix") (split-lines new-text)))
+  (lib/shell-vec ["nix" "flake" "lock" flake-root]))

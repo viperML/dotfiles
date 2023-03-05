@@ -35,13 +35,13 @@
         ];
         text = ''
           cd ${./.}
-          bb -m ${action}
+          bb -m ${action} "''${@}"
         '';
       };
   in {
     packages = {
-      update = mkBB "update";
-      generate = mkBB "generate";
+      dotfiles-update = mkBB "update";
+      dotfiles-generate = mkBB "generate";
     };
   };
 }

@@ -8,9 +8,3 @@
   (let [cmd (join " " args)]
     (println (str "$ " cmd))
     (shell cmd)))
-
-(def flake-root
-  (->> *file*
-       fs/file
-       fs/parent
-       fs/parent))
