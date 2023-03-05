@@ -43,21 +43,5 @@
           } (builtins.readFile ./generate_matrix.py)
       );
     };
-
-    packages = {
-      update = with pkgs;
-        writeShellApplication {
-          name = "dotfiles-update";
-          runtimeInputs = [
-            git
-            config.packages.nvfetcher
-          ];
-          text =
-            ''
-              export NIX_PATH=nixpkgs=${inputs.nixpkgs}
-            ''
-            + lib.getExe (pkgs.writers.writePython3Bin "update" {} (builtins.readFile ./update.py));
-        };
-    };
   };
 }
