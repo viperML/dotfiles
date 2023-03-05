@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   imports = [
     ../packages
     ../lib
@@ -34,6 +34,7 @@
           config.packages.nvfetcher
         ];
         text = ''
+          export NIX_PATH=nixpkgs=${inputs.nixpkgs}
           cd ${./.}
           bb -m ${action} "''${@}"
         '';
