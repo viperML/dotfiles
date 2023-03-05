@@ -22,6 +22,8 @@
           config.packages.stylua
           shfmt
           treefmt
+
+          babashka
         ];
         shellHook = ''
           venv="$(cd $(dirname $(which python)); cd ..; pwd)"

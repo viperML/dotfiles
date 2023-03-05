@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "__functor": {
+      "locked": {
+        "lastModified": 1675099507,
+        "narHash": "sha256-KMBixfRyGSD8oMbgHcxI65HHFUQrqfXKorzewOzTgeo=",
+        "owner": "privatevoid-net",
+        "repo": "__functor",
+        "rev": "01811e87ca0420b03381eb2d168ad7c22e6f9ac3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "privatevoid-net",
+        "repo": "__functor",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": [
@@ -115,21 +130,6 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -187,15 +187,16 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1677708746,
-        "narHash": "sha256-d9KVSKZS/p4xD7Tz6Q962Y2QzjdMMpdKqik/4JXYaTE=",
+        "lastModified": 1676935051,
+        "narHash": "sha256-OC+mgw7enQRnAg90IDjQkEwUkMRa/Q5DntDGa9oC4PM=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "76fc12869d186e59cf22d51e99e2909bf1828011",
+        "rev": "431c74f111285eab41c17d724f335a324b5c833a",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "v0.22.0beta",
         "repo": "Hyprland",
         "type": "github"
       }
@@ -241,32 +242,6 @@
         "type": "github"
       }
     },
-    "iosevka": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "napalm": [
-          "napalm"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1672930694,
-        "narHash": "sha256-Czb0PMHpfYQfdlD7FxBhR+1IfW+qf2cCXTsxjqrpxHI=",
-        "owner": "viperML",
-        "repo": "iosevka",
-        "rev": "b2647d1f12a7a01845c8aca106385ad9fc3205a1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "iosevka",
-        "type": "github"
-      }
-    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -280,27 +255,6 @@
       "original": {
         "owner": "kristapsdz",
         "repo": "lowdown",
-        "type": "github"
-      }
-    },
-    "napalm": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1672245824,
-        "narHash": "sha256-i596lbPiA/Rfx3DiJiCluxdgxWY7oGSgYMT7OmM+zik=",
-        "owner": "nix-community",
-        "repo": "napalm",
-        "rev": "7c25a05cef52dc405f4688422ce0046ca94aadcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "napalm",
         "type": "github"
       }
     },
@@ -361,15 +315,16 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1677821909,
-        "narHash": "sha256-GVSQ2Sm+bfRv2G2ec3zkvzSX8NjS0qrWZRpwvoUtO8g=",
+        "lastModified": 1677713084,
+        "narHash": "sha256-5aCmGZbsFcLIckCDfvnPD4clGPQI7qYAqHYlttN/Wkg=",
         "owner": "NixOS",
         "repo": "nix",
-        "rev": "37c61907d7111277aeb22d18195c425fe27fed1b",
+        "rev": "70d01bdec1f9e2d9deba8198e99f2ad0a663d08c",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
+        "ref": "2.14.1",
         "repo": "nix",
         "type": "github"
       }
@@ -551,12 +506,14 @@
       },
       "original": {
         "owner": "berberman",
+        "ref": "0.6.0",
         "repo": "nvfetcher",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
+        "__functor": "__functor",
         "deploy-rs": "deploy-rs",
         "envfs": "envfs",
         "flake-compat": "flake-compat",
@@ -566,8 +523,6 @@
         "home-manager-wsl": "home-manager-wsl",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
-        "iosevka": "iosevka",
-        "napalm": "napalm",
         "nh": "nh",
         "nil": "nil",
         "nix": "nix",

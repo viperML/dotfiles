@@ -1,0 +1,11 @@
+[hyprland]
+src.github = "hyprwm/Hyprland"
+fetch.git = "https://github.com/hyprwm/Hyprland.git"
+
+[nvfetcher]
+src.github = "berberman/nvfetcher"
+fetch.git = "https://github.com/berberman/nvfetcher.git"
+
+[nix]
+src.github_tag = "NixOS/nix"
+fetch.git = "https://github.com/nixos/nix.git"

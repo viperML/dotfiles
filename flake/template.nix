@@ -24,7 +24,7 @@
     };
 
     nix = {
-      url = "github:NixOS/nix/2.14.1";
+      url = "github:NixOS/nix/%nix%";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -56,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.22.0beta";
+      url = "github:hyprwm/Hyprland/%hyprland%";
       # url = "github:viperML/Hyprland/nix-wlroots";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -78,7 +78,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvfetcher = {
-      url = "github:berberman/nvfetcher/0.6.0";
+      url = "github:berberman/nvfetcher/%nvfetcher%";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
