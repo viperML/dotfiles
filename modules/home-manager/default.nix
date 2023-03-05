@@ -9,6 +9,7 @@
     "waybar"
     "wayland-compositors"
     "sway"
+    "zsh"
     # "awesome"
     # "common"
     # "eww"

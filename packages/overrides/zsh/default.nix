@@ -84,7 +84,7 @@
 
 
     typeset -U path cdpath fpath manpath
-    fpath=(${sources.zsh-completions.src}/src $fpath)
+    fpath+=${sources.zsh-completions.src}/src
 
     # expand-ealias init
     source ${sources.expand-ealias.src}/expand-ealias.plugin.zsh
@@ -96,7 +96,7 @@
     ${lib.fileContents ./comp.zsh}
 
     # Starship init
-    export STARSHIP_CONFIG=${./starship.toml}
+    export STARSHIP_CONFIG=${../fish/starship.toml}
     eval "$(${starship}/bin/starship init zsh)"
 
     # Direnv init
@@ -106,9 +106,6 @@
     # command-not-found init
     export NIX_AUTO_RUN=0
     source ${nix-index}/etc/profile.d/command-not-found.sh
-
-    # any-nix-shell init
-    ${any-nix-shell}/bin/any-nix-shell zsh | source /dev/stdin
 
     # zsh-autosuggestions init
     export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
@@ -180,7 +177,6 @@ in
     postBuild = ''
       wrapProgram $out/bin/zsh \
         --set ZDOTDIR $out/${zdotdir} \
-        --set MANPAGER "sh -c 'col -bx | bat --paging=always -l man -p'" \
         --prefix PATH ':' $out/bin
     '';
   }

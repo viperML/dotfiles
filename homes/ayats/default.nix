@@ -12,6 +12,7 @@
           inputs.nix-common.homeModules.default
           ./home.nix
           config.flake.homeModules.common
+          config.flake.homeModules.zsh
         ]
         ++ extraModules;
       extraSpecialArgs = {
