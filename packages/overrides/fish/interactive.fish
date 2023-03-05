@@ -26,6 +26,8 @@ abbr -a -g z zellij attach -c main
 # Admin
 abbr -a -g ss sudo systemctl
 abbr -a -g us systemctl --user
+abbr -a -g sf journalctl -xefu
+abbr -a -g uf journalctl -xef --user-unit
 
 # Image cat
 abbr -a -g kat "kitty +icat"

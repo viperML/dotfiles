@@ -39,10 +39,10 @@
           f=${config.home.homeDirectory}/Pictures/bg
           if [[ -f $f ]]; then
             echo Using $f
-            swaybg --image $f --mode fill
+            exec swaybg --image $f --mode fill
           else
             echo $f not found
-            swaybg --color '#000000'
+            exec swaybg --color '#000000'
           fi
         '';
       });

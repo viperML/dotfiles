@@ -25,6 +25,8 @@ in {
         pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
       '';
     };
+
+    mkExec = program: "systemd-run --slice=app-manual.slice --property=ExitType=cgroup --user --wait --collect ${program}";
   in ''
     source=${mutablePath}
 
@@ -35,7 +37,14 @@ in {
     bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} 5%-
     bind=,Prior,exec,${lib.getExe volume} 5%+
     bind=,Next,exec,${lib.getExe volume} 5%-
+
+    bind=SUPER,Return,exec,${mkExec "wezterm start --always-new-process"}
+    bind=SUPER,O,exec,wezterm start --always-new-process
+    bind=SUPER,Space,exec,pkill wofi || ${mkExec "wofi --show drun"}
+    bind=,Print,exec,${mkExec "grimblast copy area"}
   '';
+
+  xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
 
   home.packages = [
     packages.self.wezterm
