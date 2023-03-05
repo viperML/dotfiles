@@ -1,14 +1,16 @@
 (ns lib
-  (:require 
+  (:require
    [babashka.process :refer [shell]]
    [clojure.string :refer [join]]
-   [clojure.java.io :as io]))
+   [babashka.fs :as fs]))
 
-(defn shell_vec [args]
-  (shell (join " " args)))
+(defn shell-vec [args]
+  (let [cmd (join " " args)]
+    (println (str "$ " cmd))
+    (shell cmd)))
 
-(def flake_root
-  (-> *file*
-      io/as-file
-      .getParentFile
-      .getParentFile))
+(def flake-root
+  (->> *file*
+       fs/file
+       fs/parent
+       fs/parent))

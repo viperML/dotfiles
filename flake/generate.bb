@@ -1,18 +1,17 @@
 (ns generate
   (:require [cheshire.core :as json]
-            [clojure.java.io :as io]
-            [clojure.string :refer [replace]]
+            [clojure.string :refer [replace split-lines]]
+            [babashka.fs :as fs]
             [lib]))
 
 (def template_file
-  (io/file lib/flake_root "flake" "template.nix"))
+  (fs/file lib/flake-root "flake" "template.nix"))
 
 (def output_file
-  (io/file lib/flake_root "flake.nix"))
-
+  (fs/file lib/flake-root "flake.nix"))
 
 (def inputs
-  (->> (io/file lib/flake_root "flake" "generated.json")
+  (->> (fs/file lib/flake-root "flake" "generated.json")
        slurp
        json/parse-string))
 
@@ -22,11 +21,10 @@
 
 
 (def output (-> template_file
-                io/file
+                fs/file
                 slurp
                 (replace #"%([a-zA-Z]+)%" #(get_version %))))
 
 (defn -main []
-  (with-open [w (io/writer output_file)]
-    (.write w output))
-  (lib/shell_vec ["nix" "flake" "lock" lib/flake_root]))
+  (fs/write-lines output_file (split-lines output))
+  (lib/shell-vec ["nix" "flake" "lock" lib/flake-root]))
