@@ -20,10 +20,10 @@
       Install.WantedBy = ["graphical-session.target"];
     };
   in {
-    mako = mkService {
-      Unit.Description = "Notification daemon";
-      Service.ExecStart = "${pkgs.mako}/bin/mako";
-    };
+    # mako = mkService {
+    #   Unit.Description = "Notification daemon";
+    #   Service.ExecStart = "${pkgs.mako}/bin/mako";
+    # };
 
     gammastep = mkService {
       Unit.Description = "Night time color filter";
@@ -129,5 +129,51 @@
         mode = "2560x1440@144Hz";
       }
     ];
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = let
+      foreground = "#FFFFFF";
+      background = "#121212";
+      frame_color = "#21dec8";
+    in {
+      global = {
+        font = "Roboto 11";
+        origin = "top-center";
+        corner_radius = 5;
+        alignment = "center";
+        follow = "mouse";
+        format = "<b>%s</b>\\n%b";
+        frame_width = 4;
+        offset = "5x5";
+        horizontal_padding = 8;
+        icon_position = "left";
+        indicate_hidden = "yes";
+        markup = "yes";
+        max_icon_size = 64;
+        mouse_left_click = "do_action";
+        mouse_middle_click = "close_all";
+        mouse_right_click = "close_current";
+        padding = 8;
+        plain_text = "no";
+        separator_color = "auto";
+        separator_height = 1;
+        show_indicators = false;
+        shrink = "no";
+        word_wrap = "yes";
+      };
+      fullscreen_delay_everything = {fullscreen = "delay";};
+      urgency_critical = {
+        inherit foreground background;
+        frame_color = "#551212";
+      };
+      urgency_low = {
+        inherit background foreground frame_color;
+      };
+      urgency_normal = {
+        inherit background foreground frame_color;
+      };
+    };
   };
 }
