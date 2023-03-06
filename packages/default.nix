@@ -97,7 +97,6 @@ in {
         nix-index
         nvfetcher
         tailscale-systray
-        update
         xdg-ninja
         hyprland
         fish

@@ -44,5 +44,13 @@
       dotfiles-update = mkBB "update";
       dotfiles-generate = mkBB "generate";
     };
+
+    checks = {
+      inherit
+        (config.packages)
+        dotfiles-update
+        dotfiles-generate
+        ;
+    };
   };
 }
