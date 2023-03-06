@@ -20,7 +20,7 @@ jobs:
       run: nix build .#dotfiles-update
 
     - name: Run update script
-      run: ./result/bin/dotfiles-update $PWD
+      run: ./result/bin/dotfiles-update --flake $PWD
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
