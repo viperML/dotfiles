@@ -15,6 +15,10 @@
 (defn replace-matches [inputs flake-text]
   (replace flake-text #"%([a-zA-Z]+)%" #(get-version inputs (second %))))
 
+(comment
+  (get-inputs (System/getenv "FLAKE"))
+  (get-version (get-inputs (System/getenv "FLAKE")) "hyprland"))
+
 (defn -main [flake-root]
   (let [inputs (json/parse-string (slurp (fs/file flake-root "flake" "generated.json")))
         old-text (slurp (fs/file flake-root "flake" "template.nix"))
