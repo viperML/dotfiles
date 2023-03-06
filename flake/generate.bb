@@ -2,6 +2,7 @@
   (:require [cheshire.core :as json]
             [clojure.string :refer [replace split-lines]]
             [babashka.fs :as fs]
+            [babashka.cli :as cli]
             [lib]))
 
 (defn get-inputs [root]
@@ -19,9 +20,16 @@
   (get-inputs (System/getenv "FLAKE"))
   (get-version (get-inputs (System/getenv "FLAKE")) "hyprland"))
 
-(defn -main [flake-root]
+(defn main [flake-root]
   (let [inputs (json/parse-string (slurp (fs/file flake-root "flake" "generated.json")))
         old-text (slurp (fs/file flake-root "flake" "template.nix"))
         new-text (replace-matches inputs old-text)]
     (fs/write-lines (fs/file flake-root "flake.nix") (split-lines new-text)))
   (lib/shell-vec ["nix" "flake" "lock" flake-root]))
+
+
+(defn -main [& args]
+  (let [opts (cli/parse-opts args {:require [:flake]})
+        flake-root (opts :flake)]
+    (prn opts)
+    (main flake-root)))

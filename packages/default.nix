@@ -166,7 +166,6 @@ in {
       kitty = w pkgs.callPackage ./overrides/kitty {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
-      river = w pkgs.callPackage ./overrides/river {};
       hyprland = inputs'.hyprland.packages.default.overrideAttrs (old: {
         nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
         postInstall =
