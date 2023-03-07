@@ -21,7 +21,7 @@ jobs:
       uses: ./.github/actions/install-nix
     - id: gen_packages
       name: Generate package matrix
-      run: nix run .#generate_matrix
+      run: nix run .#dotfiles_matrix
 
   build_flake:
     runs-on: ubuntu-latest

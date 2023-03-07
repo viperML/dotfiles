@@ -26,30 +26,20 @@
     config,
     ...
   }: let
-    mkBB = action:
-      pkgs.writeShellApplication {
-        name = "dotfiles-update";
-        runtimeInputs = [
-          pkgs.babashka
-          config.packages.nvfetcher
-        ];
-        text = ''
-          export NIX_PATH=nixpkgs=${inputs.nixpkgs}
-          cd ${./.}
-          bb -m ${action} "''${@}"
-        '';
-      };
+    myPython = pkgs.python311.withPackages (p: [p.aiohttp]);
+    writePython3 = with pkgs; writers.makePythonWriter myPython myPython.pkgs buildPackages.python3Packages;
+    writePython3Bin = name: writePython3 "/bin/${name}";
   in {
     packages = {
-      dotfiles-update = mkBB "update";
-      dotfiles-generate = mkBB "generate";
+      dotfiles-matrix = writePython3 "generate_matrix" {
+        flakeIgnore = ["E501"];
+      } (builtins.readFile ./matrix.py);
     };
 
     checks = {
       inherit
         (config.packages)
-        dotfiles-update
-        dotfiles-generate
+        dotfiles-matrix
         ;
     };
   };

@@ -17,6 +17,7 @@
             p.black
             p.flake8
             p.requests
+            p.aiohttp
           ]))
 
           config.packages.stylua

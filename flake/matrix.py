@@ -1,22 +1,16 @@
-import json
-import subprocess
-import os
-import logging
-from functools import reduce
-from concurrent.futures.thread import ThreadPoolExecutor
 import asyncio
+import json
+import logging
+import os
+import subprocess
+import re
+
+import aiohttp
 
 try:
     flake_root = os.environ["FLAKE"]
-except KeyError as e:
-    logging.warning(e)
-    exit(1)
-
-flake = json.loads(
-    subprocess.run(
-        ["nix", "flake", "show", "--json", flake_root], check=True, capture_output=True
-    ).stdout.decode()
-)
+except KeyError:
+    flake_root = os.environ["PWD"]
 
 system = subprocess.run(
     ["nix", "eval", "--raw", "--impure", "--expr", "builtins.currentSystem"],
@@ -24,32 +18,56 @@ system = subprocess.run(
     capture_output=True,
 ).stdout.decode()
 
+flake_filters = [f"checks.{system}"]
 
-async def flakeref_cached(flakeref: str) -> bool:
-    return True
+
+def store_hash(path):
+    return re.search(r"/nix/store/(\w+)-", path).group(1)
+
+
+async def hash_cached(hash, session) -> bool:
+    narinfo = f"https://viperml.cachix.org/{hash}.narinfo"
+
+    async with session.get(narinfo) as response:
+        if response.status == 200:
+            return True
+        else:
+            return False
 
 
 all_outputs = list()
 
 
 async def main():
-    for flake_filter in [["checks", system]]:
-        outputs = [*reduce(lambda f, o: f.get(o), flake_filter, flake)]
-        outputs = [*map(lambda o: ".".join([*flake_filter, o]), outputs)]
+    for flake_filter in flake_filters:
+        outputs: dict[str, str] = json.loads(
+            subprocess.run(
+                [
+                    "nix",
+                    "eval",
+                    "--raw",
+                    f"{flake_root}#{flake_filter}",
+                    "--apply",
+                    "filter: builtins.toJSON (builtins.mapAttrs (_: value: value.outPath) filter)",
+                ],
+                check=True,
+                capture_output=True,
+            ).stdout.decode()
+        )
 
-        flakerefs = [*map(lambda o: f"{flake_root}#{o}", outputs)]
+        outputs = {key: store_hash(value) for key, value in outputs.items()}
 
-        cached_futures = [*map(flakeref_cached, flakerefs)]
+        async with aiohttp.ClientSession() as session:
+            outputs = {k: hash_cached(v, session) for k, v in outputs.items()}
 
-        async with asyncio.TaskGroup() as tg:
-            cached_futures = [*map(lambda c: tg.create_task(c), cached_futures)]
-            pass
+            async with asyncio.TaskGroup() as tg:
+                results = {k: tg.create_task(v) for k, v in outputs.items()}
 
-        outputs_filtered = [
-            o for (o, c) in zip(outputs, cached_futures) if (c.result())
-        ]
+        results_filtered = [f"{flake_filter}.{k}" for k, v in results.items() if not v.result()]
 
-        all_outputs.extend(outputs_filtered)
+        all_outputs.extend(results_filtered)
+
+        pass
 
 
 asyncio.run(main())

@@ -35,13 +35,6 @@
           '';
         }
       );
-
-      generate_matrix = mkApp (
-        with pkgs;
-          writers.writePython3Bin "generate_matrix" {
-            libraries = [python3.pkgs.requests];
-          } (builtins.readFile ./generate_matrix.py)
-      );
     };
   };
 }
