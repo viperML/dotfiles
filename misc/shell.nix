@@ -10,7 +10,7 @@
       } {
         name = "dotfiles-shell";
         packages = with pkgs; [
-          (python3.withPackages (p: [
+          (python311.withPackages (p: [
             p.mypy
             p.toml
             p.types-toml
