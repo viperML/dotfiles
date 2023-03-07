@@ -23,7 +23,7 @@ jobs:
       run: nix build .#dotfiles-matrix
     - id: gen_packages
       name: Generate package matrix
-      run: ./result
+      run: echo "packages=$(./result/bin/generate_matrix)" >> $GITHUB_OUTPUT
 
   build_flake:
     runs-on: ubuntu-latest

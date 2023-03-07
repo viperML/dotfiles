@@ -26,12 +26,12 @@
     config,
     ...
   }: let
-    myPython = pkgs.python311.withPackages (p: [p.aiohttp]);
-    writePython3 = with pkgs; writers.makePythonWriter myPython myPython.pkgs buildPackages.python3Packages;
+    ciPython = pkgs.python311.withPackages (p: [p.aiohttp]);
+    writePython3 = with pkgs; writers.makePythonWriter ciPython ciPython.pkgs buildPackages.python3Packages;
     writePython3Bin = name: writePython3 "/bin/${name}";
   in {
     packages = {
-      dotfiles-matrix = writePython3 "generate_matrix" {
+      dotfiles-matrix = writePython3Bin "dotfiles-matrix" {
         flakeIgnore = ["E501"];
       } (builtins.readFile ./matrix.py);
     };

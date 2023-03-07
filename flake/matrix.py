@@ -71,4 +71,4 @@ async def main():
 
 asyncio.run(main())
 
-print(f"::set-output name=packages::{all_outputs}")
+print(all_outputs)
