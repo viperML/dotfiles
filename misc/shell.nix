@@ -19,6 +19,7 @@
             p.requests
             p.aiohttp
           ]))
+          ruff
 
           config.packages.stylua
           shfmt

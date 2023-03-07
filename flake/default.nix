@@ -35,12 +35,5 @@
         flakeIgnore = ["E501"];
       } (builtins.readFile ./matrix.py);
     };
-
-    checks = {
-      inherit
-        (config.packages)
-        dotfiles-matrix
-        ;
-    };
   };
 }

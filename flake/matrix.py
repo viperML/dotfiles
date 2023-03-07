@@ -58,15 +58,11 @@ async def main():
 
         async with aiohttp.ClientSession() as session:
             outputs = {k: hash_cached(v, session) for k, v in outputs.items()}
-
             async with asyncio.TaskGroup() as tg:
                 results = {k: tg.create_task(v) for k, v in outputs.items()}
 
         results_filtered = [f"{flake_filter}.{k}" for k, v in results.items() if not v.result()]
-
         all_outputs.extend(results_filtered)
-
-        pass
 
 
 asyncio.run(main())
