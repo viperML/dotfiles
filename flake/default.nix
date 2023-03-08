@@ -29,6 +29,9 @@
     ciPython = pkgs.python311.withPackages (p: [p.aiohttp]);
     writePython3 = with pkgs; writers.makePythonWriter ciPython ciPython.pkgs buildPackages.python3Packages;
     writePython3Bin = name: writePython3 "/bin/${name}";
+    ciPython' = pkgs.python3Minimal;
+    writePython3' = with pkgs; writers.makePythonWriter ciPython' ciPython'.pkgs buildPackages.python3Packages;
+    writePython3Bin' = name: writePython3' "/bin/${name}";
   in {
     packages = {
       dotfiles-matrix = writePython3Bin "dotfiles-matrix" {
@@ -38,6 +41,10 @@
       dotfiles-generate = writePython3Bin "dotfiles-generate" {
         flakeIgnore = ["E501"];
       } (builtins.readFile ./generate.py);
+
+      dotfiles-update-matrix = writePython3Bin' "dotfiles-update-matrix" {
+        flakeIgnore = ["E501"];
+      } (builtins.readFile ./update-matrix.py);
     };
   };
 }
