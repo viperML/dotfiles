@@ -30,12 +30,14 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        package: ${{ fromJson(needs.matrix.outputs.paths )}}
+        path: ${{ fromJson(needs.matrix.outputs.paths )}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
+    - name: Update element
+      run: nix run .#dotfiles-update-nv -- ${{ matrix.path }}
 
     # - name: Pre-build update script
     #   run: nix build .#dotfiles-update

@@ -45,6 +45,23 @@
       dotfiles-update-matrix = writePython3Bin' "dotfiles-update-matrix" {
         flakeIgnore = ["E501"];
       } (builtins.readFile ./update-matrix.py);
+
+      dotfiles-update-nv = let
+        original = writePython3Bin' "dotfiles-update-nv" {
+          flakeIgnore = ["E501"];
+        } (builtins.readFile ./update-nv.py);
+      in
+        pkgs.writeShellApplication {
+          inherit (original) name;
+          runtimeInputs = [
+            pkgs.git
+            config.packages.nvfetcher
+          ];
+          text = ''
+            export NIX_PATH=nixpkgs=${inputs.nixpkgs}
+            exec ${pkgs.lib.getExe original} "''${@}"
+          '';
+        };
     };
   };
 }
