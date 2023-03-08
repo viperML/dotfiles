@@ -3,8 +3,7 @@ name: Update all
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 1 * *"
-    - cron: "0 4 15 * *"
+    - cron: "0 4 * * *"
 
 jobs:
   matrix:
@@ -28,7 +27,6 @@ jobs:
     if: ${{ needs.matrix.outputs.paths != '[]' && needs.matrix.outputs.paths != '' }}
     strategy:
       fail-fast: false
-      max-parallel: 5
       matrix:
         path: ${{ fromJson(needs.matrix.outputs.paths )}}
     steps:
