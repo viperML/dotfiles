@@ -14,5 +14,6 @@
     pkgs.vault
     pkgs.step-cli
     packages.self.wezterm
+    pkgs.obsidian
   ];
 }
