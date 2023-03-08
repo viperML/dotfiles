@@ -38,24 +38,17 @@ jobs:
       uses: ./.github/actions/install-nix
     - name: Update element
       run: nix run .#dotfiles-update-nv -- ${{ matrix.path }}
-
-    # - name: Pre-build update script
-    #   run: nix build .#dotfiles-update
-
-    # - name: Run update script
-    #   run: ./result/bin/dotfiles-update --flake $PWD
-
-    # - name: Create Pull Request
-    #   uses: peter-evans/create-pull-request@v4
-    #   with:
-    #     token: '${{ secrets.PAT }}'
-    #     title: '[automatic] flake update'
-    #     commit-message: |
-    #       Update all
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: '${{ secrets.PAT }}'
+        title: 'ci: bump ${{ matrix.path }}'
+        commit-message: |
+          Bump version
 
 
-    #       Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-    #     author: GitHub <noreply@github.com>
-    #     branch: update
-    #     branch-suffix: timestamp
-    #     delete-branch: true
+          Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        author: GitHub <noreply@github.com>
+        branch: update
+        branch-suffix: timestamp
+        delete-branch: true
