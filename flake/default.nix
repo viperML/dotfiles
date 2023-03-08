@@ -34,6 +34,10 @@
       dotfiles-matrix = writePython3Bin "dotfiles-matrix" {
         flakeIgnore = ["E501"];
       } (builtins.readFile ./matrix.py);
+
+      dotfiles-generate = writePython3Bin "dotfiles-generate" {
+        flakeIgnore = ["E501"];
+      } (builtins.readFile ./generate.py);
     };
   };
 }
