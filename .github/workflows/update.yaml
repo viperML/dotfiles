@@ -7,8 +7,10 @@ on:
     - cron: "0 4 15 * *"
 
 jobs:
-  main:
+  matrix:
     runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.matrix.outputs.paths }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -16,23 +18,42 @@ jobs:
     - name: Install nix
       uses: ./.github/actions/install-nix
 
-    - name: Pre-build update script
-      run: nix build .#dotfiles-update
+    - name: Generate matrix
+      run: echo "paths=$(nix run .#dotfiles-update-matrix)" >> $GITHUB_OUTPUT
+      id: matrix
 
-    - name: Run update script
-      run: ./result/bin/dotfiles-update --flake $PWD
+  update_element:
+    runs-on: ubuntu-latest
+    needs: [matrix]
+    if: ${{ needs.matrix.outputs.paths != '[]' && needs.matrix.outputs.paths != '' }}
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        package: ${{ fromJson(needs.matrix.outputs.paths )}}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install nix
+      uses: ./.github/actions/install-nix
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4
-      with:
-        token: '${{ secrets.PAT }}'
-        title: '[automatic] flake update'
-        commit-message: |
-          Update all
+    # - name: Pre-build update script
+    #   run: nix build .#dotfiles-update
+
+    # - name: Run update script
+    #   run: ./result/bin/dotfiles-update --flake $PWD
+
+    # - name: Create Pull Request
+    #   uses: peter-evans/create-pull-request@v4
+    #   with:
+    #     token: '${{ secrets.PAT }}'
+    #     title: '[automatic] flake update'
+    #     commit-message: |
+    #       Update all
 
 
-          Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        author: GitHub <noreply@github.com>
-        branch: update
-        branch-suffix: timestamp
-        delete-branch: true
+    #       Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+    #     author: GitHub <noreply@github.com>
+    #     branch: update
+    #     branch-suffix: timestamp
+    #     delete-branch: true
