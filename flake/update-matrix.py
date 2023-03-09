@@ -7,6 +7,10 @@ except KeyError:
     flake_root = Path(os.environ["PWD"])
 
 
-nv_files = [str(f.relative_to(flake_root).parent) for f in flake_root.glob("**/generated.json")]
+nv_files = [
+    str(g.relative_to(flake_root).parent)
+    for nv_file in ["nvfetcher", "sources"]
+    for g in flake_root.glob(f"**/{nv_file}.toml")
+]
 
 print(nv_files)
