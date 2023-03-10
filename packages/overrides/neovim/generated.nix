@@ -3,27 +3,27 @@
 {
   hlargs = {
     pname = "hlargs";
-    version = "2a7f9878326cdfd0eb8c91ad543c07680c976227";
+    version = "a7ad6ed8d6e27ea4dd13fda63fa732e9196ba4ea";
     src = fetchFromGitHub ({
       owner = "m-demare";
       repo = "hlargs.nvim";
-      rev = "2a7f9878326cdfd0eb8c91ad543c07680c976227";
+      rev = "a7ad6ed8d6e27ea4dd13fda63fa732e9196ba4ea";
       fetchSubmodules = false;
-      sha256 = "sha256-J9cZqLHZ6MDNoLYVmS71obv585iLjYpYC2sNkALZyI0=";
+      sha256 = "sha256-9kCQs1IFt48Y3IWClFlwdT/Kbgv93gPEdhGi75k04qU=";
     });
-    date = "2023-02-28";
+    date = "2023-03-06";
   };
   nvim-base-16 = {
     pname = "nvim-base-16";
-    version = "36f0e1d27fb87fd5199baa32c1e2921af6061e44";
+    version = "22bad36cd64e85afb0c9d0e9b92106b5ea6dabc6";
     src = fetchFromGitHub ({
       owner = "RRethy";
       repo = "nvim-base16";
-      rev = "36f0e1d27fb87fd5199baa32c1e2921af6061e44";
+      rev = "22bad36cd64e85afb0c9d0e9b92106b5ea6dabc6";
       fetchSubmodules = false;
-      sha256 = "sha256-1rtxlSty5amweLXZQLgxQNGH3sndv4xo+99Q1nYzLh0=";
+      sha256 = "sha256-kG3EGmG7EW6wq15TrvPvLoe16JTOOA5FmmByLEbeYfs=";
     });
-    date = "2023-02-15";
+    date = "2023-03-07";
   };
   nvim-transparent = {
     pname = "nvim-transparent";
