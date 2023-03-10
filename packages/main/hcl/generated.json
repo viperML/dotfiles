@@ -13,10 +13,10 @@
             "name": null,
             "owner": "hashicorp",
             "repo": "hcl",
-            "rev": "v2.16.1",
-            "sha256": "sha256-EsqOpVCsn0bD0BAOoFifH1hfEF8Wu8bUpM0/BSXAewY=",
+            "rev": "v2.16.2",
+            "sha256": "sha256-7RHRUIZhF6UOZDi85HAzQhzD7c8Y4aPjt4Ly3KUM26k=",
             "type": "github"
         },
-        "version": "v2.16.1"
+        "version": "v2.16.2"
     }
 }
