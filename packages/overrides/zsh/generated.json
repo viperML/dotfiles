@@ -21,7 +21,7 @@
     },
     "fast-syntax-highlighting": {
         "cargoLocks": null,
-        "date": "2022-11-19",
+        "date": "2023-03-10",
         "extract": null,
         "name": "fast-syntax-highlighting",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "zdharma-continuum",
             "repo": "fast-syntax-highlighting",
-            "rev": "7c390ee3bfa8069b8519582399e0a67444e6ea61",
-            "sha256": "sha256-wLpgkX53wzomHMEpymvWE86EJfxlIb3S8TPy74WOBD4=",
+            "rev": "5521b083f8979ad40be2137d7a46bfa51c8d666a",
+            "sha256": "sha256-hMzeCRJD7njkUiSf3xT/vQ0wEkmgV53yDJTV/QZtJU4=",
             "type": "github"
         },
-        "version": "7c390ee3bfa8069b8519582399e0a67444e6ea61"
+        "version": "5521b083f8979ad40be2137d7a46bfa51c8d666a"
     },
     "zsh-autosuggestions": {
         "cargoLocks": null,
