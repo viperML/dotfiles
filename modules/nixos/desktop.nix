@@ -79,7 +79,6 @@
 
   fonts = {
     fonts = with pkgs; [
-      packages.self.corefonts
       noto-fonts
       noto-fonts-extra
       noto-fonts-emoji

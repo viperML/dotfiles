@@ -1,3 +1,0 @@
-[hcl]
-src.github = "hashicorp/hcl"
-fetch.github = "hashicorp/hcl"

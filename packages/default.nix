@@ -107,12 +107,10 @@ in {
 
     packages = {
       nvfetcher = pkgs.nvfetcher-bin;
-      inherit (pkgs) corefonts;
 
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
       colloid = w pkgs.callPackage ./main/colloid {};
-      # hcl = w pkgs.callPackage ./main/hcl {}; # golang hashes broken
       plasma-applet-splitdigitalclock = w pkgs.callPackage ./main/plasma-applet-splitdigitalclock {};
       present = w pkgs.callPackage ./main/present {};
       tailscale-systray = w pkgs.callPackage ./main/tailscale-systray {};
