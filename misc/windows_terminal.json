@@ -1,14 +1,6 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
-        {
-            "command": "unbound",
-            "keys": "ctrl+v"
-        }
-    ],
-    "copyFormatting": "none",
-    "copyOnSelect": false,
     "defaultProfile": "{30f1517e-bf80-4b2a-afd0-ce2eb19c65df}",
     "profiles": {
         "defaults": {
