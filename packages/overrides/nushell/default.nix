@@ -1,25 +1,13 @@
 {
-  pname,
-  version,
-  src,
-  date,
   rustPlatform,
   pkg-config,
   openssl,
   symlinkJoin,
   makeWrapper,
   carapace,
+  nushell
 }: let
-  package = rustPlatform.buildRustPackage {
-    inherit pname src;
-    version = date;
-    cargoLock.lockFile = ./nushell-${version}/Cargo.lock;
-    nativeBuildInputs = [pkg-config];
-    buildInputs = [openssl];
-    doCheck = false;
-    buildFeatures = ["dataframe"];
-    meta.mainProgram = "nu";
-  };
+  package = nushell;
 in
   symlinkJoin {
     inherit (package) name pname version meta;
