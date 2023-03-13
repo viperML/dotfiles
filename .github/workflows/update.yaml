@@ -42,11 +42,10 @@ jobs:
         token: '${{ secrets.PAT }}'
         title: 'ci: bump ${{ matrix.path }}'
         commit-message: |
-          Bump version
+          Bump ${{ matrix.path }}
 
 
           Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         author: GitHub <noreply@github.com>
-        branch: update
-        branch-suffix: timestamp
+        branch: update//${{ matrix.path }}
         delete-branch: true

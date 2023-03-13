@@ -97,6 +97,12 @@
     "/nix" = mkBtrfs ["subvol=/@nixos/@nix"];
     "/var" = mkBtrfs ["subvol=/@nixos/@var"];
     "/home" = mkBtrfs ["subvol=/@home"];
+
+    "/miq" = {
+      device = "/home/ayats/miq";
+      options = ["bind"];
+      depends = ["/home"];
+    };
   };
 
   swapDevices = [

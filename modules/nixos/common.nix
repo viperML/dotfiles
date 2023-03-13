@@ -30,6 +30,8 @@
     usbutils
     pciutils
     vim
+    file
+    pax-utils
 
     packages.self.git
     packages.nh.default
