@@ -18,4 +18,6 @@ else:
 print(nv_config)
 
 
-subprocess.run(["nvfetcher", "--build-dir", subdir, "--config", nv_config], check=True)
+subprocess.run(
+    ["nvfetcher", "--build-dir", subdir, "--config", nv_config], check=True
+)
