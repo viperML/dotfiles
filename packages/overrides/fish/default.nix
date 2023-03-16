@@ -1,8 +1,5 @@
 {
-  debug ? false,
-  #
   makeWrapper,
-  makeBinaryWrapper,
   writeText,
   writeTextDir,
   lib,
@@ -19,11 +16,6 @@
   fishPlugins,
   any-nix-shell,
 }: let
-  myWrapper =
-    if debug
-    then makeWrapper
-    else makeBinaryWrapper;
-
   initPlugin = plugin: ''
     begin
       set -l __plugin_dir ${plugin}/share/fish
@@ -105,7 +97,7 @@
     (symlinkJoin {
       inherit (bat) name pname version;
       paths = [bat];
-      buildInputs = [myWrapper];
+      buildInputs = [makeWrapper];
       postBuild = ''
         wrapProgram $out/bin/bat \
           --add-flags '--theme=ansi' \
@@ -118,9 +110,9 @@
 in
   symlinkJoin {
     name = with fish'; "${pname}-${version}";
-    inherit (fish') pname version;
+    inherit (fish') pname version meta;
     paths = [fish'] ++ extraPackages;
-    nativeBuildInputs = [myWrapper];
+    nativeBuildInputs = [makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/fish \
         --set MANPAGER 'sh -c "col -bx | bat --paging=always -l man -p"' \
