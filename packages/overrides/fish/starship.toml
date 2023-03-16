@@ -49,18 +49,18 @@ symbol = ""
 
 [git_status]
 format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
-style       = "bold cyan"
-up_to_date  = ""
-conflicted  = "=$count "
-ahead       = "⇡$count "
-behind      = "⇣$count "
-diverged    = "⇕$count "
-untracked   = "?$count "
-stashed     = "$$count "
-modified    = "!$count "
-staged      = "+$count "
-renamed     = "»$count "
-deleted     = "✘$count "
+style = "bold cyan"
+up_to_date = ""
+conflicted = "=$count "
+ahead = "⇡$count "
+behind = "⇣$count "
+diverged = "⇕$count "
+untracked = "?$count "
+stashed = "$$count "
+modified = "!$count "
+staged = "+$count "
+renamed = "»$count "
+deleted = "✘$count "
 
 [git_metrics]
 disabled = false
@@ -102,3 +102,7 @@ symbol = ""
 style = "bold cyan"
 format = "[$symbol]($style) [$output]($style) "
 os = "linux"
+
+[character]
+success_symbol = "[\\$](bold)"
+error_symbol = "[\\$](bold)"

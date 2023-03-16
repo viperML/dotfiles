@@ -72,7 +72,11 @@
       ${lib.fileContents ./pushd_mod.fish}
 
       set -gx STARSHIP_CONFIG ${./starship.toml}
+      function starship_transient_prompt_func
+        starship module character
+      end
       ${starship}/bin/starship init fish | source
+      enable_transience
 
       set -gx direnv_config_dir ${direnvConfig}
       ${direnv}/bin/direnv hook fish | source
