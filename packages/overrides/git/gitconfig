@@ -22,3 +22,7 @@
 [user]
   email=ayatsfer@gmail.com
   name=Fernando Ayats
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default

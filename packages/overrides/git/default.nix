@@ -16,8 +16,6 @@
   extraPrograms = [
     git-extras
     delta
-    gh
-    glab
   ];
 in
   runCommand "git" {
