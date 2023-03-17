@@ -62,6 +62,23 @@
             exec ${pkgs.lib.getExe original} "''${@}"
           '';
         };
+
+      dotfiles-tidy = pkgs.writeShellApplication {
+        name = "dotfiles-tidy";
+        runtimeInputs = [
+          pkgs.treefmt
+          pkgs.alejandra
+          pkgs.black
+          config.packages.stylua
+
+          pkgs.fd
+          pkgs.deadnix
+        ];
+        text = ''
+          treefmt --tree-root "$PWD" --config-file ${../misc/treefmt.toml}
+          fd '\.nix' --exclude 'generated\.nix' --exec deadnix -e -l
+        '';
+      };
     };
   };
 }

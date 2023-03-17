@@ -32,16 +32,12 @@ jobs:
     - name: Install nix
       uses: ./.github/actions/install-nix
 
-    - name: Run cleanup script
-      run: nix run .#cleanup
-
-    - name: Run formatting script
-      run: nix run .#format
+    - run: nix run .#dotfiles-tidy
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        title: '[automatic] flake cleanup'
+        title: 'ci: tidy'
         commit-message: |
           Cleanup
 

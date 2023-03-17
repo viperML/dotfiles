@@ -28,6 +28,7 @@
     # pkgs.bubblewrap
     pkgs.wormhole-william
     # packages.self.zellij
+    pkgs.elfutils
 
     packages.self.fish
     # packages.self.nushell
