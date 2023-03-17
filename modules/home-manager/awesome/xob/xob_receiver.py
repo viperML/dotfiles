@@ -22,9 +22,7 @@ with Pulse() as pulse:
             default_sink_name = pulse.server_info().default_sink_name
             try:
                 sink_index = next(
-                    index
-                    for index, sink in sinks.items()
-                    if sink.name == default_sink_name
+                    index for index, sink in sinks.items() if sink.name == default_sink_name
                 )
             except StopIteration:
                 raise StopIteration("No default sink was found.")

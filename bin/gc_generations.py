@@ -56,12 +56,8 @@ if __name__ == "__main__":
     my_gen_numbers_to_remove = my_gens_in_esp.difference(my_gens_in_profile)
     my_gens_numbers_to_keep = my_gens_in_esp.intersection(my_gens_in_profile)
 
-    my_gens_to_remove = [
-        generation(my_esp, id) for id in my_gen_numbers_to_remove
-    ]
-    my_gens_to_keep = [
-        generation(my_esp, id) for id in my_gens_numbers_to_keep
-    ]
+    my_gens_to_remove = [generation(my_esp, id) for id in my_gen_numbers_to_remove]
+    my_gens_to_keep = [generation(my_esp, id) for id in my_gens_numbers_to_keep]
 
     for g in my_gens_to_keep:
         for e in g.entries:

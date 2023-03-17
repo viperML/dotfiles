@@ -14,7 +14,6 @@
   direnv,
   nix-direnv,
   nix-index,
-  any-nix-shell,
   bat,
   exa,
 }: let

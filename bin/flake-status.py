@@ -29,9 +29,7 @@ for t in lock and targets:
         lock[t]["locked"]["lastModified"]
     )
 
-    head = requests.get(
-        f"https://api.github.com/repos/{owner}/{repo}/branches/{branch}"
-    ).json()
+    head = requests.get(f"https://api.github.com/repos/{owner}/{repo}/branches/{branch}").json()
 
     rev.head = head["commit"]["sha"]
 
