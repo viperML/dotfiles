@@ -75,8 +75,8 @@
           pkgs.deadnix
         ];
         text = ''
-          treefmt --tree-root "$PWD" --config-file ${../misc/treefmt.toml}
           fd '\.nix' --exclude 'generated\.nix' --exec deadnix -e -l
+          treefmt --tree-root "$PWD" --config-file ${../misc/treefmt.toml}
         '';
       };
     };
