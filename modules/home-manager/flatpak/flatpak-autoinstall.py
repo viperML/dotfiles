@@ -89,9 +89,7 @@ class App:
         return self.ref == other.ref and self.origin == other.origin
 
     def install(self) -> None:
-        run_command(
-            f"flatpak install --noninteractive --user {self.origin} {self.ref}"
-        )
+        run_command(f"flatpak install --noninteractive --user {self.origin} {self.ref}")
 
     def uninstall(self) -> None:
         run_command(f"flatpak uninstall --noninteractive --user {self.ref}")

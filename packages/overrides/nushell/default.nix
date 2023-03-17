@@ -1,11 +1,8 @@
 {
-  rustPlatform,
-  pkg-config,
-  openssl,
   symlinkJoin,
   makeWrapper,
   carapace,
-  nushell
+  nushell,
 }: let
   package = nushell;
 in

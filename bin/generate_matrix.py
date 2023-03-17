@@ -85,9 +85,7 @@ class FlakeOutput:
         elif response.status_code == 404:
             self.info("Not available in cachix")
         else:
-            raise requests.RequestException(
-                f"Unhandled status code {response.status_code}"
-            )
+            raise requests.RequestException(f"Unhandled status code {response.status_code}")
 
         pass
 

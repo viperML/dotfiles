@@ -7,9 +7,7 @@
   lndir,
   #
   delta,
-  gh,
   git-extras,
-  glab,
 }: let
   gitconfig = writeText "gitconfig" (lib.fileContents ./gitconfig);
 
