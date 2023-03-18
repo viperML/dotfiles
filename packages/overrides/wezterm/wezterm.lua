@@ -3,18 +3,18 @@ local wezterm = require "wezterm"
 local padding = 12
 
 function tableMerge(t1, t2)
-    for k,v in pairs(t2) do
-        if type(v) == "table" then
-            if type(t1[k] or false) == "table" then
-                tableMerge(t1[k] or {}, t2[k] or {})
-            else
-                t1[k] = v
-            end
-        else
-            t1[k] = v
-        end
+  for k, v in pairs(t2) do
+    if type(v) == "table" then
+      if type(t1[k] or false) == "table" then
+        tableMerge(t1[k] or {}, t2[k] or {})
+      else
+        t1[k] = v
+      end
+    else
+      t1[k] = v
     end
-    return t1
+  end
+  return t1
 end
 
 local atom_one_dark = {
@@ -155,7 +155,7 @@ local generic_config = {
   check_for_updates = false,
   default_cursor_style = "SteadyBar",
   keys = {
-    { key = 'x', mods = 'ALT', action = wezterm.action.ShowLauncher },
+    { key = "x", mods = "ALT", action = wezterm.action.ShowLauncher },
   },
 }
 
@@ -169,15 +169,15 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   platform_config = {
     default_prog = { "nu" },
     enable_tab_bar = true,
-    font = wezterm.font("iosevka NFM", {weight="Medium"}),
+    font = wezterm.font("iosevka NFM", { weight = "Medium" }),
     font_size = 12,
-    cell_width = 0.9
+    cell_width = 0.9,
   }
 else
   platform_config = {
     default_prog = { "fish" },
     enable_tab_bar = false,
-    font = wezterm.font("iosevka NFM", {weight="Medium", stretch="Normal", style="Normal"}),
+    font = wezterm.font("iosevka NFM", { weight = "Medium", stretch = "Normal", style = "Normal" }),
     font_size = 12,
   }
 end
