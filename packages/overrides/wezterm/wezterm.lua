@@ -2,6 +2,21 @@ local wezterm = require "wezterm"
 
 local padding = 12
 
+function tableMerge(t1, t2)
+    for k,v in pairs(t2) do
+        if type(v) == "table" then
+            if type(t1[k] or false) == "table" then
+                tableMerge(t1[k] or {}, t2[k] or {})
+            else
+                t1[k] = v
+            end
+        else
+            t1[k] = v
+        end
+    end
+    return t1
+end
+
 local atom_one_dark = {
   ansi = {
     -- Base Colors
@@ -125,19 +140,24 @@ local tomorrow_night = {
   },
 }
 
-local colors
-
--- local current_time = tonumber(os.date("%H%M"))
--- if current_time < 1800 and current_time > 500 then
--- 	colors = atom_one_light
--- else
--- 	colors = tomorrow_night
--- end
-colors = tomorrow_night
-
-local default_prog
-local set_environment_variables = {}
-local enable_tab_bar
+local generic_config = {
+  window_background_opacity = 1.0,
+  enable_scroll_bar = true,
+  window_padding = {
+    left = padding,
+    right = padding,
+    top = padding - 5,
+    bottom = padding - 5,
+  },
+  colors = tomorrow_night,
+  enable_wayland = true,
+  window_close_confirmation = "NeverPrompt",
+  check_for_updates = false,
+  default_cursor_style = "SteadyBar",
+  keys = {
+    { key = 'x', mods = 'ALT', action = wezterm.action.ShowLauncher },
+  },
+}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- clink
@@ -146,32 +166,22 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   -- set_environment_variables["DIRCMD"] = "/d"
   -- default_prog = { "cmd.exe", "/s", "/k", "c:/clink/clink_x64.exe", "inject", "-q" }
 
-  default_prog = { "nu" }
-  enable_tab_bar = true
-  font = wezterm.font("iosevka-normal", { weight = 600 })
+  platform_config = {
+    default_prog = { "nu" },
+    enable_tab_bar = true,
+    font = wezterm.font("iosevka NFM", {weight="Medium"}),
+    font_size = 12,
+    cell_width = 0.9
+  }
 else
-  default_prog = { "fish" }
-  enable_tab_bar = false
-  font = wezterm.font("iosevka NFM", { weight = "Medium", stretch = "Normal", style = "Normal" })
+  platform_config = {
+    default_prog = { "fish" },
+    enable_tab_bar = false,
+    font = wezterm.font("iosevka NFM", {weight="Medium", stretch="Normal", style="Normal"}),
+    font_size = 12,
+  }
 end
 
-return {
-  font = font,
-  font_size = 12,
-  default_prog = default_prog,
-  set_environment_variables = set_environment_variables,
-  window_background_opacity = 1.0,
-  enable_scroll_bar = true,
-  enable_tab_bar = enable_tab_bar,
-  window_padding = {
-    left = padding,
-    right = padding,
-    top = padding - 5,
-    bottom = padding - 5,
-  },
-  colors = colors,
-  enable_wayland = true,
-  window_close_confirmation = "NeverPrompt",
-  check_for_updates = false,
-  default_cursor_style = "SteadyBar",
-}
+tableMerge(generic_config, platform_config)
+
+return generic_config
