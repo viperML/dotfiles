@@ -5,9 +5,11 @@
   #
   stdenvNoCC,
   unzip,
+  lib,
 }:
 stdenvNoCC.mkDerivation {
-  inherit pname version src;
+  inherit pname src;
+  version = lib.removePrefix "v" version;
 
   nativeBuildInputs = [
     unzip
