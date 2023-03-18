@@ -8,10 +8,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HWKz73HvWc88Mfrtqkso4fCbdSj3bxKRH0Qk0oUWji8=",
+            "sha256": "sha256-TizKUzNYwKGeW4ThmEA5zYjui1smcZYKiCcHFDyngCE=",
             "type": "url",
-            "url": "https://github.com/viperML/iosevka/releases/download/v1.3.0/iosevka.zip"
+            "url": "https://github.com/viperML/iosevka/releases/download/v1.3.2/iosevka-ttf-nerd-zip.zip"
         },
-        "version": "v1.3.0"
+        "version": "v1.3.2"
     }
 }
