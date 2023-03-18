@@ -169,7 +169,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   platform_config = {
     default_prog = { "nu" },
     enable_tab_bar = true,
-    font = wezterm.font("iosevka-normal", { weight = "Medium" }),
+    -- font = wezterm.font("iosevka-normal", { weight = "Medium" }),
+    font = wezterm.font_with_fallback {
+      { family = "iosevka-normal", weight = "Medium" },
+      { family = "Symbols NF" }
+    },
     font_size = 12,
   }
 else
