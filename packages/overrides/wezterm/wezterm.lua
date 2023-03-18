@@ -169,9 +169,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   platform_config = {
     default_prog = { "nu" },
     enable_tab_bar = true,
-    font = wezterm.font("iosevka NFM", { weight = "Medium" }),
+    font = wezterm.font("iosevka-normal", { weight = "Medium" }),
     font_size = 12,
-    cell_width = 0.9,
   }
 else
   platform_config = {
