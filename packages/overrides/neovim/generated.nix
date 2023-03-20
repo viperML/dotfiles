@@ -27,13 +27,13 @@
   };
   nvim-transparent = {
     pname = "nvim-transparent";
-    version = "b075d5bb07fa1615b09585e1a2f7d2418c251562";
+    version = "e4e07a12de17f8c578ce30645e6aed815fc4d06a";
     src = fetchFromGitHub ({
       owner = "xiyaowong";
       repo = "nvim-transparent";
-      rev = "b075d5bb07fa1615b09585e1a2f7d2418c251562";
+      rev = "e4e07a12de17f8c578ce30645e6aed815fc4d06a";
       fetchSubmodules = false;
-      sha256 = "sha256-t/kpOXrwscL/4iSS5dkmH60FAy30RHYlDrWjiOXtk4o=";
+      sha256 = "sha256-jxe3B09JJJpPs16abLYCHlM1qA8K5qCShJ3RacBRCNE=";
     });
     date = "2023-03-19";
   };
