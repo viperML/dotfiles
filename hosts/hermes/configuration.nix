@@ -4,6 +4,12 @@
   pkgs,
   ...
 }: {
+  environment.sessionVariables = {
+    VAULT_ADDR = "http://kalypso:8200";
+    NOMAD_ADDR = "http://chandra:4646";
+    EDITOR = "nvim";
+  };
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
