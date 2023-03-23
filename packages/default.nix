@@ -143,7 +143,6 @@ in {
       fish = w pkgs.callPackage ./overrides/fish {
         inherit (config.packages) nix-index any-nix-shell;
       };
-      fish-debug = config.packages.fish.override {debug = true;};
       zsh = w pkgs.callPackage ./overrides/zsh {
         inherit (config.packages) nix-index;
       };
