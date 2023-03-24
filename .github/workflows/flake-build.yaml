@@ -63,7 +63,7 @@ jobs:
       fail-fast: false
       matrix:
         output: [
-          nixosConfigurations.hermes.config.system.build.toplevel
+          nixosConfigurations.hermes.config.system.build.toplevel,
           homeConfigurations.ayats.activationPackage
         ]
     steps:
