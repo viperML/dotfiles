@@ -3,14 +3,14 @@
 {
   hyprland = {
     pname = "hyprland";
-    version = "v0.22.0beta";
+    version = "v0.23.0beta";
     src = fetchgit {
       url = "https://github.com/hyprwm/Hyprland.git";
-      rev = "v0.22.0beta";
+      rev = "v0.23.0beta";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-qhz5LfRLxTe5pOgo8+1g8OalloBt4jrd9p3zUs81yvI=";
+      sha256 = "sha256-Nuf9x5+NviZYdYrelmYrcgUeLrMoq4Tv4LQcpVx0DeY=";
     };
   };
   nix = {
