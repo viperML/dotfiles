@@ -22,7 +22,7 @@ jobs:
       run: nix run github:viperML/dotfiles#nvfetcher -- -o flake -c flake/flake.toml
 
     - name: Rebuild flake.nix
-      run: nix run github:viperML/dotfiles#dotfiles-generate-matrix
+      run: nix run github:viperML/dotfiles#dotfiles-generate-flake
 
     - name: Update flake.lock
       run: nix flake update
