@@ -64,6 +64,7 @@ jobs:
       matrix:
         output: [
           nixosConfigurations.hermes.config.system.build.toplevel
+          homeConfigurations.ayats.activationPackage
         ]
     steps:
     - name: Checkout repository
