@@ -24,44 +24,62 @@
   perSystem = {
     pkgs,
     config,
+    lib,
     ...
   }: let
-    ciPython = pkgs.python311.withPackages (p: [p.aiohttp]);
-    writePython3 = with pkgs; writers.makePythonWriter ciPython ciPython.pkgs buildPackages.python3Packages;
-    writePython3Bin = name: writePython3 "/bin/${name}";
-    ciPython' = pkgs.python3Minimal;
-    writePython3' = with pkgs; writers.makePythonWriter ciPython' ciPython'.pkgs buildPackages.python3Packages;
+    ciPython = let
+      new = pkgs.python311;
+      old = pkgs.python3Minimal;
+    in
+      if lib.versionAtLeast old.version new.version
+      then old
+      else new;
+    ciPythonWithPkgs = ciPython.withPackages (p: with p; [aiohttp]);
+    writePython3' = with pkgs; writers.makePythonWriter ciPythonWithPkgs ciPythonWithPkgs.pkgs buildPackages.python3Packages;
     writePython3Bin' = name: writePython3' "/bin/${name}";
   in {
-    packages = {
-      dotfiles-matrix = writePython3Bin "dotfiles-matrix" {
-        flakeIgnore = ["E501"];
-      } (builtins.readFile ./matrix.py);
-
-      dotfiles-generate = writePython3Bin "dotfiles-generate" {
-        flakeIgnore = ["E501"];
-      } (builtins.readFile ./generate.py);
-
-      dotfiles-update-matrix = writePython3Bin' "dotfiles-update-matrix" {
-        flakeIgnore = ["E501"];
-      } (builtins.readFile ./update-matrix.py);
-
-      dotfiles-update-nv = let
-        original = writePython3Bin' "dotfiles-update-nv" {
+    packages = let
+      mkDotfilesPython = {
+        name,
+        file,
+        runtimeInputs ? [],
+      }: let
+        unwrapped = writePython3Bin' name {
           flakeIgnore = ["E501"];
-        } (builtins.readFile ./update-nv.py);
+        } (builtins.readFile file);
       in
         pkgs.writeShellApplication {
-          inherit (original) name;
-          runtimeInputs = [
-            pkgs.git
-            config.packages.nvfetcher
-          ];
+          inherit (unwrapped) name;
+          inherit runtimeInputs;
           text = ''
             export NIX_PATH=nixpkgs=${inputs.nixpkgs}
-            exec ${pkgs.lib.getExe original} "''${@}"
+            exec ${lib.getExe unwrapped} "''${@}"
           '';
         };
+    in {
+      dotfiles-generate-flake = mkDotfilesPython {
+        name = "dotfiles-generate";
+        file = ./generate-flake.py;
+      };
+
+      dotfiles-update-matrix = mkDotfilesPython {
+        name = "dotfiles-update-matrix";
+        file = ./update-matrix.py;
+      };
+
+      dotfiles-update-nv = mkDotfilesPython {
+        name = "dotfiles-update-nv";
+        file = ./update-nv.py;
+        runtimeInputs = [
+          pkgs.git
+          config.packages.nvfetcher
+        ];
+      };
+
+      dotfiles-build-matrix = mkDotfilesPython {
+        name = "dotfiles-build-matrix";
+        file = ./build-matrix.py;
+      };
 
       dotfiles-tidy = pkgs.writeShellApplication {
         name = "dotfiles-tidy";
@@ -79,6 +97,18 @@
           treefmt --tree-root "$PWD" --config-file ${../misc/treefmt.toml}
         '';
       };
+
+      inherit ciPythonWithPkgs;
+    };
+
+    checks = {
+      inherit
+        (config.packages)
+        dotfiles-generate-flake
+        dotfiles-update-matrix
+        dotfiles-update-nv
+        dotfiles-tidy
+        ;
     };
   };
 }
