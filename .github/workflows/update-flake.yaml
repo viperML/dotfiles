@@ -21,7 +21,8 @@ jobs:
     - name: Update flake.toml
       run: |
         nix flake archive --inputs-from github:viperML/dotfiles nixpkgs
-        export NIX_PATH="$(nix flake metadata --inputs-from github:viperML/dotfiles nixpkgs --json | jq -r '.path')"
+        export NIX_PATH="nixpkgs=$(nix flake metadata --inputs-from github:viperML/dotfiles nixpkgs --json | jq -r '.path')"
+        printenv NIX_PATH
         nix run github:viperML/dotfiles#nvfetcher -- -o flake -c flake/flake.toml
 
     - name: Rebuild flake.nix
