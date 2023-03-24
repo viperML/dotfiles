@@ -4,10 +4,11 @@ name: Update flake inputs
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 1,15 * *"
+    - cron: "0 4 1 * *"
+    - cron: "0 4 15 * *"
 
 jobs:
-  matrix:
+  main:
     runs-on: ubuntu-latest
     outputs:
       paths: ${{ steps.matrix.outputs.paths }}

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Cleanup
 
 on:
@@ -32,7 +33,7 @@ jobs:
     - name: Install nix
       uses: ./.github/actions/install-nix
 
-    - run: nix run .#dotfiles-tidy
+    - run: nix run github:viperML/dotfiles#dotfiles-tidy
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4

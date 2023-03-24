@@ -1,4 +1,5 @@
-name: Update all
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Update nv
 
 on:
   workflow_dispatch:
@@ -18,7 +19,7 @@ jobs:
       uses: ./.github/actions/install-nix
 
     - name: Generate matrix
-      run: echo "paths=$(nix run .#dotfiles-update-matrix)" >> $GITHUB_OUTPUT
+      run: echo "paths=$(nix run github:viperML/dotfiles#dotfiles-update-matrix)" >> $GITHUB_OUTPUT
       id: matrix
 
   update_element:
@@ -35,7 +36,7 @@ jobs:
     - name: Install nix
       uses: ./.github/actions/install-nix
     - name: Update element
-      run: nix run .#dotfiles-update-nv -- ${{ matrix.path }}
+      run: nix run github:viperML/dotfiles#dotfiles-update-nv -- ${{ matrix.path }}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
