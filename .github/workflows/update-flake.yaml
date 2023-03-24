@@ -19,14 +19,10 @@ jobs:
       uses: ./.github/actions/install-nix
 
     - name: Update flake.toml
-      run: |
-        nix flake archive --inputs-from github:viperML/dotfiles nixpkgs
-        export NIX_PATH="nixpkgs=$(nix flake metadata --inputs-from github:viperML/dotfiles nixpkgs --json | jq -r '.path')"
-        printenv NIX_PATH
-        nix run github:viperML/dotfiles#nvfetcher -- -o flake -c flake/flake.toml
+      run: nix run github:viperML/dotfiles#nvfetcher -- -o flake -c flake/flake.toml
 
     - name: Rebuild flake.nix
-      run: nix run github:viperML/dotfiles#dotfiles-generate
+      run: nix run github:viperML/dotfiles#dotfiles-generate-matrix
 
     - name: Update flake.lock
       run: nix flake update

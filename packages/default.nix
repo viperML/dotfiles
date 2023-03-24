@@ -106,7 +106,15 @@ in {
     legacyPackages = pkgs;
 
     packages = {
-      nvfetcher = pkgs.nvfetcher-bin;
+      nvfetcher = pkgs.symlinkJoin {
+        inherit (pkgs.nvfetcher-bin) name pname version meta;
+        paths = [pkgs.nvfetcher-bin];
+        nativeBuildInputs = [pkgs.makeWrapper];
+        postBuild = ''
+          wrapProgram $out/bin/nvfetcher \
+            --set NIX_PATH "nixpkgs=${inputs.nixpkgs}"
+        '';
+      };
 
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};

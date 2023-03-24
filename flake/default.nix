@@ -48,12 +48,13 @@
           flakeIgnore = ["E501"];
         } (builtins.readFile file);
       in
-        pkgs.writeShellApplication {
-          inherit (unwrapped) name;
-          inherit runtimeInputs;
-          text = ''
-            export NIX_PATH=nixpkgs=${inputs.nixpkgs}
-            exec ${lib.getExe unwrapped} "''${@}"
+        pkgs.symlinkJoin {
+          inherit (unwrapped) name meta;
+          paths = [unwrapped];
+          nativeBuildInputs = [pkgs.makeWrapper];
+          postBuild = ''
+            wrapProgram $out/bin/${unwrapped.meta.mainProgram or name} \
+              --prefix PATH : ${lib.makeBinPath runtimeInputs}
           '';
         };
     in {
