@@ -3,12 +3,11 @@
 # DO NOT EDIT
 ###
 {
-  outputs = outputs: outputs {imports = [./flake];};
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    __functor.url = "github:privatevoid-net/__functor";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };

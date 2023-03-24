@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Update flake inputs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 1,15 * *"
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.matrix.outputs.paths }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install nix
+      uses: ./.github/actions/install-nix
+
+    - name: Update flake.toml
+      run: |
+        nix flake archive --inputs-from github:viperML/dotfiles nixpkgs
+        export NIX_PATH="$(nix flake metadata --inputs-from github:viperML/dotfiles nixpkgs --json | jq -r '.path')"
+        nix run github:viperML/dotfiles#nvfetcher -o flake -c flake/flake.toml
+
+    - name: Rebuild flake.nix
+      run: nix run github:viperML/dotfiles#dotfiles-generate
+
+    - name: Update flake.lock
+      run: nix flake update
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: '${{ secrets.PAT }}'
+        title: 'ci: bump flake'
+        commit-message: |
+          Bump flake
+
+
+          Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        author: GitHub <noreply@github.com>
+        branch: update/flake
+        delete-branch: true

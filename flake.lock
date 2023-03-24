@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "__functor": {
-      "locked": {
-        "lastModified": 1675099507,
-        "narHash": "sha256-KMBixfRyGSD8oMbgHcxI65HHFUQrqfXKorzewOzTgeo=",
-        "owner": "privatevoid-net",
-        "repo": "__functor",
-        "rev": "01811e87ca0420b03381eb2d168ad7c22e6f9ac3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "privatevoid-net",
-        "repo": "__functor",
-        "type": "github"
-      }
-    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": [
@@ -513,7 +498,6 @@
     },
     "root": {
       "inputs": {
-        "__functor": "__functor",
         "deploy-rs": "deploy-rs",
         "envfs": "envfs",
         "flake-compat": "flake-compat",
