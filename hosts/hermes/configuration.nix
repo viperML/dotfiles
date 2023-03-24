@@ -125,7 +125,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    video.hidpi.enable = true;
+    # video.hidpi.enable = true;
     bluetooth.enable = true;
     opengl = {
       enable = true;
