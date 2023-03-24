@@ -13,10 +13,10 @@
             "name": null,
             "owner": "hartwork",
             "repo": "resolve-march-native",
-            "rev": "56749d04d395cc5979858e22e66b7c2610d5a86f",
-            "sha256": "sha256-vJzkVL23fvFO1pGJwdPiqR73K9iNJ6OglVxL5tCVa2U=",
+            "rev": "2f786d47394eb9d3ac139df118920f4fde062c69",
+            "sha256": "sha256-VZBIfsczbbkrV/njhc5pbOsU/gmE+cuLgsA0ii0BHfk=",
             "type": "github"
         },
-        "version": "56749d04d395cc5979858e22e66b7c2610d5a86f"
+        "version": "2f786d47394eb9d3ac139df118920f4fde062c69"
     }
 }
