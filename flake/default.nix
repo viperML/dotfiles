@@ -108,6 +108,7 @@
         dotfiles-update-matrix
         dotfiles-update-nv
         dotfiles-tidy
+        dotfiles-build-matrix
         ;
     };
   };
