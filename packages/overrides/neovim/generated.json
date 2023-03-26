@@ -1,7 +1,7 @@
 {
     "hlargs": {
         "cargoLocks": null,
-        "date": "2023-03-06",
+        "date": "2023-03-25",
         "extract": null,
         "name": "hlargs",
         "passthru": null,
@@ -13,11 +13,11 @@
             "name": null,
             "owner": "m-demare",
             "repo": "hlargs.nvim",
-            "rev": "a7ad6ed8d6e27ea4dd13fda63fa732e9196ba4ea",
-            "sha256": "sha256-9kCQs1IFt48Y3IWClFlwdT/Kbgv93gPEdhGi75k04qU=",
+            "rev": "07771b0e802dd11d788a5de3ef84778a63f93802",
+            "sha256": "sha256-zNPu0zoNldCRZGTo7r2wVa39WYxWvrmhhhw74vzWyH0=",
             "type": "github"
         },
-        "version": "a7ad6ed8d6e27ea4dd13fda63fa732e9196ba4ea"
+        "version": "07771b0e802dd11d788a5de3ef84778a63f93802"
     },
     "nvim-base-16": {
         "cargoLocks": null,
