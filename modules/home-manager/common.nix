@@ -29,6 +29,7 @@
     pkgs.wormhole-william
     # packages.self.zellij
     pkgs.elfutils
+    pkgs.du-dust
 
     packages.self.fish
     # packages.self.nushell
