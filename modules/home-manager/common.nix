@@ -30,6 +30,12 @@
     # packages.self.zellij
     pkgs.elfutils
     pkgs.du-dust
+    (
+      if pkgs.system == "x86_64-linux"
+      then pkgs.lurk
+      else pkgs.strace
+    )
+    pkgs.hexyl
 
     packages.self.fish
     # packages.self.nushell

@@ -15,6 +15,7 @@
   bat,
   fishPlugins,
   any-nix-shell,
+  jq,
 }: let
   initPlugin = plugin: ''
     begin
@@ -106,6 +107,7 @@
           --add-flags '--paging=auto'
       '';
     })
+    jq
   ];
 in
   symlinkJoin {
