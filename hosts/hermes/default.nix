@@ -39,6 +39,12 @@
           nixosModules.hyprland
           nixosModules.podman
           nixosModules.tailscale
+
+          inputs.nixified-ai.nixosModules.invokeai-amd
+          (args: {
+            services.invokeai.enable = true;
+            systemd.services.invokeai.wantedBy = args.lib.mkForce [];
+          })
         ];
       };
   });
