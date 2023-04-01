@@ -7,7 +7,7 @@ on:
   pull_request:
   push:
     branches-ignore:
-      - 'update-*'
+      - 'update*'
   workflow_dispatch:
 
 jobs:
