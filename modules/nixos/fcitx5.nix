@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   cfg.package = pkgs.fcitx5-with-addons.override {
     addons = with pkgs; [
       fcitx5-gtk

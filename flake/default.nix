@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   imports = [
     ../packages
     ../lib
