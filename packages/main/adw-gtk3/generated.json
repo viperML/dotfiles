@@ -13,10 +13,10 @@
             "name": null,
             "owner": "lassekongo83",
             "repo": "adw-gtk3",
-            "rev": "v4.4",
-            "sha256": "sha256-xi51FZ1ARMcwMqMzSgZfTTmviSvyS4UQITLTg71agm0=",
+            "rev": "v4.5",
+            "sha256": "sha256-x6ul5NZDWqEQfLzmpR7X5HgUmHNSbpuTnCquVEHFHL8=",
             "type": "github"
         },
-        "version": "v4.4"
+        "version": "v4.5"
     }
 }
