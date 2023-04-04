@@ -15,15 +15,15 @@
   };
   fast-syntax-highlighting = {
     pname = "fast-syntax-highlighting";
-    version = "371591a7b6f0f3c9501c52a7b566addbfd804d09";
+    version = "13d7b4e63468307b6dcb2dadf6150818f242cbff";
     src = fetchFromGitHub ({
       owner = "zdharma-continuum";
       repo = "fast-syntax-highlighting";
-      rev = "371591a7b6f0f3c9501c52a7b566addbfd804d09";
+      rev = "13d7b4e63468307b6dcb2dadf6150818f242cbff";
       fetchSubmodules = false;
-      sha256 = "sha256-FJ3UYrhJK7ia4KBTLuUx6OftHcozMwOLKc4n/PO5s4g=";
+      sha256 = "sha256-AmsexwVombgVmRvl4O9Kd/WbnVJHPTXETxBv18PDHz4=";
     });
-    date = "2023-03-24";
+    date = "2023-04-03";
   };
   zsh-autosuggestions = {
     pname = "zsh-autosuggestions";
