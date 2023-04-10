@@ -40,6 +40,7 @@
     packages.self.fish
     # packages.self.nushell
     packages.self.neovim
+    pkgs.helix
     packages.self.git
   ];
 
