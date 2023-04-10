@@ -38,7 +38,7 @@ jobs:
     - name: Update element
       run: nix run github:viperML/dotfiles#dotfiles-update-nv -- ${{ matrix.path }}
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4
+      uses: peter-evans/create-pull-request@v5
       with:
         token: '${{ secrets.PAT }}'
         title: 'ci: bump ${{ matrix.path }}'
