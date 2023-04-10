@@ -1,8 +1,10 @@
-theme = "base16_terminal"
+theme = "ayu_evolve"
 
 [editor]
 line-number = "relative"
 cursorline = true
+true-color = true
 
-[editor.file-picker]
-hidden = false
+[keys.normal]
+"C" = "select_textobject_inner"
+Z = { Z = ":wq", Q = ":q" }
