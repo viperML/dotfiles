@@ -1,23 +1,4 @@
 {
-    "helix": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "helix",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "23.03",
-            "sha256": "sha256-Qrn3mB6bb1DSvKxOJ9oAlxuMk64Fzg2W4BVmk6y3deA=",
-            "type": "git",
-            "url": "https://github.com/helix-editor/helix.git"
-        },
-        "version": "23.03"
-    },
     "hyprland": {
         "cargoLocks": null,
         "date": null,

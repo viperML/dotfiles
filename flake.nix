@@ -86,13 +86,6 @@
       url = "github:Mic92/envfs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixified-ai.url = "github:nixified-ai/flake/nixos";
-    helix = {
-      url = "github:helix-editor/helix/23.03";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        parts.follows = "flake-parts";
-      };
-    };
+    # nixified-ai.url = "github:nixified-ai/flake/nixos";
   };
 }
