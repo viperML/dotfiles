@@ -5,6 +5,9 @@ line-number = "relative"
 cursorline = true
 true-color = true
 
+[editor.lsp]
+display-messages = true
+
 [keys.normal]
 "C" = "select_textobject_inner"
-Z = { Z = ":wq", Q = ":q" }
+Z = { Z = ":wq", Q = ":q!" }

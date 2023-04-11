@@ -185,6 +185,11 @@ in {
             chmod +x $out/bin/Hyprland
           '';
       });
+      helix = inputs'.helix.packages.helix.override {
+        makeWrapperArgs = [
+          "--add-flags -c --add-flags ${./overrides/helix/config.toml}"
+        ];
+      };
     };
   };
 }

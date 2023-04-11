@@ -55,7 +55,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.23.0beta";
+      url = "github:hyprwm/Hyprland/v0.24.1";
       # url = "github:viperML/Hyprland/nix-wlroots";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -87,5 +87,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixified-ai.url = "github:nixified-ai/flake/nixos";
+    helix = {
+      url = "github:helix-editor/helix/23.03";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        parts.follows = "flake-parts";
+      };
+    };
   };
 }

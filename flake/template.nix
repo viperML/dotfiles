@@ -87,5 +87,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixified-ai.url = "github:nixified-ai/flake/nixos";
+    helix = {
+      url = "github:helix-editor/helix/%helix%";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        parts.follows = "flake-parts";
+      };
+    };
   };
 }

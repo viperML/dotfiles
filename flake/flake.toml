@@ -9,3 +9,7 @@ fetch.git = "https://github.com/berberman/nvfetcher.git"
 [nix]
 src.github_tag = "NixOS/nix"
 fetch.git = "https://github.com/nixos/nix.git"
+
+[helix]
+src.github = "helix-editor/helix"
+fetch.git = "https://github.com/helix-editor/helix.git"

@@ -1,4 +1,23 @@
 {
+    "helix": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "helix",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "23.03",
+            "sha256": "sha256-Qrn3mB6bb1DSvKxOJ9oAlxuMk64Fzg2W4BVmk6y3deA=",
+            "type": "git",
+            "url": "https://github.com/helix-editor/helix.git"
+        },
+        "version": "23.03"
+    },
     "hyprland": {
         "cargoLocks": null,
         "date": null,
@@ -11,12 +30,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "v0.23.0beta",
-            "sha256": "sha256-Nuf9x5+NviZYdYrelmYrcgUeLrMoq4Tv4LQcpVx0DeY=",
+            "rev": "v0.24.1",
+            "sha256": "sha256-Ts2rAsRJUxAUnEr8/xFzgBovn8LqaF3/sLIR8t0SM/0=",
             "type": "git",
             "url": "https://github.com/hyprwm/Hyprland.git"
         },
-        "version": "v0.23.0beta"
+        "version": "v0.24.1"
     },
     "nix": {
         "cargoLocks": null,
