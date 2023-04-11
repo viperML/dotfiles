@@ -100,6 +100,7 @@ in {
         xdg-ninja
         hyprland
         fish
+        helix
         ;
     };
 
