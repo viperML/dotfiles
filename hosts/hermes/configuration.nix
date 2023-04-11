@@ -101,7 +101,7 @@
     };
 
     "/nix" = mkBtrfs ["subvol=/@nixos/@nix"];
-    "/var" = mkBtrfs ["subvol=/@nixos/@var"];
+    "/var" = mkBtrfs ["subvol=/@nixos/@var"] // {neededForBoot = true;};
     "/home" = mkBtrfs ["subvol=/@home"];
 
     "/miq" = {
@@ -164,4 +164,9 @@
   services.nscd.enableNsncd = true;
 
   services.fwupd.enable = true;
+
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
 }

@@ -12,6 +12,7 @@
     pkgs.alejandra
     pkgs.nvfetcher
     packages.nh.default
+    pkgs.nix-output-monitor
 
     # Editor support
     packages.nil.default
