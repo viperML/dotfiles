@@ -23,8 +23,9 @@
     };
 
     nix = {
-      url = "github:NixOS/nix/2.14.1";
+      url = "github:NixOS/nix/2.15.0";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     home-manager-wsl = {
@@ -52,11 +53,6 @@
     };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.24.1";
-      # url = "github:viperML/Hyprland/nix-wlroots";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {

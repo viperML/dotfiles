@@ -19,6 +19,6 @@
     pkgs.step-cli
     packages.self.wezterm
     pkgs.obsidian
-    pkgs.mendeley
+    # pkgs.mendeley
   ];
 }

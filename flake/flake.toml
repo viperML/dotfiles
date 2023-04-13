@@ -1,6 +1,6 @@
-[hyprland]
-src.github = "hyprwm/Hyprland"
-fetch.git = "https://github.com/hyprwm/Hyprland.git"
+# [hyprland]
+# src.github = "hyprwm/Hyprland"
+# fetch.git = "https://github.com/hyprwm/Hyprland.git"
 
 [nvfetcher]
 src.github = "berberman/nvfetcher"

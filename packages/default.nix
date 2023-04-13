@@ -101,6 +101,7 @@ in {
         hyprland
         fish
         helix
+        waybar-hyprland
         ;
     };
 
@@ -172,23 +173,33 @@ in {
       kitty = w pkgs.callPackage ./overrides/kitty {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
-      hyprland = inputs'.hyprland.packages.default.overrideAttrs (old: {
-        nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
-        postInstall =
-          (old.postInstall or "")
-          + ''
-            mv -vf $out/bin/Hyprland $out/bin/.Hyprland_wrapped
-            tee $out/bin/Hyprland <<EOF
-            #!${pkgs.stdenv.shell}
-            . /etc/profile
-            $out/bin/.Hyprland_wrapped
-            EOF
-            chmod +x $out/bin/Hyprland
+      hyprland =
+        ((inputs'.hyprland.packages.default or pkgs.hyprland).override
+          {
+            enableXWayland = true;
+            hidpiXWayland = false;
+            nvidiaPatches = false;
+          })
+        .overrideAttrs (old: {
+          nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
+          preFixup = ''
+            wrapProgram $out/bin/Hyprland \
+              --run ". /etc/profile"
           '';
-      });
+        });
+
+      # pkgs.symlinkJoin {
+      #   inherit (p) name pname version;
+      #   meta.mainProgram = "Hyprland";
+      #   paths = [p];
+      #   nativeBuildInputs = [pkgs.makeWrapper];
+      #   postBuild = ''
+      #   '';
+      # };
       helix = w pkgs.callPackage ./overrides/helix {
         helix = inputs'.helix.packages.helix or pkgs.helix;
       };
+      waybar-hyprland = w pkgs.callPackage ./overrides/waybar-hyprland {};
     };
   };
 }

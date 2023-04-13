@@ -1,10 +1,9 @@
 {
   packages,
-  inputs,
   ...
 }: {
   imports = [
-    inputs.hyprland.nixosModules.default
+    # inputs.hyprland.nixosModules.default
     ./wayland-compositors.nix
     ./fcitx5.nix
   ];
