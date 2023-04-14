@@ -79,6 +79,16 @@
       fsType = "btrfs";
       options = ["noatime" "compress=lzo"] ++ extraOpts;
     };
+    mkTmpfs =  {
+      fsType = "tmpfs";
+      device = "none";
+      options = [
+        "defaults"
+        "size=4G"
+        "mode=0755"
+      ];
+      neededForBoot = true;
+    };
   in {
     "/" = {
       device = "none";
@@ -109,6 +119,11 @@
       options = ["bind"];
       depends = ["/home"];
     };
+
+    "/etc" = mkTmpfs;
+    "/root" = mkTmpfs;
+    "/usr" = mkTmpfs;
+    "/bin" = mkTmpfs;
   };
 
   swapDevices = [

@@ -35,10 +35,11 @@
 
           ./configuration.nix
           nixosModules.common
-          # nixosModules.kde
           nixosModules.hyprland
           nixosModules.podman
           nixosModules.tailscale
+
+          nixosModules.user-ayats
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

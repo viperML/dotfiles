@@ -9,27 +9,7 @@
 }: let
   home = "/home/${name}";
 in {
-  users.mutableUsers = false;
 
-  users.users.${name} = {
-    inherit name home uid;
-    createHome = true;
-    description = name;
-    isNormalUser = true;
-    extraGroups = [
-      "audio"
-      "input"
-      "networkmanager"
-      "systemd-journal"
-      "uucp"
-      "video"
-      "wheel"
-      "dialout"
-    ];
-    openssh.authorizedKeys.keys = [
-    ];
-    passwordFile = "/var/lib/secrets/users.passwd";
-  };
 
   # security.sudo.extraRules = [
   #   {

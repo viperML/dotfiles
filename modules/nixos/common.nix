@@ -21,6 +21,8 @@
     settings = import ../../misc/nix-conf.nix // import ../../misc/nix-conf-privileged.nix;
   };
 
+  users.mutableUsers = false;
+
   services.udev.packages = with pkgs; [
     android-udev-rules
   ];

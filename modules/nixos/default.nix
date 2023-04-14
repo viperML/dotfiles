@@ -7,5 +7,7 @@
     "hyprland"
     "sway"
     "wayland-compositors"
+    "user-ayats"
+    "user-soch"
   ];
 }

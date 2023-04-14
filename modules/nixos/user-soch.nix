@@ -1,4 +1,4 @@
-import ./users.nix {
+import ./_mkUser.nix {
   name = "soch";
   uid = 1001;
 }
