@@ -87,18 +87,9 @@
         "size=4G"
         "mode=0755"
       ];
-      neededForBoot = true;
     };
   in {
-    "/" = {
-      device = "none";
-      fsType = "tmpfs";
-      options = [
-        "defaults"
-        "size=4G"
-        "mode=0755"
-      ];
-    };
+    "/" = mkTmpfs;
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-label/LINUX_ESP";
@@ -119,11 +110,6 @@
       options = ["bind"];
       depends = ["/home"];
     };
-
-    "/etc" = mkTmpfs;
-    "/root" = mkTmpfs;
-    "/usr" = mkTmpfs;
-    "/bin" = mkTmpfs;
   };
 
   swapDevices = [
