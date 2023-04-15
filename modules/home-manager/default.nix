@@ -10,6 +10,7 @@
     "wayland-compositors"
     "sway"
     "zsh"
+    "emacs"
     # "awesome"
     # "common"
     # "eww"

@@ -30,6 +30,7 @@
               homeModules.common
 
               homeModules.hyprland
+              homeModules.emacs
             ];
           }
 
