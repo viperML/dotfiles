@@ -1,12 +1,7 @@
 {
   name,
   uid,
-}: {
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+}: {lib, ...}: let
   home = "/home/${name}";
 in {
   users.users.${name} = {

@@ -2,7 +2,8 @@
   helix,
   symlinkJoin,
   makeWrapper,
-}: symlinkJoin {
+}:
+symlinkJoin {
   paths = [helix];
   nativeBuildInputs = [makeWrapper];
   inherit (helix) name pname version meta;

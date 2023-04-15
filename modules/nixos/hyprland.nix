@@ -1,7 +1,4 @@
-{
-  packages,
-  ...
-}: {
+{packages, ...}: {
   imports = [
     # inputs.hyprland.nixosModules.default
     ./wayland-compositors.nix

@@ -79,7 +79,7 @@
       fsType = "btrfs";
       options = ["noatime" "compress=lzo"] ++ extraOpts;
     };
-    mkTmpfs =  {
+    mkTmpfs = {
       fsType = "tmpfs";
       device = "none";
       options = [
