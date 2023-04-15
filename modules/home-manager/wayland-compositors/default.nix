@@ -93,6 +93,12 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style.name = "adwaita-dark";
+  };
+
   services.xsettingsd = {
     enable = true;
     settings = {
