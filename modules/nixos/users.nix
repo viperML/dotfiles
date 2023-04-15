@@ -1,7 +1,4 @@
-{
-  name,
-  uid,
-}: {
+{name}: {
   config,
   pkgs,
   lib,
@@ -9,8 +6,6 @@
 }: let
   home = "/home/${name}";
 in {
-
-
   # security.sudo.extraRules = [
   #   {
   #     groups = ["wheel"];
