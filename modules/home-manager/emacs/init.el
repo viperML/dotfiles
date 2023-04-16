@@ -1,8 +1,8 @@
 (setq
-  make-backup-files nil
-  display-line-numbers-type 'relative
-  inhibit-startup-screen t
-  create-lockfiles nil)
+ make-backup-files nil
+ display-line-numbers-type 'relative
+ inhibit-startup-screen t
+ create-lockfiles nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -32,8 +32,8 @@
     (scroll-bar-mode -1))
 
 ;; use asynchronous processes wherever possible
-(use-package async
-  :init (dired-async-mode 1))
+;;(use-package async
+;;  :init (dired-async-mode 1))
 
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -49,20 +49,20 @@
 (progn (setq-default indent-tabs-mode nil))
 
 
-(set-face-attribute 'default nil :font "iosevka-normal-11" :weight 'medium)
+(set-face-attribute 'default nil :font "iosevka-normal-12" :weight 'medium)
 
 
 (recentf-mode 1)
 
-(defun synchronize-theme ()
-  (let* ((light-theme 'doom-one-light)
-         (dark-theme 'doom-one)
-         (start-time-light-theme 6)
-         (end-time-light-theme 18)
-         (hour (string-to-number (substring (current-time-string) 11 13)))
-         (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
-                         light-theme dark-theme)))
-    (load-theme next-theme)))
+;; (defun synchronize-theme ()
+;;   (let* ((light-theme 'doom-one-light)
+;;          (dark-theme 'doom-one)
+;;          (start-time-light-theme 6)
+;;          (end-time-light-theme 18)
+;;          (hour (string-to-number (substring (current-time-string) 11 13)))
+;;          (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
+;;                          light-theme dark-theme)))
+;;     (load-theme next-theme)))
 
 
 
@@ -98,11 +98,7 @@
              :mode ("\\.md\\'" . gfm-mode)
              :init (setq markdown-command "multimarkdown"))
 
-;(use-package good-scroll
-;             :init (good-scroll-mode 1))
-(setq pixel-scroll-mode t)
-;;(use-package highlight-indent-guides
-;;  :hook (prog-mode . highlight-indent-guides-mode))
+(setq pixel-scroll-precision-large-scroll-height 20.0)
 
 (use-package ivy)
 (use-package projectile)
@@ -112,25 +108,29 @@
   :init (counsel-projectile-mode 1))
 
 (use-package doom-themes
-             :config
+             :init
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (synchronize-theme)
+             (load-theme 'doom-tomorrow-night	t)
              (doom-themes-org-config))
 
+(use-package solaire-mode
+  :after (doom-themes)
+  :init (solaire-global-mode 1))
+
 (use-package dashboard
-             :init
-             (dashboard-setup-startup-hook)
-             (setq dashboard-startup-banner 'logo)
-             (setq dashboard-set-heading-icons t)
-             (setq dashboard-set-file-icons t)
-             (setq dashboard-items '((recents . 10)
-                                     ;; (projects .5)
-                                     (bookmarks . 5)
-                                     ))
-             (setq dashboard-set-footer nil)
-             (setq dashboard-center-content t)
-             (setq dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name))
+  :init
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-items '((recents . 10)
+                          ;; (projects .5)
+                          (bookmarks . 5)
+                          ))
+  (setq dashboard-set-footer nil)
+  (setq dashboard-center-content t)
+  (setq dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name))
 
 (use-package all-the-icons)
 
@@ -204,6 +204,9 @@
   :init
   (setq lsp-python-ms-auto-install-server t)
   (setq lsp-python-ms-executable (executable-find "python-language-server")))
+
+
+(use-package rust-mode)
 
 
 ;;; init.el ends here
