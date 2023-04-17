@@ -16,6 +16,7 @@
 
     # Editor support
     packages.nil.default
+    pkgs.typst-lsp
 
     # Misc utils
     # pkgs.file
