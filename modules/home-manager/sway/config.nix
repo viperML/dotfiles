@@ -54,7 +54,7 @@ in {
         "${modifier}+space" = "exec pkill wofi || ${mkExec "wofi --show drun"}";
         "${modifier}+z" = "floating toggle";
         "${modifier}+e" = mkExec "dolphin";
-        "Print" = "exec ${lib.getExe wayland-screenshot}";
+        "${modifier}+Shift+S" = "exec ${lib.getExe wayland-screenshot}";
         XF86AudioRaiseVolume = "exec volume 5%+";
         XF86AudioLowerVolume = "exec volume 5%-";
         "Prior" = XF86AudioRaiseVolume; # PageDown

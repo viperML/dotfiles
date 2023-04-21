@@ -10,9 +10,9 @@
     wrapperFeatures.gtk = true;
     extraPackages = [];
     extraSessionCommands = ''
-      . /etc/profile
+      source /etc/profile
     '';
   };
-  
+
   xdg.portal.enable = true;
 }
