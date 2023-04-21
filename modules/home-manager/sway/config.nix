@@ -54,21 +54,25 @@ in {
 
     bars = lib.mkForce [];
 
-    keybindings = lib.mkOptionDefault rec {
-      "${modifier}+Return" = "exec wezterm";
-      "${modifier}+q" = "kill";
-      "${modifier}+Shift+r" = "reload";
-      "${modifier}+space" = "exec ${lib.getExe pkgs.wofi} -S drun -I";
-      "${modifier}+z" = "floating toggle";
-      "${modifier}+e" = "exec dolphin";
-      "Print" = "exec ${lib.getExe wayland-screenshot}";
-      XF86AudioRaiseVolume = "exec ${lib.getExe volume} 5%+";
-      XF86AudioLowerVolume = "exec ${lib.getExe volume} 5%-";
-      "Prior" = XF86AudioRaiseVolume; # PageDown
-      "Next" = XF86AudioLowerVolume; # PageUp
-      "XF86AudioMute" = "exec ${volume} toggle-mute";
-      "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
-    };
+    keybindings = let
+      mkExec = program: "exec systemd-run --slice=manual.slice --property=ExitType=cgroup --user --wait --collect -E PATH ${program}";
+    in
+      lib.mkOptionDefault rec {
+        "${modifier}+Return" = mkExec "wezterm start --always-new-process";
+        "${modifier}+Shift+Return" = "exec wezterm";
+        "${modifier}+q" = "kill";
+        "${modifier}+Shift+r" = "reload";
+        "${modifier}+space" = "exec pkill wofi || ${mkExec "wofi --show drun"}";
+        "${modifier}+z" = "floating toggle";
+        "${modifier}+e" = mkExec "dolphin";
+        "Print" = "exec ${lib.getExe wayland-screenshot}";
+        XF86AudioRaiseVolume = "exec volume 5%+";
+        XF86AudioLowerVolume = "exec volume 5%-";
+        "Prior" = XF86AudioRaiseVolume; # PageDown
+        "Next" = XF86AudioLowerVolume; # PageUp
+        "XF86AudioMute" = "exec ${volume} toggle-mute";
+        "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
+      };
 
     window = {
       titlebar = true;
@@ -111,6 +115,8 @@ in {
   wayland.windowManager.sway.extraConfig = ''
     title_align center
     titlebar_padding 7
+
+    smart_gaps on
 
     # corner_radius 11
   '';

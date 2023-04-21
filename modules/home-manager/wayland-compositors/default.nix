@@ -8,8 +8,20 @@
   xdg.configFile."wofi/style.css".source = ./wofi-style.css;
   xdg.configFile."wob/wob.ini".source = ./wob.ini;
 
-  home.packages = [
+  home.packages = let
+    volume = pkgs.writeShellApplication {
+      name = "volume";
+      runtimeInputs = with pkgs; [
+        pamixer
+      ];
+      text = ''
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
+        pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
+      '';
+    };
+  in [
     pkgs.wofi
+    volume
   ];
 
   systemd.user.services = let

@@ -29,14 +29,14 @@
               ./home.nix
               homeModules.common
 
-              homeModules.hyprland
+              homeModules.sway
               homeModules.emacs
             ];
           }
 
           ./configuration.nix
           nixosModules.common
-          nixosModules.hyprland
+          nixosModules.sway
           nixosModules.podman
           nixosModules.tailscale
 
