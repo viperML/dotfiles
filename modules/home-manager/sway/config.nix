@@ -5,17 +5,6 @@
 }: let
   modifier = "Mod4";
 
-  volume = pkgs.writeShellApplication {
-    name = "volume";
-    runtimeInputs = with pkgs; [
-      pamixer
-    ];
-    text = ''
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
-      pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
-    '';
-  };
-
   wayland-screenshot = pkgs.writeShellApplication {
     name = "wayland-screenshot";
     runtimeInputs = with pkgs; [
@@ -70,8 +59,8 @@ in {
         XF86AudioLowerVolume = "exec volume 5%-";
         "Prior" = XF86AudioRaiseVolume; # PageDown
         "Next" = XF86AudioLowerVolume; # PageUp
-        "XF86AudioMute" = "exec ${volume} toggle-mute";
-        "XF86AudioMicMute" = "exec ${volume} -m toggle-mute";
+        "XF86AudioMute" = "exec volume toggle-mute";
+        "XF86AudioMicMute" = "exec volume -m toggle-mute";
       };
 
     window = {

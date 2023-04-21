@@ -15,17 +15,6 @@ in {
   programs.waybar.package = packages.self.waybar-hyprland;
 
   xdg.configFile."hypr/hyprland.conf".text = let
-    volume = pkgs.writeShellApplication {
-      name = "volume";
-      runtimeInputs = with pkgs; [
-        pamixer
-      ];
-      text = ''
-        wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
-        pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
-      '';
-    };
-
     mkExec = program: "systemd-run --slice=app-manual.slice --property=ExitType=cgroup --user --wait --collect ${program}";
   in ''
     source=${mutablePath}
@@ -33,10 +22,10 @@ in {
     ${lib.concatMapStringsSep "\n" (n: "bind=SUPER,${toString n},workspace,${toString n}") (lib.range 1 9)}
     ${lib.concatMapStringsSep "\n" (n: "bind=SUPER:SHIFT,${toString n},movetoworkspace,${toString n}") (lib.range 1 9)}
 
-    bind=,XF86AudioRaiseVolume,exec,${lib.getExe volume} 5%+
-    bind=,XF86AudioLowerVolume,exec,${lib.getExe volume} 5%-
-    bind=,Prior,exec,${lib.getExe volume} 5%+
-    bind=,Next,exec,${lib.getExe volume} 5%-
+    bind=,XF86AudioRaiseVolume,exec,volume 5%+
+    bind=,XF86AudioLowerVolume,exec,volume 5%-
+    bind=,Prior,exec,volume 5%+
+    bind=,Next,exec,volume 5%-
 
     bind=SUPER,Return,exec,${mkExec "wezterm start --always-new-process"}
     bind=SUPER,O,exec,wezterm start --always-new-process
