@@ -44,7 +44,9 @@ in {
     bars = lib.mkForce [];
 
     keybindings = let
-      mkExec = program: "exec systemd-run --slice=manual.slice --property=ExitType=cgroup --user --wait --collect -E PATH ${program}";
+      # Doesn't pass env properly
+      # mkExec = program: "exec systemd-run --slice=manual.slice --property=ExitType=cgroup --user --wait --collect -E PATH ${program}";
+      mkExec = program: "exec ${program}";
     in
       lib.mkOptionDefault rec {
         "${modifier}+Return" = mkExec "wezterm start --always-new-process";

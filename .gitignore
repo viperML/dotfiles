@@ -1,7 +1,7 @@
 .idea
 .directory
 # ./.vscode/**
-result
+*result*
 .direnv
 *.qcow2
 source

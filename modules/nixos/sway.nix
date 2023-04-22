@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./wayland-compositors.nix
   ];
@@ -7,12 +11,14 @@
 
   programs.sway = {
     enable = true;
-    wrapperFeatures.gtk = true;
+    package = pkgs.sway.override {
+      extraSessionCommands = ''
+        source /etc/profile
+      '';
+      withGtkWrapper = false;
+      isNixOS = true;
+    };
     extraPackages = [];
-    extraSessionCommands = ''
-      source /etc/profile
-      export _SSH_AUTH_SOCK=/run/user/1000/ssh-agent
-    '';
   };
 
   xdg.portal.enable = true;
