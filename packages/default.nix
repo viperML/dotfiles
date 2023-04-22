@@ -15,10 +15,7 @@
 
     usesNvfetcher = builtins.hasAttr "src" args || builtins.hasAttr "sources" args;
 
-    sources = builtins.removeAttrs (_pkgs.callPackage (path + "/generated.nix") {}) [
-      "override"
-      "overrideDerivation"
-    ];
+    sources = _pkgs.callPackages (path + "/generated.nix") {};
 
     firstSource = builtins.head (builtins.attrValues sources);
 
@@ -32,17 +29,6 @@
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
   flake.overlays = {
-    wlroots-nvidia = final: prev: {
-      wlroots = prev.wlroots.overrideAttrs (old: {
-        pname = "wlroots-nvidia";
-        postPatch =
-          (old.postPatch or "")
-          + ''
-            substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-          '';
-      });
-    };
-
     swayfx = final: prev: {
       sway = prev.sway.override {
         sway-unwrapped = self.packages.${final.system}.swayfx-unwrapped;
@@ -76,7 +62,6 @@ in {
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        # self.overlays.wlroots-nvidia
         # self.overlays.swayfx
         inputs.nvfetcher.overlays.default
       ];
@@ -93,7 +78,7 @@ in {
         adw-gtk3
         git
         iosevka
-        neovim
+        # neovim
         nix-index
         nvfetcher
         tailscale-systray
@@ -160,7 +145,7 @@ in {
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
       awesome = w pkgs.callPackage ./overrides/awesome {};
       neofetch = w pkgs.callPackage ./overrides/neofetch {};
-      neovim = w pkgs.callPackage ./overrides/neovim {};
+      # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
       picom = w pkgs.callPackage ./overrides/picom {};

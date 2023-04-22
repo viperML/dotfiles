@@ -1,6 +1,5 @@
 {
   pkgs,
-  self,
   packages,
   lib,
   ...
@@ -27,6 +26,7 @@
     # pkgs.libarchive
     # pkgs.jq
     pkgs.ripgrep
+    pkgs.skim
     # pkgs.bubblewrap
     pkgs.wormhole-william
     # packages.self.zellij
@@ -41,7 +41,7 @@
 
     packages.self.fish
     # packages.self.nushell
-    packages.self.neovim
+    # packages.self.neovim
     # packages.self.helix
     packages.self.git
   ];

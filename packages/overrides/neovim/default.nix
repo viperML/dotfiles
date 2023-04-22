@@ -7,8 +7,8 @@
   neovim-unwrapped,
   neovimUtils,
 }: let
-  sources' = builtins.attrValues (builtins.removeAttrs sources ["override" "overrideDerivation"]);
-  nvfetcherPlugins = builtins.map (src: vimUtils.buildVimPlugin src) sources';
+  # sources' = builtins.attrValues (builtins.removeAttrs sources ["override" "overrideDerivation"]);
+  nvfetcherPlugins = builtins.map (elem: vimUtils.buildVimPlugin elem.src) sources;
   config = neovimUtils.makeNeovimConfig {
     withPython3 = false;
     withNodeJs = false;

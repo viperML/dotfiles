@@ -11,6 +11,7 @@
     extraPackages = [];
     extraSessionCommands = ''
       source /etc/profile
+      export _SSH_AUTH_SOCK=/run/user/1000/ssh-agent
     '';
   };
 
