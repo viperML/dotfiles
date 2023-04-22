@@ -7,6 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "sway/workspaces",
         "wlr/workspaces"
         // "sway/mode",
         // "custom/media"
