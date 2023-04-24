@@ -29,24 +29,6 @@
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
   flake.overlays = {
-    swayfx = final: prev: {
-      sway = prev.sway.override {
-        sway-unwrapped = self.packages.${final.system}.swayfx-unwrapped;
-      };
-    };
-
-    # TODO is this working?
-    # nixpkgs.overlays = [
-    #   (_final: prev: {
-    #     arcanPackages = prev.arcanPackages.overrideScope' (_arcan_final: arcan_prev: {
-    #       espeak = arcan_prev.espeak.override {
-    #         mbrolaSupport = false;
-    #         pcaudiolibSupport = false;
-    #         sonicSupport = false;
-    #       };
-    #     });
-    #   })
-    # ];
   };
 
   perSystem = {
@@ -62,7 +44,6 @@ in {
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        # self.overlays.swayfx
         inputs.nvfetcher.overlays.default
       ];
     };
@@ -112,7 +93,6 @@ in {
       toml-fmt = w pkgs.callPackage ./main/toml-fmt {};
       vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
-      swayfx-unwrapped = w pkgs.callPackage ./main/swayfx-unwrapped {};
       iosevka = w pkgs.callPackage ./main/iosevka {};
 
       # Qt5
