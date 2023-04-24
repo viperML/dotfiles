@@ -115,9 +115,6 @@ in {
       swayfx-unwrapped = w pkgs.callPackage ./main/swayfx-unwrapped {};
       iosevka = w pkgs.callPackage ./main/iosevka {};
 
-      # Python
-      resolve-march-native = w pkgs.python3.pkgs.callPackage ./python/resolve-march-native {};
-
       # Qt5
       kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};
       lightly = w pkgs.libsForQt5.callPackage ./qt5/lightly {};

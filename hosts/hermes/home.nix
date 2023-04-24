@@ -20,5 +20,6 @@
     packages.self.wezterm
     pkgs.obsidian
     # pkgs.mendeley
+    pkgs.scc
   ];
 }
