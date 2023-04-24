@@ -3,13 +3,13 @@
 {
   colloid = {
     pname = "colloid";
-    version = "2022.11.11";
+    version = "2023.04.11";
     src = fetchFromGitHub ({
       owner = "vinceliuice";
       repo = "Colloid-gtk-theme";
-      rev = "2022.11.11";
+      rev = "2023.04.11";
       fetchSubmodules = false;
-      sha256 = "sha256-3uiQYiseNEKDahjurjnDj9pakx1p94BfsR3LBO2dd/s=";
+      sha256 = "sha256-lVHDQmu9GLesasmI2GQ0hx4f2NtgaM4IlJk/hXe2XzY=";
     });
   };
 }
