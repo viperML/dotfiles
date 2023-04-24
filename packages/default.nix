@@ -120,7 +120,6 @@ in {
       };
       #
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
-      awesome = w pkgs.callPackage ./overrides/awesome {};
       neofetch = w pkgs.callPackage ./overrides/neofetch {};
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};

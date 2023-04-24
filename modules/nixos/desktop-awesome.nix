@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  packages,
   ...
 }: {
   services.xserver = {
@@ -9,7 +8,6 @@
     displayManager."gdm".enable = true;
     windowManager.awesome = {
       enable = true;
-      package = packages.self.awesome;
     };
   };
 
@@ -43,14 +41,14 @@
         dolphin
         ark
         # Everything I tried to get thumbnails working
-        
+
         dolphin-plugins
         ffmpegthumbs
         kdegraphics-thumbnailers
         kio
         kio-extras
         #
-        
+
         gwenview
         kwallet
         kwalletmanager
