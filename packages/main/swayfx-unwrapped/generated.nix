@@ -3,14 +3,14 @@
 {
   swayfx = {
     pname = "swayfx";
-    version = "41df328325afd60a33d8d0cb0f32473ecac2df74";
+    version = "50e2422e743c0b337097dd2367f82e0d4b20fabc";
     src = fetchFromGitHub ({
       owner = "WillPower3309";
       repo = "swayfx";
-      rev = "41df328325afd60a33d8d0cb0f32473ecac2df74";
+      rev = "50e2422e743c0b337097dd2367f82e0d4b20fabc";
       fetchSubmodules = false;
-      sha256 = "sha256-XHxKGav/B05ptxBAVJqxRuV4W1H/5a5OSNfv/xJD558=";
+      sha256 = "sha256-j0roxTgZTTddvjwn7QWf/k3KnQFp5HyzeG2gbwEBScs=";
     });
-    date = "2023-04-03";
+    date = "2023-04-21";
   };
 }
