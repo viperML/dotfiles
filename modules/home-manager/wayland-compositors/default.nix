@@ -144,6 +144,14 @@
     systemdTarget = "graphical-session.target";
     profiles.main.outputs = [
       {
+        criteria = "DP-1";
+        mode = "2560x1440@144Hz";
+      }
+      {
+        criteria = "DP-2";
+        mode = "2560x1440@144Hz";
+      }
+      {
         criteria = "DP-3";
         mode = "2560x1440@144Hz";
       }
