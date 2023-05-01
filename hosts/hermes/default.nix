@@ -30,7 +30,7 @@
               homeModules.common
 
               homeModules.sway
-              homeModules.emacs
+              # homeModules.emacs
             ];
           }
 

@@ -63,6 +63,7 @@
   };
 
   environment.systemPackages = [
+    pkgs.cpupower-gui
   ];
 
   users.mutableUsers = false;
@@ -172,4 +173,7 @@
     login.u2fAuth = true;
     sudo.u2fAuth = true;
   };
+
+  services.thermald.enable = true;
+  services.cpupower-gui.enable = true;
 }
