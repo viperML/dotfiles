@@ -12,6 +12,6 @@
       "Pictures"
       "Videos"
     ] (folder: {
-      source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/ayats/${folder}";
+      source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/${config.home.username}/${folder}";
     });
 }

@@ -26,5 +26,9 @@ in {
     "ayats@chandra" = mkHome "aarch64-linux" [
       (./. + "/@chandra.nix")
     ];
+    "ayats@viperSL4" = mkHome "x86_64-linux" [
+      (./. + "/@viperSL4.nix")
+      (./. + "/@wsl.nix")
+    ];
   };
 }
