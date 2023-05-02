@@ -44,7 +44,6 @@
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
     };
     deploy-rs = {
       url = "github:serokell/deploy-rs";
