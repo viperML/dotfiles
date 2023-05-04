@@ -106,3 +106,8 @@ os = "linux"
 [character]
 success_symbol = "[\\$](bold)"
 error_symbol = "[\\$](bold)"
+
+[custom.direnv]
+format = "[direnv]($style) "
+style = "fg:yellow dimmed"
+when = "printenv DIRENV_FILE"

@@ -71,6 +71,7 @@
       ${starship}/bin/starship init fish | source
       enable_transience
 
+      set -gx DIRENV_LOG_FORMAT ""
       set -gx direnv_config_dir ${direnvConfig}
       ${direnv}/bin/direnv hook fish | source
     end

@@ -21,5 +21,6 @@
     pkgs.obsidian
     # pkgs.mendeley
     pkgs.scc
+    packages.self.helix
   ];
 }

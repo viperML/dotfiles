@@ -57,9 +57,16 @@
   networking = {
     hostName = "hermes";
     hostId = builtins.substring 0 8 (builtins.hashString "md5" config.networking.hostName);
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
     # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
     firewall.checkReversePath = "loose";
+  };
+
+  services.resolved = {
+    enable = true;
   };
 
   environment.systemPackages = [
