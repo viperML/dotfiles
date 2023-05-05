@@ -9,5 +9,6 @@
     "wayland-compositors"
     "user-ayats"
     "user-soch"
+    "warp"
   ];
 }
