@@ -1,0 +1,4 @@
+[clipmon]
+src.git = "https://git.sr.ht/~whynothugo/clipmon"
+fetch.git = "https://git.sr.ht/~whynothugo/clipmon"
+cargo_locks = ["Cargo.lock"]

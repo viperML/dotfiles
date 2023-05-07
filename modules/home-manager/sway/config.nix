@@ -106,6 +106,8 @@ in {
   wayland.windowManager.sway.extraConfig = ''
     title_align center
     titlebar_padding 7
+    # FIXME Available on sway 1.9
+    # primary_selection disabled
 
     smart_gaps on
 

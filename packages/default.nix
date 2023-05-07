@@ -60,7 +60,7 @@ in {
         git
         iosevka
         # neovim
-        
+
         nix-index
         nvfetcher
         tailscale-systray
@@ -69,6 +69,7 @@ in {
         fish
         helix
         waybar-hyprland
+        clipmon
         ;
     };
 
@@ -95,6 +96,7 @@ in {
       vlmcsd = w pkgs.callPackage ./main/vlmcsd {};
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
       iosevka = w pkgs.callPackage ./main/iosevka {};
+      clipmon = w pkgs.callPackage ./main/clipmon {};
 
       # Qt5
       kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};

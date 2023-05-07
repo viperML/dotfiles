@@ -22,6 +22,7 @@
   in [
     pkgs.wofi
     volume
+    pkgs.gnome.dconf-editor
   ];
 
   systemd.user.services = let
@@ -68,6 +69,10 @@
     wob = mkService {
       Service.ExecStart = lib.getExe pkgs.wob;
       Service.StandardInput = "socket";
+    };
+
+    clipmon = mkService {
+      Service.ExecStart = lib.getExe packages.self.clipmon;
     };
   };
 

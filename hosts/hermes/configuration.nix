@@ -157,6 +157,7 @@
       enable = true;
       mouse.accelProfile = "flat";
       mouse.accelSpeed = "0.0";
+      mouse.middleEmulation = false;
     };
     videoDrivers = ["amdgpu"];
     displayManager = {
