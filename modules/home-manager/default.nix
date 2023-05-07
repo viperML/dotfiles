@@ -11,6 +11,7 @@
     "sway"
     "zsh"
     "emacs"
+    "gnome"
     # "awesome"
     # "common"
     # "eww"

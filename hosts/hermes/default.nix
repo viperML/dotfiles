@@ -31,16 +31,20 @@
 
               homeModules.sway
               # homeModules.emacs
+              # homeModules.gnome
             ];
           }
 
           ./configuration.nix
           nixosModules.common
-          nixosModules.sway
+          nixosModules.user-ayats
+          nixosModules.user-soch
+
           nixosModules.podman
           nixosModules.tailscale
 
-          nixosModules.user-ayats
+          nixosModules.sway
+          # nixosModules.gnome
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

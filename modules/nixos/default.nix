@@ -10,5 +10,6 @@
     "user-ayats"
     "user-soch"
     "warp"
+    "gnome"
   ];
 }

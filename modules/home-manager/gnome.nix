@@ -8,6 +8,7 @@
   term = packages.self.wezterm;
   term_exe = "wezterm";
 in {
+  dconf.enable = true;
   dconf.settings = let
     shortcuts = {
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -44,7 +45,7 @@ in {
       "tile-enter" = gvariant.mkArray gvariant.type.string [];
       "tile-accept" = gvariant.mkArray gvariant.type.string [];
     };
-    "org/gnome/desktop/interface" = {"enable-hot-corners" = gvariant.mkBoolean false;};
+    "org/gnome/desktop/interface" = {};
     "org/gnome/shell" = {
       "enabled-extensions" = gvariant.mkArray gvariant.type.string [
         "appindicatorsupport@rgcjonas.gmail.com"
@@ -52,6 +53,7 @@ in {
       ];
     };
     "org/gnome/desktop/interface" = {
+      "enable-hot-corners" = gvariant.mkBoolean false;
       "gtk-theme" = gvariant.mkString "adw-gtk3-dark";
       "font-hinting" = gvariant.mkString "full";
       "font-antialiasing" = gvariant.mkString "rgba";
@@ -60,6 +62,7 @@ in {
       "gtk-enable-primary-paste" = gvariant.mkBoolean false;
       "color-scheme" = gvariant.mkString "prefer-dark";
       "icon-theme" = gvariant.mkString "Papirus-Dark";
+      "cursor-theme" = gvariant.mkString "Vanilla-DMZ";
     };
     "org/gnome/desktop/wm/preferences" = {
       "titlebar-font" = gvariant.mkString "Roboto Bold 11";
@@ -97,4 +100,7 @@ in {
   };
 
   home.packages = [term];
+
+  # Weird
+  xdg.userDirs.enable = lib.mkForce false;
 }

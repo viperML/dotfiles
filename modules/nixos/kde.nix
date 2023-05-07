@@ -1,8 +1,11 @@
 {
   packages,
   pkgs,
+  lib,
   ...
 }: {
+  system.nixos.label = lib.mkAfter "kde";
+
   services.xserver = {
     enable = true;
     desktopManager.plasma5 = {
@@ -11,8 +14,8 @@
     };
     displayManager = {
       sddm.enable = true;
-      defaultSession = "plasmawayland";
-      autoLogin.enable = false;
+      # defaultSession = "plasmawayland";
+      # autoLogin.enable = false;
     };
   };
 
