@@ -112,7 +112,12 @@
     };
 
     "/nix" = mkBtrfs ["subvol=/@nixos/@nix"];
-    "/var" = mkBtrfs ["subvol=/@nixos/@var"] // {neededForBoot = true;};
+    ###
+    "/var/lib/secrets" = mkBtrfs ["subvol=/@secrets"] // {neededForBoot = true;};
+    "/var/log" = mkBtrfs ["subvol=/@nixos/@log"] // {neededForBoot = true;};
+    "/var/lib/systemd" = mkBtrfs ["subvol=/@nixos/@systemd"];
+    "/var/lib/tailscale" = mkBtrfs ["subvol=/@nixos/@tailscale"];
+    ###
     "/home" = mkBtrfs ["subvol=/@home"];
 
     "/miq" = {
@@ -184,4 +189,8 @@
 
   services.thermald.enable = true;
   services.cpupower-gui.enable = true;
+
+  systemd.tmpfiles.rules = [
+    "z /var/lib/secrets 0700 root root - -"
+  ];
 }

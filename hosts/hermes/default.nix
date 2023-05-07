@@ -40,11 +40,12 @@
           nixosModules.user-ayats
           nixosModules.user-soch
 
-          nixosModules.podman
+          # nixosModules.podman
           nixosModules.tailscale
 
           nixosModules.sway
           # nixosModules.gnome
+          # nixosModules.kde
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {
