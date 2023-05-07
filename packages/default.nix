@@ -29,6 +29,16 @@
     _callPackage path (nvfetcherOverrides // extraOverrides);
 in {
   flake.overlays = {
+    nix-version = final: prev: {
+      nix = let
+        targetVersion = "2.14.0";
+        old = prev.nix;
+        new = inputs.nix.packages.${final.system}.default;
+      in
+        if lib.versionAtLeast old.version targetVersion
+        then builtins.trace "${old.name} reached desired version ${targetVersion}" old
+        else new;
+    };
   };
 
   perSystem = {
@@ -45,12 +55,13 @@ in {
       config.allowUnfree = true;
       overlays = [
         inputs.nvfetcher.overlays.default
+        self.overlays.nix-version
       ];
     };
 
     checks = {
       deploy-rs = inputs'.deploy-rs.packages.default;
-      nix = inputs'.nix.packages.default;
+      nix = pkgs.nix;
       nh = inputs'.nh.packages.default;
       nil = inputs'.nil.packages.default;
 
