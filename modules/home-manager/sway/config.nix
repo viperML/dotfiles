@@ -110,7 +110,5 @@ in {
     # primary_selection disabled
 
     smart_gaps on
-
-    # corner_radius 11
   '';
 }

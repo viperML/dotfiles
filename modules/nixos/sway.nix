@@ -12,6 +12,9 @@
   programs.sway = {
     enable = true;
     package = pkgs.sway.override {
+      sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (_: {
+        inherit (pkgs.swayfx) pname version src meta;
+      });
       extraSessionCommands = ''
         source /etc/profile
       '';

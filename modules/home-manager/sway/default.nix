@@ -7,6 +7,7 @@
     ./config.nix
     ../wayland-compositors
     ../waybar
+    ./fx.nix
   ];
 
   wayland.windowManager.sway = {
