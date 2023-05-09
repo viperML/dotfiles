@@ -30,4 +30,6 @@
     libsForQt5.kio-extras
     libsForQt5.qtwayland
   ];
+
+  services.gnome.at-spi2-core.enable = true;
 }
