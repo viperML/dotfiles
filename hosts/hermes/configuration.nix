@@ -117,6 +117,7 @@
     "/var/log" = mkBtrfs ["subvol=/@nixos/@log"] // {neededForBoot = true;};
     "/var/lib/systemd" = mkBtrfs ["subvol=/@nixos/@systemd"];
     "/var/lib/tailscale" = mkBtrfs ["subvol=/@nixos/@tailscale"];
+    "/var/lib/NetworkManager" = mkBtrfs ["subvol=/@nixos/@nm"];
     ###
     "/home" = mkBtrfs ["subvol=/@home"];
 
