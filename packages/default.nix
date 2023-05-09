@@ -71,7 +71,7 @@ in {
         git
         iosevka
         # neovim
-
+        
         nix-index
         nvfetcher
         tailscale-systray
