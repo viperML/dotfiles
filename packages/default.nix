@@ -65,18 +65,20 @@ in {
       nh = inputs'.nh.packages.default;
       nil = inputs'.nil.packages.default;
 
+      # inherit
+      #   (inputs'.hyprland-plugins.packages)
+      #   hyprbars
+      #   ;
+
       inherit
         (config.packages)
         adw-gtk3
         git
         iosevka
-        # neovim
-        
         nix-index
         nvfetcher
         tailscale-systray
         xdg-ninja
-        hyprland
         fish
         helix
         waybar-hyprland
@@ -162,6 +164,10 @@ in {
               --run ". /etc/profile"
           '';
         });
+        
+      # hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
+      #   inherit (config.packages) hyprland;
+      # };
 
       # pkgs.symlinkJoin {
       #   inherit (p) name pname version;

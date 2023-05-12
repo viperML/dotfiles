@@ -30,8 +30,7 @@
               homeModules.common
 
               homeModules.sway
-              # homeModules.emacs
-              # homeModules.gnome
+              # homeModules.hyprland
             ];
           }
 
@@ -44,8 +43,7 @@
           nixosModules.tailscale
 
           nixosModules.sway
-          # nixosModules.gnome
-          # nixosModules.kde
+          # nixosModules.hyprland
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

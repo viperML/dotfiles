@@ -10,8 +10,6 @@
     EDITOR = "nvim";
   };
 
-  system.nixos.label = lib.mkDefault "hermes";
-
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 

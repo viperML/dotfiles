@@ -33,7 +33,7 @@ in {
     bind=,Print,exec,${mkExec "grimblast copy area"}
   '';
 
-  xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
+  xdg.configFile."hypr/hyprland.conf".onChange = "${packages.self.hyprland}/bin/hyprctl reload";
 
   home.packages = [
     packages.self.wezterm
