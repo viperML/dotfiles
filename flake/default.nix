@@ -61,6 +61,9 @@
       dotfiles-generate-flake = mkDotfilesPython {
         name = "dotfiles-generate";
         file = ./generate-flake.py;
+        runtimeInputs = [
+          pkgs.nixpkgs-fmt
+        ];
       };
 
       dotfiles-update-matrix = mkDotfilesPython {

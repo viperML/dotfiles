@@ -1,7 +1,3 @@
-###
-# THIS FILE WAS AUTOMATICALLY GENERATED
-# DO NOT EDIT
-###
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
 
