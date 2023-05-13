@@ -87,18 +87,6 @@ in {
     legacyPackages = pkgs;
 
     packages = {
-      nvfetcher = let
-        nvfetcher = pkgs.nvfetcher;
-      in  pkgs.symlinkJoin {
-        inherit (pkgs.nvfetcher) name pname version meta;
-        paths = [pkgs.nvfetcher];
-        nativeBuildInputs = [pkgs.makeWrapper];
-        postBuild = ''
-          wrapProgram $out/bin/nvfetcher \
-            --set NIX_PATH "nixpkgs=${inputs.nixpkgs}"
-        '';
-      };
-
       # Main
       adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 {};
       colloid = w pkgs.callPackage ./main/colloid {};
@@ -163,6 +151,18 @@ in {
               --run ". /etc/profile"
           '';
         });
+      nvfetcher = let
+        base = pkgs.nvfetcher;
+      in
+        pkgs.symlinkJoin {
+          inherit (base) name pname version meta;
+          paths = [base];
+          nativeBuildInputs = [pkgs.makeWrapper];
+          postBuild = ''
+            wrapProgram $out/bin/nvfetcher \
+              --set NIX_PATH "nixpkgs=${inputs.nixpkgs}"
+          '';
+        };
 
       # hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
       #   inherit (config.packages) hyprland;
