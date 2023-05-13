@@ -54,7 +54,6 @@ in {
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        inputs.nvfetcher.overlays.default
         self.overlays.nix-version
       ];
     };
@@ -76,7 +75,6 @@ in {
         git
         iosevka
         nix-index
-        nvfetcher
         tailscale-systray
         xdg-ninja
         fish
@@ -89,9 +87,11 @@ in {
     legacyPackages = pkgs;
 
     packages = {
-      nvfetcher = pkgs.symlinkJoin {
-        inherit (pkgs.nvfetcher-bin) name pname version meta;
-        paths = [pkgs.nvfetcher-bin];
+      nvfetcher = let
+        nvfetcher = pkgs.nvfetcher;
+      in  pkgs.symlinkJoin {
+        inherit (pkgs.nvfetcher) name pname version meta;
+        paths = [pkgs.nvfetcher];
         nativeBuildInputs = [pkgs.makeWrapper];
         postBuild = ''
           wrapProgram $out/bin/nvfetcher \

@@ -17,24 +17,5 @@
             "url": "https://github.com/nixos/nix.git"
         },
         "version": "2.15.0"
-    },
-    "nvfetcher": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "nvfetcher",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "0.6.0",
-            "sha256": "sha256-LrY0K1yya3nvRlGDc98wm68ozVj7E6a1EXXEr7eHp8E=",
-            "type": "git",
-            "url": "https://github.com/berberman/nvfetcher.git"
-        },
-        "version": "0.6.0"
     }
 }

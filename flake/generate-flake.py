@@ -14,13 +14,10 @@ with open(flake_root / "flake" / "generated.json", "r") as f:
 
 
 with open(flake_root / "flake" / "template.nix", "r") as f:
-    template = f.read()
+    result = f.read()
 
-
-pattern = r"%([a-zA-Z]+)%"
-
-result = re.sub(pattern, lambda elem: inputs[elem.group(1)]["src"]["rev"], template)
 result = re.sub(r"#.*", "", result)
+result = re.sub(r"%([a-zA-Z]+)%", lambda elem: inputs[elem.group(1)]["src"]["rev"], result)
 result = re.sub(r"\n", "", result)
 result = re.sub(r"\s", "", result)
 result = result.replace("inputs:", "inputs: ")

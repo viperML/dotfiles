@@ -63,12 +63,12 @@
       url = "github:msteen/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvfetcher = {
-      url = "github:berberman/nvfetcher/%nvfetcher%";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
+    # nvfetcher = {
+    #   url = "github:berberman/nvfetcher/%nvfetcher%";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    #   inputs.flake-compat.follows = "flake-compat";
+    # };
     envfs = {
       url = "github:Mic92/envfs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,7 +80,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     # hyprland = {
-    #   url = "github:hyprwm/Hyprland/FIXME";
+    #   url = "github:hyprwm/Hyprland/%hyprland%";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     # hyprland-contrib = {

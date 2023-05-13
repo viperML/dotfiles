@@ -13,16 +13,4 @@
       sha256 = "sha256-hNHfvmb1bIWwqFT5nesQgwh4V0OlyZHxj5ZVSQbZ+p4=";
     };
   };
-  nvfetcher = {
-    pname = "nvfetcher";
-    version = "0.6.0";
-    src = fetchgit {
-      url = "https://github.com/berberman/nvfetcher.git";
-      rev = "0.6.0";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-LrY0K1yya3nvRlGDc98wm68ozVj7E6a1EXXEr7eHp8E=";
-    };
-  };
 }
