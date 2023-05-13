@@ -1,27 +1,28 @@
-inputs @ {
+{
   pname,
   version,
   src,
+  cargoLock,
   #
   rustPlatform,
   makeWrapper,
   lib,
   wayland,
-}:
-rustPlatform.buildRustPackage rec {
-  inherit pname version src;
-  cargoLock = inputs.cargoLock."Cargo.lock";
-
-  nativeBuildInputs = [
-    makeWrapper
-  ];
-
+}: let
   propagatedBuildInputs = [
     wayland
   ];
+in
+  rustPlatform.buildRustPackage {
+    inherit pname version src propagatedBuildInputs;
+    cargoLock = cargoLock."Cargo.lock";
 
-  preFixup = ''
-    wrapProgram $out/bin/clipmon \
-      --set-default LD_LIBRARY_PATH ${lib.makeLibraryPath propagatedBuildInputs}
-  '';
-}
+    nativeBuildInputs = [
+      makeWrapper
+    ];
+
+    preFixup = ''
+      wrapProgram $out/bin/clipmon \
+        --set-default LD_LIBRARY_PATH ${lib.makeLibraryPath propagatedBuildInputs}
+    '';
+  }
