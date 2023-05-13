@@ -29,7 +29,7 @@ process = subprocess.Popen(["nixpkgs-fmt"], stdin=subprocess.PIPE, stdout=subpro
 stdout, stderr = process.communicate(input=substituted)
 
 result = re.sub(r"\s", "", stdout)
-result = result.replace(":", ": ")
+result = result.replace("inputs:", "inputs: ")
 result = result.replace("inherit", "inherit ")
 
 print(result)
