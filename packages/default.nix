@@ -140,7 +140,6 @@ in {
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
-      picom = w pkgs.callPackage ./overrides/picom {};
       rose-pine-gtk-theme = w pkgs.callPackage ./overrides/rose-pine-gtk-theme {};
       shfmt = w pkgs.callPackage ./overrides/shfmt {};
       stylua = w pkgs.callPackage ./overrides/stylua {};
@@ -164,7 +163,7 @@ in {
               --run ". /etc/profile"
           '';
         });
-        
+
       # hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
       #   inherit (config.packages) hyprland;
       # };

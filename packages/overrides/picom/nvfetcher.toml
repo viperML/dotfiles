@@ -1,4 +1,0 @@
-[picom]
-src.git = "https://github.com/yshui/picom"
-fetch.github = "yshui/picom"
-git.date_format = "%Y-%m-%d"
