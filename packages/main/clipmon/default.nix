@@ -2,7 +2,6 @@ inputs @ {
   pname,
   version,
   src,
-  cargoLock,
   #
   rustPlatform,
   makeWrapper,

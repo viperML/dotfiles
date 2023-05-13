@@ -61,9 +61,6 @@
       dotfiles-generate-flake = mkDotfilesPython {
         name = "dotfiles-generate";
         file = ./generate-flake.py;
-        runtimeInputs = [
-          pkgs.nixpkgs-fmt
-        ];
       };
 
       dotfiles-update-matrix = mkDotfilesPython {
@@ -97,7 +94,7 @@
           pkgs.deadnix
         ];
         text = ''
-          fd '\.nix' --exclude 'generated\.nix' --exec deadnix -e -l
+          fd '\.nix' --exclude 'generated\.nix' --exclude 'flake\.nix' --exec deadnix -e -l
           treefmt --tree-root "$PWD" --config-file ${../misc/treefmt.toml}
         '';
       };

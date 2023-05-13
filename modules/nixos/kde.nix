@@ -1,6 +1,5 @@
 {
   packages,
-  pkgs,
   lib,
   ...
 }: {

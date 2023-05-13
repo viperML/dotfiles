@@ -2,7 +2,6 @@ import json
 import os
 import re
 from pathlib import Path
-import subprocess
 
 try:
     flake_root = Path(os.environ["FLAKE"])
@@ -20,15 +19,10 @@ with open(flake_root / "flake" / "template.nix", "r") as f:
 
 pattern = r"%([a-zA-Z]+)%"
 
-substituted = re.sub(pattern, lambda elem: inputs[elem.group(1)]["src"]["rev"], template)
-substituted = re.sub(r"#.*", "", substituted)
-substituted = re.sub(r"\n", "", substituted)
-
-process = subprocess.Popen(["nixpkgs-fmt"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-stdout, stderr = process.communicate(input=substituted)
-
-result = re.sub(r"\s", "", stdout)
+result = re.sub(pattern, lambda elem: inputs[elem.group(1)]["src"]["rev"], template)
+result = re.sub(r"#.*", "", result)
+result = re.sub(r"\n", "", result)
+result = re.sub(r"\s", "", result)
 result = result.replace("inputs:", "inputs: ")
 result = result.replace("inherit", "inherit ")
 
