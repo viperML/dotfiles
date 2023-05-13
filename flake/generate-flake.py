@@ -24,7 +24,15 @@ substituted = re.sub(pattern, lambda elem: inputs[elem.group(1)]["src"]["rev"], 
 substituted = re.sub(r"#.*", "", substituted)
 substituted = re.sub(r"\n", "", substituted)
 
-with open(flake_root / "flake.nix", "w") as f:
-    f.write(substituted)
+process = subprocess.Popen(["nixpkgs-fmt"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-subprocess.run(["nixpkgs-fmt", flake_root / "flake.nix"])
+stdout, stderr = process.communicate(input=substituted)
+
+result = re.sub(r"\s", "", stdout)
+result = result.replace(":", ": ")
+result = result.replace("inherit", "inherit ")
+
+print(result)
+
+with open(flake_root / "flake.nix", "w") as f:
+    f.write(result)
