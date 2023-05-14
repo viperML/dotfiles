@@ -72,6 +72,7 @@
     envfs = {
       url = "github:Mic92/envfs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     # nixified-ai.url = "github:nixified-ai/flake/nixos";
     emacs-overlay = {
