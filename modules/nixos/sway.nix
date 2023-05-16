@@ -1,13 +1,16 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ./wayland-compositors.nix
   ];
 
-  system.nixos.label = lib.mkAfter "sway";
+  home-manager.sharedModules = [
+    inputs.self.homeModules.sway
+  ];
 
   programs.sway = {
     enable = true;

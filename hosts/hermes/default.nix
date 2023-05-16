@@ -23,15 +23,12 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-common.nixosModules.default
           {
-            home-manager.sharedModules = [inputs.nix-common.homeModules.default];
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.ayats.imports = [
+            home-manager.sharedModules = [
+              inputs.nix-common.homeModules.default
               ./home.nix
               homeModules.common
-
-              homeModules.sway
-              # homeModules.hyprland
             ];
+            home-manager.extraSpecialArgs = specialArgs;
           }
 
           ./configuration.nix
@@ -42,8 +39,9 @@
           # nixosModules.podman
           nixosModules.tailscale
 
-          nixosModules.sway
-          # nixosModules.hyprland
+          {services.xserver.displayManager.autoLogin.user = "ayats";}
+          # nixosModules.sway
+          nixosModules.kde
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

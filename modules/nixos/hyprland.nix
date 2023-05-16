@@ -1,4 +1,8 @@
-{packages, ...}: {
+{
+  packages,
+  inputs,
+  ...
+}: {
   imports = [
     # inputs.hyprland.nixosModules.default
     ./wayland-compositors.nix
@@ -9,4 +13,8 @@
     enable = true;
     package = packages.self.hyprland;
   };
+
+  home-manager.sharedModules = [
+    inputs.self.homeModules.hyprland
+  ];
 }

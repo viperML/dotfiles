@@ -40,7 +40,7 @@
       timeout = 1;
     };
 
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
 
     binfmt.emulatedSystems = [
       "aarch64-linux"
@@ -117,7 +117,12 @@
     "/var/lib/tailscale" = mkBtrfs ["subvol=/@nixos/@tailscale"];
     "/var/lib/NetworkManager" = mkBtrfs ["subvol=/@nixos/@nm"];
     ###
-    "/home" = mkBtrfs ["subvol=/@home"];
+    "/.home" = mkBtrfs ["subvol=/@home"];
+    "/home/ayats" = {
+      device = "/.home/ayats";
+      options = ["bind"];
+      depends = ["/.home"];
+    };
 
     "/miq" = {
       device = "/home/ayats/miq";
@@ -144,7 +149,7 @@
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = with pkgs; [
+      extraPackages = [
         # TODO
         # rocm-opencl-icd
         # rocm-opencl-runtime
@@ -164,9 +169,6 @@
       mouse.middleEmulation = false;
     };
     videoDrivers = ["amdgpu"];
-    displayManager = {
-      autoLogin.user = "ayats";
-    };
   };
 
   console = {
