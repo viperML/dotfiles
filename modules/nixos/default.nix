@@ -1,7 +1,7 @@
 {config, ...}: {
   flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
-    "kde"
+    "plasma5"
     "podman"
     "tailscale"
     "hyprland"

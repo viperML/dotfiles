@@ -41,7 +41,7 @@
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}
           # nixosModules.sway
-          nixosModules.kde
+          nixosModules.plasma5
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {
