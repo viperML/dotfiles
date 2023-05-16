@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  packages,
   ...
 }: {
   environment.sessionVariables = {
@@ -194,4 +195,19 @@
   systemd.tmpfiles.rules = [
     "z /var/lib/secrets 0700 root root - -"
   ];
+
+  services.kmscon = {
+    enable = true;
+    extraConfig = ''
+      font-size=14
+      xkb-layout=${config.services.xserver.layout}
+    '';
+    hwRender = true;
+    fonts = [
+      {
+        name = "iosevka-normal Semibold";
+        package = packages.self.iosevka;
+      }
+    ];
+  };
 }
