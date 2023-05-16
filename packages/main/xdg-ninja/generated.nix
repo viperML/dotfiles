@@ -3,14 +3,14 @@
 {
   xdg-ninja = {
     pname = "xdg-ninja";
-    version = "efb6d91057b9ab2f1f7fc4840edc71525abddf77";
+    version = "1ad51b62751c2002614a0a8e3d6189fccfded11d";
     src = fetchFromGitHub ({
       owner = "b3nj5m1n";
       repo = "xdg-ninja";
-      rev = "efb6d91057b9ab2f1f7fc4840edc71525abddf77";
+      rev = "1ad51b62751c2002614a0a8e3d6189fccfded11d";
       fetchSubmodules = false;
-      sha256 = "sha256-LIh03qStxLksxrKFkQm3dnhMd+06tHzTOoIV1aYDgug=";
+      sha256 = "sha256-9In20rPiyBnumbAVpY/q/IH+liRXqPLAx1fMkpy8Ctg=";
     });
-    date = "2023-05-13";
+    date = "2023-05-15";
   };
 }
