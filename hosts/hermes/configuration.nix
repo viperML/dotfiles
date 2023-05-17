@@ -151,10 +151,8 @@
     opengl = {
       enable = true;
       extraPackages = [
-        # TODO
-        # rocm-opencl-icd
-        # rocm-opencl-runtime
-        # amdvlk
+        pkgs.rocm-opencl-icd
+        pkgs.rocm-opencl-runtime
       ];
     };
   };
@@ -173,10 +171,10 @@
   };
 
   console = {
-    font = "ter-v20n";
-    packages = [pkgs.terminus_font];
+    # Using kmscon
+    # font = "ter-v20n";
+    # packages = [pkgs.terminus_font];
     useXkbConfig = true;
-    earlySetup = false;
   };
 
   # https://flokli.de/posts/2022-11-18-nsncd

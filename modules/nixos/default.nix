@@ -11,5 +11,6 @@
     "user-soch"
     "warp"
     "gnome"
+    "wine"
   ];
 }

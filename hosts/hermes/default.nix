@@ -40,8 +40,8 @@
           nixosModules.tailscale
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}
-          # nixosModules.sway
-          nixosModules.plasma5
+          nixosModules.sway
+          # nixosModules.plasma5
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

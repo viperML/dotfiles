@@ -61,7 +61,10 @@
 
   systemd = let
     extraConfig = ''
+      DefaultTimeoutStartSec=15s
       DefaultTimeoutStopSec=15s
+      DefaultTimeoutAbortSec=15s
+      DefaultDeviceTimeoutSec=15s
     '';
   in {
     inherit extraConfig;
@@ -70,11 +73,6 @@
     services."autovt@tty1".enable = false;
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
-
-    # TODO channels-to-flakes
-    tmpfiles.rules = [
-      "D /nix/var/nix/profiles/per-user/root 755 root root - -"
-    ];
   };
 
   home-manager = {
