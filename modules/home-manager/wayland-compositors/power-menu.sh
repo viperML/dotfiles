@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+set -eux
 
 entries="suspend\nreboot\npoweroff"
 
-selected=$(echo -e $entries|wofi --width 250 --height 150 --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
+selected=$(echo -e $entries|wofi --width 250 --height 150 --dmenu --cache-file /dev/null)
 
 case $selected in
   suspend)
