@@ -19,10 +19,15 @@
         pamixer --get-volume > "$XDG_RUNTIME_DIR"/wob.sock
       '';
     };
+    power-menu = pkgs.writeShellApplication {
+      name = "power-menu";
+      text = builtins.readFile ./power-menu.sh;
+    };
   in [
     pkgs.wofi
     volume
     pkgs.gnome.dconf-editor
+    power-menu
   ];
 
   systemd.user.services = let

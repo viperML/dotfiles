@@ -63,6 +63,7 @@ in {
         "Next" = XF86AudioLowerVolume; # PageUp
         "XF86AudioMute" = "exec volume toggle-mute";
         "XF86AudioMicMute" = "exec volume -m toggle-mute";
+        "Ctrl+Alt+Delete" = "exec power-menu";
       };
 
     window = {
