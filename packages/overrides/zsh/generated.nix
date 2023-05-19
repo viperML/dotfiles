@@ -50,14 +50,14 @@
   };
   zsh-edit = {
     pname = "zsh-edit";
-    version = "f9166fcf41c6085997065c1bf5689043314eb090";
+    version = "9cd412d830a5ec5d5662afdefd6d954517b85823";
     src = fetchFromGitHub ({
       owner = "marlonrichert";
       repo = "zsh-edit";
-      rev = "f9166fcf41c6085997065c1bf5689043314eb090";
+      rev = "9cd412d830a5ec5d5662afdefd6d954517b85823";
       fetchSubmodules = false;
-      sha256 = "sha256-+0vBcfYi9XxJVx9KFBkOmxcTya5Uyhe+apiMxlO75Mg=";
+      sha256 = "sha256-Y72dMHiENCgrX1xjh8SGuvDT253TcpTEjZ6GYBk56nk=";
     });
-    date = "2023-05-04";
+    date = "2023-05-18";
   };
 }
