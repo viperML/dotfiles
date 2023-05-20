@@ -1,20 +1,20 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ../packages
     ../misc/lib
     ../homes
-    ../misc/shell.nix
     ../misc/bundlers.nix
     ../hosts
     ../modules
   ];
 
-  flake = {
-    templates = builtins.mapAttrs (name: _: {
-      inherit (import ../misc/templ/${name}/flake.nix) description;
+  flake.templates = lib.pipe ../misc/templ [
+    builtins.readDir
+    (builtins.mapAttrs (name: _: {
+      description = name;
       path = ../misc/templ/${name};
-    }) (builtins.readDir ../misc/templ);
-  };
+    }))
+  ];
 
   systems = [
     "x86_64-linux"
