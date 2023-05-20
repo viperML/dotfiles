@@ -10,6 +10,6 @@ case $selected in
     exec systemctl suspend;;
   reboot)
     exec systemctl reboot;;
-  shutdown)
+  poweroff)
     exec systemctl poweroff -i;;
 esac
