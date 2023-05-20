@@ -6,7 +6,6 @@
     ../misc/shell.nix
     ../hosts
     ../modules
-    ../bin
   ];
 
   flake = {
