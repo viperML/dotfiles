@@ -4,6 +4,7 @@
     ../misc/lib
     ../homes
     ../misc/shell.nix
+    ../misc/bundlers.nix
     ../hosts
     ../modules
   ];
