@@ -38,6 +38,7 @@
 
           # nixosModules.podman
           nixosModules.tailscale
+          nixosModules.docker
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}
           nixosModules.sway

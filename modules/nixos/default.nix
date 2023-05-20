@@ -1,16 +1,16 @@
 {config, ...}: {
   flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
+    "docker"
+    "gnome"
+    "hyprland"
     "plasma5"
     "podman"
-    "tailscale"
-    "hyprland"
     "sway"
-    "wayland-compositors"
+    "tailscale"
     "user-ayats"
     "user-soch"
     "warp"
-    "gnome"
     "wine"
   ];
 }

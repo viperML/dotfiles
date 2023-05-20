@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./fcitx5.nix
+  ];
+
   services.xserver = {
     enable = true;
     displayManager = {
