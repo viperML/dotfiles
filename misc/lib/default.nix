@@ -1,30 +1,10 @@
-{
-  inputs,
-  config,
-  withSystem,
-  ...
-}: let
-  inherit (inputs.nixpkgs) lib;
-in {
+{lib, ...}: {
   flake.lib = {
-    mkSystem = import ./mkSystem {inherit lib inputs;};
-
     mkDate = longDate: (lib.concatStringsSep "-" [
       (builtins.substring 0 4 longDate)
       (builtins.substring 4 2 longDate)
       (builtins.substring 6 2 longDate)
     ]);
-
-    inherit (import ./modules.nix lib) exportModulesDir;
-
-    /*
-    Takes a flake-defined `inputs` and a system, and returns an attribute set
-    containing the extracted packages or legacyPackages
-
-    Example:
-      mkPackages inputs "x86_64-linux"
-      => { input1 = { pkg1 = {...}; pkg2 = {...}; }; input2 = {...}; }
-    */
 
     mkPackages = inputs: system:
       builtins.mapAttrs (name: value: let
@@ -33,14 +13,6 @@ in {
       in
         legacyPackages // packages)
       inputs;
-
-    joinSpecialisations = specs: {
-      nixosModules = lib.flatten (map (s: s.nixosModules or []) specs);
-      homeModules = lib.flatten (map (s: s.homeModules or []) specs);
-      name = lib.concatMapStringsSep "-" (s: s.name) specs;
-
-      default = builtins.foldl' (x: y: x || y) false (lib.flatten (map (s: s.default or false) specs));
-    };
 
     versionGate = pkg: newAttrs: let
       newVersion = newAttrs.version;
@@ -64,6 +36,4 @@ in {
           else folder))
       files);
   };
-
-  flake.libFor = lib.genAttrs config.systems (system: withSystem system (ctx: import ./perSystem.nix ctx.pkgs));
 }

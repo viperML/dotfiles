@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../packages
-    ../lib
+    ../misc/lib
     ../homes
     ../misc/shell.nix
     ../hosts
