@@ -38,6 +38,7 @@
       else pkgs.strace
     )
     pkgs.hexyl
+    pkgs.btop
 
     packages.self.fish
     # packages.self.nushell
