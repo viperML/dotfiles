@@ -39,6 +39,7 @@
     )
     pkgs.hexyl
     pkgs.btop
+    pkgs.unar
 
     packages.self.fish
     # packages.self.nushell
