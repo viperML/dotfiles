@@ -33,6 +33,7 @@
     libsForQt5.kio
     libsForQt5.kio-extras
     libsForQt5.qtwayland
+    libsForQt5.okular
   ];
 
   services.gnome.at-spi2-core.enable = true;
