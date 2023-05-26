@@ -6,8 +6,8 @@
   ...
 }: {
   environment.sessionVariables = {
-    VAULT_ADDR = "http://kalypso:8200";
-    NOMAD_ADDR = "http://chandra:4646";
+    VAULT_ADDR = "http://shiva:8200";
+    NOMAD_ADDR = "http://shiva:4646";
     EDITOR = "nvim";
   };
 
