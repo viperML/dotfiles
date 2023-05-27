@@ -73,6 +73,8 @@
     services."autovt@tty1".enable = false;
     services."getty@tty7".enable = false;
     services."autovt@tty7".enable = false;
+    services."kmsconvt@tty1".enable = false;
+    services."kmsconvt@tty7".enable = false;
   };
 
   home-manager = {

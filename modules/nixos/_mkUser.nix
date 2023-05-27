@@ -61,7 +61,4 @@ in {
         "Pictures"
         "Videos"
       ]));
-
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."getty@tty7".enable = false;
 }
