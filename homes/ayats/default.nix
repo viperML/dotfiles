@@ -22,8 +22,8 @@
 in {
   flake.homeConfigurations = {
     "ayats" = mkHome "x86_64-linux" [];
-    "ayats@chandra" = mkHome "aarch64-linux" [
-      (./. + "/@chandra.nix")
+    "ayats@shiva" = mkHome "aarch64-linux" [
+      (./. + "/@shiva.nix")
     ];
     "ayats@viperSL4" = mkHome "x86_64-linux" [
       (./. + "/@viperSL4.nix")
