@@ -96,12 +96,15 @@
   gtk = {
     enable = true;
     theme = {
-      package = packages.self.adw-gtk3;
-      name = "adw-gtk3-dark";
+      package = pkgs.orchis-theme.override {
+        tweaks = ["black"];
+        border-radius = 12;
+      };
+      name = "Orchis-Grey-Dark-Compact";
     };
     iconTheme = {
-      package = packages.self.papirus-icon-theme;
-      name = "Papirus-Dark";
+      package = pkgs.tela-circle-icon-theme.override {colorVariants = ["grey"];};
+      name = "Tela-circle-grey-dark";
     };
     cursorTheme = {
       package = pkgs.vanilla-dmz;

@@ -1,7 +1,6 @@
 {...}: {
   wayland.windowManager.sway.extraConfig = ''
-    smart_corner_radius enable
-    corner_radius 5
+    corner_radius 6
 
     shadows enable
     shadow_blur_radius 10

@@ -72,7 +72,7 @@ in {
     };
 
     colors = let
-      accent = "#81a2be";
+      accent = "#ababab";
     in rec {
       focused = rec {
         border = accent;
@@ -82,7 +82,7 @@ in {
         text = "#121212";
       };
       unfocused = rec {
-        border = "#3A3A3A";
+        border = "#0F0F0F";
         indicator = border;
         background = border;
         childBorder = border;
