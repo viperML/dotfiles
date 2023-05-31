@@ -53,7 +53,7 @@ in {
         "${modifier}+Shift+Return" = "exec wezterm";
         "${modifier}+q" = "kill";
         "${modifier}+Shift+r" = "reload";
-        "${modifier}+space" = "exec pkill wofi || ${mkExec "wofi --show drun"}";
+        "${modifier}+space" = "exec pkill wofi || ${mkExec "wofi --show drun -I"}";
         "${modifier}+z" = "floating toggle";
         "${modifier}+e" = mkExec "dolphin";
         "${modifier}+Shift+S" = "exec ${lib.getExe wayland-screenshot}";
