@@ -1,6 +1,7 @@
 {
   pkgs,
   packages,
+  lib,
   ...
 }: {
   imports = [
@@ -10,38 +11,44 @@
     ./fx.nix
   ];
 
-  wayland.windowManager.sway = {
-    enable = true;
-    # Use NixOS module system to install
-    package = null;
-    systemdIntegration = true;
+  options = {
+    wayland.windowManager.sway.fx = lib.mkEnableOption "swayfx";
   };
 
-  home.packages = [
-    # pkgs.qgnomeplatform
-    # pkgs.adwaita-qt
-    # pkgs.wofi
-    # pkgs.firefox
-    # packages.self.papirus-icon-theme
+  config = {
+    wayland.windowManager.sway = {
+      enable = true;
+      # Use NixOS module system to install
+      package = null;
+      systemdIntegration = true;
+    };
 
-    # pkgs.libsForQt5.dolphin
-    # pkgs.libsForQt5.ark
-    # pkgs.libsForQt5.qtwayland
-    # pkgs.libsForQt5.dolphin-plugins
-    # pkgs.libsForQt5.ffmpegthumbs
-    # pkgs.libsForQt5.kdegraphics-thumbnailers
-    # pkgs.libsForQt5.kio
-    # pkgs.libsForQt5.kio-extras
-    # pkgs.libsForQt5.gwenview
+    home.packages = [
+      # pkgs.qgnomeplatform
+      # pkgs.adwaita-qt
+      # pkgs.wofi
+      # pkgs.firefox
+      # packages.self.papirus-icon-theme
 
-    packages.self.wezterm
-  ];
+      # pkgs.libsForQt5.dolphin
+      # pkgs.libsForQt5.ark
+      # pkgs.libsForQt5.qtwayland
+      # pkgs.libsForQt5.dolphin-plugins
+      # pkgs.libsForQt5.ffmpegthumbs
+      # pkgs.libsForQt5.kdegraphics-thumbnailers
+      # pkgs.libsForQt5.kio
+      # pkgs.libsForQt5.kio-extras
+      # pkgs.libsForQt5.gwenview
 
-  systemd.user.services = {
-    autotiling = {
-      Install.WantedBy = ["graphical-session.target"];
-      Unit.Description = "Autotiling";
-      Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+      packages.self.wezterm
+    ];
+
+    systemd.user.services = {
+      autotiling = {
+        Install.WantedBy = ["graphical-session.target"];
+        Unit.Description = "Autotiling";
+        Service.ExecStart = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+      };
     };
   };
 }

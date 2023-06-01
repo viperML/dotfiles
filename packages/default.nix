@@ -180,6 +180,16 @@ in {
         helix = inputs'.helix.packages.helix or pkgs.helix;
       };
       waybar-hyprland = w pkgs.callPackage ./overrides/waybar-hyprland {};
+      sway-custom = pkgs.sway.override {
+        sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (old: {
+          inherit (pkgs.swayfx) src pname version meta patches;
+        });
+        extraSessionCommands = ''
+          source /etc/profile
+        '';
+        withGtkWrapper = false;
+        isNixOS = true;
+      };
     };
   };
 }
