@@ -3,14 +3,14 @@
 {
   nix = {
     pname = "nix";
-    version = "2.15.0";
+    version = "2.16.0";
     src = fetchgit {
       url = "https://github.com/nixos/nix.git";
-      rev = "2.15.0";
+      rev = "2.16.0";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-hNHfvmb1bIWwqFT5nesQgwh4V0OlyZHxj5ZVSQbZ+p4=";
+      sha256 = "sha256-KjcQkI2HgbP7KOlHxb2DvyHISQXo2OExvvjqTyK7P0o=";
     };
   };
 }

@@ -11,11 +11,11 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2.15.0",
-            "sha256": "sha256-hNHfvmb1bIWwqFT5nesQgwh4V0OlyZHxj5ZVSQbZ+p4=",
+            "rev": "2.16.0",
+            "sha256": "sha256-KjcQkI2HgbP7KOlHxb2DvyHISQXo2OExvvjqTyK7P0o=",
             "type": "git",
             "url": "https://github.com/nixos/nix.git"
         },
-        "version": "2.15.0"
+        "version": "2.16.0"
     }
 }
