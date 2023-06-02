@@ -48,3 +48,10 @@ if $starship_installed {
 } else {}
 
 let-env PROMPT_COMMAND_RIGHT = ''
+
+if (not ($env | select windir | is-empty)) {
+  let-env DIRENV_CONFIG = ([ $env.APPDATA "direnv" "conf" ] | path join)
+  let-env XDG_DATA_HOME = ([ $env.LOCALAPPDATA ] | path join)
+  let-env XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
+}
+
