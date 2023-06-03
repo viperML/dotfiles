@@ -11,12 +11,4 @@
       to = 8999;
     }
   ];
-
-  systemd.user.services."tailscale-tray" = {
-    wantedBy = ["tray.target"];
-    after = ["tray.target"];
-    serviceConfig.ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 5";
-    serviceConfig.ExecStart = "${packages.self.tailscale-systray}/bin/tailscale-systray";
-    description = "Tailscale indicator for system tray";
-  };
 }
