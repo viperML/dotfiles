@@ -62,4 +62,13 @@
   xdg.configFile."direnv/direnvrc".text = ''
     source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc
   '';
+
+  xdg.configFile."pypoetry/config.toml".text = ''
+    [virtualenvs]
+    in-project = true
+    path = "{project-dir}/.venv"
+    options.no-pip = true
+    options.no-setuptools = true
+    prefer-active-python = true
+  '';
 }
