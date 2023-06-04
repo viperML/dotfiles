@@ -24,5 +24,6 @@
     # pkgs.mendeley
     pkgs.scc
     packages.self.helix
+    pkgs.mosh
   ];
 }
