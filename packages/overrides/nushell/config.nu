@@ -80,7 +80,6 @@ if $starship_installed {
 let-env PROMPT_COMMAND_RIGHT = ''
 
 if ($nu.os-info.name == "windows") {
-  $env.select | windir
   let-env DIRENV_CONFIG = ([ $env.APPDATA "direnv" "conf" ] | path join)
   let-env XDG_DATA_HOME = ([ $env.LOCALAPPDATA ] | path join)
   let-env XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
