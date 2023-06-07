@@ -3,13 +3,8 @@ let starship_installed = (which starship | length) > 0
 
 let-env config = {
   show_banner: false
-  use_ansi_coloring: true
+  # use_ansi_coloring: false
   render_right_prompt_on_last_line: true
-  completions: {
-    external: (if ((which carapace | length)  > 0) { {
-      completer: { |spans| carapace $spans.0 nushell $spans | from json }
-    } } else { {} })
-  }
   hooks: {
     pre_prompt: (if $direnv_installed {
       [{
@@ -56,6 +51,20 @@ let-env config = {
       }
     }
   ]
+  color_config: {
+  }
+  rm: {
+    always_trash: true
+  }
+  table: {
+    mode: compact
+    index_mode: auto
+  }
+  completions: {
+    external: (if ((which carapace | length)  > 0) { {
+      completer: { |spans| carapace $spans.0 nushell $spans | from json }
+    } } else { {} })
+  }
 }
 
 if $starship_installed {
