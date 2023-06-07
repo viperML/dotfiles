@@ -20,6 +20,27 @@ let-env config = {
         "
       }]
     } else {[]})
+    command_not_found: {
+      |cmd_name| (
+        if ($nu.os-info.name == "linux") {try {
+          let raw_results = (nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root $"/bin/($cmd_name)")
+          let parsed = ($raw_results | split row "\n" | each {|elem| ($elem | parse "{attr}.{output}" | first) })
+          let names = ($parsed | each {|row|
+            if ($row.output == "out") {
+              $row.attr
+            } else {
+              $"($row.attr).($row.output)"
+            }
+          })
+          let names_display = ($names | str join "\n")
+          (
+            "nix-index found the follwing matches:\n\n" + $names_display
+          )
+        } catch {
+          null
+        }}
+      )
+    }
   }
   keybindings: [
     {
@@ -49,9 +70,9 @@ if $starship_installed {
 
 let-env PROMPT_COMMAND_RIGHT = ''
 
-if (not ($env | select windir | is-empty)) {
+if ($nu.os-info.name == "windows") {
+  $env.select | windir
   let-env DIRENV_CONFIG = ([ $env.APPDATA "direnv" "conf" ] | path join)
   let-env XDG_DATA_HOME = ([ $env.LOCALAPPDATA ] | path join)
   let-env XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
 }
-
