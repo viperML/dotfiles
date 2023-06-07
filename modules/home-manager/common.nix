@@ -42,7 +42,8 @@
     pkgs.unar
 
     packages.self.fish
-    # packages.self.nushell
+    packages.self.nushell
+    packages.self.zellij
     # packages.self.neovim
     # packages.self.helix
     packages.self.git
