@@ -1,0 +1,4 @@
+[wl-clip-persist]
+src.git = "https://github.com/Linus789/wl-clip-persist"
+fetch.git = "https://github.com/Linus789/wl-clip-persist"
+cargo_locks = ["Cargo.lock"]

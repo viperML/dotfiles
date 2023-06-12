@@ -81,7 +81,7 @@ in {
         fish
         helix
         waybar-hyprland
-        clipmon
+        wl-clip-persist
         ;
     };
 
@@ -99,6 +99,7 @@ in {
       xdg-ninja = w pkgs.callPackage ./main/xdg-ninja {};
       iosevka = w pkgs.callPackage ./main/iosevka {};
       clipmon = w pkgs.callPackage ./main/clipmon {};
+      wl-clip-persist = w pkgs.callPackage ./main/wl-clip-persist {};
 
       # Qt5
       kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};

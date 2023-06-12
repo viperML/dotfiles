@@ -76,8 +76,12 @@
       Service.StandardInput = "socket";
     };
 
-    clipmon = mkService {
-      Service.ExecStart = lib.getExe packages.self.clipmon;
+    wl-clip-persist = {
+      Service.ExecStart = pkgs.writeShellScript "wl-clip-persist-wrapper" ''
+        set -x
+        printenv
+        exec ${packages.self.wl-clip-persist}/bin/wl-clip-persist --clipboard regular "$@"
+      '';
     };
   };
 

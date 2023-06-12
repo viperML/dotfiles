@@ -1,6 +1,6 @@
 {
   pname,
-  version,
+  date,
   src,
   cargoLock,
   #
@@ -14,7 +14,8 @@
   ];
 in
   rustPlatform.buildRustPackage {
-    inherit pname version src propagatedBuildInputs;
+    inherit pname src propagatedBuildInputs;
+    version = date;
     cargoLock = cargoLock."Cargo.lock";
 
     nativeBuildInputs = [
