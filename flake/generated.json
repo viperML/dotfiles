@@ -11,11 +11,30 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2.16.0",
-            "sha256": "sha256-KjcQkI2HgbP7KOlHxb2DvyHISQXo2OExvvjqTyK7P0o=",
+            "rev": "2.16.1",
+            "sha256": "sha256-/XCWa2osNFIpPC5MkxlX6qTZf/DaTLwS3LWN0SRFiuU=",
             "type": "git",
             "url": "https://github.com/nixos/nix.git"
         },
-        "version": "2.16.0"
+        "version": "2.16.1"
+    },
+    "nvfetcher": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "nvfetcher",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "0.6.1",
+            "sha256": "sha256-vgyu3jsnGDDAEYg4y/oFk2IaTCXUlce0ZaLtQprhmFk=",
+            "type": "git",
+            "url": "https://github.com/berberman/nvfetcher.git"
+        },
+        "version": "0.6.1"
     }
 }

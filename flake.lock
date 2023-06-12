@@ -279,16 +279,16 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1685534760,
-        "narHash": "sha256-KjcQkI2HgbP7KOlHxb2DvyHISQXo2OExvvjqTyK7P0o=",
+        "lastModified": 1686048923,
+        "narHash": "sha256-/XCWa2osNFIpPC5MkxlX6qTZf/DaTLwS3LWN0SRFiuU=",
         "owner": "NixOS",
         "repo": "nix",
-        "rev": "1ac5f9eac2703c2213cfc522c92bd5c141818fac",
+        "rev": "84050709ea18f3285a85d729f40c8f8eddf5008e",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "2.16.0",
+        "ref": "2.16.1",
         "repo": "nix",
         "type": "github"
       }
@@ -483,6 +483,33 @@
         "type": "github"
       }
     },
+    "nvfetcher": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685158767,
+        "narHash": "sha256-vgyu3jsnGDDAEYg4y/oFk2IaTCXUlce0ZaLtQprhmFk=",
+        "owner": "berberman",
+        "repo": "nvfetcher",
+        "rev": "c5ae2cb436a04f4590306589e71638d023a33bd4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "berberman",
+        "ref": "0.6.1",
+        "repo": "nvfetcher",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
@@ -500,6 +527,7 @@
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
+        "nvfetcher": "nvfetcher",
         "vscode-server": "vscode-server"
       }
     },

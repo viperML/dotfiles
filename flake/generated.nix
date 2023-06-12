@@ -3,14 +3,26 @@
 {
   nix = {
     pname = "nix";
-    version = "2.16.0";
+    version = "2.16.1";
     src = fetchgit {
       url = "https://github.com/nixos/nix.git";
-      rev = "2.16.0";
+      rev = "2.16.1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-KjcQkI2HgbP7KOlHxb2DvyHISQXo2OExvvjqTyK7P0o=";
+      sha256 = "sha256-/XCWa2osNFIpPC5MkxlX6qTZf/DaTLwS3LWN0SRFiuU=";
+    };
+  };
+  nvfetcher = {
+    pname = "nvfetcher";
+    version = "0.6.1";
+    src = fetchgit {
+      url = "https://github.com/berberman/nvfetcher.git";
+      rev = "0.6.1";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-vgyu3jsnGDDAEYg4y/oFk2IaTCXUlce0ZaLtQprhmFk=";
     };
   };
 }

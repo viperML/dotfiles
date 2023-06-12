@@ -55,6 +55,7 @@ in {
       config.allowUnfree = true;
       overlays = [
         self.overlays.nix-version
+        inputs.nvfetcher.overlays.default
       ];
     };
 
@@ -152,7 +153,7 @@ in {
           '';
         });
       nvfetcher = let
-        base = pkgs.nvfetcher;
+        base = pkgs.nvfetcher-bin;
       in
         pkgs.symlinkJoin {
           inherit (base) name pname version meta;

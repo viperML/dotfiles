@@ -2,6 +2,7 @@ import json
 import os
 import re
 from pathlib import Path
+import subprocess
 
 try:
     flake_root = Path(os.environ["FLAKE"])
@@ -27,3 +28,5 @@ print(result)
 
 with open(flake_root / "flake.nix", "w") as f:
     f.write(result)
+
+subprocess.run(["nix", "flake", "lock"], cwd=flake_root)

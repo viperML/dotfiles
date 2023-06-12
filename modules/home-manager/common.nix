@@ -9,7 +9,7 @@
     # Nix management
     pkgs.direnv
     pkgs.alejandra
-    pkgs.nvfetcher
+    packages.self.nvfetcher
     packages.nh.default
     pkgs.nix-output-monitor
 
