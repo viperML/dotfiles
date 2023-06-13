@@ -2,11 +2,13 @@
   pkgs,
   packages,
   lib,
+  config,
   ...
 }: {
   # Generic programs
   home.packages = [
     # Nix management
+    config.nix.package
     pkgs.direnv
     pkgs.alejandra
     packages.self.nvfetcher
