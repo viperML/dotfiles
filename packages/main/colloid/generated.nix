@@ -4,12 +4,12 @@
   colloid = {
     pname = "colloid";
     version = "2023.04.11";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "vinceliuice";
       repo = "Colloid-gtk-theme";
       rev = "2023.04.11";
       fetchSubmodules = false;
       sha256 = "sha256-lVHDQmu9GLesasmI2GQ0hx4f2NtgaM4IlJk/hXe2XzY=";
-    });
+    };
   };
 }
