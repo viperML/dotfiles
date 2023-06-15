@@ -3,13 +3,13 @@
 {
   adw-gtk3 = {
     pname = "adw-gtk3";
-    version = "v4.7";
-    src = fetchFromGitHub ({
+    version = "v4.8";
+    src = fetchFromGitHub {
       owner = "lassekongo83";
       repo = "adw-gtk3";
-      rev = "v4.7";
+      rev = "v4.8";
       fetchSubmodules = false;
-      sha256 = "sha256-AJhavwxa0l1JoBrw7v+SM+1wMwhTTHL4LOyMWtHjzqg=";
-    });
+      sha256 = "sha256-2qcOyO2ZJA/FSVwFt0PyOVNJgyhWZtzOeGba0h9tO7s=";
+    };
   };
 }
