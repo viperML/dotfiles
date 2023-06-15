@@ -81,7 +81,7 @@
     },
     "zsh-edit": {
         "cargoLocks": null,
-        "date": "2023-05-18",
+        "date": "2023-06-13",
         "extract": null,
         "name": "zsh-edit",
         "passthru": null,
@@ -93,10 +93,10 @@
             "name": null,
             "owner": "marlonrichert",
             "repo": "zsh-edit",
-            "rev": "9cd412d830a5ec5d5662afdefd6d954517b85823",
-            "sha256": "sha256-Y72dMHiENCgrX1xjh8SGuvDT253TcpTEjZ6GYBk56nk=",
+            "rev": "9eb286982f96f03371488e910e42afb23802bdfd",
+            "sha256": "sha256-LVHkH7fi8BQxLSeV+osdZzar1PQ0/hdb4yZ4oppGBoc=",
             "type": "github"
         },
-        "version": "9cd412d830a5ec5d5662afdefd6d954517b85823"
+        "version": "9eb286982f96f03371488e910e42afb23802bdfd"
     }
 }
