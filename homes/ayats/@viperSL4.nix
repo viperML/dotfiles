@@ -6,6 +6,6 @@
   unsafeFlakePath = "${config.home.homeDirectory}/Projects/dotfiles";
 
   home.packages = [
-    packages.self.helix
+    # packages.self.helix
   ];
 }

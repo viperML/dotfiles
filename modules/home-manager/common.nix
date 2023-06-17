@@ -74,4 +74,6 @@
     options.no-setuptools = true
     prefer-active-python = true
   '';
+
+  manual.json.enable = false;
 }
