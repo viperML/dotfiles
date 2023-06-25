@@ -39,10 +39,13 @@
           # nixosModules.podman
           nixosModules.tailscale
           nixosModules.docker
+          nixosModules.fhs
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}
           nixosModules.sway
           # nixosModules.plasma5
+
+
 
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {

@@ -230,11 +230,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686727403,
-        "narHash": "sha256-AuyqUu72ehb99BPlJk3qeuIzZcQY7p24kgWMfqhcFmY=",
+        "lastModified": 1687380522,
+        "narHash": "sha256-Q2GDWFySnBWkaODyy1XSTz0peHjGVyYbmAIoDuCporU=",
         "owner": "viperML",
         "repo": "nh",
-        "rev": "941d4de5450276a08cadc7528dedc297947629b2",
+        "rev": "8b2890f3eb9d5618e2e9cb45dd95d0df65b89e30",
         "type": "github"
       },
       "original": {
@@ -362,6 +362,33 @@
       "original": {
         "owner": "Mic92",
         "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-ld": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1687311860,
+        "narHash": "sha256-pbiaB93z9WtAM5ZOpQT0KiB1ZxHzmpTW+stLURG6Ud0=",
+        "owner": "nix-community",
+        "repo": "nix-ld-rs",
+        "rev": "7c3de9ae4339a2599efe478eb6c40a5b35bf3136",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-ld-rs",
         "type": "github"
       }
     },
@@ -526,6 +553,7 @@
         "nix-common": "nix-common",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
+        "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs_2",
         "nvfetcher": "nvfetcher",
         "vscode-server": "vscode-server"
@@ -548,6 +576,31 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "9b3284e2412f76bd68ff46f8cf1c7af44d7ffac0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
+      "inputs": {
+        "flake-utils": [
+          "nix-ld",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nix-ld",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686882360,
+        "narHash": "sha256-6iWVGIdIzmx/CgXPVLPyyxxBhPGYMl8sG09S8hpQ6pc=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "b519b1d7a31f1bd35423990398adecc6f7dd4dd2",
         "type": "github"
       },
       "original": {
