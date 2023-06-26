@@ -38,7 +38,8 @@
 
           # nixosModules.podman
           nixosModules.tailscale
-          nixosModules.docker
+          # nixosModules.docker
+          nixosModules.containerd
           (args: {programs.nix-ld.package = args.packages.nix-ld.default;})
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}

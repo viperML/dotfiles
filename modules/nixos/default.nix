@@ -1,6 +1,7 @@
 {config, ...}: {
   flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
+    "containerd"
     "docker"
     "gnome"
     "hyprland"
