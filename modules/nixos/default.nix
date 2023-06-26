@@ -2,7 +2,6 @@
   flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
     "docker"
-    "fhs"
     "gnome"
     "hyprland"
     "plasma5"
