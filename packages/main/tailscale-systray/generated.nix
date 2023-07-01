@@ -4,13 +4,13 @@
   tailscale-systray = {
     pname = "tailscale-systray";
     version = "e7f8893684e7b8779f34045ca90e5abe6df6056d";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "mattn";
       repo = "tailscale-systray";
       rev = "e7f8893684e7b8779f34045ca90e5abe6df6056d";
       fetchSubmodules = false;
       sha256 = "sha256-3kozp6jq0xGllxoK2lGCNUahy/FvXyq11vNSxfDehKE=";
-    });
+    };
     date = "2022-10-20";
   };
 }
