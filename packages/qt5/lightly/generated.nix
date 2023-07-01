@@ -4,13 +4,13 @@
   lightly = {
     pname = "lightly";
     version = "121a61e5b67e5122449c80301e41b4de3649b0d5";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "Luwx";
       repo = "lightly";
       rev = "121a61e5b67e5122449c80301e41b4de3649b0d5";
       fetchSubmodules = false;
       sha256 = "sha256-UmttzKFkuZupFpBrTQYIsLCpNRLcd5CkabQN5n5zkJQ=";
-    });
+    };
     date = "2022-05-02";
   };
 }
