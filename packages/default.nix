@@ -100,6 +100,7 @@ in {
       iosevka = w pkgs.callPackage ./main/iosevka {};
       clipmon = w pkgs.callPackage ./main/clipmon {};
       wl-clip-persist = w pkgs.callPackage ./main/wl-clip-persist {};
+      multiload-ng = w pkgs.callPackage ./main/multiload-ng {};
 
       # Qt5
       kwin-forceblur = w pkgs.libsForQt5.callPackage ./qt5/kwin-forceblur {};

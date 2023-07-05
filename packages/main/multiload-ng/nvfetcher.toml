@@ -1,0 +1,3 @@
+[multiload-ng]
+src.git = "https://github.com/udda/multiload-ng"
+fetch.github = "udda/multiload-ng"
