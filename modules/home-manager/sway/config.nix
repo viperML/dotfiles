@@ -111,5 +111,7 @@ in {
     # primary_selection disabled
 
     smart_gaps on
+
+    for_window [app_id="Waydroid"] floating enable
   '';
 }

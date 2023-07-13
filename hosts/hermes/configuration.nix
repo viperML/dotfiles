@@ -116,12 +116,15 @@
     "/var/lib/systemd" = mkBtrfs ["subvol=/@nixos/@systemd"];
     "/var/lib/tailscale" = mkBtrfs ["subvol=/@nixos/@tailscale"];
     "/var/lib/NetworkManager" = mkBtrfs ["subvol=/@nixos/@nm"];
+    "/var/lib/waydroid" = mkBtrfs ["subvol=/@nixos/@waydroid"];
     ###
-    "/.home" = mkBtrfs ["subvol=/@home"];
+    "/.btrfs" = mkBtrfs [];
+    "/.btrfs/@home" = mkBtrfs ["subvol=/@home"];
+    "/.btrfs/@nixos" = mkBtrfs ["subvol=/@nixos"];
     "/home/ayats" = {
-      device = "/.home/ayats";
+      device = "/.btrfs/@home/ayats";
       options = ["bind"];
-      depends = ["/.home"];
+      depends = ["/.btrfs/@home"];
     };
 
     "/miq" = {
@@ -207,4 +210,6 @@
       }
     ];
   };
+
+  virtualisation.waydroid.enable = true;
 }
