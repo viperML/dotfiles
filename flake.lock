@@ -24,6 +24,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689213711,
+        "narHash": "sha256-8WciPYEMz3C7Xt1XIeHl5mh2mnBKOu5P6E7ID9vwaQY=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "aeebdc1156c1ef6cb1e8f75c3f53bc34f33fad6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": [
@@ -540,6 +560,7 @@
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
+        "disko": "disko",
         "emacs-overlay": "emacs-overlay",
         "envfs": "envfs",
         "flake-compat": "flake-compat",

@@ -46,6 +46,9 @@
           nixosModules.sway
           # nixosModules.plasma5
 
+          inputs.disko.nixosModules.default
+          ./disks.nix
+
           # inputs.nixified-ai.nixosModules.invokeai-amd
           # (args: {
           #   services.invokeai.enable = true;

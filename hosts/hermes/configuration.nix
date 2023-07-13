@@ -24,24 +24,8 @@
         "amdgpu"
         "kvm-intel"
       ];
-      supportedFilesystems = ["btrfs"];
+      # supportedFilesystems = ["btrfs"];
     };
-
-    loader = {
-      systemd-boot = {
-        enable = true;
-        consoleMode = "max";
-        editor = false;
-        configurationLimit = 10;
-      };
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
-      };
-      timeout = 1;
-    };
-
-    tmp.useTmpfs = true;
 
     binfmt.emulatedSystems = [
       "aarch64-linux"
@@ -80,65 +64,6 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
-
-  fileSystems = let
-    mkBtrfs = extraOpts: {
-      device = "/dev/disk/by-label/LINUX_ROOT";
-      fsType = "btrfs";
-      options = ["noatime" "compress=lzo"] ++ extraOpts;
-    };
-    mkTmpfs = {
-      fsType = "tmpfs";
-      device = "none";
-      options = [
-        "defaults"
-        "size=4G"
-        "mode=0755"
-      ];
-    };
-  in {
-    "/" = mkTmpfs;
-
-    ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-label/LINUX_ESP";
-      fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
-    };
-
-    "/nix" = mkBtrfs ["subvol=/@nixos/@nix"];
-    ###
-    "/var/lib/secrets" = mkBtrfs ["subvol=/@secrets"] // {neededForBoot = true;};
-    "/var/log" = mkBtrfs ["subvol=/@nixos/@log"] // {neededForBoot = true;};
-    "/var/lib/systemd" = mkBtrfs ["subvol=/@nixos/@systemd"];
-    "/var/lib/tailscale" = mkBtrfs ["subvol=/@nixos/@tailscale"];
-    "/var/lib/NetworkManager" = mkBtrfs ["subvol=/@nixos/@nm"];
-    "/var/lib/waydroid" = mkBtrfs ["subvol=/@nixos/@waydroid"];
-    ###
-    "/.btrfs" = mkBtrfs [];
-    "/.btrfs/@home" = mkBtrfs ["subvol=/@home"];
-    "/.btrfs/@nixos" = mkBtrfs ["subvol=/@nixos"];
-    "/home/ayats" = {
-      device = "/.btrfs/@home/ayats";
-      options = ["bind"];
-      depends = ["/.btrfs/@home"];
-    };
-
-    "/miq" = {
-      device = "/home/ayats/miq";
-      options = ["bind"];
-      depends = ["/home"];
-    };
-  };
-
-  swapDevices = [
-    {
-      label = "LINUX_SWAP";
-    }
-  ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "22.11";
