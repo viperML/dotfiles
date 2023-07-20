@@ -15,6 +15,7 @@ result*
 drvPath
 .env
 __pycache__
+history.txt
 
 **/emacs/*
 !**/emacs/custom.el
