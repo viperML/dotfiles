@@ -172,7 +172,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     -- font = wezterm.font("iosevka-normal", { weight = "Medium" }),
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
-      { family = "Symbols NF" },
+      { family = "Symbols Nerd Font" },
     },
     font_size = 12,
   }
