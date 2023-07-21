@@ -577,7 +577,8 @@
         "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs_2",
         "nvfetcher": "nvfetcher",
-        "vscode-server": "vscode-server"
+        "vscode-server": "vscode-server",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "rust-overlay": {
@@ -693,6 +694,26 @@
       "original": {
         "owner": "msteen",
         "repo": "nixos-vscode-server",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689957627,
+        "narHash": "sha256-nAHhPE93lL5UIqg9/lQtIm63Hc1Z5Lr4GUL5aDTUmAk=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "172239803a6e1c54536c84d37f8b4e75d42ef5a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     }

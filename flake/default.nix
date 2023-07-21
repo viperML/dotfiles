@@ -6,6 +6,7 @@
     ../misc/bundlers.nix
     ../hosts
     ../modules
+    ../wrappers
   ];
 
   flake.templates = lib.pipe ../misc/templ [
