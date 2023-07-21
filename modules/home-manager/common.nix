@@ -49,6 +49,7 @@
     # packages.self.neovim
     # packages.self.helix
     packages.self.git
+    pkgs.pijul
   ];
 
   # home.sessionVariables = {
