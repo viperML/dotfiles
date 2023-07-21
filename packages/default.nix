@@ -127,7 +127,6 @@ in {
       };
       #
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
-      neofetch = w pkgs.callPackage ./overrides/neofetch {};
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
@@ -136,7 +135,6 @@ in {
       stylua = w pkgs.callPackage ./overrides/stylua {};
       git = w pkgs.callPackage ./overrides/git {};
       foot = w pkgs.callPackage ./overrides/foot {};
-      kitty = w pkgs.callPackage ./overrides/kitty {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
       hyprland =

@@ -4,6 +4,7 @@
       inherit pkgs;
       modules = [
         ./wezterm
+        ./neofetch
       ];
     };
   in {
