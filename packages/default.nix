@@ -144,18 +144,6 @@ in {
               --run ". /etc/profile"
           '';
         });
-      nvfetcher = let
-        base = pkgs.nvfetcher-bin;
-      in
-        pkgs.symlinkJoin {
-          inherit (base) name pname version meta;
-          paths = [base];
-          nativeBuildInputs = [pkgs.makeWrapper];
-          postBuild = ''
-            wrapProgram $out/bin/nvfetcher \
-              --set NIX_PATH "nixpkgs=${inputs.nixpkgs}"
-          '';
-        };
 
       # hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
       #   inherit (config.packages) hyprland;

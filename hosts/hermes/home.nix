@@ -1,7 +1,6 @@
 {
   pkgs,
   packages,
-  inputs,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -9,13 +8,7 @@
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
-    (inputs.self.bundlers.${pkgs.system}.addFlags {
-      drv = pkgs.google-chrome;
-      flags = [
-        "--enable-features=WebUIDarkMode"
-        "--force-dark-mode"
-      ];
-    })
+    packages.self.google-chrome
     pkgs.vscode
     pkgs.vault
     pkgs.step-cli

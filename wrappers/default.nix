@@ -9,6 +9,8 @@
         ./git
         ./nushell
         ./zellij
+        ./chrome
+        (import ./nvfetcher {inherit (inputs) nixpkgs;})
       ];
     };
   in {
