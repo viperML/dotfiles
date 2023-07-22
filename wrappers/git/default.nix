@@ -8,6 +8,8 @@
     env.GIT_CONFIG_GLOBAL = ./gitconfig;
     extraPackages = [
       pkgs.git-extras
+    ];
+    pathAdd = [
       pkgs.delta
     ];
   };
