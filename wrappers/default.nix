@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  perSystem = {pkgs, ...}: let
+  perSystem = {
+    pkgs,
+    config,
+    ...
+  }: let
     eval = inputs.wrapper-manager.lib {
       inherit pkgs;
       modules = [
@@ -11,6 +15,9 @@
         ./zellij
         ./chrome
         (import ./nvfetcher {inherit (inputs) nixpkgs;})
+        (import ./fish {inherit (config) packages;})
+        ./bat
+        ./helix
       ];
     };
   in {

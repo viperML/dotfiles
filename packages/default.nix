@@ -119,9 +119,9 @@ in {
         database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
         databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
       };
-      fish = w pkgs.callPackage ./overrides/fish {
-        inherit (config.packages) nix-index any-nix-shell;
-      };
+      # fish = w pkgs.callPackage ./overrides/fish {
+      #   inherit (config.packages) nix-index any-nix-shell;
+      # };
       zsh = w pkgs.callPackage ./overrides/zsh {
         inherit (config.packages) nix-index;
       };
@@ -157,9 +157,6 @@ in {
       #   postBuild = ''
       #   '';
       # };
-      helix = w pkgs.callPackage ./overrides/helix {
-        helix = inputs'.helix.packages.helix or pkgs.helix;
-      };
       waybar-hyprland = w pkgs.callPackage ./overrides/waybar-hyprland {};
       sway-custom = pkgs.sway.override {
         sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (old: {
