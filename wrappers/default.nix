@@ -7,6 +7,8 @@
         ./neofetch
         ./foot
         ./git
+        ./nushell
+        ./zellij
       ];
     };
   in {

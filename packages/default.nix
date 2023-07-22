@@ -130,11 +130,6 @@ in {
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
-      rose-pine-gtk-theme = w pkgs.callPackage ./overrides/rose-pine-gtk-theme {};
-      shfmt = w pkgs.callPackage ./overrides/shfmt {};
-      stylua = w pkgs.callPackage ./overrides/stylua {};
-      nushell = w pkgs.callPackage ./overrides/nushell {};
-      zellij = w pkgs.callPackage ./overrides/zellij {};
       hyprland =
         ((inputs'.hyprland.packages.default or pkgs.hyprland).override
           {
