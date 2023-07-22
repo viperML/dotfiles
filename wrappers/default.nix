@@ -5,6 +5,8 @@
       modules = [
         ./wezterm
         ./neofetch
+        ./foot
+        ./git
       ];
     };
   in {

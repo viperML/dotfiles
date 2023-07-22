@@ -133,8 +133,6 @@ in {
       rose-pine-gtk-theme = w pkgs.callPackage ./overrides/rose-pine-gtk-theme {};
       shfmt = w pkgs.callPackage ./overrides/shfmt {};
       stylua = w pkgs.callPackage ./overrides/stylua {};
-      git = w pkgs.callPackage ./overrides/git {};
-      foot = w pkgs.callPackage ./overrides/foot {};
       nushell = w pkgs.callPackage ./overrides/nushell {};
       zellij = w pkgs.callPackage ./overrides/zellij {};
       hyprland =
