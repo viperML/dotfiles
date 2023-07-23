@@ -24,7 +24,6 @@
         "amdgpu"
         "kvm-intel"
       ];
-      # supportedFilesystems = ["btrfs"];
     };
 
     binfmt.emulatedSystems = [
@@ -137,4 +136,6 @@
   };
 
   virtualisation.waydroid.enable = true;
+
+  programs.darling.enable = true;
 }
