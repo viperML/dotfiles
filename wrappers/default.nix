@@ -21,6 +21,6 @@
       ];
     };
   in {
-    packages = eval.config.build.packages;
+    inherit (eval.config.build) packages;
   };
 }
