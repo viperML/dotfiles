@@ -65,11 +65,6 @@ in {
       nh = inputs'.nh.packages.default;
       nil = inputs'.nil.packages.default;
 
-      # inherit
-      #   (inputs'.hyprland-plugins.packages)
-      #   hyprbars
-      #   ;
-
       inherit
         (config.packages)
         adw-gtk3
@@ -82,6 +77,7 @@ in {
         helix
         waybar-hyprland
         wl-clip-persist
+        hyprland
         ;
     };
 
@@ -119,9 +115,6 @@ in {
         database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
         databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
       };
-      # fish = w pkgs.callPackage ./overrides/fish {
-      #   inherit (config.packages) nix-index any-nix-shell;
-      # };
       zsh = w pkgs.callPackage ./overrides/zsh {
         inherit (config.packages) nix-index;
       };
@@ -144,19 +137,9 @@ in {
               --run ". /etc/profile"
           '';
         });
-
-      # hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
-      #   inherit (config.packages) hyprland;
-      # };
-
-      # pkgs.symlinkJoin {
-      #   inherit (p) name pname version;
-      #   meta.mainProgram = "Hyprland";
-      #   paths = [p];
-      #   nativeBuildInputs = [pkgs.makeWrapper];
-      #   postBuild = ''
-      #   '';
-      # };
+      hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
+        inherit (config.packages) hyprland;
+      };
       waybar-hyprland = w pkgs.callPackage ./overrides/waybar-hyprland {};
       sway-custom = pkgs.sway.override {
         sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (old: {

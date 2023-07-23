@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   packages,
@@ -15,8 +14,9 @@ in {
   programs.waybar.package = packages.self.waybar-hyprland;
 
   xdg.configFile."hypr/hyprland.conf".text = let
-    mkExec = program: "systemd-run --slice=app-manual.slice --property=ExitType=cgroup --user --wait --collect ${program}";
+    mkExec = program: program;
   in ''
+    # plugin = ${packages.self.hyprbars}/lib/libhyprbars.so
     source=${mutablePath}
 
     ${lib.concatMapStringsSep "\n" (n: "bind=SUPER,${toString n},workspace,${toString n}") (lib.range 1 9)}
@@ -27,7 +27,7 @@ in {
     bind=,Prior,exec,volume 5%+
     bind=,Next,exec,volume 5%-
 
-    bind=SUPER,Return,exec,${mkExec "wezterm start --always-new-process"}
+    bind=SUPER,Return,exec,${mkExec "wezterm"}
     bind=SUPER,O,exec,wezterm start --always-new-process
     bind=SUPER,Space,exec,pkill wofi || ${mkExec "wofi --show drun"}
     bind=,Print,exec,${mkExec "grimblast copy area"}
@@ -38,7 +38,6 @@ in {
   home.packages = [
     packages.self.wezterm
     packages.hyprland-contrib.grimblast
-    pkgs.swaybg
   ];
 
   systemd.user.targets.hyprland-session = {

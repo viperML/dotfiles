@@ -43,7 +43,8 @@
           (args: {programs.nix-ld.package = args.packages.nix-ld.default;})
 
           {services.xserver.displayManager.autoLogin.user = "ayats";}
-          nixosModules.sway
+          # nixosModules.sway
+          nixosModules.hyprland
           # nixosModules.plasma5
 
           inputs.disko.nixosModules.default

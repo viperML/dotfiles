@@ -1,4 +1,23 @@
 {
+    "hyprland": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "hyprland",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "v0.27.2",
+            "sha256": "sha256-2OuPIcw2WOUc/zjrH7JZHWe1byuMjqP6Zz7D4qsi10s=",
+            "type": "git",
+            "url": "https://github.com/hyprwm/Hyprland.git"
+        },
+        "version": "v0.27.2"
+    },
     "nix": {
         "cargoLocks": null,
         "date": null,
