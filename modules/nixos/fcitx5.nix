@@ -40,19 +40,5 @@ in {
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
-    # QT_PLUGIN_PATH = [
-    #   "${fcitx5Package}/${pkgs.qt6.qtbase.qtPluginPrefix}"
-    # ];
-  };
-
-  systemd.user.services."fcitx5-daemon" = {
-    unitConfig = {
-      Description = "Fcitx5 input method editor";
-      PartOf = ["graphical-session.target"];
-    };
-    serviceConfig = {
-      ExecStart = "${cfg.package}/bin/fcitx5";
-    };
-    wantedBy = ["graphical-session.target"];
   };
 }

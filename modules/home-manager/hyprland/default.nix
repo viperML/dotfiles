@@ -2,6 +2,7 @@
   config,
   lib,
   packages,
+  pkgs,
   ...
 }: let
   mutablePath = "${config.unsafeFlakePath}/modules/home-manager/hyprland/hyprland.conf";
@@ -31,6 +32,9 @@ in {
     bind=SUPER,O,exec,wezterm start --always-new-process
     bind=SUPER,Space,exec,pkill wofi || ${mkExec "wofi --show drun"}
     bind=,Print,exec,${mkExec "grimblast copy area"}
+
+    exec=${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
+    exec=systemctl --user start hyprland-session.target
   '';
 
   xdg.configFile."hypr/hyprland.conf".onChange = "${packages.self.hyprland}/bin/hyprctl reload";
@@ -44,25 +48,16 @@ in {
     Unit = {
       Description = "hyprland compositor session";
       BindsTo = ["graphical-session.target"];
-      Wants = ["graphical-session-pre.target"];
-      After = ["graphical-session-pre.target"];
+      Wants = [
+        "graphical-session-pre.target"
+        "xdg-desktop-autostart.target"
+      ];
+      After = [
+        "graphical-session-pre.target"
+      ];
+      Before = [
+        "xdg-desktop-autostart.target"
+      ];
     };
   };
-
-  # systemd.user.services = let
-  #   mkService = lib.recursiveUpdate {
-  #     Install.WantedBy = ["graphical-session.target"];
-  #   };
-  # in {
-  #   swaybg = {
-  #     Unit.Description = "Wallpaper";
-  #     Service.ExecStart = "${lib.getExe pkgs.swaybg} --image ${config.home.homeDirectory}/Pictures/wallpaper --mode fill";
-  #     Install.WantedBy = ["graphical-session.target"];
-  #   };
-
-  #   avizo = mkService {
-  #     Unit.Description = "Volume popup daemon";
-  #     Service.ExecStart = "${pkgs.avizo}/bin/avizo-service";
-  #   };
-  # };
 }
