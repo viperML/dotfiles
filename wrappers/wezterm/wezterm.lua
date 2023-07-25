@@ -155,8 +155,11 @@ local generic_config = {
   check_for_updates = false,
   default_cursor_style = "SteadyBar",
   keys = {
-    { key = "x", mods = "ALT", action = wezterm.action.ShowLauncher },
+    { key = "x", mods = "ALT", action = wezterm.action.ActivateCommandPalette },
+    { key = "w", mods = "ALT", action = wezterm.action.SplitVertical },
+    { key = "w", mods = "SHIFT|ALT", action = wezterm.action.SplitHorizontal }
   },
+  pane_focus_follows_mouse = true
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -179,7 +182,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 else
   platform_config = {
     default_prog = { "fish" },
-    enable_tab_bar = false,
+    enable_tab_bar = true,
     font = wezterm.font("iosevka NFM", { weight = "Medium", stretch = "Normal", style = "Normal" }),
     font_size = 12,
   }
