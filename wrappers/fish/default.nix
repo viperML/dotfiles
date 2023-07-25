@@ -1,55 +1,3 @@
-# {
-#   makeWrapper,
-#   writeText,
-#   writeTextDir,
-#   lib,
-#   fish,
-#   symlinkJoin,
-#   #
-#   fzf,
-#   starship,
-#   direnv,
-#   nix-direnv,
-#   nix-index,
-#   exa,
-#   bat,
-#   fishPlugins,
-#   any-nix-shell,
-#   jq,
-# }: let
-#   extraPackages = [
-#     fzf
-#     starship
-#     direnv
-#     nix-index
-#     exa
-#     any-nix-shell
-#     (symlinkJoin {
-#       inherit (bat) name pname version;
-#       paths = [bat];
-#       buildInputs = [makeWrapper];
-#       postBuild = ''
-#         wrapProgram $out/bin/bat \
-#           --add-flags '--theme=ansi' \
-#           --add-flags '--style=changes,header' \
-#           --add-flags '--plain' \
-#           --add-flags '--paging=auto'
-#       '';
-#     })
-#     jq
-#   ];
-# in
-#   symlinkJoin {
-#     name = with fish'; "${pname}-${version}";
-#     inherit (fish') pname version meta;
-#     paths = [fish'] ++ extraPackages;
-#     nativeBuildInputs = [makeWrapper];
-#     postBuild = ''
-#       wrapProgram $out/bin/fish \
-#         --set MANPAGER 'sh -c "col -bx | bat --paging=always -l man -p"' \
-#         --prefix PATH ':' $out/bin \
-#     '';
-#   }
 {packages}: {
   pkgs,
   lib,
@@ -105,7 +53,7 @@
         if status is-interactive
           ${lib.fileContents ./interactive.fish}
           ${lib.fileContents ./pushd_mod.fish}
-          set -gx STARSHIP_CONFIG ${./starship.toml}
+          set -gx STARSHIP_CONFIG ${../starship.toml}
           function starship_transient_prompt_func
             starship module character
           end

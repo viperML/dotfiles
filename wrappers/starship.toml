@@ -19,11 +19,15 @@ $cmd_duration\
 [\\]](fg:8)
 )\
 $directory
-
+$character
 """
 
 scan_timeout = 10
 add_newline = false
+
+[character]
+success_symbol = "[\\$](bold)"
+error_symbol = "[\\$](bold)"
 
 [username]
 show_always = false
