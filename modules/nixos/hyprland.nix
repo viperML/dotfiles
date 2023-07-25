@@ -9,7 +9,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = packages.self.hyprland;
+    package = packages.hyprland.default;
   };
 
   home-manager.sharedModules = [

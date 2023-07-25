@@ -12,12 +12,11 @@ in {
     ../wayland-compositors
   ];
 
-  programs.waybar.package = packages.self.waybar-hyprland;
+  programs.waybar.package = packages.hyprland.waybar-hyprland;
 
   xdg.configFile."hypr/hyprland.conf".text = let
     mkExec = program: program;
   in ''
-    # plugin = ${packages.self.hyprbars}/lib/libhyprbars.so
     source=${mutablePath}
 
     ${lib.concatMapStringsSep "\n" (n: "bind=SUPER,${toString n},workspace,${toString n}") (lib.range 1 9)}

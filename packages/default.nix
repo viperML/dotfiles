@@ -75,9 +75,7 @@ in {
         xdg-ninja
         fish
         helix
-        waybar-hyprland
         wl-clip-persist
-        hyprland
         ;
     };
 
@@ -123,24 +121,7 @@ in {
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
-      hyprland =
-        ((inputs'.hyprland.packages.default or pkgs.hyprland).override
-          {
-            enableXWayland = true;
-            hidpiXWayland = false;
-            nvidiaPatches = false;
-          })
-        .overrideAttrs (old: {
-          nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.makeWrapper];
-          preFixup = ''
-            wrapProgram $out/bin/Hyprland \
-              --run ". /etc/profile"
-          '';
-        });
-      hyprbars = inputs'.hyprland-plugins.packages.hyprbars.override {
-        inherit (config.packages) hyprland;
-      };
-      waybar-hyprland = w pkgs.callPackage ./overrides/waybar-hyprland {};
+
       sway-custom = pkgs.sway.override {
         sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (old: {
           inherit (pkgs.swayfx) src pname version meta patches;
