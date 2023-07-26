@@ -134,7 +134,7 @@
       # "Gtk/CursorThemeName" = "Vanilla-DMZ";
       "Net/EnableEventSounds" = false;
       "Net/EnableInputFeedbackSounds" = false;
-      "Net/IconThemeName" = "Papirus-Dark";
+      "Net/IconThemeName" = "Tela-circle-grey-dark";
       "Xft/Antialias" = true;
       "Xft/Hinting" = true;
       "Xft/RGBA" = "rgb";
