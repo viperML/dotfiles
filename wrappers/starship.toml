@@ -76,7 +76,7 @@ symbol = " "
 
 [package]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = "󰏗 "
 
 [cmd_duration]
 min_time = 60_000

@@ -310,13 +310,14 @@ local generic_config = {
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
     { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
   },
-  pane_focus_follows_mouse = true
+  pane_focus_follows_mouse = true,
+  warn_about_missing_glyphs =  false,
+  enable_tab_bar = true
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   platform_config = {
     default_prog = { "nu" },
-    enable_tab_bar = true,
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
       { family = "Symbols Nerd Font" }
@@ -326,8 +327,10 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 else
   platform_config = {
     default_prog = { "fish" },
-    enable_tab_bar = true,
-    font = wezterm.font("iosevka NFM", { weight = "Medium", stretch = "Normal", style = "Normal" }),
+    font = wezterm.font_with_fallback {
+      { family = "iosevka-normal", weight = "Medium" },
+      { family = "Symbols Nerd Font" }
+    },
     font_size = 12,
   }
 end

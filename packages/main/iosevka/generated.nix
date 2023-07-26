@@ -5,8 +5,8 @@
     pname = "iosevka";
     version = "v1.3.2";
     src = fetchurl {
-      url = "https://github.com/viperML/iosevka/releases/download/v1.3.2/iosevka-ttf-nerd-zip.zip";
-      sha256 = "sha256-TizKUzNYwKGeW4ThmEA5zYjui1smcZYKiCcHFDyngCE=";
+      url = "https://github.com/viperML/iosevka/releases/download/v1.3.2/iosevka-ttf-zip.zip";
+      sha256 = "sha256-v1FPQ3HYbsRUxdP0Y8YDovEoghbIa1eu9je8bO7d0XM=";
     };
   };
 }

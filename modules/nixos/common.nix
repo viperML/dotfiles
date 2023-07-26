@@ -99,6 +99,7 @@
   fonts.fonts = [
     pkgs.roboto
     packages.self.iosevka
+    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   time.timeZone = "Europe/Madrid";

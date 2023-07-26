@@ -113,10 +113,6 @@ in {
         database = inputs.nix-index-database.legacyPackages."x86_64-linux".database;
         databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
       };
-      zsh = w pkgs.callPackage ./overrides/zsh {
-        inherit (config.packages) nix-index;
-      };
-      #
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};

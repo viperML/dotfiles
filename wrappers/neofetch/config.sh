@@ -25,17 +25,16 @@ done
 print_info() {
     prin
     prin " " "github.com/viperML/dotfiles"
-    # info " " packages
     info " " kernel
     info " " cpu
-    prin " " "${MY_VIDEO}"
-    info ' ' memory
-    info " " resolution
+    prin "󰊚 " "${MY_VIDEO}"
+    info "󰍛 " memory
+    info "󰹑 " resolution
 
 
-    info "缾" wm
+    info " " wm
     # info "$ " shell
-    info " " term
+    info " " term
     # info " " term_font
     prin " " "--> =<< |> <!-- !="
 
