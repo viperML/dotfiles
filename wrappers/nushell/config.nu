@@ -5,6 +5,7 @@ $env.config = {
   show_banner: false
   # use_ansi_coloring: false
   render_right_prompt_on_last_line: true
+  shell_integration: false
   hooks: {
     pre_prompt: (if $direnv_installed {
       [{
@@ -61,9 +62,17 @@ $env.config = {
     index_mode: auto
   }
   completions: {
+    quick: true
+    algorithm: "fuzzy"
     external: (if ((which carapace | length)  > 0) { {
       completer: { |spans| carapace $spans.0 nushell $spans | from json }
     } } else { {} })
+  }
+  history: {
+    file_format: "sqlite" # "sqlite" or "plaintext"
+  }
+  filesize: {
+      metric: false
   }
 }
 

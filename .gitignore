@@ -16,6 +16,7 @@ drvPath
 .env
 __pycache__
 history.txt
+*sqlite3*
 
 **/emacs/*
 !**/emacs/custom.el
