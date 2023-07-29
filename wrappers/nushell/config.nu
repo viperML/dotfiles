@@ -1,7 +1,7 @@
 let direnv_installed = (which direnv | length) > 0
 let starship_installed = (which starship | length) > 0
 
-let-env config = {
+$env.config = {
   show_banner: false
   # use_ansi_coloring: false
   render_right_prompt_on_last_line: true
@@ -68,19 +68,18 @@ let-env config = {
 }
 
 if $starship_installed {
-  let-env STARSHIP_SHELL = "nu"
-  let-env STARSHIP_SESSION_KEY = (random chars -l 16)
-  let-env STARSHIP_SESSION_KEY = (random chars -l 16)
-  let-env PROMPT_MULTILINE_INDICATOR = (starship prompt --continuation)
-
-  let-env PROMPT_INDICATOR = ""
-  let-env PROMPT_COMMAND = {|| starship prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" }
+  $env.STARSHIP_SHELL = "nu"
+  $env.STARSHIP_SESSION_KEY = (random chars -l 16)
+  $env.STARSHIP_SESSION_KEY = (random chars -l 16)
+  $env.PROMPT_MULTILINE_INDICATOR = (starship prompt --continuation)
+  $env.PROMPT_INDICATOR = ""
+  $env.PROMPT_COMMAND = {|| starship prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" }
+  $env.PROMPT_COMMAND_RIGHT = ''
 } else {}
 
-let-env PROMPT_COMMAND_RIGHT = ''
 
 if ($nu.os-info.name == "windows") {
-  let-env DIRENV_CONFIG = ([ $env.APPDATA "direnv" "conf" ] | path join)
-  let-env XDG_DATA_HOME = ([ $env.LOCALAPPDATA ] | path join)
-  let-env XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
+  $env.DIRENV_CONFIG = ([ $env.APPDATA "direnv" "conf" ] | path join)
+  $env.XDG_DATA_HOME = ([ $env.LOCALAPPDATA ] | path join)
+  $env.XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
 }
