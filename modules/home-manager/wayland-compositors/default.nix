@@ -120,6 +120,11 @@
       name = "Roboto";
       size = 10.0;
     };
+    gtk3 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
   };
 
   qt = {
@@ -211,6 +216,17 @@
       };
       urgency_normal = {
         inherit background foreground frame_color;
+      };
+    };
+  };
+
+  dconf = {
+    enable = true;
+    settings = let
+      inherit (config.lib) gvariant;
+    in {
+      "org/gnome/desktop/interface" = {
+        "color-scheme" = gvariant.mkString "prefer-dark";
       };
     };
   };
