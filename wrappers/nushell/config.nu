@@ -63,16 +63,24 @@ $env.config = {
   }
   completions: {
     quick: true
+    partial: true
+    case_sensitive: false
     algorithm: "fuzzy"
-    external: (if ((which carapace | length)  > 0) { {
-      completer: { |spans| carapace $spans.0 nushell $spans | from json }
-    } } else { {} })
+    external: (if ((which carapace | length) > 0) {
+      {
+        enable: true
+        completer: { |spans| carapace $spans.0 nushell $spans | from json }
+        max_results: 100
+      }
+    } else {
+      {}
+    })
   }
   history: {
     file_format: "sqlite" # "sqlite" or "plaintext"
   }
   filesize: {
-      metric: false
+    metric: false
   }
 }
 
