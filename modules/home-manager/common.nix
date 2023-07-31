@@ -50,6 +50,7 @@
     # packages.self.helix
     packages.self.git
     pkgs.pijul
+    pkgs.gitoxide
   ];
 
   # home.sessionVariables = {

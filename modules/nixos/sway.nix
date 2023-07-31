@@ -17,6 +17,4 @@
     package = packages.self.sway-custom;
     extraPackages = [];
   };
-
-  xdg.portal.enable = true;
 }
