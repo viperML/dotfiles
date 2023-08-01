@@ -18,7 +18,7 @@
     };
 
     nix = {
-      url = "github:NixOS/nix/2.16.1";
+      url = "github:NixOS/nix/2.17.0";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
