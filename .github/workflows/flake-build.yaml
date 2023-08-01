@@ -24,25 +24,25 @@ jobs:
   generate_matrix:
     runs-on: ubuntu-latest
     outputs:
-      packages: ${{ steps.gen_packages.outputs.packages }}
+      flake_outputs: ${{ steps.generate_flake_outputs.outputs.flake_outputs }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Install nix
       uses: ./.github/actions/install-nix
-    - id: gen_packages
-      name: Generate package matrix
-      run: nix run .#dotci -- build-matrix >> $GITHUB_OUTPUT
+    - id: generate_flake_outputs
+      name: Generate flake output matrix
+      run: nix run .#dotci -L -- build-matrix >> $GITHUB_OUTPUT
 
-  build_flake:
+  build:
     runs-on: ubuntu-latest
     needs: [generate_matrix]
-    if: ${{ needs.generate_matrix.outputs.packages != '[]' && needs.generate_matrix.outputs.packages != '' }}
+    if: ${{ needs.generate_matrix.outputs.flake_outputs != '[]' && needs.generate_matrix.outputs.flake_outputs != '' }}
     strategy:
       fail-fast: false
-      max-parallel: 5
+      # max-parallel: 5
       matrix:
-        package: ${{ fromJson(needs.generate_matrix.outputs.packages )}}
+        flake_output: ${{ fromJson(needs.generate_matrix.outputs.flake_outputs )}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -55,14 +55,14 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
         pathsToPush: result
     - name: Build output
-      run: nix build .#${{ matrix.package }} -L
+      run: nix build .#${{ matrix.flake_output }} -L
 
   eval:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        output: [
+        flake_output: [
           nixosConfigurations.hermes.config.system.build.toplevel,
           homeConfigurations.ayats.activationPackage
         ]
@@ -77,4 +77,4 @@ jobs:
         name: viperml
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - name: Eval output
-      run: nix build .#${{ matrix.output }} -L --dry-run --print-out-paths -j0
+      run: nix build .#${{ matrix.flake_output }} -L --dry-run --print-out-paths -j0

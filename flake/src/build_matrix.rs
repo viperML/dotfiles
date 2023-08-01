@@ -60,7 +60,7 @@ impl CliCommand for BuildMatrixArgs {
         let json = serde_json::to_string(&outputs)?;
         info!(%json);
 
-        println!("packages={}", json);
+        println!("flake_outputs={}", json);
 
         Ok(())
     }
