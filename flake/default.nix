@@ -43,16 +43,14 @@
       };
 
     packages.dotci = pkgs.callPackage ./dotci.nix {
-      src = ./.;
-      # FIXME
-      # src = inputs.nix-filter {
-      #   src = ./.;
-      #   include = [
-      #     "src"
-      #     "Cargo.toml"
-      #     "Cargo.lock"
-      #   ];
-      # };
+      src = inputs.nix-filter.lib {
+        root = ./.;
+        include = [
+          "src"
+          "Cargo.toml"
+          "Cargo.lock"
+        ];
+      };
     };
 
     checks = {
