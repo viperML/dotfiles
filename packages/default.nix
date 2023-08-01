@@ -60,7 +60,6 @@ in {
     };
 
     checks = {
-      deploy-rs = inputs'.deploy-rs.packages.default;
       nix = pkgs.nix;
       nh = inputs'.nh.packages.default;
       nil = inputs'.nil.packages.default;
