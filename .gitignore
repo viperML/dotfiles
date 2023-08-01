@@ -27,3 +27,4 @@ flake.json
 .clj-kondo
 .lsp
 .calva
+target
