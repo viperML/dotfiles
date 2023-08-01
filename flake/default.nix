@@ -53,13 +53,13 @@
       #     "Cargo.lock"
       #   ];
       # };
+    };
 
-      checks = {
-        inherit
-          (config.packages)
-          dotci
-          ;
-      };
+    checks = {
+      inherit
+        (config.packages)
+        dotci
+        ;
     };
   };
 }
