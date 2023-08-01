@@ -14,9 +14,10 @@
     packages.self.nvfetcher
     packages.nh.default
     pkgs.nix-output-monitor
+    packages.self.dotci
 
     # Editor support
-    packages.nil.default
+    pkgs.nil
     pkgs.typst-lsp
 
     # Misc utils

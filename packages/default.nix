@@ -62,7 +62,6 @@ in {
     checks = {
       nix = pkgs.nix;
       nh = inputs'.nh.packages.default;
-      nil = inputs'.nil.packages.default;
 
       inherit
         (config.packages)
