@@ -1,5 +1,5 @@
 mod build_matrix;
-
+mod generate;
 
 use std::ops::Deref;
 
@@ -12,7 +12,7 @@ use tracing_subscriber::prelude::*;
 #[derive(Debug, Parser)]
 enum Args {
     BuildMatrix(build_matrix::BuildMatrixArgs),
-    GenFlake,
+    GenFlake(generate::GenFlakeArgs),
 }
 
 #[async_trait]
@@ -25,7 +25,7 @@ impl CliCommand for Args {
     async fn run(&self) -> Result<()> {
         match self {
             Args::BuildMatrix(args) => args.run().await,
-            Args::GenFlake => todo!(),
+            Args::GenFlake(args) => args.run().await,
         }
     }
 }

@@ -1,3 +1,4 @@
+# -*- mode: nix -*-
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
 
@@ -19,7 +20,7 @@
     };
 
     nix = {
-      url = "github:NixOS/nix/%nix%";
+      url = "github:NixOS/nix/{{nix}}";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
@@ -64,7 +65,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvfetcher = {
-      url = "github:berberman/nvfetcher/%nvfetcher%";
+      url = "github:berberman/nvfetcher/{{nvfetcher}}";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
@@ -81,7 +82,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/%hyprland%";
+      url = "github:hyprwm/Hyprland/{{hyprland}}";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {

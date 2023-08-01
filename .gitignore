@@ -28,3 +28,4 @@ flake.json
 .lsp
 .calva
 target
+flake/generated.nix
