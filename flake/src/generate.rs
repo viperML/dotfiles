@@ -30,12 +30,12 @@ impl CliCommand for GenFlakeArgs {
 
         let raw = std::fs::read_to_string(&self.template)?
             .lines()
-            .filter(|line| !line.split_whitespace().any(|elem| elem.starts_with("#")))
+            .filter(|line| !line.split_whitespace().any(|elem| elem.starts_with('#')))
             .fold(None, |acc: Option<String>, next| {
                 let mut acc = match acc {
                     None => String::new(),
                     Some(mut s) => {
-                        s.push_str("\n");
+                        s.push('\n');
                         s
                     }
                 };

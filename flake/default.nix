@@ -38,6 +38,7 @@
           cargo
           rustfmt
           rust-analyzer-unwrapped
+          clippy
         ];
         RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
       };

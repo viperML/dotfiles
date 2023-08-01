@@ -2,10 +2,10 @@ use std::{collections::HashMap, path::PathBuf};
 
 use async_trait::async_trait;
 use clap::Args;
-use eyre::{bail, ContextCompat, Result};
+use eyre::{ContextCompat, Result};
 use futures::{stream::FuturesUnordered, StreamExt, TryFutureExt};
 use regex::Regex;
-use tracing::{debug, info};
+use tracing::info;
 
 use crate::CliCommand;
 
@@ -18,6 +18,12 @@ pub(crate) struct BuildMatrixArgs {
 }
 
 type OutputMap = HashMap<String, String>;
+
+const CACHES: &[&str] = &[
+    // -
+    "https://viperml.cachix.org",
+    "https://cache.nixos.org",
+];
 
 #[async_trait]
 impl CliCommand for BuildMatrixArgs {
@@ -41,9 +47,16 @@ impl CliCommand for BuildMatrixArgs {
 
         let futs = parsed.into_iter().map(|(name, path)| async move {
             let hash = async { extract_hash(&path).wrap_err("Couldn't get a hash") };
-            hash.and_then(|h| async { query_hash(h).await })
-                .await
-                .map(|res| (name, res))
+
+            hash.and_then(|hash| async {
+                let queries = CACHES.iter().map(|host| query_hash(hash, host));
+
+                futures::future::try_join_all(queries.into_iter())
+                    .await
+                    .map(|v| v.into_iter().any(|ok| ok))
+            })
+            .await
+            .map(|res| (name, res))
         });
 
         let mut stream = futs.collect::<FuturesUnordered<_>>();
@@ -66,8 +79,8 @@ impl CliCommand for BuildMatrixArgs {
     }
 }
 
-async fn query_hash(hash: &str) -> Result<bool> {
-    let url = format!("https://viperml.cachix.org/{}.narinfo", hash);
+async fn query_hash(hash: &str, host: &str) -> Result<bool> {
+    let url = format!("{}/{}.narinfo", host, hash);
     let response = reqwest::get(url).await?;
 
     match response.status().as_u16() {
