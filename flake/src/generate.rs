@@ -5,7 +5,7 @@ use clap::Args;
 use eyre::Result;
 use handlebars::Handlebars;
 use serde::Deserialize;
-use tracing::{info, debug};
+use tracing::{debug, info};
 
 use crate::CliCommand;
 
@@ -31,11 +31,18 @@ impl CliCommand for GenFlakeArgs {
         let raw = std::fs::read_to_string(&self.template)?
             .lines()
             .filter(|line| !line.split_whitespace().any(|elem| elem.starts_with("#")))
-            .fold(String::new(), |mut acc, next| {
-                acc.push_str("\n");
+            .fold(None, |acc: Option<String>, next| {
+                let mut acc = match acc {
+                    None => String::new(),
+                    Some(mut s) => {
+                        s.push_str("\n");
+                        s
+                    }
+                };
                 acc.push_str(next);
-                acc
-            });
+                Some(acc)
+            })
+            .unwrap();
 
         info!(%raw);
 
@@ -50,7 +57,8 @@ impl CliCommand for GenFlakeArgs {
 
         debug!(?nv);
 
-        let handlebars = Handlebars::new();
+        let mut handlebars = Handlebars::new();
+        handlebars.set_strict_mode(true);
         let render = handlebars.render_template(&raw, &nv)?;
 
         print!("{render}");
