@@ -42,7 +42,7 @@ in {
       (
         shopt -s nullglob  # so that nothing is done if /tmp/hypr/ does not exist or is empty
         for instance in /tmp/hypr/*; do
-          HYPRLAND_INSTANCE_SIGNATURE=''${instance##*/} ${packages.self.hyprland}/bin/hyprctl reload config-only \
+          HYPRLAND_INSTANCE_SIGNATURE=''${instance##*/} ${packages.hyprland.default}/bin/hyprctl reload config-only \
             || true  # ignore dead instance(s)
         done
       )

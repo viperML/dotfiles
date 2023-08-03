@@ -11,12 +11,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "v0.27.2",
-            "sha256": "sha256-2OuPIcw2WOUc/zjrH7JZHWe1byuMjqP6Zz7D4qsi10s=",
+            "rev": "v0.28.0",
+            "sha256": "sha256-t1Ksv5/xwRgi8oH9jyoIEuMHi9cYIZSg3yEJLYMb78Y=",
             "type": "git",
             "url": "https://github.com/hyprwm/Hyprland.git"
         },
-        "version": "v0.27.2"
+        "version": "v0.28.0"
     },
     "nix": {
         "cargoLocks": null,
