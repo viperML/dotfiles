@@ -22,7 +22,7 @@ These are my personal configuration files for my Linux and Windows machines. Fee
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src="./misc/img/20230129.png" width="100%"/>
+    <img alt="Desktop screenshot" src="./misc/img/20230809.png" width="100%"/>
   </div>
 </div>
 
