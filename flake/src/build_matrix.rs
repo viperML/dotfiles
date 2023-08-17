@@ -56,7 +56,7 @@ impl CliCommand for BuildMatrixArgs {
                     .map(|v| v.into_iter().any(|ok| ok))
             })
             .await
-            .map(|res| (name, res))
+            .map(|res| (format!("checks.{}.{}", self.system, name), res))
         });
 
         let mut stream = futs.collect::<FuturesUnordered<_>>();
