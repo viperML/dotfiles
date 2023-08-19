@@ -65,7 +65,7 @@ $env.config = {
     quick: true
     partial: true
     case_sensitive: false
-    algorithm: "fuzzy"
+    algorithm: "prefix"
     external: (if ((which carapace | length) > 0) {
       {
         enable: true
