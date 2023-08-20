@@ -1,7 +1,7 @@
 {
     "hyprland": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2023-08-19",
         "extract": null,
         "name": "hyprland",
         "passthru": null,
@@ -11,12 +11,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "v0.28.0",
-            "sha256": "sha256-t1Ksv5/xwRgi8oH9jyoIEuMHi9cYIZSg3yEJLYMb78Y=",
+            "rev": "fff118fa763d299958002684d2fdbfbb2e804d50",
+            "sha256": "sha256-f0f39dNrQpTh/QA/OrJJ/ZdrHQWiaho7cZVnRukZm4c=",
             "type": "git",
-            "url": "https://github.com/hyprwm/Hyprland.git"
+            "url": "https://github.com/hyprwm/Hyprland"
         },
-        "version": "v0.28.0"
+        "version": "fff118fa763d299958002684d2fdbfbb2e804d50"
     },
     "nix": {
         "cargoLocks": null,
@@ -49,11 +49,11 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "0.6.1",
-            "sha256": "sha256-vgyu3jsnGDDAEYg4y/oFk2IaTCXUlce0ZaLtQprhmFk=",
+            "rev": "0.6.2",
+            "sha256": "sha256-McJd+9TM//Hp2EWx4AZtVBsELdi6hvsC19uabRRrqv8=",
             "type": "git",
             "url": "https://github.com/berberman/nvfetcher.git"
         },
-        "version": "0.6.1"
+        "version": "0.6.2"
     }
 }

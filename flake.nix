@@ -52,7 +52,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvfetcher = {
-      url = "github:berberman/nvfetcher/0.6.1";
+      url = "github:berberman/nvfetcher/0.6.2";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
@@ -68,7 +68,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.28.0";
+      url = "github:hyprwm/Hyprland/fff118fa763d299958002684d2fdbfbb2e804d50";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
