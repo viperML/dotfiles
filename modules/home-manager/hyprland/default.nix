@@ -12,7 +12,7 @@ in {
     ../wayland-compositors
   ];
 
-  programs.waybar.package = packages.hyprland.waybar-hyprland;
+  programs.waybar.package = pkgs.waybar-hyprland;
 
   xdg.configFile."hypr/hyprland.conf" = {
     text = let
