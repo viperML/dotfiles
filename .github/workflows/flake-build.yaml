@@ -7,7 +7,7 @@ on:
   pull_request:
   push:
     branches-ignore:
-      - 'update*'
+      - 'update/flake'
   workflow_dispatch:
 
 jobs:
