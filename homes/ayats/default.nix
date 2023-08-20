@@ -30,4 +30,8 @@ in {
       (./. + "/@wsl.nix")
     ];
   };
+
+  flake.checks."x86_64-linux" = {
+    "home-ayats@viperSL4" = config.flake.homeConfigurations."ayats@viperSL4".config.home.path;
+  };
 }
