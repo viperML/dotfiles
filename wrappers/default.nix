@@ -22,5 +22,13 @@
     };
   in {
     inherit (eval.config.build) packages;
+
+    checks = {
+      inherit
+        (config.packages)
+        nvfetcher
+        fish
+        ;
+    };
   };
 }

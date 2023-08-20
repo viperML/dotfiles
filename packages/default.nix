@@ -66,14 +66,11 @@ in {
       inherit
         (config.packages)
         adw-gtk3
-        git
         iosevka
         nix-index
         tailscale-systray
-        xdg-ninja
-        fish
-        helix
         wl-clip-persist
+        xdg-ninja
         ;
     };
 
