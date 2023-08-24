@@ -27,6 +27,7 @@
               inputs.nix-common.homeModules.default
               ./home.nix
               homeModules.common
+              homeModules.browser
             ];
             home-manager.extraSpecialArgs = specialArgs;
           }

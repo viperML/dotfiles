@@ -10,5 +10,6 @@
     "hyprland"
     "sway"
     "waybar"
+    "browser"
   ];
 }

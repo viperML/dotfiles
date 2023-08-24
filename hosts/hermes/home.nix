@@ -8,7 +8,6 @@
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
-    packages.self.google-chrome
     pkgs.vscode
     pkgs.vault
     pkgs.step-cli
