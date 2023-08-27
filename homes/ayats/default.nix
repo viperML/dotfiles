@@ -25,13 +25,13 @@ in {
     "ayats@shiva" = mkHome "aarch64-linux" [
       (./. + "/@shiva.nix")
     ];
-    "ayats@viperSL4" = mkHome "x86_64-linux" [
-      (./. + "/@viperSL4.nix")
+    "ayats@HESTIA" = mkHome "x86_64-linux" [
+      (./. + "/@HESTIA.nix")
       (./. + "/@wsl.nix")
     ];
   };
 
   flake.checks."x86_64-linux" = {
-    "home-ayats@viperSL4" = config.flake.homeConfigurations."ayats@viperSL4".config.home.path;
+    "home-ayats@HESTIA" = config.flake.homeConfigurations."ayats@HESTIA".config.home.path;
   };
 }
