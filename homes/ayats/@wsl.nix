@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   home.file =
@@ -16,4 +17,8 @@
     });
 
   nix.settings = import ../../misc/nix-conf-privileged.nix;
+
+  home.packages = with pkgs; [
+    gh
+  ];
 }
