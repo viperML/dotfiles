@@ -48,7 +48,7 @@
     packages.self.nushell
     packages.self.zellij
     # packages.self.neovim
-    # packages.self.helix
+    packages.self.helix
     packages.self.git
     pkgs.pijul
     pkgs.gitoxide
@@ -57,6 +57,9 @@
   # home.sessionVariables = {
   #   LESS = "-RiF --mouse --wheel-lines=3";
   # };
+  home.sessionVariables = {
+    EDITOR = "hx";
+  };
 
   home.stateVersion = lib.mkDefault "21.11";
 

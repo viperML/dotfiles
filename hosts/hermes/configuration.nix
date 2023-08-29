@@ -8,7 +8,6 @@
   environment.sessionVariables = {
     VAULT_ADDR = "http://shiva:8200";
     NOMAD_ADDR = "http://shiva:4646";
-    EDITOR = "nvim";
   };
 
   boot = {
