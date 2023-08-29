@@ -12,6 +12,22 @@ insert = "bar"
 
 [editor.lsp]
 display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spacer", "version-control", "spinner", "diagnostics"]
+right = ["file-base-name", "file-type", "selections", "position", "file-encoding"]
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.soft-wrap]
+enable = true
 
 # https://github.com/LGUG2Z/helix-vim
 [keys.normal]
