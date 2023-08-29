@@ -1,7 +1,7 @@
 [core]
   pager=delta
   eol=lf
-  autocrlf=false
+  autocrlf=input
 [credential "https://github.com"]
   helper=
   helper=!gh auth git-credential
