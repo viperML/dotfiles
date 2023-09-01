@@ -68,7 +68,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/fff118fa763d299958002684d2fdbfbb2e804d50";
+      url = "github:hyprwm/Hyprland/1a13d44d5dbe8e13480366dc97ea7eeee4ff42bb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
