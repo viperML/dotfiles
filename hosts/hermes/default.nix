@@ -16,9 +16,11 @@
       };
     in
       inputs.nixpkgs.lib.nixosSystem {
-        inherit system specialArgs pkgs;
+        inherit specialArgs pkgs;
 
         modules = with config.flake; [
+          inputs.nixpkgs.nixosModules.readOnlyPkgs
+          {nixpkgs.pkgs = pkgs;}
           inputs.nh.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-common.nixosModules.default
