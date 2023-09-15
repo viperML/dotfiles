@@ -31,22 +31,15 @@
     pkgs.ripgrep
     pkgs.skim
     # pkgs.bubblewrap
-    pkgs.wormhole-william
+    pkgs.magic-wormhole-rs
     # packages.self.zellij
-    pkgs.elfutils
     pkgs.du-dust
-    (
-      if pkgs.system == "x86_64-linux"
-      then pkgs.lurk
-      else pkgs.strace
-    )
     pkgs.hexyl
     pkgs.btop
     pkgs.unar
 
     packages.self.fish
     packages.self.nushell
-    packages.self.zellij
     # packages.self.neovim
     packages.self.helix
     packages.self.git
