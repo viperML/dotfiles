@@ -12,8 +12,6 @@ in {
     ../wayland-compositors
   ];
 
-  programs.waybar.package = pkgs.waybar-hyprland;
-
   xdg.configFile."hypr/hyprland.conf" = {
     text = let
       mkExec = program: program;
