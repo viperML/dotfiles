@@ -9,12 +9,12 @@ alias ip="ip -c=auto"
 alias svim="sudoedit"
 
 # EXA
-alias ls="exa --icons"
-alias la="exa --icons --all"
-alias ll="exa --icons --long --header --group"
-alias lla="exa --icons --all --long --header --group"
-alias lal="exa --icons --all --long --header --group"
-alias lt="exa --sort modified -1"
+alias ls="eza --icons"
+alias la="eza --icons --all"
+alias ll="eza --icons --long --header --group"
+alias lla="eza --icons --all --long --header --group"
+alias lal="eza --icons --all --long --header --group"
+alias lt="eza --sort modified -1"
 
 # Abbreviations
 abbr -a -g p python
