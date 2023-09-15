@@ -15,26 +15,26 @@
   };
   nvim-base-16 = {
     pname = "nvim-base-16";
-    version = "6247ca9aa9f34644dfa290a6df3f6feefb73eb97";
+    version = "96e308958625a84940d5e443475465abf99c7bd9";
     src = fetchFromGitHub {
       owner = "RRethy";
       repo = "nvim-base16";
-      rev = "6247ca9aa9f34644dfa290a6df3f6feefb73eb97";
+      rev = "96e308958625a84940d5e443475465abf99c7bd9";
       fetchSubmodules = false;
-      sha256 = "sha256-jrQ2/6KQaG4FR5mslBmcEPdBbuhrWy2Ay49zQwCD0y0=";
+      sha256 = "sha256-ToshfJGrioqT/4uKyPJB8ntwPltvXUTvTc8Jmvyy47M=";
     };
-    date = "2023-07-23";
+    date = "2023-09-11";
   };
   nvim-transparent = {
     pname = "nvim-transparent";
-    version = "4cf97fc0b1c4a88cf246b2f6facb735a536a558e";
+    version = "3af6232c8d39d51062702e875ff6407c1eeb0391";
     src = fetchFromGitHub {
       owner = "xiyaowong";
       repo = "nvim-transparent";
-      rev = "4cf97fc0b1c4a88cf246b2f6facb735a536a558e";
+      rev = "3af6232c8d39d51062702e875ff6407c1eeb0391";
       fetchSubmodules = false;
-      sha256 = "sha256-Ond02JW6qgUD1VfHKdVWM4w20/H/S2HZLMdn3BtQrhA=";
+      sha256 = "sha256-1JyfwHBCtNCPmsOLzJRWBtg1u9uApQZY4fn2mTL3NZ4=";
     };
-    date = "2023-08-02";
+    date = "2023-09-03";
   };
 }
