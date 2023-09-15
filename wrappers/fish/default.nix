@@ -10,7 +10,7 @@
       pkgs.starship
       pkgs.direnv
       packages.nix-index
-      pkgs.exa
+      pkgs.eza
       packages.any-nix-shell
       packages.bat
     ];
