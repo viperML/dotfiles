@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{config, ...}: {
   flake.homeModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
     "emacs"

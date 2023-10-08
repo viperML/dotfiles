@@ -1,10 +1,9 @@
 {
   pkgs,
-  lib,
   packages,
+  inputs,
   ...
 }: {
-  system.nixos.label = lib.mkAfter "gnome";
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
@@ -12,13 +11,10 @@
       enable = true;
     };
     # displayManager.autoLogin.enable = true;
-    desktopManager.xterm.enable = false;
   };
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    # QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -58,5 +54,9 @@
     libsForQt5.qtwayland
     libsForQt5.gwenview
     pkgs.gnomeExtensions.appindicator
+  ];
+
+  home-manager.sharedModules = [
+    inputs.self.homeModules.gnome
   ];
 }

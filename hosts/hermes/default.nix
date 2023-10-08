@@ -19,6 +19,7 @@
         inherit specialArgs pkgs;
 
         modules = with config.flake; [
+          #-- Core
           inputs.nixpkgs.nixosModules.readOnlyPkgs
           {nixpkgs.pkgs = pkgs;}
           inputs.nh.nixosModules.default
@@ -34,30 +35,29 @@
             home-manager.extraSpecialArgs = specialArgs;
           }
 
+          #-- Host-specific
           ./configuration.nix
           nixosModules.common
           nixosModules.user-ayats
           nixosModules.user-soch
 
+          #-- Disks
+          inputs.disko.nixosModules.default
+          ./disks.nix
+
+          #-- Environment
+          {services.xserver.displayManager.autoLogin.user = "ayats";}
+          # nixosModules.sway
+          # nixosModules.hyprland
+          # nixosModules.plasma5
+          nixosModules.gnome
+
+          #-- Other
           # nixosModules.podman
           nixosModules.tailscale
           # nixosModules.docker
           nixosModules.containerd
           (args: {programs.nix-ld.package = args.packages.nix-ld.default;})
-
-          {services.xserver.displayManager.autoLogin.user = "ayats";}
-          # nixosModules.sway
-          nixosModules.hyprland
-          # nixosModules.plasma5
-
-          inputs.disko.nixosModules.default
-          ./disks.nix
-
-          # inputs.nixified-ai.nixosModules.invokeai-amd
-          # (args: {
-          #   services.invokeai.enable = true;
-          #   systemd.services.invokeai.wantedBy = args.lib.mkForce [];
-          # })
         ];
       };
   });
