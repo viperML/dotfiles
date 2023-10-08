@@ -15,7 +15,7 @@
   services.blueman.enable = true;
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    # NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
     # https://github.com/NixOS/nixpkgs/commit/ebde08adf37932ff59c27b5935840aa733965bdb

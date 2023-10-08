@@ -31,7 +31,6 @@ in {
       bind=SUPER,Space,exec,pkill wofi || ${mkExec "wofi --show drun -I"}
       bind=,Print,exec,${mkExec "grimblast copy area"}
 
-      exec=${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
       exec=systemctl --user start hyprland-session.target
       exec=systemctl --user restart kanshi.service
     '';

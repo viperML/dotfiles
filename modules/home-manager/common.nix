@@ -37,6 +37,7 @@
     pkgs.hexyl
     pkgs.btop
     pkgs.unar
+    pkgs.gh
 
     packages.self.fish
     packages.self.nushell

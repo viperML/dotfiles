@@ -101,9 +101,6 @@
     useXkbConfig = true;
   };
 
-  # https://flokli.de/posts/2022-11-18-nsncd
-  services.nscd.enableNsncd = true;
-
   services.fwupd.enable = true;
 
   security.pam.services = {
