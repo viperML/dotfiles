@@ -130,7 +130,5 @@
     ];
   };
 
-  virtualisation.waydroid.enable = true;
-
   programs.darling.enable = true;
 }

@@ -85,7 +85,6 @@ in {
               "/@nixos/@nm" = mkBtrfs "/var/lib/NetworkManager";
               "/@nixos/@systemd" = mkBtrfs "/var/lib/systemd";
               "/@nixos/@tailscale" = mkBtrfs "/var/lib/tailscale";
-              "/@nixos/@waydroid" = mkBtrfs "/var/lib/waydroid";
             };
           };
         };
