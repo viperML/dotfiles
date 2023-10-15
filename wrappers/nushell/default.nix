@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   wrappers.nushell = {
     basePackage = pkgs.nushell;
-    env.STARSHIP_CONFIG = ../starship.toml;
+    env.STARSHIP_CONFIG.value = ../starship.toml;
     flags = [
       "--env-config ${./env.nu}"
       "--config ${./config.nu}"
