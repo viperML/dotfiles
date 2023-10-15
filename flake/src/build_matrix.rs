@@ -2,10 +2,10 @@ use std::{collections::HashMap, path::PathBuf};
 
 use async_trait::async_trait;
 use clap::Args;
-use eyre::{ContextCompat, Result};
+use eyre::{bail, eyre, ContextCompat, Result};
 use futures::{stream::FuturesUnordered, StreamExt, TryFutureExt};
 use regex::Regex;
-use tracing::info;
+use tracing::{error, info};
 
 use crate::CliCommand;
 
@@ -41,6 +41,12 @@ impl CliCommand for BuildMatrixArgs {
             .arg("builtins.mapAttrs (_: value: value.outPath)")
             .arg("--json")
             .output()?;
+
+        if !output.status.success() {
+            let stderr = std::str::from_utf8(&output.stderr).unwrap();
+            error!(%stderr);
+            bail!(output.status);
+        }
 
         let parsed: OutputMap = serde_json::from_slice(&output.stdout)?;
         info!(?parsed);
