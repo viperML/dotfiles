@@ -25,7 +25,7 @@ in {
     ];
     openssh.authorizedKeys.keys = [
     ];
-    passwordFile = "/var/lib/secrets/users.passwd";
+    hashedPasswordFile = "/var/lib/secrets/users.passwd";
   };
 
   home-manager.users.${name} = {};

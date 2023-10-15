@@ -95,7 +95,7 @@
     agentTimeout = "8h";
   };
 
-  fonts.fonts = [
+  fonts.packages = [
     pkgs.roboto
     packages.self.iosevka
     (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})

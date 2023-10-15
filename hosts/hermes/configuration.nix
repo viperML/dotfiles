@@ -74,9 +74,9 @@
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = [
-        pkgs.rocm-opencl-icd
-        pkgs.rocm-opencl-runtime
+      extraPackages = with pkgs.rocmPackages; [
+        clr
+        clr.icd
       ];
     };
   };

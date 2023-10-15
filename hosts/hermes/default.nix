@@ -16,7 +16,7 @@
       };
     in
       inputs.nixpkgs.lib.nixosSystem {
-        inherit specialArgs pkgs;
+        inherit specialArgs;
 
         modules = with config.flake; [
           #-- Core
