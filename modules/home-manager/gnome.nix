@@ -85,6 +85,9 @@ in {
       "night-light-schedule-automatic" = gvariant.mkBoolean true;
       "night-light-temperature" = gvariant.mkUint32 2355;
     };
+    "org.gnome.desktop.lockdown" = {
+      "disable-lock-screen" = gvariant.mkBoolean true;
+    };
   };
 
   systemd.user = {
