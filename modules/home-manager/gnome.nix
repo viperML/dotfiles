@@ -50,6 +50,7 @@ in {
       "enabled-extensions" = gvariant.mkArray gvariant.type.string [
         "appindicatorsupport@rgcjonas.gmail.com"
         # "blur-my-shell@aunetx"
+        "forge@jmmaranan.com"
       ];
     };
     "org/gnome/desktop/interface" = {
@@ -87,6 +88,12 @@ in {
     };
     "org.gnome.desktop.lockdown" = {
       "disable-lock-screen" = gvariant.mkBoolean true;
+    };
+    "org/gnome/shell/extensions/forge" = {
+      "window-gap-hidden-on-single" = gvariant.mkBoolean true;
+    };
+    "org/gnome/shell/extensions/forge/keybindings" = {
+      "window-swap-last-active" = gvariant.mkString "<Control><Super>Return";
     };
   };
 

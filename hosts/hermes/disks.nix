@@ -103,5 +103,8 @@ in {
       fsType = "btrfs";
       options = mountOptions ++ ["subvol=/@nixos" "x-systemd.automount"];
     };
+    "/var/lib/secrets" = {
+      neededForBoot = true;
+    };
   };
 }
