@@ -1,10 +1,9 @@
 {
   packages,
-  lib,
+  pkgs,
+  inputs,
   ...
 }: {
-  system.nixos.label = lib.mkAfter "kde";
-
   services.xserver = {
     enable = true;
     desktopManager.plasma5 = {
@@ -18,12 +17,17 @@
   };
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
   };
 
   environment.systemPackages = [
     packages.self.reversal-kde
     packages.self.papirus-icon-theme
+    packages.self.adw-gtk3
+    pkgs.vanilla-dmz
+  ];
+
+  home-manager.sharedModules = [
+    inputs.self.homeModules.plasma5
   ];
 }

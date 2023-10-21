@@ -49,8 +49,8 @@
           {services.xserver.displayManager.autoLogin.user = "ayats";}
           # nixosModules.sway
           # nixosModules.hyprland
-          # nixosModules.plasma5
-          nixosModules.gnome
+          nixosModules.plasma5
+          # nixosModules.gnome
 
           #-- Other
           # nixosModules.podman

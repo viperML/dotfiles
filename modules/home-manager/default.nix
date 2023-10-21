@@ -4,6 +4,7 @@
     "emacs"
     "gnome"
     "hyprland"
+    "plasma5"
     "sway"
     "waybar"
     "browser"
