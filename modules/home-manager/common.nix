@@ -38,6 +38,7 @@
     pkgs.btop
     pkgs.unar
     pkgs.gh
+    pkgs.dufs
 
     packages.self.fish
     packages.self.nushell
