@@ -1,5 +1,5 @@
-let direnv_installed = (which direnv | length) > 0
-let starship_installed = (which starship | length) > 0
+let direnv_installed = not (which direnv | is-empty)
+let starship_installed = not (which starship | is-empty)
 
 $env.config = {
   show_banner: false
@@ -7,18 +7,16 @@ $env.config = {
   render_right_prompt_on_last_line: true
   shell_integration: false
   hooks: {
-    pre_prompt: (if $direnv_installed {
-      [{
-        code: "
-            let direnv = (direnv export json | from json)
-            let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
-            $direnv | load-env
-        "
-      }]
-    } else {[]})
+    pre_prompt: {
+      if not $direnv_installed {
+        return
+      }
+
+      direnv export json | from json | default {} | load-env
+    }
     command_not_found: {
       |cmd_name| (
-        if ($nu.os-info.name == "linux") {try {
+        if ($nu.os-info.name == "linux" and 'CNF' in $env) {try {
           let raw_results = (nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root $"/bin/($cmd_name)")
           let parsed = ($raw_results | split row "\n" | each {|elem| ($elem | parse "{attr}.{output}" | first) })
           let names = ($parsed | each {|row|
@@ -77,7 +75,7 @@ $env.config = {
     })
   }
   history: {
-    file_format: "sqlite" # "sqlite" or "plaintext"
+    file_format: "sqlite"
   }
   filesize: {
     metric: false
