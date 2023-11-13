@@ -1,0 +1,76 @@
+"$schema" = "https://starship.rs/config-schema.json"
+add_newline = false
+format = '''
+([\[](fg:8) $custom$python$package$container$terraform[\]](fg:8)
+)([\[](fg:8) $git_branch$git_state$git_status$git_metrics[\]](fg:8)
+)([\[](fg:8) $username$hostname$status$cmd_duration[\]](fg:8)
+)$directory
+$character
+'''
+scan_timeout = 10
+
+[character]
+disabled = true
+error_symbol = '[\$](bold)'
+success_symbol = '[\$](bold)'
+
+[cmd_duration]
+min_time = 60000
+
+[custom.nix]
+command = "nix-shell-info"
+format = "[$symbol]($style) [$output]($style) "
+os = "linux"
+style = "bold cyan"
+symbol = ""
+when = "nix-shell-info"
+
+[directory]
+format = "[󰉋 $path]($style)([$read_only]($read_only_style))"
+home_symbol = "~"
+read_only = " "
+style = "bold cyan"
+truncate_to_repo = false
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = ""
+
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+[git_status]
+ahead = "⇡$count "
+behind = "⇣$count "
+conflicted = "=$count "
+deleted = "✘$count "
+diverged = "⇕$count "
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+modified = "!$count "
+renamed = "»$count "
+staged = "+$count "
+stashed = "$$count "
+style = "bold cyan"
+untracked = "?$count "
+up_to_date = ""
+
+[hostname]
+format = "[$hostname](fg:8) "
+ssh_only = true
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = "󰏗 "
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
+symbol = " "
+
+[status]
+disabled = false
+format = "[(✖ $status $common_meaning )](bold red)"
+
+[username]
+format = "[$user@](fg:8)"
+show_always = false

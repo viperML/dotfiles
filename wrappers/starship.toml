@@ -26,6 +26,7 @@ scan_timeout = 10
 add_newline = false
 
 [character]
+disabled = false
 success_symbol = "[\\$](bold)"
 error_symbol = "[\\$](bold)"
 
