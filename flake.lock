@@ -757,11 +757,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1696533974,
-        "narHash": "sha256-SYRE2nf/C40G1DZi93EeZTdTyU+5llEjXDI+jGx9pQI=",
+        "lastModified": 1699875755,
+        "narHash": "sha256-oXPcPf9rrBmUfE9jMXMIMr+Y6i5+/jXhv0dQV/PvNvs=",
         "owner": "viperML",
         "repo": "wrapper-manager",
-        "rev": "d0f2277e1b1e0d95e29015e602991a1cf4e7fcf7",
+        "rev": "5c41ca288d2e9021ee53580fb66b643dd265e430",
         "type": "github"
       },
       "original": {
