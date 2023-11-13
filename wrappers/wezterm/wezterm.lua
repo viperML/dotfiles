@@ -326,7 +326,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   }
 else
   platform_config = {
-    default_prog = { "fish" },
+    default_prog = { "nu" },
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
       { family = "Symbols Nerd Font" }
