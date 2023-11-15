@@ -10,7 +10,6 @@
         ./wezterm
         ./neofetch
         ./foot
-        ./git
         ./nushell
         ./zellij
         ./chrome

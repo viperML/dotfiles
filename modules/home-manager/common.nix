@@ -44,7 +44,6 @@
     packages.self.nushell
     # packages.self.neovim
     packages.self.helix
-    packages.self.git
   ];
 
   # home.sessionVariables = {
@@ -75,4 +74,8 @@
   '';
 
   manual.json.enable = false;
+
+  imports = [
+    ./git
+  ];
 }
