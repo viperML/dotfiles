@@ -21,7 +21,7 @@
     },
     "nvim-base-16": {
         "cargoLocks": null,
-        "date": "2023-10-08",
+        "date": "2023-11-06",
         "extract": null,
         "name": "nvim-base-16",
         "passthru": null,
@@ -33,15 +33,15 @@
             "name": null,
             "owner": "RRethy",
             "repo": "nvim-base16",
-            "rev": "0b62f6e40e213e9e60b913ebd3be73373fc145d1",
-            "sha256": "sha256-m+AlQa8gdElTTxIgZRABDJ/jWMP4lSJLTc5uR0Ih3to=",
+            "rev": "010bedf0b7c01ab4d4e4e896a8527d97c222351d",
+            "sha256": "sha256-e1jf7HyP9nu/HQHZ0QK+o7Aljk7Hu2iK+LNw3166wn8=",
             "type": "github"
         },
-        "version": "0b62f6e40e213e9e60b913ebd3be73373fc145d1"
+        "version": "010bedf0b7c01ab4d4e4e896a8527d97c222351d"
     },
     "nvim-transparent": {
         "cargoLocks": null,
-        "date": "2023-09-03",
+        "date": "2023-11-13",
         "extract": null,
         "name": "nvim-transparent",
         "passthru": null,
@@ -53,10 +53,10 @@
             "name": null,
             "owner": "xiyaowong",
             "repo": "nvim-transparent",
-            "rev": "3af6232c8d39d51062702e875ff6407c1eeb0391",
-            "sha256": "sha256-1JyfwHBCtNCPmsOLzJRWBtg1u9uApQZY4fn2mTL3NZ4=",
+            "rev": "fd35a46f4b7c1b244249266bdcb2da3814f01724",
+            "sha256": "sha256-wT+7rmp08r0XYGp+MhjJX8dsFTar8+nf10CV9OdkOSk=",
             "type": "github"
         },
-        "version": "3af6232c8d39d51062702e875ff6407c1eeb0391"
+        "version": "fd35a46f4b7c1b244249266bdcb2da3814f01724"
     }
 }
