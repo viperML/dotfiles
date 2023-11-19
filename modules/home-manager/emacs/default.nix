@@ -3,19 +3,18 @@
   inputs,
   config,
   ...
-}: let
-  epkgs = pkgs.extend inputs.emacs-overlay.overlays.default;
-in {
+}:
+{
   programs.emacs = {
     enable = true;
-    package = epkgs.emacsWithPackagesFromUsePackage {
+    package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./init.el;
       alwaysEnsure = true;
-      package = epkgs.emacsPgtk;
+      package = pkgs.emacs;
     };
   };
 
-  home.packages = with epkgs; [
+  home.packages = with pkgs; [
     emacs-all-the-icons-fonts
   ];
 

@@ -31,6 +31,7 @@
               ./home.nix
               homeModules.common
               homeModules.browser
+              homeModules.emacs
             ];
             home-manager.extraSpecialArgs = specialArgs;
           }

@@ -10,6 +10,8 @@
     NOMAD_ADDR = "http://shiva:4646";
   };
 
+  services.envfs.enable = lib.mkForce false;
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 

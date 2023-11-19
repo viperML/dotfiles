@@ -56,6 +56,7 @@ in {
       overlays = [
         self.overlays.nix-version
         inputs.nvfetcher.overlays.default
+        inputs.emacs-overlay.overlays.default
       ];
     };
 
