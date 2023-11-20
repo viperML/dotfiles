@@ -33,7 +33,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.config/emacs/custom.el")
 (load custom-file)
 
 

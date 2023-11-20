@@ -18,7 +18,5 @@
     emacs-all-the-icons-fonts
   ];
 
-  systemd.user.tmpfiles.rules = [
-    "L+ ${config.home.homeDirectory}/.emacs.d - - - - ${config.unsafeFlakePath}/modules/home-manager/emacs"
-  ];
+  xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink "${config.unsafeFlakePath}/modules/home-manager/emacs";
 }
