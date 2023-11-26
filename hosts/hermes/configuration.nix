@@ -5,11 +5,6 @@
   packages,
   ...
 }: {
-  environment.sessionVariables = {
-    VAULT_ADDR = "http://shiva:8200";
-    NOMAD_ADDR = "http://shiva:4646";
-  };
-
   services.envfs.enable = lib.mkForce false;
 
   boot = {

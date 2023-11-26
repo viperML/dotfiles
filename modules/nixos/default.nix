@@ -4,6 +4,7 @@
     "containerd"
     "docker"
     "gnome"
+    "greetd"
     "hyprland"
     "plasma5"
     "podman"

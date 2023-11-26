@@ -11,7 +11,6 @@
       runUsingSystemd = true;
     };
     displayManager = {
-      sddm.enable = true;
       defaultSession = "plasmawayland";
     };
   };
