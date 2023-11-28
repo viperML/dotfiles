@@ -1,5 +1,15 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  groupName = "containerd";
+  nerdctl = pkgs.nerdctl.override {
+    makeWrapper = pkgs.makeBinaryWrapper;
+  };
+in {
+  environment.systemPackages =[
     nerdctl
   ];
 
@@ -22,6 +32,20 @@
         ${pkgs.nerdctl}/bin/nerdctl system prune --all --force
       '';
       requires = ["containerd.service"];
+    };
+  };
+
+  users.groups.${groupName} = {
+    members = config.users.groups.wheel.members;
+  };
+
+  security.wrappers = {
+    "nerdctl" = {
+      setuid = true;
+      owner = "root";
+      group = groupName;
+      permissions = "u+rx,g+rx";
+      source = lib.getExe nerdctl;
     };
   };
 }
