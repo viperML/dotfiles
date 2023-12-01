@@ -18,7 +18,7 @@
     };
 
     nix = {
-      url = "github:NixOS/nix/2.18.1";
+      url = "github:NixOS/nix/2.19.2";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
@@ -69,7 +69,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/81598b3dbdf3c01bb04fa377e65cfde91e6b2ab1";
+      url = "github:hyprwm/Hyprland/8440a30231ea41a6b1dacc60a28837b265a6efec";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
