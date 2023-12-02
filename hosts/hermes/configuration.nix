@@ -133,8 +133,6 @@
     ];
   };
 
-  programs.darling.enable = true;
-
   services.consul = {
     enable = true;
     webUi = true;
