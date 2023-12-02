@@ -5,5 +5,5 @@
     delta
   ];
 
-  xdg.file."git/config".source = ./gitconfig;
+  xdg.configFile."git/config".source = ./gitconfig;
 }
