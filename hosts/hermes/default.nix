@@ -50,8 +50,8 @@
           {services.xserver.displayManager.autoLogin.user = "ayats";}
           # nixosModules.sway
           # nixosModules.hyprland
-          nixosModules.plasma5
-          # nixosModules.gnome
+          # nixosModules.plasma5
+          nixosModules.gnome
 
           #-- Other
           # nixosModules.podman
@@ -59,8 +59,6 @@
           # nixosModules.docker
           nixosModules.containerd
           (args: {programs.nix-ld.package = args.packages.nix-ld.default;})
-
-          nixosModules.greetd
         ];
       };
   });

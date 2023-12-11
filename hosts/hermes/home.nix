@@ -10,12 +10,13 @@
   home.packages = [
     pkgs.vscode
     pkgs.vault
-    pkgs.step-cli
     packages.self.wezterm
     pkgs.obsidian
-    # pkgs.mendeley
-    pkgs.scc
     packages.self.helix
-    pkgs.mosh
+    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.rust-rover [
+      "github-copilot"
+      "ideavim"
+    ])
+    pkgs.d-spy
   ];
 }

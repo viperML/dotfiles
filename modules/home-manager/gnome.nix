@@ -86,8 +86,11 @@ in {
       "night-light-schedule-automatic" = gvariant.mkBoolean true;
       "night-light-temperature" = gvariant.mkUint32 2355;
     };
-    "org.gnome.desktop.lockdown" = {
+    "org/gnome/desktop/lockdown" = {
       "disable-lock-screen" = gvariant.mkBoolean true;
+    };
+    "org/gnome/shell" = {
+      "disable-user-extensions" = gvariant.mkBoolean false;
     };
     "org/gnome/shell/extensions/forge" = {
       "window-gap-hidden-on-single" = gvariant.mkBoolean true;

@@ -20,8 +20,10 @@ in {
         vt = "1";
       };
 
-      default_session = {
-        command = "${lib.getExe pkgs.greetd.tuigreet} --sessions /run/current-system/sw/share/wayland-sessions:/run/current-system/sw/share/xsessions --remember --remember-user-session --issue";
+      default_session = let
+        base = config.services.xserver.displayManager.sessionData.desktops;
+      in {
+        command = "${lib.getExe pkgs.greetd.tuigreet} --sessions ${base}/share/wayland-sessions:${base}/share/xsessions --remember --remember-user-session --issue";
       };
 
       initial_session = lib.mkIf (defaultSession != null) {
