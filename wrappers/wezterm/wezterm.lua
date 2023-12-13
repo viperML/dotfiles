@@ -142,7 +142,7 @@ local tomorrow_night = {
 }
 
 local generic_config = {
-  window_background_opacity = 1.0,
+  -- window_background_opacity = 1.0,
   enable_scroll_bar = true,
   window_padding = {
     left = padding,
@@ -151,7 +151,6 @@ local generic_config = {
     bottom = padding - 5,
   },
   colors = tomorrow_night,
-  enable_wayland = true,
   window_close_confirmation = "NeverPrompt",
   check_for_updates = false,
   default_cursor_style = "SteadyBar",

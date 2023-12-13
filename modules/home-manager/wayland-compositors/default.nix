@@ -112,7 +112,7 @@
     };
     cursorTheme = {
       package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
+      name = "DMZ-White";
       size = 24;
     };
     font = {
@@ -136,7 +136,7 @@
   services.xsettingsd = {
     enable = true;
     settings = {
-      # "Gtk/CursorThemeName" = "Vanilla-DMZ";
+      # "Gtk/CursorThemeName" = "DMZ-White";
       "Net/EnableEventSounds" = false;
       "Net/EnableInputFeedbackSounds" = false;
       "Net/IconThemeName" = "Tela-circle-grey-dark";

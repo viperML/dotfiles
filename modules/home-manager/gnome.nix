@@ -2,6 +2,7 @@
   config,
   lib,
   packages,
+  pkgs,
   ...
 }: let
   inherit (config.lib) gvariant;
@@ -62,8 +63,9 @@ in {
       "document-font-name" = gvariant.mkString "Roboto 11";
       "gtk-enable-primary-paste" = gvariant.mkBoolean false;
       "color-scheme" = gvariant.mkString "prefer-dark";
-      "icon-theme" = gvariant.mkString "Papirus-Dark";
-      "cursor-theme" = gvariant.mkString "Vanilla-DMZ";
+      "icon-theme" = gvariant.mkString "Adwaita";
+      "cursor-theme" = gvariant.mkString config.home.pointerCursor.name;
+      "cursor-size" = gvariant.mkInt32 config.home.pointerCursor.size;
     };
     "org/gnome/desktop/wm/preferences" = {
       "titlebar-font" = gvariant.mkString "Roboto Bold 11";
@@ -116,4 +118,11 @@ in {
 
   # Weird
   xdg.userDirs.enable = lib.mkForce false;
+
+  home.pointerCursor = {
+    package = pkgs.vanilla-dmz;
+    name = "DMZ-White";
+    size = 24;
+    gtk.enable = true;
+  };
 }

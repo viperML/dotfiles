@@ -100,7 +100,7 @@ in {
     };
 
     seat."*" = {
-      xcursor_theme = "Vanilla-DMZ 24";
+      xcursor_theme = "DMZ-White 24";
     };
   };
 
