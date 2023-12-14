@@ -18,7 +18,7 @@
         "ahci"
         "nvme"
         "usbhid"
-        "amdgpu"
+        # "amdgpu"
         "kvm-intel"
       ];
     };
@@ -99,7 +99,7 @@
       mouse.accelSpeed = "0.0";
       mouse.middleEmulation = false;
     };
-    videoDrivers = ["amdgpu"];
+    # videoDrivers = ["amdgpu"];
   };
 
   console = {

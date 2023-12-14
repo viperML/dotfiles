@@ -6,7 +6,6 @@ in {
   boot.loader = {
     systemd-boot = {
       enable = true;
-      consoleMode = "max";
       editor = false;
       configurationLimit = 10;
     };
@@ -14,7 +13,7 @@ in {
       canTouchEfiVariables = true;
       inherit efiSysMountPoint;
     };
-    timeout = 1;
+    timeout = 0;
   };
 
   boot.tmp.useTmpfs = true;
