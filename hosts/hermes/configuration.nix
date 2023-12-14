@@ -5,6 +5,7 @@
   packages,
   ...
 }: {
+  # broken
   services.envfs.enable = lib.mkForce false;
 
   boot = {
@@ -30,6 +31,15 @@
     kernel.sysctl = {
       "vm.swappiness" = 10;
     };
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "loglevel=3"
+      "rd.udev.log_level=3"
+      "systemd.show_status=0"
+      "vt.global_cursor_default=0"
+    ];
   };
 
   networking = {
@@ -38,18 +48,10 @@
       enable = true;
       dns = "systemd-resolved";
     };
-    # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
-    firewall.checkReversePath = "loose";
   };
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      [Resolve]
-      DNS=127.0.0.1:8600
-      DNSSEC=false
-      Domains=~consul
-    '';
   };
 
   environment.systemPackages = [
@@ -129,40 +131,6 @@
       {
         name = "iosevka-normal Semibold";
         package = packages.self.iosevka;
-      }
-    ];
-  };
-
-  services.consul = {
-    enable = true;
-    webUi = true;
-    interface = {
-      bind = config.services.tailscale.interfaceName;
-      advertise = config.services.tailscale.interfaceName;
-    };
-    extraConfig = {
-      # server = true;
-      # bootstrap_expect = 2;
-      client_addr = ''{{ GetInterfaceIP "${config.services.tailscale.interfaceName}" }} {{ GetAllInterfaces | include "flags" "loopback" | join "address" " " }}'';
-    };
-  };
-
-  networking.firewall.interfaces.${config.services.tailscale.interfaceName} = rec {
-    allowedTCPPorts = [
-      8500
-      8600
-      8501
-      8502
-      8503
-      8301
-      8302
-      8300
-    ];
-    allowedUDPPorts = allowedTCPPorts;
-    allowedTCPPortRanges = [
-      {
-        from = 21000;
-        to = 21255;
       }
     ];
   };
