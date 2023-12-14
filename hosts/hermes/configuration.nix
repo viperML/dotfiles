@@ -35,6 +35,9 @@
     kernelParams = [
       "quiet"
       "splash"
+      "video=DP-1:2560x1440@144"
+      "video=DP-2:2560x1440@144"
+      "video=DP-3:2560x1440@144"
       "loglevel=3"
       "rd.udev.log_level=3"
       "systemd.show_status=0"
