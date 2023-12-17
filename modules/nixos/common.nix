@@ -5,6 +5,9 @@
   packages,
   ...
 }: {
+  # broken
+  services.envfs.enable = lib.mkForce false;
+
   nh = {
     enable = true;
     clean.enable = true;
@@ -103,25 +106,32 @@
 
   time.timeZone = "Europe/Madrid";
 
-  services.avahi = {
+  services.xserver = {
     enable = true;
-    nssmdns = true;
-    openFirewall = true;
-    publish = {
+    layout = "es";
+    xkbOptions = "compose:rctrl";
+    libinput = {
       enable = true;
-      userServices = true;
+      mouse.accelProfile = "flat";
+      mouse.accelSpeed = "0.0";
+      mouse.middleEmulation = false;
     };
   };
-  services.printing = {
+
+  console.useXkbConfig = true;
+
+  services.kmscon = {
     enable = true;
-    listenAddresses = ["*:631"];
-    allowFrom = ["all"];
-    browsing = true;
-    defaultShared = true;
-    drivers = with pkgs; [gutenprint hplip splix];
-  };
-  networking.firewall = {
-    allowedTCPPorts = [631];
-    allowedUDPPorts = [631];
+    extraConfig = ''
+      font-size=14
+      xkb-layout=${config.services.xserver.layout}
+    '';
+    hwRender = true;
+    fonts = [
+      {
+        name = "iosevka-normal Semibold";
+        package = packages.self.iosevka;
+      }
+    ];
   };
 }
