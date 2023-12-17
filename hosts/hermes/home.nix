@@ -12,11 +12,6 @@
     pkgs.vault
     packages.self.wezterm
     pkgs.obsidian
-    packages.self.helix
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.rust-rover [
-      "github-copilot"
-      "ideavim"
-    ])
     pkgs.d-spy
   ];
 }

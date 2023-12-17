@@ -46,4 +46,8 @@
 
   # services.thermald.enable = true;
   # services.cpupower-gui.enable = true;
+
+  services.tlp = {
+    enable = true;
+  };
 }

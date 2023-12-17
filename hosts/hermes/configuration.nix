@@ -15,10 +15,6 @@
     enable = true;
   };
 
-  environment.systemPackages = [
-    pkgs.cpupower-gui
-  ];
-
   users.mutableUsers = false;
   users.users.ayats = {
     isNormalUser = true;
