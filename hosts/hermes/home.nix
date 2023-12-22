@@ -11,7 +11,7 @@
     pkgs.vscode
     pkgs.vault
     packages.self.wezterm
-    pkgs.obsidian
+    # pkgs.obsidian
     pkgs.d-spy
   ];
 }

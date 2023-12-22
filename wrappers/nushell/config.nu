@@ -80,6 +80,7 @@ $env.config = {
   filesize: {
     metric: false
   }
+  highlight_resolved_externals: true
 }
 
 if $starship_installed {

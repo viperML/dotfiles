@@ -113,6 +113,7 @@ in {
       # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
+      polkit = w pkgs.callPackage ./overrides/polkit {};
 
       sway-custom = pkgs.sway.override {
         sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (old: {
