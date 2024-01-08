@@ -33,5 +33,6 @@ in {
 
       #-- Other
       nixosModules.tailscale
+      {services.kmscon.autologinUser = "ayats";}
     ]);
 }
