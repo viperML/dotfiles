@@ -24,11 +24,11 @@ in {
       }
 
       #-- Environment
-      {services.xserver.displayManager.autoLogin.user = "ayats";}
+      # {services.xserver.displayManager.autoLogin.user = "ayats";}
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5
-      nixosModules.gnome
+      # nixosModules.gnome
 
       #-- Other
       nixosModules.tailscale
