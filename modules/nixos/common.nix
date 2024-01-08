@@ -32,6 +32,7 @@
     vim
     file
     pax-utils
+    efibootmgr
 
     packages.self.git
     packages.nh.default

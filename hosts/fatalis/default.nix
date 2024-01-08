@@ -14,7 +14,6 @@ in {
       ./configuration.nix
       ./hardware.nix
       # nixosModules.user-ayats
-      nixosModules.common
       inputs.lanzaboote.nixosModules.lanzaboote
 
       {
@@ -29,10 +28,9 @@ in {
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5
-      # nixosModules.gnome
+      nixosModules.gnome
 
       #-- Other
-      nixosModules.tailscale
-      {services.kmscon.autologinUser = "ayats";}
+      # nixosModules.tailscale
     ]);
 }

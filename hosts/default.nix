@@ -18,24 +18,26 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit specialArgs;
 
-      modules = [
-        #-- Core
-        inputs.nixpkgs.nixosModules.readOnlyPkgs
-        {nixpkgs.pkgs = (withSystem system ({pkgs, ...}: pkgs));}
+      modules =
+        [
+          #-- Core
+          inputs.nixpkgs.nixosModules.readOnlyPkgs
+          {nixpkgs.pkgs = withSystem system ({pkgs, ...}: pkgs);}
 
-        config.flake.nixosModules.common
-        inputs.nix-common.nixosModules.default
+          config.flake.nixosModules.common
+          inputs.nix-common.nixosModules.default
 
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.sharedModules = [
-            config.flake.homeModules.common
-            inputs.nix-common.homeModules.default
-          ];
-          home-manager.extraSpecialArgs = specialArgs;
-        }
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.sharedModules = [
+              config.flake.homeModules.common
+              inputs.nix-common.homeModules.default
+            ];
+            home-manager.extraSpecialArgs = specialArgs;
+          }
 
-        inputs.nh.nixosModules.default
-      ] ++ extraModules;
+          inputs.nh.nixosModules.default
+        ]
+        ++ extraModules;
     };
 }

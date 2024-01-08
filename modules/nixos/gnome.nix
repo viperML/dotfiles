@@ -7,7 +7,7 @@
   services.xserver = {
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
-    displayManager.defaultSession = "gnome";
+    #    displayManager.defaultSession = "gnome";
   };
 
   environment.sessionVariables = {
@@ -21,7 +21,7 @@
 
     gnome.gnome-characters
     gnome.cheese
-    gnome.gedit
+    gedit
     gnome.totem
     gnome.geary
     gnome.gnome-screenshot
@@ -51,7 +51,6 @@
     libsForQt5.qtwayland
     libsForQt5.gwenview
     pkgs.gnomeExtensions.appindicator
-    pkgs.gnomeExtensions.forge
   ];
 
   home-manager.sharedModules = [

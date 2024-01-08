@@ -22,6 +22,8 @@
     password = "1234";
     createHome = true;
   };
+  
+  home-manager.users.ayats = {};
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -30,19 +32,20 @@
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
-    # cpu.amd.updateMicrocode = true;
-    # enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode = true;
+    enableAllFirmware = true;
     bluetooth.enable = true;
     opengl = {
       enable = true;
-    #   extraPackages = with pkgs.rocmPackages; [
-    #     clr
-    #     clr.icd
-    #   ];
+      #   extraPackages = with pkgs.rocmPackages; [
+      #     clr
+      #     clr.icd
+      #   ];
     };
   };
 
   # services.fwupd.enable = true;
+  services.kmscon.enable = lib.mkForce false;
 
   # security.pam.services = {
   #   login.u2fAuth = true;

@@ -36,6 +36,7 @@ in {
       "focus-mode" = gvariant.mkValue "sloppy";
     };
     "org/gnome/mutter" = {
+      "experimental-features" = gvariant.mkArray gvariant.type.string ["scale-monitor-framebuffer"];
       "focus-change-on-pointer-rest" = gvariant.mkBoolean false;
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -51,7 +52,6 @@ in {
       "enabled-extensions" = gvariant.mkArray gvariant.type.string [
         "appindicatorsupport@rgcjonas.gmail.com"
         # "blur-my-shell@aunetx"
-        "forge@jmmaranan.com"
       ];
     };
     "org/gnome/desktop/interface" = {
@@ -93,12 +93,6 @@ in {
     };
     "org/gnome/shell" = {
       "disable-user-extensions" = gvariant.mkBoolean false;
-    };
-    "org/gnome/shell/extensions/forge" = {
-      "window-gap-hidden-on-single" = gvariant.mkBoolean true;
-    };
-    "org/gnome/shell/extensions/forge/keybindings" = {
-      "window-swap-last-active" = gvariant.mkString "<Control><Super>Return";
     };
   };
 

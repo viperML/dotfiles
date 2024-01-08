@@ -9,7 +9,7 @@
     makeWrapper = pkgs.makeBinaryWrapper;
   };
 in {
-  environment.systemPackages =[
+  environment.systemPackages = [
     nerdctl
   ];
 

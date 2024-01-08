@@ -54,6 +54,7 @@ in {
         "size=2G"
         "mode=0755"
       ];
+      neededForBoot = true;
     };
   in {
     "/" = {
@@ -75,6 +76,7 @@ in {
     };
 
     # "/etc" = mkTmpfs;
+    # "/var" = mkTmpfs;
     "/bin" = mkTmpfs;
     "/lib64" = mkTmpfs;
     "/opt" = mkTmpfs;
@@ -87,4 +89,7 @@ in {
   #     device = "/dev/disk/by-partlabel/LINUX_SWAP";
   #   }
   # ];
+  security.tpm2 = {
+    enable = true;
+  };
 }
