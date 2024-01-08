@@ -74,7 +74,7 @@ in {
       ];
     };
 
-    "/etc" = mkTmpfs;
+    # "/etc" = mkTmpfs;
     "/bin" = mkTmpfs;
     "/lib64" = mkTmpfs;
     "/opt" = mkTmpfs;
