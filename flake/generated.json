@@ -1,7 +1,7 @@
 {
     "hyprland": {
         "cargoLocks": null,
-        "date": "2023-12-01",
+        "date": "2024-01-07",
         "extract": null,
         "name": "hyprland",
         "passthru": null,
@@ -11,12 +11,31 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "8440a30231ea41a6b1dacc60a28837b265a6efec",
-            "sha256": "sha256-SYTztE8kHHpUVmVdHlQQVi2qhDi5oPQiXQ+K4/bc1nA=",
+            "rev": "d7d333d162da2d3fc852b2c7a3faa2709440cefa",
+            "sha256": "sha256-PKVOCPV5i8prioWway5PjRMsICtrVONV3y5W69gQLWw=",
             "type": "git",
             "url": "https://github.com/hyprwm/Hyprland"
         },
-        "version": "8440a30231ea41a6b1dacc60a28837b265a6efec"
+        "version": "d7d333d162da2d3fc852b2c7a3faa2709440cefa"
+    },
+    "lanzaboote": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "lanzaboote",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "v0.3.0",
+            "sha256": "sha256-Fb5TeRTdvUlo/5Yi2d+FC8a6KoRLk2h1VE0/peMhWPs=",
+            "type": "git",
+            "url": "https://github.com/nix-community/lanzaboote"
+        },
+        "version": "v0.3.0"
     },
     "nix": {
         "cargoLocks": null,

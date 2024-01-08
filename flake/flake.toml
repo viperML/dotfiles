@@ -14,3 +14,6 @@ fetch.git = "https://github.com/nixos/nix.git"
 # [helix]
 # src.github = "helix-editor/helix"
 # fetch.git = "https://github.com/helix-editor/helix.git"
+[lanzaboote]
+src.github_tag = "nix-community/lanzaboote"
+fetch.git = "https://github.com/nix-community/lanzaboote"

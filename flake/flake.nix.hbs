@@ -95,5 +95,12 @@
     nix-filter = {
       url = "github:numtide/nix-filter";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/{{lanzaboote}}";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+    };
   };
 }

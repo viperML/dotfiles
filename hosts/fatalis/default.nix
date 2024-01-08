@@ -2,6 +2,7 @@
   config,
   withSystem,
   mkNixos,
+  inputs,
   ...
 }: let
   system = "x86_64-linux";
@@ -13,6 +14,7 @@ in {
       ./configuration.nix
       ./hardware.nix
       nixosModules.user-ayats
+      inputs.lanzaboote.nixosModules.lanzaboote
 
       {
         home-manager.sharedModules = [

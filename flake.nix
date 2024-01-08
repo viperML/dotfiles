@@ -68,7 +68,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/8440a30231ea41a6b1dacc60a28837b265a6efec";
+      url = "github:hyprwm/Hyprland/d7d333d162da2d3fc852b2c7a3faa2709440cefa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
@@ -91,6 +91,13 @@
     };
     nix-filter = {
       url = "github:numtide/nix-filter";
+    };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
     };
   };
 }

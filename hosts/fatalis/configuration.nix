@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = [
+    pkgs.sbctl
+  ];
+
   networking = {
     hostName = "fatalis";
     networkmanager = {
@@ -25,15 +29,15 @@
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
-    cpu.intel.updateMicrocode = true;
-    enableRedistributableFirmware = true;
+    # cpu.amd.updateMicrocode = true;
+    # enableRedistributableFirmware = true;
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
+    #   extraPackages = with pkgs.rocmPackages; [
+    #     clr
+    #     clr.icd
+    #   ];
     };
   };
 
@@ -47,7 +51,7 @@
   # services.thermald.enable = true;
   # services.cpupower-gui.enable = true;
 
-  services.tlp = {
-    enable = true;
-  };
+  # services.tlp = {
+  #   enable = true;
+  # };
 }

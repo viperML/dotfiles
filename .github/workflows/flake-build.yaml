@@ -64,6 +64,7 @@ jobs:
       matrix:
         flake_output: [
           nixosConfigurations.hermes.config.system.build.toplevel,
+          nixosConfigurations.fatalis.config.system.build.toplevel,
           homeConfigurations.ayats.activationPackage
         ]
     steps:

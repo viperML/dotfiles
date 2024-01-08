@@ -7,6 +7,11 @@
   luksDevice = "luksroot";
 in {
   boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
@@ -29,17 +34,13 @@ in {
     ];
 
     loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        configurationLimit = 10;
-        consoleMode = "max";
-      };
+      systemd-boot.enable = lib.mkForce false;
+      grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
+        efiSysMountPoint = "/boot";
       };
-      timeout = 1;
+      # timeout = 1;
     };
 
     tmp.useTmpfs = true;
@@ -64,7 +65,7 @@ in {
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = builtins.throw "EFI partition";
+      device = "/dev/disk/by-partlabel/ESP";
       fsType = "vfat";
       options = [
         "x-systemd.automount"
