@@ -5,6 +5,7 @@
   ...
 }: let
   luksDevice = "luksroot";
+  swapfile = "/swapfile";
 in {
   boot = {
     lanzaboote = {
@@ -26,9 +27,9 @@ in {
       };
     };
 
-    # kernel.sysctl = {
-    #   "vm.swappiness" = 10;
-    # };
+    kernel.sysctl = {
+      # "vm.swappiness" = 100;
+    };
 
     kernelParams = [
     ];
@@ -84,12 +85,30 @@ in {
     "/usr" = mkTmpfs;
   };
 
-  # swapDevices = [
-  #   {
-  #     device = "/dev/disk/by-partlabel/LINUX_SWAP";
-  #   }
-  # ];
+  swapDevices = [
+    {
+      device = swapfile;
+    }
+  ];
+
   security.tpm2 = {
     enable = true;
+  };
+
+  systemd.services.create-swapfile = {
+    serviceConfig.Type = "oneshot";
+    wantedBy = ["swapfile.swap"];
+    path = with pkgs; [
+      coreutils
+      e2fsprogs
+    ];
+    script = ''
+      set -x
+      if [[ ! -f ${swapfile} ]]; then
+        dd if=/dev/zero of=${swapfile} bs=1M count=8k status=progress
+        chmod 0600 ${swapfile}
+        mkswap -U clear ${swapfile}
+      fi
+    '';
   };
 }

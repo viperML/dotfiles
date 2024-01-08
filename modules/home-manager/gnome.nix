@@ -94,6 +94,9 @@ in {
     "org/gnome/shell" = {
       "disable-user-extensions" = gvariant.mkBoolean false;
     };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      "click-method" = gvariant.mkString "areas";
+    };
   };
 
   systemd.user = {

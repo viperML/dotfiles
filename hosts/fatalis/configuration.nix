@@ -34,14 +34,13 @@
     };
   };
 
-  # services.fwupd.enable = true;
+  services.fwupd.enable = true;
   services.kmscon.enable = lib.mkForce false;
 
-  # security.pam.services = {
-  #   login.u2fAuth = true;
-  #   sudo.u2fAuth = true;
-  # };
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
 
-  # services.thermald.enable = true;
   # services.cpupower-gui.enable = true;
 }
