@@ -15,6 +15,7 @@ in {
       ./hardware.nix
       # nixosModules.user-ayats
       inputs.lanzaboote.nixosModules.lanzaboote
+      nixosModules.user-ayats
 
       {
         home-manager.sharedModules = [

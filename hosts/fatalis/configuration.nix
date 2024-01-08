@@ -15,16 +15,6 @@
     };
   };
 
-  users.mutableUsers = false;
-  users.users.ayats = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    password = "1234";
-    createHome = true;
-  };
-  
-  home-manager.users.ayats = {};
-
   security.sudo.wheelNeedsPassword = false;
 
   system.stateVersion = "23.11";
@@ -37,10 +27,10 @@
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      #   extraPackages = with pkgs.rocmPackages; [
-      #     clr
-      #     clr.icd
-      #   ];
+      extraPackages = with pkgs.rocmPackages; [
+        clr
+        clr.icd
+      ];
     };
   };
 
@@ -54,8 +44,4 @@
 
   # services.thermald.enable = true;
   # services.cpupower-gui.enable = true;
-
-  # services.tlp = {
-  #   enable = true;
-  # };
 }

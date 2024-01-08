@@ -38,8 +38,6 @@
     packages.nh.default
 
     android-tools
-
-    cpupower-gui
   ];
 
   i18n = let

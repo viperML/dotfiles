@@ -9,7 +9,7 @@ in {
   boot = {
     lanzaboote = {
       enable = true;
-      pkiBundle = "/etc/secureboot";
+      pkiBundle = "/var/lib/secrets/secureboot";
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
@@ -75,7 +75,7 @@ in {
       ];
     };
 
-    # "/etc" = mkTmpfs;
+    "/etc" = mkTmpfs;
     # "/var" = mkTmpfs;
     "/bin" = mkTmpfs;
     "/lib64" = mkTmpfs;

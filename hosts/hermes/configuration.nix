@@ -50,7 +50,6 @@
   };
 
   services.thermald.enable = true;
-  services.cpupower-gui.enable = true;
 
   systemd.tmpfiles.rules = [
     "z /var/lib/secrets 0700 root root - -"
@@ -79,4 +78,6 @@
     allowedTCPPorts = [631];
     allowedUDPPorts = [631];
   };
+
+  services.cpupower-gui.enable = true;
 }
