@@ -13,7 +13,8 @@ in {
       #-- Host-specific
       ./configuration.nix
       ./hardware.nix
-      nixosModules.user-ayats
+      # nixosModules.user-ayats
+      nixosModules.common
       inputs.lanzaboote.nixosModules.lanzaboote
 
       {
