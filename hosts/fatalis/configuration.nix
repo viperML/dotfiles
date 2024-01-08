@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = [
     pkgs.sbctl
+    pkgs.dmidecode
   ];
 
   networking = {
