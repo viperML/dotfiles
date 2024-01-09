@@ -6,13 +6,19 @@
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.dmidecode
+    pkgs.powertop
   ];
 
   networking = {
     hostName = "fatalis";
     networkmanager = {
       enable = true;
+      dns = "systemd-resolved";
     };
+  };
+
+  services.resolved = {
+    enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;

@@ -111,4 +111,12 @@ in {
       fi
     '';
   };
+
+  systemd.tmpfiles.rules = let
+    persist = "/var/lib/NetworManager-system-connections";
+  in [
+    "d ${persist} 0700 root root - -"
+    "z ${persist} 0700 root root - -"
+    "L /etc/NetworkManager/system-connections - - - - ${persist}"
+  ];
 }
