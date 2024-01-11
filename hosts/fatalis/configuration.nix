@@ -53,4 +53,5 @@
   };
 
   # services.cpupower-gui.enable = true;
+  services.flatpak.enable = true;
 }

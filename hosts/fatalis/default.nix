@@ -13,7 +13,6 @@ in {
       #-- Host-specific
       ./configuration.nix
       ./hardware.nix
-      # nixosModules.user-ayats
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.user-ayats
 
@@ -32,6 +31,6 @@ in {
       nixosModules.gnome
 
       #-- Other
-      # nixosModules.tailscale
+      nixosModules.tailscale
     ]);
 }

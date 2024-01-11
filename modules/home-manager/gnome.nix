@@ -52,6 +52,7 @@ in {
       "enabled-extensions" = gvariant.mkArray gvariant.type.string [
         "appindicatorsupport@rgcjonas.gmail.com"
         # "blur-my-shell@aunetx"
+        "tailscale-status@maxgallup.github.com"
       ];
     };
     "org/gnome/desktop/interface" = {

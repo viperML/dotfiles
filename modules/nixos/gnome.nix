@@ -51,6 +51,7 @@
     libsForQt5.qtwayland
     libsForQt5.gwenview
     pkgs.gnomeExtensions.appindicator
+    pkgs.gnomeExtensions.tailscale-status
   ];
 
   home-manager.sharedModules = [
