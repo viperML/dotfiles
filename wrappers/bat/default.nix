@@ -2,10 +2,9 @@
   wrappers.bat = {
     basePackage = pkgs.bat;
     flags = [
-      "--theme=ansi"
+      "--theme=base16"
       "--style=changes,header"
       "--plain"
-      "--paging=auto"
     ];
   };
 }
