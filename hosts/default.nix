@@ -7,6 +7,7 @@
   imports = [
     ./hermes
     ./fatalis
+    ./zorah
   ];
 
   _module.args.mkNixos = system: extraModules: let
