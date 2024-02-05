@@ -1,12 +1,15 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.dmidecode
     pkgs.powertop
+    pkgs.pam_u2f
+    pkgs.yubikey-manager
   ];
 
   environment.sessionVariables = {
@@ -46,11 +49,13 @@
   services.fwupd.enable = true;
   services.kmscon.enable = lib.mkForce false;
 
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-
   # services.cpupower-gui.enable = true;
-  #services.flatpak.enable = true;
+  # services.flatpak.enable = true;
+
+  security.pam.u2f = {
+    enable = true;
+    origin = "pam://${config.networking.hostName}";
+    appId = "pam://${config.networking.hostName}";
+    cue = true;
+  };
 }
