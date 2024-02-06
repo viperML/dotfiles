@@ -46,6 +46,12 @@
     };
   };
 
+  users.users.alice = {
+    isNormalUser = true;
+    createHome = true;
+    password = "1234";
+  };
+
   services.fwupd.enable = true;
   services.kmscon.enable = lib.mkForce false;
 
