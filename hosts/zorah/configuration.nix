@@ -10,6 +10,8 @@
     pkgs.powertop
     pkgs.pam_u2f
     pkgs.yubikey-manager
+    pkgs.gnome.geary
+    pkgs.gnupg
   ];
 
   environment.sessionVariables = {
