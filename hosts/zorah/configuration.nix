@@ -66,4 +66,8 @@
     appId = "pam://${config.networking.hostName}";
     cue = true;
   };
+
+  services.flatpak = {
+    enable = true;
+  };
 }
