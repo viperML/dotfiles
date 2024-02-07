@@ -20,6 +20,9 @@ in {
         home-manager.sharedModules = [
           ./home.nix
           homeModules.browser
+
+          homeModules.emacs
+          homeModules.guix
         ];
       }
 

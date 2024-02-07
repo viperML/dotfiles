@@ -5,6 +5,7 @@
     "emacs"
     "git"
     "gnome"
+    "guix"
     "hyprland"
     "plasma5"
     "sway"

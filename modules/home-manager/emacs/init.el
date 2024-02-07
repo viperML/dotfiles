@@ -129,6 +129,7 @@
 
 (use-package ivy)
 (use-package projectile)
+(setq projectile-project-search-path '("~/Documents/" "~/Projects/"))
 (use-package counsel
   :init (counsel-mode 1))
 (use-package counsel-projectile
