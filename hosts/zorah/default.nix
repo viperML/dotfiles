@@ -31,6 +31,6 @@ in {
       nixosModules.gnome
 
       #-- Other
-      #nixosModules.tailscale
+      nixosModules.tailscale
     ]);
 }
