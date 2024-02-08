@@ -78,4 +78,9 @@
   imports = [
     ./git
   ];
+
+
+  home.activation."user-dirs" = lib.hm.dag.entryBefore ["writeBoundary"] ''
+    rm -f $VERBOSE_ARG "$HOME/.config/user-dirs.dirs.old"
+  '';
 }
