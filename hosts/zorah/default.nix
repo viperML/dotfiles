@@ -21,8 +21,9 @@ in {
           ./home.nix
           homeModules.browser
 
-          homeModules.emacs
+          # homeModules.emacs
           homeModules.guix
+          homeModules.emacs-doom
         ];
       }
 

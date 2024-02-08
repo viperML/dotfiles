@@ -3,6 +3,7 @@
     "browser"
     "common"
     "emacs"
+    "emacs-doom"
     "git"
     "gnome"
     "guix"
