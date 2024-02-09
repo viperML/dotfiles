@@ -1,5 +1,9 @@
 " leader key
-let mapleader="\<SPACE>"
+" let mapleader="\<SPACE>"
+let mapleader=" "
+let maplocalleader=" "
+nnoremap <Space> <Nop>
+
 
 " 4 spaces tabs and indentation
 set smartindent

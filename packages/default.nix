@@ -110,7 +110,6 @@ in {
         databaseDate = self.lib.mkDate inputs.nix-index-database.lastModifiedDate;
       };
       any-nix-shell = w pkgs.callPackage ./overrides/any-nix-shell {};
-      # neovim = w pkgs.callPackage ./overrides/neovim {};
       obsidian = w pkgs.callPackage ./overrides/obsidian {};
       papirus-icon-theme = w pkgs.callPackage ./overrides/papirus-icon-theme {};
       polkit = w pkgs.callPackage ./overrides/polkit {};

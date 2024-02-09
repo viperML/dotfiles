@@ -15,6 +15,8 @@
 vim.cmd "colorscheme base16-tomorrow-night"
 -- end
 
+-- vim.g.mapleader = " "
+
 require("nvim_comment").setup {}
 
 vim.opt.termguicolors = true
@@ -31,11 +33,7 @@ require("bufferline").setup {
 require("gitsigns").setup {}
 
 vim.opt.list = true
-require("indent_blankline").setup {
-  --space_char_blankline = " ",
-  show_current_context = true,
-  show_current_context_start = true,
-}
+
 
 require("lualine").setup {
   options = {
@@ -92,6 +90,7 @@ cmp.setup {
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
+    {name = 'conjure'},
   }, {
     { name = "buffer" },
   }),
@@ -143,3 +142,8 @@ require("nvim-treesitter.configs").setup {
 }
 
 require("hlargs").setup()
+
+require("ibl").setup()
+
+-- let g:conjure#filetype#scheme = "conjure.client.guile.socket"
+vim.g['conjure#filetype#scheme'] = "conjure.client.guile.socket"

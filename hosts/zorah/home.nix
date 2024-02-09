@@ -10,5 +10,6 @@
   home.packages = [
     pkgs.vscode
     packages.self.wezterm
+    packages.self.neovim
   ];
 }

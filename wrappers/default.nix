@@ -17,6 +17,7 @@
         (import ./fish {inherit (config) packages;})
         ./bat
         ./helix
+        ./neovim
       ];
     };
   in {
@@ -27,6 +28,7 @@
         (config.packages)
         nvfetcher
         fish
+        neovim
         ;
     };
   };
