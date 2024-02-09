@@ -59,6 +59,8 @@
 
         conjure
         cmp-conjure
+
+        neo-tree-nvim
       ]);
   };
 in {

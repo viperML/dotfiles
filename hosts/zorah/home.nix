@@ -11,5 +11,7 @@
     pkgs.vscode
     packages.self.wezterm
     packages.self.neovim
+
+    pkgs.process-compose
   ];
 }
