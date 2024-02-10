@@ -47,11 +47,10 @@
   services.fwupd.enable = true;
   services.kmscon.enable = lib.mkForce false;
 
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-
   # services.cpupower-gui.enable = true;
   services.flatpak.enable = true;
+
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
 }

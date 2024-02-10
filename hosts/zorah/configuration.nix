@@ -8,10 +8,6 @@
     pkgs.sbctl
     pkgs.dmidecode
     pkgs.powertop
-    pkgs.pam_u2f
-    pkgs.yubikey-manager
-    pkgs.gnome.geary
-    pkgs.gnupg
   ];
 
   environment.sessionVariables = {
@@ -60,13 +56,6 @@
   # services.cpupower-gui.enable = true;
   # services.flatpak.enable = true;
 
-  security.pam.u2f = {
-    enable = true;
-    origin = "pam://${config.networking.hostName}";
-    appId = "pam://${config.networking.hostName}";
-    cue = true;
-  };
-
   services.flatpak = {
     enable = true;
   };
@@ -74,16 +63,4 @@
   services.printing = {
     enable = true;
   };
-
-  services.guix = {
-    enable = true;
-  };
-
-  # environment.extraInit = lib.mkAfter (let
-  #   se = "$HOME/.guix-home/setup-environment";
-  # in ''
-  #   if [[ -f "${se}" ]]; then
-  #     . "${se}"
-  #   fi
-  # '');
 }

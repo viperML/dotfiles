@@ -32,5 +32,6 @@ in {
 
       #-- Other
       nixosModules.tailscale
+      nixosModules.guix
     ]);
 }

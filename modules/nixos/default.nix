@@ -6,6 +6,7 @@
     "docker"
     "gnome"
     "greetd"
+    "guix"
     "hyprland"
     "plasma5"
     "podman"
@@ -15,5 +16,6 @@
     "user-soch"
     "warp"
     "wine"
+    "yubikey"
   ];
 }
