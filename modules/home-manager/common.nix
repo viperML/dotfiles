@@ -42,15 +42,15 @@
 
     packages.self.fish
     packages.self.nushell
-    # packages.self.neovim
-    packages.self.helix
+    packages.self.neovim
+    # packages.self.helix
   ];
 
   # home.sessionVariables = {
   #   LESS = "-RiF --mouse --wheel-lines=3";
   # };
   home.sessionVariables = {
-    EDITOR = "hx";
+    EDITOR = "nv";
   };
 
   home.stateVersion = lib.mkDefault "21.11";

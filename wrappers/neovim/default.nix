@@ -66,5 +66,6 @@
 in {
   wrappers.neovim = {
     basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
+    renames."nvim" = "nv";
   };
 }
