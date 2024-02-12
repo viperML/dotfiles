@@ -61,6 +61,7 @@
         cmp-conjure
 
         neo-tree-nvim
+        which-key-nvim
       ]);
   };
 in {

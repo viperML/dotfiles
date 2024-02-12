@@ -17,7 +17,7 @@ vim.cmd "colorscheme base16-tomorrow-night"
 
 -- vim.g.mapleader = " "
 
-require("nvim_comment").setup {}
+-- require("nvim_comment").setup {}
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -152,3 +152,14 @@ vim.g["conjure#client#guile#socket#pipename"] = ".guile-socket"
 
 -- require("neo-tree").setup({
 -- })
+
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+
+local wk = require("which-key")
+wk.setup()
+
+wk.register({
+    ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
+})
+

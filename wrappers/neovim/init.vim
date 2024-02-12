@@ -1,7 +1,7 @@
 " leader key
 " let mapleader="\<SPACE>"
-let mapleader=" "
-let maplocalleader=" "
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 nnoremap <Space> <Nop>
 
 
