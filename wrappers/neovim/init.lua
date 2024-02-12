@@ -43,6 +43,22 @@ require("lualine").setup {
   },
 }
 
+-- https://github.com/windwp/nvim-autopairs
+local npairs = require("nvim-autopairs")
+local Rule = require('nvim-autopairs.rule')
+
+npairs.setup({
+    check_ts = true,
+    -- ts_config = {
+    -- }
+    enable_check_bracket_line = false,
+})
+
+npairs.get_rules("'")[1].not_filetypes = { "scheme" }
+npairs.get_rules("`")[1].not_filetypes = { "scheme" }
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
 -- LSP
 local cmp = require "cmp"
 
@@ -95,6 +111,13 @@ cmp.setup {
     { name = "buffer" },
   }),
 }
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
+
 
 -- Set configuration for specific filetype.
 -- cmp.setup.filetype("gitcommit", {

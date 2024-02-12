@@ -30,7 +30,7 @@
         # Misc
         vim-highlightedyank
         indent-blankline-nvim-lua
-        auto-pairs
+        nvim-autopairs
         nvim-comment
         editorconfig-vim
 
