@@ -62,6 +62,7 @@
 
         neo-tree-nvim
         which-key-nvim
+        parinfer-rust
       ]);
   };
 in {
