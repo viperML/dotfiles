@@ -1,5 +1,4 @@
 [core]
-  pager=delta
   eol=lf
   autocrlf=input
 [credential "https://github.com"]
@@ -8,12 +7,8 @@
 [credential "https://gist.github.com"]
   helper=
   helper=!gh auth git-credential
-[delta]
-  side-by-side=true
 [init]
   defaultbranch=master
-[interactive]
-  difffilter=delta --color-only
 [pull]
   ff=only
   rebase=false
@@ -26,3 +21,11 @@
   conflictstyle = diff3
 [diff]
   colorMoved = default
+  tool = difftastic
+  external = difft
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true

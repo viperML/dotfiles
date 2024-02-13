@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     git
     git-extras
-    delta
+    difftastic
   ];
 
   xdg.configFile."git/config".source = ./gitconfig;
