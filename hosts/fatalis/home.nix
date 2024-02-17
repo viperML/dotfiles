@@ -11,6 +11,6 @@
     pkgs.vscode
     packages.self.wezterm
     # pkgs.obsidian
-    pkgs.synology-drive-client
+    # pkgs.synology-drive-client
   ];
 }
