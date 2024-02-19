@@ -50,7 +50,7 @@
   #   LESS = "-RiF --mouse --wheel-lines=3";
   # };
   home.sessionVariables = {
-    EDITOR = "nv";
+    EDITOR = "nvim";
   };
 
   home.stateVersion = lib.mkDefault "21.11";

@@ -18,7 +18,7 @@ alias lt="eza --sort modified -1"
 
 # Abbreviations
 abbr -a -g p python
-abbr -a -g n nv
+abbr -a -g n nvim
 abbr -a -g pd pushd
 abbr -a -g cdx cd \$XDG_RUNTIME_DIR
 abbr -a -g z zellij attach -c main
