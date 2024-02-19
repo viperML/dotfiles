@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
-  # nvfetcher =  (builtins.attrValues (builtins.mapAttrs (_: v: lib.trace (pkgs.vimUtils.buildVimPlugin v)) (pkgs.callPackages ./generated.nix {})));
+{pkgs, ...}: let
   nvfetcher = builtins.mapAttrs (name: value:
     pkgs.vimUtils.buildVimPlugin {
       inherit name;
@@ -20,21 +15,20 @@
     plugins =
       (builtins.attrValues nvfetcher)
       ++ (with pkgs.vimPlugins; [
-        # Theming
-        # vim-one
-        nvim-web-devicons
-        gitsigns-nvim
+        # All
         bufferline-nvim
         lualine-nvim
-
-        # Misc
+        nvim-web-devicons
+        gitsigns-nvim
         vim-highlightedyank
         indent-blankline-nvim-lua
         nvim-autopairs
-        nvim-comment
-        editorconfig-vim
+        neoformat
+        neo-tree-nvim
+        comment-nvim
+        which-key-nvim
 
-        # Intelligent editor
+        # Language support
         nvim-lspconfig
         nvim-cmp
         cmp-cmdline
@@ -54,15 +48,14 @@
         #   tp.tree-sitter-rust
         #   tp.tree-sitter-nix
         # ]))
-        vim-nix
-        neoformat
 
+        vim-nix
         conjure
         cmp-conjure
-
-        neo-tree-nvim
-        which-key-nvim
         parinfer-rust
+        orgmode
+
+        ## -- Unsorted
       ]);
   };
 in {

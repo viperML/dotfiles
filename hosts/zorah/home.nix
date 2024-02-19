@@ -11,8 +11,8 @@
   home.packages = [
     pkgs.vscode
     packages.self.wezterm
-
-    pkgs.process-compose
     pkgs.just
+    pkgs.gnome.geary
+    pkgs.onlyoffice-bin
   ];
 }

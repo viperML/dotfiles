@@ -1,23 +1,4 @@
--- vim.cmd [[colorscheme one]]
--- local current_time = tonumber(os.date "%H%M")
--- if current_time < 1800 and current_time > 500 then
---   colorscheme = "light"
--- else
---   colorscheme = "dark"
--- end
-
--- vim.opt.background = colorscheme
-
--- local current_time = tonumber(os.date "%H%M")
--- if current_time < 1800 and current_time > 500 then
---   vim.cmd "colorscheme base16-tomorrow"
--- else
 vim.cmd "colorscheme base16-tomorrow-night"
--- end
-
--- vim.g.mapleader = " "
-
--- require("nvim_comment").setup {}
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -31,9 +12,7 @@ require("bufferline").setup {
 }
 
 require("gitsigns").setup {}
-
 vim.opt.list = true
-
 
 require("lualine").setup {
   options = {
@@ -43,10 +22,9 @@ require("lualine").setup {
   },
 }
 
--- https://github.com/windwp/nvim-autopairs
+-- Autopairs
 local npairs = require("nvim-autopairs")
 local Rule = require('nvim-autopairs.rule')
-
 npairs.setup({
     check_ts = true,
     -- ts_config = {
@@ -54,16 +32,13 @@ npairs.setup({
     enable_check_bracket_line = false,
     -- disable_filetype = { "scheme" },
 })
-
 npairs.get_rules("'")[1].not_filetypes = { "scheme" }
 npairs.get_rules("`")[1].not_filetypes = { "scheme" }
 npairs.get_rules("(")[1].not_filetypes = { "scheme" }
-
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
--- LSP
+-- Completion
 local cmp = require "cmp"
-
 cmp.setup {
   -- snippet = {
   --   -- REQUIRED - you must specify a snippet engine
@@ -119,25 +94,6 @@ cmp.event:on(
   cmp_autopairs.on_confirm_done()
 )
 
-
-
--- Set configuration for specific filetype.
--- cmp.setup.filetype("gitcommit", {
---   sources = cmp.config.sources({
---     { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
---   }, {
---     { name = "buffer" },
---   }),
--- })
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
--- cmp.setup.cmdline("/", {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = {
---     { name = "buffer" },
---   },
--- })
-
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
@@ -148,7 +104,7 @@ cmp.setup.cmdline(":", {
   }),
 })
 
--- Setup lspconfig.
+-- LSP
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("lspconfig")["rnix"].setup {
@@ -156,6 +112,10 @@ require("lspconfig")["rnix"].setup {
   autostart = true,
   cmd = { "nil" },
 }
+
+-- Treesitter
+local orgmode = require('orgmode')
+orgmode.setup_ts_grammar()
 
 require("nvim-treesitter.configs").setup {
   -- ignore_install = { "all" },
@@ -166,17 +126,16 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
+-- Rest
+
+
 require("hlargs").setup()
 
 require("ibl").setup()
 
--- let g:conjure#filetype#scheme = "conjure.client.guile.socket"
 vim.g['conjure#filetype#scheme'] = "conjure.client.guile.socket"
 vim.g["conjure#client#guile#socket#pipename"] = ".guile-socket"
 
-
--- require("neo-tree").setup({
--- })
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
@@ -188,3 +147,10 @@ wk.register({
     ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
 })
 
+
+orgmode.setup({
+  -- org_agenda_files = {},
+  -- org_default_notes_file = '~/Dropbox/org/refile.org',
+})
+
+require('Comment').setup()
