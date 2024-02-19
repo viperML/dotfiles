@@ -1,9 +1,8 @@
-{
-  pkgs,
-  packages,
-  lib,
-  config,
-  ...
+{ pkgs
+, packages
+, lib
+, config
+, ...
 }: {
   # Generic programs
   home.packages = [
@@ -11,6 +10,7 @@
     config.nix.package
     pkgs.direnv
     pkgs.alejandra
+    pkgs.nixpkgs-fmt
     packages.self.nvfetcher
     packages.nh.default
     pkgs.nix-output-monitor
@@ -80,7 +80,7 @@
   ];
 
 
-  home.activation."user-dirs" = lib.hm.dag.entryBefore ["writeBoundary"] ''
+  home.activation."user-dirs" = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
     rm -f $VERBOSE_ARG "$HOME/.config/user-dirs.dirs.old"
   '';
 }
