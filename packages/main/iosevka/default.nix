@@ -1,11 +1,11 @@
-{
-  pname,
-  src,
-  version,
-  #
-  stdenvNoCC,
-  unzip,
-  lib,
+{ pname
+, src
+, version
+, #
+  stdenvNoCC
+, unzip
+, lib
+,
 }:
 stdenvNoCC.mkDerivation {
   inherit pname src;

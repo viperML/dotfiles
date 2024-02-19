@@ -1,12 +1,12 @@
-{
-  inputs,
-  withSystem,
-  config,
-  ...
-}: let
+{ inputs
+, withSystem
+, config
+, ...
+}:
+let
   mkHome = system: extraModules:
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = withSystem system ({pkgs, ...}: pkgs);
+      pkgs = withSystem system ({ pkgs, ... }: pkgs);
       modules =
         [
           inputs.nix-common.homeModules.default
@@ -19,9 +19,10 @@
         packages = inputs.nix-common.lib.mkPackages system inputs;
       };
     };
-in {
+in
+{
   flake.homeConfigurations = {
-    "ayats" = mkHome "x86_64-linux" [];
+    "ayats" = mkHome "x86_64-linux" [ ];
     "ayats@shiva" = mkHome "aarch64-linux" [
       (./. + "/@shiva.nix")
     ];

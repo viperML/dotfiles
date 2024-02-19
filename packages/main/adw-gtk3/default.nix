@@ -1,13 +1,13 @@
-{
-  pname,
-  version,
-  src,
-  #
-  stdenvNoCC,
-  lib,
-  sassc,
-  meson,
-  ninja,
+{ pname
+, version
+, src
+, #
+  stdenvNoCC
+, lib
+, sassc
+, meson
+, ninja
+,
 }:
 stdenvNoCC.mkDerivation {
   inherit pname src;

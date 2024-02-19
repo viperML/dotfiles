@@ -1,14 +1,15 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs
+, config
+, lib
+, ...
+}:
+let
   groupName = "containerd";
   nerdctl = pkgs.nerdctl.override {
     makeWrapper = pkgs.makeBinaryWrapper;
   };
-in {
+in
+{
   environment.systemPackages = [
     nerdctl
   ];
@@ -19,8 +20,8 @@ in {
 
   systemd = {
     timers."containerd-prune" = {
-      wantedBy = ["timers.target"];
-      partOf = ["containerd-prune.service"];
+      wantedBy = [ "timers.target" ];
+      partOf = [ "containerd-prune.service" ];
       timerConfig = {
         OnCalendar = "weekly";
         Persistent = true;
@@ -31,7 +32,7 @@ in {
       script = ''
         ${pkgs.nerdctl}/bin/nerdctl system prune --all --force
       '';
-      requires = ["containerd.service"];
+      requires = [ "containerd.service" ];
     };
   };
 

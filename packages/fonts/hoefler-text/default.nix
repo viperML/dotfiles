@@ -1,6 +1,6 @@
-{
-  stdenvNoCC,
-  lib,
+{ stdenvNoCC
+, lib
+,
 }:
 stdenvNoCC.mkDerivation {
   pname = "hoefler-text";

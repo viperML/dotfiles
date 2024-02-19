@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   virtualisation.docker = {
     enable = true;
@@ -18,8 +17,8 @@
 
   systemd = {
     timers.docker-prune = {
-      wantedBy = ["timers.target"];
-      partOf = ["docker-prune.service"];
+      wantedBy = [ "timers.target" ];
+      partOf = [ "docker-prune.service" ];
       timerConfig = {
         OnCalendar = "weekly";
         Persistent = true;
@@ -30,7 +29,7 @@
       script = ''
         ${pkgs.docker}/bin/docker system prune --all --force
       '';
-      requires = ["docker.service"];
+      requires = [ "docker.service" ];
     };
   };
 }

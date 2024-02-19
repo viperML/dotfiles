@@ -1,27 +1,27 @@
-{
-  pname,
-  date,
-  src,
-  #
-  lib,
-  mkDerivation,
-  cmake,
-  extra-cmake-modules,
-  kdecoration,
-  kcoreaddons,
-  kguiaddons,
-  kconfigwidgets,
-  kwindowsystem,
-  kiconthemes,
-  qtx11extras,
+{ pname
+, date
+, src
+, #
+  lib
+, mkDerivation
+, cmake
+, extra-cmake-modules
+, kdecoration
+, kcoreaddons
+, kguiaddons
+, kconfigwidgets
+, kwindowsystem
+, kiconthemes
+, qtx11extras
+,
 }:
 mkDerivation {
   inherit pname src;
   version = date;
 
-  extraCmakeFlags = ["-DBUILD_TESTING=OFF"];
+  extraCmakeFlags = [ "-DBUILD_TESTING=OFF" ];
 
-  nativeBuildInputs = [cmake extra-cmake-modules];
+  nativeBuildInputs = [ cmake extra-cmake-modules ];
 
   buildInputs = [
     kcoreaddons

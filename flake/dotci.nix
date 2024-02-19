@@ -1,6 +1,6 @@
-{
-  rustPlatform,
-  src,
+{ rustPlatform
+, src
+,
 }:
 rustPlatform.buildRustPackage {
   name = "dotci";

@@ -1,8 +1,7 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
+{ lib
+, config
+, pkgs
+, ...
 }: {
   home.file =
     lib.genAttrs [
@@ -12,9 +11,10 @@
       "Music"
       "Pictures"
       "Videos"
-    ] (folder: {
-      source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/${config.home.username}/${folder}";
-    });
+    ]
+      (folder: {
+        source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/${config.home.username}/${folder}";
+      });
 
   nix.settings = import ../../misc/nix-conf-privileged.nix;
 

@@ -1,8 +1,7 @@
-{
-  inputs,
-  config,
-  withSystem,
-  ...
+{ inputs
+, config
+, withSystem
+, ...
 }: {
   imports = [
     ./hermes
@@ -10,12 +9,13 @@
     ./zorah
   ];
 
-  _module.args.mkNixos = system: extraModules: let
-    specialArgs = {
-      inherit inputs;
-      packages = inputs.nix-common.lib.mkPackages system inputs;
-    };
-  in
+  _module.args.mkNixos = system: extraModules:
+    let
+      specialArgs = {
+        inherit inputs;
+        packages = inputs.nix-common.lib.mkPackages system inputs;
+      };
+    in
     inputs.nixpkgs.lib.nixosSystem {
       inherit specialArgs;
 
@@ -23,7 +23,7 @@
         [
           #-- Core
           inputs.nixpkgs.nixosModules.readOnlyPkgs
-          {nixpkgs.pkgs = withSystem system ({pkgs, ...}: pkgs);}
+          { nixpkgs.pkgs = withSystem system ({ pkgs, ... }: pkgs); }
 
           config.flake.nixosModules.common
           inputs.nix-common.nixosModules.default

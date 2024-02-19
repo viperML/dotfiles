@@ -1,13 +1,13 @@
-{
-  pname,
-  date,
-  src,
-  cargoLock,
-  #
-  rustPlatform,
-  makeWrapper,
-  wayland,
-  pkg-config,
+{ pname
+, date
+, src
+, cargoLock
+, #
+  rustPlatform
+, makeWrapper
+, wayland
+, pkg-config
+,
 }:
 rustPlatform.buildRustPackage {
   inherit pname src;

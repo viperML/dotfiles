@@ -1,8 +1,7 @@
-{
-  packages,
-  pkgs,
-  inputs,
-  ...
+{ packages
+, pkgs
+, inputs
+, ...
 }: {
   services.xserver = {
     enable = true;

@@ -1,6 +1,6 @@
-{
-  papirus-icon-theme,
-  color ? "blue",
+{ papirus-icon-theme
+, color ? "blue"
+,
 }:
 papirus-icon-theme.overrideAttrs (prev: {
   # https://github.com/PapirusDevelopmentTeam/papirus-folders/

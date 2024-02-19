@@ -1,11 +1,11 @@
-{
-  pname,
-  src,
-  date,
-  #
-  stdenv,
-  lib,
-  kwindowsystem,
+{ pname
+, src
+, date
+, #
+  stdenv
+, lib
+, kwindowsystem
+,
 }:
 stdenv.mkDerivation {
   inherit pname src;

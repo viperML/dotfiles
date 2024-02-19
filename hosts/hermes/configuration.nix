@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   networking = {
     hostName = "hermes";
@@ -18,7 +17,7 @@
   users.mutableUsers = false;
   users.users.ayats = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     password = "1234";
     createHome = true;
   };
@@ -67,16 +66,16 @@
 
   services.printing = {
     enable = true;
-    listenAddresses = ["*:631"];
-    allowFrom = ["all"];
+    listenAddresses = [ "*:631" ];
+    allowFrom = [ "all" ];
     browsing = true;
     defaultShared = true;
-    drivers = with pkgs; [gutenprint hplip splix];
+    drivers = with pkgs; [ gutenprint hplip splix ];
   };
 
   networking.firewall = {
-    allowedTCPPorts = [631];
-    allowedUDPPorts = [631];
+    allowedTCPPorts = [ 631 ];
+    allowedUDPPorts = [ 631 ];
   };
 
   services.cpupower-gui.enable = true;

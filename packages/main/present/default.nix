@@ -1,6 +1,6 @@
-{runCommandLocal}:
-runCommandLocal "present" {
-} ''
+{ runCommandLocal }:
+runCommandLocal "present"
+{ } ''
   mkdir -p $out
   for ((i=0;i<NIX_BUILD_CORES;i++)); do
     echo "spawning present $i"

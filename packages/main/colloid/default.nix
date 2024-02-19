@@ -1,14 +1,14 @@
-{
-  pname,
-  version,
-  src,
-  #
-  stdenvNoCC,
-  lib,
-  gtk3,
-  sassc,
-  theme ? "default",
-  tweaks ? "rimless",
+{ pname
+, version
+, src
+, #
+  stdenvNoCC
+, lib
+, gtk3
+, sassc
+, theme ? "default"
+, tweaks ? "rimless"
+,
 }:
 stdenvNoCC.mkDerivation {
   inherit pname version src;

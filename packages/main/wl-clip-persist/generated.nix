@@ -14,9 +14,7 @@
     };
     cargoLock."Cargo.lock" = {
       lockFile = ./wl-clip-persist-6ba11a2aa295d780f0b2e8f005cf176601d153b0/Cargo.lock;
-      outputHashes = {
-        
-      };
+      outputHashes = { };
     };
     date = "2022-09-07";
   };

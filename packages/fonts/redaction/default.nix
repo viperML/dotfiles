@@ -1,7 +1,7 @@
-{
-  stdenvNoCC,
-  fetchzip,
-  lib,
+{ stdenvNoCC
+, fetchzip
+, lib
+,
 }:
 stdenvNoCC.mkDerivation {
   pname = "redaction";

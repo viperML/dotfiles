@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   wrappers.google-chrome = {
     basePackage = pkgs.google-chrome;
     flags = [

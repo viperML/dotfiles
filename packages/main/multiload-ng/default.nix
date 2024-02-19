@@ -1,14 +1,14 @@
-{
-  pname,
-  src,
-  date,
-  #
-  stdenv,
-  autoreconfHook,
-  libappindicator,
-  pkg-config,
-  intltool,
-  gettext,
+{ pname
+, src
+, date
+, #
+  stdenv
+, autoreconfHook
+, libappindicator
+, pkg-config
+, intltool
+, gettext
+,
 }:
 stdenv.mkDerivation {
   inherit pname src;

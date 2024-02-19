@@ -1,7 +1,6 @@
-{
-  inputs,
-  lib,
-  ...
+{ inputs
+, lib
+, ...
 }: {
   imports = [
     ../packages
@@ -26,39 +25,39 @@
     "aarch64-linux"
   ];
 
-  perSystem = {
-    pkgs,
-    config,
-    ...
-  }: {
-    devShells.flake = with pkgs;
-      mkShell {
-        packages = [
-          rustc
-          cargo
-          rustfmt
-          rust-analyzer-unwrapped
-          clippy
-        ];
-        RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
+  perSystem =
+    { pkgs
+    , config
+    , ...
+    }: {
+      devShells.flake = with pkgs;
+        mkShell {
+          packages = [
+            rustc
+            cargo
+            rustfmt
+            rust-analyzer-unwrapped
+            clippy
+          ];
+          RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
+        };
+
+      packages.dotci = pkgs.callPackage ./dotci.nix {
+        src = inputs.nix-filter.lib {
+          root = ./.;
+          include = [
+            "src"
+            "Cargo.toml"
+            "Cargo.lock"
+          ];
+        };
       };
 
-    packages.dotci = pkgs.callPackage ./dotci.nix {
-      src = inputs.nix-filter.lib {
-        root = ./.;
-        include = [
-          "src"
-          "Cargo.toml"
-          "Cargo.lock"
-        ];
+      checks = {
+        inherit
+          (config.packages)
+          dotci
+          ;
       };
     };
-
-    checks = {
-      inherit
-        (config.packages)
-        dotci
-        ;
-    };
-  };
 }

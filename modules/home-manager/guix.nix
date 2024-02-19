@@ -1,7 +1,6 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }: {
   # home.sessionVariables.GUILE_LOAD_PATH = lib.concatMapStringsSep ":" (p: "${config.home.homeDirectory}/.guix-home/profile/${p}") [
   #   "share/guile/3.0"

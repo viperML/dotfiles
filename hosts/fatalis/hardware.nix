@@ -1,12 +1,13 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
   luksDevice = "luksroot";
   swapfile = "/swapfile";
-in {
+in
+{
   boot = {
     lanzaboote = {
       enable = true;
@@ -47,43 +48,45 @@ in {
     tmp.useTmpfs = true;
   };
 
-  fileSystems = let
-    mkTmpfs = {
-      device = "none";
-      fsType = "tmpfs";
-      options = [
-        "size=2G"
-        "mode=0755"
-      ];
-      neededForBoot = true;
-    };
-  in {
-    "/" = {
-      device = "/dev/mapper/${luksDevice}";
-      fsType = "xfs";
-      options = [
-        "noatime"
-      ];
-    };
+  fileSystems =
+    let
+      mkTmpfs = {
+        device = "none";
+        fsType = "tmpfs";
+        options = [
+          "size=2G"
+          "mode=0755"
+        ];
+        neededForBoot = true;
+      };
+    in
+    {
+      "/" = {
+        device = "/dev/mapper/${luksDevice}";
+        fsType = "xfs";
+        options = [
+          "noatime"
+        ];
+      };
 
-    ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-partlabel/ESP";
-      fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
-    };
+      ${config.boot.loader.efi.efiSysMountPoint} = {
+        device = "/dev/disk/by-partlabel/ESP";
+        fsType = "vfat";
+        options = [
+          "x-systemd.automount"
+          "x-systemd.mount-timeout=15min"
+          "umask=077"
+        ];
+      };
 
-    "/etc" = mkTmpfs;
-    # "/var" = mkTmpfs;
-    "/bin" = mkTmpfs;
-    "/lib64" = mkTmpfs;
-    "/opt" = mkTmpfs;
-    "/srv" = mkTmpfs;
-    "/usr" = mkTmpfs;
-  };
+      "/etc" = mkTmpfs;
+      # "/var" = mkTmpfs;
+      "/bin" = mkTmpfs;
+      "/lib64" = mkTmpfs;
+      "/opt" = mkTmpfs;
+      "/srv" = mkTmpfs;
+      "/usr" = mkTmpfs;
+    };
 
   swapDevices = [
     {
@@ -97,7 +100,7 @@ in {
 
   systemd.services.create-swapfile = {
     serviceConfig.Type = "oneshot";
-    wantedBy = ["swapfile.swap"];
+    wantedBy = [ "swapfile.swap" ];
     path = with pkgs; [
       coreutils
       e2fsprogs
@@ -112,11 +115,13 @@ in {
     '';
   };
 
-  systemd.tmpfiles.rules = let
-    persist = "/var/lib/NetworManager-system-connections";
-  in [
-    "d ${persist} 0700 root root - -"
-    "z ${persist} 0700 root root - -"
-    "L /etc/NetworkManager/system-connections - - - - ${persist}"
-  ];
+  systemd.tmpfiles.rules =
+    let
+      persist = "/var/lib/NetworManager-system-connections";
+    in
+    [
+      "d ${persist} 0700 root root - -"
+      "z ${persist} 0700 root root - -"
+      "L /etc/NetworkManager/system-connections - - - - ${persist}"
+    ];
 }

@@ -1,8 +1,7 @@
-{
-  lib,
-  packages,
-  pkgs,
-  ...
+{ lib
+, packages
+, pkgs
+, ...
 }: {
   security.polkit = {
     extraConfig = lib.fileContents ./polkit.js;

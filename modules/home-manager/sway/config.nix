@@ -1,8 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   modifier = "Mod4";
 
   wayland-screenshot = pkgs.writeShellApplication {
@@ -16,7 +16,8 @@
       grim -g "$(slurp)" - | swappy -f -
     '';
   };
-in {
+in
+{
   wayland.windowManager.sway.config = {
     gaps = {
       outer = 0;
@@ -25,7 +26,7 @@ in {
 
     inherit modifier;
 
-    output = lib.genAttrs ["DP-1" "DP-2" "DP-3"] (_: {
+    output = lib.genAttrs [ "DP-1" "DP-2" "DP-3" ] (_: {
       adaptive_sync = "off";
       # max_render_time = "6";
     });
@@ -41,13 +42,14 @@ in {
       };
     };
 
-    bars = lib.mkForce [];
+    bars = lib.mkForce [ ];
 
-    keybindings = let
-      # Doesn't pass env properly
-      # mkExec = program: "exec systemd-run --slice=manual.slice --property=ExitType=cgroup --user --wait --collect -E PATH ${program}";
-      mkExec = program: "exec ${program}";
-    in
+    keybindings =
+      let
+        # Doesn't pass env properly
+        # mkExec = program: "exec systemd-run --slice=manual.slice --property=ExitType=cgroup --user --wait --collect -E PATH ${program}";
+        mkExec = program: "exec ${program}";
+      in
       lib.mkOptionDefault rec {
         "${modifier}+Return" = mkExec "wezterm start --always-new-process";
         "${modifier}+Shift+Return" = "exec wezterm";
@@ -71,25 +73,27 @@ in {
       border = 0;
     };
 
-    colors = let
-      accent = "#ababab";
-    in rec {
-      focused = rec {
-        border = accent;
-        indicator = border;
-        background = accent;
-        childBorder = border;
-        text = "#121212";
+    colors =
+      let
+        accent = "#ababab";
+      in
+      rec {
+        focused = rec {
+          border = accent;
+          indicator = border;
+          background = accent;
+          childBorder = border;
+          text = "#121212";
+        };
+        unfocused = rec {
+          border = "#0F0F0F";
+          indicator = border;
+          background = border;
+          childBorder = border;
+          text = "#aaaaaa";
+        };
+        focusedInactive = unfocused;
       };
-      unfocused = rec {
-        border = "#0F0F0F";
-        indicator = border;
-        background = border;
-        childBorder = border;
-        text = "#aaaaaa";
-      };
-      focusedInactive = unfocused;
-    };
 
     fonts = {
       names = [

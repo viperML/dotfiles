@@ -1,13 +1,13 @@
-{
-  pname,
-  date,
-  src,
-  #
-  stdenvNoCC,
-  makeWrapper,
-  jq,
-  glow,
-  lib,
+{ pname
+, date
+, src
+, #
+  stdenvNoCC
+, makeWrapper
+, jq
+, glow
+, lib
+,
 }:
 stdenvNoCC.mkDerivation rec {
   inherit pname src;

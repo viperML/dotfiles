@@ -1,8 +1,7 @@
-{
-  pkgs,
-  packages,
-  inputs,
-  ...
+{ pkgs
+, packages
+, inputs
+, ...
 }: {
   services.xserver = {
     desktopManager.gnome.enable = true;

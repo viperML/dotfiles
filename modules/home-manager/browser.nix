@@ -1,13 +1,14 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
   cfg = config.browser;
-in {
+in
+{
   options.browser = {
-    package = lib.mkPackageOption pkgs "firefox" {};
+    package = lib.mkPackageOption pkgs "firefox" { };
     desktopFile = lib.mkOption {
       type = lib.types.str;
       default = "firefox.desktop";
@@ -15,7 +16,7 @@ in {
   };
 
   config = {
-    home.packages = [cfg.package];
+    home.packages = [ cfg.package ];
     xdg.mimeApps = {
       enable = true;
       defaultApplications = lib.genAttrs [
@@ -30,7 +31,8 @@ in {
         "application/x-extension-xhtml"
         "application/x-extension-xht"
         "application/pdf"
-      ] (_: cfg.desktopFile);
+      ]
+        (_: cfg.desktopFile);
     };
   };
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   wrappers.bat = {
     basePackage = pkgs.bat;
     flags = [

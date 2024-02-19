@@ -1,8 +1,7 @@
-{
-  pkgs,
-  inputs,
-  config,
-  ...
+{ pkgs
+, inputs
+, config
+, ...
 }:
 {
   programs.emacs = {

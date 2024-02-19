@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   wrappers.helix = {
     basePackage = pkgs.helix;
     flags = [

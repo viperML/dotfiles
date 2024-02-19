@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   services.resolved.extraConfig = ''
     [Resolve]
     DNS=127.0.0.1:8600

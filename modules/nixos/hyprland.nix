@@ -1,7 +1,6 @@
-{
-  packages,
-  inputs,
-  ...
+{ packages
+, inputs
+, ...
 }: {
   imports = [
     ./wayland-compositors.nix

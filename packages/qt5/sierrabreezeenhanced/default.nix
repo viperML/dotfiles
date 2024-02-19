@@ -1,23 +1,23 @@
-{
-  pname,
-  date,
-  src,
-  #
-  lib,
-  stdenv,
-  wrapQtAppsHook,
-  cmake,
-  extra-cmake-modules,
-  qtbase,
-  qtdeclarative,
-  qtx11extras,
-  plasma-desktop,
-  kwindowsystem,
-  kdecoration,
-  kcoreaddons,
-  kguiaddons,
-  kconfigwidgets,
-  kiconthemes,
+{ pname
+, date
+, src
+, #
+  lib
+, stdenv
+, wrapQtAppsHook
+, cmake
+, extra-cmake-modules
+, qtbase
+, qtdeclarative
+, qtx11extras
+, plasma-desktop
+, kwindowsystem
+, kdecoration
+, kcoreaddons
+, kguiaddons
+, kconfigwidgets
+, kiconthemes
+,
 }:
 stdenv.mkDerivation {
   inherit pname src;

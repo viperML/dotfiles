@@ -1,13 +1,14 @@
-{
-  config,
-  withSystem,
-  mkNixos,
-  ...
-}: let
+{ config
+, withSystem
+, mkNixos
+, ...
+}:
+let
   system = "x86_64-linux";
   inherit (config.flake) nixosModules homeModules;
-in {
-  flake.nixosConfigurations.hermes = withSystem system ({pkgs, ...}:
+in
+{
+  flake.nixosConfigurations.hermes = withSystem system ({ pkgs, ... }:
     mkNixos system [
       #-- Host-specific
       ./configuration.nix
@@ -24,7 +25,7 @@ in {
       }
 
       #-- Environment
-      {services.xserver.displayManager.autoLogin.user = "ayats";}
+      { services.xserver.displayManager.autoLogin.user = "ayats"; }
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5

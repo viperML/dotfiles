@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   wrappers.nushell = {
     basePackage = pkgs.nushell;
     env.STARSHIP_CONFIG = {

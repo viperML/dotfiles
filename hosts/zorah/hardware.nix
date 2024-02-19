@@ -1,17 +1,18 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
   luksDevice = "luksroot";
   swapfile = "/swapfile";
-in {
+in
+{
   boot = {
-     lanzaboote = {
-       enable = true;
-       pkiBundle = "/var/lib/secrets/secureboot";
-     };
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/secrets/secureboot";
+    };
 
     kernelPackages = pkgs.linuxPackages_latest;
 
@@ -41,7 +42,7 @@ in {
     kernelParams = [
     ];
 
-    kernelModules = ["kvm-intel"];
+    kernelModules = [ "kvm-intel" ];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -56,53 +57,57 @@ in {
     tmp.useTmpfs = true;
   };
 
-  fileSystems = let
-    mkTmpfs = {
-      device = "none";
-      fsType = "tmpfs";
-      options = [
-        "size=2G"
-        "mode=0755"
-      ];
-      neededForBoot = true;
-    };
-  in {
-    "/" = {
-      device = "/dev/mapper/${luksDevice}";
-      fsType = "xfs";
-      options = [
-        "noatime"
-      ];
-    };
+  fileSystems =
+    let
+      mkTmpfs = {
+        device = "none";
+        fsType = "tmpfs";
+        options = [
+          "size=2G"
+          "mode=0755"
+        ];
+        neededForBoot = true;
+      };
+    in
+    {
+      "/" = {
+        device = "/dev/mapper/${luksDevice}";
+        fsType = "xfs";
+        options = [
+          "noatime"
+        ];
+      };
 
-    ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-partlabel/ESP";
-      fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
-    };
+      ${config.boot.loader.efi.efiSysMountPoint} = {
+        device = "/dev/disk/by-partlabel/ESP";
+        fsType = "vfat";
+        options = [
+          "x-systemd.automount"
+          "x-systemd.mount-timeout=15min"
+          "umask=077"
+        ];
+      };
 
-    "/etc" = mkTmpfs;
-    # "/var" = mkTmpfs;
-    "/bin" = mkTmpfs;
-    "/lib64" = mkTmpfs;
-    "/opt" = mkTmpfs;
-    "/srv" = mkTmpfs;
-    "/usr" = mkTmpfs;
-  };
+      "/etc" = mkTmpfs;
+      # "/var" = mkTmpfs;
+      "/bin" = mkTmpfs;
+      "/lib64" = mkTmpfs;
+      "/opt" = mkTmpfs;
+      "/srv" = mkTmpfs;
+      "/usr" = mkTmpfs;
+    };
 
   security.tpm2 = {
     enable = true;
   };
 
-  systemd.tmpfiles.rules = let
-    persist = "/var/lib/NetworManager-system-connections";
-  in [
-    "d ${persist} 0700 root root - -"
-    "z ${persist} 0700 root root - -"
-    "L /etc/NetworkManager/system-connections - - - - ${persist}"
-  ];
+  systemd.tmpfiles.rules =
+    let
+      persist = "/var/lib/NetworManager-system-connections";
+    in
+    [
+      "d ${persist} 0700 root root - -"
+      "z ${persist} 0700 root root - -"
+      "L /etc/NetworkManager/system-connections - - - - ${persist}"
+    ];
 }

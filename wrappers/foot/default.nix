@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   wrappers.foot = {
     basePackage = pkgs.foot;
     flags = [

@@ -1,7 +1,7 @@
-with import <nixpkgs> {};
-  mkShellNoCC {
-    nativeBuildInputs = [
-      perl
-      perlPackages.ConfigINI
-    ];
-  }
+with import <nixpkgs> { };
+mkShellNoCC {
+  nativeBuildInputs = [
+    perl
+    perlPackages.ConfigINI
+  ];
+}

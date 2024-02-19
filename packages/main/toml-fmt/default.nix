@@ -1,8 +1,8 @@
-{
-  pname,
-  src,
-  date,
-  rustPlatform,
+{ pname
+, src
+, date
+, rustPlatform
+,
 }:
 rustPlatform.buildRustPackage {
   inherit pname src;

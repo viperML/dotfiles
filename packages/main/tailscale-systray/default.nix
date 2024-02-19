@@ -1,13 +1,13 @@
-{
-  pname,
-  date,
-  src,
-  #
-  lib,
-  buildGoModule,
-  pkg-config,
-  libayatana-appindicator-gtk3,
-  gtk3,
+{ pname
+, date
+, src
+, #
+  lib
+, buildGoModule
+, pkg-config
+, libayatana-appindicator-gtk3
+, gtk3
+,
 }:
 buildGoModule rec {
   inherit pname src;

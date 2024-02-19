@@ -1,7 +1,7 @@
-{
-  obsidian,
-  nodePackages,
-  gnused,
+{ obsidian
+, nodePackages
+, gnused
+,
 }:
 obsidian.overrideAttrs (_: {
   patchPhase = ''

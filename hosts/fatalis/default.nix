@@ -1,14 +1,15 @@
-{
-  config,
-  withSystem,
-  mkNixos,
-  inputs,
-  ...
-}: let
+{ config
+, withSystem
+, mkNixos
+, inputs
+, ...
+}:
+let
   system = "x86_64-linux";
   inherit (config.flake) nixosModules homeModules;
-in {
-  flake.nixosConfigurations.fatalis = withSystem system ({pkgs, ...}:
+in
+{
+  flake.nixosConfigurations.fatalis = withSystem system ({ pkgs, ... }:
     mkNixos system [
       #-- Host-specific
       ./configuration.nix

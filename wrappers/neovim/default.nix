@@ -1,9 +1,12 @@
-{pkgs, ...}: let
-  nvfetcher = builtins.mapAttrs (name: value:
-    pkgs.vimUtils.buildVimPlugin {
-      inherit name;
-      inherit (value) src;
-    }) (pkgs.callPackages ./generated.nix {});
+{ pkgs, ... }:
+let
+  nvfetcher = builtins.mapAttrs
+    (name: value:
+      pkgs.vimUtils.buildVimPlugin {
+        inherit name;
+        inherit (value) src;
+      })
+    (pkgs.callPackages ./generated.nix { });
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     withPython3 = false;
     withRuby = false;
@@ -58,7 +61,8 @@
         ## -- Unsorted
       ]);
   };
-in {
+in
+{
   wrappers.neovim = {
     basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
     renames."nvim" = "nv";

@@ -1,7 +1,7 @@
-{polkit}:
+{ polkit }:
 polkit.overrideAttrs (old: {
   patches =
-    (old.patches or [])
+    (old.patches or [ ])
     ++ [
       ./expiration.patch
     ];
