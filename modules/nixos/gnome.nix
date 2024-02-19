@@ -51,6 +51,7 @@
     libsForQt5.gwenview
     pkgs.gnomeExtensions.appindicator
     pkgs.gnomeExtensions.tailscale-status
+    pkgs.wl-clipboard
   ];
 
   home-manager.sharedModules = [
