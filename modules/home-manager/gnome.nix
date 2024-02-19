@@ -41,7 +41,7 @@ in
       "org/gnome/mutter" = {
         "experimental-features" = gvariant.mkArray gvariant.type.string [ "scale-monitor-framebuffer" ];
         "focus-change-on-pointer-rest" = gvariant.mkBoolean false;
-        "overlay-key" = gvariant.mkString "Super_R";
+        "overlay-key" = gvariant.mkString "Super_L";
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
         "custom-keybindings" = gvariant.mkArray gvariant.type.string (map (key: "/${key}/") (builtins.attrNames shortcuts));
