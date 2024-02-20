@@ -39,5 +39,6 @@ in
       nixosModules.tailscale
       nixosModules.guix
       nixosModules.yubikey
+      nixosModules.printing
     ]);
 }

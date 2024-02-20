@@ -10,6 +10,7 @@
     "hyprland"
     "plasma5"
     "podman"
+    "printing"
     "sway"
     "tailscale"
     "user-ayats"

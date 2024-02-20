@@ -54,29 +54,5 @@
     "z /var/lib/secrets 0700 root root - -"
   ];
 
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    openFirewall = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
-
-  services.printing = {
-    enable = true;
-    listenAddresses = [ "*:631" ];
-    allowFrom = [ "all" ];
-    browsing = true;
-    defaultShared = true;
-    drivers = with pkgs; [ gutenprint hplip splix ];
-  };
-
-  networking.firewall = {
-    allowedTCPPorts = [ 631 ];
-    allowedUDPPorts = [ 631 ];
-  };
-
   services.cpupower-gui.enable = true;
 }
