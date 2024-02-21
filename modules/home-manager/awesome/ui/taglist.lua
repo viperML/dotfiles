@@ -1,9 +1,9 @@
-local awful = require "awful"
-local wibox = require "wibox"
-local beautiful = require "beautiful"
-local gears = require "gears"
-local helpers = require "helpers"
-local bling = require "bling"
+local awful = require("awful")
+local wibox = require("wibox")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local helpers = require("helpers")
+local bling = require("bling")
 
 return function(s)
   bling.widget.tag_preview.enable {

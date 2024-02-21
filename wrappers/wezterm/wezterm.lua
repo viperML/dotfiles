@@ -1,4 +1,4 @@
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
 local act = wezterm.action
 
 local padding = 12
@@ -181,10 +181,10 @@ local generic_config = {
     -- { key = ')', mods = 'SHIFT|CTRL', action = act.ResetFontSize },
     -- { key = '*', mods = 'CTRL', action = act.ActivateTab(7) },
     -- { key = '*', mods = 'SHIFT|CTRL', action = act.ActivateTab(7) },
-    { key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
-    { key = '+', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },
-    { key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
-    { key = '-', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
+    { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
+    { key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
+    { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+    { key = "-", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
     -- { key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
     -- { key = '0', mods = 'CTRL', action = act.ResetFontSize },
     -- { key = '0', mods = 'SHIFT|CTRL', action = act.ResetFontSize },
@@ -213,8 +213,8 @@ local generic_config = {
     -- { key = '=', mods = 'SUPER', action = act.IncreaseFontSize },
     -- { key = '@', mods = 'CTRL', action = act.ActivateTab(1) },
     -- { key = '@', mods = 'SHIFT|CTRL', action = act.ActivateTab(1) },
-    { key = 'C', mods = 'CTRL', action = act.CopyTo 'Clipboard' },
-    { key = 'C', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
+    { key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
+    { key = "C", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
     -- { key = 'F', mods = 'CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
     -- { key = 'F', mods = 'SHIFT|CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
     -- { key = 'K', mods = 'CTRL', action = act.ClearScrollback 'ScrollbackOnly' },
@@ -233,8 +233,8 @@ local generic_config = {
     -- { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
     -- { key = 'U', mods = 'CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
     -- { key = 'U', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-    { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
-    { key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
+    { key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+    { key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
     -- { key = 'W', mods = 'ALT', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' } },
     -- { key = 'W', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
     -- { key = 'W', mods = 'SHIFT|CTRL', action = act.CloseCurrentTab{ confirm = true } },
@@ -248,7 +248,7 @@ local generic_config = {
     -- { key = '^', mods = 'SHIFT|CTRL', action = act.ActivateTab(5) },
     -- { key = '_', mods = 'CTRL', action = act.DecreaseFontSize },
     -- { key = '_', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
-    { key = 'c', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
+    { key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
     -- { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     -- { key = 'f', mods = 'SHIFT|CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
     -- { key = 'f', mods = 'SUPER', action = act.Search 'CurrentSelectionOrEmptyString' },
@@ -265,7 +265,7 @@ local generic_config = {
     -- { key = 't', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
     -- { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
     -- { key = 'u', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-    { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
+    { key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
     -- { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
     -- { key = 'w', mods = 'ALT', action = act.SplitVertical{ domain =  'CurrentPaneDomain' } },
     -- { key = 'w', mods = 'SHIFT|CTRL', action = act.CloseCurrentTab{ confirm = true } },
@@ -294,24 +294,24 @@ local generic_config = {
     -- { key = 'DownArrow', mods = 'SHIFT|ALT|CTRL', action = act.AdjustPaneSize{ 'Down', 1 } },
     -- { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection' },
     -- { key = 'Insert', mods = 'CTRL', action = act.CopyTo 'PrimarySelection' },
-    { key = 'Copy', mods = 'NONE', action = act.CopyTo 'Clipboard' },
-    { key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
+    { key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
+    { key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
     -- Custom
     { key = "x", mods = "ALT", action = wezterm.action.ActivateCommandPalette },
     { key = "Enter", mods = "CTRL", action = wezterm.action.SplitVertical },
     { key = "Enter", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal },
-    { key = 'LeftArrow', mods = 'CTRL', action = act.ActivatePaneDirection 'Left' },
-    { key = 'RightArrow', mods = 'CTRL', action = act.ActivatePaneDirection 'Right' },
-    { key = 'UpArrow', mods = 'CTRL', action = act.ActivatePaneDirection 'Up' },
-    { key = 'DownArrow', mods = 'CTRL', action = act.ActivatePaneDirection 'Down' },
-    { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = false } },
-    { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-    { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
+    { key = "LeftArrow", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
+    { key = "RightArrow", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
+    { key = "UpArrow", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
+    { key = "DownArrow", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+    { key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+    { key = "w", mods = "CTRL", action = act.CloseCurrentTab { confirm = false } },
+    { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
+    { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
   },
   pane_focus_follows_mouse = true,
-  warn_about_missing_glyphs =  false,
-  enable_tab_bar = true
+  warn_about_missing_glyphs = false,
+  enable_tab_bar = true,
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -319,7 +319,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_prog = { "nu" },
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
-      { family = "Symbols Nerd Font" }
+      { family = "Symbols Nerd Font" },
     },
     font_size = 12,
   }
@@ -328,7 +328,7 @@ else
     default_prog = { "fish" },
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
-      { family = "Symbols Nerd Font" }
+      { family = "Symbols Nerd Font" },
     },
     font_size = 12,
   }

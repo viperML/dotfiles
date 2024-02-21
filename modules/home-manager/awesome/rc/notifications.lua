@@ -1,6 +1,6 @@
-local ruled = require "ruled"
-local naughty = require "naughty"
-local awful = require "awful"
+local ruled = require("ruled")
+local naughty = require("naughty")
+local awful = require("awful")
 
 ruled.notification.connect_signal("request::rules", function()
   -- All notifications will match this rule.

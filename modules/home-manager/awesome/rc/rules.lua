@@ -1,5 +1,5 @@
-local ruled = require "ruled"
-local awful = require "awful"
+local ruled = require("ruled")
+local awful = require("awful")
 
 tag.connect_signal("request::default_layouts", function()
   awful.layout.append_default_layouts {

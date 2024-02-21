@@ -1,6 +1,6 @@
-local awful = require "awful"
-local freedesktop = require "freedesktop"
-local hotkeys_popup = require "awful.hotkeys_popup"
+local awful = require("awful")
+local freedesktop = require("freedesktop")
+local hotkeys_popup = require("awful.hotkeys_popup")
 
 local menu_system = {
   {
@@ -25,7 +25,7 @@ C.menu = freedesktop.menu.build {
     {
       "Change wallpaper",
       function()
-        awful.spawn "nitrogen"
+        awful.spawn("nitrogen")
       end,
     },
     { "System", menu_system },

@@ -1,5 +1,5 @@
 local modkey = C.modkey
-local awful = require "awful"
+local awful = require("awful")
 
 awful.mouse.append_global_mousebindings {
   awful.button({}, 3, function()
@@ -37,19 +37,19 @@ awful.keyboard.append_global_keybindings {
   end, { description = "reload awesome", group = "awesome" }),
 
   awful.key({ modkey }, "Return", function()
-    awful.spawn "wezterm"
+    awful.spawn("wezterm")
   end, { description = "terminal", group = "launcher" }),
 
   awful.key({ modkey }, "space", function()
-    awful.spawn "rofi -show drun"
+    awful.spawn("rofi -show drun")
   end, { description = "rofi", group = "launcher" }),
 
   awful.key({ modkey }, "e", function()
-    awful.spawn "dolphin"
+    awful.spawn("dolphin")
   end, { description = "file explorer", group = "launcher" }),
 
   awful.key({ modkey, "Shift" }, "s", function()
-    awful.spawn "flameshot gui"
+    awful.spawn("flameshot gui")
   end, { description = "take screenshot", group = "launcher" }),
 
   awful.key({ modkey }, "Up", function()
@@ -66,13 +66,13 @@ awful.keyboard.append_global_keybindings {
   end, { description = "select previous layout", group = "layout" }),
 
   awful.key({}, "XF86AudioRaiseVolume", function()
-    awful.spawn [[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ ]]
+    awful.spawn([[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ ]])
   end),
   awful.key({}, "XF86AudioLowerVolume", function()
-    awful.spawn [[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ]]
+    awful.spawn([[ wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ]])
   end),
   awful.key({}, "XF86AudioMute", function()
-    awful.spawn [[ wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ]]
+    awful.spawn([[ wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ]])
   end),
   -- awful.key({      }, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
   -- awful.key({      }, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
@@ -80,7 +80,7 @@ awful.keyboard.append_global_keybindings {
 
   -- awful.key({      }, "XF86MonBrightnessUp", function() awful.spawn([[ xbacklight -inc +5 ]]) end),
   awful.key({}, "XF86MonBrightnessDown", function()
-    awful.spawn [[ xbacklight -inc -5 ]]
+    awful.spawn([[ xbacklight -inc -5 ]])
   end),
 
   -- On the fly useless gaps change

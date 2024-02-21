@@ -1,13 +1,13 @@
 -- helpers.lua
 -- Functions that you use more than once and in different files would
 -- be nice to define here.
-local awful = require "awful"
-local gears = require "gears"
-local beautiful = require "beautiful"
-local xresources = require "beautiful.xresources"
+local awful = require("awful")
+local gears = require("gears")
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local wibox = require "wibox"
-local naughty = require "naughty"
+local wibox = require("wibox")
+local naughty = require("naughty")
 
 local helpers = {}
 

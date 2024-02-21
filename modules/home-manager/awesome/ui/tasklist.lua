@@ -1,8 +1,8 @@
-local helpers = require "rc.helpers"
-local awful = require "awful"
-local bling = require "bling"
-local wibox = require "wibox"
-local beautiful = require "beautiful"
+local helpers = require("rc.helpers")
+local awful = require("awful")
+local bling = require("bling")
+local wibox = require("wibox")
+local beautiful = require("beautiful")
 
 return function(s)
   bling.widget.task_preview.enable {

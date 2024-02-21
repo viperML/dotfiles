@@ -1,10 +1,10 @@
-local gears = require "gears"
+local gears = require("gears")
 local themes_path = gears.filesystem.get_themes_dir()
-local rnotification = require "ruled.notification"
+local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Load base theme
-local theme = require "theme.common"
+local theme = require("theme.common")
 
 local BG1 = "#121212"
 local BG2 = "#202020"

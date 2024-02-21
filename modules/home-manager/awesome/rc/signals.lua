@@ -1,6 +1,6 @@
-local gears = require "gears"
-local awful = require "awful"
-local beautiful = require "beautiful"
+local gears = require("gears")
+local awful = require("awful")
+local beautiful = require("beautiful")
 
 client.connect_signal("manage", function(c)
   -- Rounded corners

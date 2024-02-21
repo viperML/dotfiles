@@ -1,6 +1,6 @@
 local dpi = require("beautiful.xresources").apply_dpi
-local gears = require "gears"
-local helpers = require "rc.helpers"
+local gears = require("gears")
+local helpers = require("rc.helpers")
 
 res = gears.filesystem.get_configuration_dir() .. "/res/"
 btn_dir = res .. "/btn3/"

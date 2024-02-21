@@ -1,9 +1,9 @@
-local awful = require "awful"
-local wibox = require "wibox"
-local beautiful = require "beautiful"
-local gears = require "gears"
-local helpers = require "helpers"
-local bling = require "bling"
+local awful = require("awful")
+local wibox = require("wibox")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local helpers = require("helpers")
+local bling = require("bling")
 
 local themes_path = gears.filesystem.get_themes_dir()
 
@@ -37,12 +37,12 @@ local time = wibox.widget {
     {
       layout = wibox.layout.fixed.vertical,
       {
-        widget = wibox.widget.textclock "%H",
+        widget = wibox.widget.textclock("%H"),
         font = beautiful.font_name .. " Black 14",
         align = "center",
       },
       {
-        widget = wibox.widget.textclock "%M",
+        widget = wibox.widget.textclock("%M"),
         font = beautiful.font_name .. " Black 14",
         align = "center",
       },
@@ -56,7 +56,7 @@ local time_t = awful.tooltip {
   objects = { time },
   delay_show = 0.5,
   timer_function = function()
-    return os.date "%A %B %d %Y"
+    return os.date("%A %B %d %Y")
   end,
 }
 
@@ -139,7 +139,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         {
           {
             layout = wibox.layout.fixed.vertical,
-            require "ui.taglist"(s),
+            require("ui.taglist")(s),
           },
           widget = wibox.container.margin,
           margins = beautiful.taglist_sidemargins,
@@ -150,7 +150,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         widget = wibox.container.place,
         halign = "center",
         {
-          widget = require "ui.tasklist"(s),
+          widget = require("ui.tasklist")(s),
         },
       },
       {

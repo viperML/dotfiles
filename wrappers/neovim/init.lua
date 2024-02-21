@@ -1,4 +1,4 @@
-vim.cmd "colorscheme base16-tomorrow-night"
+vim.cmd("colorscheme base16-tomorrow-night")
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -24,21 +24,21 @@ require("lualine").setup {
 
 -- Autopairs
 local npairs = require("nvim-autopairs")
-local Rule = require('nvim-autopairs.rule')
-npairs.setup({
-    check_ts = true,
-    -- ts_config = {
-    -- }
-    enable_check_bracket_line = false,
-    -- disable_filetype = { "scheme" },
-})
+local Rule = require("nvim-autopairs.rule")
+npairs.setup {
+  check_ts = true,
+  -- ts_config = {
+  -- }
+  enable_check_bracket_line = false,
+  -- disable_filetype = { "scheme" },
+}
 npairs.get_rules("'")[1].not_filetypes = { "scheme" }
 npairs.get_rules("`")[1].not_filetypes = { "scheme" }
 npairs.get_rules("(")[1].not_filetypes = { "scheme" }
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 -- Completion
-local cmp = require "cmp"
+local cmp = require("cmp")
 cmp.setup {
   -- snippet = {
   --   -- REQUIRED - you must specify a snippet engine
@@ -83,16 +83,13 @@ cmp.setup {
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-    {name = 'conjure'},
+    { name = "conjure" },
   }, {
     { name = "buffer" },
   }),
 }
 
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
@@ -115,33 +112,33 @@ nvim_lsp.rnix.setup {
 }
 
 local on_attach = function(client)
-    require'completion'.on_attach(client)
+  require("completion").on_attach(client)
 end
 
-nvim_lsp.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-})
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
+}
 
 -- Treesitter
-local orgmode = require('orgmode')
+local orgmode = require("orgmode")
 orgmode.setup_ts_grammar()
 
 require("nvim-treesitter.configs").setup {
@@ -155,14 +152,12 @@ require("nvim-treesitter.configs").setup {
 
 -- Rest
 
-
 require("hlargs").setup()
 
 require("ibl").setup()
 
-vim.g['conjure#filetype#scheme'] = "conjure.client.guile.socket"
+vim.g["conjure#filetype#scheme"] = "conjure.client.guile.socket"
 vim.g["conjure#client#guile#socket#pipename"] = ".guile-socket"
-
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
@@ -170,15 +165,14 @@ vim.o.timeoutlen = 500
 local wk = require("which-key")
 wk.setup()
 
-wk.register({
-    ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
-    ["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
-})
+wk.register {
+  ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
+  ["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
+}
 
-
-orgmode.setup({
+orgmode.setup {
   -- org_agenda_files = {},
   -- org_default_notes_file = '~/Dropbox/org/refile.org',
-})
+}
 
-require('Comment').setup()
+require("Comment").setup()
