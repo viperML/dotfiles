@@ -106,12 +106,39 @@ cmp.setup.cmdline(":", {
 
 -- LSP
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local nvim_lsp = require("lspconfig")
 
-require("lspconfig")["rnix"].setup {
+nvim_lsp.rnix.setup {
   capabilities = capabilities,
   autostart = true,
   cmd = { "nil" },
 }
+
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
+
+nvim_lsp.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
 -- Treesitter
 local orgmode = require('orgmode')
@@ -145,6 +172,7 @@ wk.setup()
 
 wk.register({
     ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
+    ["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
 })
 
 
