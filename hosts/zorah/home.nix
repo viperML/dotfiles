@@ -18,5 +18,6 @@
     pkgs.clang-tools
     pkgs.cargo-flamegraph
     pkgs.linuxPackages.perf
+    pkgs.hyperfine
   ];
 }
