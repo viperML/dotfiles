@@ -32,9 +32,15 @@ npairs.setup {
   enable_check_bracket_line = false,
   -- disable_filetype = { "scheme" },
 }
-npairs.get_rules("'")[1].not_filetypes = { "scheme" }
-npairs.get_rules("`")[1].not_filetypes = { "scheme" }
-npairs.get_rules("(")[1].not_filetypes = { "scheme" }
+
+local lisps = {
+    "scheme",
+    "racket",
+}
+npairs.get_rules("'")[1].not_filetypes = lisps
+npairs.get_rules("`")[1].not_filetypes = lisps
+npairs.get_rules("(")[1].not_filetypes = lisps
+npairs.get_rules("[")[1].not_filetypes = lisps
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 -- Completion
