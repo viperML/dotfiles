@@ -46,6 +46,14 @@ in
     };
 
     tmp.useTmpfs = true;
+
+    # https://github.com/lwfinger/rtw89/blob/main/70-rtw89.conf
+    # https://github.com/lwfinger/rtw89/tree/main?tab=readme-ov-file#option-configuration
+    extraModprobeConfig = ''
+      # set options for faulty HP and Lenovo BIOS code
+      options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss
+      options rtw89pci disable_aspm_l1=y disable_aspm_l1ss
+    '';
   };
 
   fileSystems =

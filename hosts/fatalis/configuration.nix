@@ -16,13 +16,13 @@
     hostName = "fatalis";
     networkmanager = {
       enable = true;
-      dns = "systemd-resolved";
+      # dns = "systemd-resolved";
     };
   };
 
-  services.resolved = {
-    enable = true;
-  };
+  # services.resolved = {
+  #   enable = true;
+  # };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -32,7 +32,7 @@
 
   hardware = {
     cpu.amd.updateMicrocode = true;
-    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     bluetooth.enable = true;
     opengl = {
       enable = true;

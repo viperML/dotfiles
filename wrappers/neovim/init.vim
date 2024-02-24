@@ -17,6 +17,8 @@ augroup indentation
   autocmd!
   autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType nix setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType scheme setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType racket setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " line numbers

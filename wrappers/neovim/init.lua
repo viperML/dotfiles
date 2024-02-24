@@ -36,6 +36,7 @@ npairs.setup {
 local lisps = {
     "scheme",
     "racket",
+    "clojure",
 }
 npairs.get_rules("'")[1].not_filetypes = lisps
 npairs.get_rules("`")[1].not_filetypes = lisps
