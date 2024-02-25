@@ -39,6 +39,8 @@
     pkgs.unar
     pkgs.gh
     pkgs.dufs
+    packages.self.elf-info
+    pkgs.nix-init
 
     packages.self.fish
     packages.self.nushell
