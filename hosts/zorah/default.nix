@@ -24,7 +24,7 @@ in
 
           # homeModules.emacs
           homeModules.guix
-          homeModules.emacs-doom
+          # homeModules.emacs-doom
         ];
       }
 
