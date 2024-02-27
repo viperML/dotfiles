@@ -7,10 +7,10 @@
   #   "share/guile/site/3.0"
   # ];
 
-  home.file.".guile".text = ''
-    (use-modules (ice-9 readline) (ice-9 colorized))
-
-    (activate-readline)
-    (activate-colorized)
-  '';
+  # home.file.".guile".text = ''
+  #   (use-modules (ice-9 readline) (ice-9 colorized))
+  #
+  #   (activate-readline)
+  #   (activate-colorized)
+  # '';
 }

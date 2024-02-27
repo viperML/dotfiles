@@ -7,13 +7,6 @@
     };
   };
 
-  # environment.extraInit = lib.mkAfter (let
-  #   se = "$HOME/.guix-home/setup-environment";
-  # in ''
-  #   if [[ -f "${se}" ]]; then
-  #     . "${se}"
-  #   fi
-  # '');
   environment.extraInit = ''
     export GUILE_LOAD_PATH="$GUILE_LOAD_PATH:$HOME/.config/guix/current/share/guile/site/3.0"
 
