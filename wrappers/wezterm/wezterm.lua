@@ -332,6 +332,9 @@ else
     },
     font_size = 12,
   }
+  wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+    return "wezterm"
+  end)
 end
 
 tableMerge(generic_config, platform_config)
