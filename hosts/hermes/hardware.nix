@@ -2,7 +2,11 @@
 , lib
 , pkgs
 , ...
-}: {
+}:
+let
+  luksDevice = "luksroot";
+in
+{
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
@@ -15,12 +19,17 @@
         "usbhid"
         "kvm-intel"
       ];
+      luks = {
+        devices.${luksDevice} = {
+          device = "/dev/disk/by-partlabel/LINUX_LUKS";
+        };
+      };
     };
 
-    binfmt.emulatedSystems = [
-      "aarch64-linux"
-      "wasm32-wasi"
-    ];
+    # binfmt.emulatedSystems = [
+    #   "aarch64-linux"
+    #   "wasm32-wasi"
+    # ];
 
     kernel.sysctl = {
       "vm.swappiness" = 10;
@@ -31,41 +40,44 @@
 
     loader = {
       systemd-boot = {
-        enable = true;
-        editor = false;
-        configurationLimit = 10;
-        consoleMode = "max";
+        enable = lib.mkForce false;
+        # editor = false;
+        # configurationLimit = 10;
+        # consoleMode = "max";
       };
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
+        efiSysMountPoint = "/boot";
       };
       timeout = 1;
     };
 
     tmp.useTmpfs = true;
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
   };
 
   fileSystems =
     let
-      btrfsOptions = [
-        "noatime"
-        "compress=lzo"
-      ];
-      btrfsDevice = "/dev/disk/by-partlabel/LINUX_ROOT";
-      mkBtrfs = subvol: {
-        device = btrfsDevice;
-        fsType = "btrfs";
-        options = btrfsOptions ++ [ "subvol=${subvol}" ];
-      };
-    in
-    {
-      "/" = {
+      mkTmpfs = {
         device = "none";
         fsType = "tmpfs";
         options = [
           "size=2G"
           "mode=0755"
+        ];
+        neededForBoot = true;
+      };
+    in
+    {
+      "/" = {
+        device = "/dev/mapper/${luksDevice}";
+        fsType = "xfs";
+        options = [
+          "noatime"
         ];
       };
 
@@ -79,30 +91,12 @@
         ];
       };
 
-      "/nix" = mkBtrfs "/@nixos/@nix";
-      "/home" = mkBtrfs "/@home";
-      "/var/lib/NetworkManager" = mkBtrfs "/@nixos/@nm";
-      "/var/lib/secrets" = lib.mkMerge [
-        (mkBtrfs "/@secrets")
-        {
-          neededForBoot = true;
-        }
-      ];
-      "/var/lib/systemd" = mkBtrfs "/@nixos/@systemd";
-      "/var/lib/tailscale" = mkBtrfs "/@nixos/@tailscale";
-      "/var/log" = lib.mkMerge [
-        (mkBtrfs "/@nixos/@log")
-        {
-          neededForBoot = true;
-        }
-      ];
-      "/.btrfs" = mkBtrfs "/";
-      "/.btrfs/@nixos" = mkBtrfs "/@nixos";
+      # "/etc" = mkTmpfs;
+      # "/var" = mkTmpfs;
+      "/bin" = mkTmpfs;
+      "/lib64" = mkTmpfs;
+      "/opt" = mkTmpfs;
+      "/srv" = mkTmpfs;
+      "/usr" = mkTmpfs;
     };
-
-  swapDevices = [
-    {
-      device = "/dev/disk/by-partlabel/LINUX_SWAP";
-    }
-  ];
 }

@@ -14,17 +14,11 @@
     enable = true;
   };
 
-  users.mutableUsers = false;
-  users.users.ayats = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    password = "1234";
-    createHome = true;
-  };
+  users.mutableUsers = lib.mkForce true;
 
   security.sudo.wheelNeedsPassword = false;
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
