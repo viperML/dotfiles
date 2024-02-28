@@ -29,3 +29,5 @@
   cmd = difft "$LOCAL" "$REMOTE"
 [pager]
   difftool = true
+[include]
+  path = ~/.config/git/local
