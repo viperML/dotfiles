@@ -13,6 +13,7 @@
     "printing"
     "sway"
     "tailscale"
+    "tpm2"
     "user-ayats"
     "user-soch"
     "warp"

@@ -4,8 +4,6 @@
 , ...
 }: {
   environment.systemPackages = [
-    pkgs.sbctl
-    pkgs.dmidecode
     pkgs.powertop
   ];
 

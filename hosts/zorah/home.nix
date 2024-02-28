@@ -12,6 +12,8 @@
     packages.self.wezterm
     pkgs.gnome.geary
     pkgs.onlyoffice-bin
+    pkgs.sops
+    pkgs.age
 
     # global dev
     pkgs.just

@@ -97,10 +97,6 @@ in
       "/usr" = mkTmpfs;
     };
 
-  security.tpm2 = {
-    enable = true;
-  };
-
   systemd.tmpfiles.rules =
     let
       persist = "/var/lib/NetworManager-system-connections";
