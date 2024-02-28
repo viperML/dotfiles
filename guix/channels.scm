@@ -22,18 +22,46 @@
               "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
       (channel
         (name 'guix-hpc)
-        (url "https://gitlab.inria.fr/guix-hpc/guix-hpc.git"))
+        (url "https://gitlab.inria.fr/guix-hpc/guix-hpc.git")
+        (branch "master")
+        (commit
+          "01e5efbf387cda55d32973f232df847b63f6e4a9"))
       (channel
         (name 'guix-hpc-non-free)
-        (url "https://gitlab.inria.fr/guix-hpc/guix-hpc-non-free.git"))
+        (url "https://gitlab.inria.fr/guix-hpc/guix-hpc-non-free.git")
+        (branch "master")
+        (commit
+          "6e27b7e828b6b15057e8ab6700480694434f6756"))
+      (channel
+        (name 'guix-science-nonfree)
+        (url "https://github.com/guix-science/guix-science-nonfree.git")
+        (branch "master")
+        (commit
+          "77cc77097e66d8246e4ff8d9048f14d3181d4119")
+        (introduction
+          (make-channel-introduction
+            "58661b110325fd5d9b40e6f0177cc486a615817e"
+            (openpgp-fingerprint
+              "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446"))))
       (channel
         (name 'guix-science)
         (url "https://github.com/guix-science/guix-science.git")
         (branch "master")
+        (commit
+          "26fba1a759f67f2c6c22049994db328550d45e30")
         (introduction
           (make-channel-introduction
             "b1fe5aaff3ab48e798a4cce02f0212bc91f423dc"
             (openpgp-fingerprint
-              "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446")))))
-
-
+              "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446"))))
+      (channel
+        (name 'guix-past)
+        (url "https://gitlab.inria.fr/guix-hpc/guix-past")
+        (branch "master")
+        (commit
+          "921f845dc0dec9f052dcda479a15e787f9fd5b0a")
+        (introduction
+          (make-channel-introduction
+            "0c119db2ea86a389769f4d2b9c6f5c41c027e336"
+            (openpgp-fingerprint
+              "3CE4 6455 8A84 FDC6 9DB4  0CFB 090B 1199 3D9A EBB5")))))
