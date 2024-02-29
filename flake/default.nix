@@ -4,6 +4,7 @@
 }: {
   imports = [
     ../packages
+    ../packages/default2.nix
     ../misc/lib
     ../homes
     ../misc/bundlers.nix
