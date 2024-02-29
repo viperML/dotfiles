@@ -62,6 +62,6 @@ stdenv.mkDerivation (final: {
 
   meta = {
     mainProgram = "warp";
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
   };
 })

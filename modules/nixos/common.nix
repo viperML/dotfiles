@@ -112,8 +112,10 @@
 
   services.xserver = {
     enable = true;
-    layout = "es";
-    xkbOptions = "compose:rctrl";
+    xkb = {
+      layout = "es";
+      options = "compose:rctrl";
+    };
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";

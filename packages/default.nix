@@ -96,7 +96,7 @@ in
         clipmon = w pkgs.callPackage ./main/clipmon { };
         wl-clip-persist = w pkgs.callPackage ./main/wl-clip-persist { };
         multiload-ng = w pkgs.callPackage ./main/multiload-ng { };
-        warp = w pkgs.callPackage ./main/warp {};
+        warp = w pkgs.callPackage ./main/warp { };
         elf-info = w pkgs.callPackage ./main/elf-info { };
 
         # Qt5

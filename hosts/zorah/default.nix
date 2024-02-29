@@ -16,6 +16,12 @@ in
       ./hardware.nix
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.user-ayats
+      # (import ../../modules/nixos/_mkUser.nix {name = "alice"; uid = 1010;})
+      # {
+      #   users.users.alice = {
+      #     password = "1234"
+      #   };
+      # }
 
       {
         home-manager.sharedModules = [
@@ -33,7 +39,8 @@ in
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5
-      nixosModules.gnome
+      # nixosModules.gnome
+      nixosModules.plasma6
 
       #-- Other
       nixosModules.tailscale

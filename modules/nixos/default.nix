@@ -9,6 +9,7 @@
     "guix"
     "hyprland"
     "plasma5"
+    "plasma6"
     "podman"
     "printing"
     "sway"
