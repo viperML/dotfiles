@@ -12,8 +12,11 @@
   };
 
   environment.systemPackages = [
-    packages.self.papirus-icon-theme
-    # packages.self.adw-gtk3
     pkgs.vanilla-dmz
+    pkgs.kdePackages.discover
   ];
+
+  services.packagekit = {
+    enable = true;
+  };
 }
