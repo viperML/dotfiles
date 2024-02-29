@@ -32,7 +32,7 @@ in
       # nixosModules.hyprland
       # nixosModules.plasma5
       # nixosModules.gnome
-      { services.xserver.desktopManager.plasma6.enable = true; }
+      nixosModules.plasma6
 
       #-- Other
       # nixosModules.podman
@@ -43,5 +43,8 @@ in
 
       # ./polkit.nix
       nixosModules.tpm2
+      nixosModules.yubikey
+      nixosModules.guix
+      nixosModules.swapfile
     ]);
 }
