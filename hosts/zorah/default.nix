@@ -48,5 +48,6 @@ in
       nixosModules.yubikey
       nixosModules.printing
       nixosModules.tpm2
+      nixosModules.swapfile
     ]);
 }
