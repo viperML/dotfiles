@@ -55,13 +55,13 @@
             ${lib.fileContents ./pushd_mod.fish}
             set -gx STARSHIP_CONFIG ${../starship.toml}
             function starship_transient_prompt_func
-              starship module character
+              ${lib.getExe pkgs.starship} module character
             end
-            ${pkgs.starship}/bin/starship init fish | source
+            ${lib.getExe pkgs.starship} init fish | source
             enable_transience
             set -gx DIRENV_LOG_FORMAT ""
             set -gx direnv_config_dir ${direnvConfig}
-            ${pkgs.direnv}/bin/direnv hook fish | source
+            ${lib.getExe pkgs.direnv} hook fish | source
           end
         '';
       in
