@@ -46,7 +46,10 @@
           # set -q __fish_config_sourced; and exit
           # set -gx __fish_config_sourced 1
           ${lib.concatMapStringsSep "\n" initPlugin plugins}
-          fenv source /etc/profile
+
+          # FIXME
+          # fenv source /etc/profile
+
           source ${packages.nix-index}/share/fish/vendor_functions.d/nix-index.fish
           if status is-login
           end
