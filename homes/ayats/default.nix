@@ -1,6 +1,7 @@
 { inputs
 , withSystem
 , config
+, lib
 , ...
 }:
 let
@@ -30,7 +31,9 @@ in
       (./. + "/@HESTIA.nix")
       (./. + "/@wsl.nix")
     ];
-  };
+  } // (lib.genAttrs [ "fayatsllamas" "ayatsf-ext" ] (_: mkHome "x86_64-linux" [
+    (./. + "/@hpc.nix")
+  ]));
 
   flake.checks."x86_64-linux" = {
     "home-ayats@HESTIA" = config.flake.homeConfigurations."ayats@HESTIA".config.home.path;

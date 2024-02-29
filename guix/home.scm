@@ -43,4 +43,10 @@
                       (use-modules (ice-9 readline)
                                    (ice-9 colorized))
                       (activate-readline)
-                      (activate-colorized))))))))))
+                      (activate-colorized)))))))
+
+      (simple-service
+        'env-vars
+        home-environment-variables-service-type
+        `(("GUIX_LOCPATH" . "$HOME/.guix-profile/lib/locale:$HOME/.guix-home/profile/lib/locale"))))))
+

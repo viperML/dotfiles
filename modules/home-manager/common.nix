@@ -9,16 +9,14 @@
     # Nix management
     config.nix.package
     pkgs.direnv
-    pkgs.alejandra
-    pkgs.nixpkgs-fmt
-    packages.self.nvfetcher
+    pkgs.nixfmt-rfc-style
+    # packages.self.nvfetcher
     packages.nh.default
     pkgs.nix-output-monitor
-    packages.self.dotci
+    # packages.self.dotci
 
     # Editor support
     pkgs.nil
-    pkgs.typst-lsp
 
     # Misc utils
     # pkgs.file
@@ -35,15 +33,14 @@
     # packages.self.zellij
     pkgs.du-dust
     pkgs.hexyl
-    pkgs.btop
     pkgs.unar
     pkgs.gh
-    pkgs.dufs
-    packages.self.elf-info
-    pkgs.nix-init
+    # packages.self.elf-info
+    pkgs.elf-info
+    # pkgs.nix-init
 
     packages.self.fish
-    packages.self.nushell
+    # packages.self.nushell
     packages.self.neovim
     # packages.self.helix
   ];
