@@ -9,6 +9,7 @@
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
+    SSH_ASKPASS_REQUIRE = "prefer";
   };
 
   environment.systemPackages = [

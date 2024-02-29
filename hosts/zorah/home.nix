@@ -10,7 +10,6 @@
   home.packages = [
     pkgs.vscode
     packages.self.wezterm
-    pkgs.gnome.geary
     pkgs.onlyoffice-bin
     pkgs.sops
     pkgs.age
