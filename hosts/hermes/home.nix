@@ -10,7 +10,6 @@
     pkgs.vscode
     pkgs.vault
     packages.self.wezterm
-    # pkgs.obsidian
-    pkgs.d-spy
+    pkgs.sbctl
   ];
 }

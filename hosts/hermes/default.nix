@@ -1,6 +1,7 @@
 { config
 , withSystem
 , mkNixos
+, inputs
 , ...
 }:
 let
@@ -15,6 +16,7 @@ in
       ./hardware.nix
       nixosModules.user-ayats
       # nixosModules.user-soch
+      inputs.lanzaboote.nixosModules.lanzaboote
 
       {
         home-manager.sharedModules = [
@@ -29,15 +31,17 @@ in
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5
-      nixosModules.gnome
+      # nixosModules.gnome
+      { services.xserver.desktopManager.plasma6.enable = true; }
 
       #-- Other
       # nixosModules.podman
-      nixosModules.tailscale
+      # nixosModules.tailscale
       # nixosModules.docker
       # nixosModules.containerd
       # (args: {programs.nix-ld.package = args.packages.nix-ld.default;})
 
       # ./polkit.nix
+      nixosModules.tpm2
     ]);
 }

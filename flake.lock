@@ -648,14 +648,6 @@
       "locked": {
         "lastModified": 1709180022,
         "narHash": "sha256-7X/voAbg7exNxhHHj6JBxSAHdvL8f3tj1UKSzKJWfXw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "57789e56918f454069e7ed991276a184041cbd13",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
         "repo": "nixpkgs",
         "type": "github"
       }
