@@ -14,7 +14,9 @@
     };
     cargoLock."Cargo.lock" = {
       lockFile = ./clipmon-2e338fdc2841c3b2de9271d90fcceceda9e45d29/Cargo.lock;
-      outputHashes = { };
+      outputHashes = {
+        
+      };
     };
     date = "2022-08-28";
   };
