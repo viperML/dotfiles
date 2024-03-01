@@ -45,6 +45,5 @@ in
       nixosModules.tpm2
       nixosModules.yubikey
       nixosModules.guix
-      nixosModules.swapfile
     ]);
 }

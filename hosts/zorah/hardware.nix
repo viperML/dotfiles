@@ -5,7 +5,6 @@
 }:
 let
   luksDevice = "luksroot";
-  swapfile = "/swapfile";
 in
 {
   boot = {

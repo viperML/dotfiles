@@ -12,7 +12,7 @@
     "plasma6"
     "podman"
     "printing"
-    "swapfile"
+    "swap"
     "sway"
     "tailscale"
     "tpm2"

@@ -13,7 +13,6 @@ in
     mkNixos system [
       #-- Host-specific
       ./configuration.nix
-      ./hardware.nix
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.user-ayats
 
@@ -25,14 +24,17 @@ in
       }
 
       #-- Environment
-      # {services.xserver.displayManager.autoLogin.user = "ayats";}
+      {services.xserver.displayManager.autoLogin.user = "ayats";}
       # nixosModules.sway
       # nixosModules.hyprland
       # nixosModules.plasma5
-      nixosModules.gnome
+      # nixosModules.gnome
+      nixosModules.plasma6
 
       #-- Other
       nixosModules.tailscale
       nixosModules.guix
+      nixosModules.tpm2
+      nixosModules.yubikey
     ]);
 }

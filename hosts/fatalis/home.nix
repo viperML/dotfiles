@@ -4,7 +4,7 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  unsafeFlakePath = "/home/ayats/dotfiles";
+  unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
     pkgs.vscode

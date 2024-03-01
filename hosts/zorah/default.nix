@@ -29,7 +29,6 @@ in
           homeModules.browser
 
           # homeModules.emacs
-          homeModules.guix
           homeModules.emacs-doom
         ];
       }
@@ -48,6 +47,5 @@ in
       nixosModules.yubikey
       nixosModules.printing
       nixosModules.tpm2
-      nixosModules.swapfile
     ]);
 }

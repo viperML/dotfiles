@@ -4,6 +4,10 @@
 , packages
 , ...
 }: {
+  imports = [
+    ./swap.nix
+  ];
+
   # broken
   services.envfs.enable = lib.mkForce false;
 

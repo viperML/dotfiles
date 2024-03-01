@@ -6,7 +6,6 @@
     "emacs-doom"
     "git"
     "gnome"
-    "guix"
     "hyprland"
     "plasma5"
     "sway"
