@@ -1,7 +1,7 @@
 {
     "hlargs": {
         "cargoLocks": null,
-        "date": "2024-02-01",
+        "date": "2024-02-26",
         "extract": null,
         "name": "hlargs",
         "passthru": null,
@@ -13,15 +13,15 @@
             "name": null,
             "owner": "m-demare",
             "repo": "hlargs.nvim",
-            "rev": "e881f3a424139cc70c83121ec548732efdd67682",
-            "sha256": "sha256-pp8FBDqNiFTVr0PVyJfZvB9Mdvzuse54ug56fT1Y2nQ=",
+            "rev": "0f2dbf02ff948e8fc8ebe07b215f3174a12bbe3c",
+            "sha256": "sha256-A3EGSEMf94Xl9kczrS31tFGndFtgnS3tOoc4iz8/CxU=",
             "type": "github"
         },
-        "version": "e881f3a424139cc70c83121ec548732efdd67682"
+        "version": "0f2dbf02ff948e8fc8ebe07b215f3174a12bbe3c"
     },
     "nvim-base-16": {
         "cargoLocks": null,
-        "date": "2024-02-06",
+        "date": "2024-02-16",
         "extract": null,
         "name": "nvim-base-16",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "RRethy",
             "repo": "nvim-base16",
-            "rev": "2349e8357864bf0ef45d40f491f8e1e6465485b0",
-            "sha256": "sha256-duFl8bdsVtzG05v1BdzU9Z82OKd7qqRfmjNDhr2K0xs=",
+            "rev": "b3e9ec6a82c05b562cd71f40fe8964438a9ba64a",
+            "sha256": "sha256-l0BO2boIy6mwK8ISWS3D68f8egqHYwsGSAnzjbB5aOE=",
             "type": "github"
         },
-        "version": "2349e8357864bf0ef45d40f491f8e1e6465485b0"
+        "version": "b3e9ec6a82c05b562cd71f40fe8964438a9ba64a"
     },
     "nvim-transparent": {
         "cargoLocks": null,
