@@ -37,7 +37,6 @@
     pax-utils
     efibootmgr
 
-    packages.self.git
     packages.nh.default
 
     android-tools
@@ -143,5 +142,10 @@
         package = packages.self.iosevka;
       }
     ];
+  };
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
   };
 }

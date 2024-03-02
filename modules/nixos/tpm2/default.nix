@@ -2,16 +2,21 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 let
   pkcs11pkg = pkgs.tpm2-pkcs11.override { fapiSupport = false; };
+  cmdname = "git-key-command";
 in
 {
   environment.systemPackages = with pkgs; [
     sbctl
     dmidecode
+    (pkgs.runCommandLocal cmdname { } ''
+      mkdir -p $out/bin
+      cp -v ${./git-key-command.sh} $out/bin/${cmdname}
+      patchShebangs --host $out/bin/*
+    '')
   ];
 
   security.tpm2 = {
@@ -33,27 +38,11 @@ in
 
   users.groups."tss".members = config.users.groups."wheel".members;
 
-  home-manager.sharedModules =
-    let
-      cmdname = "git-key-command";
-    in
-    [
-      {
-        home.packages = [
-          (pkgs.runCommandLocal cmdname { } ''
-            mkdir -p $out/bin
-            cp -v ${./git-key-command.sh} $out/bin/${cmdname}
-            patchShebangs --host $out/bin/*
-          '')
-        ];
-        xdg.configFile."git/config".text = lib.mkAfter ''
-          [gpg "ssh"]
-              defaultKeyCommand = ${cmdname}
-          [gpg]
-              format = ssh
-          [commit]
-              gpgsign = true
-        '';
-      }
-    ];
+  programs.git.config = {
+    commit.gpgsign = true;
+    gpg = {
+      format = "ssh";
+      ssh.defaultKeyCommand = cmdname;
+    };
+  };
 }
