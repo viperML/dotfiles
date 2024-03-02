@@ -15,6 +15,7 @@
     "swap"
     "sway"
     "tailscale"
+    "tmpfs"
     "tpm2"
     "user-ayats"
     "user-soch"

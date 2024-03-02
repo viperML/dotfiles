@@ -103,51 +103,21 @@ in
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
-  fileSystems =
-    let
-      mkTmpfs = {
-        device = "none";
-        fsType = "tmpfs";
-        options = [
-          "size=2G"
-          "mode=0755"
-        ];
-        neededForBoot = true;
-      };
-    in
-    {
-      "/" = {
-        device = "/dev/mapper/${luksDevice}";
-        fsType = "xfs";
-        options = [ "noatime" ];
-      };
-
-      ${config.boot.loader.efi.efiSysMountPoint} = {
-        device = "/dev/disk/by-partlabel/ESP";
-        fsType = "vfat";
-        options = [
-          "x-systemd.automount"
-          "x-systemd.mount-timeout=15min"
-          "umask=077"
-        ];
-      };
-
-      "/etc" = mkTmpfs;
-      # "/var" = mkTmpfs;
-      "/bin" = mkTmpfs;
-      "/lib64" = mkTmpfs;
-      "/opt" = mkTmpfs;
-      "/srv" = mkTmpfs;
-      "/usr" = mkTmpfs;
+  fileSystems = {
+    "/" = {
+      device = "/dev/mapper/${luksDevice}";
+      fsType = "xfs";
+      options = [ "noatime" ];
     };
 
-  systemd.tmpfiles.rules =
-    let
-      persist = "/var/lib/NetworManager-system-connections";
-    in
-    [
-      "d ${persist} 0700 root root - -"
-      "z ${persist} 0700 root root - -"
-      "L /etc/NetworkManager/system-connections - - - - ${persist}"
-    ];
+    ${config.boot.loader.efi.efiSysMountPoint} = {
+      device = "/dev/disk/by-partlabel/ESP";
+      fsType = "vfat";
+      options = [
+        "x-systemd.automount"
+        "x-systemd.mount-timeout=15min"
+        "umask=077"
+      ];
+    };
+  };
 }

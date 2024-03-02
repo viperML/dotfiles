@@ -1,21 +1,27 @@
-{ config
-, withSystem
-, mkNixos
-, inputs
-, ...
+{
+  config,
+  withSystem,
+  mkNixos,
+  inputs,
+  ...
 }:
 let
   system = "x86_64-linux";
   inherit (config.flake) nixosModules homeModules;
 in
 {
-  flake.nixosConfigurations.fatalis = withSystem system ({ pkgs, ... }:
+  flake.nixosConfigurations.fatalis = withSystem system (
+    { pkgs, ... }:
     mkNixos system [
-      #-- Host-specific
+      #-- Topology
       ./configuration.nix
       inputs.lanzaboote.nixosModules.lanzaboote
+      nixosModules.tmpfs
+      nixosModules.tpm2
       nixosModules.user-ayats
+      nixosModules.yubikey
 
+      #-- home-manager
       {
         home-manager.sharedModules = [
           ./home.nix
@@ -24,17 +30,12 @@ in
       }
 
       #-- Environment
-      {services.xserver.displayManager.autoLogin.user = "ayats";}
-      # nixosModules.sway
-      # nixosModules.hyprland
-      # nixosModules.plasma5
-      # nixosModules.gnome
+      { services.xserver.displayManager.autoLogin.user = "ayats"; }
       nixosModules.plasma6
 
       #-- Other
       nixosModules.tailscale
       nixosModules.guix
-      nixosModules.tpm2
-      nixosModules.yubikey
-    ]);
+    ]
+  );
 }
