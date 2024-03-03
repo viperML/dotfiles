@@ -1,21 +1,19 @@
-{ pname
-, date
-, src
-, #
-  stdenvNoCC
-, makeWrapper
-, jq
-, glow
-, lib
-,
+{
+  callPackages,
+  stdenvNoCC,
+  makeWrapper,
+  jq,
+  glow,
+  lib,
 }:
+let
+  nv = (callPackages ./generated.nix { }).xdg-ninja;
+in
 stdenvNoCC.mkDerivation rec {
-  inherit pname src;
-  version = date;
+  inherit (nv) pname src;
+  version = nv.date;
 
-  nativeBuildInputs = [
-    makeWrapper
-  ];
+  nativeBuildInputs = [ makeWrapper ];
 
   propagatedBuildInputs = [
     jq

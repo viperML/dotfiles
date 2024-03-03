@@ -1,19 +1,17 @@
-{ pname
-, src
-, version
-, #
-  stdenvNoCC
-, unzip
-, lib
-,
+{
+  callPackages,
+  lib,
+  stdenvNoCC,
+  unzip,
 }:
+let
+  nv = (callPackages ./generated.nix { }).iosevka;
+in
 stdenvNoCC.mkDerivation {
-  inherit pname src;
-  version = lib.removePrefix "v" version;
+  inherit (nv) pname src;
+  version = lib.removePrefix "v" nv.version;
 
-  nativeBuildInputs = [
-    unzip
-  ];
+  nativeBuildInputs = [ unzip ];
 
   unpackPhase = ''
     runHook preUnpack

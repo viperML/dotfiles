@@ -1,13 +1,12 @@
 { symlinkJoin
 , nix-index-unwrapped
-, makeBinaryWrapper
 , runCommandLocal
 , fzf
 , #
   database
 , databaseDate
 , #
-  myWrapper ? makeBinaryWrapper
+makeWrapper
 ,
 }:
 let
@@ -23,7 +22,7 @@ symlinkJoin {
   name = "${pname}-${version}";
   inherit pname version;
   paths = [ nix-index-unwrapped ];
-  buildInputs = [ myWrapper ];
+  buildInputs = [ makeWrapper ];
   /*
     Install broken, command-not-found is not detected by fish by using the vendor functions
     */

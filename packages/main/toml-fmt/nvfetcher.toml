@@ -1,5 +1,0 @@
-[toml-fmt]
-src.git = "https://github.com/fenollp/toml-fmt"
-src.branch = "upupup"
-fetch.github = "fenollp/toml-fmt"
-git.date_format = "%Y-%m-%d"
