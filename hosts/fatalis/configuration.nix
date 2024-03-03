@@ -14,6 +14,7 @@ in
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.powertop
+    pkgs.sysfsutils
   ];
 
   environment.sessionVariables = {
@@ -96,8 +97,9 @@ in
     # https://github.com/lwfinger/rtw89/tree/main?tab=readme-ov-file#option-configuration
     extraModprobeConfig = ''
       # set options for faulty HP and Lenovo BIOS code
-      options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss
-      options rtw89pci disable_aspm_l1=y disable_aspm_l1ss
+      options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss disable_clkreq=y
+      options rtw89pci disable_aspm_l1=y disable_aspm_l1ss disable_clkreq=y
+      options rtw89_core disable_ps_mode=y
     '';
 
     binfmt.emulatedSystems = [ "aarch64-linux" ];
