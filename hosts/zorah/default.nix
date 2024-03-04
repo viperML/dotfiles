@@ -32,6 +32,7 @@ in
       }
 
       #-- Environment
+      { services.xserver.displayManager.autoLogin.user = "ayats"; }
       nixosModules.plasma6
 
       #-- Other
