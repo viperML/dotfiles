@@ -49,3 +49,6 @@ let g:highlightedyank_highlight_duration = 3
 
 " Comes from modeline
 set noshowmode
+
+" modeline magic
+set modeline
