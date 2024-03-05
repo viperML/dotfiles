@@ -29,3 +29,4 @@ flake.json
 .calva
 target
 flake/generated.nix
+dist-newstyle

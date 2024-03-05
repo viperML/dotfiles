@@ -1,7 +1,5 @@
-{ inputs
-, lib
-, ...
-}: {
+{ inputs, lib, ... }:
+{
   imports = [
     ../packages
     ../packages/default2.nix
@@ -15,10 +13,12 @@
 
   flake.templates = lib.pipe ../misc/templ [
     builtins.readDir
-    (builtins.mapAttrs (name: _: {
-      description = name;
-      path = ../misc/templ/${name};
-    }))
+    (builtins.mapAttrs (
+      name: _: {
+        description = name;
+        path = ../misc/templ/${name};
+      }
+    ))
   ];
 
   systems = [
@@ -27,11 +27,10 @@
   ];
 
   perSystem =
-    { pkgs
-    , config
-    , ...
-    }: {
-      devShells.flake = with pkgs;
+    { pkgs, config, ... }:
+    {
+      devShells.flake =
+        with pkgs;
         mkShell {
           packages = [
             rustc
@@ -41,6 +40,18 @@
             clippy
           ];
           RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
+        };
+
+      devShells.haskell =
+        with pkgs;
+        haskellPackages.shellFor {
+          packages = p: [ ];
+          buildInputs = [
+            pkgs.zlib
+            haskellPackages.haskell-language-server
+            haskellPackages.cabal-install
+            haskellPackages.cabal-fmt.bin
+          ];
         };
 
       packages.dotci = pkgs.callPackage ./dotci.nix {
@@ -55,10 +66,7 @@
       };
 
       checks = {
-        inherit
-          (config.packages)
-          dotci
-          ;
+        inherit (config.packages) dotci;
       };
     };
 }
