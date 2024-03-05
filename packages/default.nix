@@ -6,16 +6,13 @@
 }:
 {
   flake.pkgsFor =
-    prev:
+    pkgs:
     (lib.fix (
       self:
       let
-        inherit (prev) system;
-        final = (
-          prev
-          // self
-        );
-        callPackage = lib.callPackageWith final;
+        inherit (pkgs) system;
+        combined = (pkgs // self);
+        callPackage = lib.callPackageWith combined;
 
         auto = lib.pipe (builtins.readDir ./.) [
           (lib.filterAttrs (name: value: value == "directory"))
@@ -23,13 +20,17 @@
         ];
 
         wrappers = inputs.wrapper-manager.lib {
-          pkgs = final;
-          modules = [ ../wrappers/wezterm ];
+          pkgs = combined;
+          modules = [
+            #  ../wrappers/wezterm
+            ../wrappers/helix
+          ];
         };
       in
       auto
+      // wrappers.config.build.packages
       // {
-        any-nix-shell = callPackage ./any-nix-shell { inherit (prev) any-nix-shell; };
+        any-nix-shell = callPackage ./any-nix-shell { inherit (pkgs) any-nix-shell; };
         nix-index = callPackage ./nix-index {
           database = inputs.nix-index-database.legacyPackages.${system}.database;
           databaseDate = config.flake.lib.mkDate inputs.nix-index-database.lastModifiedDate;
