@@ -42,6 +42,27 @@ in
     };
   };
 
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
+  hardware.nvidia = {
+    # modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = config.hardware.nvidia.prime.offload.enable;
+    };
+    prime = {
+      nvidiaBusId = "PCI:1:0:0";
+      intelBusId = "PCI:0:2:0";
+      #   offload = {
+      #     enable = true;
+      #     enableOffloadCmd = true;
+      #   };
+    };
+  };
+
   services.fwupd.enable = true;
   services.kmscon.enable = lib.mkForce false;
 
