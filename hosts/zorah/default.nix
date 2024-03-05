@@ -16,6 +16,7 @@ in
       #-- Topology
       ./configuration.nix
       inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
       nixosModules.printing
       nixosModules.tmpfs
       nixosModules.tpm2
@@ -36,7 +37,7 @@ in
       nixosModules.plasma6
 
       #-- Other
-      nixosModules.tailscale
+      # nixosModules.tailscale
       nixosModules.guix
     ]
   );
