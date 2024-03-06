@@ -42,28 +42,20 @@
           RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
         };
 
-      devShells.haskell =
-        with pkgs;
-        haskellPackages.shellFor {
-          packages = p: [ ];
-          buildInputs = [
-            pkgs.zlib
-            haskellPackages.haskell-language-server
-            haskellPackages.cabal-install
-            haskellPackages.cabal-fmt.bin
-          ];
-        };
+      devShells.haskell = with pkgs; mkShell { packages = [ cabal-install ]; };
 
-      packages.dotci = pkgs.callPackage ./dotci.nix {
-        src = inputs.nix-filter.lib {
-          root = ./.;
-          include = [
-            "src"
-            "Cargo.toml"
-            "Cargo.lock"
-          ];
-        };
-      };
+      packages.dotci = pkgs.haskellPackages.callCabal2nix "dotci" ./. { };
+
+      # packages.dotci = pkgs.callPackage ./dotci.nix {
+      #   src = inputs.nix-filter.lib {
+      #     root = ./.;
+      #     include = [
+      #       "src"
+      #       "Cargo.toml"
+      #       "Cargo.lock"
+      #     ];
+      #   };
+      # };
 
       checks = {
         inherit (config.packages) dotci;

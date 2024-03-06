@@ -29,10 +29,10 @@ version:            0.1.0.0
 -- description:
 
 -- The license under which the package is released.
-license:            EUPL-1.2
+-- license:            EUPL-1.2
 
 -- The file containing the license text.
-license-file:       LICENSE
+-- license-file:       LICENSE
 
 -- The package author(s).
 author:             Fernando Ayats
@@ -67,7 +67,8 @@ executable dotci
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.17.2.1
+    build-depends:    base ^>=4.17.2.1,
+                      co-log
 
     -- Directories containing source files.
     hs-source-dirs:   app
