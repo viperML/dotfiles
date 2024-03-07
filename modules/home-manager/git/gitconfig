@@ -22,7 +22,6 @@
 [diff]
   colorMoved = default
   tool = difftastic
-  external = difft
 [difftool]
   prompt = false
 [difftool "difftastic"]
