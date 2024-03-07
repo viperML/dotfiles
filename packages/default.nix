@@ -87,7 +87,7 @@ in
         adw-gtk3 = w pkgs.callPackage ./main/adw-gtk3 { };
         colloid = w pkgs.callPackage ./main/colloid { };
         plasma-applet-splitdigitalclock = w pkgs.callPackage ./main/plasma-applet-splitdigitalclock { };
-        present = w pkgs.callPackage ./main/present { };
+        wires = w pkgs.callPackage ./main/present { };
         tailscale-systray = w pkgs.callPackage ./main/tailscale-systray { };
         toml-fmt = w pkgs.callPackage ./main/toml-fmt { };
         vlmcsd = w pkgs.callPackage ./main/vlmcsd { };
