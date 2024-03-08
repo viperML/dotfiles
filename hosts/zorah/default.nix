@@ -29,6 +29,7 @@ in
           ./home.nix
           homeModules.browser
           homeModules.emacs-doom
+          inputs.sops-nix.homeManagerModules.sops
         ];
       }
 

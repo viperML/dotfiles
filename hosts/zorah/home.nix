@@ -1,8 +1,11 @@
-{ pkgs
-, packages
-, lib
-, ...
-}: {
+{
+  pkgs,
+  packages,
+  lib,
+  config,
+  ...
+}:
+{
   nixpkgs.config.allowUnfree = true;
 
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
@@ -21,4 +24,17 @@
     pkgs.linuxPackages.perf
     pkgs.hyperfine
   ];
+
+  sops = {
+    age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
+    defaultSopsFile = ./private.yaml;
+    secrets.git_config = {};
+    secrets.ssh_config = {};
+  };
+
+  home.activation.setupSops = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    /run/current-system/sw/bin/systemctl start --user sops-nix
+    ln $VERBOSE_ARG -sfT $XDG_RUNTIME_DIR/secrets/git_config $XDG_CONFIG_HOME/git/local
+    ln $VERBOSE_ARG -sfT $XDG_RUNTIME_DIR/secrets/ssh_config $HOME/.ssh/config
+  '';
 }

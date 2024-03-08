@@ -1,0 +1,10 @@
+keys:
+  - &zorah age15qe0fp9ys9qhmwypznwcl0sw946wkqsd60wlepw5jsfcwq7rl37q7m9g7v
+  - &master age1u8wy6s9tnz9e8se9e05gmqnwzhg4yy8crujvh8t00kxk3020dqdsq0974j
+
+creation_rules:
+  - path_regex: hosts/zorah/.*\.yaml$
+    key_groups:
+      - age:
+        - *zorah
+        - *master
