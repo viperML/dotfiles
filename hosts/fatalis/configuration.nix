@@ -15,6 +15,7 @@ in
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
+    pkgs.mullvad-vpn
   ];
 
   environment.sessionVariables = {
@@ -121,5 +122,9 @@ in
         "umask=077"
       ];
     };
+  };
+
+  services.mullvad-vpn = {
+    enable = true;
   };
 }

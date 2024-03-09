@@ -42,9 +42,26 @@
           RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
         };
 
-      devShells.haskell = with pkgs; mkShell { packages = [ cabal-install ]; };
+      devShells.haskell =
+        with pkgs;
+        mkShell {
+          packages = [
+            cabal-install
+            haskellPackages.haskell-language-server
+            haskellPackages.cabal-fmt
+          ];
+        };
 
-      packages.dotci = pkgs.haskellPackages.callCabal2nix "dotci" ./. { };
+      packages.dotciDev = pkgs.haskellPackages.developPackage {
+        root = lib.fileset.toSource {
+          fileset = lib.fileset.unions [
+            ./dotci.cabal
+          ];
+          root = ./.;
+        };
+        returnShellEnv = true;
+        withHoogle = false;
+      };
 
       # packages.dotci = pkgs.callPackage ./dotci.nix {
       #   src = inputs.nix-filter.lib {
