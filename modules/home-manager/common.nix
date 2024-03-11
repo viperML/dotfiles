@@ -10,6 +10,7 @@
     config.nix.package
     pkgs.direnv
     pkgs.nixfmt-rfc-style
+    pkgs.nixpkgs-fmt
     # packages.self.nvfetcher
     packages.nh.default
     pkgs.nix-output-monitor
