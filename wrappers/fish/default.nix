@@ -14,7 +14,7 @@
       packages.bat
     ];
 
-    env.MANPAGER.value = "'sh -c \"col -bx | bat --paging=always -l man -p\"'";
+    # env.MANPAGER.value = "'sh -c \"col -bx | bat --paging=always -l man -p\"'";
 
     basePackage =
       let
