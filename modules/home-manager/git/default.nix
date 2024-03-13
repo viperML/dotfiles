@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
-    git
+    gitFull
     git-extras
     difftastic
   ];

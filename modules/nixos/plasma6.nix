@@ -21,4 +21,8 @@
   services.packagekit = {
     enable = true;
   };
+
+  programs.git.config = {
+    credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+  };
 }
