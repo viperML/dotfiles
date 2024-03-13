@@ -15,6 +15,7 @@
   environment.systemPackages = [
     pkgs.vanilla-dmz
     pkgs.kdePackages.discover
+    pkgs.kdePackages.ksshaskpass
   ];
 
   services.packagekit = {
