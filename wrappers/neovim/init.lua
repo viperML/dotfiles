@@ -165,6 +165,7 @@ require("ibl").setup()
 
 vim.g["conjure#filetype#scheme"] = "conjure.client.guile.socket"
 vim.g["conjure#client#guile#socket#pipename"] = ".guile-socket"
+vim.g["conjure#filetypes"] = {"scheme", "fennel", "clojure"}
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
