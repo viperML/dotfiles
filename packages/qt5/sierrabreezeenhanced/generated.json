@@ -1,7 +1,7 @@
 {
     "sierrabreezeenhanced": {
         "cargoLocks": null,
-        "date": "2023-06-13",
+        "date": "2024-03-05",
         "extract": null,
         "name": "sierrabreezeenhanced",
         "passthru": null,
@@ -13,10 +13,10 @@
             "name": null,
             "owner": "kupiqu",
             "repo": "SierraBreezeEnhanced",
-            "rev": "9840f80b6b7992cf7b3b47f9feba207e26253616",
-            "sha256": "sha256-FkYmmqUjsegoEuZhqO2E048nFDei4DbDgw+s37x2/JQ=",
+            "rev": "c81306b5b02622451037ecd18c135ae9c857797d",
+            "sha256": "sha256-xTHqqTowUom+ovD4sFMb+NY2FuaYXHewJuIQAb/uuY8=",
             "type": "github"
         },
-        "version": "9840f80b6b7992cf7b3b47f9feba207e26253616"
+        "version": "c81306b5b02622451037ecd18c135ae9c857797d"
     }
 }
