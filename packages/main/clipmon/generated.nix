@@ -3,21 +3,21 @@
 {
   clipmon = {
     pname = "clipmon";
-    version = "2e338fdc2841c3b2de9271d90fcceceda9e45d29";
+    version = "697ea408c793211f0f698fe9fbdd8a84bb4a6f44";
     src = fetchgit {
       url = "https://git.sr.ht/~whynothugo/clipmon";
-      rev = "2e338fdc2841c3b2de9271d90fcceceda9e45d29";
+      rev = "697ea408c793211f0f698fe9fbdd8a84bb4a6f44";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-bEMgJYz3e2xwMO084bmCT1oZImcmO3xH6rIsjvAxnTA=";
+      sha256 = "sha256-pEM9I/SvAcHVpz5qCuyr7Gtn8nnoTO1aEzvUL2xR5Vk=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./clipmon-2e338fdc2841c3b2de9271d90fcceceda9e45d29/Cargo.lock;
+      lockFile = ./clipmon-697ea408c793211f0f698fe9fbdd8a84bb4a6f44/Cargo.lock;
       outputHashes = {
         
       };
     };
-    date = "2022-08-28";
+    date = "2024-03-09";
   };
 }

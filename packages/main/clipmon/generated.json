@@ -2,11 +2,11 @@
     "clipmon": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./clipmon-2e338fdc2841c3b2de9271d90fcceceda9e45d29/Cargo.lock",
+                "./clipmon-697ea408c793211f0f698fe9fbdd8a84bb4a6f44/Cargo.lock",
                 {}
             ]
         },
-        "date": "2022-08-28",
+        "date": "2024-03-09",
         "extract": null,
         "name": "clipmon",
         "passthru": null,
@@ -16,11 +16,11 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2e338fdc2841c3b2de9271d90fcceceda9e45d29",
-            "sha256": "sha256-bEMgJYz3e2xwMO084bmCT1oZImcmO3xH6rIsjvAxnTA=",
+            "rev": "697ea408c793211f0f698fe9fbdd8a84bb4a6f44",
+            "sha256": "sha256-pEM9I/SvAcHVpz5qCuyr7Gtn8nnoTO1aEzvUL2xR5Vk=",
             "type": "git",
             "url": "https://git.sr.ht/~whynothugo/clipmon"
         },
-        "version": "2e338fdc2841c3b2de9271d90fcceceda9e45d29"
+        "version": "697ea408c793211f0f698fe9fbdd8a84bb4a6f44"
     }
 }
