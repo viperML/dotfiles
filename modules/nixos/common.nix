@@ -148,4 +148,6 @@
     enable = true;
     lfs.enable = true;
   };
+
+  hardware.steam-hardware.enable = true;
 }
