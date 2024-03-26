@@ -44,6 +44,7 @@
     # packages.self.nushell
     packages.self.neovim
     # packages.self.helix
+    packages.hover-rs.default
   ];
 
   # home.sessionVariables = {

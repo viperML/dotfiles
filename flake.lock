@@ -237,6 +237,26 @@
         "type": "github"
       }
     },
+    "hover-rs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711397952,
+        "narHash": "sha256-sIY3WEIChiGj5k6dStCBzjcXNIh4/ITa/JOObzoakHw=",
+        "owner": "viperML",
+        "repo": "hover-rs",
+        "rev": "3e3da64c1033e617728e20e54bbe0de2e148610d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "hover-rs",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
@@ -742,6 +762,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "home-manager-wsl": "home-manager-wsl",
+        "hover-rs": "hover-rs",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
         "hyprland-plugins": "hyprland-plugins",

@@ -15,6 +15,10 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hover-rs = {
+      url = "github:viperML/hover-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix = {
       url = "github:NixOS/nix/2.20.1";
