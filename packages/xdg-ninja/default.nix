@@ -31,11 +31,4 @@ stdenvNoCC.mkDerivation rec {
       --prefix PATH ':' ${lib.makeBinPath propagatedBuildInputs}
     runHook postInstall
   '';
-
-  meta = with lib; {
-    description = "Script which checks your $HOME for unwanted files and directories";
-    inherit (src.meta) homepage;
-    license = licenses.mit;
-    platforms = platforms.all;
-  };
 }

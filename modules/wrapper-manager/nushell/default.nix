@@ -6,8 +6,10 @@
       value = ./starship.toml;
     };
     flags = [
-      "--env-config ${./env.nu}"
-      "--config ${./config.nu}"
+      "--env-config"
+      ./env.nu
+      "--config"
+      ./config.nu
     ];
     pathAdd = [
       pkgs.starship
