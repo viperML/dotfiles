@@ -10,6 +10,7 @@
     lib.fix (
       self:
       let
+        # packages in $FLAKE/packages, callPackage'd automatically
         stage1 = (
           lib.fix (
             self':
@@ -24,6 +25,7 @@
             in
             auto
             // {
+              # manual overrides to auto callPackage
               nix-index = callPackage ./nix-index {
                 database = inputs.nix-index-database.legacyPackages.${system}.database;
                 databaseDate = config.flake.lib.mkDate inputs.nix-index-database.lastModifiedDate;
@@ -33,6 +35,7 @@
           )
         );
 
+        # wrapper-manager packages
         stage2 =
           stage1
           // (inputs.wrapper-manager.lib {
@@ -44,11 +47,25 @@
             ];
           }).config.build.packages;
 
+        # packages that depend of wrappers
         stage3 =
           let
             callPackage = lib.callPackageWith (pkgs // self);
+            callPackageScopedWith =
+              autoArgs: f: args:
+              let
+                res = builtins.scopedImport (autoArgs // args) f;
+                override = newArgs: callPackageScopedWith (autoArgs // newArgs) f;
+              in
+              res // { inherit override; };
+
+            callPackageScoped = callPackageScopedWith (pkgs // self);
           in
-          stage2 // { env = callPackage ./env { }; };
+          stage2
+          // {
+            # env = callPackageScoped ./env { };
+            env = callPackage ./env { };
+          };
       in
       stage3
     );

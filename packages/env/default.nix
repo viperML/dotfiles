@@ -1,5 +1,14 @@
-{ buildEnv, helix }:
+{
+  lib,
+  buildEnv,
+  fzf,
+  starship,
+  direnv,
+  nix-index,
+  eza,
+  bat,
+}@args:
 buildEnv {
   name = "env";
-  paths = [ helix ];
+  paths = builtins.filter lib.isDerivation (builtins.attrValues args);
 }
