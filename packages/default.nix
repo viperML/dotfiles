@@ -30,16 +30,23 @@
           }
         )
       );
+      stage2 =
+        stage1
+        // (inputs.wrapper-manager.lib {
+          pkgs = pkgs // stage1;
+          modules = lib.pipe (builtins.readDir ../modules/wrapper-manager) [
+            (lib.filterAttrs (name: value: value == "directory"))
+            builtins.attrNames
+            (map (n: ../modules/wrapper-manager/${n}))
+          ];
+        }).config.build.packages;
+      stage3 =
+        let
+          callPackage = lib.callPackageWith (pkgs // stage2);
+        in
+        stage2 // { env = callPackage ./env { }; };
     in
-    stage1
-    // (inputs.wrapper-manager.lib {
-      pkgs = pkgs // stage1;
-      modules = lib.pipe (builtins.readDir ../modules/wrapper-manager) [
-        (lib.filterAttrs (name: value: value == "directory"))
-        builtins.attrNames
-        (map (n: ../modules/wrapper-manager/${n}))
-      ];
-    }).config.build.packages;
+    stage3;
 
   perSystem =
     { pkgs, system, ... }:
