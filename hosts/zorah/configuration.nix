@@ -34,7 +34,8 @@ in
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    enableAllFirmware = true;
+    # enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     bluetooth.enable = true;
     opengl = {
       enable = true;

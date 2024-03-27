@@ -48,7 +48,7 @@ let
     if status is-interactive
       ${lib.fileContents ./interactive.fish}
       ${lib.fileContents ./pushd_mod.fish}
-      set -gx STARSHIP_CONFIG ${../starship.toml}
+      set -gx STARSHIP_CONFIG ${../../misc/starship.toml}
       function starship_transient_prompt_func
         ${lib.getExe starship} module character
       end

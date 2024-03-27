@@ -26,6 +26,7 @@
               database = inputs.nix-index-database.legacyPackages.${system}.database;
               databaseDate = config.flake.lib.mkDate inputs.nix-index-database.lastModifiedDate;
             };
+            fish = callPackage ./fish { inherit (pkgs) fish; };
           }
         )
       );
@@ -38,16 +39,27 @@
         builtins.attrNames
         (map (n: ../modules/wrapper-manager/${n}))
       ];
-      # modules = [
-      #   (builtins.readDir ../modules/wrapper-manager)
-      #   #  ../wrappers/wezterm
-      #   ../wrappers/helix
-      # ];
     }).config.build.packages;
 
   perSystem =
-    ps@{ pkgs, ... }:
+    { pkgs, system, ... }:
     {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        config = {
+          allowUnfreePredicate =
+            pkg:
+            builtins.elem (lib.getName pkg) [
+              "hplip"
+              "samsung-UnifiedLinuxDriver"
+              "cnijfilter2"
+              "vscode"
+              "steam-original"
+              "vault"
+            ];
+        };
+      };
+
       packages = config.flake.pkgsFor pkgs;
 
       checks = { };
