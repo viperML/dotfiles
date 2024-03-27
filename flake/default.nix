@@ -4,13 +4,12 @@
 }: {
   imports = [
     ../packages
-    ../packages/default2.nix
     ../misc/lib
     ../homes
     ../misc/bundlers.nix
     ../hosts
     ../modules
-    ../wrappers
+    # ../wrappers
   ];
 
   flake.templates = lib.pipe ../misc/templ [
