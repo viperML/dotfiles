@@ -1,7 +1,6 @@
 {
   pkgs,
-  packages,
-  lib,
+  self',
   config,
   ...
 }:
@@ -12,7 +11,7 @@
 
   home.packages = [
     pkgs.vscode
-    packages.self.wezterm
+    self'.packages.wezterm
     pkgs.onlyoffice-bin
     pkgs.sops
     pkgs.age

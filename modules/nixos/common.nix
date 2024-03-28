@@ -1,7 +1,7 @@
 { config
 , pkgs
 , lib
-, packages
+, self'
 , ...
 }: {
   imports = [
@@ -37,7 +37,6 @@
     pax-utils
     efibootmgr
 
-    packages.nh.default
 
     android-tools
   ];
@@ -107,7 +106,7 @@
 
   fonts.packages = [
     pkgs.roboto
-    packages.self.iosevka
+    self'.packages.iosevka
     (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
@@ -139,7 +138,7 @@
     fonts = [
       {
         name = "iosevka-normal Semibold";
-        package = packages.self.iosevka;
+        package = self'.packages.iosevka;
       }
     ];
   };

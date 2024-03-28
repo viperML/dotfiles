@@ -6,16 +6,6 @@
       (builtins.substring 6 2 longDate)
     ]);
 
-    mkPackages = inputs: system:
-      builtins.mapAttrs
-        (name: value:
-          let
-            legacyPackages = value.legacyPackages.${system} or { };
-            packages = value.packages.${system} or { };
-          in
-          legacyPackages // packages)
-        inputs;
-
     versionGate = pkg: newAttrs:
       let
         newVersion = newAttrs.version;

@@ -1,14 +1,30 @@
 {
+  inputs',
+  #
   lib,
-  buildEnv,
+  symlinkJoin,
+  #
   fzf,
   starship,
   direnv,
   nix-index,
   eza,
   bat,
+  fish,
+  neovim,
+  elf-info,
+  gh,
+  unar,
+  hexyl,
+  du-dust,
+  magic-wormhole-rs,
+  skim,
+  ripgrep,
 }@args:
-buildEnv {
+symlinkJoin {
   name = "env";
-  paths = builtins.filter lib.isDerivation (builtins.attrValues args);
+  paths = (builtins.filter lib.isDerivation (builtins.attrValues args)) ++ [
+    inputs'.nh.packages.default
+    inputs'.hover-rs.packages.default
+  ];
 }
