@@ -40,6 +40,7 @@ in
       #-- Other
       # nixosModules.tailscale
       nixosModules.guix
+      nixosModules.docker
     ]
   );
 }

@@ -1,12 +1,13 @@
 { config
 , pkgs
+, lib
 , ...
 }: {
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
     extraOptions = "--registry-mirror=https://mirror.gcr.io --add-runtime crun=${pkgs.crun}/bin/crun --default-runtime=crun";
-    enableNvidia = builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers;
+    enableNvidia = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
   };
 
   virtualisation.oci-containers = {
@@ -27,7 +28,7 @@
     services.docker-prune = {
       serviceConfig.Type = "oneshot";
       script = ''
-        ${pkgs.docker}/bin/docker system prune --all --force
+        ${config.virtualisation.docker.package}/bin/docker system prune --all --force
       '';
       requires = [ "docker.service" ];
     };
