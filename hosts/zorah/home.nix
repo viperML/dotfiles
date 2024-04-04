@@ -22,6 +22,8 @@
     pkgs.cargo-flamegraph
     pkgs.linuxPackages.perf
     pkgs.hyperfine
+    pkgs.cntr
+    pkgs.sshfs
   ];
 
   sops = {

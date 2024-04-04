@@ -6,7 +6,6 @@ bind \e\[3\;5~ kill-word
 
 # Aliases
 alias ip="ip -c=auto"
-alias svim="sudoedit"
 
 # EXA
 alias ls="eza --icons"
@@ -103,12 +102,4 @@ fzf_configure_bindings --directory=\cf
 # Print newline after a command
 function postexec_test --on-event fish_postexec
     echo
-end
-
-# function rw
-#     readlink -f (which $argv)
-# end
-
-function ssh
-    SHELL=/bin/sh env ssh $argv
 end
