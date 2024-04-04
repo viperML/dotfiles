@@ -35,6 +35,9 @@ abbr -a -g uf journalctl -xef --user-unit
 abbr -a -g kat "kitty +icat"
 abbr -a -g wat "wezterm imgcat --height 50%"
 
+set self (builtin realpath /proc/self/exe)
+abbr -a -g un "unshare -Umr \$self"
+
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
 abbr -a -g gd "git diff"
@@ -57,6 +60,7 @@ abbr -a -g gl "git log --pretty=format:\"%Cgreen%h%Creset - %Cblue%an%Creset @ %
 abbr -a -g gl2 "git log --pretty='format:%Cgreen%h%Creset %an - %s' --graph"
 abbr -a -g glv "git log --stat"
 abbr -a -g gpom "git pull origin master"
+
 abbr -a -g gcd 'cd "`git rev-parse --show-toplevel`"'
 abbr -a -g gcf "git clean -fd"
 abbr -a -g gcod "git checkout -- ."

@@ -24,6 +24,8 @@
     pkgs.hyperfine
     pkgs.cntr
     pkgs.sshfs
+    pkgs.strace
+    pkgs.gdb
   ];
 
   sops = {
