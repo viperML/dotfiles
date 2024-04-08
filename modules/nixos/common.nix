@@ -36,6 +36,7 @@
     file
     pax-utils
     efibootmgr
+    e2fsprogs.bin
 
 
     android-tools
