@@ -20,6 +20,7 @@
   magic-wormhole-rs,
   skim,
   ripgrep,
+  libarchive,
 }@args:
 symlinkJoin {
   name = "env";
