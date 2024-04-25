@@ -19,8 +19,6 @@
     # global dev
     pkgs.just
     pkgs.clang-tools
-    pkgs.cargo-flamegraph
-    pkgs.linuxPackages.perf
     pkgs.hyperfine
     pkgs.cntr
     pkgs.sshfs
