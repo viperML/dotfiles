@@ -8,6 +8,7 @@
     "greetd"
     "guix"
     "hyprland"
+    "incus"
     "plasma5"
     "plasma6"
     "podman"

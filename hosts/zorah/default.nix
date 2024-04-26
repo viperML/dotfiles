@@ -41,6 +41,7 @@ in
       nixosModules.tailscale
       nixosModules.guix
       nixosModules.docker
+      nixosModules.incus
     ]
   );
 }
