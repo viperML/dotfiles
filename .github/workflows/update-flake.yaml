@@ -22,7 +22,7 @@ jobs:
       id: matrix
       run: |
         set -ex
-        nix profile install .#jq .#fd
+        nix profile install --inputs-from . nixpkgs#jq nixpkgs#fd
         paths="$(fd 'nvfetcher.toml|sources.toml' | jq -ncR '[inputs]')"
         echo "paths=$paths" >> $GITHUB_OUTPUT
 
