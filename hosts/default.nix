@@ -40,8 +40,6 @@
           ];
           home-manager.extraSpecialArgs = specialArgs;
         }
-
-        inputs.nh.nixosModules.default
       ] ++ extraModules;
     };
 }

@@ -1,5 +1,6 @@
-{ pkgs, packages, ... }: {
-  services.xserver = {
+{ pkgs, ... }:
+{
+  services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
       sddm.enable = true;

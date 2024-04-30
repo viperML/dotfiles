@@ -11,7 +11,7 @@ let
       ];
     }
     (lib.fileContents ./run-desktop.pl);
-  inherit (config.services.xserver.displayManager) defaultSession;
+  inherit (config.services.displayManager) defaultSession;
 in
 {
   environment.systemPackages = [ run-desktop ];
