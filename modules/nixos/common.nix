@@ -1,20 +1,22 @@
-{ config
-, pkgs
-, lib
-, self'
-, ...
-}: {
-  imports = [
-    ./swap.nix
-  ];
+{
+  config,
+  pkgs,
+  lib,
+  self',
+  inputs',
+  ...
+}:
+{
+  imports = [ ./swap.nix ];
 
   # broken
   services.envfs.enable = lib.mkForce false;
 
-  nh = {
+  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 1w --keep 3";
+    package = inputs'.nh.packages.default;
   };
 
   nix = {
@@ -24,9 +26,7 @@
 
   users.mutableUsers = false;
 
-  services.udev.packages = with pkgs; [
-    android-udev-rules
-  ];
+  services.udev.packages = with pkgs; [ android-udev-rules ];
 
   environment.defaultPackages = [ ];
   environment.systemPackages = with pkgs; [
@@ -37,7 +37,6 @@
     pax-utils
     efibootmgr
     e2fsprogs.bin
-
 
     android-tools
   ];
@@ -78,7 +77,9 @@
     in
     {
       inherit extraConfig;
-      user = { inherit extraConfig; };
+      user = {
+        inherit extraConfig;
+      };
       services."getty@tty1".enable = false;
       services."autovt@tty1".enable = false;
       services."getty@tty7".enable = false;
@@ -119,12 +120,13 @@
       layout = "es";
       options = "compose:rctrl";
     };
-    libinput = {
-      enable = true;
-      mouse.accelProfile = "flat";
-      mouse.accelSpeed = "0.0";
-      mouse.middleEmulation = false;
-    };
+  };
+
+  services.libinput = {
+    enable = true;
+    mouse.accelProfile = "flat";
+    mouse.accelSpeed = "0.0";
+    mouse.middleEmulation = false;
   };
 
   console.useXkbConfig = true;
