@@ -1,5 +1,5 @@
 { pkgs
-, packages
+, self'
 , ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -9,7 +9,7 @@
   home.packages = [
     pkgs.vscode
     pkgs.vault
-    packages.self.wezterm
+    self'.packages.wezterm
     pkgs.sbctl
   ];
 }
