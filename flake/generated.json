@@ -1,7 +1,7 @@
 {
     "hyprland": {
         "cargoLocks": null,
-        "date": "2024-02-15",
+        "date": "2024-04-30",
         "extract": null,
         "name": "hyprland",
         "passthru": null,
@@ -11,12 +11,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a42b984f51a00e88a13a45e1b5e9e3d4ec470254",
-            "sha256": "sha256-RT/ltuugm8j0zQAsvM+d70HisZvzcofrzHFtxzG++vw=",
+            "rev": "d7a48cf47816041c5cb705c9de218c3395635822",
+            "sha256": "sha256-hPVajaFDROdCBowH2A2NDS1FbyTlIZS5bAiKp9p65tc=",
             "type": "git",
             "url": "https://github.com/hyprwm/Hyprland"
         },
-        "version": "a42b984f51a00e88a13a45e1b5e9e3d4ec470254"
+        "version": "d7a48cf47816041c5cb705c9de218c3395635822"
     },
     "lanzaboote": {
         "cargoLocks": null,
@@ -49,12 +49,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2.20.1",
-            "sha256": "sha256-tLO1Y08d+1K1Tm8UpLdnx7bi3vR5dhfuZho5S/RPQ0s=",
+            "rev": "2.22.0",
+            "sha256": "sha256-Ugcc+lSq8nJP+mddMlGFnoG4Ix1lRFHWOal3299bqR8=",
             "type": "git",
             "url": "https://github.com/nixos/nix.git"
         },
-        "version": "2.20.1"
+        "version": "2.22.0"
     },
     "nvfetcher": {
         "cargoLocks": null,
