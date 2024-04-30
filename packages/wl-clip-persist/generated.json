@@ -2,11 +2,11 @@
     "wl-clip-persist": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./wl-clip-persist-6ba11a2aa295d780f0b2e8f005cf176601d153b0/Cargo.lock",
+                "./wl-clip-persist-e2abc48f242dd8d8cb17f5d641243869e0425fd3/Cargo.lock",
                 {}
             ]
         },
-        "date": "2022-09-07",
+        "date": "2024-04-29",
         "extract": null,
         "name": "wl-clip-persist",
         "passthru": null,
@@ -16,11 +16,11 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "6ba11a2aa295d780f0b2e8f005cf176601d153b0",
-            "sha256": "sha256-wg4xEXLAZpWflFejP7ob4cnmRvo9d/0dL9hceG+RUr0=",
+            "rev": "e2abc48f242dd8d8cb17f5d641243869e0425fd3",
+            "sha256": "sha256-gUi4Htui7IwldeK30C7SGTNc+0VHuzDZfJdaL8FmkGs=",
             "type": "git",
             "url": "https://github.com/Linus789/wl-clip-persist"
         },
-        "version": "6ba11a2aa295d780f0b2e8f005cf176601d153b0"
+        "version": "e2abc48f242dd8d8cb17f5d641243869e0425fd3"
     }
 }

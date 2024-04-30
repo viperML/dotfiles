@@ -3,21 +3,21 @@
 {
   wl-clip-persist = {
     pname = "wl-clip-persist";
-    version = "6ba11a2aa295d780f0b2e8f005cf176601d153b0";
+    version = "e2abc48f242dd8d8cb17f5d641243869e0425fd3";
     src = fetchgit {
       url = "https://github.com/Linus789/wl-clip-persist";
-      rev = "6ba11a2aa295d780f0b2e8f005cf176601d153b0";
+      rev = "e2abc48f242dd8d8cb17f5d641243869e0425fd3";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-wg4xEXLAZpWflFejP7ob4cnmRvo9d/0dL9hceG+RUr0=";
+      sha256 = "sha256-gUi4Htui7IwldeK30C7SGTNc+0VHuzDZfJdaL8FmkGs=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./wl-clip-persist-6ba11a2aa295d780f0b2e8f005cf176601d153b0/Cargo.lock;
+      lockFile = ./wl-clip-persist-e2abc48f242dd8d8cb17f5d641243869e0425fd3/Cargo.lock;
       outputHashes = {
         
       };
     };
-    date = "2022-09-07";
+    date = "2024-04-29";
   };
 }
