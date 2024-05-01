@@ -1,7 +1,7 @@
 {
     "hyprland": {
         "cargoLocks": null,
-        "date": "2024-04-30",
+        "date": "2024-05-01",
         "extract": null,
         "name": "hyprland",
         "passthru": null,
@@ -11,12 +11,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "d7a48cf47816041c5cb705c9de218c3395635822",
-            "sha256": "sha256-hPVajaFDROdCBowH2A2NDS1FbyTlIZS5bAiKp9p65tc=",
+            "rev": "ed58cc4c31c21e09ee780d0df818afe935181cd9",
+            "sha256": "sha256-ccMCLvwOUg/O5n28CuDKhEY+7kgFK+Ch4HAb5SjlRvA=",
             "type": "git",
             "url": "https://github.com/hyprwm/Hyprland"
         },
-        "version": "d7a48cf47816041c5cb705c9de218c3395635822"
+        "version": "ed58cc4c31c21e09ee780d0df818afe935181cd9"
     },
     "lanzaboote": {
         "cargoLocks": null,

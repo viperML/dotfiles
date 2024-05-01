@@ -2,7 +2,7 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./flake ]; };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -72,7 +72,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/d7a48cf47816041c5cb705c9de218c3395635822";
+      url = "github:hyprwm/Hyprland/ed58cc4c31c21e09ee780d0df818afe935181cd9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
