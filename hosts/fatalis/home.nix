@@ -12,5 +12,6 @@
     self'.packages.wezterm
     # pkgs.obsidian
     # pkgs.synology-drive-client
+    pkgs.nixd
   ];
 }

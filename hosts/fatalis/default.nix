@@ -30,7 +30,8 @@ in {
       #-- Other
       nixosModules.tailscale
       nixosModules.guix
-      nixosModules.noshell
       nixosModules.docker
+      inputs.noshell.nixosModules.default
+      {programs.noshell.enable = true;}
     ]);
 }

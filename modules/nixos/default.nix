@@ -23,7 +23,5 @@
     "warp"
     "wine"
     "yubikey"
-
-    "noshell"
   ];
 }
