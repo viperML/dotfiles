@@ -3,23 +3,14 @@
   pkgs,
   config,
   ...
-}:
-let
-
+}: let
   luksDevice = "luksroot";
-in
-{
+in {
   system.stateVersion = "23.11";
 
-  environment.systemPackages = [
-    pkgs.sbctl
-    pkgs.powertop
-    pkgs.sysfsutils
-  ];
+  environment.systemPackages = [pkgs.sbctl pkgs.powertop pkgs.sysfsutils];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
 
   networking = {
     hostName = "fatalis";
@@ -43,10 +34,7 @@ in
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
+      extraPackages = with pkgs.rocmPackages; [clr clr.icd];
     };
   };
 
@@ -66,7 +54,7 @@ in
 
     initrd = {
       systemd.enable = true;
-      availableKernelModules = [ ];
+      availableKernelModules = [];
 
       luks = {
         devices.${luksDevice} = {
@@ -79,7 +67,7 @@ in
       # "vm.swappiness" = 100;
     };
 
-    kernelParams = [ ];
+    kernelParams = [];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -102,24 +90,20 @@ in
       options rtw89_core disable_ps_mode=y
     '';
 
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
   fileSystems = {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "xfs";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-partlabel/ESP";
       fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
+      options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
 }

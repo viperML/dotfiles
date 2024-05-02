@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   flake.nixosModules = config.flake.lib.importFilesToAttrs ./. [
     "common"
     "consul"
@@ -23,5 +23,7 @@
     "warp"
     "wine"
     "yubikey"
+
+    "noshell"
   ];
 }

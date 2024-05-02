@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
-  home.packages = [ pkgs.rofi ];
+{pkgs, ...}: {
+  home.packages = [pkgs.rofi];
   xdg.configFile."rofi".source = ./.;
 }

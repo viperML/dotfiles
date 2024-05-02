@@ -6,7 +6,5 @@
     }
   ];
 
-  zramSwap = {
-    enable = true;
-  };
+  zramSwap = {enable = true;};
 }

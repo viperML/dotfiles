@@ -1,6 +1,7 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }: {
   config = lib.mkIf config.wayland.windowManager.sway.fx {
     wayland.windowManager.sway.extraConfig = ''

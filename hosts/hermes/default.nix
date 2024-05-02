@@ -4,14 +4,11 @@
   mkNixos,
   inputs,
   ...
-}:
-let
+}: let
   system = "x86_64-linux";
   inherit (config.flake) nixosModules homeModules;
-in
-{
-  flake.nixosConfigurations.hermes = withSystem system (
-    { pkgs, ... }:
+in {
+  flake.nixosConfigurations.hermes = withSystem system ({pkgs, ...}:
     mkNixos system [
       #-- Topology
       ./configuration.nix
@@ -23,18 +20,14 @@ in
 
       #-- home-manager
       {
-        home-manager.sharedModules = [
-          ./home.nix
-          homeModules.browser
-        ];
+        home-manager.sharedModules = [./home.nix homeModules.browser];
       }
 
       #-- Environment
-      { services.displayManager.autoLogin.user = "ayats"; }
+      {services.displayManager.autoLogin.user = "ayats";}
       nixosModules.plasma6
 
       #-- Other
       nixosModules.guix
-    ]
-  );
+    ]);
 }

@@ -1,7 +1,8 @@
-{ pkgs
-, packages
-, inputs
-, ...
+{
+  pkgs,
+  packages,
+  inputs,
+  ...
 }: {
   services.xserver = {
     desktopManager.gnome.enable = true;
@@ -9,9 +10,7 @@
     #    displayManager.defaultSession = "gnome";
   };
 
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-  };
+  environment.sessionVariables = {MOZ_ENABLE_WAYLAND = "1";};
 
   environment.gnome.excludePackages = with pkgs; [
     epiphany
@@ -54,7 +53,5 @@
     pkgs.wl-clipboard
   ];
 
-  home-manager.sharedModules = [
-    inputs.self.homeModules.gnome
-  ];
+  home-manager.sharedModules = [inputs.self.homeModules.gnome];
 }

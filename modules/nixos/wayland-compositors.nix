@@ -1,13 +1,9 @@
-{ pkgs, ... }: {
-  imports = [
-    ./fcitx5.nix
-  ];
+{pkgs, ...}: {
+  imports = [./fcitx5.nix];
 
   services.xserver = {
     enable = true;
-    displayManager = {
-      sddm.enable = true;
-    };
+    displayManager = {sddm.enable = true;};
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -45,8 +41,6 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 }

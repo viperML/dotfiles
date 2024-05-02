@@ -1,16 +1,18 @@
-{ pkgs
-, inputs'
-, self'
-, lib
-, config
-, ...
+{
+  pkgs,
+  inputs',
+  self',
+  lib,
+  config,
+  ...
 }: {
   # Generic programs
   home.packages = [
     # Nix management
     config.nix.package
     pkgs.direnv
-    pkgs.nixfmt-rfc-style
+    pkgs.alejandra
+    pkgs.nixfmt
     pkgs.nixpkgs-fmt
     pkgs.nix-output-monitor
     pkgs.nil
@@ -20,9 +22,7 @@
   # home.sessionVariables = {
   #   LESS = "-RiF --mouse --wheel-lines=3";
   # };
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = {EDITOR = "nvim";};
 
   home.stateVersion = lib.mkDefault "21.11";
 
@@ -46,12 +46,9 @@
 
   manual.json.enable = false;
 
-  imports = [
-    ./git
-  ];
+  imports = [./git];
 
-
-  home.activation."user-dirs" = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+  home.activation."user-dirs" = lib.hm.dag.entryBefore ["writeBoundary"] ''
     rm -f $VERBOSE_ARG "$HOME/.config/user-dirs.dirs.old"
   '';
 }

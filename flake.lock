@@ -798,6 +798,26 @@
         "type": "github"
       }
     },
+    "noshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714573746,
+        "narHash": "sha256-UViRqBDnBy6o2FFaMX5I8tkWlCwj9hj+gI0RAfy+GMs=",
+        "owner": "viperML",
+        "repo": "noshell",
+        "rev": "2d7670402a2281055078c41c67f92ffc46947777",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "noshell",
+        "type": "github"
+      }
+    },
     "nvfetcher": {
       "inputs": {
         "flake-compat": [
@@ -911,6 +931,7 @@
         "nix-ld": "nix-ld",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "noshell": "noshell",
         "nvfetcher": "nvfetcher",
         "sops-nix": "sops-nix",
         "vscode-server": "vscode-server",

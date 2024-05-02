@@ -21,11 +21,10 @@
   skim,
   ripgrep,
   libarchive,
-}@args:
+} @ args:
 symlinkJoin {
   name = "env";
-  paths = (builtins.filter lib.isDerivation (builtins.attrValues args)) ++ [
-    inputs'.nh.packages.default
-    inputs'.hover-rs.packages.default
-  ];
+  paths =
+    (builtins.filter lib.isDerivation (builtins.attrValues args))
+    ++ [inputs'.nh.packages.default inputs'.hover-rs.packages.default];
 }

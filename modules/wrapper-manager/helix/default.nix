@@ -1,9 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   wrappers.helix = {
     basePackage = pkgs.helix;
-    flags = [
-      "-c"
-      ./config.toml
-    ];
+    flags = ["-c" ./config.toml];
   };
 }

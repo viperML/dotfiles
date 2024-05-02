@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
@@ -13,15 +12,9 @@
     SSH_ASKPASS_REQUIRE = "prefer";
   };
 
-  environment.systemPackages = [
-    pkgs.vanilla-dmz
-    pkgs.kdePackages.discover
-    pkgs.kdePackages.ksshaskpass
-  ];
+  environment.systemPackages = [pkgs.vanilla-dmz pkgs.kdePackages.discover pkgs.kdePackages.ksshaskpass];
 
-  services.packagekit = {
-    enable = true;
-  };
+  services.packagekit = {enable = true;};
 
   programs.git.config = {
     credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";

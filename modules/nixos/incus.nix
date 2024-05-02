@@ -1,11 +1,9 @@
-{ config, ... }:
-let
+{config, ...}: let
   bridge = "incusbr0";
   dnsDomain = "incus";
   ipv4 = "10.0.100.1";
   ipv4Subnet = "24";
-in
-{
+in {
   assertions = [
     {
       assertion = config.services.resolved.enable;
@@ -48,9 +46,7 @@ in
       ];
       storage_pools = [
         {
-          config = {
-            source = "/var/lib/incus/storage-pools/default";
-          };
+          config = {source = "/var/lib/incus/storage-pools/default";};
           driver = "dir";
           name = "default";
         }
@@ -60,12 +56,12 @@ in
 
   users.groups."incus-admin".members = config.users.groups."wheel".members;
 
-  networking.firewall.trustedInterfaces = [ bridge ];
+  networking.firewall.trustedInterfaces = [bridge];
 
   # https://linuxcontainers.org/incus/docs/main/howto/network_bridge_resolved
   systemd.services."incus-dns-${bridge}" = rec {
     description = "Incus per-link DNS configuration for ${bridge}";
-    bindsTo = [ "sys-subsystem-net-devices-${bridge}.device" ];
+    bindsTo = ["sys-subsystem-net-devices-${bridge}.device"];
     after = bindsTo;
     wantedBy = bindsTo;
     serviceConfig = {

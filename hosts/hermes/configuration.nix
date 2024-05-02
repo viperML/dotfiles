@@ -3,11 +3,9 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   luksDevice = "luksroot";
-in
-{
+in {
   networking = {
     hostName = "hermes";
     networkmanager = {
@@ -16,9 +14,7 @@ in
     };
   };
 
-  services.resolved = {
-    enable = true;
-  };
+  services.resolved = {enable = true;};
 
   users.mutableUsers = lib.mkForce true;
 
@@ -34,10 +30,7 @@ in
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
+      extraPackages = with pkgs.rocmPackages; [clr clr.icd];
     };
   };
 
@@ -57,13 +50,7 @@ in
 
     initrd = {
       systemd.enable = true;
-      availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "nvme"
-        "usbhid"
-        "kvm-intel"
-      ];
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "kvm-intel"];
       luks = {
         devices.${luksDevice} = {
           device = "/dev/disk/by-partlabel/LINUX_LUKS";
@@ -76,11 +63,9 @@ in
     #   "wasm32-wasi"
     # ];
 
-    kernel.sysctl = {
-      "vm.swappiness" = 10;
-    };
+    kernel.sysctl = {"vm.swappiness" = 10;};
 
-    kernelParams = [ ];
+    kernelParams = [];
 
     loader = {
       systemd-boot = {
@@ -108,17 +93,13 @@ in
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "xfs";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-partlabel/LINUX_ESP";
       fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
+      options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
 }

@@ -4,14 +4,11 @@
   mkNixos,
   inputs,
   ...
-}:
-let
+}: let
   system = "x86_64-linux";
   inherit (config.flake) nixosModules homeModules;
-in
-{
-  flake.nixosConfigurations.zorah = withSystem system (
-    { pkgs, ... }:
+in {
+  flake.nixosConfigurations.zorah = withSystem system ({pkgs, ...}:
     mkNixos system [
       #-- Topology
       ./configuration.nix
@@ -34,7 +31,7 @@ in
       }
 
       #-- Environment
-      { services.displayManager.autoLogin.user = "ayats"; }
+      {services.displayManager.autoLogin.user = "ayats";}
       nixosModules.plasma6
 
       #-- Other
@@ -42,6 +39,5 @@ in
       nixosModules.guix
       nixosModules.docker
       nixosModules.incus
-    ]
-  );
+    ]);
 }

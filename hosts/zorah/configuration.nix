@@ -3,16 +3,12 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   luksDevice = "luksroot";
-in
-{
-  environment.systemPackages = [ pkgs.powertop ];
+in {
+  environment.systemPackages = [pkgs.powertop];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
 
   networking = {
     hostName = "zorah";
@@ -22,9 +18,7 @@ in
     };
   };
 
-  services.resolved = {
-    enable = true;
-  };
+  services.resolved = {enable = true;};
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -39,7 +33,7 @@ in
     bluetooth.enable = true;
     opengl = {
       enable = true;
-      extraPackages = [ pkgs.intel-media-driver ];
+      extraPackages = [pkgs.intel-media-driver];
     };
   };
 
@@ -49,13 +43,9 @@ in
   # services.cpupower-gui.enable = true;
   # services.flatpak.enable = true;
 
-  services.flatpak = {
-    enable = true;
-  };
+  services.flatpak = {enable = true;};
 
-  services.printing = {
-    enable = true;
-  };
+  services.printing = {enable = true;};
 
   boot = {
     lanzaboote = {
@@ -88,9 +78,9 @@ in
       # "vm.swappiness" = 100;
     };
 
-    kernelParams = [ ];
+    kernelParams = [];
 
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -109,17 +99,13 @@ in
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "xfs";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-partlabel/ESP";
       fsType = "vfat";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.mount-timeout=15min"
-        "umask=077"
-      ];
+      options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
 }

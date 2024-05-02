@@ -8,8 +8,7 @@
   nix-direnv,
   nix-index,
   direnv,
-}:
-let
+}: let
   initPlugin = plugin: ''
     begin
       set -l __plugin_dir ${plugin}/share/fish
@@ -26,10 +25,7 @@ let
       end
     end
   '';
-  plugins = with fishPlugins; [
-    foreign-env
-    fzf-fish
-  ];
+  plugins = with fishPlugins; [foreign-env fzf-fish];
   direnvConfig = writeTextDir "direnvrc" ''
     source ${nix-direnv}/share/nix-direnv/direnvrc
   '';
@@ -60,14 +56,12 @@ let
     end
   '';
 in
-fish.overrideAttrs (
-  old: {
-    patches = [ ./fish-on-tmpfs.patch ];
+  fish.overrideAttrs (old: {
+    patches = [./fish-on-tmpfs.patch];
     doCheck = false;
     postInstall =
       old.postInstall
       + ''
         echo "source ${fish_user_config}" >> $out/etc/fish/config.fish
       '';
-  }
-)
+  })

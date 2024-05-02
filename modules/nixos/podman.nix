@@ -1,12 +1,15 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
-    enableNvidia = builtins.any (driver: driver == "nvidia") config.services.xserver.videoDrivers;
+    enableNvidia =
+      builtins.any (driver: driver == "nvidia")
+      config.services.xserver.videoDrivers;
   };
 
   environment.etc."containers/registries.conf".text = lib.mkForce ''
@@ -25,8 +28,8 @@
     services = {
       "podman-prune" = {
         description = "Cleanup podman images";
-        requires = [ "podman.socket" ];
-        after = [ "podman.socket" ];
+        requires = ["podman.socket"];
+        after = ["podman.socket"];
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${lib.getExe pkgs.podman} image prune --all --external --force";
@@ -34,7 +37,7 @@
       };
     };
     timers."podman-prune" = {
-      partOf = [ "podman-prune.service" ];
+      partOf = ["podman-prune.service"];
       timerConfig = {
         OnCalendar = "weekly";
         RandomizedDelaySec = "900";

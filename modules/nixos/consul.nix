@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   services.resolved.extraConfig = ''
     [Resolve]
     DNS=127.0.0.1:8600
@@ -16,21 +16,13 @@
     extraConfig = {
       # server = true;
       # bootstrap_expect = 2;
-      client_addr = ''{{ GetInterfaceIP "${config.services.tailscale.interfaceName}" }} {{ GetAllInterfaces | include "flags" "loopback" | join "address" " " }}'';
+      client_addr = ''
+        {{ GetInterfaceIP "${config.services.tailscale.interfaceName}" }} {{ GetAllInterfaces | include "flags" "loopback" | join "address" " " }}'';
     };
   };
 
   networking.firewall.interfaces.${config.services.tailscale.interfaceName} = rec {
-    allowedTCPPorts = [
-      8500
-      8600
-      8501
-      8502
-      8503
-      8301
-      8302
-      8300
-    ];
+    allowedTCPPorts = [8500 8600 8501 8502 8503 8301 8302 8300];
     allowedUDPPorts = allowedTCPPorts;
     allowedTCPPortRanges = [
       {

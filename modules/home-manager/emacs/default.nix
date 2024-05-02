@@ -1,9 +1,9 @@
-{ pkgs
-, inputs
-, config
-, ...
-}:
 {
+  pkgs,
+  inputs,
+  config,
+  ...
+}: {
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
@@ -13,9 +13,9 @@
     };
   };
 
-  home.packages = with pkgs; [
-    emacs-all-the-icons-fonts
-  ];
+  home.packages = with pkgs; [emacs-all-the-icons-fonts];
 
-  xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink "${config.unsafeFlakePath}/modules/home-manager/emacs";
+  xdg.configFile."emacs".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.unsafeFlakePath}/modules/home-manager/emacs";
 }

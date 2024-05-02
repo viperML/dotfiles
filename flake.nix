@@ -19,6 +19,10 @@
       url = "github:viperML/hover-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noshell = {
+      url = "github:viperML/noshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix = {
       url = "github:NixOS/nix/2.22.0";

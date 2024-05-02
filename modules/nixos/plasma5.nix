@@ -1,7 +1,8 @@
-{ packages
-, pkgs
-, inputs
-, ...
+{
+  packages,
+  pkgs,
+  inputs,
+  ...
 }: {
   services.xserver = {
     enable = true;
@@ -9,14 +10,10 @@
       enable = true;
       runUsingSystemd = true;
     };
-    displayManager = {
-      defaultSession = "plasmawayland";
-    };
+    displayManager = {defaultSession = "plasmawayland";};
   };
 
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-  };
+  environment.sessionVariables = {MOZ_ENABLE_WAYLAND = "1";};
 
   environment.systemPackages = [
     packages.self.reversal-kde
@@ -25,7 +22,5 @@
     pkgs.vanilla-dmz
   ];
 
-  home-manager.sharedModules = [
-    inputs.self.homeModules.plasma5
-  ];
+  home-manager.sharedModules = [inputs.self.homeModules.plasma5];
 }

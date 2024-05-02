@@ -5,9 +5,8 @@
   self',
   inputs',
   ...
-}:
-{
-  imports = [ ./swap.nix ];
+}: {
+  imports = [./swap.nix];
 
   # broken
   services.envfs.enable = lib.mkForce false;
@@ -21,14 +20,16 @@
 
   nix = {
     daemonCPUSchedPolicy = "idle";
-    settings = import ../../misc/nix-conf.nix // import ../../misc/nix-conf-privileged.nix;
+    settings =
+      import ../../misc/nix-conf.nix
+      // import ../../misc/nix-conf-privileged.nix;
   };
 
   users.mutableUsers = false;
 
-  services.udev.packages = with pkgs; [ android-udev-rules ];
+  services.udev.packages = with pkgs; [android-udev-rules];
 
-  environment.defaultPackages = [ ];
+  environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
     usbutils
     pciutils
@@ -41,52 +42,46 @@
     android-tools
   ];
 
-  i18n =
-    let
-      defaultLocale = "en_US.UTF-8";
-      es = "es_ES.UTF-8";
-    in
-    {
-      inherit defaultLocale;
-      extraLocaleSettings = {
-        LANG = defaultLocale;
-        LC_COLLATE = defaultLocale;
-        LC_CTYPE = defaultLocale;
-        LC_MESSAGES = defaultLocale;
+  i18n = let
+    defaultLocale = "en_US.UTF-8";
+    es = "es_ES.UTF-8";
+  in {
+    inherit defaultLocale;
+    extraLocaleSettings = {
+      LANG = defaultLocale;
+      LC_COLLATE = defaultLocale;
+      LC_CTYPE = defaultLocale;
+      LC_MESSAGES = defaultLocale;
 
-        LC_ADDRESS = es;
-        LC_IDENTIFICATION = es;
-        LC_MEASUREMENT = es;
-        LC_MONETARY = es;
-        LC_NAME = es;
-        LC_NUMERIC = es;
-        LC_PAPER = es;
-        LC_TELEPHONE = es;
-        LC_TIME = es;
-      };
+      LC_ADDRESS = es;
+      LC_IDENTIFICATION = es;
+      LC_MEASUREMENT = es;
+      LC_MONETARY = es;
+      LC_NAME = es;
+      LC_NUMERIC = es;
+      LC_PAPER = es;
+      LC_TELEPHONE = es;
+      LC_TIME = es;
     };
+  };
 
-  systemd =
-    let
-      extraConfig = ''
-        DefaultTimeoutStartSec=15s
-        DefaultTimeoutStopSec=15s
-        DefaultTimeoutAbortSec=15s
-        DefaultDeviceTimeoutSec=15s
-      '';
-    in
-    {
-      inherit extraConfig;
-      user = {
-        inherit extraConfig;
-      };
-      services."getty@tty1".enable = false;
-      services."autovt@tty1".enable = false;
-      services."getty@tty7".enable = false;
-      services."autovt@tty7".enable = false;
-      services."kmsconvt@tty1".enable = false;
-      services."kmsconvt@tty7".enable = false;
-    };
+  systemd = let
+    extraConfig = ''
+      DefaultTimeoutStartSec=15s
+      DefaultTimeoutStopSec=15s
+      DefaultTimeoutAbortSec=15s
+      DefaultDeviceTimeoutSec=15s
+    '';
+  in {
+    inherit extraConfig;
+    user = {inherit extraConfig;};
+    services."getty@tty1".enable = false;
+    services."autovt@tty1".enable = false;
+    services."getty@tty7".enable = false;
+    services."autovt@tty7".enable = false;
+    services."kmsconvt@tty1".enable = false;
+    services."kmsconvt@tty7".enable = false;
+  };
 
   home-manager = {
     useGlobalPkgs = true;
@@ -109,7 +104,7 @@
   fonts.packages = [
     pkgs.roboto
     self'.packages.iosevka
-    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   time.timeZone = "Europe/Madrid";
