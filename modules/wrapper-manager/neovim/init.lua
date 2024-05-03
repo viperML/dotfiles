@@ -146,7 +146,6 @@ nvim_lsp.rust_analyzer.setup {
 
 -- Treesitter
 local orgmode = require("orgmode")
-orgmode.setup_ts_grammar()
 
 require("nvim-treesitter.configs").setup {
   -- ignore_install = { "all" },
