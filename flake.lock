@@ -526,11 +526,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714165257,
-        "narHash": "sha256-/pZwLN3ATpmvTvGVV70mYU0ifRCmALLqvrt8cRbty1A=",
+        "lastModified": 1714905986,
+        "narHash": "sha256-Vj7iFkLrd7MDeeMVVol5uHTcaLwDq4a3vNx+6Sy1FLU=",
         "owner": "viperML",
         "repo": "nh",
-        "rev": "9589dea0e74a819c296c591123f6af37c3f0bce3",
+        "rev": "127a23c82aa41091e97466092d2547c08c2a9a9d",
         "type": "github"
       },
       "original": {
@@ -805,11 +805,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714819199,
-        "narHash": "sha256-v883HtHheE/kAsiZB2n8TXq6+WZDpwjqBDZmCBajyVs=",
+        "lastModified": 1714824504,
+        "narHash": "sha256-yRW3KPmY8SboBPRWUiCuq3G35s6zIxlbU8V7k8PSF9I=",
         "owner": "viperML",
         "repo": "noshell",
-        "rev": "3bfedd9a64ac747fb1629e3eaca7e110c5442eea",
+        "rev": "f13fe6d00e95577abce94e972d26156c75242cbf",
         "type": "github"
       },
       "original": {

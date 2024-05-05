@@ -31,6 +31,7 @@ in {
       nixosModules.tailscale
       nixosModules.guix
       nixosModules.docker
+      nixosModules.printing
       inputs.noshell.nixosModules.default
       {programs.noshell.enable = true;}
     ]);
