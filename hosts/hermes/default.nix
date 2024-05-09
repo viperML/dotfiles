@@ -29,5 +29,9 @@ in {
 
       #-- Other
       nixosModules.guix
+      nixosModules.tailscale
+      nixosModules.docker
+      inputs.noshell.nixosModules.default
+      {programs.noshell.enable=true;}
     ]);
 }
