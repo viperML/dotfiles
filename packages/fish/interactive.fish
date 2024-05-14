@@ -23,7 +23,6 @@ abbr -a -g p python
 abbr -a -g n nvim
 abbr -a -g pd pushd
 abbr -a -g cdx cd \$XDG_RUNTIME_DIR
-abbr -a -g z zellij attach -c main
 
 # Admin
 abbr -a -g ss sudo systemctl
@@ -32,11 +31,9 @@ abbr -a -g sf journalctl -xefu
 abbr -a -g uf journalctl -xef --user-unit
 
 # Image cat
-abbr -a -g kat "kitty +icat"
 abbr -a -g wat "wezterm imgcat --height 50%"
 
 set self (builtin realpath /proc/self/exe)
-abbr -a -g un "unshare -Umr \$self"
 
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c

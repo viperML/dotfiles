@@ -21,6 +21,7 @@
   skim,
   ripgrep,
   libarchive,
+  zoxide,
 } @ args:
 symlinkJoin {
   name = "env";
