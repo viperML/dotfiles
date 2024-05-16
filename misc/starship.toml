@@ -100,3 +100,9 @@ style = "bold magenta"
 format = "([󰼪 $env_value]($style))"
 variable = "HOVER"
 default = ""
+
+[env_var.GUIX_ENVIRONMENT]
+style = "bold bright red"
+format = "([🦬 $env_value]($style))"
+variable = "GUIX_ENVIRONMENT"
+default = ""
