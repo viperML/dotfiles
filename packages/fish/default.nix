@@ -37,7 +37,7 @@
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
     # FIXME
-    # fenv source /etc/profile
+    fenv source /etc/profile
 
     source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
     if status is-login

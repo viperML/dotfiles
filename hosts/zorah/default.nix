@@ -39,5 +39,7 @@ in {
       nixosModules.guix
       # nixosModules.docker
       nixosModules.incus
+      inputs.noshell.nixosModules.default
+      {programs.noshell.enable = true;}
     ]);
 }
