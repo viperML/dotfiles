@@ -8,7 +8,6 @@
   nix-direnv,
   nix-index,
   direnv,
-  zoxide,
 }: let
   initPlugin = plugin: ''
     begin
@@ -54,7 +53,6 @@
       set -gx DIRENV_LOG_FORMAT ""
       set -gx direnv_config_dir ${direnvConfig}
       ${lib.getExe direnv} hook fish | source
-      ${lib.getExe zoxide} init fish | source
     end
   '';
 in
