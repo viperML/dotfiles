@@ -324,8 +324,12 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     font_size = 12,
   }
 else
+  local shell = os.getenv("SHELL")
+  if shell == nil then
+      shell = "sh"
+  end
   platform_config = {
-    default_prog = { "fish" },
+    default_prog = { shell },
     font = wezterm.font_with_fallback {
       { family = "iosevka-normal", weight = "Medium" },
       { family = "Symbols Nerd Font" },

@@ -21,6 +21,7 @@
   skim,
   ripgrep,
   libarchive,
+  dogdns,
 } @ args:
 symlinkJoin {
   name = "env";

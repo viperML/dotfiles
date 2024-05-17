@@ -35,13 +35,12 @@
     # set -gx __fish_config_sourced 1
     ${lib.concatMapStringsSep "\n" initPlugin plugins}
 
-    # FIXME
-    fenv source /etc/profile
-
-    source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
     if status is-login
+      fenv source /etc/profile
     end
+
     if status is-interactive
+      source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
       ${lib.fileContents ./interactive.fish}
       ${lib.fileContents ./pushd_mod.fish}
       set -gx STARSHIP_CONFIG ${../../misc/starship.toml}
