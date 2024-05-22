@@ -12,8 +12,8 @@
     extraArgs = let
       substituters = [
         "https://ci.guix.gnu.org"
-        "https://bordeaux.guix.gnu.org"
-        "https://guix.bordeaux.inria.fr"
+        # "https://bordeaux.guix.gnu.org"
+        # "https://guix.bordeaux.inria.fr"
       ];
     in ["--substitute-urls=${lib.concatStringsSep " " substituters}"];
   };

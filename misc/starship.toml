@@ -8,6 +8,7 @@ $package\
 $container\
 $terraform\
 $env_var\
+$singularity\
 [\\]](fg:8)
 )\
 ([\\[](fg:8) $git_branch$git_state$git_status$git_metrics[\\]](fg:8)
@@ -96,13 +97,27 @@ format = "[$symbol]($style) [$output]($style) "
 os = "linux"
 
 [env_var.HOVER]
-style = "bold magenta"
-format = "([󰼪 $env_value]($style))"
+style = "purple bold"
+format = "([$symbol $env_value]($style) )"
 variable = "HOVER"
 default = ""
+symbol = "󰼪 "
 
 [env_var.GUIX_ENVIRONMENT]
 style = "bold bright red"
-format = "([🦬 $env_value]($style))"
+format = "([$symbol $env_value]($style) )"
 variable = "GUIX_ENVIRONMENT"
 default = ""
+symbol = "🦬 "
+
+[env_var.SLURM_JOB_UID]
+style = "blue bold"
+format = "([$symbol $env_value]($style) )"
+symbol = " slurm"
+variable = "SLURM_JOB_UID"
+default = ""
+
+[singularity]
+style = "bold dimmed blue"
+format = "[$symbol$env]($style) "
+symbol = " "
