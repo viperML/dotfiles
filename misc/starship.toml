@@ -97,14 +97,14 @@ format = "[$symbol]($style) [$output]($style) "
 os = "linux"
 
 [env_var.HOVER]
-style = "purple bold"
+style = "white dimmed bold"
 format = "([$symbol $env_value]($style) )"
 variable = "HOVER"
 default = ""
 symbol = "󰼪 "
 
 [env_var.GUIX_ENVIRONMENT]
-style = "bold bright red"
+style = "yellow dimmed bold"
 format = "([$symbol $env_value]($style) )"
 variable = "GUIX_ENVIRONMENT"
 default = ""
