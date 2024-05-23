@@ -121,3 +121,10 @@ default = ""
 style = "bold dimmed blue"
 format = "[$symbol$env]($style) "
 symbol = " "
+
+[env_var.OAR_JOBID]
+style = "blue bold"
+format = "([$symbol $env_value]($style) )"
+symbol = " oar"
+variable = "OAR_JOBID"
+default = ""
