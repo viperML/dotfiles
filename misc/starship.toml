@@ -108,7 +108,7 @@ style = "yellow dimmed bold"
 format = "([$symbol $env_value]($style) )"
 variable = "GUIX_ENVIRONMENT"
 default = ""
-symbol = "🦬 "
+symbol = "🦬"
 
 [env_var.SLURM_JOB_UID]
 style = "blue bold"
