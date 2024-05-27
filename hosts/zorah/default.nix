@@ -25,7 +25,6 @@ in {
         home-manager.sharedModules = [
           ./home.nix
           homeModules.browser
-          homeModules.emacs-doom
           inputs.sops-nix.homeManagerModules.sops
         ];
       }
@@ -39,7 +38,5 @@ in {
       nixosModules.guix
       # nixosModules.docker
       nixosModules.incus
-      inputs.noshell.nixosModules.default
-      {programs.noshell.enable = true;}
     ]);
 }

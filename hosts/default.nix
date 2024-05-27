@@ -27,6 +27,9 @@
           config.flake.nixosModules.common
           inputs.nix-common.nixosModules.default
 
+          inputs.noshell.nixosModules.default
+          {programs.noshell.enable = true;}
+
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.sharedModules = [
