@@ -14,6 +14,7 @@
     pkgs.onlyoffice-bin
     pkgs.sops
     pkgs.age
+    pkgs.d-spy
 
     # global dev
     pkgs.just

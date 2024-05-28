@@ -113,4 +113,11 @@ in {
       options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
+
+  # specialisation."nvidia" = {
+  #   configuration = {
+  #     environment.etc."specialisation".text = "nvidia";
+  #     imports = [./nvidia.nix];
+  #   };
+  # };
 }

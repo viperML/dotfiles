@@ -12,8 +12,6 @@
     config.nix.package
     pkgs.direnv
     pkgs.alejandra
-    pkgs.nixfmt
-    pkgs.nixpkgs-fmt
     pkgs.nix-output-monitor
     pkgs.nil
     self'.packages.env

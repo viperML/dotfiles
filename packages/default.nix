@@ -13,15 +13,27 @@
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
       config = {
-        allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [
+        allowUnfreePredicate = pkg: let
+          pname = lib.getName pkg;
+          byName = builtins.elem pname [
             "hplip"
             "samsung-UnifiedLinuxDriver"
             "cnijfilter2"
             "vscode"
             "steam-original"
-            "vault"
+            "nvidia-x11"
+            "nvidia-settings"
+            # "cuda-merged"
+            # "cuda_cuobjdump"
+            # "cuda_gdb"
           ];
+          byLicense = builtins.elem pkg.meta.license.shortName [
+            "CUDA EULA"
+          ];
+        in
+          if byName || byLicense
+          then lib.warn "Allowing unfree package: ${pname}" true
+          else false;
       };
     };
 
