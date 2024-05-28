@@ -15,6 +15,7 @@
     pkgs.sops
     pkgs.age
     pkgs.d-spy
+    pkgs.rsync
 
     # global dev
     pkgs.just
