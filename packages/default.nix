@@ -29,6 +29,7 @@
           ];
           byLicense = builtins.elem pkg.meta.license.shortName [
             "CUDA EULA"
+            "bsl11"
           ];
         in
           if byName || byLicense
