@@ -8,7 +8,11 @@
 in {
   system.stateVersion = "23.11";
 
-  environment.systemPackages = [pkgs.sbctl pkgs.powertop pkgs.sysfsutils];
+  environment.systemPackages = [
+    pkgs.sbctl
+    pkgs.powertop
+    pkgs.sysfsutils
+  ];
 
   environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
 

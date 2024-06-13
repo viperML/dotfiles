@@ -10,5 +10,6 @@
   home.packages = [
     pkgs.vscode
     self'.packages.wezterm
+    pkgs.d-spy
   ];
 }
