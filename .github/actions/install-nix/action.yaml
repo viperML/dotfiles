@@ -5,9 +5,6 @@ runs:
   steps:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
-
-    - name: Install nix
-      uses: cachix/install-nix-action@master
       with:
         extra-conf: |
           experimental-features = nix-command flakes
