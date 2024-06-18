@@ -3,11 +3,13 @@ description: "Common steps for workflows"
 runs:
   using: "composite"
   steps:
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+
     - name: Install nix
       uses: cachix/install-nix-action@master
       with:
-        install_url: https://nixos.org/nix/install
-        extra_nix_config: |
+        extra-conf: |
           experimental-features = nix-command flakes
           allow-import-from-derivation = false
           extra-substituters = https://viperml.cachix.org
