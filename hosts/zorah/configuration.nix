@@ -21,6 +21,7 @@ in {
       dns = "systemd-resolved";
     };
     nftables.enable = true;
+    firewall.enable = false;
   };
 
   services.resolved = {enable = true;};
@@ -113,11 +114,19 @@ in {
       options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
-
   # specialisation."nvidia" = {
   #   configuration = {
   #     environment.etc."specialisation".text = "nvidia";
   #     imports = [./nvidia.nix];
   #   };
   # };
+
+  systemd.services."openconnect-inria" = {
+    wantedBy = ["multi-user.target"];
+    after = ["NetworkManager.service"];
+    path = [pkgs.openconnect];
+    script = ''
+      openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
+    '';
+  };
 }

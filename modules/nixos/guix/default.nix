@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   services.guix = {
     enable = true;
@@ -9,13 +8,19 @@
       enable = true;
       dates = "weekly";
     };
-    extraArgs = let
-      substituters = [
-        "https://ci.guix.gnu.org"
-        # "https://bordeaux.guix.gnu.org"
-        # "https://guix.bordeaux.inria.fr"
+    extraArgs =
+      let
+        substituters = [
+          "https://ci.guix.gnu.org"
+          # "https://bordeaux.guix.gnu.org"
+          # "https://guix.bordeaux.inria.fr"
+        ];
+      in
+      [
+        "--substitute-urls=${lib.concatStringsSep " " substituters}"
+        "-c"
+        "10"
       ];
-    in ["--substitute-urls=${lib.concatStringsSep " " substituters}"];
   };
 
   environment.extraInit = ''
@@ -32,12 +37,12 @@
   };
 
   systemd.services."guix-substituters" = rec {
-    path = [config.services.guix.package];
+    path = [ config.services.guix.package ];
     script = ''
       set -x
       guix archive --authorize < ${./guix.bordeaux.inria.fr.pub}
     '';
-    wantedBy = ["guix-daemon.service"];
+    wantedBy = [ "guix-daemon.service" ];
     after = wantedBy;
   };
 }
