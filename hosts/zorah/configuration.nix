@@ -9,7 +9,6 @@ in {
   environment.systemPackages = [
     pkgs.powertop
     pkgs.openconnect
-    pkgs.networkmanager-openconnect
   ];
 
   environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
