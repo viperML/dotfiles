@@ -121,11 +121,18 @@ in {
   # };
 
   systemd.services."openconnect-inria" = {
-    wantedBy = ["multi-user.target"];
+    # wantedBy = ["multi-user.target"];
     after = ["NetworkManager.service"];
     path = [pkgs.openconnect];
     script = ''
-      openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
+      exec openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
     '';
+    serviceConfig = {
+      Restart = "always";
+    };
+    unitConfig = {
+      StartLimitIntervalSec = 10;
+      StartLimitBurst = 30;
+    };
   };
 }
