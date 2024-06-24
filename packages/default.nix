@@ -23,6 +23,7 @@
             "steam-original"
             "nvidia-x11"
             "nvidia-settings"
+            "google-chrome"
             # "cuda-merged"
             # "cuda_cuobjdump"
             # "cuda_gdb"
