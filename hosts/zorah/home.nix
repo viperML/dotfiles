@@ -16,6 +16,7 @@
     pkgs.age
     pkgs.d-spy
     pkgs.rsync
+    pkgs.google-chrome
 
     # global dev
     pkgs.just
