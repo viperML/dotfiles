@@ -160,6 +160,8 @@ nvim_lsp.tsserver.setup {
   single_file_support = false
 }
 
+nvim_lsp.clangd.setup {}
+
 -- Treesitter
 local orgmode = require("orgmode")
 
