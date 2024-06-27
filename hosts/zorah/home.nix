@@ -26,6 +26,7 @@
     pkgs.sshfs
     pkgs.strace
     pkgs.gdb
+    pkgs.tokio-console
   ];
 
   sops = {

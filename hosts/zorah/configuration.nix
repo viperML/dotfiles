@@ -135,4 +135,6 @@ in {
       StartLimitBurst = 30;
     };
   };
+
+  programs.geary.enable = true;
 }
