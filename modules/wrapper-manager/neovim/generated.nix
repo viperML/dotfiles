@@ -37,4 +37,16 @@
     };
     date = "2023-11-13";
   };
+  org-bullets-nvim = {
+    pname = "org-bullets-nvim";
+    version = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+    src = fetchFromGitHub {
+      owner = "nvim-orgmode";
+      repo = "org-bullets.nvim";
+      rev = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+      fetchSubmodules = false;
+      sha256 = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
+    };
+    date = "2024-02-21";
+  };
 }

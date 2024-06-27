@@ -90,6 +90,7 @@ cmp.setup {
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
+    { name = 'orgmode' },
     { name = "conjure" },
   }, {
     { name = "buffer" },
@@ -196,6 +197,8 @@ orgmode.setup {
   -- org_agenda_files = {},
   -- org_default_notes_file = '~/Dropbox/org/refile.org',
 }
+
+require('org-bullets').setup()
 
 require("Comment").setup()
 

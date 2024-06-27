@@ -58,5 +58,25 @@
             "type": "github"
         },
         "version": "fd35a46f4b7c1b244249266bdcb2da3814f01724"
+    },
+    "org-bullets-nvim": {
+        "cargoLocks": null,
+        "date": "2024-02-21",
+        "extract": null,
+        "name": "org-bullets-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-orgmode",
+            "repo": "org-bullets.nvim",
+            "rev": "3623e86e0fa6d07f45042f7207fc333c014bf167",
+            "sha256": "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=",
+            "type": "github"
+        },
+        "version": "3623e86e0fa6d07f45042f7207fc333c014bf167"
     }
 }
