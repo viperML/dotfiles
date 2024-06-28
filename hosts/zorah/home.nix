@@ -17,6 +17,7 @@
     pkgs.d-spy
     pkgs.rsync
     pkgs.google-chrome
+    pkgs.ltex-ls
 
     # global dev
     pkgs.just

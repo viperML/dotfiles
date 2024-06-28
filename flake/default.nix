@@ -28,10 +28,24 @@
     config,
     ...
   }: {
-    devShells.flake = with pkgs;
+    devShells.dotci = with pkgs;
       mkShell {
-        packages = [rustc cargo rustfmt rust-analyzer-unwrapped clippy];
+        packages = [
+          rustc
+          cargo
+          rustfmt
+          rust-analyzer-unwrapped
+          clippy
+        ];
         RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
+      };
+
+    devShells.default = with pkgs;
+      mkShellNoCC {
+        packages = [
+          lua-language-server
+          stylua
+        ];
       };
 
     packages.dotci = pkgs.callPackage ./dotci.nix {

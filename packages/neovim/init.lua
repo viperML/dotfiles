@@ -90,7 +90,7 @@ cmp.setup {
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-    { name = 'orgmode' },
+    { name = "orgmode" },
     { name = "conjure" },
   }, {
     { name = "buffer" },
@@ -146,7 +146,7 @@ nvim_lsp.rust_analyzer.setup {
 }
 
 vim.g.markdown_fenced_languages = {
-  "ts=typescript"
+  "ts=typescript",
 }
 
 nvim_lsp.denols.setup {
@@ -157,10 +157,14 @@ nvim_lsp.denols.setup {
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
-  single_file_support = false
+  single_file_support = false,
 }
 
 nvim_lsp.clangd.setup {}
+
+nvim_lsp.ltex.setup {
+  filetypes = { "markdown", "org", "tex" },
+}
 
 -- Treesitter
 local orgmode = require("orgmode")
@@ -182,7 +186,7 @@ require("ibl").setup()
 
 vim.g["conjure#filetype#scheme"] = "conjure.client.guile.socket"
 vim.g["conjure#client#guile#socket#pipename"] = ".guile-socket"
-vim.g["conjure#filetypes"] = {"scheme", "fennel", "clojure"}
+vim.g["conjure#filetypes"] = { "scheme", "fennel", "clojure" }
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
@@ -191,7 +195,7 @@ local wk = require("which-key")
 wk.setup()
 
 wk.register {
-  ["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
+  ["<leader>b"] = { "<cmd>Neotree show toggle<cr>", "Open Neotree" },
   ["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
 }
 
@@ -200,7 +204,7 @@ orgmode.setup {
   -- org_default_notes_file = '~/Dropbox/org/refile.org',
 }
 
-require('org-bullets').setup()
+require("org-bullets").setup()
 
 require("Comment").setup()
 
@@ -220,8 +224,33 @@ require("neo-tree").setup {
       hide_gitignored = false,
       hide_by_name = {
         "node_modules",
-        ".git"
+        ".git",
       },
     },
   },
 }
+
+local function when_empty()
+  vim.api.nvim_command("Neotree show")
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    -- Get the current buffer content
+    -- local buffer_content = vim.api.nvim_buf_get_lines(0, 1, -1, false)
+
+    -- -- Check if the buffer is empty
+    -- if #buffer_content == 0 then
+    --   if_empty()
+    --   return
+    -- end
+
+    local filename = vim.api.nvim_buf_get_name(0)
+
+    if vim.fn.filereadable(filename) == 0 then
+      when_empty()
+      return
+    end
+  end,
+})
