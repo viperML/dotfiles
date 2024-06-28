@@ -1,20 +1,31 @@
-{pkgs, ...}: let
+{
+  vimPlugins,
+  vimUtils,
+  callPackages,
+  neovimUtils,
+  wrapNeovimUnstable,
+  neovim-unwrapped,
+  ...
+}: let
   nvfetcher = builtins.mapAttrs (name: value:
-    pkgs.vimUtils.buildVimPlugin {
+    vimUtils.buildVimPlugin {
       inherit name;
       inherit (value) src;
-    }) (pkgs.callPackages ./generated.nix {});
-  neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
+    }) (callPackages ./generated.nix {});
+
+  neovimConfig = neovimUtils.makeNeovimConfig {
     withPython3 = false;
     withRuby = false;
     withNodeJs = false;
+
     customRC = ''
       source ${./init.vim}
       :luafile ${./init.lua}
     '';
+
     plugins =
       (builtins.attrValues nvfetcher)
-      ++ (with pkgs.vimPlugins; [
+      ++ (with vimPlugins; [
         # All
         bufferline-nvim
         lualine-nvim
@@ -81,8 +92,5 @@
         ## -- Unsorted
       ]);
   };
-in {
-  wrappers.neovim = {
-    basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
-  };
-}
+in
+  wrapNeovimUnstable neovim-unwrapped neovimConfig
