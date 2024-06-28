@@ -212,4 +212,16 @@ vim.filetype.add {
 
 require("neo-tree").setup {
   close_if_last_window = true,
+  filesystem = {
+    group_empty_dirs = true,
+    use_libuv_file_watcher = true,
+    filtered_items = {
+      hide_dotfiles = false,
+      hide_gitignored = false,
+      hide_by_name = {
+        "node_modules",
+        ".git"
+      },
+    },
+  },
 }
