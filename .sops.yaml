@@ -9,3 +9,9 @@ creation_rules:
       - age:
         - *zorah
         - *master
+
+  - path_regex: misc/private/.*\.yaml
+    key_groups:
+      - age:
+        - *zorah
+        - *master
