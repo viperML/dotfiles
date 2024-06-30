@@ -166,6 +166,8 @@ nvim_lsp.ltex.setup {
   filetypes = { "markdown", "org", "tex" },
 }
 
+nvim_lsp.astro.setup {}
+
 -- Treesitter
 local orgmode = require("orgmode")
 

@@ -20,7 +20,11 @@ in {
 
       #-- home-manager
       {
-        home-manager.sharedModules = [./home.nix homeModules.browser];
+        home-manager.sharedModules = [
+          ./home.nix
+          homeModules.browser
+          inputs.sops-nix.homeManagerModules.sops
+        ];
       }
 
       #-- Environment
