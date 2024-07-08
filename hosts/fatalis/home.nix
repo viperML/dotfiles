@@ -14,6 +14,8 @@
     pkgs.d-spy
     pkgs.age
     pkgs.sops
+    pkgs.google-chrome
+    pkgs.mesonlsp
   ];
 
   sops = {

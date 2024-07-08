@@ -168,6 +168,8 @@ nvim_lsp.ltex.setup {
 
 nvim_lsp.astro.setup {}
 
+nvim_lsp.mesonlsp.setup {}
+
 -- Treesitter
 local orgmode = require("orgmode")
 
