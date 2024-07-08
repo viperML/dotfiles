@@ -25,7 +25,7 @@ in
 
       dest=$out/share/fonts/truetype
       mkdir -p $dest
-      cp -avL *.ttf $dest
+      cp -avL TTF/*.ttf $dest
 
       runHook postInstall
     '';
