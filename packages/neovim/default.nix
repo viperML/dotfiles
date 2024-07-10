@@ -84,10 +84,11 @@
         ]))
 
         vim-nix
-        conjure
-        cmp-conjure
-        parinfer-rust
+        # conjure
+        # cmp-conjure
         orgmode
+        parinfer-rust
+        nvim-paredit
 
         ## -- Unsorted
       ]);

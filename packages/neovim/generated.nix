@@ -3,15 +3,15 @@
 {
   hlargs = {
     pname = "hlargs";
-    version = "30fe1b3de2b7614f061be4fc9c71984a2b87e50a";
+    version = "cc0d9ee75e5ffba730393049119361b9e3a5b1b6";
     src = fetchFromGitHub {
       owner = "m-demare";
       repo = "hlargs.nvim";
-      rev = "30fe1b3de2b7614f061be4fc9c71984a2b87e50a";
+      rev = "cc0d9ee75e5ffba730393049119361b9e3a5b1b6";
       fetchSubmodules = false;
-      sha256 = "sha256-V3XG1SCBz+EvObW7JSNIUxGZLv6zoRXyap7nRETmUA8=";
+      sha256 = "sha256-UAB1vXypJye0UeOo64mHhTuTKcCbwB1AQDFarbLEUAo=";
     };
-    date = "2024-05-18";
+    date = "2024-06-28";
   };
   nvim-base-16 = {
     pname = "nvim-base-16";
@@ -24,6 +24,18 @@
       sha256 = "sha256-GRF/6AobXHamw8TZ3FjL7SI6ulcpwpcohsIuZeCSh2A=";
     };
     date = "2024-05-23";
+  };
+  nvim-paredit = {
+    pname = "nvim-paredit";
+    version = "3e5838290dd57116457e4b11eb6ba21e83b260a4";
+    src = fetchFromGitHub {
+      owner = "ekaitz-zarraga";
+      repo = "nvim-paredit-scheme";
+      rev = "3e5838290dd57116457e4b11eb6ba21e83b260a4";
+      fetchSubmodules = false;
+      sha256 = "sha256-gzZJlN8LO1SH0joqgQgGIlkCVreccF8yxRYoinB9tU0=";
+    };
+    date = "2024-01-27";
   };
   nvim-transparent = {
     pname = "nvim-transparent";
@@ -39,14 +51,14 @@
   };
   org-bullets-nvim = {
     pname = "org-bullets-nvim";
-    version = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+    version = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "org-bullets.nvim";
-      rev = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+      rev = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
       fetchSubmodules = false;
-      sha256 = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
+      sha256 = "sha256-bxiL88uUa0Zd/HL7RcC/XVhbkgdlFr6MmlQfkpxFybE=";
     };
-    date = "2024-02-21";
+    date = "2024-07-09";
   };
 }

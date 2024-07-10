@@ -91,7 +91,7 @@ cmp.setup {
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
     { name = "orgmode" },
-    { name = "conjure" },
+    -- { name = "conjure" },
   }, {
     { name = "buffer" },
   }),
@@ -294,3 +294,13 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
+
+
+local paredit = require "nvim-paredit"
+local paredit_scheme  = require "nvim-paredit-scheme"
+
+paredit_scheme.setup(paredit)
+
+paredit.setup {
+    filetypes = { "scheme" },
+}

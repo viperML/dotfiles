@@ -1,7 +1,7 @@
 {
     "hlargs": {
         "cargoLocks": null,
-        "date": "2024-05-18",
+        "date": "2024-06-28",
         "extract": null,
         "name": "hlargs",
         "passthru": null,
@@ -13,11 +13,11 @@
             "name": null,
             "owner": "m-demare",
             "repo": "hlargs.nvim",
-            "rev": "30fe1b3de2b7614f061be4fc9c71984a2b87e50a",
-            "sha256": "sha256-V3XG1SCBz+EvObW7JSNIUxGZLv6zoRXyap7nRETmUA8=",
+            "rev": "cc0d9ee75e5ffba730393049119361b9e3a5b1b6",
+            "sha256": "sha256-UAB1vXypJye0UeOo64mHhTuTKcCbwB1AQDFarbLEUAo=",
             "type": "github"
         },
-        "version": "30fe1b3de2b7614f061be4fc9c71984a2b87e50a"
+        "version": "cc0d9ee75e5ffba730393049119361b9e3a5b1b6"
     },
     "nvim-base-16": {
         "cargoLocks": null,
@@ -38,6 +38,26 @@
             "type": "github"
         },
         "version": "6ac181b5733518040a33017dde654059cd771b7c"
+    },
+    "nvim-paredit": {
+        "cargoLocks": null,
+        "date": "2024-01-27",
+        "extract": null,
+        "name": "nvim-paredit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ekaitz-zarraga",
+            "repo": "nvim-paredit-scheme",
+            "rev": "3e5838290dd57116457e4b11eb6ba21e83b260a4",
+            "sha256": "sha256-gzZJlN8LO1SH0joqgQgGIlkCVreccF8yxRYoinB9tU0=",
+            "type": "github"
+        },
+        "version": "3e5838290dd57116457e4b11eb6ba21e83b260a4"
     },
     "nvim-transparent": {
         "cargoLocks": null,
@@ -61,7 +81,7 @@
     },
     "org-bullets-nvim": {
         "cargoLocks": null,
-        "date": "2024-02-21",
+        "date": "2024-07-09",
         "extract": null,
         "name": "org-bullets-nvim",
         "passthru": null,
@@ -73,10 +93,10 @@
             "name": null,
             "owner": "nvim-orgmode",
             "repo": "org-bullets.nvim",
-            "rev": "3623e86e0fa6d07f45042f7207fc333c014bf167",
-            "sha256": "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=",
+            "rev": "7e76e04827ac3fb13fc645a6309ac14203c4ca6a",
+            "sha256": "sha256-bxiL88uUa0Zd/HL7RcC/XVhbkgdlFr6MmlQfkpxFybE=",
             "type": "github"
         },
-        "version": "3623e86e0fa6d07f45042f7207fc333c014bf167"
+        "version": "7e76e04827ac3fb13fc645a6309ac14203c4ca6a"
     }
 }
