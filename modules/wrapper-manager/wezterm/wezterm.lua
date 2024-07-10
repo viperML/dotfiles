@@ -312,6 +312,43 @@ local generic_config = {
   pane_focus_follows_mouse = true,
   warn_about_missing_glyphs = false,
   enable_tab_bar = true,
+  hyperlink_rules = {
+    -- https://wezfurlong.org/wezterm/config/lua/config/hyperlink_rules.html
+    -- Matches: a URL in parens: (URL)
+    {
+      regex = "\\((\\w+://\\S+)\\)",
+      format = "$1",
+      highlight = 1,
+    },
+    -- Matches: a URL in brackets: [URL]
+    {
+      regex = "\\[(\\w+://\\S+)\\]",
+      format = "$1",
+      highlight = 1,
+    },
+    -- Matches: a URL in curly braces: {URL}
+    {
+      regex = "\\{(\\w+://\\S+)\\}",
+      format = "$1",
+      highlight = 1,
+    },
+    -- Matches: a URL in angle brackets: <URL>
+    {
+      regex = "<(\\w+://\\S+)>",
+      format = "$1",
+      highlight = 1,
+    },
+    -- Then handle URLs not wrapped in brackets
+    {
+      regex = "\\b\\w+://\\S+[)/a-zA-Z0-9-]+",
+      format = "$0",
+    },
+    -- implicit mailto link
+    -- {
+    --   regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+    --   format = "mailto:$0",
+    -- },
+  },
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -326,7 +363,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 else
   local shell = os.getenv("SHELL")
   if shell == nil then
-      shell = "sh"
+    shell = "sh"
   end
   platform_config = {
     default_prog = { shell },
