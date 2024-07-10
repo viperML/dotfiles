@@ -36,6 +36,6 @@
   enabled = true
 [fetch]
   writeCommitGraph = true
-  showForcedUpdates true
+  showForcedUpdates = true
 [rebase]
   updateRegs = true

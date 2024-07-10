@@ -34,10 +34,10 @@
         vim-highlightedyank
         indent-blankline-nvim-lua
         nvim-autopairs
-        neoformat
         neo-tree-nvim
         comment-nvim
         which-key-nvim
+        conform-nvim
 
         # Language support
         nvim-lspconfig

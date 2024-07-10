@@ -163,7 +163,11 @@ nvim_lsp.tsserver.setup {
 nvim_lsp.clangd.setup {}
 
 nvim_lsp.ltex.setup {
-  filetypes = { "markdown", "org", "tex" },
+  filetypes = {
+      "markdown",
+      -- "org",
+      "tex"
+  },
 }
 
 nvim_lsp.astro.setup {}
@@ -204,11 +208,20 @@ wk.register {
 }
 
 orgmode.setup {
+    org_startup_folded = "showeverything",
   -- org_agenda_files = {},
   -- org_default_notes_file = '~/Dropbox/org/refile.org',
 }
 
-require("org-bullets").setup()
+require("org-bullets").setup({
+  symbols = {
+      checkboxes = {
+        done = { "×", "@org.keyword.done" },
+        half = { "-", "@org.checkbox.halfchecked" },
+        todo = { " ", "@org.keyword.todo" },
+      },
+  },
+})
 
 require("Comment").setup()
 
@@ -258,3 +271,26 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     end
   end,
 })
+
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    nix = { "alejandra" },
+    c = { "clang-format" },
+    typst = { "typstyle" },
+  },
+})
+
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+vim.api.nvim_create_user_command("Format", function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ["end"] = { args.line2, end_line:len() },
+    }
+  end
+  require("conform").format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })
