@@ -13,12 +13,14 @@ in {
       #-- Topology
       ./configuration.nix
       inputs.lanzaboote.nixosModules.lanzaboote
-      inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
       nixosModules.printing
       nixosModules.tmpfs
       nixosModules.tpm2
       nixosModules.user-ayats
       nixosModules.yubikey
+
+      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
+      ./nvidia.nix
 
       #-- home-manager
       {

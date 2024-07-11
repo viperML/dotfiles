@@ -41,6 +41,12 @@ in {
               size = "35GiB";
               type = "disk";
             };
+            nix_store = rec {
+              type = "disk";
+              path = "/nix/store";
+              readonly = true;
+              source = path;
+            };
           };
         }
       ];
