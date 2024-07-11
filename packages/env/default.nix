@@ -22,6 +22,8 @@
   ripgrep,
   libarchive,
   dogdns,
+  git,
+  difftastic,
 } @ args:
 symlinkJoin {
   name = "env";

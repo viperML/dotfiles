@@ -45,7 +45,7 @@
 
   manual.json.enable = false;
 
-  imports = [./git];
+  xdg.configFile."git/config".source = ../../misc/gitconfig;
 
   home.activation."user-dirs" = lib.hm.dag.entryBefore ["writeBoundary"] ''
     rm -f $VERBOSE_ARG "$HOME/.config/user-dirs.dirs.old"
