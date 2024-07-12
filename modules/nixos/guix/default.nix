@@ -1,9 +1,12 @@
-{ config
-, lib
-, ...
+{
+  config,
+  lib,
+  self',
+  ...
 }: {
   services.guix = {
     enable = true;
+    package = self'.packages.guix;
     gc = {
       enable = true;
       dates = "weekly";
