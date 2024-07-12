@@ -19,8 +19,8 @@ in {
       nixosModules.user-ayats
       nixosModules.yubikey
 
-      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
-      ./nvidia.nix
+      inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
+      # ./nvidia.nix
 
       #-- home-manager
       {
