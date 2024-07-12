@@ -43,7 +43,6 @@ in {
   };
 
   services.fwupd.enable = true;
-  services.kmscon.enable = lib.mkForce false;
 
   # services.cpupower-gui.enable = true;
   services.flatpak.enable = true;

@@ -128,7 +128,7 @@
   console.useXkbConfig = true;
 
   services.kmscon = {
-    enable = true;
+    enable = lib.mkDefault false;
     extraConfig = ''
       font-size=14
       xkb-layout=${config.services.xserver.layout}
