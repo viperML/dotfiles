@@ -36,7 +36,7 @@ in {
     # enableAllFirmware = true;
     enableRedistributableFirmware = true;
     bluetooth.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = [pkgs.intel-media-driver];
     };

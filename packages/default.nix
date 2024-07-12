@@ -53,7 +53,7 @@
         // {
           # manual overrides to auto callPackage
           nix-index = callPackage ./nix-index {
-            database = inputs'.nix-index-database.legacyPackages.nix-index-database;
+            database = inputs'.nix-index-database.packages.nix-index-database;
             databaseDate =
               config.flake.lib.mkDate
               inputs.nix-index-database.lastModifiedDate;

@@ -36,7 +36,7 @@ in {
     cpu.amd.updateMicrocode = true;
     enableRedistributableFirmware = true;
     bluetooth.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs.rocmPackages; [clr clr.icd];
     };
