@@ -304,3 +304,10 @@ paredit_scheme.setup(paredit)
 paredit.setup {
     filetypes = { "scheme" },
 }
+
+require("telescope").setup({
+})
+
+wk.register {
+  ["<leader><leader>"] = { "<cmd>Telescope find_files<cr>", "Telescope: find files" },
+}

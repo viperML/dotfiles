@@ -38,6 +38,7 @@
         comment-nvim
         which-key-nvim
         conform-nvim
+        telescope-nvim
 
         # Language support
         nvim-lspconfig
