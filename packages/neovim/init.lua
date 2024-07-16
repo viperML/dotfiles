@@ -248,7 +248,7 @@ require("neo-tree").setup {
 }
 
 local function when_empty()
-  vim.api.nvim_command("Neotree show")
+  -- vim.api.nvim_command("Neotree show")
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
@@ -309,5 +309,5 @@ require("telescope").setup({
 })
 
 wk.register {
-  ["<leader><leader>"] = { "<cmd>Telescope find_files<cr>", "Telescope: find files" },
+  ["<leader><leader>"] = { "<cmd>Telescope git_files<cr>", "Telescope: find files in repo" },
 }

@@ -47,6 +47,12 @@ in {
               readonly = true;
               source = path;
             };
+            nixos_etc_static = rec {
+              type = "disk";
+              readonly = true;
+              source = "/etc/static";
+              path = source;
+            };
           };
         }
       ];
