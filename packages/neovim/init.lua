@@ -1,4 +1,8 @@
+local wk = require("which-key")
+wk.setup()
+
 vim.cmd("colorscheme base16-tomorrow-night")
+
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -110,21 +114,28 @@ cmp.setup.cmdline(":", {
 })
 
 -- LSP
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
+wk.register {
+  ["<leader>lh"] = { vim.lsp.buf.hover, "LSP hover" },
+  ["<leader>la"] = { vim.lsp.buf.code_action, "LSP action" },
+}
+
 nvim_lsp.rnix.setup {
   capabilities = capabilities,
-  autostart = true,
+  -- autostart = true,
   cmd = { "nil" },
 }
 
-local on_attach = function(client)
-  require("completion").on_attach(client)
-end
+-- local on_attach = function(client)
+--   require("completion").on_attach(client)
+-- end
 
 nvim_lsp.rust_analyzer.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       imports = {
@@ -150,12 +161,12 @@ vim.g.markdown_fenced_languages = {
 }
 
 nvim_lsp.denols.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
   single_file_support = false,
 }
@@ -199,8 +210,6 @@ vim.g["conjure#filetypes"] = { "scheme", "fennel", "clojure" }
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
-local wk = require("which-key")
-wk.setup()
 
 wk.register {
   ["<leader>b"] = { "<cmd>Neotree show toggle<cr>", "Open Neotree" },
