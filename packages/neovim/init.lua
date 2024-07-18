@@ -1,6 +1,3 @@
-local wk = require("which-key")
-wk.setup()
-
 vim.cmd("colorscheme base16-tomorrow-night")
 
 
@@ -15,8 +12,8 @@ require("bufferline").setup {
   },
 }
 
-require("gitsigns").setup {}
-vim.opt.list = true
+-- require("gitsigns").setup {}
+-- vim.opt.list = true
 
 require("lualine").setup {
   options = {
@@ -26,7 +23,6 @@ require("lualine").setup {
   },
 }
 
--- Autopairs
 local npairs = require("nvim-autopairs")
 local Rule = require("nvim-autopairs.rule")
 npairs.setup {
@@ -118,10 +114,8 @@ cmp.setup.cmdline(":", {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
-wk.register {
-  ["<leader>lh"] = { vim.lsp.buf.hover, "LSP hover" },
-  ["<leader>la"] = { vim.lsp.buf.code_action, "LSP action" },
-}
+vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "LSP hover" })
+vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP action" })
 
 nvim_lsp.rnix.setup {
   capabilities = capabilities,
@@ -211,10 +205,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 500
 
 
-wk.register {
-  ["<leader>b"] = { "<cmd>Neotree show toggle<cr>", "Open Neotree" },
-  ["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
-}
+vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
 
 orgmode.setup {
     org_startup_folded = "showeverything",
@@ -287,6 +278,7 @@ require("conform").setup({
     nix = { "alejandra" },
     c = { "clang-format" },
     typst = { "typstyle" },
+    rust = { "rustfmt" },
   },
 })
 
@@ -317,6 +309,7 @@ paredit.setup {
 require("telescope").setup({
 })
 
-wk.register {
-  ["<leader><leader>"] = { "<cmd>Telescope git_files<cr>", "Telescope: find files in repo" },
-}
+vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope git_files<cr>", { desc = "Telescope: find files in git" })
+
+local wk = require("which-key")
+wk.setup()

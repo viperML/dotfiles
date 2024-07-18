@@ -349,6 +349,7 @@ local generic_config = {
     --   format = "mailto:$0",
     -- },
   },
+  selection_word_boundary = '{}[]()"\'`.,;:«»',
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
