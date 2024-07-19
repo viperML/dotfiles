@@ -19,6 +19,7 @@
     pkgs.rsync
     pkgs.google-chrome
     pkgs.ltex-ls
+    self'.packages.ungoogled-chromium
 
     # global dev
     pkgs.just
