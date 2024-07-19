@@ -16,6 +16,7 @@
     pkgs.sops
     pkgs.google-chrome
     pkgs.mesonlsp
+    self'.packages.ungoogled-chromium
   ];
 
   sops = {
