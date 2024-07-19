@@ -24,6 +24,7 @@
   dogdns,
   git,
   difftastic,
+  elfutils-cli,
 } @ args:
 symlinkJoin {
   name = "env";
