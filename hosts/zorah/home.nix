@@ -17,7 +17,6 @@
     pkgs.age
     pkgs.d-spy
     pkgs.rsync
-    pkgs.google-chrome
     pkgs.ltex-ls
     self'.packages.ungoogled-chromium
 

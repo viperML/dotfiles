@@ -119,7 +119,6 @@ vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP action"
 
 nvim_lsp.rnix.setup {
   capabilities = capabilities,
-  -- autostart = true,
   cmd = { "nil" },
 }
 
