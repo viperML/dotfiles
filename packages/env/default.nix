@@ -18,7 +18,7 @@
   hexyl,
   du-dust,
   magic-wormhole-rs,
-  skim,
+  fd,
   ripgrep,
   libarchive,
   dogdns,
