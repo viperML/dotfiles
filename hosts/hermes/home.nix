@@ -7,5 +7,10 @@
 
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
-  home.packages = [pkgs.vscode pkgs.vault self'.packages.wezterm pkgs.sbctl];
+  home.packages = [
+    self'.packages.vscode
+    pkgs.vault
+    self'.packages.wezterm
+    pkgs.sbctl
+  ];
 }

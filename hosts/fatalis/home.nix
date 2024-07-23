@@ -9,7 +9,7 @@
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
-    pkgs.vscode
+    self'.packages.vscode
     self'.packages.wezterm
     pkgs.d-spy
     pkgs.age

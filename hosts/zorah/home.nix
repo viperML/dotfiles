@@ -10,7 +10,7 @@
   unsafeFlakePath = "/home/ayats/Documents/dotfiles";
 
   home.packages = [
-    pkgs.vscode
+    self'.packages.vscode
     self'.packages.wezterm
     pkgs.onlyoffice-bin
     pkgs.sops
