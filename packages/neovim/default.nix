@@ -5,7 +5,9 @@
   neovimUtils,
   wrapNeovimUnstable,
   neovim-unwrapped,
-  ...
+  lib,
+  ripgrep,
+  fd,
 }: let
   nvfetcher = builtins.mapAttrs (name: value:
     vimUtils.buildVimPlugin {
@@ -63,4 +65,15 @@
       ]);
   };
 in
-  wrapNeovimUnstable neovim-unwrapped neovimConfig
+  wrapNeovimUnstable neovim-unwrapped (neovimConfig // {
+    wrapperArgs = neovimConfig.wrapperArgs ++ [
+      # extra runtime deps
+      "--prefix"
+      "PATH"
+      ":"
+      (lib.makeBinPath [
+        ripgrep
+        fd
+      ])
+    ];
+  })
