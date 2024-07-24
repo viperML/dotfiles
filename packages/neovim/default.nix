@@ -18,6 +18,8 @@
     withRuby = false;
     withNodeJs = false;
 
+    extraLuaPackages = (lp: []);
+
     customRC = ''
       source ${./init.vim}
       :luafile ${./init.lua}
