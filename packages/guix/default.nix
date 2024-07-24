@@ -12,10 +12,7 @@
   mkDispatch = bin:
     writeShellScriptBin bin ''
       if [[ -d "${guix-home}/lib/locale" ]]; then
-        >&2 echo "Found locales in user's guix home"
         export GUIX_LOCPATH="${guix-home}/lib/locale:$GUIX_LOCPATH"
-      else
-        >&2 echo "Didn't find locales in user's guix home"
       fi
 
       if [[ -f "${current-guix}/bin/${bin}" ]]; then
