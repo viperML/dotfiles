@@ -10,6 +10,10 @@
     nix-common = {
       url = "github:viperML/nix-common";
     };
+    tree-sitter = {
+      url = "github:viperML/tree-sitter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nh = {
       url = "github:viperML/nh";

@@ -12,6 +12,10 @@
       url = "github:viperML/nix-common";
       # url = "path:/home/ayats/Documents/nix-common";
     };
+    tree-sitter = {
+      url = "github:viperML/tree-sitter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nh = {
       url = "github:viperML/nh";

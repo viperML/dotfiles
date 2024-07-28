@@ -941,6 +941,7 @@
         "noshell": "noshell",
         "nvfetcher": "nvfetcher",
         "sops-nix": "sops-nix",
+        "tree-sitter": "tree-sitter",
         "vscode-server": "vscode-server",
         "wrapper-manager": "wrapper-manager"
       }
@@ -1035,6 +1036,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tree-sitter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722197929,
+        "narHash": "sha256-+rndvjMftvDLYylrTAbEb/QADgGt12u4tkbSUSHf8Ss=",
+        "owner": "viperML",
+        "repo": "tree-sitter",
+        "rev": "efb182606fe09c0992ab127ec7b987815c861d1a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "tree-sitter",
         "type": "github"
       }
     },

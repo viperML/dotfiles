@@ -8,6 +8,8 @@
   lib,
   ripgrep,
   fd,
+
+  ts-all-grammars,
 }: let
   nvfetcher = builtins.mapAttrs (name: value:
     vimUtils.buildVimPlugin {
@@ -52,7 +54,8 @@
         cmp-buffer
         cmp-path
 
-        nvim-treesitter.withAllGrammars
+        # nvim-treesitter.withAllGrammars
+        (nvim-treesitter.withPlugins (_: ts-all-grammars))
 
         vim-nix
         # conjure
