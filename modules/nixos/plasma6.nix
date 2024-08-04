@@ -12,7 +12,12 @@
     SSH_ASKPASS_REQUIRE = "prefer";
   };
 
-  environment.systemPackages = [pkgs.vanilla-dmz pkgs.kdePackages.discover pkgs.kdePackages.ksshaskpass];
+  environment.systemPackages = [
+    pkgs.vanilla-dmz
+    pkgs.kdePackages.discover
+    pkgs.kdePackages.ksshaskpass
+    pkgs.wl-clipboard-rs
+  ];
 
   services.packagekit = {enable = true;};
 
