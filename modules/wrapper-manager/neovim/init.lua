@@ -7,8 +7,9 @@ vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.tabstop=4
-vim.opt.softtabstop=4
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 vim.opt.number = true
 
@@ -16,7 +17,6 @@ vim.opt.scrolloff = 2
 vim.opt.showmode = false
 vim.opt.modeline = true
 vim.opt.signcolumn = "yes"
-
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -325,3 +325,5 @@ vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope git_files<cr>", { desc =
 
 local wk = require("which-key")
 wk.setup()
+
+require('guess-indent').setup {}

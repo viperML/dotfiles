@@ -97,3 +97,7 @@ fetch.github = "ekaitz-zarraga/nvim-paredit-scheme"
 [nvim-paredit]
 src.github = "julienvincent/nvim-paredit"
 fetch.github = "julienvincent/nvim-paredit"
+
+[guess-indent-nvim]
+fetch.github = "NMAC427/guess-indent.nvim"
+src.git = "https://github.com/NMAC427/guess-indent.nvim"

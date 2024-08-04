@@ -83,6 +83,18 @@
       sha256 = "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=";
     };
   };
+  guess-indent-nvim = {
+    pname = "guess-indent-nvim";
+    version = "6cd61f7a600bb756e558627cd2e740302c58e32d";
+    src = fetchFromGitHub {
+      owner = "NMAC427";
+      repo = "guess-indent.nvim";
+      rev = "6cd61f7a600bb756e558627cd2e740302c58e32d";
+      fetchSubmodules = false;
+      sha256 = "sha256-mzX9LgG2+9aj2lMPlSZh3zP3wphHQdecXe7RHP1baT0=";
+    };
+    date = "2024-07-06";
+  };
   lualine-nvim = {
     pname = "lualine-nvim";
     version = "544dd1583f9bb27b393f598475c89809c4d5e86b";

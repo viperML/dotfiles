@@ -34,6 +34,7 @@
     pluginFarm = linkFarmFromDrvs' "pluginFarm" (plugins
       ++ [
         inputs'.tree-sitter.packages.nvim-treesitter
+        pkgs.vimPlugins.parinfer-rust
       ]
       ++ (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered));
 

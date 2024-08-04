@@ -139,6 +139,26 @@
         },
         "version": "v7.0.0"
     },
+    "guess-indent-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-06",
+        "extract": null,
+        "name": "guess-indent-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "NMAC427",
+            "repo": "guess-indent.nvim",
+            "rev": "6cd61f7a600bb756e558627cd2e740302c58e32d",
+            "sha256": "sha256-mzX9LgG2+9aj2lMPlSZh3zP3wphHQdecXe7RHP1baT0=",
+            "type": "github"
+        },
+        "version": "6cd61f7a600bb756e558627cd2e740302c58e32d"
+    },
     "lualine-nvim": {
         "cargoLocks": null,
         "date": "2024-07-15",
