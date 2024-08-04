@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  inputs',
   ...
 }: {
   perSystem = {
@@ -61,9 +62,6 @@
           # preventing infrec
           fish = callPackage ./fish {inherit (pkgs) fish;};
           guix = callPackage ./guix {inherit (pkgs) guix;};
-          neovim = callPackage ./neovim {
-            ts-all-grammars = builtins.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered;
-          };
         });
 
       # wrapper-manager packages
@@ -76,6 +74,9 @@
             builtins.attrNames
             (map (n: ../modules/wrapper-manager/${n}))
           ];
+          specialArgs = {
+            inherit inputs';
+          };
         })
         .config
         .build
