@@ -18,7 +18,7 @@
           version =
             if builtins.hasAttr "date" value
             then value.date
-            else value.version;
+            else lib.removePrefix "v" value.version;
           name = "${pname}-${version}";
         })))
     ];
