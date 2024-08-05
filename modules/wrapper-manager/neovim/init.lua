@@ -326,7 +326,7 @@ paredit.setup {
 
 require("telescope").setup {}
 
-vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope git_files<cr>", { desc = "Telescope: find files in git" })
+vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
 
 local wk = require("which-key")
 wk.setup()
