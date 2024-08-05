@@ -53,6 +53,9 @@
         '';
       force = true;
     };
+    env.NVIM_APPNAME = {
+      value = "nvim-nix";
+    };
     flags = [
       "-u"
       (pkgs.writeText "init.lua"
@@ -67,9 +70,7 @@
           dofile("${./init.lua}")
         '')
       "--cmd"
-      "set packpath^=${packDir}"
-      "--cmd"
-      "set rtp^=${packDir}"
+      "set packpath^=${packDir} | set rtp^=${packDir})"
     ];
   };
 }

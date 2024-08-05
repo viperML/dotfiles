@@ -12,7 +12,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0 -- use tabstop
 
-
 vim.opt.number = true
 
 vim.opt.scrolloff = 2
@@ -208,8 +207,9 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
 
 -- Rest
 
@@ -331,8 +331,7 @@ vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc 
 local wk = require("which-key")
 wk.setup()
 
-require('guess-indent').setup {}
-
+require("guess-indent").setup {}
 
 local two_tabs_default = {
   "scheme",
@@ -357,6 +356,6 @@ for _, lang in ipairs(two_tabs_default) do
     pattern = lang,
     callback = function()
       vim.opt_local.tabstop = 2
-    end
+    end,
   })
 end
