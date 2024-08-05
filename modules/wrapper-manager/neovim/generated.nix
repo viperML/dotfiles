@@ -95,6 +95,17 @@
     };
     date = "2024-07-06";
   };
+  indent-blankline-nvim = {
+    pname = "indent-blankline-nvim";
+    version = "v3.7.1";
+    src = fetchFromGitHub {
+      owner = "lukas-reineke";
+      repo = "indent-blankline.nvim";
+      rev = "v3.7.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-PSsXBB2KOFPJJ1O8fpTvsVe2A0/wU6Ae9dN/UemraZM=";
+    };
+  };
   lualine-nvim = {
     pname = "lualine-nvim";
     version = "544dd1583f9bb27b393f598475c89809c4d5e86b";
@@ -211,18 +222,6 @@
       sha256 = "sha256-wT+7rmp08r0XYGp+MhjJX8dsFTar8+nf10CV9OdkOSk=";
     };
     date = "2023-11-13";
-  };
-  nvim-treesitter = {
-    pname = "nvim-treesitter";
-    version = "d7353a6b72008b38aa873ace49aa97bea257941b";
-    src = fetchFromGitHub {
-      owner = "nvim-treesitter";
-      repo = "nvim-treesitter";
-      rev = "d7353a6b72008b38aa873ace49aa97bea257941b";
-      fetchSubmodules = false;
-      sha256 = "sha256-ujCFB1dZsJ4Sko151+xxzEpUzQC/GMalKNUr2drLPpQ=";
-    };
-    date = "2024-08-04";
   };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";

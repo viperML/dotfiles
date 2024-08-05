@@ -159,6 +159,26 @@
         },
         "version": "6cd61f7a600bb756e558627cd2e740302c58e32d"
     },
+    "indent-blankline-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "indent-blankline-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lukas-reineke",
+            "repo": "indent-blankline.nvim",
+            "rev": "v3.7.1",
+            "sha256": "sha256-PSsXBB2KOFPJJ1O8fpTvsVe2A0/wU6Ae9dN/UemraZM=",
+            "type": "github"
+        },
+        "version": "v3.7.1"
+    },
     "lualine-nvim": {
         "cargoLocks": null,
         "date": "2024-07-15",
@@ -358,26 +378,6 @@
             "type": "github"
         },
         "version": "fd35a46f4b7c1b244249266bdcb2da3814f01724"
-    },
-    "nvim-treesitter": {
-        "cargoLocks": null,
-        "date": "2024-08-04",
-        "extract": null,
-        "name": "nvim-treesitter",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "nvim-treesitter",
-            "repo": "nvim-treesitter",
-            "rev": "d7353a6b72008b38aa873ace49aa97bea257941b",
-            "sha256": "sha256-ujCFB1dZsJ4Sko151+xxzEpUzQC/GMalKNUr2drLPpQ=",
-            "type": "github"
-        },
-        "version": "d7353a6b72008b38aa873ace49aa97bea257941b"
     },
     "nvim-web-devicons": {
         "cargoLocks": null,

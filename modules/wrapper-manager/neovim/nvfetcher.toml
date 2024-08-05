@@ -6,10 +6,6 @@ fetch.github = "nvim-lua/plenary.nvim"
 src.github = "MunifTanjim/nui.nvim"
 fetch.github = "MunifTanjim/nui.nvim"
 
-[nvim-treesitter]
-fetch.github = "nvim-treesitter/nvim-treesitter"
-src.git = "https://github.com/nvim-treesitter/nvim-treesitter"
-
 [bufferline-nvim]
 fetch.github = "akinsho/bufferline.nvim"
 src.github = "akinsho/bufferline.nvim"
@@ -101,3 +97,8 @@ fetch.github = "julienvincent/nvim-paredit"
 [guess-indent-nvim]
 fetch.github = "NMAC427/guess-indent.nvim"
 src.git = "https://github.com/NMAC427/guess-indent.nvim"
+
+[indent-blankline-nvim]
+fetch.github = "lukas-reineke/indent-blankline.nvim"
+src.github = "lukas-reineke/indent-blankline.nvim"
+

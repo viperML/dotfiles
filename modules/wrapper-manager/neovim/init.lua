@@ -359,3 +359,5 @@ for _, lang in ipairs(two_tabs_default) do
     end,
   })
 end
+
+require("ibl").setup()

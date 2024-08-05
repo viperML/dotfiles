@@ -4,16 +4,15 @@ set -gx fish_greeting
 bind \cH backward-kill-path-component
 bind \e\[3\;5~ kill-word
 
-# Aliases
-alias ip="ip -c=auto"
 
 # EXA
-alias ls="eza --icons"
-alias la="eza --icons --all"
-alias ll="eza --icons --long --header --group"
-alias lla="eza --icons --all --long --header --group"
-alias lal="eza --icons --all --long --header --group"
-alias lt="eza --sort modified -1"
+# alias ls="eza --icons"
+# alias la="eza --icons --all"
+# alias ll="eza --icons --long --header --group"
+# alias lla="eza --icons --all --long --header --group"
+# alias lal="eza --icons --all --long --header --group"
+# alias lt="eza --sort modified -1"
+abbr -a -g e eza
 
 # Bat
 alias bat="bat --theme=base16 --style=changes,header --plain"
