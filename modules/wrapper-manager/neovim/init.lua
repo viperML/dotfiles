@@ -10,6 +10,8 @@ vim.g.maplocalleader = " "
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 0 -- use tabstop
+
 
 vim.opt.number = true
 
@@ -206,6 +208,9 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
 -- Rest
 
 -- require("hlargs").setup()
@@ -327,3 +332,31 @@ local wk = require("which-key")
 wk.setup()
 
 require('guess-indent').setup {}
+
+
+local two_tabs_default = {
+  "scheme",
+  "lua",
+  "nix",
+  "json",
+  "javascript",
+  "typescript",
+  "css",
+  "html",
+  "jsonc",
+  "astro",
+  "c",
+  "cpp",
+  "meson",
+  "markdown",
+  "r",
+}
+
+for _, lang in ipairs(two_tabs_default) do
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = lang,
+    callback = function()
+      vim.opt_local.tabstop = 2
+    end
+  })
+end
