@@ -22,6 +22,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 require("bufferline").setup {
   options = {
+    always_show_bufferline = false,
     right_mouse_command = nil,
     middle_mouse_command = "bdelete! %d",
     indicator = {
@@ -361,3 +362,5 @@ for _, lang in ipairs(two_tabs_default) do
 end
 
 require("ibl").setup()
+
+require("minintro").setup()

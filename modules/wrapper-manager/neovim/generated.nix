@@ -118,6 +118,18 @@
     };
     date = "2024-07-15";
   };
+  minintro-nvim = {
+    pname = "minintro-nvim";
+    version = "b7fa58cc549e8d2b362a217a7620d9aedc47d47e";
+    src = fetchFromGitHub {
+      owner = "eoh-bse";
+      repo = "minintro.nvim";
+      rev = "b7fa58cc549e8d2b362a217a7620d9aedc47d47e";
+      fetchSubmodules = false;
+      sha256 = "sha256-3yOT4sve3LZ2lO15XlX8OkCJFE/r1ARo41x01CjGIbA=";
+    };
+    date = "2023-11-21";
+  };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
     version = "206241e451c12f78969ff5ae53af45616ffc9b72";

@@ -199,6 +199,26 @@
         },
         "version": "544dd1583f9bb27b393f598475c89809c4d5e86b"
     },
+    "minintro-nvim": {
+        "cargoLocks": null,
+        "date": "2023-11-21",
+        "extract": null,
+        "name": "minintro-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "eoh-bse",
+            "repo": "minintro.nvim",
+            "rev": "b7fa58cc549e8d2b362a217a7620d9aedc47d47e",
+            "sha256": "sha256-3yOT4sve3LZ2lO15XlX8OkCJFE/r1ARo41x01CjGIbA=",
+            "type": "github"
+        },
+        "version": "b7fa58cc549e8d2b362a217a7620d9aedc47d47e"
+    },
     "neo-tree-nvim": {
         "cargoLocks": null,
         "date": "2024-06-11",

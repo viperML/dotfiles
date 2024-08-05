@@ -102,3 +102,6 @@ src.git = "https://github.com/NMAC427/guess-indent.nvim"
 fetch.github = "lukas-reineke/indent-blankline.nvim"
 src.github = "lukas-reineke/indent-blankline.nvim"
 
+[minintro-nvim]
+fetch.github = "eoh-bse/minintro.nvim"
+src.git = "https://github.com/eoh-bse/minintro.nvim"
