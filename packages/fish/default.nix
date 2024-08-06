@@ -40,7 +40,6 @@
     end
 
     if status is-interactive
-      source ${nix-index}/share/fish/vendor_functions.d/nix-index.fish
       ${lib.fileContents ./interactive.fish}
       ${lib.fileContents ./pushd_mod.fish}
       set -gx STARSHIP_CONFIG ${../../misc/starship.toml}

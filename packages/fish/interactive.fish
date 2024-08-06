@@ -103,3 +103,7 @@ fzf_configure_bindings --directory=\cf
 function postexec_test --on-event fish_postexec
     echo
 end
+
+function __fish_command_not_found_handler --on-event fish_command_not_found
+    echo -e >&2 "\e[31m$argv[1]: command not found\e[0m"
+end
