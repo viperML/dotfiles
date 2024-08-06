@@ -363,4 +363,6 @@ end
 
 require("ibl").setup()
 
-require("minintro").setup()
+require("minintro").setup({
+  color = "#4d4d4d",
+})
