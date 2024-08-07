@@ -24,19 +24,23 @@
     ];
 
     linkFarmFromDrvs' = name: drvs: let
-      mkEntryFromDrv = drv: {
-        name = drv.pname or drv.name;
-        path = drv;
+      mkEntryFromDrv = elem: {
+        name =
+          if builtins.typeOf elem == "path"
+          then builtins.baseNameOf elem
+          else elem.pname or elem.name;
+        path = elem;
       };
     in
       pkgs.linkFarm name (map mkEntryFromDrv drvs);
 
-    pluginFarm = linkFarmFromDrvs' "pluginFarm" (plugins
-      ++ [
-        inputs'.tree-sitter.packages.nvim-treesitter
-        pkgs.vimPlugins.parinfer-rust
-      ]
-      ++ (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered));
+    pluginFarm = linkFarmFromDrvs' "pluginFarm" (lib.flatten [
+      ./init-plugin
+      plugins
+      inputs'.tree-sitter.packages.nvim-treesitter
+      pkgs.vimPlugins.parinfer-rust
+      (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered)
+    ]);
 
     packDir = pkgs.runCommand "pack-dir" {} ''
       mkdir -p $out/pack/p
@@ -44,31 +48,22 @@
     '';
   in {
     basePackage = pkgs.neovim-unwrapped;
-    env.NVIM_SYSTEM_RPLUGIN_MANIFEST = {
-      value =
-        pkgs.writeText "rplugin.vim"
-        #vim
-        ''
-          " empty
-        '';
-      force = true;
-    };
-    env.NVIM_APPNAME = {
-      value = "nvim-nix";
+    env = {
+      NVIM_SYSTEM_RPLUGIN_MANIFEST = {
+        value =
+          pkgs.writeText "rplugin.vim"
+          #vim
+          ''
+            " empty
+          '';
+        force = true;
+      };
+      NVIM_APPNAME = {
+        value = "nvim-nix";
+      };
     };
     flags = [
-      "-u"
-      (pkgs.writeText "init.lua"
-        #lua
-        ''
-          vim.g.loaded_node_provider=0
-          vim.g.loaded_perl_provider=0
-          vim.g.loaded_python_provider=0
-          vim.g.loaded_python3_provider=0
-          vim.g.loaded_ruby_provider=0
-
-          dofile("${./init.lua}")
-        '')
+      "-u" "NORC"
       "--cmd"
       "set packpath^=${packDir} | set rtp^=${packDir})"
     ];
