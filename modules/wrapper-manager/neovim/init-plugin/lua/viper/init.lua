@@ -196,6 +196,8 @@ nvim_lsp.astro.setup {}
 
 nvim_lsp.mesonlsp.setup {}
 
+nvim_lsp.bashls.setup {}
+
 -- Treesitter
 local orgmode = require("orgmode")
 
@@ -330,7 +332,11 @@ require("telescope").setup {}
 vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
 
 local wk = require("which-key")
-wk.setup()
+wk.setup({
+  icons = {
+    mappings = false,
+  },
+})
 
 require("guess-indent").setup {}
 
