@@ -384,3 +384,22 @@ require("neovim-project").setup({
 })
 
 vim.opt.sessionoptions:append("globals")
+
+vim.keymap.set("n", "<leader>p", "<cmd>Telescope neovim-project discover<cr>", { desc = "Project: open" })
+
+-- local group_id = vim.api.nvim_create_augroup("DirenvNvim", {})
+-- vim.api.nvim_create_autocmd({ "DirChanged" }, {
+--   pattern = "global",
+--   group = group_id,
+--   callback = function()
+--     local obj = vim.system({"direnv", "export", "vim"},{
+--       -- text = true,
+--     }):wait()
+--     print(vim.inspect(obj))
+--     vim.fn.execute(obj.stdout)
+--   end
+-- })
+
+vim.filetype.add({
+  filename = { ['.envrc'] = 'bash' },
+})
