@@ -372,3 +372,14 @@ require("ibl").setup()
 require("minintro").setup({
   color = "#4d4d4d",
 })
+
+-- require('session_manager').setup({})
+
+require("neovim-project").setup({
+    projects = {
+      "~/Documents/*",
+      "~/Projects/*",
+    },
+})
+
+vim.opt.sessionoptions:append("globals")

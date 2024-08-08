@@ -105,3 +105,11 @@ src.github = "lukas-reineke/indent-blankline.nvim"
 [minintro-nvim]
 fetch.github = "eoh-bse/minintro.nvim"
 src.git = "https://github.com/eoh-bse/minintro.nvim"
+
+[neovim-session-manager]
+fetch.github = "Shatur/neovim-session-manager"
+src.git = "https://github.com/Shatur/neovim-session-manager"
+
+[neovim-project]
+fetch.github = "coffebar/neovim-project"
+src.git = "https://github.com/coffebar/neovim-project"

@@ -173,11 +173,11 @@
             "name": null,
             "owner": "lukas-reineke",
             "repo": "indent-blankline.nvim",
-            "rev": "v3.7.1",
-            "sha256": "sha256-PSsXBB2KOFPJJ1O8fpTvsVe2A0/wU6Ae9dN/UemraZM=",
+            "rev": "v3.7.2",
+            "sha256": "sha256-/2PpfXVXFd6adzdizcpCvLftOELuWr3OJja00pr2yG8=",
             "type": "github"
         },
-        "version": "v3.7.1"
+        "version": "v3.7.2"
     },
     "lualine-nvim": {
         "cargoLocks": null,
@@ -239,6 +239,46 @@
         },
         "version": "206241e451c12f78969ff5ae53af45616ffc9b72"
     },
+    "neovim-project": {
+        "cargoLocks": null,
+        "date": "2024-07-08",
+        "extract": null,
+        "name": "neovim-project",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "coffebar",
+            "repo": "neovim-project",
+            "rev": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd",
+            "sha256": "sha256-jPvqyjiOaQz8vR6Gp3oSXMz/gtkE5j7lLyXKc/CdBEs=",
+            "type": "github"
+        },
+        "version": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd"
+    },
+    "neovim-session-manager": {
+        "cargoLocks": null,
+        "date": "2024-08-02",
+        "extract": null,
+        "name": "neovim-session-manager",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Shatur",
+            "repo": "neovim-session-manager",
+            "rev": "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a",
+            "sha256": "sha256-HnNbB5Nx65Zb5oTjED0et+bAAEVX5+8pZxwTZvxRtQ8=",
+            "type": "github"
+        },
+        "version": "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a"
+    },
     "nui-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -261,7 +301,7 @@
     },
     "nvim-autopairs": {
         "cargoLocks": null,
-        "date": "2024-07-23",
+        "date": "2024-08-07",
         "extract": null,
         "name": "nvim-autopairs",
         "passthru": null,
@@ -273,11 +313,11 @@
             "name": null,
             "owner": "windwp",
             "repo": "nvim-autopairs",
-            "rev": "e38c5d837e755ce186ae51d2c48e1b387c4425c6",
-            "sha256": "sha256-2+r2SkCtLqKn6CxbEjvUEpsPL5G9KNOf7Q9lGMsolZs=",
+            "rev": "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a",
+            "sha256": "sha256-7/IKz/ibAJSjIKy2iK03v5MSptHMEplrQ0+z8tvXvTU=",
             "type": "github"
         },
-        "version": "e38c5d837e755ce186ae51d2c48e1b387c4425c6"
+        "version": "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a"
     },
     "nvim-base-16": {
         "cargoLocks": null,

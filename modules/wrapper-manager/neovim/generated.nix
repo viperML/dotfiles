@@ -97,13 +97,13 @@
   };
   indent-blankline-nvim = {
     pname = "indent-blankline-nvim";
-    version = "v3.7.1";
+    version = "v3.7.2";
     src = fetchFromGitHub {
       owner = "lukas-reineke";
       repo = "indent-blankline.nvim";
-      rev = "v3.7.1";
+      rev = "v3.7.2";
       fetchSubmodules = false;
-      sha256 = "sha256-PSsXBB2KOFPJJ1O8fpTvsVe2A0/wU6Ae9dN/UemraZM=";
+      sha256 = "sha256-/2PpfXVXFd6adzdizcpCvLftOELuWr3OJja00pr2yG8=";
     };
   };
   lualine-nvim = {
@@ -142,6 +142,30 @@
     };
     date = "2024-06-11";
   };
+  neovim-project = {
+    pname = "neovim-project";
+    version = "16594823c2a3e2214ed8c7d676e5e5beefbe96fd";
+    src = fetchFromGitHub {
+      owner = "coffebar";
+      repo = "neovim-project";
+      rev = "16594823c2a3e2214ed8c7d676e5e5beefbe96fd";
+      fetchSubmodules = false;
+      sha256 = "sha256-jPvqyjiOaQz8vR6Gp3oSXMz/gtkE5j7lLyXKc/CdBEs=";
+    };
+    date = "2024-07-08";
+  };
+  neovim-session-manager = {
+    pname = "neovim-session-manager";
+    version = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+    src = fetchFromGitHub {
+      owner = "Shatur";
+      repo = "neovim-session-manager";
+      rev = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+      fetchSubmodules = false;
+      sha256 = "sha256-HnNbB5Nx65Zb5oTjED0et+bAAEVX5+8pZxwTZvxRtQ8=";
+    };
+    date = "2024-08-02";
+  };
   nui-nvim = {
     pname = "nui-nvim";
     version = "0.3.0";
@@ -155,15 +179,15 @@
   };
   nvim-autopairs = {
     pname = "nvim-autopairs";
-    version = "e38c5d837e755ce186ae51d2c48e1b387c4425c6";
+    version = "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a";
     src = fetchFromGitHub {
       owner = "windwp";
       repo = "nvim-autopairs";
-      rev = "e38c5d837e755ce186ae51d2c48e1b387c4425c6";
+      rev = "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a";
       fetchSubmodules = false;
-      sha256 = "sha256-2+r2SkCtLqKn6CxbEjvUEpsPL5G9KNOf7Q9lGMsolZs=";
+      sha256 = "sha256-7/IKz/ibAJSjIKy2iK03v5MSptHMEplrQ0+z8tvXvTU=";
     };
-    date = "2024-07-23";
+    date = "2024-08-07";
   };
   nvim-base-16 = {
     pname = "nvim-base-16";
