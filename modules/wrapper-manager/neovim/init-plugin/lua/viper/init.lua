@@ -379,6 +379,7 @@ require("neovim-project").setup({
     projects = {
       "~/Documents/*",
       "~/Projects/*",
+      "~/projects/*",
     },
 })
 
