@@ -100,20 +100,20 @@ cmp.setup {
         fallback()
       end
     end, {"i","s","c",}),
-    ["<Down>"] = cmp.mapping(function(callback)
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-      else
-        fallback()
-      end
-    end, {"i","s","c"}),
-    ["<Up>"] = cmp.mapping(function(callback)
-      if cmp.visible() then
-        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-      else
-        fallback()
-      end
-    end, {"i","s","c"}),
+    -- ["<Down>"] = cmp.mapping(function(callback)
+    --   if cmp.visible() then
+    --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    --   else
+    --     fallback()
+    --   end
+    -- end, {"i","s","c"}),
+    -- ["<Up>"] = cmp.mapping(function(callback)
+    --   if cmp.visible() then
+    --     cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+    --   else
+    --     fallback()
+    --   end
+    -- end, {"i","s","c"}),
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
