@@ -118,6 +118,26 @@
         },
         "version": "v7.0.0"
     },
+    "gitsigns-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "gitsigns-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lewis6991",
+            "repo": "gitsigns.nvim",
+            "rev": "v0.9.0",
+            "sha256": "sha256-AbnjBqKLhOGMGBXBnu9zbL3PG7rKmAoYtxY17kzFEIA=",
+            "type": "github"
+        },
+        "version": "v0.9.0"
+    },
     "guess-indent-nvim": {
         "cargoLocks": null,
         "date": "2024-07-06",

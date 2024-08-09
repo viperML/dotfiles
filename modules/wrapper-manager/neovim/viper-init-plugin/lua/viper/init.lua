@@ -431,3 +431,12 @@ vim.keymap.set("n", "<leader>p", "<cmd>Telescope neovim-project discover<cr>", {
 vim.filetype.add({
   filename = { ['.envrc'] = 'bash' },
 })
+
+local gitsigns = require('gitsigns')
+gitsigns.setup()
+
+vim.keymap.set("n", "<leader>ga", gitsigns.stage_hunk, { desc = "Git: stage hunk" })
+vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk, { desc = "Git: preview hunk" })
+vim.keymap.set("n", "<leader>gb", function()
+  gitsigns.blame_line({full=true})
+end, { desc = "Git: blame line" })

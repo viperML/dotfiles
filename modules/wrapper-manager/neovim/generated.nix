@@ -72,6 +72,17 @@
       sha256 = "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=";
     };
   };
+  gitsigns-nvim = {
+    pname = "gitsigns-nvim";
+    version = "v0.9.0";
+    src = fetchFromGitHub {
+      owner = "lewis6991";
+      repo = "gitsigns.nvim";
+      rev = "v0.9.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-AbnjBqKLhOGMGBXBnu9zbL3PG7rKmAoYtxY17kzFEIA=";
+    };
+  };
   guess-indent-nvim = {
     pname = "guess-indent-nvim";
     version = "6cd61f7a600bb756e558627cd2e740302c58e32d";
