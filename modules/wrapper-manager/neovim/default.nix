@@ -35,7 +35,7 @@
       pkgs.linkFarm name (map mkEntryFromDrv drvs);
 
     pluginFarm = linkFarmFromDrvs' "pluginFarm" (lib.flatten [
-      ./init-plugin
+      ./ayats-init-plugin
       plugins
       inputs'.tree-sitter.packages.nvim-treesitter
       pkgs.vimPlugins.parinfer-rust
@@ -59,7 +59,7 @@
         force = true;
       };
       NVIM_APPNAME = {
-        value = "nvim-nix";
+        value = "nvim-ayats";
       };
     };
     flags = [
