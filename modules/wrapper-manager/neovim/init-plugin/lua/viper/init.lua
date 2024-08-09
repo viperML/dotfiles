@@ -155,9 +155,18 @@ vim.keymap.set("n", "<C-Space>", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "LSP toggle inlay hints" })
 
+local nil_lsp_config = {}
+nil_lsp_config["nil"] = {
+  nix = {
+    flake = {
+      autoArchive = false
+    }
+  }
+}
 nvim_lsp.rnix.setup {
   capabilities = capabilities,
   cmd = { "nil" },
+  settings = nil_lsp_config,
 }
 
 -- local on_attach = function(client)
