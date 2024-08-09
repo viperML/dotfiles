@@ -19,11 +19,11 @@
         },
         "version": "v4.7.0"
     },
-    "cmp-buffer": {
+    "cmp-async-path": {
         "cargoLocks": null,
-        "date": "2022-08-10",
+        "date": "2024-03-25",
         "extract": null,
-        "name": "cmp-buffer",
+        "name": "cmp-async-path",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -31,13 +31,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "hrsh7th",
-            "repo": "cmp-buffer",
-            "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
-            "sha256": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
-            "type": "github"
+            "rev": "7df7f3721c45aac26b6e0474087538f4681c9c7a",
+            "sha256": "sha256-LSWWsn8aKogjWevcbjITXu30a2k3wY3+f2+l7WDAZpY=",
+            "type": "git",
+            "url": "https://codeberg.org/FelipeLema/cmp-async-path"
         },
-        "version": "3022dbc9166796b644a841a02de8dd1cc1d311fa"
+        "version": "7df7f3721c45aac26b6e0474087538f4681c9c7a"
     },
     "cmp-cmdline": {
         "cargoLocks": null,
@@ -78,26 +77,6 @@
             "type": "github"
         },
         "version": "39e2eda76828d88b773cc27a3f61d2ad782c922d"
-    },
-    "cmp-path": {
-        "cargoLocks": null,
-        "date": "2022-10-03",
-        "extract": null,
-        "name": "cmp-path",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "hrsh7th",
-            "repo": "cmp-path",
-            "rev": "91ff86cd9c29299a64f968ebb45846c485725f23",
-            "sha256": "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=",
-            "type": "github"
-        },
-        "version": "91ff86cd9c29299a64f968ebb45846c485725f23"
     },
     "comment-nvim": {
         "cargoLocks": null,

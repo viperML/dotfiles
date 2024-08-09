@@ -12,17 +12,18 @@
       sha256 = "sha256-QWZB3C9XFVBRurUfYj0orr6LLP7eI6vYhkKsrdG+wZI=";
     };
   };
-  cmp-buffer = {
-    pname = "cmp-buffer";
-    version = "3022dbc9166796b644a841a02de8dd1cc1d311fa";
-    src = fetchFromGitHub {
-      owner = "hrsh7th";
-      repo = "cmp-buffer";
-      rev = "3022dbc9166796b644a841a02de8dd1cc1d311fa";
+  cmp-async-path = {
+    pname = "cmp-async-path";
+    version = "7df7f3721c45aac26b6e0474087538f4681c9c7a";
+    src = fetchgit {
+      url = "https://codeberg.org/FelipeLema/cmp-async-path";
+      rev = "7df7f3721c45aac26b6e0474087538f4681c9c7a";
       fetchSubmodules = false;
-      sha256 = "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=";
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-LSWWsn8aKogjWevcbjITXu30a2k3wY3+f2+l7WDAZpY=";
     };
-    date = "2022-08-10";
+    date = "2024-03-25";
   };
   cmp-cmdline = {
     pname = "cmp-cmdline";
@@ -47,18 +48,6 @@
       sha256 = "sha256-CT1+Z4XJBVsl/RqvJeGmyitD6x7So0ylXvvef5jh7I8=";
     };
     date = "2024-05-17";
-  };
-  cmp-path = {
-    pname = "cmp-path";
-    version = "91ff86cd9c29299a64f968ebb45846c485725f23";
-    src = fetchFromGitHub {
-      owner = "hrsh7th";
-      repo = "cmp-path";
-      rev = "91ff86cd9c29299a64f968ebb45846c485725f23";
-      fetchSubmodules = false;
-      sha256 = "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=";
-    };
-    date = "2022-10-03";
   };
   comment-nvim = {
     pname = "comment-nvim";

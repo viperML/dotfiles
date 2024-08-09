@@ -58,14 +58,6 @@ src.git = "https://github.com/hrsh7th/cmp-cmdline"
 fetch.github = "hrsh7th/cmp-nvim-lsp"
 src.git = "https://github.com/hrsh7th/cmp-nvim-lsp"
 
-[cmp-buffer]
-fetch.github = "hrsh7th/cmp-buffer"
-src.git = "https://github.com/hrsh7th/cmp-buffer"
-
-[cmp-path]
-fetch.github = "hrsh7th/cmp-path"
-src.git = "https://github.com/hrsh7th/cmp-path"
-
 [vim-nix]
 fetch.github = "LnL7/vim-nix"
 src.git = "https://github.com/LnL7/vim-nix"
@@ -113,3 +105,7 @@ src.git = "https://github.com/Shatur/neovim-session-manager"
 [neovim-project]
 fetch.github = "coffebar/neovim-project"
 src.git = "https://github.com/coffebar/neovim-project"
+
+[cmp-async-path]
+fetch.git = "https://codeberg.org/FelipeLema/cmp-async-path"
+src.git = "https://codeberg.org/FelipeLema/cmp-async-path"

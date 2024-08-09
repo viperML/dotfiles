@@ -115,19 +115,15 @@ cmp.setup {
     --   end
     -- end, {"i","s","c"}),
   },
+  -- If no completions from {1}, try {2}
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "treesitter" },
-    { name = "path", option = { trailing_slash = true } },
-    { name = "buffer" },
-    -- { name = "vsnip" }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = "async_path", option = { trailing_slash = true } },
+    -- { name = "buffer" },
     { name = "orgmode" },
-    -- { name = "conjure" },
   }, {
-    { name = "buffer" },
+    { name = "treesitter" },
+    -- { name = "buffer" },
   }),
 }
 
@@ -137,7 +133,7 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = "path" },
+    { name = "async_path" },
   }, {
     { name = "cmdline" },
   }),
