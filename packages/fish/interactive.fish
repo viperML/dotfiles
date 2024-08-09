@@ -37,7 +37,7 @@ set self (builtin realpath /proc/self/exe)
 # Git abbreviations
 # https://gist.github.com/james2doyle/6e8a120e31dbaa806a2f91478507314c
 abbr -a -g gd "git diff"
-abbr -a -g gdd "git diff | grep -v '^diff\|^index' | bat"
+abbr -a -g gdt "git difftool"
 abbr -a -g ga "git add"
 abbr -a -g gaa "git add --all ."
 abbr -a -g gbd "git branch -D"

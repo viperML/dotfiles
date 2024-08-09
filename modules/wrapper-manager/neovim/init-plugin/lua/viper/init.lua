@@ -66,6 +66,12 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 -- Completion
 local cmp = require("cmp")
 cmp.setup {
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
+  experimental = {
+    ghost_text = true,
+  },
   -- snippet = {
   --   -- REQUIRED - you must specify a snippet engine
   --   expand = function(args)
@@ -80,24 +86,34 @@ cmp.setup {
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert {
-    -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ["<Tab>"] = cmp.mapping(function(fallback)
+      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
       if cmp.visible() then
-        cmp.select_next_item()
-        return
+        local entry = cmp.get_selected_entry()
+        if not entry then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        end
+        cmp.confirm()
+      else
+        fallback()
       end
-      fallback()
-    end, { "i", "c" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    end, {"i","s","c",}),
+    ["<Down>"] = cmp.mapping(function(callback)
       if cmp.visible() then
-        cmp.select_prev_item()
-        return
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
       end
-      fallback()
-    end, { "i", "c" }),
+    end, {"i","s","c"}),
+    ["<Up>"] = cmp.mapping(function(callback)
+      if cmp.visible() then
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
+      end
+    end, {"i","s","c"}),
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -132,8 +148,12 @@ cmp.setup.cmdline(":", {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
-vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "LSP hover" })
-vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP action" })
+vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
+vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
+
+vim.keymap.set("n", "<C-Space>", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "LSP toggle inlay hints" })
 
 nvim_lsp.rnix.setup {
   capabilities = capabilities,
@@ -171,32 +191,37 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript",
 }
 
-nvim_lsp.denols.setup {
-  -- on_attach = on_attach,
-  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-}
 
 nvim_lsp.tsserver.setup {
-  -- on_attach = on_attach,
+  capabilities = capabilities,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
   single_file_support = false,
 }
 
-nvim_lsp.clangd.setup {}
+nvim_lsp.clangd.setup {
+  capabilities = capabilities,
+}
 
 nvim_lsp.ltex.setup {
+  capabilities = capabilities,
   filetypes = {
     "markdown",
-    -- "org",
+    "org",
     "tex",
   },
 }
 
-nvim_lsp.astro.setup {}
+nvim_lsp.astro.setup {
+  capabilities = capabilities,
+}
 
-nvim_lsp.mesonlsp.setup {}
+nvim_lsp.mesonlsp.setup {
+  capabilities = capabilities,
+}
 
-nvim_lsp.bashls.setup {}
+nvim_lsp.bashls.setup {
+  capabilities = capabilities,
+}
 
 -- Treesitter
 local orgmode = require("orgmode")
