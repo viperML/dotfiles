@@ -49,18 +49,6 @@
     };
     date = "2024-05-17";
   };
-  cmp-treesitter = {
-    pname = "cmp-treesitter";
-    version = "958fcfa0d8ce46d215e19cc3992c542f576c4123";
-    src = fetchFromGitHub {
-      owner = "ray-x";
-      repo = "cmp-treesitter";
-      rev = "958fcfa0d8ce46d215e19cc3992c542f576c4123";
-      fetchSubmodules = false;
-      sha256 = "sha256-8WAk9S+/7vSz7bVHdEzjbKUokU144fvnByIeJ1gAWhU=";
-    };
-    date = "2024-05-13";
-  };
   comment-nvim = {
     pname = "comment-nvim";
     version = "e30b7f2008e52442154b66f7c519bfd2f1e32acb";

@@ -119,11 +119,9 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "async_path", option = { trailing_slash = true } },
-    -- { name = "buffer" },
     { name = "orgmode" },
   }, {
-    { name = "treesitter" },
-    -- { name = "buffer" },
+    --
   }),
 }
 

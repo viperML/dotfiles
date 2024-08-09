@@ -78,26 +78,6 @@
         },
         "version": "39e2eda76828d88b773cc27a3f61d2ad782c922d"
     },
-    "cmp-treesitter": {
-        "cargoLocks": null,
-        "date": "2024-05-13",
-        "extract": null,
-        "name": "cmp-treesitter",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "ray-x",
-            "repo": "cmp-treesitter",
-            "rev": "958fcfa0d8ce46d215e19cc3992c542f576c4123",
-            "sha256": "sha256-8WAk9S+/7vSz7bVHdEzjbKUokU144fvnByIeJ1gAWhU=",
-            "type": "github"
-        },
-        "version": "958fcfa0d8ce46d215e19cc3992c542f576c4123"
-    },
     "comment-nvim": {
         "cargoLocks": null,
         "date": "2024-06-09",

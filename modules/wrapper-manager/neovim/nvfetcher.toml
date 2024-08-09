@@ -109,7 +109,3 @@ src.git = "https://github.com/coffebar/neovim-project"
 [cmp-async-path]
 fetch.git = "https://codeberg.org/FelipeLema/cmp-async-path"
 src.git = "https://codeberg.org/FelipeLema/cmp-async-path"
-
-[cmp-treesitter]
-fetch.github = "ray-x/cmp-treesitter"
-src.git = "https://github.com/ray-x/cmp-treesitter"
