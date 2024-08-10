@@ -89,3 +89,7 @@ nvim_lsp.mesonlsp.setup {
 nvim_lsp.bashls.setup {
   capabilities = capabilities,
 }
+
+nvim_lsp.hls.setup {
+  capabilities = capabilities,
+}
