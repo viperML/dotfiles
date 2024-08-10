@@ -118,6 +118,26 @@
         },
         "version": "v7.0.0"
     },
+    "fidget-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-13",
+        "extract": null,
+        "name": "fidget-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "j-hui",
+            "repo": "fidget.nvim",
+            "rev": "d855eed8a06531a7e8fd0684889b2943f373c469",
+            "sha256": "sha256-fjxdRN08BMU7jTWdhdzh8kW18ZURS9SJCwnTxuz6aFE=",
+            "type": "github"
+        },
+        "version": "d855eed8a06531a7e8fd0684889b2943f373c469"
+    },
     "git-conflict-nvim": {
         "cargoLocks": null,
         "date": "2024-06-26",

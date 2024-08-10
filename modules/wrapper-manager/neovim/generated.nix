@@ -72,6 +72,18 @@
       sha256 = "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=";
     };
   };
+  fidget-nvim = {
+    pname = "fidget-nvim";
+    version = "d855eed8a06531a7e8fd0684889b2943f373c469";
+    src = fetchFromGitHub {
+      owner = "j-hui";
+      repo = "fidget.nvim";
+      rev = "d855eed8a06531a7e8fd0684889b2943f373c469";
+      fetchSubmodules = false;
+      sha256 = "sha256-fjxdRN08BMU7jTWdhdzh8kW18ZURS9SJCwnTxuz6aFE=";
+    };
+    date = "2024-07-13";
+  };
   git-conflict-nvim = {
     pname = "git-conflict-nvim";
     version = "45cde6f0acf26d0e4b64acfa45349dd1da01e577";

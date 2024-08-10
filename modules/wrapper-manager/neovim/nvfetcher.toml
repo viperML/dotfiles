@@ -117,3 +117,7 @@ src.github = "lewis6991/gitsigns.nvim"
 [git-conflict-nvim]
 fetch.github = "akinsho/git-conflict.nvim"
 src.git = "https://github.com/akinsho/git-conflict.nvim"
+
+[fidget-nvim]
+fetch.github = "j-hui/fidget.nvim"
+src.git = "https://github.com/j-hui/fidget.nvim"

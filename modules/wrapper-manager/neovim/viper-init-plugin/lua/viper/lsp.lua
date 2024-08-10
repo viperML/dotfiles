@@ -93,3 +93,11 @@ nvim_lsp.bashls.setup {
 nvim_lsp.hls.setup {
   capabilities = capabilities,
 }
+
+require("fidget").setup {
+  notification = {
+    window = {
+      winblend = 0,
+    }
+  }
+}
