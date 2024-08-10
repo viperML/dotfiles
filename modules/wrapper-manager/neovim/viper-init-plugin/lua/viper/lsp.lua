@@ -101,3 +101,9 @@ require("fidget").setup {
     }
   }
 }
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
