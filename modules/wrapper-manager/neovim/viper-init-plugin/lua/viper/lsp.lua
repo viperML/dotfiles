@@ -78,9 +78,25 @@ nvim_lsp.ltex.setup {
   },
 }
 
+-- JS
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvim_lsp.astro.setup {
   capabilities = capabilities,
 }
+nvim_lsp.eslint.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.html.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.cssls.setup {
+  capabilities = capabilities,
+}
+--
 
 nvim_lsp.mesonlsp.setup {
   capabilities = capabilities,
@@ -109,3 +125,12 @@ vim.diagnostic.config({
 vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
 
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+nvim_lsp.gopls.setup {
+  capabilities = capabilities,
+}
+
+nvim_lsp.autotools_ls.setup {
+  capabilities = capabilities,
+}
+
