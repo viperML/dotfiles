@@ -43,6 +43,7 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Right>"] = cmp.mapping.confirm { select = false },
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<Tab>"] = cmp.mapping(function(fallback)
       -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
