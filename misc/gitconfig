@@ -39,3 +39,5 @@
   showForcedUpdates = true
 [rebase]
   updateRegs = true
+[safe]
+  directory=*
