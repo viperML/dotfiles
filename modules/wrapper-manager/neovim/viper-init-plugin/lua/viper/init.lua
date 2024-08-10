@@ -17,3 +17,7 @@ require("neovim-project").setup {
 vim.opt.sessionoptions:append("globals")
 
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope neovim-project discover<cr>", { desc = "Project: open" })
+
+require("git-conflict").setup()
+vim.keymap.set("n", "<leader>go", "<cmd>GitConflictChooseOurs<cr>", { desc = "Git conflict: select ours" })
+vim.keymap.set("n", "<leader>gt", "<cmd>GitConflictChooseTheirs<cr>", { desc = "Git conflict: select theirs" })

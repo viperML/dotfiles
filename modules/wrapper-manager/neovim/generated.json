@@ -118,6 +118,26 @@
         },
         "version": "v7.0.0"
     },
+    "git-conflict-nvim": {
+        "cargoLocks": null,
+        "date": "2024-06-26",
+        "extract": null,
+        "name": "git-conflict-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "akinsho",
+            "repo": "git-conflict.nvim",
+            "rev": "45cde6f0acf26d0e4b64acfa45349dd1da01e577",
+            "sha256": "sha256-SablEni7+VYXUs5lkgpZBqzIBWDE2p3f+R4vXrzF+oE=",
+            "type": "github"
+        },
+        "version": "45cde6f0acf26d0e4b64acfa45349dd1da01e577"
+    },
     "gitsigns-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -300,7 +320,7 @@
     },
     "nvim-autopairs": {
         "cargoLocks": null,
-        "date": "2024-08-07",
+        "date": "2024-08-10",
         "extract": null,
         "name": "nvim-autopairs",
         "passthru": null,
@@ -312,11 +332,11 @@
             "name": null,
             "owner": "windwp",
             "repo": "nvim-autopairs",
-            "rev": "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a",
-            "sha256": "sha256-7/IKz/ibAJSjIKy2iK03v5MSptHMEplrQ0+z8tvXvTU=",
+            "rev": "48ca9aaee733911424646cb1605f27bc01dedbe3",
+            "sha256": "sha256-KAtr/IYABHZhva9q7lqvp1ymryz547gyR8NdLwfo9gQ=",
             "type": "github"
         },
-        "version": "4a39f2dcbe1967ddc3a0f76f863540dd3aa7871a"
+        "version": "48ca9aaee733911424646cb1605f27bc01dedbe3"
     },
     "nvim-base-16": {
         "cargoLocks": null,
@@ -420,7 +440,7 @@
     },
     "nvim-transparent": {
         "cargoLocks": null,
-        "date": "2023-11-13",
+        "date": "2024-08-10",
         "extract": null,
         "name": "nvim-transparent",
         "passthru": null,
@@ -432,11 +452,11 @@
             "name": null,
             "owner": "xiyaowong",
             "repo": "nvim-transparent",
-            "rev": "fd35a46f4b7c1b244249266bdcb2da3814f01724",
-            "sha256": "sha256-wT+7rmp08r0XYGp+MhjJX8dsFTar8+nf10CV9OdkOSk=",
+            "rev": "2c78d94448b534c35ca1d88a3bae90b1cd1a3d4d",
+            "sha256": "sha256-BnFDTAkGMsofnGqD4hJm8sz9wU1BKb6rBRNpiOsS9c4=",
             "type": "github"
         },
-        "version": "fd35a46f4b7c1b244249266bdcb2da3814f01724"
+        "version": "2c78d94448b534c35ca1d88a3bae90b1cd1a3d4d"
     },
     "nvim-web-devicons": {
         "cargoLocks": null,

@@ -113,3 +113,7 @@ src.git = "https://codeberg.org/FelipeLema/cmp-async-path"
 [gitsigns-nvim]
 fetch.github = "lewis6991/gitsigns.nvim"
 src.github = "lewis6991/gitsigns.nvim"
+
+[git-conflict-nvim]
+fetch.github = "akinsho/git-conflict.nvim"
+src.git = "https://github.com/akinsho/git-conflict.nvim"
