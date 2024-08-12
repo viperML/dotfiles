@@ -124,7 +124,7 @@ vim.diagnostic.config({
 
 vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
 
-vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
+vim.keymap.set({"n", "i"}, "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 nvim_lsp.gopls.setup {
   capabilities = capabilities,
