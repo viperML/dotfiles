@@ -134,3 +134,10 @@ nvim_lsp.autotools_ls.setup {
   capabilities = capabilities,
 }
 
+-- Python
+nvim_lsp.ruff.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.pylsp.setup {
+  capabilities = capabilities,
+}

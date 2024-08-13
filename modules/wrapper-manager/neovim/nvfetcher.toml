@@ -121,3 +121,11 @@ src.git = "https://github.com/akinsho/git-conflict.nvim"
 [fidget-nvim]
 fetch.github = "j-hui/fidget.nvim"
 src.git = "https://github.com/j-hui/fidget.nvim"
+
+[nvim-dap]
+fetch.github = "mfussenegger/nvim-dap"
+src.github = "mfussenegger/nvim-dap"
+
+[nvim-dap-python]
+fetch.github = "mfussenegger/nvim-dap-python"
+src.git = "https://github.com/mfussenegger/nvim-dap-python"

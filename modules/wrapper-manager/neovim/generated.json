@@ -220,7 +220,7 @@
     },
     "lualine-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-15",
+        "date": "2024-08-12",
         "extract": null,
         "name": "lualine-nvim",
         "passthru": null,
@@ -232,11 +232,11 @@
             "name": null,
             "owner": "nvim-lualine",
             "repo": "lualine.nvim",
-            "rev": "544dd1583f9bb27b393f598475c89809c4d5e86b",
-            "sha256": "sha256-uNDRynWs7fXDDzDFKvE31oDetv3aabiJfr/r/84z9Sg=",
+            "rev": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056",
+            "sha256": "sha256-gCm7m96PkZyrgjmt7Efc+NMZKStAq1zr7JRCYOgGDuE=",
             "type": "github"
         },
-        "version": "544dd1583f9bb27b393f598475c89809c4d5e86b"
+        "version": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056"
     },
     "minintro-nvim": {
         "cargoLocks": null,
@@ -397,6 +397,46 @@
             "type": "github"
         },
         "version": "ae644feb7b67bf1ce4260c231d1d4300b19c6f30"
+    },
+    "nvim-dap": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "nvim-dap",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mfussenegger",
+            "repo": "nvim-dap",
+            "rev": "0.8.0",
+            "sha256": "sha256-jdNqA2POc2TEspkgbJdxgnczVEJnBBi+nipTXCPQgyM=",
+            "type": "github"
+        },
+        "version": "0.8.0"
+    },
+    "nvim-dap-python": {
+        "cargoLocks": null,
+        "date": "2024-06-26",
+        "extract": null,
+        "name": "nvim-dap-python",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mfussenegger",
+            "repo": "nvim-dap-python",
+            "rev": "d777c2b32ed39f61209c09bede28d7491621a631",
+            "sha256": "sha256-W1GGJAd+1z+ReOrosFua0V7c4VDMsNcrPAQ5FXK0Trs=",
+            "type": "github"
+        },
+        "version": "d777c2b32ed39f61209c09bede28d7491621a631"
     },
     "nvim-lspconfig": {
         "cargoLocks": null,

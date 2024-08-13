@@ -132,15 +132,15 @@
   };
   lualine-nvim = {
     pname = "lualine-nvim";
-    version = "544dd1583f9bb27b393f598475c89809c4d5e86b";
+    version = "b431d228b7bbcdaea818bdc3e25b8cdbe861f056";
     src = fetchFromGitHub {
       owner = "nvim-lualine";
       repo = "lualine.nvim";
-      rev = "544dd1583f9bb27b393f598475c89809c4d5e86b";
+      rev = "b431d228b7bbcdaea818bdc3e25b8cdbe861f056";
       fetchSubmodules = false;
-      sha256 = "sha256-uNDRynWs7fXDDzDFKvE31oDetv3aabiJfr/r/84z9Sg=";
+      sha256 = "sha256-gCm7m96PkZyrgjmt7Efc+NMZKStAq1zr7JRCYOgGDuE=";
     };
-    date = "2024-07-15";
+    date = "2024-08-12";
   };
   minintro-nvim = {
     pname = "minintro-nvim";
@@ -236,6 +236,29 @@
       sha256 = "sha256-NcodgUp8obTsjgc+5j2dKr0f3FelYikQTJngfZXRZzo=";
     };
     date = "2024-08-01";
+  };
+  nvim-dap = {
+    pname = "nvim-dap";
+    version = "0.8.0";
+    src = fetchFromGitHub {
+      owner = "mfussenegger";
+      repo = "nvim-dap";
+      rev = "0.8.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-jdNqA2POc2TEspkgbJdxgnczVEJnBBi+nipTXCPQgyM=";
+    };
+  };
+  nvim-dap-python = {
+    pname = "nvim-dap-python";
+    version = "d777c2b32ed39f61209c09bede28d7491621a631";
+    src = fetchFromGitHub {
+      owner = "mfussenegger";
+      repo = "nvim-dap-python";
+      rev = "d777c2b32ed39f61209c09bede28d7491621a631";
+      fetchSubmodules = false;
+      sha256 = "sha256-W1GGJAd+1z+ReOrosFua0V7c4VDMsNcrPAQ5FXK0Trs=";
+    };
+    date = "2024-06-26";
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
