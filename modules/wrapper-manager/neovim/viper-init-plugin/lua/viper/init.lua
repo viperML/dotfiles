@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>g<Up>", "<cmd>GitConflictChooseOurs<cr>", { desc = 
 vim.keymap.set("n", "<leader>g<Down>", "<cmd>GitConflictChooseTheirs<cr>", { desc = "Git conflict: select theirs" })
 vim.keymap.set("n", "<leader>g<Right>", "<cmd>GitConflictChooseBoth<cr>", { desc = "Git conflict: select both" })
 
-vim.keymap.set({"n", "i", "v"}, "<S-Up>", "<Up>")
-vim.keymap.set({"n", "i", "v"}, "<S-Down>", "<Down>")
-vim.keymap.set({"n", "i", "v"}, "<C-Up>", "<Up>")
-vim.keymap.set({"n", "i", "v"}, "<C-Down>", "<Down>")
+vim.keymap.set({ "n", "i", "v" }, "<S-Up>", "<Up>")
+vim.keymap.set({ "n", "i", "v" }, "<S-Down>", "<Down>")
+vim.keymap.set({ "n", "i", "v" }, "<C-Up>", "<Up>")
+vim.keymap.set({ "n", "i", "v" }, "<C-Down>", "<Down>")

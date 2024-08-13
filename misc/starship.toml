@@ -11,7 +11,7 @@ $env_var\
 $singularity\
 [\\]](fg:8)
 )\
-([\\[](fg:8) $git_branch$git_state$git_status$git_metrics[\\]](fg:8)
+([\\[](fg:8) $direnv$git_branch$git_state$git_status$git_metrics[\\]](fg:8)
 )\
 ([\\[](fg:8) \
 $username\
@@ -108,14 +108,14 @@ style = "yellow dimmed bold"
 format = "([$symbol $env_value]($style) )"
 variable = "GUIX_ENVIRONMENT"
 default = ""
-symbol = "🦬"
+symbol = " "
 
 [env_var.GUIX_PACKAGE_PATH]
 style = "yellow dimmed bold"
 format = "([$symbol $env_value]($style) )"
 variable = "GUIX_PACKAGE_PATH"
 default = ""
-symbol = "🦬"
+symbol = " "
 
 [env_var.SLURM_JOB_UID]
 style = "blue bold"
@@ -135,3 +135,9 @@ format = "([$symbol $env_value]($style) )"
 symbol = " oar"
 variable = "OAR_JOBID"
 default = ""
+
+[direnv]
+format = "($loaded )"
+loaded_msg = "\u001B[32m󰴉 \u001B[0m"
+unloaded_msg = "\u001B[31m󰴉 \u001B[0m"
+disabled = false

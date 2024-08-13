@@ -96,7 +96,7 @@ nvim_lsp.cssls.setup {
   capabilities = capabilities,
 }
 vim.g.markdown_fenced_languages = {
-  "ts=typescript"
+  "ts=typescript",
 }
 nvim_lsp.denols.setup {
   capabilities = capabilities,
@@ -125,17 +125,17 @@ require("fidget").setup {
   notification = {
     window = {
       winblend = 0,
-    }
-  }
+    },
+  },
 }
 
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = false,
-})
+}
 
 vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
 
-vim.keymap.set({"n", "i"}, "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
+vim.keymap.set({ "n", "i" }, "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 nvim_lsp.gopls.setup {
   capabilities = capabilities,
@@ -151,4 +151,30 @@ nvim_lsp.ruff.setup {
 }
 nvim_lsp.pylsp.setup {
   capabilities = capabilities,
+}
+
+-- Schemas
+-- https://www.arthurkoziel.com/json-schemas-in-neovim/
+nvim_lsp.taplo.setup { -- toml
+  capabilities = capabilities,
+}
+nvim_lsp.yamlls.setup {
+  capabilities = capabilities,
+  settings = {
+    redhat = {
+      telemetry = {
+        enabled = false,
+      },
+    },
+    yaml = {
+      validate = true,
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      schemas = {
+        ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
+      },
+    },
+  },
 }
