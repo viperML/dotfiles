@@ -7,6 +7,8 @@ vim.filetype.add {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
+local root_pattern = nvim_lsp.util.root_pattern
+
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
 
@@ -84,17 +86,26 @@ nvim_lsp.ltex.setup {
 nvim_lsp.astro.setup {
   capabilities = capabilities,
 }
-nvim_lsp.eslint.setup {
-  capabilities = capabilities,
-}
+-- nvim_lsp.eslint.setup {
+--   capabilities = capabilities,
+-- }
 nvim_lsp.html.setup {
-  capabilities = capabilities,
-}
-nvim_lsp.tsserver.setup {
   capabilities = capabilities,
 }
 nvim_lsp.cssls.setup {
   capabilities = capabilities,
+}
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+nvim_lsp.denols.setup {
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+}
+nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  single_file_support = false,
 }
 --
 
