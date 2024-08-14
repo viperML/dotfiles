@@ -54,7 +54,7 @@ setup_all()
 --   end
 -- })
 local function direnv()
-    vim.notify("Loading direnv... ")
+    vim.notify("Loading direnv")
 
     vim.api.nvim_clear_autocmds { group = "lspconfig" }
     pcall(function()
@@ -65,13 +65,15 @@ local function direnv()
       vim.schedule(function()
         vim.fn.execute(obj.stdout)
         setup_all()
-        vim.notify("Direnv loaded!")
+        vim.notify("Finished loading direnv")
       end)
     end)
 end
 
 vim.api.nvim_create_user_command("Direnv", direnv, {})
 
-vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
-  callback = direnv,
-})
+if vim.fn.executable("direnv") == 1 then
+  vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
+    callback = direnv,
+  })
+end
