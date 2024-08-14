@@ -5,6 +5,7 @@ require("conform").setup {
     c = { "clang-format" },
     typst = { "typstyle" },
     rust = { "rustfmt" },
+    haskell = { "fourmolu" }
   },
 }
 
