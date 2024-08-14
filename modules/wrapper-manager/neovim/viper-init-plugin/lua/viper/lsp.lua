@@ -7,18 +7,6 @@ vim.filetype.add {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
-nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
-  local bin_name = config.cmd[1]
-
-  if bin_name ~= nil then
-    local bin_exists = vim.fn.executable(bin_name)
-
-    if bin_exists == 0 then
-      -- config.root_dir = nil -- doesn't work?
-      config.autostart = false
-    end
-  end
-end)
 
 local root_pattern = nvim_lsp.util.root_pattern
 
@@ -126,10 +114,6 @@ nvim_lsp.mesonlsp.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.bashls.setup {
-  capabilities = capabilities,
-}
-
 nvim_lsp.hls.setup {
   capabilities = capabilities,
 }
@@ -169,9 +153,9 @@ nvim_lsp.pylsp.setup {
 
 -- Schemas
 -- https://www.arthurkoziel.com/json-schemas-in-neovim/
-nvim_lsp.taplo.setup { -- toml
-  capabilities = capabilities,
-}
+-- nvim_lsp.taplo.setup { -- toml
+--   capabilities = capabilities,
+-- }
 nvim_lsp.yamlls.setup {
   capabilities = capabilities,
   settings = {
@@ -192,3 +176,69 @@ nvim_lsp.yamlls.setup {
     },
   },
 }
+
+local configs = {
+  ["taplo"] = {},
+  ["bashls"] = {},
+}
+
+
+nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
+    vim.notify("> setuphook " .. config.name)
+    local bin_name = config.cmd[1]
+
+    if bin_name ~= nil then
+      local bin_exists = vim.fn.executable(bin_name)
+
+      if bin_exists == 0 then
+        config.autostart = false
+        vim.notify("Disabling " .. config.name)
+      else
+        config.autostart = true
+        vim.notify("Enabling " .. config.name)
+      end
+    else
+      vim.notify("bin_name was nil")
+    end
+
+    vim.notify("< setuphook " .. config.name)
+end)
+
+local function setup_all()
+  for k, v in pairs(configs) do
+    nvim_lsp[k].setup(v)
+  end
+end
+
+setup_all()
+
+local function stop_all()
+  -- local clients = vim.lsp.get_clients()
+  -- for _, client in ipairs(clients) do
+  --   vim.notify("Stopping client: " .. client.name)
+  --   client:stop()
+  -- end
+  vim.lsp.stop_client(vim.lsp.get_clients(), true)
+  local clients = vim.lsp.get_clients()
+  vim.notify("Clients left: " .. vim.inspect(clients))
+end
+
+
+vim.api.nvim_create_autocmd({ "DirChanged" }, {
+  pattern = "global",
+  callback = function()
+    local dir = vim.fn.getcwd()
+    vim.notify("> dirchanged " .. dir)
+
+    stop_all()
+
+    local obj = vim.system({"direnv", "export", "vim"},{}):wait()
+    vim.fn.execute(obj.stdout)
+
+    setup_all()
+
+    stop_all()
+
+    vim.notify("< dirchanged " .. dir)
+  end
+})
