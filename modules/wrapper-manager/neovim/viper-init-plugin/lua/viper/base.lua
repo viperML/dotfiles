@@ -1,3 +1,17 @@
+-- First for vim.notify
+require("fidget").setup {
+  notification = {
+    override_vim_notify = true,
+    view = {
+      stack_upwards = false,
+    },
+    window = {
+      winblend = 0,
+      align = "top",
+    },
+  },
+}
+
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

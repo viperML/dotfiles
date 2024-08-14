@@ -9,6 +9,7 @@ require("viper.org")
 require("viper.direnv")
 
 require("neovim-project").setup {
+  -- manual_mode = true,
   projects = {
     "~/Documents/*",
     "~/Projects/*",

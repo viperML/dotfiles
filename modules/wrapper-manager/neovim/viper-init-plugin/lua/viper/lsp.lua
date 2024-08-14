@@ -1,207 +1,132 @@
+local nvim_lsp = require("lspconfig")
+local root_pattern = nvim_lsp.util.root_pattern
+local DEBUG = vim.log.levels.DEBUG
+
 vim.filetype.add {
   filename = { [".envrc"] = "bash" },
 }
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
---
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local nvim_lsp = require("lspconfig")
+nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_config, {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
 
-
-local root_pattern = nvim_lsp.util.root_pattern
 
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
-
 vim.keymap.set("n", "<C-Space>", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "LSP toggle inlay hints" })
-
-local nil_lsp_config = {}
-nil_lsp_config["nil"] = {
-  nix = {
-    flake = {
-      autoArchive = false,
-    },
-  },
-}
-nvim_lsp.rnix.setup {
-  capabilities = capabilities,
-  cmd = { "nil" },
-  settings = nil_lsp_config,
-}
-
--- local on_attach = function(client)
---   require("completion").on_attach(client)
--- end
-
-nvim_lsp.rust_analyzer.setup {
-  -- on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true,
-      },
-    },
-  },
-}
+vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
+vim.keymap.set({ "n", "i" }, "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 vim.g.markdown_fenced_languages = {
   "ts=typescript",
-}
-
-nvim_lsp.tsserver.setup {
-  capabilities = capabilities,
-  root_dir = nvim_lsp.util.root_pattern("package.json"),
-  single_file_support = false,
-}
-
-nvim_lsp.clangd.setup {
-  capabilities = capabilities,
-}
-
-nvim_lsp.ltex.setup {
-  capabilities = capabilities,
-  filetypes = {
-    "markdown",
-    "org",
-    "tex",
-  },
-}
-
--- JS
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
-nvim_lsp.astro.setup {
-  capabilities = capabilities,
-}
--- nvim_lsp.eslint.setup {
---   capabilities = capabilities,
--- }
-nvim_lsp.html.setup {
-  capabilities = capabilities,
-}
-nvim_lsp.cssls.setup {
-  capabilities = capabilities,
-}
-vim.g.markdown_fenced_languages = {
-  "ts=typescript",
-}
-nvim_lsp.denols.setup {
-  capabilities = capabilities,
-  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-}
-nvim_lsp.tsserver.setup {
-  capabilities = capabilities,
-  root_dir = nvim_lsp.util.root_pattern("package.json"),
-  single_file_support = false,
-}
---
-
-nvim_lsp.mesonlsp.setup {
-  capabilities = capabilities,
-}
-
-nvim_lsp.hls.setup {
-  capabilities = capabilities,
-}
-
-require("fidget").setup {
-  notification = {
-    override_vim_notify = true,
-    window = {
-      winblend = 0,
-    },
-  },
 }
 
 vim.diagnostic.config {
   virtual_text = false,
 }
 
-vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
 
-vim.keymap.set({ "n", "i" }, "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
-
-nvim_lsp.gopls.setup {
-  capabilities = capabilities,
-}
-
-nvim_lsp.autotools_ls.setup {
-  capabilities = capabilities,
-}
-
--- Python
-nvim_lsp.ruff.setup {
-  capabilities = capabilities,
-}
-nvim_lsp.pylsp.setup {
-  capabilities = capabilities,
-}
-
--- Schemas
--- https://www.arthurkoziel.com/json-schemas-in-neovim/
--- nvim_lsp.taplo.setup { -- toml
---   capabilities = capabilities,
--- }
-nvim_lsp.yamlls.setup {
-  capabilities = capabilities,
-  settings = {
-    redhat = {
-      telemetry = {
-        enabled = false,
-      },
-    },
-    yaml = {
-      validate = true,
-      schemaStore = {
-        enable = false,
-        url = "",
-      },
-      schemas = {
-        ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
+local configs = {
+  ["rnix"] = {
+    cmd = { "nil" },
+    settings = {
+      ["nil"] = {
+        nix = {
+          flake = {
+            autoArchive = false,
+          },
+        },
       },
     },
   },
-}
-
-local configs = {
+  ["rust-analyzer"] = {
+    settings = {
+      ["rust-analyzer"] = {
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
+      },
+    },
+  },
+  -- JS
+  ["tsserver"] = {
+    root_dir = nvim_lsp.util.root_pattern("package.json"),
+    single_file_support = false,
+  },
+  ["denols"] = {
+    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+  },
+  ["html"] = {},
+  ["cssls"] = {},
+  ["astro"] = {},
+  -- C
+  ["clangd"] = {},
+  ["mesonlsp"] = {},
+  ["autotools_ls"] = {},
+  -- Python
+  ["ruff"] = {},
+  ["pylsp"] = {},
+  -- Schemas
   ["taplo"] = {},
+  ["yamlls"] = {
+    settings = {
+      redhat = {
+        telemetry = {
+          enabled = false,
+        },
+      },
+      yaml = {
+        validate = true,
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        schemas = {
+          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
+        },
+      },
+    },
+  },
+  -- Misc
   ["bashls"] = {},
+  ["ltex"] = {
+    filetypes = {
+      "markdown",
+      "org",
+      "tex",
+    },
+  },
+  ["hls"] = {},
+  ["gopls"] = {},
 }
-
 
 nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
-    vim.notify("> setuphook " .. config.name)
-    local bin_name = config.cmd[1]
+  config.cmd[1] = vim.fs.basename(config.cmd[1]) -- motherfuckers, who resolved the absolute path
 
-    if bin_name ~= nil then
-      local bin_exists = vim.fn.executable(bin_name)
+  local bin_name = config.cmd[1]
 
-      if bin_exists == 0 then
-        config.autostart = false
-        vim.notify("Disabling " .. config.name)
-      else
-        config.autostart = true
-        vim.notify("Enabling " .. config.name)
-      end
-    else
-      vim.notify("bin_name was nil")
-    end
+  local bin_exists = vim.fn.executable(bin_name)
 
-    vim.notify("< setuphook " .. config.name)
+  if bin_exists == 1 then
+    config.autostart = true
+    vim.notify("Enabling " .. config.name, DEBUG)
+  else
+    config.autostart = false
+    vim.notify("Disabling " .. config.name, DEBUG)
+  end
 end)
 
 local function setup_all()
@@ -212,33 +137,31 @@ end
 
 setup_all()
 
-local function stop_all()
-  -- local clients = vim.lsp.get_clients()
-  -- for _, client in ipairs(clients) do
-  --   vim.notify("Stopping client: " .. client.name)
-  --   client:stop()
-  -- end
-  vim.lsp.stop_client(vim.lsp.get_clients(), true)
-  local clients = vim.lsp.get_clients()
-  vim.notify("Clients left: " .. vim.inspect(clients))
-end
-
-
-vim.api.nvim_create_autocmd({ "DirChanged" }, {
-  pattern = "global",
-  callback = function()
+-- vim.api.nvim_create_autocmd({ "DirChanged" }, {
+--   pattern = "global",
+--   callback = function()
+--     pcall(function() vim.lsp.stop_client(vim.lsp.get_clients(), true) end)
+--   end
+-- })
+local function direnv()
     local dir = vim.fn.getcwd()
-    vim.notify("> dirchanged " .. dir)
+    vim.notify("> dirchanged " .. dir, DEBUG)
 
-    stop_all()
+    vim.api.nvim_clear_autocmds { group = "lspconfig" }
+    pcall(function()
+      vim.lsp.stop_client(vim.lsp.get_clients(), true)
+    end)
 
-    local obj = vim.system({"direnv", "export", "vim"},{}):wait()
+    local obj = vim.system({ "direnv", "export", "vim" }, {}):wait()
     vim.fn.execute(obj.stdout)
 
     setup_all()
 
-    stop_all()
+    vim.notify("< dirchanged " .. dir, DEBUG)
+end
 
-    vim.notify("< dirchanged " .. dir)
-  end
+vim.api.nvim_create_user_command("Direnv", direnv, {})
+
+vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
+  callback = direnv,
 })

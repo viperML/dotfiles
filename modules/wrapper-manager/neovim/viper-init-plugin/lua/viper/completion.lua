@@ -39,22 +39,22 @@ local mapping = cmp.mapping.preset.insert {
   end, { "i", "s", "c" }),
   ["<Down>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
-      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
     else
       if fallback ~= nil then
         fallback()
       end
     end
-  end, {"i","s","c"}),
+  end, { "i", "s", "c" }),
   ["<Up>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
-      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
     else
       if fallback ~= nil then
         fallback()
       end
     end
-  end, {"i","s","c"}),
+  end, { "i", "s", "c" }),
 }
 
 cmp.setup {
