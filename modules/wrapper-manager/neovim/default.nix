@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs',
+  config,
   ...
 }: {
   wrappers.neovim = let
@@ -67,5 +68,11 @@
       "--cmd"
       "set packpath^=${packDir} | set rtp^=${packDir})"
     ];
+    overrideAttrs = old: let
+      pname = config.wrappers.neovim.env.NVIM_APPNAME.value;
+      inherit (config.wrappers.neovim.basePackage) version;
+    in {
+      name = "${pname}-${version}";
+    };
   };
 }
