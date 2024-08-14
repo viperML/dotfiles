@@ -7,6 +7,19 @@ vim.filetype.add {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
+nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
+  local bin_name = config.cmd[1]
+
+  if bin_name ~= nil then
+    local bin_exists = vim.fn.executable(bin_name)
+
+    if bin_exists == 0 then
+      -- config.root_dir = nil -- doesn't work?
+      config.autostart = false
+    end
+  end
+end)
+
 local root_pattern = nvim_lsp.util.root_pattern
 
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
@@ -123,6 +136,7 @@ nvim_lsp.hls.setup {
 
 require("fidget").setup {
   notification = {
+    override_vim_notify = true,
     window = {
       winblend = 0,
     },
