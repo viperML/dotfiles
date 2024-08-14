@@ -21,6 +21,38 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 local cmp = require("cmp")
 
+local mapping = cmp.mapping.preset.insert {
+  ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  ["<Right>"] = cmp.mapping.confirm { select = false },
+  ["<C-Space>"] = cmp.mapping.complete(),
+  ["<Tab>"] = cmp.mapping(function(fallback)
+    -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+    if cmp.visible() then
+      local entry = cmp.get_selected_entry()
+      if not entry then
+        cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+      end
+      cmp.confirm()
+    else
+      fallback()
+    end
+  end, { "i", "s", "c" }),
+  ["<Down>"] = cmp.mapping(function(callback)
+    if cmp.visible() then
+      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    else
+      fallback()
+    end
+  end, {"i","s","c"}),
+  ["<Up>"] = cmp.mapping(function(callback)
+    if cmp.visible() then
+      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+    else
+      fallback()
+    end
+  end, {"i","s","c"}),
+}
+
 cmp.setup {
   completion = {
     completeopt = "menu,menuone,noinsert",
@@ -41,37 +73,7 @@ cmp.setup {
     -- completion = cmp.config.window.bordered(),
     -- documentation = cmp.config.window.bordered(),
   },
-  mapping = cmp.mapping.preset.insert {
-    ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ["<Right>"] = cmp.mapping.confirm { select = false },
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-      if cmp.visible() then
-        local entry = cmp.get_selected_entry()
-        if not entry then
-          cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-        end
-        cmp.confirm()
-      else
-        fallback()
-      end
-    end, { "i", "s", "c" }),
-    -- ["<Down>"] = cmp.mapping(function(callback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-    --   else
-    --     fallback()
-    --   end
-    -- end, {"i","s","c"}),
-    -- ["<Up>"] = cmp.mapping(function(callback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-    --   else
-    --     fallback()
-    --   end
-    -- end, {"i","s","c"}),
-  },
+  mapping = mapping,
   -- If no completions from {1}, try {2}
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -86,10 +88,16 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
+  -- mapping = cmp.mapping.preset.cmdline(),
+  mapping = mapping,
   sources = cmp.config.sources({
-    { name = "async_path" },
+    {
+      name = "cmdline",
+      option = {
+        ignore_cmds = { "Man", "!" },
+      },
+    },
   }, {
-    { name = "cmdline" },
+    { name = "async_path" },
   }),
 })
