@@ -11,7 +11,7 @@ $env_var\
 $singularity\
 [\\]](fg:8)
 )\
-([\\[](fg:8) $direnv$git_branch$git_state$git_status$git_metrics[\\]](fg:8)
+([\\[](fg:8) $direnv$git_branch$git_commit$git_state$git_status$git_metrics[\\]](fg:8)
 )\
 ([\\[](fg:8) \
 $username\
@@ -53,6 +53,11 @@ home_symbol = "~"
 [git_branch]
 format = " [$symbol$branch]($style) "
 symbol = ""
+only_attached = true
+
+[git_commit]
+style = "bold purple"
+format = '[$hash]($style) '
 
 [git_status]
 format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
