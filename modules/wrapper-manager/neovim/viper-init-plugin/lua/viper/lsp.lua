@@ -144,20 +144,20 @@ setup_all()
 --   end
 -- })
 local function direnv()
-    local dir = vim.fn.getcwd()
-    vim.notify("> dirchanged " .. dir, DEBUG)
+    vim.notify("Loading direnv... ")
 
     vim.api.nvim_clear_autocmds { group = "lspconfig" }
     pcall(function()
       vim.lsp.stop_client(vim.lsp.get_clients(), true)
     end)
 
-    local obj = vim.system({ "direnv", "export", "vim" }, {}):wait()
-    vim.fn.execute(obj.stdout)
-
-    setup_all()
-
-    vim.notify("< dirchanged " .. dir, DEBUG)
+    local obj = vim.system({ "direnv", "export", "vim" }, {}, function(obj)
+      vim.schedule(function()
+        vim.fn.execute(obj.stdout)
+        setup_all()
+        vim.notify("Direnv loaded!")
+      end)
+    end)
 end
 
 vim.api.nvim_create_user_command("Direnv", direnv, {})
