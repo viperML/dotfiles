@@ -16,7 +16,7 @@
     pkgs.nix-output-monitor
     pkgs.nil
     self'.packages.env
-    # pkgs.nodePackages.bash-language-server
+    pkgs.nodePackages.bash-language-server
   ];
 
   # home.sessionVariables = {
