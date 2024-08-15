@@ -1,32 +1,35 @@
-require("viper.base")
-require("viper.visual")
-require("viper.completion")
-require("viper.lsp")
-require("viper.dap")
-require("viper.tree-sitter")
-require("viper.format")
-require("viper.org")
-require("viper.direnv")
-
-require("neovim-project").setup {
-  -- manual_mode = true,
-  projects = {
-    "~/Documents/*",
-    "~/Projects/*",
-    "~/projects/*",
+-- First for vim.notify
+require("fidget").setup {
+  notification = {
+    override_vim_notify = true,
+    view = {
+      stack_upwards = false,
+    },
+    window = {
+      winblend = 0,
+      align = "top",
+    },
   },
 }
 
-vim.opt.sessionoptions:append("globals")
+require("lz.n").load {
+  {
+    "plenary-nvim",
+  },
+  {
+    "telescope-fzf-native-nvim",
+    cmd = "Never",
+  },
+  {
+    "telescope-nvim",
+    after = function()
+      require("telescope").setup {}
 
-vim.keymap.set("n", "<leader>p", "<cmd>Telescope neovim-project discover<cr>", { desc = "Project: open" })
+      -- require('telescope').load_extension('fzf')
+    end
+  }
+}
 
-require("git-conflict").setup()
-vim.keymap.set("n", "<leader>g<Up>", "<cmd>GitConflictChooseOurs<cr>", { desc = "Git conflict: select ours" })
-vim.keymap.set("n", "<leader>g<Down>", "<cmd>GitConflictChooseTheirs<cr>", { desc = "Git conflict: select theirs" })
-vim.keymap.set("n", "<leader>g<Right>", "<cmd>GitConflictChooseBoth<cr>", { desc = "Git conflict: select both" })
+require('lzn-auto-require.loader').register_loader()
 
-vim.keymap.set({ "n", "i", "v" }, "<S-Up>", "<Up>")
-vim.keymap.set({ "n", "i", "v" }, "<S-Down>", "<Down>")
-vim.keymap.set({ "n", "i", "v" }, "<C-Up>", "<Up>")
-vim.keymap.set({ "n", "i", "v" }, "<C-Down>", "<Down>")
+vim.notify("viper loaded")

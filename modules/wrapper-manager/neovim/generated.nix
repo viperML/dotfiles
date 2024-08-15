@@ -82,6 +82,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-fjxdRN08BMU7jTWdhdzh8kW18ZURS9SJCwnTxuz6aFE=";
     };
+    opt = "false";
     date = "2024-07-13";
   };
   git-conflict-nvim = {
@@ -141,6 +142,31 @@
       sha256 = "sha256-gCm7m96PkZyrgjmt7Efc+NMZKStAq1zr7JRCYOgGDuE=";
     };
     date = "2024-08-12";
+  };
+  lz-n = {
+    pname = "lz-n";
+    version = "v1.4.4";
+    src = fetchFromGitHub {
+      owner = "nvim-neorocks";
+      repo = "lz.n";
+      rev = "v1.4.4";
+      fetchSubmodules = false;
+      sha256 = "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=";
+    };
+    opt = "false";
+  };
+  lzn-auto-require = {
+    pname = "lzn-auto-require";
+    version = "c6b47e148a1ff9709e802f68c2c8b558a9a8de9b";
+    src = fetchFromGitHub {
+      owner = "horriblename";
+      repo = "lzn-auto-require";
+      rev = "c6b47e148a1ff9709e802f68c2c8b558a9a8de9b";
+      fetchSubmodules = false;
+      sha256 = "sha256-h7Dx3zBkUYamQY6lcuQrwAMgBpPqskLnA6WsbefHzMU=";
+    };
+    opt = "false";
+    date = "2024-08-04";
   };
   minintro-nvim = {
     pname = "minintro-nvim";
@@ -352,6 +378,18 @@
       sha256 = "sha256-5Jf2mWFVDofXBcXLbMa417mqlEPWLA+cQIZH/vNEV1g=";
     };
     date = "2024-05-20";
+  };
+  telescope-fzf-native-nvim = {
+    pname = "telescope-fzf-native-nvim";
+    version = "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b";
+    src = fetchFromGitHub {
+      owner = "nvim-telescope";
+      repo = "telescope-fzf-native.nvim";
+      rev = "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b";
+      fetchSubmodules = false;
+      sha256 = "sha256-GEhPf1f0jkEuDlHNuxVko0ChvuF/zoQroLNUlk8N5EA=";
+    };
+    date = "2024-07-02";
   };
   telescope-nvim = {
     pname = "telescope-nvim";

@@ -123,7 +123,9 @@
         "date": "2024-07-13",
         "extract": null,
         "name": "fidget-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "false"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -237,6 +239,50 @@
             "type": "github"
         },
         "version": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056"
+    },
+    "lz-n": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "lz-n",
+        "passthru": {
+            "opt": "false"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-neorocks",
+            "repo": "lz.n",
+            "rev": "v1.4.4",
+            "sha256": "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=",
+            "type": "github"
+        },
+        "version": "v1.4.4"
+    },
+    "lzn-auto-require": {
+        "cargoLocks": null,
+        "date": "2024-08-04",
+        "extract": null,
+        "name": "lzn-auto-require",
+        "passthru": {
+            "opt": "false"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "horriblename",
+            "repo": "lzn-auto-require",
+            "rev": "c6b47e148a1ff9709e802f68c2c8b558a9a8de9b",
+            "sha256": "sha256-h7Dx3zBkUYamQY6lcuQrwAMgBpPqskLnA6WsbefHzMU=",
+            "type": "github"
+        },
+        "version": "c6b47e148a1ff9709e802f68c2c8b558a9a8de9b"
     },
     "minintro-nvim": {
         "cargoLocks": null,
@@ -597,6 +643,26 @@
             "type": "github"
         },
         "version": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683"
+    },
+    "telescope-fzf-native-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-02",
+        "extract": null,
+        "name": "telescope-fzf-native-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-telescope",
+            "repo": "telescope-fzf-native.nvim",
+            "rev": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b",
+            "sha256": "sha256-GEhPf1f0jkEuDlHNuxVko0ChvuF/zoQroLNUlk8N5EA=",
+            "type": "github"
+        },
+        "version": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b"
     },
     "telescope-nvim": {
         "cargoLocks": null,
