@@ -350,6 +350,7 @@ local generic_config = {
     -- },
   },
   selection_word_boundary = " \t\n{}[]()\"'`«»‘’,=",
+  mouse_wheel_scrolls_tabs = false,
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
