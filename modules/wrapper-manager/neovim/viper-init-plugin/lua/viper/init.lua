@@ -31,6 +31,6 @@ require("lz.n").load {
   },
 }
 
-require("lzn-auto-require.loader").register_loader()
+-- require("lzn-auto-require.loader").register_loader()
 
 vim.notify("viper loaded")
