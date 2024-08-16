@@ -17,7 +17,7 @@ require("bufferline").setup {
 
 require("lualine").setup {
   options = {
-    -- theme = "base16",
+    theme = "codedark",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
