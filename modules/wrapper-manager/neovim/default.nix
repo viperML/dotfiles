@@ -22,17 +22,26 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
       typeOf
       mapAttrs
       attrValues
+      readFile
       ;
 
     basePackage = pkgs.neovim-unwrapped;
 
     packName = "viper-pack";
 
-    nv = pkgs.callPackages ./generated.nix {};
+    nv = fromTOML (readFile ./nvfetcher.toml);
+
+    nvGenerated = pkgs.callPackages ./generated.nix {};
 
     nvPlugins =
       mapAttrs (name: value: (value.src.overrideAttrs (old: let
-        pname = name;
+        original = nv.${name};
+        pname =
+          if original ? src.git
+          then baseNameOf original.src.git
+          else if original ? src.github
+          then baseNameOf original.src.github
+          else builtins.trace original throw "FIXME";
         version =
           if builtins.hasAttr "date" value
           then value.date
@@ -46,13 +55,13 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
           else true
         );
       })))
-      nv;
+      nvGenerated;
 
     nvPlugins' =
       nvPlugins
       // {
         telescope-fzf-native-nvimm = let
-          base = nv.telescope-fzf-native-nvim;
+          base = nvGenerated.telescope-fzf-native-nvim;
         in
           with pkgs;
             stdenv.mkDerivation {
