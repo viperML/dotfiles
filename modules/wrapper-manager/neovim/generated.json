@@ -78,26 +78,6 @@
         },
         "version": "39e2eda76828d88b773cc27a3f61d2ad782c922d"
     },
-    "comment-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-09",
-        "extract": null,
-        "name": "comment-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "numToStr",
-            "repo": "Comment.nvim",
-            "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
-            "sha256": "sha256-h0kPue5Eqd5aeu4VoLH45pF0DmWWo1d8SnLICSQ63zc=",
-            "type": "github"
-        },
-        "version": "e30b7f2008e52442154b66f7c519bfd2f1e32acb"
-    },
     "conform-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -112,11 +92,11 @@
             "name": null,
             "owner": "stevearc",
             "repo": "conform.nvim",
-            "rev": "v7.0.0",
-            "sha256": "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=",
+            "rev": "v7.1.0",
+            "sha256": "sha256-THl44vHBvgdaYXAUl6g1ccR2mYTBBVizgnqT2MbRngw=",
             "type": "github"
         },
-        "version": "v7.0.0"
+        "version": "v7.1.0"
     },
     "fidget-nvim": {
         "cargoLocks": null,
@@ -278,26 +258,6 @@
         },
         "version": "206241e451c12f78969ff5ae53af45616ffc9b72"
     },
-    "neovim-project": {
-        "cargoLocks": null,
-        "date": "2024-07-08",
-        "extract": null,
-        "name": "neovim-project",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "coffebar",
-            "repo": "neovim-project",
-            "rev": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd",
-            "sha256": "sha256-jPvqyjiOaQz8vR6Gp3oSXMz/gtkE5j7lLyXKc/CdBEs=",
-            "type": "github"
-        },
-        "version": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd"
-    },
     "neovim-session-manager": {
         "cargoLocks": null,
         "date": "2024-08-02",
@@ -357,26 +317,6 @@
             "type": "github"
         },
         "version": "48ca9aaee733911424646cb1605f27bc01dedbe3"
-    },
-    "nvim-base-16": {
-        "cargoLocks": null,
-        "date": "2024-05-23",
-        "extract": null,
-        "name": "nvim-base-16",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "RRethy",
-            "repo": "nvim-base16",
-            "rev": "6ac181b5733518040a33017dde654059cd771b7c",
-            "sha256": "sha256-GRF/6AobXHamw8TZ3FjL7SI6ulcpwpcohsIuZeCSh2A=",
-            "type": "github"
-        },
-        "version": "6ac181b5733518040a33017dde654059cd771b7c"
     },
     "nvim-cmp": {
         "cargoLocks": null,
@@ -498,26 +438,6 @@
         },
         "version": "3e5838290dd57116457e4b11eb6ba21e83b260a4"
     },
-    "nvim-transparent": {
-        "cargoLocks": null,
-        "date": "2024-08-10",
-        "extract": null,
-        "name": "nvim-transparent",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "xiyaowong",
-            "repo": "nvim-transparent",
-            "rev": "2c78d94448b534c35ca1d88a3bae90b1cd1a3d4d",
-            "sha256": "sha256-BnFDTAkGMsofnGqD4hJm8sz9wU1BKb6rBRNpiOsS9c4=",
-            "type": "github"
-        },
-        "version": "2c78d94448b534c35ca1d88a3bae90b1cd1a3d4d"
-    },
     "nvim-web-devicons": {
         "cargoLocks": null,
         "date": "2024-08-04",
@@ -583,7 +503,9 @@
         "date": "2024-05-20",
         "extract": null,
         "name": "plenary-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "false"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -597,6 +519,26 @@
             "type": "github"
         },
         "version": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683"
+    },
+    "telescope-fzf-native-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-02",
+        "extract": null,
+        "name": "telescope-fzf-native-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-telescope",
+            "repo": "telescope-fzf-native.nvim",
+            "rev": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b",
+            "sha256": "sha256-GEhPf1f0jkEuDlHNuxVko0ChvuF/zoQroLNUlk8N5EA=",
+            "type": "github"
+        },
+        "version": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b"
     },
     "telescope-nvim": {
         "cargoLocks": null,

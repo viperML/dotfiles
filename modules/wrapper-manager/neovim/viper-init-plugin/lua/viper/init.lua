@@ -8,15 +8,15 @@ require("viper.format")
 require("viper.org")
 require("viper.direnv")
 
-require("neovim-project").setup {
-  -- manual_mode = true,
-  projects = {
-    "~/Documents/*",
-    "~/Projects/*",
-    "~/projects/*",
-  },
-}
-
+-- require("neovim-project").setup {
+--   -- manual_mode = true,
+--   projects = {
+--     "~/Documents/*",
+--     "~/Projects/*",
+--     "~/projects/*",
+--   },
+-- }
+--
 vim.opt.sessionoptions:append("globals")
 
 vim.keymap.set("n", "<leader>p", "<cmd>Telescope neovim-project discover<cr>", { desc = "Project: open" })

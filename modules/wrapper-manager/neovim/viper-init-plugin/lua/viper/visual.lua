@@ -1,7 +1,7 @@
-vim.cmd("colorscheme base16-tomorrow-night")
-
-vim.g.transparent_enabled = true
-require("transparent").setup {}
+-- vim.cmd("colorscheme base16-tomorrow-night")
+--
+-- vim.g.transparent_enabled = true
+-- require("transparent").setup {}
 
 vim.opt.termguicolors = true
 require("bufferline").setup {
@@ -49,9 +49,9 @@ vim.keymap.set("n", "<leader>gb", function()
   gitsigns.blame_line { full = true }
 end, { desc = "Git: blame line" })
 
-require("minintro").setup {
-  color = "#4d4d4d",
-}
+-- require("minintro").setup {
+--   color = "#4d4d4d",
+-- }
 
 require("telescope").setup {}
 

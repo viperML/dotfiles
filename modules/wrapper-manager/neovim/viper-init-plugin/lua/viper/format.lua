@@ -63,4 +63,4 @@ end
 
 require("ibl").setup()
 
-require("Comment").setup()
+-- require("Comment").setup()

@@ -1,6 +1,7 @@
 [plenary-nvim]
 src.git = "https://github.com/nvim-lua/plenary.nvim"
 fetch.github = "nvim-lua/plenary.nvim"
+passthru = { opt = "false" }
 
 [nui-nvim]
 src.github = "MunifTanjim/nui.nvim"
@@ -26,9 +27,9 @@ src.git = "https://github.com/windwp/nvim-autopairs"
 fetch.github = "nvim-neo-tree/neo-tree.nvim"
 src.git = "https://github.com/nvim-neo-tree/neo-tree.nvim"
 
-[comment-nvim]
-fetch.github = "numToStr/Comment.nvim"
-src.git = "https://github.com/numToStr/Comment.nvim"
+# [comment-nvim]
+# fetch.github = "numToStr/Comment.nvim"
+# src.git = "https://github.com/numToStr/Comment.nvim"
 
 [which-key-nvim]
 fetch.github = "folke/which-key.nvim"
@@ -62,13 +63,13 @@ src.git = "https://github.com/hrsh7th/cmp-nvim-lsp"
 fetch.github = "LnL7/vim-nix"
 src.git = "https://github.com/LnL7/vim-nix"
 
-[nvim-transparent]
-fetch.github = "xiyaowong/nvim-transparent"
-src.git = "https://github.com/xiyaowong/nvim-transparent"
+# [nvim-transparent]
+# fetch.github = "xiyaowong/nvim-transparent"
+# src.git = "https://github.com/xiyaowong/nvim-transparent"
 
-[nvim-base-16]
-fetch.github = "RRethy/nvim-base16"
-src.git = "https://github.com/RRethy/nvim-base16"
+# [nvim-base-16]
+# fetch.github = "RRethy/nvim-base16"
+# src.git = "https://github.com/RRethy/nvim-base16"
 
 [orgmode]
 fetch.github = "nvim-orgmode/orgmode"
@@ -102,10 +103,6 @@ src.git = "https://github.com/eoh-bse/minintro.nvim"
 fetch.github = "Shatur/neovim-session-manager"
 src.git = "https://github.com/Shatur/neovim-session-manager"
 
-[neovim-project]
-fetch.github = "coffebar/neovim-project"
-src.git = "https://github.com/coffebar/neovim-project"
-
 [cmp-async-path]
 fetch.git = "https://codeberg.org/FelipeLema/cmp-async-path"
 src.git = "https://codeberg.org/FelipeLema/cmp-async-path"
@@ -129,3 +126,7 @@ src.github = "mfussenegger/nvim-dap"
 [nvim-dap-python]
 fetch.github = "mfussenegger/nvim-dap-python"
 src.git = "https://github.com/mfussenegger/nvim-dap-python"
+
+[telescope-fzf-native-nvim]
+fetch.github = "nvim-telescope/telescope-fzf-native.nvim"
+src.git = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
