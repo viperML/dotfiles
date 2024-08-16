@@ -87,6 +87,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
       # bash
       ''
         mkdir -p $out/plugin
+
         tee $out/plugin/init.lua <<EOF
         -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
         package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
@@ -98,12 +99,6 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         vim.g.loaded_python_provider = 0
         vim.g.loaded_python3_provider = 0
         vim.g.loaded_ruby_provider = 0
-
-        require("lz.n").load {
-          {
-            "viper-lazy-plugin",
-          }
-        }
         EOF
       '';
 
@@ -113,8 +108,8 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
 
       (attrValues nvPlugins')
 
-      # inputs'.tree-sitter.packages.nvim-treesitter
-      # (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered)
+      inputs'.tree-sitter.packages.nvim-treesitter
+      (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered)
     ];
 
     packDir =

@@ -1,4 +1,3 @@
--- First for vim.notify
 require("fidget").setup {
   notification = {
     override_vim_notify = true,
@@ -12,25 +11,39 @@ require("fidget").setup {
   },
 }
 
-require("lz.n").load {
+local specs = {
+  {
+    "viper-lazy-plugin",
+  },
   {
     "plenary-nvim",
+    cmd = "Never",
   },
-  -- {
-  --   "telescope-fzf-native-nvim",
-  --   cmd = "Never",
-  -- },
+  {
+    "telescope-fzf-native-nvim",
+    cmd = "Never",
+  },
   {
     "telescope-nvim",
     cmd = "Telescope",
+    before = function()
+      require('lz.n').trigger_load("plenary-nvim")
+      require("lz.n").trigger_load("telescope-fzf-native-nvim")
+    end,
     after = function()
       require("telescope").setup {}
-      -- require('telescope').load_extension('fzf')
+      require('telescope').load_extension('fzf')
       vim.notify("Telescope loaded")
     end,
   },
 }
 
--- require("lzn-auto-require.loader").register_loader()
+for _, module in ipairs({
+  "viper.visual"
+}) do
+  vim.list_extend(specs, require(module))
+end
+
+require("lz.n").load(specs)
 
 vim.notify("viper loaded")
