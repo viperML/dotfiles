@@ -1,6 +1,7 @@
 [plenary-nvim]
 src.git = "https://github.com/nvim-lua/plenary.nvim"
 fetch.github = "nvim-lua/plenary.nvim"
+passthru = { opt = "false" }
 
 [nui-nvim]
 src.github = "MunifTanjim/nui.nvim"
@@ -101,10 +102,7 @@ src.git = "https://github.com/eoh-bse/minintro.nvim"
 [neovim-session-manager]
 fetch.github = "Shatur/neovim-session-manager"
 src.git = "https://github.com/Shatur/neovim-session-manager"
-
-[neovim-project]
-fetch.github = "coffebar/neovim-project"
-src.git = "https://github.com/coffebar/neovim-project"
+# passthru = { opt = "false" }
 
 [cmp-async-path]
 fetch.git = "https://codeberg.org/FelipeLema/cmp-async-path"

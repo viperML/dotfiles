@@ -112,11 +112,11 @@
             "name": null,
             "owner": "stevearc",
             "repo": "conform.nvim",
-            "rev": "v7.0.0",
-            "sha256": "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=",
+            "rev": "v7.1.0",
+            "sha256": "sha256-THl44vHBvgdaYXAUl6g1ccR2mYTBBVizgnqT2MbRngw=",
             "type": "github"
         },
-        "version": "v7.0.0"
+        "version": "v7.1.0"
     },
     "fidget-nvim": {
         "cargoLocks": null,
@@ -323,26 +323,6 @@
             "type": "github"
         },
         "version": "206241e451c12f78969ff5ae53af45616ffc9b72"
-    },
-    "neovim-project": {
-        "cargoLocks": null,
-        "date": "2024-07-08",
-        "extract": null,
-        "name": "neovim-project",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "coffebar",
-            "repo": "neovim-project",
-            "rev": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd",
-            "sha256": "sha256-jPvqyjiOaQz8vR6Gp3oSXMz/gtkE5j7lLyXKc/CdBEs=",
-            "type": "github"
-        },
-        "version": "16594823c2a3e2214ed8c7d676e5e5beefbe96fd"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
@@ -629,7 +609,9 @@
         "date": "2024-05-20",
         "extract": null,
         "name": "plenary-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "false"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,

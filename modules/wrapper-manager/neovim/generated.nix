@@ -63,13 +63,13 @@
   };
   conform-nvim = {
     pname = "conform-nvim";
-    version = "v7.0.0";
+    version = "v7.1.0";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "conform.nvim";
-      rev = "v7.0.0";
+      rev = "v7.1.0";
       fetchSubmodules = false;
-      sha256 = "sha256-0gBvpqsBn7KlpIPANPa3nf2TC7EBm4s47V+TFbr7RVU=";
+      sha256 = "sha256-THl44vHBvgdaYXAUl6g1ccR2mYTBBVizgnqT2MbRngw=";
     };
   };
   fidget-nvim = {
@@ -191,18 +191,6 @@
       sha256 = "sha256-eNGuQEjAKsPuRDGaw95kCVOmP64ZDnUuFBppqtcrhZ4=";
     };
     date = "2024-06-11";
-  };
-  neovim-project = {
-    pname = "neovim-project";
-    version = "16594823c2a3e2214ed8c7d676e5e5beefbe96fd";
-    src = fetchFromGitHub {
-      owner = "coffebar";
-      repo = "neovim-project";
-      rev = "16594823c2a3e2214ed8c7d676e5e5beefbe96fd";
-      fetchSubmodules = false;
-      sha256 = "sha256-jPvqyjiOaQz8vR6Gp3oSXMz/gtkE5j7lLyXKc/CdBEs=";
-    };
-    date = "2024-07-08";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
@@ -377,6 +365,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-5Jf2mWFVDofXBcXLbMa417mqlEPWLA+cQIZH/vNEV1g=";
     };
+    opt = "false";
     date = "2024-05-20";
   };
   telescope-fzf-native-nvim = {

@@ -1,6 +1,6 @@
 return {
   {
-    "neo-tree-nvim",
+    "neo-tree.nvim",
     cmd = "Neotree",
   }
 }
