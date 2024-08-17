@@ -78,6 +78,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
                 mkdir -p $out/build
                 cp -vr ./*.so $out/build/
               '';
+              passthru.opt = true;
             };
       };
 
@@ -111,12 +112,25 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         EOF
       '';
 
+    makeOpt = drv:
+      drv.overrideAttrs (old: {
+        passthru =
+          (old.passthru or {})
+          // {
+            opt = true;
+          };
+      });
+
     allPlugins = flatten [
       viper-pre-init-plugin
       (attrValues nvPlugins')
 
-      inputs'.tree-sitter.packages.nvim-treesitter
-      (lib.attrValues inputs'.tree-sitter.legacyPackages.grammars.filtered)
+      (makeOpt inputs'.tree-sitter.packages.nvim-treesitter)
+      (lib.attrValues (builtins.removeAttrs inputs'.tree-sitter.legacyPackages.grammars.filtered [
+        "tree-sitter-comment"
+      ]))
+
+      (makeOpt pkgs.vimPlugins.parinfer-rust)
     ];
 
     packDir =

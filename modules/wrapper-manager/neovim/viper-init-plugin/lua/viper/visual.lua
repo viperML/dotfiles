@@ -28,6 +28,7 @@ vim.list_extend(require("viper.lazy.specs"), {
   {
     "neo-tree.nvim",
     cmd = "Neotree",
+    keys = {"<leader>b"},
     after = function()
       require("neo-tree").setup {
         close_if_last_window = true,
@@ -45,13 +46,13 @@ vim.list_extend(require("viper.lazy.specs"), {
         },
       }
       vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
-    end
+    end,
   },
   {
     "gitsigns.nvim",
     event = "DeferredUIEnter",
     after = function()
-      local gitsigns = require('gitsigns')
+      local gitsigns = require("gitsigns")
       gitsigns.setup()
 
       vim.keymap.set("n", "<leader>ga", gitsigns.stage_hunk, { desc = "Git: stage hunk" })
@@ -59,30 +60,30 @@ vim.list_extend(require("viper.lazy.specs"), {
       vim.keymap.set("n", "<leader>gb", function()
         gitsigns.blame_line { full = true }
       end, { desc = "Git: blame line" })
-    end
+    end,
   },
   {
     "telescope.nvim",
     cmd = "Telescope",
     keys = { "<leader><leader>" },
     after = function()
-      require('telescope').setup {
+      require("telescope").setup {
         extensions = {
           fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                             -- the default case_mode is "smart_case"
-          }
-        }
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          },
+        },
       }
 
       require("viper.lazy").packadd("telescope-fzf-native.nvim")
-      require('telescope').load_extension('fzf')
+      require("telescope").load_extension("fzf")
 
       vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
-    end
+    end,
   },
   {
     "which-key.nvim",
@@ -93,7 +94,21 @@ vim.list_extend(require("viper.lazy.specs"), {
           mappings = false,
         },
       }
-    end
-  }
+    end,
+  },
+  {
+    "git-conflict.nvim",
+    event = "DeferredUIEnter",
+    after = function()
+      require("git-conflict").setup()
+      vim.keymap.set("n", "<leader>g<Up>", "<cmd>GitConflictChooseOurs<cr>", { desc = "Git conflict: select ours" })
+      vim.keymap.set(
+        "n",
+        "<leader>g<Down>",
+        "<cmd>GitConflictChooseTheirs<cr>",
+        { desc = "Git conflict: select theirs" }
+      )
+      vim.keymap.set("n", "<leader>g<Right>", "<cmd>GitConflictChooseBoth<cr>", { desc = "Git conflict: select both" })
+    end,
+  },
 })
-

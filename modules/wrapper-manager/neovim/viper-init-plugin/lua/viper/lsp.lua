@@ -6,7 +6,6 @@ nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_con
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
-
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
 vim.keymap.set("n", "<C-Space>", function()
@@ -47,33 +46,30 @@ end
 
 setup_all()
 
--- vim.api.nvim_create_autocmd({ "DirChanged" }, {
---   pattern = "global",
---   callback = function()
---     pcall(function() vim.lsp.stop_client(vim.lsp.get_clients(), true) end)
---   end
--- })
+
 local function direnv()
-    vim.notify("Loading direnv")
+  vim.notify("Loading direnv")
 
-    vim.api.nvim_clear_autocmds { group = "lspconfig" }
-    pcall(function()
-      vim.lsp.stop_client(vim.lsp.get_clients(), true)
-    end)
+  if vim.fn.executable("direnv") ~= 1 then
+    vim.notify("Direnv executable not found!")
+  end
 
-    local obj = vim.system({ "direnv", "export", "vim" }, {}, function(obj)
-      vim.schedule(function()
-        vim.fn.execute(obj.stdout)
-        setup_all()
-        vim.notify("Finished loading direnv")
-      end)
+  vim.api.nvim_clear_autocmds { group = "lspconfig" }
+  pcall(function()
+    vim.lsp.stop_client(vim.lsp.get_clients(), true)
+  end)
+
+  local obj = vim.system({ "direnv", "export", "vim" }, {}, function(obj)
+    vim.schedule(function()
+      vim.fn.execute(obj.stdout)
+      setup_all()
+      vim.notify("Finished loading direnv")
     end)
+  end)
 end
 
 vim.api.nvim_create_user_command("Direnv", direnv, {})
 
-if vim.fn.executable("direnv") == 1 then
-  vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
-    callback = direnv,
-  })
-end
+vim.api.nvim_create_autocmd({ "DirChanged" }, {
+  callback = direnv,
+})

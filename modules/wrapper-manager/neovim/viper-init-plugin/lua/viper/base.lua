@@ -30,3 +30,26 @@ vim.opt.signcolumn = "yes"
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
+
+
+vim.list_extend(require("viper.lazy.specs"), {
+  {
+    "vim-nix",
+    ft = {"nix"},
+  },
+  {
+    "neovim-session-manager",
+    -- event = "DeferredUIEnter",
+    cmd = "SessionManager",
+    keys = {"<leader>p"},
+    after = function()
+      local session_config = require('session_manager.config')
+      require('session_manager').setup({
+          autoload_mode = session_config.AutoloadMode.Disabled,
+      })
+
+      vim.keymap.set("n", "<leader>p", require("session_manager").load_session, { desc = "Project: open" })
+    end
+  }
+})
+

@@ -1,8 +1,8 @@
-
 vim.list_extend(require("viper.lazy.specs"), {
   {
     "nvim-dap",
-    event = "DeferredUIEnter",
+    -- event = "DeferredUIEnter",
+    ft =  {"python"},
     after = function()
       require("viper.lazy").packadd("dap-python")
 
@@ -15,6 +15,6 @@ vim.list_extend(require("viper.lazy.specs"), {
 
       require("viper.lazy").packadd("nvim-dap-python")
       require("dap-python").setup("python")
-    end
-  }
+    end,
+  },
 })

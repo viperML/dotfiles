@@ -59,6 +59,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-THl44vHBvgdaYXAUl6g1ccR2mYTBBVizgnqT2MbRngw=";
     };
+    opt = "true";
   };
   fidget-nvim = {
     pname = "fidget-nvim";
@@ -82,6 +83,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-SablEni7+VYXUs5lkgpZBqzIBWDE2p3f+R4vXrzF+oE=";
     };
+    opt = "true";
     date = "2024-06-26";
   };
   gitsigns-nvim = {
@@ -96,18 +98,6 @@
     };
     opt = "true";
   };
-  guess-indent-nvim = {
-    pname = "guess-indent-nvim";
-    version = "6cd61f7a600bb756e558627cd2e740302c58e32d";
-    src = fetchFromGitHub {
-      owner = "NMAC427";
-      repo = "guess-indent.nvim";
-      rev = "6cd61f7a600bb756e558627cd2e740302c58e32d";
-      fetchSubmodules = false;
-      sha256 = "sha256-mzX9LgG2+9aj2lMPlSZh3zP3wphHQdecXe7RHP1baT0=";
-    };
-    date = "2024-07-06";
-  };
   indent-blankline-nvim = {
     pname = "indent-blankline-nvim";
     version = "v3.7.2";
@@ -118,6 +108,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-/2PpfXVXFd6adzdizcpCvLftOELuWr3OJja00pr2yG8=";
     };
+    opt = "true";
   };
   lualine-nvim = {
     pname = "lualine-nvim";
@@ -165,6 +156,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-HnNbB5Nx65Zb5oTjED0et+bAAEVX5+8pZxwTZvxRtQ8=";
     };
+    opt = "true";
     date = "2024-08-02";
   };
   nui-nvim = {
@@ -248,6 +240,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-rls94nrAlPYpHDXp0eB4UzlLRB5HriBuZMdLGVAzGmA=";
     };
+    opt = "true";
   };
   nvim-paredit-scheme = {
     pname = "nvim-paredit-scheme";
@@ -259,6 +252,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-gzZJlN8LO1SH0joqgQgGIlkCVreccF8yxRYoinB9tU0=";
     };
+    opt = "true";
     date = "2024-01-27";
   };
   nvim-web-devicons = {
@@ -283,6 +277,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-bxiL88uUa0Zd/HL7RcC/XVhbkgdlFr6MmlQfkpxFybE=";
     };
+    opt = "true";
     date = "2024-07-09";
   };
   orgmode = {
@@ -295,6 +290,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-SmofuYt4fLhtl5qedYlmCRgOmZaw3nmlnMg0OMzyKnM=";
     };
+    opt = "true";
   };
   plenary-nvim = {
     pname = "plenary-nvim";
@@ -343,6 +339,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-2/9eyU+uUbcKiNcBDdgdxCBp1vNSP51U/0LTHihEYJY=";
     };
+    opt = "true";
     date = "2024-02-24";
   };
   which-key-nvim = {
