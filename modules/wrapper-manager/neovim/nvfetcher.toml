@@ -63,14 +63,6 @@ fetch.github = "LnL7/vim-nix"
 src.git = "https://github.com/LnL7/vim-nix"
 passthru.opt = "true"
 
-# [nvim-transparent]
-# fetch.github = "xiyaowong/nvim-transparent"
-# src.git = "https://github.com/xiyaowong/nvim-transparent"
-
-# [nvim-base-16]
-# fetch.github = "RRethy/nvim-base16"
-# src.git = "https://github.com/RRethy/nvim-base16"
-
 [orgmode]
 fetch.github = "nvim-orgmode/orgmode"
 src.github = "nvim-orgmode/orgmode"
@@ -141,3 +133,7 @@ src.github = "nvim-neorocks/lz.n"
 [dressing-nvim]
 fetch.github = "stevearc/dressing.nvim"
 src.git = "https://github.com/stevearc/dressing.nvim"
+
+[kaganawa-nvim]
+fetch.github = "rebelot/kanagawa.nvim"
+src.git = "https://github.com/rebelot/kanagawa.nvim"

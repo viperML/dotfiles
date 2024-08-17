@@ -122,6 +122,18 @@
     };
     opt = "true";
   };
+  kaganawa-nvim = {
+    pname = "kaganawa-nvim";
+    version = "e5f7b8a804360f0a48e40d0083a97193ee4fcc87";
+    src = fetchFromGitHub {
+      owner = "rebelot";
+      repo = "kanagawa.nvim";
+      rev = "e5f7b8a804360f0a48e40d0083a97193ee4fcc87";
+      fetchSubmodules = false;
+      sha256 = "sha256-FnwqqF/jtCgfmjIIR70xx8kL5oAqonrbDEGNw0sixoA=";
+    };
+    date = "2024-07-03";
+  };
   lualine-nvim = {
     pname = "lualine-nvim";
     version = "b431d228b7bbcdaea818bdc3e25b8cdbe861f056";

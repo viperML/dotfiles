@@ -2,6 +2,12 @@
 --
 -- vim.g.transparent_enabled = true
 -- require("transparent").setup {}
+--
+require("kanagawa").setup {
+  transparent = true,
+}
+
+vim.cmd([[ colorscheme kanagawa-dragon ]])
 
 vim.opt.termguicolors = true
 
@@ -18,7 +24,7 @@ require("bufferline").setup {
 
 require("lualine").setup {
   options = {
-    theme = "codedark",
+    theme = "kaganawa-dragon",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },

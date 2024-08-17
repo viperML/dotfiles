@@ -206,6 +206,26 @@
         },
         "version": "v3.7.2"
     },
+    "kaganawa-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-03",
+        "extract": null,
+        "name": "kaganawa-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rebelot",
+            "repo": "kanagawa.nvim",
+            "rev": "e5f7b8a804360f0a48e40d0083a97193ee4fcc87",
+            "sha256": "sha256-FnwqqF/jtCgfmjIIR70xx8kL5oAqonrbDEGNw0sixoA=",
+            "type": "github"
+        },
+        "version": "e5f7b8a804360f0a48e40d0083a97193ee4fcc87"
+    },
     "lualine-nvim": {
         "cargoLocks": null,
         "date": "2024-08-12",
