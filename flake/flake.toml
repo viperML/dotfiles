@@ -1,6 +1,6 @@
 [hyprland]
-# src.github = "hyprwm/Hyprland"
-src.git = "https://github.com/hyprwm/Hyprland"
+src.github = "hyprwm/Hyprland"
+# src.git = "https://github.com/hyprwm/Hyprland"
 fetch.git = "https://github.com/hyprwm/Hyprland"
 
 [nvfetcher]

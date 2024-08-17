@@ -1,4 +1,4 @@
-# -*- mode: nix -*-
+# vim:ft=nix
 {
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./flake ]; };
 
@@ -85,14 +85,6 @@
     hyprland = {
       url = "github:hyprwm/Hyprland/{{hyprland}}";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
     nix-ld = {
       url = "github:nix-community/nix-ld-rs";
