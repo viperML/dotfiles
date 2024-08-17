@@ -37,7 +37,7 @@ vim.list_extend(require("viper.lazy.specs"), {
   {
     "neo-tree.nvim",
     cmd = "Neotree",
-    keys = {"<leader>b"},
+    keys = { "<leader>b" },
     after = function()
       require("neo-tree").setup {
         close_if_last_window = true,
@@ -55,7 +55,7 @@ vim.list_extend(require("viper.lazy.specs"), {
           follow_current_file = {
             enabled = true,
             leave_dirs_open = true,
-          }
+          },
         },
       }
       vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
@@ -78,7 +78,7 @@ vim.list_extend(require("viper.lazy.specs"), {
   {
     "telescope.nvim",
     cmd = "Telescope",
-    keys = { "<leader><leader>" },
+    keys = { "<leader><leader>", "<leader>f" },
     after = function()
       require("telescope").setup {
         extensions = {
