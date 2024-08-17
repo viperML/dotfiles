@@ -41,7 +41,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
           then baseNameOf original.src.git
           else if original ? src.github
           then baseNameOf original.src.github
-          else builtins.trace original throw "FIXME";
+          else builtins.trace original throw "src wasn't git or github";
         version =
           if builtins.hasAttr "date" value
           then value.date
@@ -50,9 +50,9 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         inherit pname version;
         name = "${pname}-${version}";
         passthru.opt = (
-          if (value ? opt) && value.opt == "false"
-          then false
-          else true
+          if (value ? opt)
+          then builtins.fromJSON value.opt
+          else false
         );
       })))
       nvGenerated;
@@ -126,7 +126,11 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         mkdir -pv $out/pack/${packName}/{start,opt}
 
         ${concatMapStringsSep "\n" (p: ''
-            ln -vsfT ${p} $out/pack/${packName}/start/${
+            ln -vsfT ${p} $out/pack/${packName}/${
+              if p ? passthru.opt && p.passthru.opt
+              then "opt"
+              else "start"
+            }/${
               if typeOf p == "path"
               then baseNameOf p
               else if p ? pname
@@ -151,7 +155,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         force = true;
       };
       NVIM_APPNAME = {
-        value = "nvim-viper-2";
+        value = "nvim-viper-3";
       };
     };
     flags = [

@@ -143,7 +143,9 @@
         "date": null,
         "extract": null,
         "name": "gitsigns-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -218,11 +220,11 @@
         },
         "version": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056"
     },
-    "minintro-nvim": {
+    "lz-n": {
         "cargoLocks": null,
-        "date": "2023-11-21",
+        "date": null,
         "extract": null,
-        "name": "minintro-nvim",
+        "name": "lz-n",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -230,20 +232,22 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "eoh-bse",
-            "repo": "minintro.nvim",
-            "rev": "b7fa58cc549e8d2b362a217a7620d9aedc47d47e",
-            "sha256": "sha256-3yOT4sve3LZ2lO15XlX8OkCJFE/r1ARo41x01CjGIbA=",
+            "owner": "nvim-neorocks",
+            "repo": "lz.n",
+            "rev": "v1.4.4",
+            "sha256": "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=",
             "type": "github"
         },
-        "version": "b7fa58cc549e8d2b362a217a7620d9aedc47d47e"
+        "version": "v1.4.4"
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
         "date": "2024-06-11",
         "extract": null,
         "name": "neo-tree-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -343,7 +347,9 @@
         "date": null,
         "extract": null,
         "name": "nvim-dap",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -363,7 +369,9 @@
         "date": "2024-06-26",
         "extract": null,
         "name": "nvim-dap-python",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -503,9 +511,7 @@
         "date": "2024-05-20",
         "extract": null,
         "name": "plenary-nvim",
-        "passthru": {
-            "opt": "false"
-        },
+        "passthru": null,
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -525,7 +531,9 @@
         "date": "2024-07-02",
         "extract": null,
         "name": "telescope-fzf-native-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -545,7 +553,9 @@
         "date": null,
         "extract": null,
         "name": "telescope-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -585,7 +595,9 @@
         "date": null,
         "extract": null,
         "name": "which-key-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,

@@ -94,6 +94,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-AbnjBqKLhOGMGBXBnu9zbL3PG7rKmAoYtxY17kzFEIA=";
     };
+    opt = "true";
   };
   guess-indent-nvim = {
     pname = "guess-indent-nvim";
@@ -130,17 +131,16 @@
     };
     date = "2024-08-12";
   };
-  minintro-nvim = {
-    pname = "minintro-nvim";
-    version = "b7fa58cc549e8d2b362a217a7620d9aedc47d47e";
+  lz-n = {
+    pname = "lz-n";
+    version = "v1.4.4";
     src = fetchFromGitHub {
-      owner = "eoh-bse";
-      repo = "minintro.nvim";
-      rev = "b7fa58cc549e8d2b362a217a7620d9aedc47d47e";
+      owner = "nvim-neorocks";
+      repo = "lz.n";
+      rev = "v1.4.4";
       fetchSubmodules = false;
-      sha256 = "sha256-3yOT4sve3LZ2lO15XlX8OkCJFE/r1ARo41x01CjGIbA=";
+      sha256 = "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=";
     };
-    date = "2023-11-21";
   };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
@@ -152,6 +152,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-eNGuQEjAKsPuRDGaw95kCVOmP64ZDnUuFBppqtcrhZ4=";
     };
+    opt = "true";
     date = "2024-06-11";
   };
   neovim-session-manager = {
@@ -211,6 +212,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-jdNqA2POc2TEspkgbJdxgnczVEJnBBi+nipTXCPQgyM=";
     };
+    opt = "true";
   };
   nvim-dap-python = {
     pname = "nvim-dap-python";
@@ -222,6 +224,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-W1GGJAd+1z+ReOrosFua0V7c4VDMsNcrPAQ5FXK0Trs=";
     };
+    opt = "true";
     date = "2024-06-26";
   };
   nvim-lspconfig = {
@@ -303,7 +306,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-5Jf2mWFVDofXBcXLbMa417mqlEPWLA+cQIZH/vNEV1g=";
     };
-    opt = "false";
     date = "2024-05-20";
   };
   telescope-fzf-native-nvim = {
@@ -316,6 +318,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-GEhPf1f0jkEuDlHNuxVko0ChvuF/zoQroLNUlk8N5EA=";
     };
+    opt = "true";
     date = "2024-07-02";
   };
   telescope-nvim = {
@@ -328,6 +331,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-e1ulhc4IIvUgpjKQrSqPY4WpXuez6wlxL6Min9U0o5Q=";
     };
+    opt = "true";
   };
   vim-nix = {
     pname = "vim-nix";
@@ -351,5 +355,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-nv9s4/ax2BoL9IQdk42uN7mxIVFYiTK+1FVvWDKRnGM=";
     };
+    opt = "true";
   };
 }

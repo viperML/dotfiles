@@ -30,3 +30,5 @@ vim.keymap.set({ "n", "i", "v" }, "<S-Up>", "<Up>")
 vim.keymap.set({ "n", "i", "v" }, "<S-Down>", "<Down>")
 vim.keymap.set({ "n", "i", "v" }, "<C-Up>", "<Up>")
 vim.keymap.set({ "n", "i", "v" }, "<C-Down>", "<Down>")
+
+require("viper.lazy").finish()
