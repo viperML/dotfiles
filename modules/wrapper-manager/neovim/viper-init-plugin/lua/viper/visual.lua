@@ -5,6 +5,7 @@
 --
 require("kanagawa").setup {
   transparent = true,
+  theme = "dragon",
 }
 
 vim.cmd([[ colorscheme kanagawa-dragon ]])
@@ -24,7 +25,7 @@ require("bufferline").setup {
 
 require("lualine").setup {
   options = {
-    theme = "kaganawa-dragon",
+    theme = "kanagawa",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
@@ -51,6 +52,10 @@ vim.list_extend(require("viper.lazy.specs"), {
               ".git",
             },
           },
+          follow_current_file = {
+            enabled = true,
+            leave_dirs_open = true,
+          }
         },
       }
       vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
@@ -87,7 +92,7 @@ vim.list_extend(require("viper.lazy.specs"), {
         },
       }
 
-      require("viper.lazy").packadd("telescope-fzf-native.nvim")
+      -- require("viper.lazy").packadd("telescope-fzf-native.nvim")
       require("telescope").load_extension("fzf")
 
       vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })

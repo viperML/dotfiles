@@ -60,7 +60,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
     nvPlugins' =
       nvPlugins
       // {
-        telescope-fzf-native-nvimm = let
+        telescope-fzf-native-nvim = let
           base = nvGenerated.telescope-fzf-native-nvim;
         in
           with pkgs;
@@ -78,7 +78,6 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
                 mkdir -p $out/build
                 cp -vr ./*.so $out/build/
               '';
-              passthru.opt = true;
             };
       };
 
