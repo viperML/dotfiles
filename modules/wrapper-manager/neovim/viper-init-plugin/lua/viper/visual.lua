@@ -24,6 +24,8 @@ require("lualine").setup {
   },
 }
 
+require("dressing").setup {}
+
 vim.list_extend(require("viper.lazy.specs"), {
   {
     "neo-tree.nvim",

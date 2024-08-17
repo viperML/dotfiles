@@ -137,3 +137,7 @@ passthru.opt = "true"
 [lz-n]
 fetch.github = "nvim-neorocks/lz.n"
 src.github = "nvim-neorocks/lz.n"
+
+[dressing-nvim]
+fetch.github = "stevearc/dressing.nvim"
+src.git = "https://github.com/stevearc/dressing.nvim"

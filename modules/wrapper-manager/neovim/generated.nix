@@ -61,6 +61,18 @@
     };
     opt = "true";
   };
+  dressing-nvim = {
+    pname = "dressing-nvim";
+    version = "c5775a888adbc50652cb370073fcfec963eca93e";
+    src = fetchFromGitHub {
+      owner = "stevearc";
+      repo = "dressing.nvim";
+      rev = "c5775a888adbc50652cb370073fcfec963eca93e";
+      fetchSubmodules = false;
+      sha256 = "sha256-6T2p0hI7/WqaDFQodaDq7uiyuplVqeekayQ2equ/mC0=";
+    };
+    date = "2024-08-16";
+  };
   fidget-nvim = {
     pname = "fidget-nvim";
     version = "d855eed8a06531a7e8fd0684889b2943f373c469";

@@ -100,6 +100,26 @@
         },
         "version": "v7.1.0"
     },
+    "dressing-nvim": {
+        "cargoLocks": null,
+        "date": "2024-08-16",
+        "extract": null,
+        "name": "dressing-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "stevearc",
+            "repo": "dressing.nvim",
+            "rev": "c5775a888adbc50652cb370073fcfec963eca93e",
+            "sha256": "sha256-6T2p0hI7/WqaDFQodaDq7uiyuplVqeekayQ2equ/mC0=",
+            "type": "github"
+        },
+        "version": "c5775a888adbc50652cb370073fcfec963eca93e"
+    },
     "fidget-nvim": {
         "cargoLocks": null,
         "date": "2024-07-13",
