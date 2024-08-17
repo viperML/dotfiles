@@ -60,7 +60,7 @@ style = "bold purple"
 format = '[$hash]($style) '
 
 [git_status]
-format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+format = "([$stashed$conflicted$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
 style = "bold cyan"
 up_to_date = ""
 conflicted = "=$count "
@@ -68,7 +68,7 @@ ahead = "⇡$count "
 behind = "⇣$count "
 diverged = "⇕$count "
 untracked = "?$count "
-stashed = "$$count "
+stashed = "\\(stash: $count\\) "
 modified = "!$count "
 staged = "+$count "
 renamed = "»$count "
