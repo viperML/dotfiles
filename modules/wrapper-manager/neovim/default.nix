@@ -168,7 +168,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         force = true;
       };
       NVIM_APPNAME = {
-        value = "nvim-viper-3";
+        value = "nvim-viper";
       };
     };
     flags = [

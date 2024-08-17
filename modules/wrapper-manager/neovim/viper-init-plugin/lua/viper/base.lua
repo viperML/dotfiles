@@ -31,6 +31,8 @@ vim.opt.signcolumn = "yes"
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
+vim.opt.sessionoptions:remove("folds")
+
 
 vim.list_extend(require("viper.lazy.specs"), {
   {
