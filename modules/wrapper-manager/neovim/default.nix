@@ -175,6 +175,8 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
       "-u"
       "NORC"
       "--cmd"
+      "lua vim.loader.enable()"
+      "--cmd"
       "set packpath^=${packDir} | set runtimepath^=${packDir}"
     ];
     overrideAttrs = old: let
