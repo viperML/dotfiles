@@ -1,34 +1,47 @@
 return {
-  {
-    "nvim-autopairs",
-    after = function()
-      -- require('lz.n').trigger_load("nvim-treesitter")
-      local npairs = require("nvim-autopairs")
-      npairs.setup {
-        -- check_ts = true,
-        enable_check_bracket_line = false,
-      }
-      local lisps = {
-        "scheme",
-        "racket",
-        "clojure",
-      }
-      npairs.get_rules("'")[1].not_filetypes = lisps
-      npairs.get_rules("`")[1].not_filetypes = lisps
-      npairs.get_rules("(")[1].not_filetypes = lisps
-      npairs.get_rules("[")[1].not_filetypes = lisps
-      -- vim.notify("nvim-autopairs loaded")
-    end,
-    -- cmd = "Stuff",
-  },
+  -- {
+  --   "nvim-autopairs",
+  --   after = function()
+  --     -- require('lz.n').trigger_load("nvim-treesitter")
+  --     local npairs = require("nvim-autopairs")
+  --     npairs.setup {
+  --       -- check_ts = true,
+  --       enable_check_bracket_line = false,
+  --     }
+  --     local lisps = {
+  --       "scheme",
+  --       "racket",
+  --       "clojure",
+  --     }
+  --     npairs.get_rules("'")[1].not_filetypes = lisps
+  --     npairs.get_rules("`")[1].not_filetypes = lisps
+  --     npairs.get_rules("(")[1].not_filetypes = lisps
+  --     npairs.get_rules("[")[1].not_filetypes = lisps
+  --     -- vim.notify("nvim-autopairs loaded")
+  --   end,
+  --   -- cmd = "Stuff",
+  -- },
   {
     "nvim-cmp",
-    before = function()
-      require('lz.n').trigger_load("nvim-autopairs")
-    end,
+    event = "DeferredUIEnter",
     after = function()
       local cmp = require("cmp");
+
+      vim.api.nvim_cmd({
+        cmd = "packadd",
+        args = {"nvim-autopairs"},
+      }, {})
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+
+      vim.api.nvim_cmd({
+        cmd = "packadd",
+        args = {"cmp-cmdline"},
+      }, {})
+      vim.api.nvim_cmd({
+        cmd = "packadd",
+        args = {"cmp-async-path"},
+      }, {})
 
       local mapping = cmp.mapping.preset.insert {
         ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -114,6 +127,8 @@ return {
           { name = "async_path" },
         }),
       })
+
+      vim.notify("cmp loaded")
     end
   }
 }
