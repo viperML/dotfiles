@@ -28,6 +28,7 @@ end
 vim.list_extend(require("viper.lazy.specs"), {
   {
     "indent-blankline.nvim",
+    event = "DeferredUIEnter",
     after = function()
       require("ibl").setup()
     end,
