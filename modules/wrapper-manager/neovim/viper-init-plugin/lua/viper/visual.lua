@@ -96,6 +96,7 @@ vim.list_extend(require("viper.lazy.specs"), {
       require("telescope").load_extension("fzf")
 
       vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
+      vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: grep" })
     end,
   },
   {
