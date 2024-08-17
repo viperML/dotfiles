@@ -217,4 +217,6 @@
       };
     };
   };
+
+  home.sessionVariables.XCURSOR_THEME = "DMZ-White";
 }
