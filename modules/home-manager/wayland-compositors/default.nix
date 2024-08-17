@@ -2,7 +2,8 @@
   config,
   lib,
   pkgs,
-  packages,
+  inputs',
+  self',
   ...
 }: {
   xdg.configFile."wofi/style.css".source = ./wofi-style.css;
@@ -69,13 +70,13 @@
       Service.StandardInput = "socket";
     };
 
-    wl-clip-persist = {
-      Service.ExecStart = pkgs.writeShellScript "wl-clip-persist-wrapper" ''
-        set -x
-        printenv
-        exec ${packages.self.wl-clip-persist}/bin/wl-clip-persist --clipboard regular "$@"
-      '';
-    };
+    # wl-clip-persist = {
+    #   Service.ExecStart = pkgs.writeShellScript "wl-clip-persist-wrapper" ''
+    #     set -x
+    #     printenv
+    #     exec ${packages.self.wl-clip-persist}/bin/wl-clip-persist --clipboard regular "$@"
+    #   '';
+    # };
   };
 
   systemd.user.sockets = {

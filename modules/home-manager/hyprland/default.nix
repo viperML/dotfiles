@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  packages,
+  self',
   pkgs,
   ...
 }: let
@@ -26,7 +26,6 @@ in {
       bind=,Prior,exec,volume 5%+
       bind=,Next,exec,volume 5%-
 
-      bind=SUPER,Return,exec,${mkExec "wezterm"}
       bind=SUPER,O,exec,wezterm start --always-new-process
       bind=SUPER,Space,exec,pkill wofi || ${mkExec "wofi --show drun -I"}
       bind=,Print,exec,${mkExec "grimblast copy area"}
@@ -35,18 +34,22 @@ in {
       exec=systemctl --user restart kanshi.service
     '';
 
-    onChange = ''
-      (
-        shopt -s nullglob  # so that nothing is done if /tmp/hypr/ does not exist or is empty
-        for instance in /tmp/hypr/*; do
-          HYPRLAND_INSTANCE_SIGNATURE=''${instance##*/} ${packages.hyprland.default}/bin/hyprctl reload config-only \
-            || true  # ignore dead instance(s)
-        done
-      )
-    '';
+    # onChange = ''
+    #   (
+    #     shopt -s nullglob  # so that nothing is done if /tmp/hypr/ does not exist or is empty
+    #     for instance in /tmp/hypr/*; do
+    #       HYPRLAND_INSTANCE_SIGNATURE=''${instance##*/} ${packages.hyprland.default}/bin/hyprctl reload config-only \
+    #         || true  # ignore dead instance(s)
+    #     done
+    #   )
+    # '';
   };
 
-  home.packages = [packages.self.wezterm packages.hyprland-contrib.grimblast];
+  # home.packages = [packages.self.wezterm packages.hyprland-contrib.grimblast];
+  home.packages = [
+    pkgs.foot
+    self'.packages.wezterm
+  ];
 
   systemd.user.targets.hyprland-session = {
     Unit = {
