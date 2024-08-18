@@ -40,7 +40,7 @@ return {
   },
   -- JS
   ["tsserver"] = {
-    root_dir = root_pattern("package.json"),
+    root_dir = root_pattern("package.json", "tsconfig.json"),
     single_file_support = false,
   },
   ["denols"] = {
