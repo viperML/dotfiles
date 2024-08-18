@@ -40,6 +40,11 @@ vim.list_extend(require("viper.lazy.specs"), {
     keys = { "<leader>b" },
     after = function()
       require("neo-tree").setup {
+        default_component_configs = {
+          symlink_target = {
+            enabled = true,
+          },
+        },
         close_if_last_window = true,
         filesystem = {
           group_empty_dirs = true,
