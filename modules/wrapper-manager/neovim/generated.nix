@@ -253,7 +253,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=";
     };
-    opt = "true";
     date = "2024-06-15";
   };
   nvim-lspconfig = {

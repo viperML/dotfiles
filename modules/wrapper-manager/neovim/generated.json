@@ -419,9 +419,7 @@
         "date": "2024-06-15",
         "extract": null,
         "name": "nvim-lsp-file-operations",
-        "passthru": {
-            "opt": "true"
-        },
+        "passthru": null,
         "pinned": false,
         "src": {
             "deepClone": false,

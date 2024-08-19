@@ -3,12 +3,16 @@ local root_pattern = nvim_lsp.util.root_pattern
 local DEBUG = vim.log.levels.DEBUG
 
 nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_config, {
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  capabilities = vim.tbl_extend(
+    "force",
+    require("cmp_nvim_lsp").default_capabilities(),
+    require("lsp-file-operations").default_capabilities()
+  ),
 })
 
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
-vim.keymap.set({"n", "i"}, "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
-vim.keymap.set({"n", "i"}, "<C-Space>", function()
+vim.keymap.set({ "n", "i" }, "<C-.>", vim.lsp.buf.code_action, { desc = "LSP action" })
+vim.keymap.set({ "n", "i" }, "<C-Space>", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "LSP toggle inlay hints" })
 vim.keymap.set("n", "<leader>,", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
@@ -45,7 +49,6 @@ local function setup_all()
 end
 
 setup_all()
-
 
 local function direnv()
   vim.notify("Loading direnv")
