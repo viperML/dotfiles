@@ -33,6 +33,8 @@ vim.o.timeoutlen = 500
 
 vim.opt.sessionoptions:remove("folds")
 
+vim.opt.shortmess = "I" -- disable intro message
+
 
 vim.list_extend(require("viper.lazy.specs"), {
   {
