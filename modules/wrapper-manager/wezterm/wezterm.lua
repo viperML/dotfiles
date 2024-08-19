@@ -312,7 +312,7 @@ local generic_config = {
   mouse_bindings = {
     {
       event = { Down = { streak = 2, button = "Left" }},
-      action = act.SelectTextAtMouseCursor("Cell"),
+      action = act.SelectTextAtMouseCursor("Word"),
       mods = "NONE",
     }
   },
