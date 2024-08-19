@@ -454,6 +454,26 @@
         },
         "version": "v0.1.8"
     },
+    "nvim-navic": {
+        "cargoLocks": null,
+        "date": "2023-11-30",
+        "extract": null,
+        "name": "nvim-navic",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "SmiteshP",
+            "repo": "nvim-navic",
+            "rev": "8649f694d3e76ee10c19255dece6411c29206a54",
+            "sha256": "sha256-0p5n/V8Jlj9XyxV/fuMwsbQ7oV5m9H2GqZZEA/njxCQ=",
+            "type": "github"
+        },
+        "version": "8649f694d3e76ee10c19255dece6411c29206a54"
+    },
     "nvim-paredit": {
         "cargoLocks": null,
         "date": null,

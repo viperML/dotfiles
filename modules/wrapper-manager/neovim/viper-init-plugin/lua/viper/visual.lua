@@ -14,7 +14,7 @@ vim.opt.termguicolors = true
 
 require("bufferline").setup {
   options = {
-    always_show_bufferline = false,
+    -- always_show_bufferline = false,
     right_mouse_command = nil,
     middle_mouse_command = "bdelete! %d",
     indicator = {
@@ -34,6 +34,22 @@ require("lualine").setup {
       "neo-tree",
     },
   },
+  winbar = {
+    lualine_c = {
+      "filename",
+      {
+        "navic",
+        color_correction = nil,
+        navic_opts = {
+        },
+      }
+    },
+  },
+  inactive_winbar = {
+    lualine_c = {
+      "filename",
+    },
+  },
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff" },
@@ -50,7 +66,7 @@ require("lualine").setup {
       "encoding",
       "filesize",
     },
-    lualine_y = { "filetype", "filename" },
+    lualine_y = { "filetype" },
     lualine_z = { "location" },
   },
 }

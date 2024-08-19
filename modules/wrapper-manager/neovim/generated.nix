@@ -266,6 +266,18 @@
       sha256 = "sha256-foJ7a59N0a3QaBW24PtwbyYDQVlIsFxiatADLO/hQvc=";
     };
   };
+  nvim-navic = {
+    pname = "nvim-navic";
+    version = "8649f694d3e76ee10c19255dece6411c29206a54";
+    src = fetchFromGitHub {
+      owner = "SmiteshP";
+      repo = "nvim-navic";
+      rev = "8649f694d3e76ee10c19255dece6411c29206a54";
+      fetchSubmodules = false;
+      sha256 = "sha256-0p5n/V8Jlj9XyxV/fuMwsbQ7oV5m9H2GqZZEA/njxCQ=";
+    };
+    date = "2023-11-30";
+  };
   nvim-paredit = {
     pname = "nvim-paredit";
     version = "v0.11.0";
