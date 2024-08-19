@@ -128,7 +128,7 @@
   console.useXkbConfig = true;
 
   services.kmscon = {
-    enable = lib.mkDefault false;
+    # enable = true;
     extraConfig = ''
       font-size=14
       xkb-layout=${config.services.xserver.layout}
@@ -138,6 +138,10 @@
       {
         name = "iosevka-normal Semibold";
         package = self'.packages.iosevka;
+      }
+      {
+        name = "Symbols Nerd Font";
+        package = (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];});
       }
     ];
   };
