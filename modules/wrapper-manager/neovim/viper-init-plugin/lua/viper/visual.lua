@@ -28,6 +28,11 @@ require("lualine").setup {
     theme = "kanagawa",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
+    disabled_filetypes = {
+      "statusline",
+      "winbar",
+      "neo-tree",
+    },
   },
   sections = {
     lualine_a = { "mode" },
@@ -154,6 +159,6 @@ vim.list_extend(require("viper.lazy.specs"), {
     event = "DeferredUIEnter",
     before = function()
       vim.g.better_whitespace_enabled = 1
-    end
-  }
+    end,
+  },
 })
