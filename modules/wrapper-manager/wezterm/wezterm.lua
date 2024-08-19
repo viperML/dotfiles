@@ -309,6 +309,13 @@ local generic_config = {
     { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
   },
+  mouse_bindings = {
+    {
+      event = { Down = { streak = 2, button = "Left" }},
+      action = act.SelectTextAtMouseCursor("Cell"),
+      mods = "NONE",
+    }
+  },
   pane_focus_follows_mouse = true,
   warn_about_missing_glyphs = false,
   enable_tab_bar = true,
