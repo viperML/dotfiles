@@ -29,6 +29,25 @@ require("lualine").setup {
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "branch", "diff" },
+    lualine_c = { "diagnostics" },
+    lualine_x = {
+      {
+        "fileformat",
+        symbols = {
+          unix = "unix",
+          dos = "dos",
+          mac = "mac",
+        },
+      },
+      "encoding",
+      "filesize",
+    },
+    lualine_y = { "filetype", "filename" },
+    lualine_z = { "location" },
+  },
 }
 
 require("dressing").setup {}
