@@ -54,6 +54,7 @@ return {
   ["clangd"] = {},
   ["mesonlsp"] = {},
   ["autotools_ls"] = {},
+  ["neocmake"] = {},
   -- Python
   ["ruff"] = {},
   ["pylsp"] = {},
@@ -89,4 +90,7 @@ return {
   },
   ["hls"] = {},
   ["gopls"] = {},
+  ["typst_lsp"] = {},
+  ["texlab"] = {},
+  ["zls"] = {},
 }
