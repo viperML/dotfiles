@@ -137,3 +137,8 @@ src.git = "https://github.com/stevearc/dressing.nvim"
 [kaganawa-nvim]
 fetch.github = "rebelot/kanagawa.nvim"
 src.git = "https://github.com/rebelot/kanagawa.nvim"
+
+[vim-better-whitespace]
+fetch.github = "ntpeters/vim-better-whitespace"
+src.git = "https://github.com/ntpeters/vim-better-whitespace"
+passthru.opt = "true"

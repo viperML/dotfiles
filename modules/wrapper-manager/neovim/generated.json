@@ -332,7 +332,7 @@
     },
     "nvim-autopairs": {
         "cargoLocks": null,
-        "date": "2024-08-10",
+        "date": "2024-08-19",
         "extract": null,
         "name": "nvim-autopairs",
         "passthru": null,
@@ -344,11 +344,11 @@
             "name": null,
             "owner": "windwp",
             "repo": "nvim-autopairs",
-            "rev": "48ca9aaee733911424646cb1605f27bc01dedbe3",
-            "sha256": "sha256-KAtr/IYABHZhva9q7lqvp1ymryz547gyR8NdLwfo9gQ=",
+            "rev": "19606af7c039271d5aa96bceff101e7523af3136",
+            "sha256": "sha256-e+67etOnK98WUVNy/NsMm51X2xLQMjGuQvp765o9PNA=",
             "type": "github"
         },
-        "version": "48ca9aaee733911424646cb1605f27bc01dedbe3"
+        "version": "19606af7c039271d5aa96bceff101e7523af3136"
     },
     "nvim-cmp": {
         "cargoLocks": null,
@@ -544,7 +544,7 @@
     },
     "plenary-nvim": {
         "cargoLocks": null,
-        "date": "2024-05-20",
+        "date": "2024-08-19",
         "extract": null,
         "name": "plenary-nvim",
         "passthru": null,
@@ -556,11 +556,11 @@
             "name": null,
             "owner": "nvim-lua",
             "repo": "plenary.nvim",
-            "rev": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683",
-            "sha256": "sha256-5Jf2mWFVDofXBcXLbMa417mqlEPWLA+cQIZH/vNEV1g=",
+            "rev": "ec289423a1693aeae6cd0d503bac2856af74edaa",
+            "sha256": "sha256-6Gm+4zZ80quI5iAW6qPAWTq9h1csPWkZFZ9KnFgYRM0=",
             "type": "github"
         },
-        "version": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683"
+        "version": "ec289423a1693aeae6cd0d503bac2856af74edaa"
     },
     "telescope-fzf-native-nvim": {
         "cargoLocks": null,
@@ -605,6 +605,28 @@
             "type": "github"
         },
         "version": "0.1.8"
+    },
+    "vim-better-whitespace": {
+        "cargoLocks": null,
+        "date": "2024-06-12",
+        "extract": null,
+        "name": "vim-better-whitespace",
+        "passthru": {
+            "opt": "true"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ntpeters",
+            "repo": "vim-better-whitespace",
+            "rev": "86a0579b330b133b8181b8e088943e81c26a809e",
+            "sha256": "sha256-muYPVkTXSur2+/3L/bCB2rlwNl98TI+9WGfIANU+4aQ=",
+            "type": "github"
+        },
+        "version": "86a0579b330b133b8181b8e088943e81c26a809e"
     },
     "vim-nix": {
         "cargoLocks": null,

@@ -149,4 +149,11 @@ vim.list_extend(require("viper.lazy.specs"), {
       vim.keymap.set("n", "<leader>g<Right>", "<cmd>GitConflictChooseBoth<cr>", { desc = "Git conflict: select both" })
     end,
   },
+  {
+    "vim-better-whitespace",
+    event = "DeferredUIEnter",
+    before = function()
+      vim.g.better_whitespace_enabled = 1
+    end
+  }
 })
