@@ -142,3 +142,8 @@ src.git = "https://github.com/rebelot/kanagawa.nvim"
 fetch.github = "ntpeters/vim-better-whitespace"
 src.git = "https://github.com/ntpeters/vim-better-whitespace"
 passthru.opt = "true"
+
+[nvim-lsp-file-operations]
+fetch.github = "antosha417/nvim-lsp-file-operations"
+src.git = "https://github.com/antosha417/nvim-lsp-file-operations"
+passthru.opt = "true"

@@ -88,6 +88,9 @@ vim.list_extend(require("viper.lazy.specs"), {
         },
       }
       vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
+
+      require("viper.lazy").packadd("nvim-lsp-file-operations")
+      require("lsp-file-operations").setup()
     end,
   },
   {

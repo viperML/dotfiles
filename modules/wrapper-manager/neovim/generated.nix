@@ -243,6 +243,19 @@
     opt = "true";
     date = "2024-06-26";
   };
+  nvim-lsp-file-operations = {
+    pname = "nvim-lsp-file-operations";
+    version = "92a673de7ecaa157dd230d0128def10beb56d103";
+    src = fetchFromGitHub {
+      owner = "antosha417";
+      repo = "nvim-lsp-file-operations";
+      rev = "92a673de7ecaa157dd230d0128def10beb56d103";
+      fetchSubmodules = false;
+      sha256 = "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=";
+    };
+    opt = "true";
+    date = "2024-06-15";
+  };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
     version = "v0.1.8";

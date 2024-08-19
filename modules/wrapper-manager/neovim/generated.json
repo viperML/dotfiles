@@ -414,6 +414,28 @@
         },
         "version": "d777c2b32ed39f61209c09bede28d7491621a631"
     },
+    "nvim-lsp-file-operations": {
+        "cargoLocks": null,
+        "date": "2024-06-15",
+        "extract": null,
+        "name": "nvim-lsp-file-operations",
+        "passthru": {
+            "opt": "true"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "antosha417",
+            "repo": "nvim-lsp-file-operations",
+            "rev": "92a673de7ecaa157dd230d0128def10beb56d103",
+            "sha256": "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=",
+            "type": "github"
+        },
+        "version": "92a673de7ecaa157dd230d0128def10beb56d103"
+    },
     "nvim-lspconfig": {
         "cargoLocks": null,
         "date": null,
