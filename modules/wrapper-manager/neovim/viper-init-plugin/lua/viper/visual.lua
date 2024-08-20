@@ -25,6 +25,7 @@ require("bufferline").setup {
 
 require("lualine").setup {
   options = {
+    globalstatus = true,
     theme = "kanagawa",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
@@ -40,9 +41,8 @@ require("lualine").setup {
       {
         "navic",
         color_correction = nil,
-        navic_opts = {
-        },
-      }
+        navic_opts = {},
+      },
     },
   },
   inactive_winbar = {
@@ -72,6 +72,11 @@ require("lualine").setup {
 }
 
 require("dressing").setup {}
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.keymap.set("n", "<Leader>sv", "<cmd>vnew<cr>", { desc = "Split vertically" })
+vim.keymap.set("n", "<Leader>sh", "<cmd>new<cr>", { desc = "Split horizontally" })
 
 vim.list_extend(require("viper.lazy.specs"), {
   {
@@ -175,6 +180,22 @@ vim.list_extend(require("viper.lazy.specs"), {
     event = "DeferredUIEnter",
     before = function()
       vim.g.better_whitespace_enabled = 1
+    end,
+  },
+  {
+    "smart-splits.nvim",
+    event = "DeferredUIEnter",
+    after = function()
+      require("smart-splits").setup {}
+      vim.keymap.set("n", "<C-Left>", require("smart-splits").move_cursor_left, { desc = "Move left" })
+      vim.keymap.set("n", "<C-Down>", require("smart-splits").move_cursor_down, { desc = "Move down" })
+      vim.keymap.set("n", "<C-Up>", require("smart-splits").move_cursor_up, { desc = "Move up" })
+      vim.keymap.set("n", "<C-Right>", require("smart-splits").move_cursor_right, { desc = "Move right" })
+
+      vim.keymap.set("n", "<C-S-Left>", require("smart-splits").resize_left, { desc = "Resize left" })
+      vim.keymap.set("n", "<C-S-Down>", require("smart-splits").resize_down, { desc = "Resize down" })
+      vim.keymap.set("n", "<C-S-Up>", require("smart-splits").resize_up, { desc = "Resize up" })
+      vim.keymap.set("n", "<C-S-Right>", require("smart-splits").resize_right, { desc = "Resize right" })
     end,
   },
 })

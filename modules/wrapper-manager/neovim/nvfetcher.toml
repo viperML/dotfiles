@@ -73,16 +73,6 @@ src.git = "https://github.com/nvim-orgmode/org-bullets.nvim"
 fetch.github = "nvim-orgmode/org-bullets.nvim"
 passthru.opt = "true"
 
-[nvim-paredit-scheme]
-src.git = "https://github.com/ekaitz-zarraga/nvim-paredit-scheme"
-fetch.github = "ekaitz-zarraga/nvim-paredit-scheme"
-passthru.opt = "true"
-
-[nvim-paredit]
-src.github = "julienvincent/nvim-paredit"
-fetch.github = "julienvincent/nvim-paredit"
-passthru.opt = "true"
-
 [indent-blankline-nvim]
 fetch.github = "lukas-reineke/indent-blankline.nvim"
 src.github = "lukas-reineke/indent-blankline.nvim"
@@ -150,3 +140,8 @@ src.git = "https://github.com/antosha417/nvim-lsp-file-operations"
 [nvim-navic]
 fetch.github = "SmiteshP/nvim-navic"
 src.git = "https://github.com/SmiteshP/nvim-navic"
+
+[smart-splits-nvim]
+fetch.github = "mrjones2014/smart-splits.nvim"
+src.github = "mrjones2014/smart-splits.nvim"
+passthru.opt = "true"

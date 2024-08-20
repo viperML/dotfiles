@@ -54,6 +54,6 @@ vim.list_extend(require("viper.lazy.specs"), {
 
       vim.keymap.set("n", "<leader>p", require("session_manager").load_session, { desc = "Project: open" })
     end
-  }
+  },
 })
 

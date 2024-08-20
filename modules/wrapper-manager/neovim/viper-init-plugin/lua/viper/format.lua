@@ -64,23 +64,6 @@ vim.list_extend(require("viper.lazy.specs"), {
       end, { range = true })
     end,
   },
-  -- {
-  --   "nvim-paredit",
-  --   ft = {"scheme"},
-  --   after = function()
-  --     require("viper.lazy").load_once("nvim-treesitter")
-  --     require("viper.lazy").packadd("nvim-paredit-scheme")
-  --
-  --     local paredit = require("nvim-paredit")
-  --     local paredit_scheme = require("nvim-paredit-scheme")
-  --
-  --     paredit_scheme.setup(paredit)
-  --
-  --     paredit.setup {
-  --       filetypes = { "scheme" },
-  --     }
-  --   end
-  -- }
   {
     "parinfer-rust",
     ft = { "scheme" },

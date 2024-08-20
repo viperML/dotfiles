@@ -148,13 +148,13 @@
   };
   lz-n = {
     pname = "lz-n";
-    version = "v1.4.4";
+    version = "v2.0.0";
     src = fetchFromGitHub {
       owner = "nvim-neorocks";
       repo = "lz.n";
-      rev = "v1.4.4";
+      rev = "v2.0.0";
       fetchSubmodules = false;
-      sha256 = "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=";
+      sha256 = "sha256-7lCzXQtPCSONtEwzvNWDbIWsysSyqIAyoFDYUx6NpcQ=";
     };
   };
   neo-tree-nvim = {
@@ -232,16 +232,16 @@
   };
   nvim-dap-python = {
     pname = "nvim-dap-python";
-    version = "d777c2b32ed39f61209c09bede28d7491621a631";
+    version = "7c427e2bbc72d46ea3c9602bede6465ef61b8c19";
     src = fetchFromGitHub {
       owner = "mfussenegger";
       repo = "nvim-dap-python";
-      rev = "d777c2b32ed39f61209c09bede28d7491621a631";
+      rev = "7c427e2bbc72d46ea3c9602bede6465ef61b8c19";
       fetchSubmodules = false;
-      sha256 = "sha256-W1GGJAd+1z+ReOrosFua0V7c4VDMsNcrPAQ5FXK0Trs=";
+      sha256 = "sha256-OXAMFIi83lEOtKJ6/bkmaus23GKtYeRkx2Wv+Yvb67g=";
     };
     opt = "true";
-    date = "2024-06-26";
+    date = "2024-08-19";
   };
   nvim-lsp-file-operations = {
     pname = "nvim-lsp-file-operations";
@@ -277,31 +277,6 @@
       sha256 = "sha256-0p5n/V8Jlj9XyxV/fuMwsbQ7oV5m9H2GqZZEA/njxCQ=";
     };
     date = "2023-11-30";
-  };
-  nvim-paredit = {
-    pname = "nvim-paredit";
-    version = "v0.11.0";
-    src = fetchFromGitHub {
-      owner = "julienvincent";
-      repo = "nvim-paredit";
-      rev = "v0.11.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-rls94nrAlPYpHDXp0eB4UzlLRB5HriBuZMdLGVAzGmA=";
-    };
-    opt = "true";
-  };
-  nvim-paredit-scheme = {
-    pname = "nvim-paredit-scheme";
-    version = "3e5838290dd57116457e4b11eb6ba21e83b260a4";
-    src = fetchFromGitHub {
-      owner = "ekaitz-zarraga";
-      repo = "nvim-paredit-scheme";
-      rev = "3e5838290dd57116457e4b11eb6ba21e83b260a4";
-      fetchSubmodules = false;
-      sha256 = "sha256-gzZJlN8LO1SH0joqgQgGIlkCVreccF8yxRYoinB9tU0=";
-    };
-    opt = "true";
-    date = "2024-01-27";
   };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";
@@ -351,6 +326,18 @@
       sha256 = "sha256-6Gm+4zZ80quI5iAW6qPAWTq9h1csPWkZFZ9KnFgYRM0=";
     };
     date = "2024-08-19";
+  };
+  smart-splits-nvim = {
+    pname = "smart-splits-nvim";
+    version = "v1.5.0";
+    src = fetchFromGitHub {
+      owner = "mrjones2014";
+      repo = "smart-splits.nvim";
+      rev = "v1.5.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-jtgms2AIbKD0nALa/hVXwAOrPBHE+hCVyn/x8RTPdzM=";
+    };
+    opt = "true";
   };
   telescope-fzf-native-nvim = {
     pname = "telescope-fzf-native-nvim";

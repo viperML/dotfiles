@@ -260,11 +260,11 @@
             "name": null,
             "owner": "nvim-neorocks",
             "repo": "lz.n",
-            "rev": "v1.4.4",
-            "sha256": "sha256-EAs/0whx8lsM1IRbdJ87WQs/N92Yovz+J15YKJf3OCo=",
+            "rev": "v2.0.0",
+            "sha256": "sha256-7lCzXQtPCSONtEwzvNWDbIWsysSyqIAyoFDYUx6NpcQ=",
             "type": "github"
         },
-        "version": "v1.4.4"
+        "version": "v2.0.0"
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
@@ -394,7 +394,7 @@
     },
     "nvim-dap-python": {
         "cargoLocks": null,
-        "date": "2024-06-26",
+        "date": "2024-08-19",
         "extract": null,
         "name": "nvim-dap-python",
         "passthru": {
@@ -408,11 +408,11 @@
             "name": null,
             "owner": "mfussenegger",
             "repo": "nvim-dap-python",
-            "rev": "d777c2b32ed39f61209c09bede28d7491621a631",
-            "sha256": "sha256-W1GGJAd+1z+ReOrosFua0V7c4VDMsNcrPAQ5FXK0Trs=",
+            "rev": "7c427e2bbc72d46ea3c9602bede6465ef61b8c19",
+            "sha256": "sha256-OXAMFIi83lEOtKJ6/bkmaus23GKtYeRkx2Wv+Yvb67g=",
             "type": "github"
         },
-        "version": "d777c2b32ed39f61209c09bede28d7491621a631"
+        "version": "7c427e2bbc72d46ea3c9602bede6465ef61b8c19"
     },
     "nvim-lsp-file-operations": {
         "cargoLocks": null,
@@ -473,50 +473,6 @@
             "type": "github"
         },
         "version": "8649f694d3e76ee10c19255dece6411c29206a54"
-    },
-    "nvim-paredit": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "nvim-paredit",
-        "passthru": {
-            "opt": "true"
-        },
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "julienvincent",
-            "repo": "nvim-paredit",
-            "rev": "v0.11.0",
-            "sha256": "sha256-rls94nrAlPYpHDXp0eB4UzlLRB5HriBuZMdLGVAzGmA=",
-            "type": "github"
-        },
-        "version": "v0.11.0"
-    },
-    "nvim-paredit-scheme": {
-        "cargoLocks": null,
-        "date": "2024-01-27",
-        "extract": null,
-        "name": "nvim-paredit-scheme",
-        "passthru": {
-            "opt": "true"
-        },
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "ekaitz-zarraga",
-            "repo": "nvim-paredit-scheme",
-            "rev": "3e5838290dd57116457e4b11eb6ba21e83b260a4",
-            "sha256": "sha256-gzZJlN8LO1SH0joqgQgGIlkCVreccF8yxRYoinB9tU0=",
-            "type": "github"
-        },
-        "version": "3e5838290dd57116457e4b11eb6ba21e83b260a4"
     },
     "nvim-web-devicons": {
         "cargoLocks": null,
@@ -601,6 +557,28 @@
             "type": "github"
         },
         "version": "ec289423a1693aeae6cd0d503bac2856af74edaa"
+    },
+    "smart-splits-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "smart-splits-nvim",
+        "passthru": {
+            "opt": "true"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mrjones2014",
+            "repo": "smart-splits.nvim",
+            "rev": "v1.5.0",
+            "sha256": "sha256-jtgms2AIbKD0nALa/hVXwAOrPBHE+hCVyn/x8RTPdzM=",
+            "type": "github"
+        },
+        "version": "v1.5.0"
     },
     "telescope-fzf-native-nvim": {
         "cargoLocks": null,
