@@ -5,10 +5,7 @@ local DEBUG = vim.log.levels.DEBUG
 nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_config, {
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
-      vim.notify("Attaching navic")
       require("nvim-navic").attach(client, bufnr)
-    else
-      vim.notify("Not attaching navic")
     end
   end,
   capabilities = vim.tbl_extend(
