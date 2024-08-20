@@ -1,161 +1,39 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local padding = 12
+local M = {}
 
-function tableMerge(t1, t2)
-  for k, v in pairs(t2) do
-    if type(v) == "table" then
-      if type(t1[k] or false) == "table" then
-        tableMerge(t1[k] or {}, t2[k] or {})
-      else
-        t1[k] = v
-      end
-    else
-      t1[k] = v
-    end
-  end
-  return t1
+local function apply_colorscheme(config)
+  -- Tomorrow night mod
+  config.colors = {
+    foreground = "#C5C8C6",
+    background = "#141414",
+    ansi = {
+      "#17191a",
+      "#CC6666",
+      "#B5BD68",
+      "#F0C674",
+      "#81A2BE",
+      "#B294BB",
+      "#8ABEB7",
+      "#C5C8C6",
+    },
+    brights = {
+      "#696969",
+      "#CC6666",
+      "#B5BD68",
+      "#F0C674",
+      "#81A2BE",
+      "#B294BB",
+      "#8ABEB7",
+      "#FFFFFF",
+    },
+  }
 end
 
-local atom_one_dark = {
-  ansi = {
-    -- Base Colors
-    "#282c34",
-    "#e06c75",
-    "#98c379",
-    "#e5c07b",
-    "#61afef",
-    "#c678dd",
-    "#56b6c2",
-    "#d0d0d0",
-  },
-  brights = {
-    "#504945",
-    "#e06c75",
-    "#98c379",
-    "#e5c07b",
-    "#61afef",
-    "#c678dd",
-    "#56b6c2",
-    "#ffffff",
-  },
-  background = "#121212",
-}
-atom_one_light = {
-  foreground = "#222222",
-  ansi = {
-    "#000000",
-    "#c35045",
-    "#4d8f4c",
-    "#a8770d",
-    "#3e6ccf",
-    "#8d258c",
-    "#0a74a4",
-    "#222222",
-  },
-  brights = {
-    "#aaaaaa",
-    "#c35045",
-    "#4d8f4c",
-    "#a8770d",
-    "#3e6ccf",
-    "#8d258c",
-    "#0a74a4",
-    "#999999",
-  },
-  background = "#ffffff",
-}
-local rose_pine = {
-  background = "#191724",
-  foreground = "#e0def4",
-  ansi = {
-    "#6e6a86",
-    "#eb6f92",
-    "#9ccfd8",
-    "#f6c177",
-    "#31748f",
-    "#c4a7e7",
-    "#ebbcba",
-    "#e0def4",
-  },
-  brights = {
-    "#6e6a86",
-    "#eb6f92",
-    "#9ccfd8",
-    "#f6c177",
-    "#31748f",
-    "#c4a7e7",
-    "#ebbcba",
-    "#e0def4",
-  },
-}
-
-local rose_pine_dawn = {
-  foreground = "#575279",
-  background = "#fffaf3",
-  ansi = {
-    "#6e6a86",
-    "#b4637a",
-    "#56949f",
-    "#ea9d34",
-    "#286983",
-    "#907aa9",
-    "#d7827e",
-    "#575279",
-  },
-  brights = {
-    "#6e6a86",
-    "#eb6f92",
-    "#9ccfd8",
-    "#f6c177",
-    "#31748f",
-    "#c4a7e7",
-    "#ebbcba",
-    "#e0def4",
-  },
-}
-
-local tomorrow_night = {
-  foreground = "#C5C8C6",
-  background = "#141414",
-  ansi = {
-    "#17191a",
-    "#CC6666",
-    "#B5BD68",
-    "#F0C674",
-    "#81A2BE",
-    "#B294BB",
-    "#8ABEB7",
-    "#C5C8C6",
-  },
-  brights = {
-    "#696969",
-    "#CC6666",
-    "#B5BD68",
-    "#F0C674",
-    "#81A2BE",
-    "#B294BB",
-    "#8ABEB7",
-    "#FFFFFF",
-  },
-}
-
-local generic_config = {
-  -- window_background_opacity = 1.0,
-  enable_scroll_bar = true,
-  window_padding = {
-    left = padding,
-    right = padding,
-    top = padding - 5,
-    bottom = padding - 5,
-  },
-  colors = tomorrow_night,
-  window_close_confirmation = "NeverPrompt",
-  check_for_updates = false,
-  default_cursor_style = "SteadyBar",
-  disable_default_key_bindings = true,
-  keys = {
+local function apply_keybindings(config)
+  config.disable_default_key_bindings = true
+  config.keys = {
     -- Default
     -- { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
     -- { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
@@ -308,18 +186,34 @@ local generic_config = {
     { key = "w", mods = "CTRL", action = act.CloseCurrentTab { confirm = false } },
     { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
-  },
-  mouse_bindings = {
+  }
+  config.mouse_bindings = {
     {
-      event = { Down = { streak = 2, button = "Left" }},
+      event = { Down = { streak = 2, button = "Left" } },
       action = act.SelectTextAtMouseCursor("Word"),
       mods = "NONE",
-    }
-  },
-  pane_focus_follows_mouse = true,
-  warn_about_missing_glyphs = false,
-  enable_tab_bar = true,
-  hyperlink_rules = {
+    },
+  }
+end
+
+M.apply_to_config = function(config)
+  config.enable_scroll_bar = true
+  local padding = 12
+  config.window_padding = {
+    left = padding,
+    right = padding,
+    top = padding - 5,
+    bottom = padding - 5,
+  }
+  config.window_close_confirmation = "NeverPrompt"
+  config.check_for_updates = false
+  config.default_cursor_style = "SteadyBar"
+  config.pane_focus_follows_mouse = true
+  config.warn_about_missing_glyphs = false
+  config.enable_tab_bar = true
+  config.selection_word_boundary = " \t\n{}[]()\"'`«»‘’,="
+  config.mouse_wheel_scrolls_tabs = false
+  config.hyperlink_rules = {
     -- https://wezfurlong.org/wezterm/config/lua/config/hyperlink_rules.html
     -- Matches: a URL in parens: (URL)
     {
@@ -355,38 +249,10 @@ local generic_config = {
     --   regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
     --   format = "mailto:$0",
     -- },
-  },
-  selection_word_boundary = " \t\n{}[]()\"'`«»‘’,=",
-  mouse_wheel_scrolls_tabs = false,
-}
+  }
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  platform_config = {
-    default_prog = { "nu" },
-    font = wezterm.font_with_fallback {
-      { family = "iosevka-normal", weight = "Medium" },
-      { family = "Symbols Nerd Font" },
-    },
-    font_size = 12,
-  }
-else
-  local shell = os.getenv("SHELL")
-  if shell == nil then
-    shell = "sh"
-  end
-  platform_config = {
-    default_prog = { shell },
-    font = wezterm.font_with_fallback {
-      { family = "iosevka-normal", weight = "Medium" },
-      { family = "Symbols Nerd Font" },
-    },
-    font_size = 12,
-  }
-  wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
-    return "wezterm"
-  end)
+  apply_keybindings(config)
+  apply_colorscheme(config)
 end
 
-tableMerge(generic_config, platform_config)
-
-return generic_config
+return M

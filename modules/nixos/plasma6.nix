@@ -21,6 +21,10 @@
 
   services.packagekit = {enable = true;};
 
+  environment.sessionVariables = {
+    XCURSOR_THEME = "DMZ-White";
+  };
+
   programs.git.config = {
     credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
   };
