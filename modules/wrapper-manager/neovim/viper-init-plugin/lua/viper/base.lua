@@ -72,3 +72,13 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
     end
   end,
 })
+
+vim.api.nvim_create_user_command("ToggleAutoSave", function(args)
+  if vim.g.autosave == true then
+    vim.g.autosave = false
+    vim.notify("Disabled auto save")
+  else
+    vim.g.autosave = true
+    vim.notify("Enabled auto save")
+  end
+end, {})
