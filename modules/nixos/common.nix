@@ -39,6 +39,8 @@
     efibootmgr
     e2fsprogs.bin
 
+    warp
+
     android-tools
   ];
 

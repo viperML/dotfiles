@@ -81,7 +81,12 @@ cmp.setup {
   -- If no completions from {1}, try {2}
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "async_path", option = { trailing_slash = true } },
+    {
+      name = "async_path",
+      option = {
+        trailing_slash = true,
+      },
+    },
     { name = "orgmode" },
   }, {
     --
@@ -102,6 +107,11 @@ cmp.setup.cmdline(":", {
       },
     },
   }, {
-    { name = "async_path" },
+    {
+      name = "async_path",
+      option = {
+        trailing_slash = true,
+      },
+    },
   }),
 })

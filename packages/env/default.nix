@@ -26,6 +26,7 @@
   difftastic,
   elfutils-cli,
   lurk,
+  fq,
 } @ args:
 symlinkJoin {
   name = "env";
