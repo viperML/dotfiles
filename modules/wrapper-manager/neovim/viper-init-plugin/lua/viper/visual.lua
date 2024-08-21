@@ -219,8 +219,6 @@ for key, value in pairs(colorcolumns) do
     col = 100
   end
 
-  vim.notify(lang .. col)
-
   vim.api.nvim_create_autocmd("FileType", {
     pattern = lang,
     callback = function()
