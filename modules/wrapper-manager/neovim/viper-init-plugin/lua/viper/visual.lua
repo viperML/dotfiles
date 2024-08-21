@@ -199,3 +199,32 @@ vim.list_extend(require("viper.lazy.specs"), {
     end,
   },
 })
+
+local colorcolumns = {
+  "rust",
+  "scheme",
+  ["python"] = 80,
+  "lua",
+}
+
+for key, value in pairs(colorcolumns) do
+  local lang
+  local col
+
+  if type(key) == "string" then
+    lang = key
+    col = value
+  else
+    lang = value
+    col = 100
+  end
+
+  vim.notify(lang .. col)
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = lang,
+    callback = function()
+      vim.opt_local.colorcolumn = "" .. col
+    end,
+  })
+end
