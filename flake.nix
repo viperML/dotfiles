@@ -13,6 +13,7 @@
     tree-sitter = {
       url = "github:viperML/tree-sitter";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     nh = {

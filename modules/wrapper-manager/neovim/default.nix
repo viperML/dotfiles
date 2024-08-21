@@ -125,9 +125,21 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
       (attrValues nvPlugins')
 
       (makeOpt inputs'.tree-sitter.packages.nvim-treesitter)
-      (lib.attrValues (builtins.removeAttrs inputs'.tree-sitter.legacyPackages.grammars.filtered [
-        "tree-sitter-comment"
-      ]))
+
+      (builtins.attrValues
+        (lib.getAttrs
+          (map (n: "tree-sitter-${n}") [
+            # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
+            "scheme"
+            "nix"
+            "lua"
+            "rust"
+            "haskell"
+            "markdown"
+            "c"
+            "cpp"
+          ])
+          inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
 
       (makeOpt pkgs.vimPlugins.parinfer-rust)
     ];

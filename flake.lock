@@ -1025,16 +1025,19 @@
     },
     "tree-sitter": {
       "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1722771651,
-        "narHash": "sha256-OqK+V68vT/LTI4+YGim8uMhFrAapW8lFp7++Aw59T/c=",
+        "lastModified": 1724261719,
+        "narHash": "sha256-q2ykb8p8OhSVHysnVeMgFakv6xtbS92CpNVaNn2jXU0=",
         "owner": "viperML",
         "repo": "tree-sitter",
-        "rev": "dc02125ff4e4059c8a583ac297c1656c7f14399d",
+        "rev": "ce2d71c25526a8477cf560df036c5c5243d30d36",
         "type": "github"
       },
       "original": {
