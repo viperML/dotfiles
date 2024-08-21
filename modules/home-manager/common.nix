@@ -17,6 +17,8 @@
     pkgs.nil
     self'.packages.env
     pkgs.nodePackages.bash-language-server
+
+    inputs'.tree-sitter.packages.tree-sitter-cat
   ];
 
   # home.sessionVariables = {
