@@ -35,25 +35,40 @@ vim.opt.sessionoptions:remove("folds")
 
 vim.opt.shortmess = "I" -- disable intro message
 
-
 vim.list_extend(require("viper.lazy.specs"), {
   {
     "vim-nix",
-    ft = {"nix"},
+    ft = { "nix" },
   },
   {
     "neovim-session-manager",
     -- event = "DeferredUIEnter",
     cmd = "SessionManager",
-    keys = {"<leader>p"},
+    keys = { "<leader>p" },
     after = function()
-      local session_config = require('session_manager.config')
-      require('session_manager').setup({
-          autoload_mode = session_config.AutoloadMode.Disabled,
-      })
+      local session_config = require("session_manager.config")
+      require("session_manager").setup {
+        autoload_mode = session_config.AutoloadMode.Disabled,
+      }
 
       vim.keymap.set("n", "<leader>p", require("session_manager").load_session, { desc = "Project: open" })
-    end
+    end,
   },
 })
 
+-- Auto save feature
+vim.opt.updatetime = 500
+vim.g.autosave = false
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
+  callback = function()
+    if vim.g.autosave == true then
+      local buf = vim.api.nvim_get_current_buf()
+
+      if vim.fn.getbufvar(buf, "&modifiable") == 1 then
+        vim.api.nvim_buf_call(buf, function()
+          vim.cmd("silent! write")
+        end)
+      end
+    end
+  end,
+})
