@@ -43,6 +43,7 @@ abbr -a -g gm "git merge"
 abbr -a -g gp "git push"
 abbr -a -g gl "git logs"
 abbr -a -g gr "cd (git-root)"
+abbr -a -g gcm "git commit -m"
 
 set -gx fish_color_normal brwhite
 set -gx fish_color_command green
