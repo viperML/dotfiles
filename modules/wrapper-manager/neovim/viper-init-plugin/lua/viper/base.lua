@@ -82,3 +82,8 @@ vim.api.nvim_create_user_command("ToggleAutoSave", function(args)
     vim.notify("Enabled auto save")
   end
 end, {})
+
+
+-- Alt+Movement like in fish
+vim.keymap.set({"n", "v"}, "<M-Right>", "e")
+vim.keymap.set({"n", "v"}, "<M-Left>", "b")
