@@ -1,23 +1,9 @@
 <h1 align="center">viperML/dotfiles</h1>
 
 
-<p align="center">
-  <a href="https://github.com/viperML/dotfiles/actions/workflows/flake-build.yaml">
-  <img alt="check" src="https://img.shields.io/github/actions/workflow/status/viperML/dotfiles/flake-build.yaml?branch=master&label=flake-build">
-  </a>
-</p>
-
 # 🗒 About
 
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
-
-
-
-<div align="center">
-  <div style="display: flex; align-items: flex-start;">
-    <img alt="Desktop screenshot" src="./misc/img/20230809.png" width="100%"/>
-  </div>
-</div>
 
 
 
@@ -47,16 +33,3 @@ Or install from the `packages` output. For example:
   ];
 }
 ```
-
-# 💾 Resources
-
-Other configurations from where I learned and copied, in no particular order:
-
-- [NobbZ/nixos-config](https://github.com/NobbZ/nixos-config)
-- [Mic92/dotfiles](https://github.com/Mic92/dotfiles)
-- [colemickens/nixcfg](https://github.com/colemickens/nixcfg)
-- [privatevoid-net/privatevoid-infrastructure](https://github.com/privatevoid-net/privatevoid-infrastructure)
-- [nuxshed/dotfiles](https://github.com/nuxshed)
-- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
-- [gytis-ivaskevicius/nixfiles](https://github.com/gytis-ivaskevicius/nixfiles)
-
