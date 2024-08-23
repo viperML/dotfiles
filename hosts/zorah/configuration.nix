@@ -2,16 +2,24 @@
   lib,
   pkgs,
   config,
+  self',
   ...
 }: let
   luksDevice = "luksroot";
 in {
-  environment.systemPackages = [
-    pkgs.powertop
-    pkgs.openconnect
+  environment.systemPackages = with pkgs; [
+    powertop
+    openconnect
+
+    onlyoffice-bin
+
+    # global dev
+    ltex-ls
   ];
 
-  # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
+  environment.sessionVariables = {
+    FLAKE = "/var/home/ayats/Documents/dotfiles";
+  };
 
   networking = {
     hostName = "zorah";

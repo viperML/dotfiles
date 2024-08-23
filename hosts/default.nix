@@ -29,15 +29,6 @@
 
           inputs.noshell.nixosModules.default
           {programs.noshell.enable = true;}
-
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.sharedModules = [
-              config.flake.homeModules.common
-              inputs.nix-common.homeModules.default
-            ];
-            home-manager.extraSpecialArgs = specialArgs;
-          }
         ]
         ++ extraModules;
     };

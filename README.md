@@ -11,13 +11,6 @@
 
 These are my personal configuration files for my Linux and Windows machines. Feel free to grab anything that you find interesting.
 
-- [packages](packages): package definitions (see next section)
-- [modules](modules): common pieces of nixos or home-manager configuration
-- [hosts](hosts): nixos configurations
-- [flake](flake): core flake scaffolding and maintenance scripts
-- [misc](misc): anything else
-- [misc/img](misc/img): a look into the past
-
 
 
 <div align="center">
@@ -52,18 +45,6 @@ Or install from the `packages` output. For example:
   environment.systemPackages = [
     inputs.viperML-dotfiles.packages.${pkgs.system}.name
   ];
-}
-```
-
-Binary cache is provided through cachix. Every commit is built on GitHub Actions
-
-```nix
-# configuration.nix
-{
-  nix.settings = {
-    extra-substituters = "https://viperml.cachix.org";
-    extra-trusted-public-keys = "viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8=";
-  };
 }
 ```
 

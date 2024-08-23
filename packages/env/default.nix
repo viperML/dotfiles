@@ -27,6 +27,8 @@
   elfutils-cli,
   lurk,
   fq,
+  alejandra,
+  nil,
 } @ args:
 symlinkJoin {
   name = "env";

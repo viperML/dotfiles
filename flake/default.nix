@@ -1,16 +1,10 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ../packages
     ../misc/lib
-    ../homes
     ../misc/bundlers.nix
     ../hosts
-    ../modules
-    # ../wrappers
+    ../modules/nixos
   ];
 
   flake.templates = lib.pipe ../misc/templ [
@@ -28,18 +22,6 @@
     config,
     ...
   }: {
-    devShells.dotci = with pkgs;
-      mkShell {
-        packages = [
-          rustc
-          cargo
-          rustfmt
-          rust-analyzer-unwrapped
-          clippy
-        ];
-        RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
-      };
-
     devShells.default = with pkgs;
       mkShellNoCC {
         packages = [
@@ -47,14 +29,5 @@
           stylua
         ];
       };
-
-    packages.dotci = pkgs.callPackage ./dotci.nix {
-      src = inputs.nix-filter.lib {
-        root = ./.;
-        include = ["src" "Cargo.toml" "Cargo.lock"];
-      };
-    };
-
-    checks = {inherit (config.packages) dotci;};
   };
 }

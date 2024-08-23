@@ -30,7 +30,11 @@
   services.udev.packages = with pkgs; [android-udev-rules];
 
   environment.defaultPackages = [];
+
+  environment.sessionVariables.EDITOR = "nvim";
+
   environment.systemPackages = with pkgs; [
+    # CLI base tools
     usbutils
     pciutils
     vim
@@ -38,10 +42,23 @@
     pax-utils
     efibootmgr
     e2fsprogs.bin
-
-    warp
-
     android-tools
+
+    # Global dev, not part of env
+    self'.packages.env
+    nixpkgs-fmt
+    nix-output-monitor
+    nodePackages.bash-language-server
+    inputs'.tree-sitter.packages.tree-sitter-cat
+    sops
+    age
+
+    # GUI
+    warp
+    firefox
+    self'.packages.ungoogled-chromium
+    self'.packages.wezterm
+    vscode
   ];
 
   # i18n = let
@@ -86,18 +103,18 @@
     services."kmsconvt@tty7".enable = false;
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "old";
-    verbose = true;
-    sharedModules = [
-      {
-        home.stateVersion = lib.mkForce config.system.stateVersion;
-        nix.package = lib.mkForce config.nix.package;
-      }
-    ];
-  };
+  # home-manager = {
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   backupFileExtension = "old";
+  #   verbose = true;
+  #   sharedModules = [
+  #     {
+  #       home.stateVersion = lib.mkForce config.system.stateVersion;
+  #       nix.package = lib.mkForce config.nix.package;
+  #     }
+  #   ];
+  # };
 
   programs.ssh = {
     startAgent = true;

@@ -2,10 +2,13 @@
   lib,
   pkgs,
   config,
+  self',
   ...
 }: let
   luksDevice = "luksroot";
 in {
+  environment.sessionVariables.FLAKE = "/var/home/ayats/Documents/dotfiles";
+
   networking = {
     hostName = "hermes";
     networkmanager = {
@@ -102,4 +105,11 @@ in {
       options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    self'.packages.vscode
+    pkgs.vault
+    self'.packages.wezterm
+    pkgs.sbctl
+  ];
 }

@@ -7,6 +7,7 @@
   luksDevice = "luksroot";
 in {
   system.stateVersion = "23.11";
+  environment.sessionVariables.FLAKE = "/var/home/ayats/Documents/dotfiles";
 
   environment.systemPackages = [
     pkgs.sbctl

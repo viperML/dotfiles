@@ -47,6 +47,12 @@ in {
               readonly = true;
               source = path;
             };
+            nix_profiles = rec {
+              type = "disk";
+              path = "/nix/var/nix/profiles";
+              source = path;
+              readonly = true;
+            };
             nixos_etc_static = rec {
               type = "disk";
               readonly = true;

@@ -16,17 +16,18 @@ in {
       nixosModules.tmpfs
       nixosModules.tpm2
       nixosModules.user-ayats
+      nixosModules.user-soch
       nixosModules.yubikey
 
       #-- home-manager
       {
-        home-manager.sharedModules = [./home.nix homeModules.browser];
+        # home-manager.sharedModules = [./home.nix homeModules.browser];
       }
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
       nixosModules.plasma6
-      nixosModules.hyprland
+      # nixosModules.hyprland
 
       #-- Other
       nixosModules.guix

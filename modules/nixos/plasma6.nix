@@ -14,12 +14,9 @@
 
   environment.systemPackages = [
     pkgs.vanilla-dmz
-    pkgs.kdePackages.discover
     pkgs.kdePackages.ksshaskpass
     pkgs.wl-clipboard-rs
   ];
-
-  services.packagekit = {enable = true;};
 
   environment.sessionVariables = {
     XCURSOR_THEME = "DMZ-White";
