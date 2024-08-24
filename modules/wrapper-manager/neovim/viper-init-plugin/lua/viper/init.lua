@@ -15,3 +15,5 @@ vim.keymap.set({ "n", "i", "v" }, "<C-Up>", "<Up>")
 vim.keymap.set({ "n", "i", "v" }, "<C-Down>", "<Down>")
 
 require("viper.lazy").finish()
+
+require("viper.health").loaded = true
