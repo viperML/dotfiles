@@ -1,13 +1,17 @@
-local nvim_lsp = require("lspconfig")
+local lspconfig = require("lspconfig")
 local DEBUG = vim.log.levels.DEBUG
 
-nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_config, {
+local capabilities = lspconfig.util.default_config.capabilities
+
+capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
   end,
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  capabilities = capabilities,
 })
 
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
@@ -26,7 +30,7 @@ vim.diagnostic.config {
   virtual_text = false,
 }
 
-nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
+lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
   config.cmd[1] = vim.fs.basename(config.cmd[1]) -- motherfuckers, who resolved the absolute path
 
   local bin_name = config.cmd[1]
@@ -44,7 +48,7 @@ end)
 
 local function setup_all()
   for k, v in pairs(require("viper.lsp_config")) do
-    nvim_lsp[k].setup(v)
+    lspconfig[k].setup(v)
   end
 end
 

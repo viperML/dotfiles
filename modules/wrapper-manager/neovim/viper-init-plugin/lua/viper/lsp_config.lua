@@ -1,5 +1,5 @@
-local nvim_lsp = require("lspconfig")
-local root_pattern = nvim_lsp.util.root_pattern
+local lspconfig = require("lspconfig")
+local root_pattern = lspconfig.util.root_pattern
 
 vim.filetype.add {
   filename = { [".envrc"] = "bash" },
