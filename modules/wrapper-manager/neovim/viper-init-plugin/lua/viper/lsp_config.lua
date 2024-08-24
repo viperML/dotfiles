@@ -93,4 +93,28 @@ return {
   ["typst_lsp"] = {},
   ["texlab"] = {},
   ["zls"] = {},
+  ["lua_ls"] = {
+    on_init = function(client)
+      if os.getenv("NVIM_VIPER_DEBUG") ~= nil then
+        local filtered = vim.tbl_filter(function(value)
+          local res = vim.startswith(vim.fs.basename(value), "viper")
+          return not res
+        end, vim.api.nvim_get_runtime_file("", true))
+        table.remove(filtered, 1)
+
+        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+          runtime = {
+            version = "LuaJIT",
+          },
+          workspace = {
+            checkThirdParty = false,
+            library = filtered,
+          },
+        })
+      end
+    end,
+    settings = {
+      Lua = {},
+    },
+  },
 }
