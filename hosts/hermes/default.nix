@@ -19,18 +19,12 @@ in {
       nixosModules.user-soch
       nixosModules.yubikey
 
-      #-- home-manager
-      {
-        # home-manager.sharedModules = [./home.nix homeModules.browser];
-      }
-
       #-- Environment
-      # {services.displayManager.autoLogin.user = "ayats";}
+      {services.displayManager.autoLogin.user = "ayats";}
       nixosModules.plasma6
-      # nixosModules.hyprland
 
       #-- Other
-      nixosModules.guix
+      # nixosModules.guix
       nixosModules.tailscale
       nixosModules.docker
     ]);
