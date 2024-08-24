@@ -88,7 +88,9 @@ return {
       "tex",
     },
   },
-  ["hls"] = {},
+  ["hls"] = {
+    filetypes = { "haskell", "lhaskell", "cabal" },
+  },
   ["gopls"] = {},
   ["typst_lsp"] = {},
   ["texlab"] = {},
