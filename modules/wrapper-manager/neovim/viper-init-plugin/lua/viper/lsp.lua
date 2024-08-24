@@ -1,5 +1,4 @@
 local nvim_lsp = require("lspconfig")
-local root_pattern = nvim_lsp.util.root_pattern
 local DEBUG = vim.log.levels.DEBUG
 
 nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_config, {
@@ -8,11 +7,7 @@ nvim_lsp.util.default_config = vim.tbl_extend("force", nvim_lsp.util.default_con
       require("nvim-navic").attach(client, bufnr)
     end
   end,
-  capabilities = vim.tbl_extend(
-    "force",
-    require("cmp_nvim_lsp").default_capabilities(),
-    require("lsp-file-operations").default_capabilities()
-  ),
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
@@ -67,7 +62,7 @@ local function direnv()
     vim.lsp.stop_client(vim.lsp.get_clients(), true)
   end)
 
-  local obj = vim.system({ "direnv", "export", "vim" }, {}, function(obj)
+  vim.system({ "direnv", "export", "vim" }, {}, function(obj)
     vim.schedule(function()
       vim.fn.execute(obj.stdout)
       setup_all()

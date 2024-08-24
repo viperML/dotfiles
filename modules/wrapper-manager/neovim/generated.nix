@@ -14,16 +14,16 @@
   };
   cmp-async-path = {
     pname = "cmp-async-path";
-    version = "7df7f3721c45aac26b6e0474087538f4681c9c7a";
+    version = "838a12586642940fde05f0b4bae0d38d8fbc5702";
     src = fetchgit {
       url = "https://codeberg.org/FelipeLema/cmp-async-path";
-      rev = "7df7f3721c45aac26b6e0474087538f4681c9c7a";
+      rev = "838a12586642940fde05f0b4bae0d38d8fbc5702";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-LSWWsn8aKogjWevcbjITXu30a2k3wY3+f2+l7WDAZpY=";
+      sha256 = "sha256-5hNJYCfZdHNJEky2bF+aXZc+ERnc63n3uAAOgqePHnA=";
     };
-    date = "2024-03-25";
+    date = "2024-08-22";
   };
   cmp-cmdline = {
     pname = "cmp-cmdline";
@@ -148,13 +148,13 @@
   };
   lz-n = {
     pname = "lz-n";
-    version = "v2.0.0";
+    version = "v2.2.0";
     src = fetchFromGitHub {
       owner = "nvim-neorocks";
       repo = "lz.n";
-      rev = "v2.0.0";
+      rev = "v2.2.0";
       fetchSubmodules = false;
-      sha256 = "sha256-7lCzXQtPCSONtEwzvNWDbIWsysSyqIAyoFDYUx6NpcQ=";
+      sha256 = "sha256-RCcdPudg2lS4vgoJ3SlE4aJe9hJ+F7uFrPKNcqXB55s=";
     };
   };
   neo-tree-nvim = {
@@ -243,18 +243,6 @@
     opt = "true";
     date = "2024-08-19";
   };
-  nvim-lsp-file-operations = {
-    pname = "nvim-lsp-file-operations";
-    version = "92a673de7ecaa157dd230d0128def10beb56d103";
-    src = fetchFromGitHub {
-      owner = "antosha417";
-      repo = "nvim-lsp-file-operations";
-      rev = "92a673de7ecaa157dd230d0128def10beb56d103";
-      fetchSubmodules = false;
-      sha256 = "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=";
-    };
-    date = "2024-06-15";
-  };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
     version = "v0.1.8";
@@ -305,13 +293,13 @@
   };
   orgmode = {
     pname = "orgmode";
-    version = "0.3.4";
+    version = "0.3.5";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "orgmode";
-      rev = "0.3.4";
+      rev = "0.3.5";
       fetchSubmodules = false;
-      sha256 = "sha256-SmofuYt4fLhtl5qedYlmCRgOmZaw3nmlnMg0OMzyKnM=";
+      sha256 = "sha256-TUw+BSynn5KWGHZ1Qt3pStyLR+cbANTUJLywVrFV5is=";
     };
     opt = "true";
   };

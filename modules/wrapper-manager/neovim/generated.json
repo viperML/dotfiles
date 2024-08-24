@@ -21,7 +21,7 @@
     },
     "cmp-async-path": {
         "cargoLocks": null,
-        "date": "2024-03-25",
+        "date": "2024-08-22",
         "extract": null,
         "name": "cmp-async-path",
         "passthru": null,
@@ -31,12 +31,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7df7f3721c45aac26b6e0474087538f4681c9c7a",
-            "sha256": "sha256-LSWWsn8aKogjWevcbjITXu30a2k3wY3+f2+l7WDAZpY=",
+            "rev": "838a12586642940fde05f0b4bae0d38d8fbc5702",
+            "sha256": "sha256-5hNJYCfZdHNJEky2bF+aXZc+ERnc63n3uAAOgqePHnA=",
             "type": "git",
             "url": "https://codeberg.org/FelipeLema/cmp-async-path"
         },
-        "version": "7df7f3721c45aac26b6e0474087538f4681c9c7a"
+        "version": "838a12586642940fde05f0b4bae0d38d8fbc5702"
     },
     "cmp-cmdline": {
         "cargoLocks": null,
@@ -260,11 +260,11 @@
             "name": null,
             "owner": "nvim-neorocks",
             "repo": "lz.n",
-            "rev": "v2.0.0",
-            "sha256": "sha256-7lCzXQtPCSONtEwzvNWDbIWsysSyqIAyoFDYUx6NpcQ=",
+            "rev": "v2.2.0",
+            "sha256": "sha256-RCcdPudg2lS4vgoJ3SlE4aJe9hJ+F7uFrPKNcqXB55s=",
             "type": "github"
         },
-        "version": "v2.0.0"
+        "version": "v2.2.0"
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
@@ -414,26 +414,6 @@
         },
         "version": "7c427e2bbc72d46ea3c9602bede6465ef61b8c19"
     },
-    "nvim-lsp-file-operations": {
-        "cargoLocks": null,
-        "date": "2024-06-15",
-        "extract": null,
-        "name": "nvim-lsp-file-operations",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "antosha417",
-            "repo": "nvim-lsp-file-operations",
-            "rev": "92a673de7ecaa157dd230d0128def10beb56d103",
-            "sha256": "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=",
-            "type": "github"
-        },
-        "version": "92a673de7ecaa157dd230d0128def10beb56d103"
-    },
     "nvim-lspconfig": {
         "cargoLocks": null,
         "date": null,
@@ -532,11 +512,11 @@
             "name": null,
             "owner": "nvim-orgmode",
             "repo": "orgmode",
-            "rev": "0.3.4",
-            "sha256": "sha256-SmofuYt4fLhtl5qedYlmCRgOmZaw3nmlnMg0OMzyKnM=",
+            "rev": "0.3.5",
+            "sha256": "sha256-TUw+BSynn5KWGHZ1Qt3pStyLR+cbANTUJLywVrFV5is=",
             "type": "github"
         },
-        "version": "0.3.4"
+        "version": "0.3.5"
     },
     "plenary-nvim": {
         "cargoLocks": null,
