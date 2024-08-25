@@ -5,7 +5,7 @@ $env.config = {
   show_banner: false
   # use_ansi_coloring: false
   render_right_prompt_on_last_line: true
-  shell_integration: false
+  # shell_integration: false
   hooks: {
     pre_prompt: {
       if not $direnv_installed {
