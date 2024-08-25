@@ -10,8 +10,8 @@
         local wezterm = require("wezterm")
         local config = wezterm.config_builder()
 
-        dofile("${./init.lua}").apply_to_config(config)
-        dofile("${./linux.lua}").apply_to_config(config)
+        dofile("${./viper/init.lua}").apply_to_config(config)
+        dofile("${./viper/linux.lua}").apply_to_config(config)
 
         dofile("${smart-splits}/plugin/init.lua").apply_to_config(config, {
           direction_keys = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
