@@ -100,4 +100,4 @@ if ($nu.os-info.name == "windows") {
   $env.XDG_CACHE_HOME = ([ $env.LOCALAPPDATA "cache" ] | path join)
 }
 
-$env.SHELL = "nu"
+# $env.SHELL = "nu"
