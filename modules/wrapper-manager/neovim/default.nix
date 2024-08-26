@@ -138,6 +138,8 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "markdown"
             "c"
             "cpp"
+            "cmake"
+            "meson"
           ])
           inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
 
