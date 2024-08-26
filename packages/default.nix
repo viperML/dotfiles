@@ -52,6 +52,10 @@
       in
         auto
         // {
+          # nix = callPackage ./nix {
+          #   inherit (pkgs) nix;
+          # };
+
           # manual overrides to auto callPackage
           nix-index = callPackage ./nix-index {
             database = inputs'.nix-index-database.packages.nix-index-database;
