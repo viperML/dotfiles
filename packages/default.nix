@@ -99,6 +99,8 @@
     in
       stage3);
 
-    checks = {};
+      checks = {
+        hover-rs = inputs'.hover-rs.packages.default;
+      };
   };
 }
