@@ -7,8 +7,10 @@
 
   security.pam.u2f = {
     enable = true;
-    origin = "pam://${config.networking.hostName}";
-    appId = "pam://${config.networking.hostName}";
-    cue = true;
+    settings = {
+      origin = "pam://${config.networking.hostName}";
+      appId = "pam://${config.networking.hostName}";
+      cue = true;
+    };
   };
 }
