@@ -8,6 +8,8 @@ M.apply_to_config = function(config)
     { family = "Symbols Nerd Font" },
   }
   config.font_size = 12
+  -- Fix for https://github.com/wez/wezterm/issues/5990
+  config.front_end = "WebGpu"
 end
 
 return M
