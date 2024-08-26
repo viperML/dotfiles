@@ -141,3 +141,8 @@ src.git = "https://github.com/SmiteshP/nvim-navic"
 fetch.github = "mrjones2014/smart-splits.nvim"
 src.github = "mrjones2014/smart-splits.nvim"
 passthru.opt = "true"
+
+[nvim-treesitter-textobjects]
+fetch.github = "nvim-treesitter/nvim-treesitter-textobjects"
+src.git = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+passthru.opt = "true"

@@ -266,6 +266,19 @@
     };
     date = "2023-11-30";
   };
+  nvim-treesitter-textobjects = {
+    pname = "nvim-treesitter-textobjects";
+    version = "41e3abf6bfd9a9a681eb1f788bdeba91c9004b2b";
+    src = fetchFromGitHub {
+      owner = "nvim-treesitter";
+      repo = "nvim-treesitter-textobjects";
+      rev = "41e3abf6bfd9a9a681eb1f788bdeba91c9004b2b";
+      fetchSubmodules = false;
+      sha256 = "sha256-gt2wnPWFHT2nHE+HEVS0LbZR5gXhiN2dz35mJCkPkjM=";
+    };
+    opt = "true";
+    date = "2024-08-20";
+  };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";
     version = "3722e3d1fb5fe1896a104eb489e8f8651260b520";
@@ -280,16 +293,16 @@
   };
   org-bullets-nvim = {
     pname = "org-bullets-nvim";
-    version = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
+    version = "ab8e1d860d61239c4fe187ead15f73bb2561acd1";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "org-bullets.nvim";
-      rev = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
+      rev = "ab8e1d860d61239c4fe187ead15f73bb2561acd1";
       fetchSubmodules = false;
-      sha256 = "sha256-bxiL88uUa0Zd/HL7RcC/XVhbkgdlFr6MmlQfkpxFybE=";
+      sha256 = "sha256-HbttsU5uq1RQjI2KBDx/mp+VO94DkJ3N6+1fSHvQNA0=";
     };
     opt = "true";
-    date = "2024-07-09";
+    date = "2024-08-25";
   };
   orgmode = {
     pname = "orgmode";

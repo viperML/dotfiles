@@ -3,6 +3,9 @@ vim.list_extend(require("viper.lazy.specs"), {
     "nvim-treesitter",
     event = "DeferredUIEnter",
     after = function()
+      require("viper.lazy").packadd("nvim-treesitter-textobjects")
+
+      ---@diagnostic disable: missing-fields
       require("nvim-treesitter.configs").setup {
         -- ignore_install = { "all" },
         highlight = {
@@ -11,7 +14,17 @@ vim.list_extend(require("viper.lazy.specs"), {
           -- additional_vim_regex_highlighting = false,
         },
         indent = {
-          enable = true
+          enable = true,
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
+              ["aa"] = { query = "@parameter.outer", desc = "around argument" },
+            },
+          },
         },
       }
 
