@@ -19,6 +19,7 @@
   };
 
   nix = {
+    package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
     settings =
       import ../../misc/nix-conf.nix
@@ -160,7 +161,7 @@
       }
       {
         name = "Symbols Nerd Font";
-        package = (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];});
+        package = pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];};
       }
     ];
   };

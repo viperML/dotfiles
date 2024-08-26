@@ -108,6 +108,13 @@ variable = "HOVER"
 default = ""
 symbol = "󰼪 "
 
+[env_var.IN_NIX_SHELL]
+style = "blue bold"
+format = "([$symbol $env_value]($style) )"
+variable = "IN_NIX_SHELL"
+default = ""
+symbol = "󱄅"
+
 [env_var.GUIX_ENVIRONMENT]
 style = "yellow dimmed bold"
 format = "([$symbol $env_value]($style) )"

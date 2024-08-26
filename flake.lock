@@ -115,6 +115,26 @@
         "type": "github"
       }
     },
+    "in-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724672303,
+        "narHash": "sha256-b8Z7xImU5UN83/GKc32uk+2ODd1Qp/bbHylSI6niemo=",
+        "owner": "viperML",
+        "repo": "in-nix",
+        "rev": "9dbaa54a7d56ffaa113c437e6b3dda252685686b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "in-nix",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -392,6 +412,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "hover-rs": "hover-rs",
+        "in-nix": "in-nix",
         "lanzaboote": "lanzaboote",
         "nh": "nh",
         "nix-common": "nix-common",

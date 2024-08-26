@@ -52,9 +52,7 @@
       in
         auto
         // {
-          # nix = callPackage ./nix {
-          #   inherit (pkgs) nix;
-          # };
+          nix = inputs'.in-nix.packages.default.patchNix pkgs.nix;
 
           # manual overrides to auto callPackage
           nix-index = callPackage ./nix-index {

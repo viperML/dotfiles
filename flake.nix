@@ -30,6 +30,10 @@
       url = "github:viperML/noshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    in-nix = {
+      url = "github:viperML/in-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-compat = {
       url = "github:edolstra/flake-compat";
