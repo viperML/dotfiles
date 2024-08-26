@@ -27,7 +27,7 @@
         'channels
         home-xdg-configuration-files-service-type
         (list
-          `("guix/channels.scm" ,(local-file "./channels.locked.scm"))))
+          `("guix/channels.scm" "/dev/null")))
 
       (simple-service
         'guileconf
