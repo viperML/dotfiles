@@ -27,6 +27,7 @@
         packages = [
           lua-language-server
           stylua
+          taplo
         ];
       };
   };

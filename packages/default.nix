@@ -52,7 +52,7 @@
       in
         auto
         // {
-          nix = inputs'.in-nix.packages.default.patchNix pkgs.nix;
+          nix = inputs'.in-nix.packages.default.patchNix pkgs.nixVersions.latest;
 
           # manual overrides to auto callPackage
           nix-index = callPackage ./nix-index {

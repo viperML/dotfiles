@@ -21,9 +21,10 @@
   nix = {
     package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
-    settings =
-      import ../../misc/nix-conf.nix
-      // import ../../misc/nix-conf-privileged.nix;
+    settings = lib.mkMerge [
+      (import ../../misc/nix-conf.nix)
+      (import ../../misc/nix-conf-privileged.nix)
+    ];
   };
 
   users.mutableUsers = false;
