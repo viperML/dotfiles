@@ -140,6 +140,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "cpp"
             "cmake"
             "meson"
+            "org"
           ])
           inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
 
