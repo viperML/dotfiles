@@ -25,4 +25,11 @@
   programs.git.config = {
     credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
   };
+
+  programs.kde-pim = {
+    enable = true;
+    kmail = true;
+    kontact = true;
+    merkuro = true;
+  };
 }
