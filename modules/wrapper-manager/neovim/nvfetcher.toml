@@ -146,3 +146,8 @@ passthru.opt = "true"
 fetch.github = "nvim-treesitter/nvim-treesitter-textobjects"
 src.git = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
 passthru.opt = "true"
+
+[comment-nvim]
+fetch.github = "numToStr/Comment.nvim"
+src.git = "https://github.com/numToStr/Comment.nvim"
+passthru.opt = "true"

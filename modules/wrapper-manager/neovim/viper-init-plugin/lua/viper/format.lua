@@ -76,4 +76,11 @@ vim.list_extend(require("viper.lazy.specs"), {
     "parinfer-rust",
     ft = { "scheme" },
   },
+  {
+    "Comment.nvim",
+    event = "DeferredUIEnter",
+    after = function()
+      require("Comment").setup {}
+    end,
+  },
 })

@@ -49,6 +49,19 @@
     };
     date = "2024-05-17";
   };
+  comment-nvim = {
+    pname = "comment-nvim";
+    version = "e30b7f2008e52442154b66f7c519bfd2f1e32acb";
+    src = fetchFromGitHub {
+      owner = "numToStr";
+      repo = "Comment.nvim";
+      rev = "e30b7f2008e52442154b66f7c519bfd2f1e32acb";
+      fetchSubmodules = false;
+      sha256 = "sha256-h0kPue5Eqd5aeu4VoLH45pF0DmWWo1d8SnLICSQ63zc=";
+    };
+    opt = "true";
+    date = "2024-06-09";
+  };
   conform-nvim = {
     pname = "conform-nvim";
     version = "v7.1.0";

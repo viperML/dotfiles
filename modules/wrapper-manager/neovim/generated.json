@@ -78,6 +78,28 @@
         },
         "version": "39e2eda76828d88b773cc27a3f61d2ad782c922d"
     },
+    "comment-nvim": {
+        "cargoLocks": null,
+        "date": "2024-06-09",
+        "extract": null,
+        "name": "comment-nvim",
+        "passthru": {
+            "opt": "true"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "numToStr",
+            "repo": "Comment.nvim",
+            "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
+            "sha256": "sha256-h0kPue5Eqd5aeu4VoLH45pF0DmWWo1d8SnLICSQ63zc=",
+            "type": "github"
+        },
+        "version": "e30b7f2008e52442154b66f7c519bfd2f1e32acb"
+    },
     "conform-nvim": {
         "cargoLocks": null,
         "date": null,
