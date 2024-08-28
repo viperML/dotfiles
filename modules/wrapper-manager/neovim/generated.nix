@@ -14,16 +14,16 @@
   };
   cmp-async-path = {
     pname = "cmp-async-path";
-    version = "838a12586642940fde05f0b4bae0d38d8fbc5702";
+    version = "03fac5dfd6f7880be2c059d58bebe007f0d6d8ee";
     src = fetchgit {
       url = "https://codeberg.org/FelipeLema/cmp-async-path";
-      rev = "838a12586642940fde05f0b4bae0d38d8fbc5702";
+      rev = "03fac5dfd6f7880be2c059d58bebe007f0d6d8ee";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-5hNJYCfZdHNJEky2bF+aXZc+ERnc63n3uAAOgqePHnA=";
+      sha256 = "sha256-mz7UVOhPjszkaaS4GzcaAo5ZYAwlKAFVZyUSG6rHzLc=";
     };
-    date = "2024-08-22";
+    date = "2024-08-27";
   };
   cmp-cmdline = {
     pname = "cmp-cmdline";
@@ -124,15 +124,15 @@
   };
   kaganawa-nvim = {
     pname = "kaganawa-nvim";
-    version = "e5f7b8a804360f0a48e40d0083a97193ee4fcc87";
+    version = "f491b0fe68fffbece7030181073dfe51f45cda81";
     src = fetchFromGitHub {
       owner = "rebelot";
       repo = "kanagawa.nvim";
-      rev = "e5f7b8a804360f0a48e40d0083a97193ee4fcc87";
+      rev = "f491b0fe68fffbece7030181073dfe51f45cda81";
       fetchSubmodules = false;
-      sha256 = "sha256-FnwqqF/jtCgfmjIIR70xx8kL5oAqonrbDEGNw0sixoA=";
+      sha256 = "sha256-UuKvWCPP4biV2OP18+OAookRxfpKfjBgm+1KMaf1z30=";
     };
-    date = "2024-07-03";
+    date = "2024-08-27";
   };
   lualine-nvim = {
     pname = "lualine-nvim";
@@ -148,13 +148,13 @@
   };
   lz-n = {
     pname = "lz-n";
-    version = "v2.2.0";
+    version = "v2.3.0";
     src = fetchFromGitHub {
       owner = "nvim-neorocks";
       repo = "lz.n";
-      rev = "v2.2.0";
+      rev = "v2.3.0";
       fetchSubmodules = false;
-      sha256 = "sha256-RCcdPudg2lS4vgoJ3SlE4aJe9hJ+F7uFrPKNcqXB55s=";
+      sha256 = "sha256-sR0w+xH7N4LFXmCPa5am11DfMmoWArnluwrux9TZ6tI=";
     };
   };
   neo-tree-nvim = {
