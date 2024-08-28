@@ -23,11 +23,11 @@
 
   (services
     (list
-      (simple-service
-        'channels
-        home-xdg-configuration-files-service-type
-        (list
-          `("guix/channels.scm" "/dev/null")))
+      ;; (simple-service
+      ;;   'channels
+      ;;   home-xdg-configuration-files-service-type
+      ;;   (list
+      ;;     `("guix/channels.scm" "/dev/null")))
 
       (simple-service
         'guileconf
