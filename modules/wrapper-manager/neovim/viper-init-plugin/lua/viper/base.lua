@@ -83,7 +83,15 @@ vim.api.nvim_create_user_command("ToggleAutoSave", function(args)
   end
 end, {})
 
-
 -- Alt+Movement like in fish
-vim.keymap.set({"n", "v"}, "<M-Right>", "e")
-vim.keymap.set({"n", "v"}, "<M-Left>", "b")
+vim.keymap.set({ "n", "v" }, "<M-Right>", "e")
+vim.keymap.set({ "n", "v" }, "<M-Left>", "b")
+
+vim.api.nvim_create_user_command("Date", function()
+  vim.system({ "date" }, { text = true }, function(obj)
+    vim.schedule(function()
+      local res = obj.stdout:gsub("^%s+", ""):gsub("%s+$", "")
+      vim.api.nvim_put({ res }, "c", true, true)
+    end)
+  end)
+end, { desc = "Insert current date" })

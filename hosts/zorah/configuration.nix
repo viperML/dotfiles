@@ -15,6 +15,8 @@ in {
 
     # global dev
     ltex-ls
+
+    mattermost-desktop
   ];
 
   environment.sessionVariables = {
