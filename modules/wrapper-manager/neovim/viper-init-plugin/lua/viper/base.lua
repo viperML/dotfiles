@@ -88,7 +88,7 @@ vim.keymap.set({ "n", "v" }, "<M-Right>", "e")
 vim.keymap.set({ "n", "v" }, "<M-Left>", "b")
 
 vim.api.nvim_create_user_command("Date", function()
-  vim.system({ "date", "--iso-8601=minutes" }, { text = true }, function(obj)
+  vim.system({ "date", "--utc", "+%Y-%m-%dT%k:%M:%SZ" }, { text = true }, function(obj)
     vim.schedule(function()
       local res = obj.stdout:gsub("^%s+", ""):gsub("%s+$", "")
       vim.api.nvim_put({ res }, "c", true, true)

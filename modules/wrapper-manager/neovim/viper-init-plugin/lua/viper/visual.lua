@@ -205,6 +205,7 @@ local colorcolumns = {
   "scheme",
   ["python"] = 80,
   "lua",
+  ["markdown"] = 80,
 }
 
 for key, value in pairs(colorcolumns) do

@@ -2,6 +2,11 @@ local M = {}
 
 M.loaded = false
 
+local externals = {
+  "date",
+  "direnv",
+}
+
 M.check = function()
   vim.health.start("Configuration")
   if M.loaded then
@@ -11,10 +16,12 @@ M.check = function()
   end
 
   vim.health.start("External programs")
-  if vim.fn.executable("direnv") == 1 then
-    vim.health.ok("direnv found")
-  else
-    vim.health.error("direnv not found")
+  for _, external in ipairs(externals) do
+    if vim.fn.executable(external) == 1 then
+      vim.health.ok(external .. " found")
+    else
+      vim.health.error(external .. " not found")
+    end
   end
 end
 
