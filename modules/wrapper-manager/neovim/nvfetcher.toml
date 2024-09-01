@@ -151,3 +151,7 @@ passthru.opt = "true"
 fetch.github = "numToStr/Comment.nvim"
 src.git = "https://github.com/numToStr/Comment.nvim"
 passthru.opt = "true"
+
+[haskell-tools-nvim]
+fetch.github = "mrcjkb/haskell-tools.nvim"
+src.github = "mrcjkb/haskell-tools.nvim"

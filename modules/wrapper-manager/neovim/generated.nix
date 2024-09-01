@@ -64,13 +64,13 @@
   };
   conform-nvim = {
     pname = "conform-nvim";
-    version = "v7.1.0";
+    version = "v8.0.0";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "conform.nvim";
-      rev = "v7.1.0";
+      rev = "v8.0.0";
       fetchSubmodules = false;
-      sha256 = "sha256-THl44vHBvgdaYXAUl6g1ccR2mYTBBVizgnqT2MbRngw=";
+      sha256 = "sha256-2Axf/8l4LkjrsD1cRQ36rK6pJF5rz2Wb7tAdWSH0/4w=";
     };
     opt = "true";
   };
@@ -123,6 +123,17 @@
     };
     opt = "true";
   };
+  haskell-tools-nvim = {
+    pname = "haskell-tools-nvim";
+    version = "4.0.1";
+    src = fetchFromGitHub {
+      owner = "mrcjkb";
+      repo = "haskell-tools.nvim";
+      rev = "4.0.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-1I11KjSohEvfvb6GFy/EbsjOTSBPLJem4Ko44+S3FZg=";
+    };
+  };
   indent-blankline-nvim = {
     pname = "indent-blankline-nvim";
     version = "v3.7.2";
@@ -161,13 +172,13 @@
   };
   lz-n = {
     pname = "lz-n";
-    version = "v2.3.0";
+    version = "v2.6.0";
     src = fetchFromGitHub {
       owner = "nvim-neorocks";
       repo = "lz.n";
-      rev = "v2.3.0";
+      rev = "v2.6.0";
       fetchSubmodules = false;
-      sha256 = "sha256-sR0w+xH7N4LFXmCPa5am11DfMmoWArnluwrux9TZ6tI=";
+      sha256 = "sha256-wdehpujTWWOKE1dv/9sokk4Vq1m3TaltIetFuIPjeXU=";
     };
   };
   neo-tree-nvim = {
@@ -281,16 +292,16 @@
   };
   nvim-treesitter-textobjects = {
     pname = "nvim-treesitter-textobjects";
-    version = "41e3abf6bfd9a9a681eb1f788bdeba91c9004b2b";
+    version = "3a3c6244553f13fdd92d312c82722b57ce6c4bec";
     src = fetchFromGitHub {
       owner = "nvim-treesitter";
       repo = "nvim-treesitter-textobjects";
-      rev = "41e3abf6bfd9a9a681eb1f788bdeba91c9004b2b";
+      rev = "3a3c6244553f13fdd92d312c82722b57ce6c4bec";
       fetchSubmodules = false;
-      sha256 = "sha256-gt2wnPWFHT2nHE+HEVS0LbZR5gXhiN2dz35mJCkPkjM=";
+      sha256 = "sha256-k8awnw0QETnYzDH6JeGzmNx/kovFfprCYZm/ybULPtw=";
     };
     opt = "true";
-    date = "2024-08-20";
+    date = "2024-08-29";
   };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";

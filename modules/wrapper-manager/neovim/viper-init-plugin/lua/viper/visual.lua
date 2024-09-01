@@ -1,8 +1,15 @@
--- vim.cmd("colorscheme base16-tomorrow-night")
---
--- vim.g.transparent_enabled = true
--- require("transparent").setup {}
---
+local M = {}
+
+M.ignored = {
+  "node_modules",
+  ".direnv",
+  "target",
+  "build",
+  "builddir",
+  ".git",
+  "dist-newstyle",
+}
+
 require("kanagawa").setup {
   transparent = true,
   theme = "dragon",
@@ -97,10 +104,7 @@ vim.list_extend(require("viper.lazy.specs"), {
           filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
-            hide_by_name = {
-              "node_modules",
-              ".git",
-            },
+            hide_by_name = M.ignored,
           },
           follow_current_file = {
             enabled = true,
@@ -145,7 +149,12 @@ vim.list_extend(require("viper.lazy.specs"), {
       -- require("viper.lazy").packadd("telescope-fzf-native.nvim")
       require("telescope").load_extension("fzf")
 
-      vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
+      vim.keymap.set("n", "<leader><leader>", function()
+        require("telescope.builtin").find_files {
+          -- no_ignore = true,
+          hidden = true,
+        }
+      end, { desc = "Telescope: find files" })
       vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: grep" })
     end,
   },
@@ -230,7 +239,9 @@ end
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
-  callback = function ()
+  callback = function()
     vim.opt_local.textwidth = 80
-  end
+  end,
 })
+
+return M
