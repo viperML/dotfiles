@@ -2,7 +2,6 @@
   lib,
   config,
   inputs,
-  inputs',
   ...
 }: {
   perSystem = {
@@ -64,7 +63,7 @@
           # preventing infrec
           fish = callPackage ./fish {inherit (pkgs) fish;};
           guix = callPackage ./guix {
-            inherit (inputs'.nixpkgs-guix.legacyPackages) guix;
+            inherit (pkgs) guix;
           };
         });
 
@@ -101,8 +100,8 @@
     in
       stage3);
 
-      checks = {
-        hover-rs = inputs'.hover-rs.packages.default;
-      };
+    checks = {
+      hover-rs = inputs'.hover-rs.packages.default;
+    };
   };
 }
