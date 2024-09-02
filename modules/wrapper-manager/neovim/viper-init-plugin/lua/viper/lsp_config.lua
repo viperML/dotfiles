@@ -119,4 +119,5 @@ return {
       Lua = {},
     },
   },
+  ["elixirls"] = {},
 }
