@@ -142,6 +142,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "rust"
             "scheme"
             "yaml" # for frontmatter injections
+            "elixir"
           ])
           inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
 

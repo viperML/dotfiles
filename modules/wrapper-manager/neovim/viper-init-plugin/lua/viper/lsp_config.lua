@@ -119,5 +119,7 @@ return {
       Lua = {},
     },
   },
-  ["elixirls"] = {},
+  ["elixirls"] = {
+    cmd = { "elixir-ls" },
+  },
 }
