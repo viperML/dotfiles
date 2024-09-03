@@ -145,7 +145,7 @@ passthru.opt = "true"
 [nvim-treesitter-textobjects]
 fetch.github = "nvim-treesitter/nvim-treesitter-textobjects"
 src.git = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
-passthru.opt = "true"
+# passthru.opt = "true"
 
 [comment-nvim]
 fetch.github = "numToStr/Comment.nvim"
@@ -155,3 +155,7 @@ passthru.opt = "true"
 [haskell-tools-nvim]
 fetch.github = "mrcjkb/haskell-tools.nvim"
 src.github = "mrcjkb/haskell-tools.nvim"
+
+[nvim-ts-autotag]
+fetch.github = "windwp/nvim-ts-autotag"
+src.git = "https://github.com/windwp/nvim-ts-autotag"

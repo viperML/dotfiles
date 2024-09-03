@@ -124,16 +124,22 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
       viper-pre-init-plugin
       (attrValues nvPlugins')
 
-      (makeOpt inputs'.tree-sitter.packages.nvim-treesitter)
+      # (makeOpt inputs'.tree-sitter.packages.nvim-treesitter)
+      inputs'.tree-sitter.packages.nvim-treesitter
 
       (builtins.attrValues
         (lib.getAttrs
           (map (n: "tree-sitter-${n}") [
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
+            "astro"
             "c"
             "cmake"
             "cpp"
+            "elixir"
             "haskell"
+            "html"
+            "javascript"
+            # "jsx"
             "lua"
             "markdown"
             "meson"
@@ -141,8 +147,9 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "org"
             "rust"
             "scheme"
+            "tsx"
+            "typescript"
             "yaml" # for frontmatter injections
-            "elixir"
           ])
           inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
 

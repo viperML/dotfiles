@@ -172,13 +172,13 @@
   };
   lz-n = {
     pname = "lz-n";
-    version = "v2.6.0";
+    version = "v2.6.1";
     src = fetchFromGitHub {
       owner = "nvim-neorocks";
       repo = "lz.n";
-      rev = "v2.6.0";
+      rev = "v2.6.1";
       fetchSubmodules = false;
-      sha256 = "sha256-wdehpujTWWOKE1dv/9sokk4Vq1m3TaltIetFuIPjeXU=";
+      sha256 = "sha256-XzE/clxKoMhjg6ID7KZrzO9o+uxl5RIq8fkbt6Jal0g=";
     };
   };
   neo-tree-nvim = {
@@ -220,15 +220,15 @@
   };
   nvim-autopairs = {
     pname = "nvim-autopairs";
-    version = "19606af7c039271d5aa96bceff101e7523af3136";
+    version = "fd2badc24e675f947162a16c124d395bde80dbd6";
     src = fetchFromGitHub {
       owner = "windwp";
       repo = "nvim-autopairs";
-      rev = "19606af7c039271d5aa96bceff101e7523af3136";
+      rev = "fd2badc24e675f947162a16c124d395bde80dbd6";
       fetchSubmodules = false;
-      sha256 = "sha256-e+67etOnK98WUVNy/NsMm51X2xLQMjGuQvp765o9PNA=";
+      sha256 = "sha256-iDDI5M9gyF06XhPbVj+aiFbKRMO/82/qIoLv3DKIXxo=";
     };
-    date = "2024-08-19";
+    date = "2024-09-02";
   };
   nvim-cmp = {
     pname = "nvim-cmp";
@@ -303,6 +303,18 @@
     opt = "true";
     date = "2024-08-29";
   };
+  nvim-ts-autotag = {
+    pname = "nvim-ts-autotag";
+    version = "e239a560f338be31337e7abc3ee42515daf23f5e";
+    src = fetchFromGitHub {
+      owner = "windwp";
+      repo = "nvim-ts-autotag";
+      rev = "e239a560f338be31337e7abc3ee42515daf23f5e";
+      fetchSubmodules = false;
+      sha256 = "sha256-QEzUKvT+ChYSa9F4zg3Lw+7Sj0JzJem9nh2mWmS8Y+I=";
+    };
+    date = "2024-08-27";
+  };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";
     version = "3722e3d1fb5fe1896a104eb489e8f8651260b520";
@@ -317,16 +329,16 @@
   };
   org-bullets-nvim = {
     pname = "org-bullets-nvim";
-    version = "ab8e1d860d61239c4fe187ead15f73bb2561acd1";
+    version = "46ae687e22192fb806b5977d664ec98af9cf74f6";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "org-bullets.nvim";
-      rev = "ab8e1d860d61239c4fe187ead15f73bb2561acd1";
+      rev = "46ae687e22192fb806b5977d664ec98af9cf74f6";
       fetchSubmodules = false;
-      sha256 = "sha256-HbttsU5uq1RQjI2KBDx/mp+VO94DkJ3N6+1fSHvQNA0=";
+      sha256 = "sha256-cRcO0TDY0v9c/H5vQ1v96WiEkIhJDZkPcw+P58XNL9w=";
     };
     opt = "true";
-    date = "2024-08-25";
+    date = "2024-09-02";
   };
   orgmode = {
     pname = "orgmode";
