@@ -15,6 +15,7 @@ in {
 
     # global dev
     ltex-ls
+    subversion
 
     mattermost-desktop
   ];
