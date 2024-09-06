@@ -159,3 +159,8 @@ src.github = "mrcjkb/haskell-tools.nvim"
 [nvim-ts-autotag]
 fetch.github = "windwp/nvim-ts-autotag"
 src.git = "https://github.com/windwp/nvim-ts-autotag"
+
+[oil-nvim]
+fetch.github = "stevearc/oil.nvim"
+src.github = "stevearc/oil.nvim"
+passthru.opt = "true"

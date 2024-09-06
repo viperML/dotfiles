@@ -183,16 +183,16 @@
   };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
-    version = "206241e451c12f78969ff5ae53af45616ffc9b72";
+    version = "0774fa2085c62a147fcc7b56f0ac37053cc80217";
     src = fetchFromGitHub {
       owner = "nvim-neo-tree";
       repo = "neo-tree.nvim";
-      rev = "206241e451c12f78969ff5ae53af45616ffc9b72";
+      rev = "0774fa2085c62a147fcc7b56f0ac37053cc80217";
       fetchSubmodules = false;
-      sha256 = "sha256-eNGuQEjAKsPuRDGaw95kCVOmP64ZDnUuFBppqtcrhZ4=";
+      sha256 = "sha256-pLMXK53xA+UelkRLGBmPjRkYXo4kP0c9rClY3Q+w21k=";
     };
     opt = "true";
-    date = "2024-06-11";
+    date = "2024-09-05";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
@@ -292,16 +292,15 @@
   };
   nvim-treesitter-textobjects = {
     pname = "nvim-treesitter-textobjects";
-    version = "3a3c6244553f13fdd92d312c82722b57ce6c4bec";
+    version = "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73";
     src = fetchFromGitHub {
       owner = "nvim-treesitter";
       repo = "nvim-treesitter-textobjects";
-      rev = "3a3c6244553f13fdd92d312c82722b57ce6c4bec";
+      rev = "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73";
       fetchSubmodules = false;
       sha256 = "sha256-k8awnw0QETnYzDH6JeGzmNx/kovFfprCYZm/ybULPtw=";
     };
-    opt = "true";
-    date = "2024-08-29";
+    date = "2024-09-04";
   };
   nvim-ts-autotag = {
     pname = "nvim-ts-autotag";
@@ -317,15 +316,27 @@
   };
   nvim-web-devicons = {
     pname = "nvim-web-devicons";
-    version = "3722e3d1fb5fe1896a104eb489e8f8651260b520";
+    version = "9793801f974bba70e4ac5d7eae6c4f5659993d8e";
     src = fetchFromGitHub {
       owner = "nvim-tree";
       repo = "nvim-web-devicons";
-      rev = "3722e3d1fb5fe1896a104eb489e8f8651260b520";
+      rev = "9793801f974bba70e4ac5d7eae6c4f5659993d8e";
       fetchSubmodules = false;
-      sha256 = "sha256-TeWMlfNTA5+tiPq6D2TVWjdfJVr3FOwpqUDU8kfFZ8E=";
+      sha256 = "sha256-2X72Xv+S9mZ79x1k28LxKH7RnARwB3ZHGGSzIkeuWj8=";
     };
-    date = "2024-08-04";
+    date = "2024-09-06";
+  };
+  oil-nvim = {
+    pname = "oil-nvim";
+    version = "v2.12.1";
+    src = fetchFromGitHub {
+      owner = "stevearc";
+      repo = "oil.nvim";
+      rev = "v2.12.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-zP0Z/I5f264+mXtLNqHxyjeO8i9w8uk/o1n6s2ajtBY=";
+    };
+    opt = "true";
   };
   org-bullets-nvim = {
     pname = "org-bullets-nvim";

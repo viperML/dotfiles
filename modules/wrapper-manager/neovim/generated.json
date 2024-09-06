@@ -310,7 +310,7 @@
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
-        "date": "2024-06-11",
+        "date": "2024-09-05",
         "extract": null,
         "name": "neo-tree-nvim",
         "passthru": {
@@ -324,11 +324,11 @@
             "name": null,
             "owner": "nvim-neo-tree",
             "repo": "neo-tree.nvim",
-            "rev": "206241e451c12f78969ff5ae53af45616ffc9b72",
-            "sha256": "sha256-eNGuQEjAKsPuRDGaw95kCVOmP64ZDnUuFBppqtcrhZ4=",
+            "rev": "0774fa2085c62a147fcc7b56f0ac37053cc80217",
+            "sha256": "sha256-pLMXK53xA+UelkRLGBmPjRkYXo4kP0c9rClY3Q+w21k=",
             "type": "github"
         },
-        "version": "206241e451c12f78969ff5ae53af45616ffc9b72"
+        "version": "0774fa2085c62a147fcc7b56f0ac37053cc80217"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
@@ -498,12 +498,10 @@
     },
     "nvim-treesitter-textobjects": {
         "cargoLocks": null,
-        "date": "2024-08-29",
+        "date": "2024-09-04",
         "extract": null,
         "name": "nvim-treesitter-textobjects",
-        "passthru": {
-            "opt": "true"
-        },
+        "passthru": null,
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -512,11 +510,11 @@
             "name": null,
             "owner": "nvim-treesitter",
             "repo": "nvim-treesitter-textobjects",
-            "rev": "3a3c6244553f13fdd92d312c82722b57ce6c4bec",
+            "rev": "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73",
             "sha256": "sha256-k8awnw0QETnYzDH6JeGzmNx/kovFfprCYZm/ybULPtw=",
             "type": "github"
         },
-        "version": "3a3c6244553f13fdd92d312c82722b57ce6c4bec"
+        "version": "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73"
     },
     "nvim-ts-autotag": {
         "cargoLocks": null,
@@ -540,7 +538,7 @@
     },
     "nvim-web-devicons": {
         "cargoLocks": null,
-        "date": "2024-08-04",
+        "date": "2024-09-06",
         "extract": null,
         "name": "nvim-web-devicons",
         "passthru": null,
@@ -552,11 +550,33 @@
             "name": null,
             "owner": "nvim-tree",
             "repo": "nvim-web-devicons",
-            "rev": "3722e3d1fb5fe1896a104eb489e8f8651260b520",
-            "sha256": "sha256-TeWMlfNTA5+tiPq6D2TVWjdfJVr3FOwpqUDU8kfFZ8E=",
+            "rev": "9793801f974bba70e4ac5d7eae6c4f5659993d8e",
+            "sha256": "sha256-2X72Xv+S9mZ79x1k28LxKH7RnARwB3ZHGGSzIkeuWj8=",
             "type": "github"
         },
-        "version": "3722e3d1fb5fe1896a104eb489e8f8651260b520"
+        "version": "9793801f974bba70e4ac5d7eae6c4f5659993d8e"
+    },
+    "oil-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "oil-nvim",
+        "passthru": {
+            "opt": "true"
+        },
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "stevearc",
+            "repo": "oil.nvim",
+            "rev": "v2.12.1",
+            "sha256": "sha256-zP0Z/I5f264+mXtLNqHxyjeO8i9w8uk/o1n6s2ajtBY=",
+            "type": "github"
+        },
+        "version": "v2.12.1"
     },
     "org-bullets-nvim": {
         "cargoLocks": null,

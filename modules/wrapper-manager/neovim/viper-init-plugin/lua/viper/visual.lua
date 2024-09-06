@@ -207,6 +207,23 @@ vim.list_extend(require("viper.lazy.specs"), {
       vim.keymap.set("n", "<C-S-Right>", require("smart-splits").resize_right, { desc = "Resize right" })
     end,
   },
+  {
+    "oil.nvim",
+    event = "DeferredUIEnter",
+    after = function()
+      require("oil").setup {
+        keymaps = {
+          [""] = "actions.close",
+        },
+        float = {
+          padding = 4,
+        },
+      }
+      vim.keymap.set("n", "<leader>o", function()
+        require("oil").open_float()
+      end, { desc = "Oil: open" })
+    end,
+  },
 })
 
 local colorcolumns = {
