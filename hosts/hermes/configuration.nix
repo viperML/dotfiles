@@ -106,10 +106,11 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     self'.packages.vscode
     pkgs.vault
     self'.packages.wezterm
     pkgs.sbctl
+    pkgs.prismlauncher
   ];
 }
