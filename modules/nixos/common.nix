@@ -173,4 +173,8 @@
   };
 
   hardware.steam-hardware.enable = true;
+
+  system.switch = {
+    enableNg = false;
+  };
 }
