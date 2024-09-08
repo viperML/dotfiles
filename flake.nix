@@ -42,6 +42,7 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
+
     nix-common = {
       url = "github:viperML/nix-common";
     };
@@ -50,7 +51,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -67,6 +67,10 @@
       url = "github:viperML/in-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -75,18 +79,9 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
-    };
-    nix-ld = {
-      url = "github:nix-community/nix-ld-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
