@@ -61,10 +61,9 @@ in {
       };
     };
 
-    # binfmt.emulatedSystems = [
-    #   "aarch64-linux"
-    #   "wasm32-wasi"
-    # ];
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+    ];
 
     kernel.sysctl = {"vm.swappiness" = 10;};
 
