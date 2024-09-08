@@ -27,5 +27,7 @@
           then file
           else folder))
       files);
+
+    dirToAttrs = dir: lib.mapAttrs' (name: value: lib.nameValuePair (lib.removeSuffix ".nix" name) (dir + "/${name}")) (builtins.readDir dir);
   };
 }

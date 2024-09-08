@@ -1,21 +1,19 @@
 {
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({lib, ...}: {
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({
+      lib,
+      config,
+      ...
+    }: {
       imports = [
         ./packages
         ./misc/lib
-        ./misc/bundlers.nix
         ./hosts
-        ./modules/nixos
       ];
 
-      flake.templates = lib.pipe ./misc/templ [
-        builtins.readDir
-        (builtins.mapAttrs (name: _: {
-          description = name;
-          path = ./misc/templ/${name};
-        }))
-      ];
+      flake = {
+        nixosModules = config.flake.lib.dirToAttrs ./modules/nixos;
+      };
 
       systems = [
         "x86_64-linux"
@@ -31,7 +29,7 @@
           mkShellNoCC {
             packages = [
               lua-language-server
-                config.packages.stylua
+              config.packages.stylua
               taplo
             ];
           };
