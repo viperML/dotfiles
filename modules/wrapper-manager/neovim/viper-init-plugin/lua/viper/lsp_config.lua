@@ -50,6 +50,8 @@ return {
   ["html"] = {},
   ["cssls"] = {},
   ["astro"] = {},
+  ["eslint"] = {},
+  ["tailwindcss"] = {},
   -- C
   ["clangd"] = {},
   ["mesonlsp"] = {},
