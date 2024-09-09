@@ -52,6 +52,7 @@ return {
   ["astro"] = {},
   ["eslint"] = {},
   ["tailwindcss"] = {},
+  ["mdx_analyzer"] = {},
   -- C
   ["clangd"] = {},
   ["mesonlsp"] = {},
