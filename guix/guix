@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+set -eux
+
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd)"
+
+exec guix time-machine -C "$dir/channels.locked.scm" -q -- "$@"
