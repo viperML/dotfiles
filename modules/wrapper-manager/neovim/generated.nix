@@ -181,6 +181,18 @@
       sha256 = "sha256-XzE/clxKoMhjg6ID7KZrzO9o+uxl5RIq8fkbt6Jal0g=";
     };
   };
+  mdx-nvim = {
+    pname = "mdx-nvim";
+    version = "61b93f6576cb5229020723c7a81f5a01d2667d05";
+    src = fetchFromGitHub {
+      owner = "davidmh";
+      repo = "mdx.nvim";
+      rev = "61b93f6576cb5229020723c7a81f5a01d2667d05";
+      fetchSubmodules = false;
+      sha256 = "sha256-CYcL+s1634UgquwUYp70iAD2xC6r87j6w5jYv90mUAg=";
+    };
+    date = "2024-02-21";
+  };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
     version = "0774fa2085c62a147fcc7b56f0ac37053cc80217";
@@ -256,16 +268,16 @@
   };
   nvim-dap-python = {
     pname = "nvim-dap-python";
-    version = "7c427e2bbc72d46ea3c9602bede6465ef61b8c19";
+    version = "db72bf6ab9f75fe841e8e11e772ee7fef6f484f1";
     src = fetchFromGitHub {
       owner = "mfussenegger";
       repo = "nvim-dap-python";
-      rev = "7c427e2bbc72d46ea3c9602bede6465ef61b8c19";
+      rev = "db72bf6ab9f75fe841e8e11e772ee7fef6f484f1";
       fetchSubmodules = false;
-      sha256 = "sha256-OXAMFIi83lEOtKJ6/bkmaus23GKtYeRkx2Wv+Yvb67g=";
+      sha256 = "sha256-t5qz+EFUIKUTPH1aiiBmGJ1E+NZ18nvjNLNxQsPRS9Q=";
     };
     opt = "true";
-    date = "2024-08-19";
+    date = "2024-09-08";
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
@@ -292,15 +304,15 @@
   };
   nvim-treesitter-textobjects = {
     pname = "nvim-treesitter-textobjects";
-    version = "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73";
+    version = "bf8d2ad35d1d1a687eae6c065c3d524f7ab61b23";
     src = fetchFromGitHub {
       owner = "nvim-treesitter";
       repo = "nvim-treesitter-textobjects";
-      rev = "fe3deb7f67ce0cc4ebfe2ea6c1c7ae1c7a939d73";
+      rev = "bf8d2ad35d1d1a687eae6c065c3d524f7ab61b23";
       fetchSubmodules = false;
-      sha256 = "sha256-k8awnw0QETnYzDH6JeGzmNx/kovFfprCYZm/ybULPtw=";
+      sha256 = "sha256-qDk74rGr9uO/WdSoMZMr8i4bxjlkGDRwpJKaQA+MdgE=";
     };
-    date = "2024-09-04";
+    date = "2024-09-08";
   };
   nvim-ts-autotag = {
     pname = "nvim-ts-autotag";

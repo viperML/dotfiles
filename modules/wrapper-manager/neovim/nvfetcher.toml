@@ -164,3 +164,7 @@ src.git = "https://github.com/windwp/nvim-ts-autotag"
 fetch.github = "stevearc/oil.nvim"
 src.github = "stevearc/oil.nvim"
 passthru.opt = "true"
+
+[mdx-nvim]
+fetch.github = "davidmh/mdx.nvim"
+src.git = "https://github.com/davidmh/mdx.nvim"

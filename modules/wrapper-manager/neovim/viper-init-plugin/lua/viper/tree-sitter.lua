@@ -36,3 +36,6 @@ vim.api.nvim_del_user_command("TSInstallFromGrammar")
 vim.api.nvim_del_user_command("TSUninstall")
 
 require("nvim-ts-autotag").setup {}
+
+
+require("mdx").setup {}

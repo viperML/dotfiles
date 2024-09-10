@@ -10,6 +10,8 @@ M.ignored = {
   "dist-newstyle",
 }
 
+vim.opt.termguicolors = true
+
 require("kanagawa").setup {
   transparent = true,
   theme = "dragon",
@@ -17,7 +19,19 @@ require("kanagawa").setup {
 
 vim.cmd([[ colorscheme kanagawa-dragon ]])
 
-vim.opt.termguicolors = true
+local highlights = {
+  constant = vim.api.nvim_get_hl(0, {
+    name = "Constant",
+  }),
+}
+
+vim.api.nvim_set_hl(0, "@markup.strong", {
+  cterm = {
+    bold = true,
+  },
+  -- gui = "bold",
+  fg = highlights.constant.fg,
+})
 
 require("bufferline").setup {
   options = {
@@ -218,6 +232,8 @@ vim.list_extend(require("viper.lazy.specs"), {
         float = {
           padding = 4,
         },
+        skip_confirm_for_simple_edits = true,
+        prompt_save_on_select_new_entry = false,
       }
       vim.keymap.set("n", "<leader>o", function()
         require("oil").open_float()
