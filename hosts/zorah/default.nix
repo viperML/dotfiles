@@ -20,7 +20,7 @@ in {
       nixosModules.user-soch
       nixosModules.yubikey
 
-      inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
+      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
