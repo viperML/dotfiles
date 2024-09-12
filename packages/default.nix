@@ -13,6 +13,16 @@
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
       config = {
+        allowInsecurePredicate = pkg: let
+          pname = lib.getName pkg;
+          byName = builtins.elem pname [
+            "nix"
+          ];
+        in
+          if byName
+          then lib.warn "Allowing insecure package: ${pname}" true
+          else false;
+
         allowUnfreePredicate = pkg: let
           pname = lib.getName pkg;
           byName = builtins.elem pname [
@@ -51,7 +61,7 @@
       in
         auto
         // {
-          nix = inputs'.in-nix.packages.default.patchNix pkgs.nixVersions.latest;
+          nix = inputs'.in-nix.packages.default.patchNix pkgs.nixVersions.nix_2_24;
 
           # manual overrides to auto callPackage
           nix-index = callPackage ./nix-index {
