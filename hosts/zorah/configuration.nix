@@ -131,8 +131,8 @@ in {
   # };
 
   systemd.services."openconnect-inria" = {
-    enable = false;
-    after = ["NetworkManager.service"];
+    # enable = false;
+    # after = ["NetworkManager.service"];
     path = [pkgs.openconnect];
     script = ''
       exec openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
