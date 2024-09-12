@@ -131,7 +131,7 @@ in {
   # };
 
   systemd.services."openconnect-inria" = {
-    # wantedBy = ["multi-user.target"];
+    enable = false;
     after = ["NetworkManager.service"];
     path = [pkgs.openconnect];
     script = ''
