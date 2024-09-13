@@ -146,6 +146,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "nix"
             "org"
             "rust"
+            "typst"
             "scheme"
             "tsx"
             "typescript"

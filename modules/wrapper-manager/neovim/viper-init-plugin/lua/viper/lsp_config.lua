@@ -89,6 +89,7 @@ return {
       "markdown",
       "org",
       "tex",
+      "typst",
     },
   },
   -- ["hls"] = {
