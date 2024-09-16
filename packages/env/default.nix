@@ -29,6 +29,7 @@
   fq,
   alejandra,
   nil,
+  psmisc,
 } @ args:
 symlinkJoin {
   name = "env";
