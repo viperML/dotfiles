@@ -234,6 +234,9 @@ vim.list_extend(require("viper.lazy.specs"), {
         },
         skip_confirm_for_simple_edits = true,
         prompt_save_on_select_new_entry = false,
+        view_options = {
+          show_hidden = true,
+        },
       }
       vim.keymap.set("n", "<leader>o", function()
         require("oil").open_float()
