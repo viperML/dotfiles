@@ -87,6 +87,7 @@ return {
   ["ltex"] = {
     filetypes = {
       "markdown",
+      "mdx",
       "org",
       "tex",
       "typst",

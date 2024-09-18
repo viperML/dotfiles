@@ -13,6 +13,7 @@ local two_tabs_default = {
   "cpp",
   "meson",
   "markdown",
+  "mdx",
   "r",
 }
 
@@ -21,6 +22,39 @@ for _, lang in ipairs(two_tabs_default) do
     pattern = lang,
     callback = function()
       vim.opt_local.tabstop = 2
+    end,
+  })
+end
+
+local cc = {
+  ["rust"] = 100,
+  ["scheme"] = 100,
+  ["lua"] = 100,
+
+  ["python"] = 80,
+}
+
+for lang, col in pairs(cc) do
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = lang,
+    callback = function()
+      vim.opt_local.colorcolumn = "" .. col
+    end,
+  })
+end
+
+local cc_wrap = {
+  ["markdown"] = 100,
+  ["mdx"] = 100,
+}
+
+for lang, col in pairs(cc_wrap) do
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = lang,
+    callback = function()
+      vim.notify("ft")
+      vim.opt_local.colorcolumn = "" .. col
+      vim.opt_local.textwidth = col
     end,
   })
 end
