@@ -44,8 +44,8 @@ for lang, col in pairs(cc) do
 end
 
 local cc_wrap = {
-  ["markdown"] = 100,
-  ["mdx"] = 100,
+  ["markdown"] = 80,
+  ["mdx"] = 80,
 }
 
 for lang, col in pairs(cc_wrap) do
