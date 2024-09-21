@@ -51,7 +51,7 @@
     nixpkgs-fmt
     nix-output-monitor
     nodePackages.bash-language-server
-    inputs'.tree-sitter.packages.tree-sitter-cat
+    # inputs'.tree-sitter.packages.tree-sitter-cat
     sops
     age
 
