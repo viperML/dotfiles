@@ -132,4 +132,5 @@ return {
   ["elixirls"] = {
     cmd = { "elixir-ls" },
   },
+  ["asm_lsp"] = {},
 }

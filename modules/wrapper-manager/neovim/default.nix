@@ -132,6 +132,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
           (map (n: "tree-sitter-${n}") [
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
             "astro"
+            "asm"
             "c"
             "cmake"
             "cpp"
