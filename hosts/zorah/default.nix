@@ -31,5 +31,6 @@ in {
       nixosModules.guix
       # nixosModules.docker
       nixosModules.incus
+      nixosModules.ddc
     ]);
 }
