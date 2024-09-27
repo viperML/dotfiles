@@ -3,10 +3,10 @@
 {
   iosevka = {
     pname = "iosevka";
-    version = "v1.4.5";
+    version = "v1.5.0";
     src = fetchurl {
-      url = "https://github.com/viperML/iosevka/releases/download/v1.4.5/iosevka.zip";
-      sha256 = "sha256-MVY1B/Ob2v+lRaWBfuFBwhnLicVOdLQtbNsj7zIUhSU=";
+      url = "https://github.com/viperML/iosevka/releases/download/v1.5.0/iosevka.zip";
+      sha256 = "sha256-iw2tXvHQ0+Wf+/ZW0R9VX3LsZBkmG5X+xWZzNWT3bHI=";
     };
   };
 }
