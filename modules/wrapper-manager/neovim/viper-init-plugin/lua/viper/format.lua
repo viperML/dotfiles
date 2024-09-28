@@ -52,7 +52,6 @@ for lang, col in pairs(cc_wrap) do
   vim.api.nvim_create_autocmd("FileType", {
     pattern = lang,
     callback = function()
-      vim.notify("ft")
       vim.opt_local.colorcolumn = "" .. col
       vim.opt_local.textwidth = col
     end,
