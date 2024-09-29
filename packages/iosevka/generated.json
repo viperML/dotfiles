@@ -8,10 +8,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jD1BYmILVy1MYAVhuqE/MkxfZ26pIsmPx/C6bnKhTNY=",
+            "sha256": "sha256-ZSGdT1mO1LezVkbg8hc1lKLisKtvVftOPtmjQl8qxGE=",
             "type": "url",
-            "url": "https://github.com/viperML/iosevka/releases/download/v1.5.2/iosevka.zip"
+            "url": "https://github.com/viperML/iosevka/releases/download/v1.5.3/iosevka.zip"
         },
-        "version": "v1.5.2"
+        "version": "v1.5.3"
     }
 }
