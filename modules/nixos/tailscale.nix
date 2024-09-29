@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (config.services.tailscale) interfaceName;
 in {
   services.tailscale.enable = true;
@@ -16,4 +21,10 @@ in {
       ];
     };
   };
+
+  environment.systemPackages = lib.mkMerge [
+    (lib.mkIf config.services.desktopManager.plasma6.enable [
+      pkgs.ktailctl
+    ])
+  ];
 }
