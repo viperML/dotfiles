@@ -145,4 +145,6 @@ in {
       StartLimitBurst = 30;
     };
   };
+
+  programs.kde-pim.enable = true;
 }

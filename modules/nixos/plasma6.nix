@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
@@ -26,10 +31,12 @@
     credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
   };
 
-  programs.kde-pim = {
-    enable = true;
-    kmail = true;
-    kontact = true;
-    merkuro = true;
+  programs.kde-pim = let
+    cfg = config.programs.kde-pim.enable;
+  in {
+    enable = lib.mkDefault false;
+    kmail = lib.mkIf cfg true;
+    kontact = lib.mkIf cfg true;
+    merkuro = lib.mkIf cfg true;
   };
 }

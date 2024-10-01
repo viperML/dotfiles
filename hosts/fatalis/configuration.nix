@@ -110,4 +110,6 @@ in {
       options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
   };
+
+  programs.kde-pim.enable = false;
 }
