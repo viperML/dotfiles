@@ -45,13 +45,13 @@ return {
   },
   -- JS
   -- tsconfig.json in both, but should be fine with direnv+not having both on PATH at the same time
-  ["tsserver"] = {
+  ["ts_ls"] = {
     root_dir = root_pattern("package.json", "tsconfig.json"),
-    single_file_support = false,
+    -- single_file_support = false,
   },
-  ["denols"] = {
-    root_dir = root_pattern("deno.json", "deno.jsonc", "tsconfig.json"),
-  },
+  -- ["denols"] = {
+  --   root_dir = root_pattern("deno.json", "deno.jsonc", "tsconfig.json"),
+  -- },
   ["html"] = {},
   ["cssls"] = {},
   ["astro"] = {},
