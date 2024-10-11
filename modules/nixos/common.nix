@@ -61,6 +61,7 @@
     self'.packages.ungoogled-chromium
     self'.packages.wezterm
     vscode
+    scribus
   ];
 
   # i18n = let
