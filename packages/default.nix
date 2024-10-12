@@ -12,6 +12,19 @@
   }: {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
+
+      overlays = [
+        (final: prev: {
+          gnome-keyring = prev.gnome-keyring.overrideAttrs (old: {
+            configureFlags =
+              (lib.remove "--enable-ssh-agent" old.configureFlags)
+              ++ [
+                "--disable-ssh-agent"
+              ];
+          });
+        })
+      ];
+
       config = {
         allowInsecurePredicate = pkg: let
           pname = lib.getName pkg;
