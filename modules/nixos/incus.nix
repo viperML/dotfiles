@@ -3,12 +3,31 @@
   dnsDomain = "incus";
   ipv4 = "10.0.100.1";
   ipv4Subnet = "24";
+  # Stuff from https://microk8s.io/docs/install-lxd
+  # https://raw.githubusercontent.com/ubuntu/microk8s/master/tests/lxc/microk8s.profile
 in {
   assertions = [
     {
       assertion = config.services.resolved.enable;
       description = "incus module uses resolved";
     }
+    {
+      assertion = !config.virtualisation.docker.enable;
+      description = "incus conflicts with docker";
+    }
+  ];
+
+  boot.kernelModules = [
+    "ip_vs"
+    "ip_vs_rr"
+    "ip_vs_wrr"
+    "ip_vs_sh"
+    "ip_tables"
+    "ip6_tables"
+    "netlink_diag"
+    "nf_nat"
+    "overlay"
+    "br_netfilter"
   ];
 
   virtualisation.incus = {
@@ -29,6 +48,16 @@ in {
       profiles = [
         {
           name = "default";
+          config = {
+            "security.nesting" = true;
+            "security.privileged" = true;
+            "raw.lxc" = ''
+              lxc.apparmor.profile=unconfined
+              lxc.mount.auto=proc:rw sys:rw cgroup:rw
+              lxc.cgroup.devices.allow=a
+              lxc.cap.drop=
+            '';
+          };
           devices = {
             eth0 = {
               name = "eth0";
@@ -59,12 +88,34 @@ in {
               source = "/etc/static";
               path = source;
             };
+            disable1 = {
+              type = "disk";
+              path = "/sys/module/nf_conntrack/parameters/hashsize";
+              source = "/sys/module/nf_conntrack/parameters/hashsize";
+            };
+            disable2 = {
+              type = "unix-char";
+              path = "/dev/kmsg";
+              source = "/dev/kmsg";
+            };
+            disable3 = {
+              type = "disk";
+              path = "/sys/fs/bpf";
+              source = "/sys/fs/bpf";
+            };
+            disable4 = {
+              type = "disk";
+              path = "/proc/sys/net/netfilter/nf_conntrack_max";
+              source = "/proc/sys/net/netfilter/nf_conntrack_max";
+            };
           };
         }
       ];
       storage_pools = [
         {
-          config = {source = "/var/lib/incus/storage-pools/default";};
+          config = {
+            source = "/var/lib/incus/storage-pools/default";
+          };
           driver = "dir";
           name = "default";
         }

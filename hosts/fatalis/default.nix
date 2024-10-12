@@ -29,5 +29,6 @@ in {
       # nixosModules.guix
       # nixosModules.docker
       nixosModules.printing
+      nixosModules.incus
     ]);
 }
