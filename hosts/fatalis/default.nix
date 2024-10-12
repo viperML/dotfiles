@@ -6,7 +6,7 @@
   ...
 }: let
   system = "x86_64-linux";
-  inherit (config.flake) nixosModules homeModules;
+  inherit (config.flake) nixosModules;
 in {
   flake.nixosConfigurations.fatalis = withSystem system ({pkgs, ...}:
     mkNixos system [
@@ -21,12 +21,13 @@ in {
 
       #-- Environment
       {services.displayManager.autoLogin.user = "ayats";}
-      nixosModules.plasma6
+      # nixosModules.plasma6
+      nixosModules.gnome
 
       #-- Other
       nixosModules.tailscale
       # nixosModules.guix
-      nixosModules.docker
+      # nixosModules.docker
       nixosModules.printing
     ]);
 }

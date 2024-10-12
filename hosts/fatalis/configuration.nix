@@ -6,7 +6,7 @@
 }: let
   luksDevice = "luksroot";
 in {
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
   environment.sessionVariables.FLAKE = "/var/home/ayats/Documents/dotfiles";
 
   environment.systemPackages = [
@@ -43,15 +43,16 @@ in {
     };
   };
 
-  services.fwupd.enable = true;
+  # services.fwupd.enable = true;
 
   # services.cpupower-gui.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   boot = {
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/secrets/secureboot";
+      # pkiBundle = "/etc/secureboot";
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
@@ -75,6 +76,7 @@ in {
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
+      # systemd-boot.enable = true;
       grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
@@ -94,18 +96,18 @@ in {
       options rtw89_core disable_ps_mode=y
     '';
 
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    # binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
   fileSystems = {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
-      fsType = "xfs";
+      fsType = "btrfs";
       options = ["noatime"];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-partlabel/ESP";
+      device = "/dev/disk/by-partlabel/EFI";
       fsType = "vfat";
       options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
     };
