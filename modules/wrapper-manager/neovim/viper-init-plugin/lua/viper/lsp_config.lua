@@ -134,4 +134,5 @@ return {
     cmd = { "elixir-ls" },
   },
   ["asm_lsp"] = {},
+  ["terraformls"] = {},
 }
