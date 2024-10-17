@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   bridge = "incusbr0";
   dnsDomain = "incus";
   ipv4 = "10.0.100.1";
@@ -34,6 +38,7 @@ in {
 
   virtualisation.incus = {
     enable = true;
+    package = pkgs.incus; # default is -lts
     preseed = {
       networks = [
         {
