@@ -47,6 +47,7 @@
             "nvidia-x11"
             "nvidia-settings"
             "google-chrome"
+            "steam-unwrapped"
             # "cuda-merged"
             # "cuda_cuobjdump"
             # "cuda_gdb"
