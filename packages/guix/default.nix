@@ -18,7 +18,8 @@
       if [[ -f "${current-guix}/bin/${bin}" ]]; then
         exec -a "$0" "${current-guix}/bin/${bin}" "$@"
       else
-        exec -a "$0" ${guix}/bin/${bin} "$@"
+        echo "Guix not found"
+        exit 1
       fi
     '';
 in
@@ -27,6 +28,6 @@ in
     paths = [
       (mkDispatch "guix")
       (mkDispatch "guix-daemon")
-      guix
+      # guix
     ];
   }
