@@ -131,27 +131,27 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
         (lib.getAttrs
           (map (n: "tree-sitter-${n}") [
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
-            "astro"
             "asm"
+            "astro"
             "c"
             "cmake"
             "cpp"
             "elixir"
+            "go"
             "haskell"
             "hcl"
             "html"
             "javascript"
-            # "jsx"
             "lua"
             "markdown"
             "meson"
             "nix"
             "org"
             "rust"
-            "typst"
             "scheme"
             "tsx"
             "typescript"
+            "typst"
             "yaml" # for frontmatter injections
           ])
           inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered))
