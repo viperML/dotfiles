@@ -18,6 +18,7 @@ in {
     subversion
 
     mattermost-desktop
+    tor-browser
   ];
 
   environment.sessionVariables = {
