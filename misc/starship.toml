@@ -102,6 +102,14 @@ style = "bold cyan"
 format = "[$symbol]($style) [$output]($style) "
 os = "linux"
 
+[custom.module]
+when = "printenv LOADEDMODULES"
+os = "linux"
+command = "echo $LOADEDMODULES | sed 's#/[^:]*##g; s#:# #g'"
+symbol = "󱗜 mod:"
+style = "bold yellow"
+format = "[$symbol]($style) [$output]($style) "
+
 [env_var.HOVER]
 style = "white dimmed bold"
 format = "([$symbol $env_value]($style) )"
@@ -136,6 +144,7 @@ format = "([$symbol $env_value]($style) )"
 symbol = " slurm"
 variable = "SLURM_JOB_UID"
 default = ""
+
 
 [singularity]
 style = "bold dimmed blue"
