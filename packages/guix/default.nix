@@ -2,6 +2,7 @@
   guix,
   symlinkJoin,
   writeShellScriptBin,
+  stdenv,
   # passed by nixos module
   storeDir ? null,
   stateDir ? null,
@@ -28,6 +29,16 @@ in
     paths = [
       (mkDispatch "guix")
       (mkDispatch "guix-daemon")
-      # guix
+      (stdenv.mkDerivation {
+        name = "guix-keys";
+        inherit (guix) src;
+        dontConfigure = true;
+        dontBuild = true;
+        installPhase = ''
+          for key in etc/substitutes/*; do
+            install -Dm644 $key $out/share/guix/$(basename $key)
+          done
+        '';
+      })
     ];
   }
