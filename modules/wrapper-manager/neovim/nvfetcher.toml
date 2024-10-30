@@ -168,3 +168,7 @@ passthru.opt = "true"
 [mdx-nvim]
 fetch.github = "davidmh/mdx.nvim"
 src.git = "https://github.com/davidmh/mdx.nvim"
+
+[nvim-treesitter-context]
+fetch.github = "nvim-treesitter/nvim-treesitter-context"
+src.git = "https://github.com/nvim-treesitter/nvim-treesitter-context"
