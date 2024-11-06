@@ -16,6 +16,7 @@ local two_tabs_default = {
   "scheme",
   "terraform",
   "typescript",
+  "typst",
 }
 
 for _, lang in ipairs(two_tabs_default) do
@@ -47,6 +48,7 @@ end
 local cc_wrap = {
   ["markdown"] = 80,
   ["mdx"] = 80,
+  ["typst"] = 80,
 }
 
 for lang, col in pairs(cc_wrap) do

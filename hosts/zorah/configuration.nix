@@ -153,4 +153,6 @@ in {
     enable = true;
     enableSuid = true;
   };
+
+  virtualisation.waydroid.enable = true;
 }
