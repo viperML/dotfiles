@@ -105,7 +105,7 @@ return {
   --   filetypes = { "haskell", "lhaskell", "cabal" },
   -- },
   ["gopls"] = {},
-  ["typst_lsp"] = {},
+  -- ["typst_lsp"] = {}, -- BROKEN for accents
   ["texlab"] = {},
   ["zls"] = {},
   ["lua_ls"] = {
