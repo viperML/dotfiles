@@ -31,9 +31,29 @@ vim.opt.signcolumn = "yes"
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
-vim.opt.sessionoptions:remove("folds")
+vim.o.cmdheight = 1
+vim.o.shortmess = "atToOCFI"
+local messages = {
+  "a",
+  "o",
+  "O",
+  "s",
+  "t",
+  "T",
+  "W",
+  "I",
+  "C",
+  "F",
+}
+local messages_res = ""
+for _, m in ipairs(messages) do
+  messages_res = messages_res .. m
+end
+vim.o.shortmess = messages_res
 
-vim.opt.shortmess = "I" -- disable intro message
+vim.o.showbreak = "↪ "
+
+vim.opt.sessionoptions:remove("folds")
 
 vim.list_extend(require("viper.lazy.specs"), {
   {

@@ -19,6 +19,7 @@ in {
 
     mattermost-desktop
     tor-browser
+    slack
   ];
 
   environment.sessionVariables = {
