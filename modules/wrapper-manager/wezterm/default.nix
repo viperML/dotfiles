@@ -1,8 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs',
+  ...
+}: {
   wrappers.wezterm = let
     smart-splits = (pkgs.callPackages ../neovim/generated.nix {}).smart-splits-nvim.src;
   in {
-    basePackage = pkgs.wezterm;
+    # basePackage = pkgs.wezterm;
+    basePackage = inputs'.wezterm.packages.default;
     env.WEZTERM_CONFIG_FILE.value =
       pkgs.writeText "wezterm.lua"
       # lua
@@ -23,6 +28,12 @@
 
         return config
       '';
+
     env.WEZTERM_CONFIG_FILE.force = true;
+
+    env.WEZTERM_LOG.value = builtins.concatStringsSep "," [
+      "window::os::wayland::window=off"
+      "info"
+    ];
   };
 }

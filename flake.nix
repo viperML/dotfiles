@@ -98,5 +98,12 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
     };
+    wezterm = {
+      url = "github:wez/wezterm?dir=nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 }
