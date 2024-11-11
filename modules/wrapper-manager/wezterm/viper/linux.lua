@@ -13,6 +13,8 @@ M.apply_to_config = function(config)
   -- config.enable_wayland = false
 
   config.enable_wayland = true
+
+  config.xcursor_theme = "Adwaita"
 end
 
 return M
