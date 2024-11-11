@@ -559,7 +559,7 @@
       "locked": {
         "dir": "nix",
         "lastModified": 1730734444,
-        "narHash": "sha256-Xfo4ncBW868aKUCoVhcVmYB5mJ9OkPUKaBngqovTjSE=",
+        "narHash": "sha256-lNgCAphrq3/bYGjgDxEl2rVcer6GnmfWXDhxc+kdYOk=",
         "owner": "wez",
         "repo": "wezterm",
         "rev": "51c794ac500a2033b9dc570c71810518bfa667a9",
