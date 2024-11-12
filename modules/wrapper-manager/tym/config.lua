@@ -1,6 +1,6 @@
 local tym = require("tym")
 
-local p = 10
+-- local p = 10
 
 tym.set_config({
   font = "iosevka-normal 11",
