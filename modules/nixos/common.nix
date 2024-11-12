@@ -59,9 +59,11 @@
     warp
     firefox
     self'.packages.ungoogled-chromium
-    self'.packages.wezterm
+    # self'.packages.wezterm
     vscode
     scribus
+    self'.packages.tym
+    pkgs.zellij
   ];
 
   # i18n = let

@@ -9,5 +9,6 @@
   environment.systemPackages = [
     pkgs.adw-gtk3
     pkgs.gnome-tweaks
+    pkgs.wl-clipboard-rs
   ];
 }
