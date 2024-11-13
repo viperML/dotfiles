@@ -63,7 +63,6 @@
     vscode
     scribus
     self'.packages.tym
-    pkgs.zellij
   ];
 
   # i18n = let
