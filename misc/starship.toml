@@ -58,8 +58,11 @@ symbol = ""
 only_attached = true
 
 [git_commit]
-style = "bold purple"
-format = '[$hash]($style) '
+style = "dimmed white"
+format = '[([$tag](bold purple) )$hash]($style) '
+tag_disabled = false
+tag_symbol = ""
+
 
 [git_status]
 format = "([$stashed$conflicted$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
