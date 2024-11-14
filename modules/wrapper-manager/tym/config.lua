@@ -3,7 +3,7 @@ local tym = require("tym")
 -- local p = 10
 
 tym.set_config({
-  font = "iosevka-normal 11",
+  font = "iosevka-normal Medium 11",
   cursor_shape = "ibeam",
   padding_top = p,
   padding_bottom = p,
