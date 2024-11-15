@@ -63,6 +63,7 @@
     vscode
     # scribus
     # self'.packages.tym
+    libcgroup
   ];
 
   # i18n = let
