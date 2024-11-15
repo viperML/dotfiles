@@ -51,6 +51,7 @@ format = "[󰉋 $path]($style)([$read_only]($read_only_style))"
 #repo_root_style = "red"
 home_symbol = "~"
 #disabled = true
+truncation_length = 0
 
 [git_branch]
 format = " [$symbol$branch]($style) "
