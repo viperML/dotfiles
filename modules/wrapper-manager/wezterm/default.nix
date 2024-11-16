@@ -6,8 +6,8 @@
   wrappers.wezterm = let
     smart-splits = (pkgs.callPackages ../neovim/generated.nix {}).smart-splits-nvim.src;
   in {
-    # basePackage = pkgs.wezterm;
-    basePackage = inputs'.wezterm.packages.default;
+    basePackage = pkgs.wezterm;
+    # basePackage = inputs'.wezterm.packages.default;
     env.WEZTERM_CONFIG_FILE.value =
       pkgs.writeText "wezterm.lua"
       # lua
