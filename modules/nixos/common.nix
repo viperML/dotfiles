@@ -60,6 +60,7 @@
     firefox
     self'.packages.ungoogled-chromium
     self'.packages.wezterm
+    self'.packages.tym
     vscode
     # scribus
     # self'.packages.tym
