@@ -28,12 +28,16 @@
   lurk,
   fq,
   alejandra,
-  nil,
+  nixfmt-rfc-style,
   psmisc,
 } @ args:
 symlinkJoin {
   name = "env";
   paths =
     (builtins.filter lib.isDerivation (builtins.attrValues args))
-    ++ [inputs'.nh.packages.default inputs'.hover-rs.packages.default];
+    ++ [
+      inputs'.nil.packages.default
+      inputs'.nh.packages.default
+      inputs'.hover-rs.packages.default
+    ];
 }

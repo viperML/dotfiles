@@ -84,7 +84,7 @@ vim.list_extend(require("viper.lazy.specs"), {
         },
         formatters_by_ft = {
           lua = { "stylua" },
-          nix = { "alejandra" },
+          nix = { "nixfmt" },
           c = { "clang-format" },
           typst = { "typstyle" },
           rust = { "rustfmt" },

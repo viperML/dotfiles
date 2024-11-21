@@ -98,5 +98,12 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
     };
+    nil = {
+      url = "github:oxalica/nil?ref=main";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 }
