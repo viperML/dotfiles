@@ -3,6 +3,7 @@ local two_tabs_default = {
   "c",
   "cpp",
   "css",
+  "gitconfig",
   "html",
   "javascript",
   "json",

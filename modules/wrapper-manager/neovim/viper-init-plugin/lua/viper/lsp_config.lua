@@ -2,7 +2,10 @@ local lspconfig = require("lspconfig")
 local root_pattern = lspconfig.util.root_pattern
 
 vim.filetype.add {
-  filename = { [".envrc"] = "bash" },
+  filename = {
+    [".envrc"] = "bash",
+    ["gitconfig"] = "gitconfig",
+  },
 }
 
 -- don't show parse errors in a separate window
