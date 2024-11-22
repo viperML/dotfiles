@@ -4,9 +4,10 @@ let
 in
 {
   wrappers.git = {
-    basePackage = inputs'.git-args.packages.default.override {
-      git = myGit;
-    };
+    # basePackage = inputs'.git-args.packages.default.override {
+    #   git = myGit;
+    # };
+    basePackage = myGit;
     extraPackages = [
       pkgs.git-extras
       myGit
