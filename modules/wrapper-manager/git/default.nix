@@ -1,7 +1,17 @@
-{pkgs, ...}: {
+{ pkgs, inputs', ... }:
+let
+  myGit = pkgs.gitFull;
+in
+{
   wrappers.git = {
-    basePackage = pkgs.gitFull;
-    extraPackages = [pkgs.git-extras];
+    basePackage = inputs'.git-args.packages.default.override {
+      git = myGit;
+    };
+    extraPackages = [
+      pkgs.git-extras
+      myGit
+    ];
     env.GIT_CONFIG_GLOBAL.value = ../../../misc/gitconfig;
+    env.GIT_CLONE_FLAGS.value = "--recursive --filter=blob:none";
   };
 }

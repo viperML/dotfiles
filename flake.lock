@@ -73,6 +73,26 @@
         "type": "github"
       }
     },
+    "git-args": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1732268837,
+        "narHash": "sha256-XOtE8BEQfK8WjEUJv1D56XxNfizwZEZ9nSXO3gAmRbw=",
+        "owner": "viperML",
+        "repo": "git-args",
+        "rev": "8fa583dc61a755cb40e831dbc06c96c2dd716c3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "git-args",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -394,6 +414,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "git-args": "git-args",
         "hover-rs": "hover-rs",
         "in-nix": "in-nix",
         "lanzaboote": "lanzaboote",
