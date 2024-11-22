@@ -50,3 +50,7 @@
 [submodule]
   recurse = true
   fetchJobs = 0
+[clone]
+  filterSubmodules = true
+[checkout]
+  workers = 0
