@@ -137,6 +137,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "cmake"
             "cpp"
             "elixir"
+            "git_config"
             "go"
             "haskell"
             "hcl"
