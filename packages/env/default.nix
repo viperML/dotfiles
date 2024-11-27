@@ -30,14 +30,13 @@
   alejandra,
   nixfmt-rfc-style,
   psmisc,
-} @ args:
+}@args:
 symlinkJoin {
   name = "env";
-  paths =
-    (builtins.filter lib.isDerivation (builtins.attrValues args))
-    ++ [
-      inputs'.nil.packages.default
-      inputs'.nh.packages.default
-      inputs'.hover-rs.packages.default
-    ];
+  paths = (builtins.filter lib.isDerivation (builtins.attrValues args)) ++ [
+    inputs'.nil.packages.default
+    inputs'.nh.packages.default
+    inputs'.hover-rs.packages.default
+    inputs'.guix-search.packages.default
+  ];
 }

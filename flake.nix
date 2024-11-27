@@ -75,6 +75,10 @@
       url = "github:viperML/git-args";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    guix-search = {
+      url = "github:viperML/guix-search";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-compat = {
       url = "github:edolstra/flake-compat";
