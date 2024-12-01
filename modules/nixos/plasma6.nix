@@ -34,7 +34,7 @@
   programs.kde-pim = let
     cfg = config.programs.kde-pim.enable;
   in {
-    enable = lib.mkDefault false;
+    enable = lib.mkOverride 999 false;
     kmail = lib.mkIf cfg true;
     kontact = lib.mkIf cfg true;
     merkuro = lib.mkIf cfg true;
