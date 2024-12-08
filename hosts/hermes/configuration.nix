@@ -15,6 +15,7 @@ in {
       enable = true;
       dns = "systemd-resolved";
     };
+    nftables.enable = true;
   };
 
   services.resolved = {enable = true;};

@@ -26,6 +26,7 @@ in {
       #-- Other
       # nixosModules.guix
       nixosModules.tailscale
-      nixosModules.docker
+      # nixosModules.docker
+      nixosModules.incus
     ]);
 }

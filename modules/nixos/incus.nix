@@ -2,14 +2,16 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   bridge = "incusbr0";
   dnsDomain = "incus";
   ipv4 = "10.0.100.1";
   ipv4Subnet = "24";
-  # Stuff from https://microk8s.io/docs/install-lxd
-  # https://raw.githubusercontent.com/ubuntu/microk8s/master/tests/lxc/microk8s.profile
-in {
+in
+# Stuff from https://microk8s.io/docs/install-lxd
+# https://raw.githubusercontent.com/ubuntu/microk8s/master/tests/lxc/microk8s.profile
+{
   assertions = [
     {
       assertion = config.services.resolved.enable;
@@ -19,6 +21,10 @@ in {
       assertion = !config.virtualisation.docker.enable;
       description = "incus conflicts with docker";
     }
+  ];
+
+  environment.systemPackages = [
+    pkgs.sshfs
   ];
 
   boot.kernelModules = [
@@ -137,12 +143,12 @@ in {
 
   users.groups."incus-admin".members = config.users.groups."wheel".members;
 
-  networking.firewall.trustedInterfaces = [bridge];
+  networking.firewall.trustedInterfaces = [ bridge ];
 
   # https://linuxcontainers.org/incus/docs/main/howto/network_bridge_resolved
   systemd.services."incus-dns-${bridge}" = rec {
     description = "Incus per-link DNS configuration for ${bridge}";
-    bindsTo = ["sys-subsystem-net-devices-${bridge}.device"];
+    bindsTo = [ "sys-subsystem-net-devices-${bridge}.device" ];
     after = bindsTo;
     wantedBy = bindsTo;
     serviceConfig = {
