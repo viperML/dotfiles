@@ -107,7 +107,6 @@ in {
   };
 
   environment.systemPackages = [
-    self'.packages.vscode
     pkgs.vault
     self'.packages.wezterm
     pkgs.sbctl
