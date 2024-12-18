@@ -142,4 +142,5 @@ return {
   },
   ["asm_lsp"] = {},
   ["terraformls"] = {},
+  ["glslls"] = {},
 }
