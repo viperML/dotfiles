@@ -138,6 +138,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "cpp"
             "elixir"
             "git_config"
+            "glsl"
             "go"
             "haskell"
             "hcl"
