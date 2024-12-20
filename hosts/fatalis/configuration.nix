@@ -13,6 +13,8 @@ in {
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
+    pkgs.blender-hip
+    pkgs.freecad-wayland
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -115,4 +117,8 @@ in {
   };
 
   programs.kde-pim.enable = false;
+
+  programs.steam = {
+    enable = true;
+  };
 }

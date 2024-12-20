@@ -55,6 +55,7 @@
                 # "cuda_cuobjdump"
                 # "cuda_gdb"
                 "slack"
+                "steam"
               ];
               byLicense = builtins.elem pkg.meta.license.shortName [
                 "CUDA EULA"
