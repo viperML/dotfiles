@@ -1,7 +1,7 @@
 local two_tabs_default = {
   "astro",
-  "c",
-  "cpp",
+  -- "c",
+  -- "cpp",
   "css",
   "gitconfig",
   "html",
