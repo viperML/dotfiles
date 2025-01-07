@@ -3,30 +3,43 @@
   lib,
   self',
   pkgs,
+  options,
   ...
 }:
+let
+  cfg = config.services.guix;
+in
 {
   services.guix = {
     enable = true;
-    # package = self'.packages.guix;
-    package = pkgs.guix;
+    # package = pkgs.guix;
     gc = {
       enable = true;
       dates = "weekly";
     };
-    # extraArgs =
-    #   let
-    #     substituters = [
-    #       "https://ci.guix.gnu.org"
-    #       # "https://bordeaux.guix.gnu.org"
-    #       # "https://guix.bordeaux.inria.fr"
-    #     ];
-    #   in
-    #   [
-    #     "--substitute-urls=${lib.concatStringsSep " " substituters}"
-    #     "-c"
-    #     "10"
-    #   ];
+    substituters = {
+      urls = options.services.guix.substituters.urls.default ++ [
+        "https://bordeaux.guix.gnu.org"
+        "https://guix.bordeaux.inria.fr"
+      ];
+      authorizedKeys = options.services.guix.substituters.authorizedKeys.default ++ [
+        ./guix.bordeaux.inria.fr.pub
+      ];
+    };
+  };
+
+  systemd.services.guix-daemon = {
+    # use the system guix for the daemon
+    script = lib.mkForce ''
+      exec ${lib.getExe' self'.packages.guix "guix-daemon"} \
+        --build-users-group=${cfg.group} \
+        ${
+          lib.optionalString (
+            cfg.substituters.urls != [ ]
+          ) "--substitute-urls='${lib.concatStringsSep " " cfg.substituters.urls}'"
+        } \
+        ${lib.escapeShellArgs cfg.extraArgs}
+    '';
   };
 
   environment.extraInit =
