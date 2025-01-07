@@ -130,7 +130,8 @@
   fonts.packages = [
     pkgs.roboto
     self'.packages.iosevka
-    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    # (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    pkgs.nerd-fonts.symbols-only
   ];
 
   time.timeZone = "Europe/Madrid";

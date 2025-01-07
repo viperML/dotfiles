@@ -10,8 +10,8 @@ M.apply_to_config = function(config)
   config.font_size = 12
 
   -- Fix for https://github.com/wez/wezterm/issues/5990
-  config.enable_wayland = false
-  config.front_end = "WebGpu"
+  config.enable_wayland = true
+  -- config.front_end = "WebGpu"
 
   config.xcursor_theme = "Adwaita"
 end

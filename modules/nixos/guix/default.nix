@@ -2,26 +2,31 @@
   config,
   lib,
   self',
+  pkgs,
   ...
-}: {
+}:
+{
   services.guix = {
     enable = true;
-    package = self'.packages.guix;
+    # package = self'.packages.guix;
+    package = pkgs.guix;
     gc = {
       enable = true;
       dates = "weekly";
     };
-    extraArgs = let
-      substituters = [
-        "https://ci.guix.gnu.org"
-        # "https://bordeaux.guix.gnu.org"
-        # "https://guix.bordeaux.inria.fr"
-      ];
-    in [
-      "--substitute-urls=${lib.concatStringsSep " " substituters}"
-      "-c"
-      "10"
-    ];
+    # extraArgs =
+    #   let
+    #     substituters = [
+    #       "https://ci.guix.gnu.org"
+    #       # "https://bordeaux.guix.gnu.org"
+    #       # "https://guix.bordeaux.inria.fr"
+    #     ];
+    #   in
+    #   [
+    #     "--substitute-urls=${lib.concatStringsSep " " substituters}"
+    #     "-c"
+    #     "10"
+    #   ];
   };
 
   environment.extraInit =
@@ -39,15 +44,15 @@
     SSL_CERT_DIR = "/etc/ssl/certs";
   };
 
-  systemd.services."guix-substituters" = rec {
-    path = [config.services.guix.package];
-    script = ''
-      set -x
-      guix archive --authorize < ${./guix.bordeaux.inria.fr.pub}
-    '';
-    wantedBy = ["guix-daemon.service"];
-    after = wantedBy;
-  };
+  # systemd.services."guix-substituters" = rec {
+  #   path = [ config.services.guix.package ];
+  #   script = ''
+  #     set -x
+  #     guix archive --authorize < ${./guix.bordeaux.inria.fr.pub}
+  #   '';
+  #   wantedBy = [ "guix-daemon.service" ];
+  #   after = wantedBy;
+  # };
 
   systemd.services."guix-daemon" = {
     environment = {

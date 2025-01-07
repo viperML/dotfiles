@@ -91,9 +91,10 @@
               };
               # preventing infrec
               fish = callPackage ./fish { inherit (pkgs) fish; };
-              guix = callPackage ./guix {
-                inherit (pkgs) guix;
-              };
+              # guix = callPackage ./guix {
+              #   inherit (pkgs) guix;
+              # };
+              guix = pkgs.guix;
             }
           );
 
