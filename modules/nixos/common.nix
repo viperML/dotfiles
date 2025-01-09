@@ -65,6 +65,7 @@
     # scribus
     # self'.packages.tym
     libcgroup
+    cartero
   ];
 
   # i18n = let
