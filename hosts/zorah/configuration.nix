@@ -20,6 +20,7 @@ in {
     mattermost-desktop
     tor-browser
     slack
+    drawio
   ];
 
   environment.sessionVariables = {

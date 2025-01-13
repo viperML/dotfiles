@@ -42,20 +42,18 @@
             let
               pname = lib.getName pkg;
               byName = builtins.elem pname [
-                "hplip"
-                "samsung-UnifiedLinuxDriver"
                 "cnijfilter2"
-                "vscode"
-                "steam-original"
-                "nvidia-x11"
-                "nvidia-settings"
+                "drawio"
                 "google-chrome"
-                "steam-unwrapped"
-                # "cuda-merged"
-                # "cuda_cuobjdump"
-                # "cuda_gdb"
+                "hplip"
+                "nvidia-settings"
+                "nvidia-x11"
+                "samsung-UnifiedLinuxDriver"
                 "slack"
                 "steam"
+                "steam-original"
+                "steam-unwrapped"
+                "vscode"
               ];
               byLicense = builtins.elem pkg.meta.license.shortName [
                 "CUDA EULA"
