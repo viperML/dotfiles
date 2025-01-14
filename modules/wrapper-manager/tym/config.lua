@@ -1,8 +1,9 @@
 local tym = require("tym")
 
--- local p = 10
+local p = 0
 
 tym.set_config({
+  shell = "zellij",
   font = "iosevka-normal Medium 11",
   cursor_shape = "ibeam",
   padding_top = p,

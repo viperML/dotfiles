@@ -61,6 +61,8 @@
     self'.packages.ungoogled-chromium
     self'.packages.wezterm
     self'.packages.tym
+    self'.packages.foot
+    self'.packages.zellij
     self'.packages.vscode
     # scribus
     # self'.packages.tym
