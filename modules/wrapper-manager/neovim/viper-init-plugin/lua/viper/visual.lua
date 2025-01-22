@@ -164,11 +164,18 @@ vim.list_extend(require("viper.lazy.specs"), {
       require("telescope").load_extension("fzf")
 
       vim.keymap.set("n", "<leader><leader>", function()
-        require("telescope.builtin").find_files {
-          -- no_ignore = true,
-          hidden = true,
-        }
+        vim.fn.system("git rev-parse --is-inside-work-tree")
+        local res = vim.v.shell_error == 0
+
+        if res then
+          require("telescope.builtin").git_files()
+        else
+          require("telescope.builtin").find_files {
+            hidden = true,
+          }
+        end
       end, { desc = "Telescope: find files" })
+
       vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: grep" })
     end,
   },
