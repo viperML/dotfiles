@@ -58,6 +58,7 @@
               byLicense = builtins.elem pkg.meta.license.shortName [
                 "CUDA EULA"
                 "bsl11"
+                "obsidian"
               ];
             in
             if byName || byLicense then lib.warn "Allowing unfree package: ${pname}" true else false;

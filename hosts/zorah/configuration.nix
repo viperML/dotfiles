@@ -21,6 +21,7 @@ in {
     tor-browser
     slack
     drawio
+    obsidian
   ];
 
   environment.sessionVariables = {
