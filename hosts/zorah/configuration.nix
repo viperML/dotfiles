@@ -150,12 +150,15 @@ in {
     };
   };
 
-  programs.kde-pim.enable = true;
-
   programs.singularity = {
     enable = true;
     enableSuid = true;
   };
 
   virtualisation.waydroid.enable = true;
+
+  services.ttyd = {
+    enable = true;
+    writeable = true;
+  };
 }
