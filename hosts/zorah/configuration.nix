@@ -160,5 +160,11 @@ in {
   services.ttyd = {
     enable = true;
     writeable = true;
+    entrypoint = [
+      "machinectl"
+      "shell"
+      "--quiet"
+      "ayats@"
+    ];
   };
 }
