@@ -4,11 +4,14 @@
   mkNixos,
   inputs,
   ...
-}: let
+}:
+let
   system = "x86_64-linux";
-  inherit (config.flake) nixosModules homeModules;
-in {
-  flake.nixosConfigurations.hermes = withSystem system ({pkgs, ...}:
+  inherit (config.flake) nixosModules;
+in
+{
+  flake.nixosConfigurations.hermes = withSystem system (
+    { pkgs, ... }:
     mkNixos system [
       #-- Topology
       ./configuration.nix
@@ -20,13 +23,14 @@ in {
       nixosModules.yubikey
 
       #-- Environment
-      {services.displayManager.autoLogin.user = "ayats";}
+      { services.displayManager.autoLogin.user = "ayats"; }
       nixosModules.plasma6
 
       #-- Other
-      # nixosModules.guix
+      nixosModules.guix
       nixosModules.tailscale
       # nixosModules.docker
       nixosModules.incus
-    ]);
+    ]
+  );
 }

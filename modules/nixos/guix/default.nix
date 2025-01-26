@@ -12,7 +12,7 @@ in
 {
   services.guix = {
     enable = true;
-    # package = pkgs.guix;
+    package = self'.packages.guix;
     gc = {
       enable = true;
       dates = "weekly";
@@ -49,6 +49,8 @@ in
 
       export GUILE_LOAD_COMPILED_PATH="$GUILE_LOAD_COMPILED_PATH:$HOME/.config/guix/current/share/guile/site/3.0"
       export GUILE_LOAD_COMPILED_PATH="$GUILE_LOAD_COMPILED_PATH:$HOME/.config/guix/current/lib/guile/3.0/site-ccache"
+
+      export GUIX_LOCPATH="/var/guix/profiles/per-user/$USER/guix-home/profile/lib/locale:$GUIX_LOCPATH"
     '';
 
   # guix apps can't find these
@@ -56,16 +58,6 @@ in
     SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     SSL_CERT_DIR = "/etc/ssl/certs";
   };
-
-  # systemd.services."guix-substituters" = rec {
-  #   path = [ config.services.guix.package ];
-  #   script = ''
-  #     set -x
-  #     guix archive --authorize < ${./guix.bordeaux.inria.fr.pub}
-  #   '';
-  #   wantedBy = [ "guix-daemon.service" ];
-  #   after = wantedBy;
-  # };
 
   systemd.services."guix-daemon" = {
     environment = {
