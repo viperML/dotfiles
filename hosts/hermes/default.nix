@@ -27,7 +27,7 @@ in
       nixosModules.plasma6
 
       #-- Other
-      nixosModules.guix
+      # nixosModules.guix
       nixosModules.tailscale
       # nixosModules.docker
       nixosModules.incus
