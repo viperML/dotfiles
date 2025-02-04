@@ -15,14 +15,9 @@ in {
 
     # global dev
     ltex-ls
-    subversion
 
     mattermost-desktop
-    tor-browser
-    slack
     drawio
-    obsidian
-    mailspring
   ];
 
   environment.sessionVariables = {
