@@ -30,7 +30,8 @@ in
       # nixosModules.guix
       nixosModules.tailscale
       # nixosModules.docker
-      nixosModules.incus
+      # nixosModules.incus
+      nixosModules.podman
     ]
   );
 }

@@ -29,7 +29,7 @@ in
         registry = [
           {
             prefix = "docker.io";
-            location = "mirror.ghcr.io";
+            location = "mirror.gcr.io";
             insecure = false;
           }
         ];
