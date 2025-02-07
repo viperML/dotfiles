@@ -177,6 +177,10 @@ vim.list_extend(require("viper.lazy.specs"), {
       end, { desc = "Telescope: find files" })
 
       vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: grep" })
+
+      vim.keymap.set({ "n", "i" }, "", function()
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {})
+      end, { desc = "Telescope: find in file" })
     end,
   },
   {
