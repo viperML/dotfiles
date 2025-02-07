@@ -42,6 +42,7 @@
             let
               pname = lib.getName pkg;
               byName = builtins.elem pname [
+                "corefonts"
                 "cnijfilter2"
                 "drawio"
                 "google-chrome"

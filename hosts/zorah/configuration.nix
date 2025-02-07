@@ -18,6 +18,7 @@ in {
 
     mattermost-desktop
     drawio
+    thunderbird-latest
   ];
 
   environment.sessionVariables = {

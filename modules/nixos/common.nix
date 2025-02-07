@@ -5,8 +5,9 @@
   self',
   inputs',
   ...
-}: {
-  imports = [./swap.nix];
+}:
+{
+  imports = [ ./swap.nix ];
 
   # broken
   services.envfs.enable = lib.mkForce false;
@@ -29,9 +30,9 @@
 
   users.mutableUsers = false;
 
-  services.udev.packages = with pkgs; [android-udev-rules];
+  services.udev.packages = with pkgs; [ android-udev-rules ];
 
-  environment.defaultPackages = [];
+  environment.defaultPackages = [ ];
 
   environment.sessionVariables.EDITOR = "nvim";
 
@@ -94,23 +95,25 @@
   #   };
   # };
 
-  systemd = let
-    extraConfig = ''
-      DefaultTimeoutStartSec=15s
-      DefaultTimeoutStopSec=15s
-      DefaultTimeoutAbortSec=15s
-      DefaultDeviceTimeoutSec=15s
-    '';
-  in {
-    inherit extraConfig;
-    user = {inherit extraConfig;};
-    services."getty@tty1".enable = false;
-    services."autovt@tty1".enable = false;
-    services."getty@tty7".enable = false;
-    services."autovt@tty7".enable = false;
-    services."kmsconvt@tty1".enable = false;
-    services."kmsconvt@tty7".enable = false;
-  };
+  systemd =
+    let
+      extraConfig = ''
+        DefaultTimeoutStartSec=15s
+        DefaultTimeoutStopSec=15s
+        DefaultTimeoutAbortSec=15s
+        DefaultDeviceTimeoutSec=15s
+      '';
+    in
+    {
+      inherit extraConfig;
+      user = { inherit extraConfig; };
+      services."getty@tty1".enable = false;
+      services."autovt@tty1".enable = false;
+      services."getty@tty7".enable = false;
+      services."autovt@tty7".enable = false;
+      services."kmsconvt@tty1".enable = false;
+      services."kmsconvt@tty7".enable = false;
+    };
 
   # home-manager = {
   #   useGlobalPkgs = true;
@@ -135,6 +138,8 @@
     self'.packages.iosevka
     # (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     pkgs.nerd-fonts.symbols-only
+    pkgs.corefonts
+    config.services.desktopManager.plasma6.notoPackage
   ];
 
   time.timeZone = "Europe/Madrid";
@@ -170,7 +175,7 @@
       }
       {
         name = "Symbols Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];};
+        package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
       }
     ];
   };
