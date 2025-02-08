@@ -13,8 +13,17 @@ M.ignored = {
 vim.opt.termguicolors = true
 
 require("kanagawa").setup {
-  transparent = false,
+  transparent = true,
   theme = "dragon",
+  colors = {
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = "none",
+        },
+      },
+    },
+  },
 }
 
 vim.cmd([[ colorscheme kanagawa-dragon ]])
@@ -144,7 +153,7 @@ vim.list_extend(require("viper.lazy.specs"), {
   {
     "telescope.nvim",
     cmd = "Telescope",
-    keys = { "<leader><leader>", "<leader>f" },
+    keys = { "<leader><leader>", "<leader>f", "", "<C-S-F>" },
     after = function()
       require("telescope").setup {
         extensions = {
@@ -174,7 +183,9 @@ vim.list_extend(require("viper.lazy.specs"), {
         end
       end, { desc = "Telescope: find files" })
 
-      vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: grep" })
+      vim.keymap.set({ "n", "i" }, "<C-S-F>", function()
+        require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown {})
+      end, { desc = "Telescope: find in file" })
 
       vim.keymap.set({ "n", "i" }, "", function()
         require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {})
