@@ -221,6 +221,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
     };
     postBuild = ''
       export HOME="$(mktemp -d)"
+      export NVIM_SILENT=1
       status="$($out/bin/nvim --headless '+lua =require("viper.health").loaded' '+q' 2>&1)"
       if [[ "$status" != "true" ]]; then
         echo ":: Health check FAILED"

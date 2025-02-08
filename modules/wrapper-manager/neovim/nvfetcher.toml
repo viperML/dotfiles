@@ -97,10 +97,6 @@ fetch.github = "akinsho/git-conflict.nvim"
 src.git = "https://github.com/akinsho/git-conflict.nvim"
 passthru.opt = "true"
 
-[fidget-nvim]
-fetch.github = "j-hui/fidget.nvim"
-src.git = "https://github.com/j-hui/fidget.nvim"
-
 [nvim-dap]
 fetch.github = "mfussenegger/nvim-dap"
 src.github = "mfussenegger/nvim-dap"
@@ -119,10 +115,6 @@ passthru.opt = "true"
 [lz-n]
 fetch.github = "nvim-neorocks/lz.n"
 src.github = "nvim-neorocks/lz.n"
-
-[dressing-nvim]
-fetch.github = "stevearc/dressing.nvim"
-src.git = "https://github.com/stevearc/dressing.nvim"
 
 [kaganawa-nvim]
 fetch.github = "rebelot/kanagawa.nvim"
@@ -172,3 +164,7 @@ src.git = "https://github.com/davidmh/mdx.nvim"
 [nvim-treesitter-context]
 fetch.github = "nvim-treesitter/nvim-treesitter-context"
 src.git = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+
+[noice-nvim]
+fetch.github = "folke/noice.nvim"
+src.github = "folke/noice.nvim"

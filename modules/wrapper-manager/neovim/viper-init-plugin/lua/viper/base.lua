@@ -1,16 +1,14 @@
--- First for vim.notify
-require("fidget").setup {
-  notification = {
-    override_vim_notify = true,
-    view = {
-      stack_upwards = false,
-    },
-    window = {
-      winblend = 0,
-      align = "top",
-    },
-  },
-}
+local default_notify = vim.notify
+vim.notify = function(msg, level, opts)
+  local env = require("os").getenv("NVIM_SILENT")
+  if env ~= nil and level <= vim.log.levels.INFO then
+    return
+  else
+    default_notify(msg, level, opts)
+  end
+end
+
+require("noice").setup {}
 
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "

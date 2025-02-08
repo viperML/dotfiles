@@ -13,7 +13,7 @@ M.ignored = {
 vim.opt.termguicolors = true
 
 require("kanagawa").setup {
-  transparent = true,
+  transparent = false,
   theme = "dragon",
 }
 
@@ -91,8 +91,6 @@ require("lualine").setup {
     lualine_z = { "location" },
   },
 }
-
-require("dressing").setup {}
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
