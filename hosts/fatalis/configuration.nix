@@ -3,9 +3,11 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   luksDevice = "luksroot";
-in {
+in
+{
   system.stateVersion = "24.05";
   environment.sessionVariables.FLAKE = "/var/home/ayats/Documents/dotfiles";
 
@@ -36,7 +38,10 @@ in {
     bluetooth.enable = true;
     graphics = {
       enable = true;
-      extraPackages = with pkgs.rocmPackages; [clr clr.icd];
+      extraPackages = with pkgs.rocmPackages; [
+        clr
+        clr.icd
+      ];
     };
   };
 
@@ -56,7 +61,7 @@ in {
 
     initrd = {
       systemd.enable = true;
-      availableKernelModules = [];
+      availableKernelModules = [ ];
 
       luks = {
         devices.${luksDevice} = {
@@ -69,7 +74,7 @@ in {
       # "vm.swappiness" = 100;
     };
 
-    kernelParams = [];
+    kernelParams = [ ];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -93,20 +98,26 @@ in {
       options rtw89_core disable_ps_mode=y
     '';
 
-    # binfmt.emulatedSystems = ["aarch64-linux"];
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+    ];
   };
 
   fileSystems = {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "btrfs";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-partlabel/EFI";
       fsType = "vfat";
-      options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
+      options = [
+        "x-systemd.automount"
+        "x-systemd.mount-timeout=15min"
+        "umask=077"
+      ];
     };
   };
 
