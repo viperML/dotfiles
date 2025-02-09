@@ -64,6 +64,7 @@
     self'.packages.wezterm
     self'.packages.tym
     self'.packages.foot
+    ghostty
     self'.packages.zellij
     self'.packages.vscode
     # scribus

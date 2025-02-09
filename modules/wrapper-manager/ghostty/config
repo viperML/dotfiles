@@ -1,0 +1,8 @@
+font-family = iosevka-normal
+font-variation = wght=500
+font-size = 12
+
+background = #121212
+
+window-padding-x = 10
+window-padding-y = 10
