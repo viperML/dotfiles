@@ -173,13 +173,13 @@ vim.list_extend(require("viper.lazy.specs"), {
       vim.keymap.set("n", "<leader><leader>", function()
         vim.fn.system("git rev-parse --is-inside-work-tree")
         local res = vim.v.shell_error == 0
+        local theme = require("telescope.themes").get_ivy {}
 
         if res then
-          require("telescope.builtin").git_files()
+          require("telescope.builtin").git_files(theme)
         else
-          require("telescope.builtin").find_files {
-            hidden = true,
-          }
+          theme.hidden = true
+          require("telescope.builtin").find_files(theme)
         end
       end, { desc = "Telescope: find files" })
 
