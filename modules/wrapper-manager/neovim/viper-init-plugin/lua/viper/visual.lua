@@ -185,7 +185,7 @@ vim.list_extend(require("viper.lazy.specs"), {
 
       vim.keymap.set({ "n", "i" }, "<C-S-F>", function()
         require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown {})
-      end, { desc = "Telescope: find in file" })
+      end, { desc = "Telescope: find in all files" })
 
       vim.keymap.set({ "n", "i" }, "", function()
         require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {})

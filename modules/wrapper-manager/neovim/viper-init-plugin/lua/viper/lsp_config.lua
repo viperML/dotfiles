@@ -95,7 +95,7 @@ return {
   },
   -- Misc
   ["bashls"] = {},
-  ["ltex"] = {
+  ["ltex_plus"] = {
     filetypes = {
       "markdown",
       "mdx",

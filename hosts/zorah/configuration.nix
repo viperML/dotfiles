@@ -14,7 +14,7 @@ in {
     onlyoffice-bin
 
     # global dev
-    ltex-ls
+    ltex-ls-plus
 
     mattermost-desktop
     drawio
