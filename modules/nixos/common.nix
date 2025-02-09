@@ -59,6 +59,7 @@
     # GUI
     warp
     firefox
+    google-chrome
     self'.packages.ungoogled-chromium
     self'.packages.wezterm
     self'.packages.tym
