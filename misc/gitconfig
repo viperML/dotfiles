@@ -42,9 +42,10 @@
 [safe]
   directory=*
 [alias]
-  ; logs = log --pretty=format:\"%Cgreen%h%Creset - %Cblue%an%Creset @ %ar : %s\"
-  ; logtags = log --tags --simplify-by-decoration --pretty=format:\"%Cgreen%h%Creset -%d - %Cblue%an%Creset @ %ar : %s\"
-  ; logg = log --stat
+  logs = !git --no-pager log --pretty=format:'%Cgreen%h%Creset - %Cblue%an%Creset @ %ar : %s' --reverse -n 40
+  logtags = !git --no-pager log --tags --simplify-by-decoration --pretty=format:'%Cgreen%h%Creset -%d - %Cblue%an%Creset @ %ar : %s' --reverse
+  rewind = !git clean -dfx && git reset --hard HEAD
+  forgor = !git commit --amend --date=now --no-edit
 [feature]
   manyFiles = true
 [submodule]

@@ -4,11 +4,14 @@
   mkNixos,
   inputs,
   ...
-}: let
+}:
+let
   system = "x86_64-linux";
-  inherit (config.flake) nixosModules homeModules;
-in {
-  flake.nixosConfigurations.zorah = withSystem system ({pkgs, ...}:
+  inherit (config.flake) nixosModules;
+in
+{
+  flake.nixosConfigurations.zorah = withSystem system (
+    { pkgs, ... }:
     mkNixos system [
       #-- Topology
       ./configuration.nix
@@ -30,7 +33,9 @@ in {
       nixosModules.tailscale
       nixosModules.guix
       # nixosModules.docker
-      nixosModules.incus
+      # nixosModules.incus
+      nixosModules.podman
       nixosModules.ddc
-    ]);
+    ]
+  );
 }

@@ -42,6 +42,7 @@ abbr -a -g gs "git status"
 abbr -a -g gm "git merge"
 abbr -a -g gp "git push"
 abbr -a -g gl "git logs"
+abbr -a -g glt "git logtags"
 abbr -a -g gr "cd (git-root)"
 abbr -a -g gcm "git commit -m"
 
