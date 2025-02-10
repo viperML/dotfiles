@@ -40,10 +40,10 @@ lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup
 
   if bin_exists == 1 then
     config.autostart = true
-    vim.notify("Enabling " .. config.name, levels.TRACE)
+    -- vim.notify("Enabling " .. config.name, levels.TRACE)
   else
     config.autostart = false
-    vim.notify("Disabling " .. config.name, levels.TRACE)
+    -- vim.notify("Disabling " .. config.name, levels.TRACE)
   end
 end)
 
