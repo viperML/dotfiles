@@ -4,9 +4,11 @@
   config,
   self',
   ...
-}: let
+}:
+let
   luksDevice = "luksroot";
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     powertop
     openconnect
@@ -35,7 +37,9 @@ in {
     firewall.enable = false;
   };
 
-  services.resolved = {enable = true;};
+  services.resolved = {
+    enable = true;
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -50,7 +54,11 @@ in {
     bluetooth.enable = true;
     graphics = {
       enable = true;
-      extraPackages = [pkgs.intel-media-driver];
+      extraPackages = [ pkgs.intel-media-driver ];
+    };
+    nvidia = {
+      # enable = true;
+      open = true;
     };
   };
 
@@ -59,9 +67,13 @@ in {
   # services.cpupower-gui.enable = true;
   # services.flatpak.enable = true;
 
-  services.flatpak = {enable = true;};
+  services.flatpak = {
+    enable = true;
+  };
 
-  services.printing = {enable = true;};
+  services.printing = {
+    enable = true;
+  };
 
   boot = {
     lanzaboote = {
@@ -92,11 +104,12 @@ in {
 
     kernel.sysctl = {
       # "vm.swappiness" = 100;
+      "kernel.split_lock_mitigate" = "0";
     };
 
-    kernelParams = [];
+    kernelParams = [ ];
 
-    kernelModules = ["kvm-intel"];
+    kernelModules = [ "kvm-intel" ];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -115,13 +128,17 @@ in {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "xfs";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-partlabel/ESP";
       fsType = "vfat";
-      options = ["x-systemd.automount" "x-systemd.mount-timeout=15min" "umask=077"];
+      options = [
+        "x-systemd.automount"
+        "x-systemd.mount-timeout=15min"
+        "umask=077"
+      ];
     };
   };
   # specialisation."nvidia" = {
@@ -134,7 +151,7 @@ in {
   systemd.services."openconnect-inria" = {
     # enable = false;
     # after = ["NetworkManager.service"];
-    path = [pkgs.openconnect];
+    path = [ pkgs.openconnect ];
     script = ''
       exec openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
     '';
@@ -151,4 +168,14 @@ in {
     enable = true;
     enableSuid = true;
   };
+
+  programs.steam = {
+    enable = true;
+  };
+
+  programs.gamemode = {
+    enable = true;
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
