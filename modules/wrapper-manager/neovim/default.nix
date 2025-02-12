@@ -133,6 +133,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
             "asm"
             "astro"
+            "bash"
             "c"
             "cmake"
             "cpp"
@@ -149,6 +150,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
             "meson"
             "nix"
             "org"
+            "regex"
             "rust"
             "scheme"
             "tsx"
