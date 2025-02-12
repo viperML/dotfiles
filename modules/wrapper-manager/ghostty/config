@@ -6,3 +6,5 @@ background = #121212
 
 window-padding-x = 10
 window-padding-y = 10
+
+keybind = ctrl+t=new_tab
