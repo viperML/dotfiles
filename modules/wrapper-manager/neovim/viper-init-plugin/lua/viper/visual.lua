@@ -263,6 +263,17 @@ vim.list_extend(require("viper.lazy.specs"), {
       end, { desc = "Oil: open" })
     end,
   },
+  {
+    "marks.nvim",
+    event = "DeferredUIEnter",
+    after = function()
+      require("marks").setup {
+        mappings = {
+          preview = "m:",
+        },
+      }
+    end
+  }
 })
 
 return M

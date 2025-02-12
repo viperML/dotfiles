@@ -168,3 +168,11 @@ src.git = "https://github.com/nvim-treesitter/nvim-treesitter-context"
 [noice-nvim]
 fetch.github = "folke/noice.nvim"
 src.github = "folke/noice.nvim"
+
+[snacks-nvim]
+fetch.github = "folke/snacks.nvim"
+src.github = "folke/snacks.nvim"
+
+[marks-nvim]
+fetch.github = "chentoast/marks.nvim"
+src.git = "https://github.com/chentoast/marks.nvim"
