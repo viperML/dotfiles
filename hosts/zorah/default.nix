@@ -27,7 +27,7 @@ in
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
-      nixosModules.plasma6
+      nixosModules.gnome
 
       #-- Other
       nixosModules.tailscale
