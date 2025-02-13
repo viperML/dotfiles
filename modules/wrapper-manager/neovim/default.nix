@@ -83,7 +83,6 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
 
     luaPackages = lp: [
       lp.luassert
-      # lp.lua-cjson
     ];
 
     luaEnv = basePackage.lua.withPackages luaPackages;

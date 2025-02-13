@@ -21,6 +21,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-MZFpNPtSDMZNkfoz+3ZcDxLb8PvDtm9nb1dE0CbYIPQ=";
     };
     date = "2024-10-21";
@@ -183,16 +184,16 @@
   };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
-    version = "c13721e69119a4391663203bab80af4192cbb850";
+    version = "e96fd85bf18bc345dab332b345098fa5460dffac";
     src = fetchFromGitHub {
       owner = "nvim-neo-tree";
       repo = "neo-tree.nvim";
-      rev = "c13721e69119a4391663203bab80af4192cbb850";
+      rev = "e96fd85bf18bc345dab332b345098fa5460dffac";
       fetchSubmodules = false;
-      sha256 = "sha256-RAvUdQLfvIk3AnIqWc68m7Qea2fLJo8+pIc9Z7nFwSc=";
+      sha256 = "sha256-D3IHPEyS3dB0RL1e6oNoV/C3r6BluHHTm5tB9xLMplA=";
     };
     opt = "true";
-    date = "2025-02-10";
+    date = "2025-02-12";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
@@ -445,6 +446,17 @@
       sha256 = "sha256-e1ulhc4IIvUgpjKQrSqPY4WpXuez6wlxL6Min9U0o5Q=";
     };
     opt = "true";
+  };
+  trouble-nvim = {
+    pname = "trouble-nvim";
+    version = "v3.7.1";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "trouble.nvim";
+      rev = "v3.7.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-F3LSA1iAF8TEI7ecyuWVe3FrpSddUf3OjJA/KGfdW/8=";
+    };
   };
   vim-better-whitespace = {
     pname = "vim-better-whitespace";

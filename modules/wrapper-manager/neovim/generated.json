@@ -15,6 +15,7 @@
             "repo": "bufferline.nvim",
             "rev": "v4.9.1",
             "sha256": "sha256-ae4MB6+6v3awvfSUWlau9ASJ147ZpwuX1fvJdfMwo1Q=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v4.9.1"
@@ -33,6 +34,7 @@
             "name": null,
             "rev": "d6d1ffa2075039632a2d71e8fa139818e15ac757",
             "sha256": "sha256-MZFpNPtSDMZNkfoz+3ZcDxLb8PvDtm9nb1dE0CbYIPQ=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://codeberg.org/FelipeLema/cmp-async-path"
         },
@@ -54,6 +56,7 @@
             "repo": "cmp-cmdline",
             "rev": "d250c63aa13ead745e3a40f61fdd3470efde3923",
             "sha256": "sha256-iBmXp+gUSMbgfkv7c7RDQAwPq02e07wEnBETP0dWBOo=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "d250c63aa13ead745e3a40f61fdd3470efde3923"
@@ -74,6 +77,7 @@
             "repo": "cmp-nvim-lsp",
             "rev": "99290b3ec1322070bcfb9e846450a46f6efa50f0",
             "sha256": "sha256-iaihXNCF5bB5MdeoosD/kc3QtpA/QaIDZVLiLIurBSM=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "99290b3ec1322070bcfb9e846450a46f6efa50f0"
@@ -96,6 +100,7 @@
             "repo": "Comment.nvim",
             "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
             "sha256": "sha256-h0kPue5Eqd5aeu4VoLH45pF0DmWWo1d8SnLICSQ63zc=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "e30b7f2008e52442154b66f7c519bfd2f1e32acb"
@@ -118,6 +123,7 @@
             "repo": "conform.nvim",
             "rev": "v8.4.0",
             "sha256": "sha256-zC1WZFS+ZA1+BM36VnVkVE+/ovXdWCzL9kDIP3q9rIk=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v8.4.0"
@@ -140,6 +146,7 @@
             "repo": "git-conflict.nvim",
             "rev": "a1badcd070d176172940eb55d9d59029dad1c5a6",
             "sha256": "sha256-CmSgmpg5K3ySXYrDjg8yTAojeLWJdSHP8uNVFyrkNhc=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "a1badcd070d176172940eb55d9d59029dad1c5a6"
@@ -162,6 +169,7 @@
             "repo": "gitsigns.nvim",
             "rev": "v1.0.0",
             "sha256": "sha256-G9Gv4xH77yS+xvkw9IWbb39b3egWan9ZIiReooBArvQ=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.0.0"
@@ -182,6 +190,7 @@
             "repo": "haskell-tools.nvim",
             "rev": "v4.4.2",
             "sha256": "sha256-2YxqkH+b5vTF+YM6cIlYKHtVCjP7i2OZbQK2LpQYMOQ=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v4.4.2"
@@ -204,6 +213,7 @@
             "repo": "indent-blankline.nvim",
             "rev": "v3.8.7",
             "sha256": "sha256-Y1WP3wDj2MFgqW1ssUro9enLZS+OM3XViv3j/4+5rrc=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v3.8.7"
@@ -224,6 +234,7 @@
             "repo": "kanagawa.nvim",
             "rev": "988082eb00b845e4afbcaa4fd8e903da8a3ab3b9",
             "sha256": "sha256-q5Laox9F6XzyehgIpg+SO1od3b1j1ZZJnoYtc6izbg0=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "988082eb00b845e4afbcaa4fd8e903da8a3ab3b9"
@@ -244,6 +255,7 @@
             "repo": "lualine.nvim",
             "rev": "f4f791f67e70d378a754d02da068231d2352e5bc",
             "sha256": "sha256-uAxe3UdNUVfdpQcKvGvQ/E2blGksvMPlTBfEOtgeVYo=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "f4f791f67e70d378a754d02da068231d2352e5bc"
@@ -264,6 +276,7 @@
             "repo": "lz.n",
             "rev": "v2.11.2",
             "sha256": "sha256-40ikpJGivib7waDGJVKDZuWcGi5BETKrdDy6gQAOmCw=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.11.2"
@@ -284,6 +297,7 @@
             "repo": "marks.nvim",
             "rev": "bb25ae3f65f504379e3d08c8a02560b76eaf91e8",
             "sha256": "sha256-1X2hkvVhYl2S/sAQyJ1JPVTy33xs3iHcMUofomXhwkE=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "bb25ae3f65f504379e3d08c8a02560b76eaf91e8"
@@ -304,13 +318,14 @@
             "repo": "mdx.nvim",
             "rev": "464a74be368dce212cff02f6305845dc7f209ab3",
             "sha256": "sha256-jpMcrWx/Rg9sMfkQFXnIM8VB5qRuSB/70wuSh6Y5uFk=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "464a74be368dce212cff02f6305845dc7f209ab3"
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
-        "date": "2025-02-10",
+        "date": "2025-02-12",
         "extract": null,
         "name": "neo-tree-nvim",
         "passthru": {
@@ -324,11 +339,12 @@
             "name": null,
             "owner": "nvim-neo-tree",
             "repo": "neo-tree.nvim",
-            "rev": "c13721e69119a4391663203bab80af4192cbb850",
-            "sha256": "sha256-RAvUdQLfvIk3AnIqWc68m7Qea2fLJo8+pIc9Z7nFwSc=",
+            "rev": "e96fd85bf18bc345dab332b345098fa5460dffac",
+            "sha256": "sha256-D3IHPEyS3dB0RL1e6oNoV/C3r6BluHHTm5tB9xLMplA=",
+            "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c13721e69119a4391663203bab80af4192cbb850"
+        "version": "e96fd85bf18bc345dab332b345098fa5460dffac"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
@@ -348,6 +364,7 @@
             "repo": "neovim-session-manager",
             "rev": "270e235b014f0c37bf362eb1e8913d66bba33a2e",
             "sha256": "sha256-0CB7/hqj3zEZPQUOQoaETcNzFJcQyKt3k7hIXoArhZg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "270e235b014f0c37bf362eb1e8913d66bba33a2e"
@@ -368,6 +385,7 @@
             "repo": "noice.nvim",
             "rev": "v4.10.0",
             "sha256": "sha256-gq3S/RZw7ojVldNUtQPsgMA0EyHGVzt/JcOojlHrOSQ=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v4.10.0"
@@ -388,6 +406,7 @@
             "repo": "nui.nvim",
             "rev": "0.3.0",
             "sha256": "sha256-L0ebXtv794357HOAgT17xlEJsmpqIHGqGlYfDB20WTo=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "0.3.0"
@@ -408,6 +427,7 @@
             "repo": "nvim-autopairs",
             "rev": "3d02855468f94bf435db41b661b58ec4f48a06b7",
             "sha256": "sha256-wt0mEW43xSdEGVBXa+1LIwJPkTz7lqHZhTCg1nxKggs=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "3d02855468f94bf435db41b661b58ec4f48a06b7"
@@ -428,6 +448,7 @@
             "repo": "nvim-cmp",
             "rev": "12509903a5723a876abd65953109f926f4634c30",
             "sha256": "sha256-a45FPHLtM1AnBlvJZ/ka5m7gOz84rpVk8GH75fYWqSg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "12509903a5723a876abd65953109f926f4634c30"
@@ -450,6 +471,7 @@
             "repo": "nvim-dap",
             "rev": "0.9.0",
             "sha256": "sha256-evpP8qAtNuEL1EVUVoCB+PQ1Mmn08FJuufkwnOT+oTg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "0.9.0"
@@ -472,6 +494,7 @@
             "repo": "nvim-dap-python",
             "rev": "34282820bb713b9a5fdb120ae8dd85c2b3f49b51",
             "sha256": "sha256-Qz0eZGVy/3q2qBtyliw1bxiJE9NT02F1hZoVNm3KU5g=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "34282820bb713b9a5fdb120ae8dd85c2b3f49b51"
@@ -492,6 +515,7 @@
             "repo": "nvim-lspconfig",
             "rev": "v1.6.0",
             "sha256": "sha256-wXe1cUnsiOLegeYvL2Tvn4H3p9/b9Qi9rDzX+jjhZ+Q=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.6.0"
@@ -512,6 +536,7 @@
             "repo": "nvim-navic",
             "rev": "8649f694d3e76ee10c19255dece6411c29206a54",
             "sha256": "sha256-0p5n/V8Jlj9XyxV/fuMwsbQ7oV5m9H2GqZZEA/njxCQ=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "8649f694d3e76ee10c19255dece6411c29206a54"
@@ -532,6 +557,7 @@
             "repo": "nvim-treesitter-context",
             "rev": "03f382ef224c27a8508cdab2d0b463dcb8ca12a6",
             "sha256": "sha256-pDDuzH0jA4G5JhUqZzHRLAi8yGA0CUW2RXO/EBNp7ws=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "03f382ef224c27a8508cdab2d0b463dcb8ca12a6"
@@ -552,6 +578,7 @@
             "repo": "nvim-treesitter-textobjects",
             "rev": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595",
             "sha256": "sha256-b/7Bz7L83KL+uZC1bRJ4PrzPVK/NaCKSx4VCHlPcdCM=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595"
@@ -572,6 +599,7 @@
             "repo": "nvim-ts-autotag",
             "rev": "1cca23c9da708047922d3895a71032bc0449c52d",
             "sha256": "sha256-v2NTFBIzKTYizUPWB3uhpnTGVZWaelhE3MT5+BDA6Do=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "1cca23c9da708047922d3895a71032bc0449c52d"
@@ -592,6 +620,7 @@
             "repo": "nvim-web-devicons",
             "rev": "1020869742ecb191f260818234517f4a1515cfe8",
             "sha256": "sha256-WOFtHvNlPP1JRLdCfFRXEOUx+1z5d5ncm+pS0wpDjAg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "1020869742ecb191f260818234517f4a1515cfe8"
@@ -614,6 +643,7 @@
             "repo": "oil.nvim",
             "rev": "v2.14.0",
             "sha256": "sha256-9qB+ikJDqG8/KZ/caX0hAkZN1YK6/cBzRUek44ZBZt4=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.14.0"
@@ -636,6 +666,7 @@
             "repo": "org-bullets.nvim",
             "rev": "21437cfa99c70f2c18977bffd423f912a7b832ea",
             "sha256": "sha256-/l8IfvVSPK7pt3Or39+uenryTM5aBvyJZX5trKNh0X0=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "21437cfa99c70f2c18977bffd423f912a7b832ea"
@@ -658,6 +689,7 @@
             "repo": "orgmode",
             "rev": "0.4.2",
             "sha256": "sha256-WorNuZGx4Ln3fRbEayWMI7nklNuWbKDXeJYwnVqJOQc=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "0.4.2"
@@ -678,6 +710,7 @@
             "repo": "plenary.nvim",
             "rev": "857c5ac632080dba10aae49dba902ce3abf91b35",
             "sha256": "sha256-8FV5RjF7QbDmQOQynpK7uRKONKbPRYbOPugf9ZxNvUs=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "857c5ac632080dba10aae49dba902ce3abf91b35"
@@ -700,6 +733,7 @@
             "repo": "smart-splits.nvim",
             "rev": "v1.8.1",
             "sha256": "sha256-5dclrvSTF3Eg/aQ5FaTVqW+i9h0YRcJlwBCofPaY+Qs=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.8.1"
@@ -720,6 +754,7 @@
             "repo": "snacks.nvim",
             "rev": "v2.20.0",
             "sha256": "sha256-YUjTuY47fWnHd9/z6WqFD0biW+wn9zLLsOVJibwpgKw=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.20.0"
@@ -742,6 +777,7 @@
             "repo": "telescope-fzf-native.nvim",
             "rev": "2a5ceff981501cff8f46871d5402cd3378a8ab6a",
             "sha256": "sha256-0dGvpN8Vn+aU6j8N0tTD8AOzOAHGemlPAcLKyqlWvlg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "2a5ceff981501cff8f46871d5402cd3378a8ab6a"
@@ -764,9 +800,31 @@
             "repo": "telescope.nvim",
             "rev": "0.1.8",
             "sha256": "sha256-e1ulhc4IIvUgpjKQrSqPY4WpXuez6wlxL6Min9U0o5Q=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "0.1.8"
+    },
+    "trouble-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "trouble-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "folke",
+            "repo": "trouble.nvim",
+            "rev": "v3.7.1",
+            "sha256": "sha256-F3LSA1iAF8TEI7ecyuWVe3FrpSddUf3OjJA/KGfdW/8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v3.7.1"
     },
     "vim-better-whitespace": {
         "cargoLocks": null,
@@ -786,6 +844,7 @@
             "repo": "vim-better-whitespace",
             "rev": "86a0579b330b133b8181b8e088943e81c26a809e",
             "sha256": "sha256-muYPVkTXSur2+/3L/bCB2rlwNl98TI+9WGfIANU+4aQ=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "86a0579b330b133b8181b8e088943e81c26a809e"
@@ -808,6 +867,7 @@
             "repo": "vim-nix",
             "rev": "7235c7ce2cea530cb6b59bc3e46d4bfe917d15c8",
             "sha256": "sha256-Hmn8EVlvMQnQF8COeb89cgl5+A83kagOjGsmvm5WNoE=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "7235c7ce2cea530cb6b59bc3e46d4bfe917d15c8"
@@ -830,6 +890,7 @@
             "repo": "which-key.nvim",
             "rev": "v3.16.0",
             "sha256": "sha256-CNnRQjGLOH+Ol+cVgnfpKbJByD3kLPGAbKefvnHjzRg=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v3.16.0"

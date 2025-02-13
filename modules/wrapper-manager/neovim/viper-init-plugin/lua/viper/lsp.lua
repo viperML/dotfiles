@@ -81,3 +81,62 @@ vim.api.nvim_create_user_command("Direnv", direnv, {})
 vim.api.nvim_create_autocmd({ "DirChanged" }, {
   callback = direnv,
 })
+
+vim.diagnostic.config {
+  virtual_text = {
+    prefix = " ",
+    ---@param diagnostic vim.Diagnostic
+    ---@return string?
+    format = function(diagnostic)
+      local it = vim.gsplit(diagnostic.message, "\n")
+      return it()
+    end,
+  },
+  jump = {
+    float = true,
+  },
+  float = { border = "single" },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLn",
+      [vim.diagnostic.severity.WARN] = "DiagnosticWarnLn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticInfoLn",
+      [vim.diagnostic.severity.HINT] = "DiagnosticHintLn",
+    },
+  },
+}
+
+local bit = require("bit")
+---@param decimal number
+---@return string
+local function rgbToHex(decimal)
+  local r = bit.rshift(decimal, 16) % 256
+  local g = bit.rshift(decimal, 8) % 256
+  local b = decimal % 256
+  return string.format("#%02X%02X%02X", r, g, b)
+end
+
+local blend = require("snacks.util").blend
+for _, severity in pairs { "Error", "Warn", "Info", "Hint" } do
+  vim.api.nvim_set_hl(0, string.format("Diagnostic%sLn", severity), {
+    bg = blend(
+      "#121212",
+      rgbToHex(vim.api.nvim_get_hl(0, { name = string.format("DiagnosticSign%s", severity) }).fg),
+      0.95
+    ),
+  })
+end
+
+require("trouble").setup {}

@@ -176,3 +176,8 @@ src.github = "folke/snacks.nvim"
 [marks-nvim]
 fetch.github = "chentoast/marks.nvim"
 src.git = "https://github.com/chentoast/marks.nvim"
+passthru.opt = "true"
+
+[trouble-nvim]
+fetch.github = "folke/trouble.nvim"
+src.github = "folke/trouble.nvim"
