@@ -286,7 +286,9 @@
         "date": "2024-09-02",
         "extract": null,
         "name": "marks-nvim",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,

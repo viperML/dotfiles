@@ -168,6 +168,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-1X2hkvVhYl2S/sAQyJ1JPVTy33xs3iHcMUofomXhwkE=";
     };
+    opt = "true";
     date = "2024-09-02";
   };
   mdx-nvim = {
