@@ -13,6 +13,21 @@
     pkgs.vanilla-dmz
   ];
 
+  environment.gnome.excludePackages = with pkgs; [
+    totem
+    gnome-maps
+    gnome-logs
+    simple-scan
+    gnome-calculator
+    epiphany
+    gnome-music
+    gnome-tour
+    gnome-contacts
+    gnome-disk-utility
+  ];
+
+  programs.geary.enable = false;
+
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
     SSH_ASKPASS_REQUIRE = "prefer";

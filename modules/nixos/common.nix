@@ -58,20 +58,11 @@
 
     # GUI
     warp
-    firefox
     google-chrome
     self'.packages.ungoogled-chromium
-    self'.packages.wezterm
-    self'.packages.tym
-    self'.packages.foot
-    ghostty
     ptyxis
-    self'.packages.zellij
     self'.packages.vscode
-    # scribus
-    # self'.packages.tym
     libcgroup
-    cartero
   ];
 
   # i18n = let
