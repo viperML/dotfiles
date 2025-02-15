@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "activation-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739632420,
+        "narHash": "sha256-rZeGDxi1dnRzXEk/UZJA+9cjwN7hRSZEtLS2ZD7dx7o=",
+        "owner": "viperML",
+        "repo": "activation-manager",
+        "rev": "89bd147d52675e9bb7975a4868dd760eb38160a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "activation-manager",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -492,6 +512,7 @@
     },
     "root": {
       "inputs": {
+        "activation-manager": "activation-manager",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",

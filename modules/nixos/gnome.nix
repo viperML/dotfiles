@@ -10,6 +10,7 @@
     pkgs.adw-gtk3
     pkgs.gnome-tweaks
     pkgs.wl-clipboard-rs
+    pkgs.vanilla-dmz
   ];
 
   environment.sessionVariables = {

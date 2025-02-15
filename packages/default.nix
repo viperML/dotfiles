@@ -126,7 +126,17 @@
 
               callPackageScoped = callPackageScopedWith (pkgs // self);
             in
-            stage2 // { env = callPackage ./env { inherit inputs'; }; };
+            stage2
+            // {
+              env = callPackage ./env {
+                inherit inputs';
+              };
+
+              am = inputs.activation-manager.lib.homeBundle {
+                pkgs = (pkgs // self);
+                modules = [ ../modules/activation-manager/main.nix ];
+              };
+            };
         in
         stage3
       );

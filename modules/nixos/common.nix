@@ -65,6 +65,7 @@
     self'.packages.tym
     self'.packages.foot
     ghostty
+    ptyxis
     self'.packages.zellij
     self'.packages.vscode
     # scribus
