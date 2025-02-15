@@ -27,5 +27,12 @@
     "/org/gnome/Ptyxis/Shortcuts/move-previous-tab" = "<Shift><Control>Tab";
     "/org/gnome/Ptyxis/Shortcuts/close-tab" = "<Control>w";
     "/org/gnome/Ptyxis/Shortcuts/new-tab" = "<Control>t";
+
+    "/org/gnome/desktop/interface/clock-format" = "12h";
+    "/org/gtk/settings/file-chooser/clock-format" = "12h";
+
+    "/org/gnome/desktop/search-providers/disabled" =
+      "['org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Nautilus.desktop']";
+
   };
 }
