@@ -118,17 +118,9 @@ vim.diagnostic.config {
   },
 }
 
-local bit = require("bit")
----@param decimal number
----@return string
-local function rgbToHex(decimal)
-  local r = bit.rshift(decimal, 16) % 256
-  local g = bit.rshift(decimal, 8) % 256
-  local b = decimal % 256
-  return string.format("#%02X%02X%02X", r, g, b)
-end
-
 local blend = require("snacks.util").blend
+local rgbToHex = require("viper.util").rgbToHex
+
 for _, severity in pairs { "Error", "Warn", "Info", "Hint" } do
   vim.api.nvim_set_hl(0, string.format("Diagnostic%sLn", severity), {
     bg = blend(

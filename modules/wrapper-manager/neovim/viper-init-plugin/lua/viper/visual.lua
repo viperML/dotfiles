@@ -223,6 +223,12 @@ vim.list_extend(require("viper.lazy.specs"), {
     event = "DeferredUIEnter",
     before = function()
       vim.g.better_whitespace_enabled = 1
+
+      local blend = require("snacks.util").blend
+      local rgbToHex = require("viper.util").rgbToHex
+
+      vim.g.better_whitespace_guicolor =
+        blend("#121212", rgbToHex(vim.api.nvim_get_hl(0, { name = "DiagnosticSignError" }).fg), 0.5)
     end,
   },
   {
@@ -272,8 +278,8 @@ vim.list_extend(require("viper.lazy.specs"), {
           preview = "m:",
         },
       }
-    end
-  }
+    end,
+  },
 })
 
 return M
