@@ -13,7 +13,7 @@ M.ignored = {
 vim.opt.termguicolors = true
 
 require("kanagawa").setup {
-  transparent = true,
+  -- transparent = true,
   theme = "dragon",
   colors = {
     theme = {
@@ -23,7 +23,17 @@ require("kanagawa").setup {
         },
       },
     },
+    palette = {
+      dragonBlack3 = "#121212",
+    },
   },
+  -- override = function()
+  --   return {
+  --     NormalFloat = { bg = "none" },
+  --     FloatBorder = { bg = "none" },
+  --     FloatTitle = { bg = "none" },
+  --   }
+  -- end,
 }
 
 vim.cmd([[ colorscheme kanagawa-dragon ]])

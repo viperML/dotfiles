@@ -59,8 +59,8 @@
     # GUI
     warp
     google-chrome
-    self'.packages.ungoogled-chromium
-    ptyxis
+    # self'.packages.ungoogled-chromium
+    # ptyxis
     self'.packages.zellij
     self'.packages.alacritty
     self'.packages.vscode
@@ -146,6 +146,7 @@
       layout = "es";
       options = "compose:rctrl";
     };
+    excludePackages = [ pkgs.xterm ];
   };
 
   services.libinput = {
