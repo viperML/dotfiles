@@ -1,6 +1,6 @@
 [font]
 normal = { family = "iosevka-normal", style = "Medium" }
-size = 14
+size = 13
 
 [terminal]
 shell = { program = "zellij" }
