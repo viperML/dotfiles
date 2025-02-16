@@ -32,6 +32,8 @@
     MOZ_ENABLE_WAYLAND = "1";
     SSH_ASKPASS_REQUIRE = "prefer";
     NIXOS_OZONE_WL = "1";
+    XCURSOR_THEME = "DMZ-White";
+    XCURSOR_SIZE = "24";
   };
 
   # programs.git.config = {

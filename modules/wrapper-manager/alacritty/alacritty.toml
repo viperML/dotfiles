@@ -1,0 +1,7 @@
+[font]
+normal = { family = "iosevka-normal", style = "Medium" }
+size = 14
+
+[terminal]
+shell = { program = "zellij" }
+osc52 = "CopyPaste"
