@@ -26,7 +26,7 @@ vim.notify = function(msg, level, opts)
   end
 end
 
-require("noice").setup({
+require("noice").setup {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     override = {
@@ -43,7 +43,7 @@ require("noice").setup({
     -- inc_rename = false, -- enables an input dialog for inc-rename.nvim
     -- lsp_doc_border = false, -- add a border to hover docs and signature help
   },
-})
+}
 
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
@@ -148,3 +148,15 @@ vim.api.nvim_create_user_command("Date", function()
     end)
   end)
 end, { desc = "Insert current date" })
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}

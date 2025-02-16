@@ -6,6 +6,11 @@ size = 14
 shell = { program = "zellij" }
 osc52 = "CopyPaste"
 
+[[keyboard.bindings]]
+key = "F"
+mods = "Control | Shift"
+action = "ReceiveChar"
+
 [colors]
 draw_bold_text_with_bright_colors = false
 
