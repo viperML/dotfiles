@@ -4,6 +4,7 @@
 session_serialization false
 default_layout "compact"
 copy_on_select false
+// mouse_mode false
 
 ui {
     pane_frames {
