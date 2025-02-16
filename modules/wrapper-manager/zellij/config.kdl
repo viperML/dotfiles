@@ -11,9 +11,11 @@ ui {
     }
 }
 
+theme "ansi"
+
 keybinds clear-defaults=true {
     normal {
-        bind "Ctrl p" { SwitchToMode "pane"; }
+        // bind "Ctrl p" { SwitchToMode "pane"; }
     }
     shared_except "locked" {
         bind "Ctrl t" { NewTab; SwitchToMode "Normal"; }
@@ -22,10 +24,12 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
         bind "Ctrl Enter" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Ctrl Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "Ctrl Left" "Left" { MoveFocus "Left"; }
-        bind "Ctrl Right" "Right" { MoveFocus "Right"; }
-        bind "Ctrl Down" "Down" { MoveFocus "Down"; }
-        bind "Ctrl Up" "Up" { MoveFocus "Up"; }
+        bind "Ctrl Left" { MoveFocus "Left"; }
+        bind "Ctrl Right" { MoveFocus "Right"; }
+        bind "Ctrl Down" { MoveFocus "Down"; }
+        bind "Ctrl Up" { MoveFocus "Up"; }
+        bind "Ctrl Shift Left" { Resize "Increase Left"; }
+        bind "Ctrl Shift Right" { Resize "Increase Right"; }
     }
 }
 
