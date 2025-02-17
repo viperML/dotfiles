@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.xserver = {
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
@@ -6,11 +7,12 @@
     };
   };
 
-  environment.systemPackages = [
-    pkgs.adw-gtk3
-    pkgs.gnome-tweaks
-    pkgs.wl-clipboard-rs
-    pkgs.vanilla-dmz
+  environment.systemPackages = with pkgs; [
+    adw-gtk3
+    gnome-tweaks
+    wl-clipboard-rs
+    vanilla-dmz
+    gnomeExtensions.appindicator
   ];
 
   environment.gnome.excludePackages = with pkgs; [
