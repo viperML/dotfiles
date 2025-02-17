@@ -213,6 +213,7 @@ M.apply_to_config = function(config)
   config.enable_tab_bar = true
   config.selection_word_boundary = " \t\n{}[]()\"'`«»‘’,="
   config.mouse_wheel_scrolls_tabs = false
+  config.hide_mouse_cursor_when_typing = false
   config.hyperlink_rules = {
     -- https://wezfurlong.org/wezterm/config/lua/config/hyperlink_rules.html
     -- Matches: a URL in parens: (URL)

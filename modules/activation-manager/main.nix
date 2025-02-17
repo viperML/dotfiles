@@ -9,7 +9,7 @@
     "/org/gnome/desktop/interface/icon-theme" = "Adwaita";
     "/org/gnome/desktop/lockdown/disable-lock-screen" = "true";
     "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
-    "/org/gnome/mutter/experimental-features" = "['scale-monitor-framebuffer']";
+    "/org/gnome/mutter/experimental-features" = "['scale-monitor-framebuffer', 'xwayland-native-scaling']";
     "/org/gnome/desktop/interface/cursor-theme" = "DMZ-White";
     "/org/gnome/desktop/interface/cursor-size" = "24";
 

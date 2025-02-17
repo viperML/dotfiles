@@ -4,6 +4,9 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
       enable = true;
+      extraGSettingsOverridePackages = with pkgs; [
+        mutter
+      ];
     };
   };
 

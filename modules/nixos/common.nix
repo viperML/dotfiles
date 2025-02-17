@@ -63,6 +63,7 @@
     # ptyxis
     self'.packages.zellij
     self'.packages.alacritty
+    self'.packages.wezterm
     self'.packages.vscode
     libcgroup
   ];
