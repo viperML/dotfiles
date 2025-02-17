@@ -15,6 +15,16 @@ in
     mkNixos system [
       #-- Topology
       ./configuration.nix
+      ./novidia.nix
+      {
+        specialisation.nvidia = {
+          inheritParentConfig = true;
+          configuration = {
+            imports = [ ./nvidia.nix ];
+            disabledModules = [ ./novidia.nix ];
+          };
+        };
+      }
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.printing
       nixosModules.tmpfs

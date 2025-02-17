@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  self',
   ...
 }:
 let
@@ -55,10 +54,6 @@ in
     graphics = {
       enable = true;
       extraPackages = [ pkgs.intel-media-driver ];
-    };
-    nvidia = {
-      # enable = true;
-      open = true;
     };
   };
 
@@ -122,11 +117,6 @@ in
     };
 
     tmp.useTmpfs = true;
-
-    extraModprobeConfig = ''
-      options nvidia NVreg_PreserveVideoMemoryAllocations=1
-      options nvidia NVreg_TemporaryFilePath=/var/tmp
-    '';
   };
 
   fileSystems = {
@@ -153,34 +143,24 @@ in
   #   };
   # };
 
-  systemd.services."openconnect-inria" = {
-    # enable = false;
-    # after = ["NetworkManager.service"];
-    path = [ pkgs.openconnect ];
-    script = ''
-      exec openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
-    '';
-    serviceConfig = {
-      Restart = "always";
-    };
-    unitConfig = {
-      StartLimitIntervalSec = 10;
-      StartLimitBurst = 30;
-    };
-  };
+  # systemd.services."openconnect-inria" = {
+  #   # enable = false;
+  #   # after = ["NetworkManager.service"];
+  #   path = [ pkgs.openconnect ];
+  #   script = ''
+  #     exec openconnect vpn.inria.fr -u fayatsll --passwd-on-stdin < /var/lib/secrets/vpn-pw
+  #   '';
+  #   serviceConfig = {
+  #     Restart = "always";
+  #   };
+  #   unitConfig = {
+  #     StartLimitIntervalSec = 10;
+  #     StartLimitBurst = 30;
+  #   };
+  # };
 
   programs.singularity = {
     enable = true;
     enableSuid = true;
   };
-
-  programs.steam = {
-    enable = true;
-  };
-
-  programs.gamemode = {
-    enable = true;
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 }

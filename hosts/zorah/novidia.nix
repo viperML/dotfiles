@@ -1,0 +1,5 @@
+{
+  # boot.blacklistedKernelModules = [
+  #   "nouveau"
+  # ];
+}
