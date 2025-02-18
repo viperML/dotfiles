@@ -19,10 +19,6 @@ history.txt
 *sqlite3*
 /*.patch
 
-**/emacs/*
-!**/emacs/custom.el
-!**/emacs/init.el
-!**/emacs/*.nix
 flake.json
 
 .clj-kondo

@@ -17,6 +17,7 @@
         inherit system;
 
         overlays = [
+          inputs.emacs-overlay.overlays.default
           (final: prev: {
             gnome-keyring = prev.gnome-keyring.overrideAttrs (old: {
               configureFlags = (lib.remove "--enable-ssh-agent" old.configureFlags) ++ [
