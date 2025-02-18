@@ -29,3 +29,9 @@ flake/generated.nix
 
 eln-cache
 elpa
+
+transient
+var
+.cache
+projectile-bookmarks.eld
+recentf
