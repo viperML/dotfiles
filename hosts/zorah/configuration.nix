@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  self',
   ...
 }:
 let
@@ -20,6 +21,7 @@ in
     mattermost-desktop
     drawio
     thunderbird-latest
+    self'.packages.emacs
   ];
 
   environment.sessionVariables = {

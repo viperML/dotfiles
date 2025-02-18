@@ -5,6 +5,7 @@
 (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
 
+(setq package-user-dir "~/.config/emacs/elpa")
 
 (eval-and-compile
   (require 'package)
@@ -33,8 +34,8 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq custom-file "~/.config/emacs/custom.el")
-(load custom-file)
+;; (setq custom-file "~/.config/emacs/custom.el")
+;; (load custom-file)
 
 
 

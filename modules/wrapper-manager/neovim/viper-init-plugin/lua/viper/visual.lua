@@ -24,7 +24,8 @@ require("kanagawa").setup {
       },
     },
     palette = {
-      dragonBlack3 = "#121212",
+      -- dragonBlack3 = "#121212",
+      dragonBlack3 = "#1D1D1D",
     },
   },
   -- override = function()
@@ -60,6 +61,7 @@ require("bufferline").setup {
     indicator = {
       style = " ",
     },
+    mode = "tabs",
   },
 }
 

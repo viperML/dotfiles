@@ -25,4 +25,13 @@ M.check = function()
   end
 end
 
+M.loaded_exit = function()
+  if M.loaded then
+    print(":: Health OK")
+  else
+    print(":: Health FAIL")
+    require("os").exit(1)
+  end
+end
+
 return M

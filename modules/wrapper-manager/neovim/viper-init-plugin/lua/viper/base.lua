@@ -54,7 +54,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0 -- use tabstop
 
-vim.opt.number = true
+vim.opt.number = false
 
 vim.opt.scrolloff = 2
 vim.opt.showmode = false

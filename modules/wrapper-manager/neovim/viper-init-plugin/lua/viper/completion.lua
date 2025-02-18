@@ -1,3 +1,6 @@
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 local npairs = require("nvim-autopairs")
 npairs.setup {
   check_ts = true,

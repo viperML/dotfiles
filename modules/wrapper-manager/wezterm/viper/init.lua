@@ -7,7 +7,7 @@ local function apply_colorscheme(config)
   -- Tomorrow night mod
   config.colors = {
     foreground = "#C5C8C6",
-    background = "#141414",
+    background = "#1D1D1D",
     ansi = {
       "#17191a",
       "#CC6666",

@@ -26,3 +26,6 @@ flake.json
 .calva
 target
 flake/generated.nix
+
+eln-cache
+elpa
