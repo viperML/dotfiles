@@ -1,5 +1,3 @@
-;; (setq user-emacs-directory "~/.config/emacs")
-
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
@@ -32,7 +30,6 @@
 
 (setq
  make-backup-files nil
- display-line-numbers-type 'relative
  inhibit-startup-screen t
  create-lockfiles nil)
 
@@ -54,7 +51,6 @@
 
 (setq initial-scratch-message "")         ; Make *scratch* buffer blank
 (fset 'yes-or-no-p 'y-or-n-p)             ; y-or-n-p makes answering questions faster
-(setq linum-format "%4d ")                ; Line number format
 (global-auto-revert-mode t)               ; Auto-update buffer if file has changed on disk
 
 (if (fboundp 'tool-bar-mode)
@@ -96,7 +92,7 @@
 ;;                          light-theme dark-theme)))
 ;;     (load-theme next-theme)))
 
-
+(setq select-enable-clipboard nil)
 
 ; (run-with-timer 0 900 'synchronize-theme)
 
@@ -130,7 +126,8 @@
              :mode ("\\.md\\'" . gfm-mode)
              :init (setq markdown-command "multimarkdown"))
 
-(setq pixel-scroll-precision-large-scroll-height 20.0)
+(setq pixel-scroll-precision-large-scroll-height 20.0
+      scroll-conservatively 101)
 
 (use-package ivy)
 (use-package projectile)
@@ -171,6 +168,10 @@
 
 (use-package general
   :config
+  (general-define-key
+   :keymaps 'global
+   "C-S-v" 'clipboard-yank
+   "C-S-c" 'clipboard-kill-ring-save)
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
@@ -232,33 +233,11 @@
 (use-package company
   :init (global-company-mode))
 
-;; (use-package dap-mode
-;;   :hook (dap-mode . (lambda ()
-;;                       (dap-ui-mode 1))))
-;; (use-package dap-python)
-
 ;; Nix
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-;; Python
-(use-package python-mode
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
-                         (lsp-deferred)
-                         ;; (dap-node-setup)
-                         ;; (dap-tooltip-mode 1)
-                         ;; (dap-ui-controls-mode 1)
-                         ;; (dap-python-debugger 'debugpy)
-                         )))
-(use-package lsp-python-ms
-  :init
-  (setq lsp-python-ms-auto-install-server t)
-  (setq lsp-python-ms-executable (executable-find "python-language-server")))
+;; (use-package geiser-guile)
 
-
-(use-package rust-mode)
-
-(use-package geiser-guile)
 
 ;;; init.el ends here
