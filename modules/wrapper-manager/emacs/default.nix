@@ -1,5 +1,4 @@
-{ pkgs, ... }: let 
-in
+{ pkgs, ... }:
 {
   wrappers.emacs = {
     basePackage = pkgs.emacsWithPackagesFromUsePackage {
@@ -7,8 +6,8 @@ in
       package = pkgs.emacs-pgtk;
       alwaysEnsure = true;
     };
-    flags = [
-      "--init-directory=${./.}"
-    ];
+    # flags = [
+    #   "--init-directory=${./.}"
+    # ];
   };
 }

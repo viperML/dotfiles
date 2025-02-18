@@ -1,3 +1,5 @@
+;; (setq user-emacs-directory "~/.config/emacs")
+
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
@@ -5,7 +7,7 @@
 (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
 
-(setq package-user-dir "~/.config/emacs/elpa")
+;; (setq package-user-dir "~/.config/emacs/elpa")
 
 (eval-and-compile
   (require 'package)
@@ -25,6 +27,8 @@
 
 (eval-when-compile
   (require 'use-package))
+
+(use-package no-littering)
 
 (setq
  make-backup-files nil
@@ -77,7 +81,7 @@
 (progn (setq-default indent-tabs-mode nil))
 
 
-(set-face-attribute 'default nil :font "iosevka-normal-12" :weight 'medium)
+(set-face-attribute 'default nil :font "iosevka-normal-13" :weight 'medium)
 
 
 (recentf-mode 1)
@@ -130,6 +134,8 @@
 
 (use-package ivy)
 (use-package projectile)
+;; (setq projectile-cache-file "~/.config/emacs/projectile.cache")
+;; (setq projectile-known-projects-file "~/.config/emacs/projectile.eld")
 (setq projectile-project-search-path '("~/Documents/" "~/Projects/"))
 (use-package counsel
   :init (counsel-mode 1))
