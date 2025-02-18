@@ -8,6 +8,8 @@ local function apply_colorscheme(config)
   config.colors = {
     foreground = "#C5C8C6",
     background = "#1D1D1D",
+    cursor_border = "#81A2BE",
+    cursor_bg = "#81A2BE",
     ansi = {
       "#17191a",
       "#CC6666",
@@ -207,7 +209,8 @@ M.apply_to_config = function(config)
   }
   config.window_close_confirmation = "NeverPrompt"
   config.check_for_updates = false
-  config.default_cursor_style = "SteadyBar"
+  config.default_cursor_style = "BlinkingBar"
+  config.cursor_thickness = "0.05cell"
   config.pane_focus_follows_mouse = true
   config.warn_about_missing_glyphs = false
   config.enable_tab_bar = true

@@ -66,6 +66,7 @@
     self'.packages.wezterm
     self'.packages.vscode
     libcgroup
+    wl-color-picker
   ];
 
   # i18n = let
