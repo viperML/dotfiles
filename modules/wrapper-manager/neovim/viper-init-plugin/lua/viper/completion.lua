@@ -14,6 +14,7 @@ local lisps = {
   "scheme",
   "racket",
   "clojure",
+  "elisp",
 }
 npairs.get_rules("'")[1].not_filetypes = lisps
 npairs.get_rules("`")[1].not_filetypes = lisps

@@ -111,7 +111,7 @@ vim.list_extend(require("viper.lazy.specs"), {
   },
   {
     "parinfer-rust",
-    ft = { "scheme" },
+    ft = { "scheme", "elisp" },
   },
   {
     "Comment.nvim",

@@ -177,7 +177,7 @@ local function apply_keybindings(config)
     { key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
     { key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
     -- Custom
-    { key = "x", mods = "ALT", action = act.ActivateCommandPalette },
+    { key = "x", mods = "CTRL|SHIFT", action = act.ActivateCommandPalette },
     { key = "Enter", mods = "CTRL", action = act.SplitHorizontal },
     { key = "Enter", mods = "CTRL|SHIFT", action = act.SplitVertical },
     -- { key = "LeftArrow", mods = "CTRL", action = act.ActivatePaneDirection("Left") },

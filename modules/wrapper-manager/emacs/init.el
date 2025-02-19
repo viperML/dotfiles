@@ -202,20 +202,14 @@
   (setq centaur-tabs-height 30)
   (centaur-tabs-mode t))
 
-(use-package paredit
-  :ensure t
-  :init
-  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
-  (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'ielm-mode-hook #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook #'enable-paredit-mode)
+(use-package smartparens-config
+  :ensure smartparens
   :config
-  (show-paren-mode t)
-  :diminish nil)
+  (progn
+    (show-smartparens-global-mode t)
+    (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+    (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)))
+
 
 ;; LSP
 (use-package lsp-mode
@@ -239,5 +233,24 @@
 
 ;; (use-package geiser-guile)
 
+;; Last to override keybinds
+(use-package ergoemacs-mode
+  :config
+  (setq ergoemacs-theme nil)
+  (setq ergoemacs-keyboard-layout "us")
+  (ergoemacs-mode 1))
+
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
