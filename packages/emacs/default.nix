@@ -23,7 +23,7 @@ symlinkJoin {
   postBuild = ''
     for file in $out/bin/emacs $out/bin/emacs-*; do
       wrapProgram $file \
-        --add-flags -nv
+        --add-flags -nw
     done
 
     rm $out/share/applications
