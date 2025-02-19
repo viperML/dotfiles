@@ -186,3 +186,8 @@ src.github = "folke/trouble.nvim"
 fetch.github = "MeanderingProgrammer/render-markdown.nvim"
 src.github = "MeanderingProgrammer/render-markdown.nvim"
 passthru.opt = "true"
+
+# [avante-nvim]
+# fetch.github = "yetone/avante.nvim"
+# src.github = "yetone/avante.nvim"
+# passthru.opt = "true"

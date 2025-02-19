@@ -60,6 +60,8 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
     nvPlugins' =
       nvPlugins
       // {
+        inherit (pkgs.vimPlugins) avante-nvim;
+
         telescope-fzf-native-nvim = let
           base = nvGenerated.telescope-fzf-native-nvim;
         in
@@ -83,6 +85,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
 
     luaPackages = lp: [
       lp.luassert
+      lp.luaposix
     ];
 
     luaEnv = basePackage.lua.withPackages luaPackages;

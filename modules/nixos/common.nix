@@ -55,6 +55,7 @@
     # inputs'.tree-sitter.packages.tree-sitter-cat
     sops
     age
+    aichat
 
     # GUI
     warp
