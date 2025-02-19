@@ -31,7 +31,7 @@ Many things stolen from https://github.com/Gerg-L/mnw :)
 
     nv = fromTOML (readFile ./nvfetcher.toml);
 
-    nvGenerated = pkgs.callPackages ./generated.nix {};
+    nvGenerated = pkgs.callPackages ./_sources/generated.nix {};
 
     nvPlugins =
       mapAttrs (name: value: (value.src.overrideAttrs (old: let

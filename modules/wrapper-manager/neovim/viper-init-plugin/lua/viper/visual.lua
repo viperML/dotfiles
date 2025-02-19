@@ -292,6 +292,17 @@ vim.list_extend(require("viper.lazy.specs"), {
       }
     end,
   },
+  {
+    "render-markdown.nvim",
+    ft = { "markdown" },
+    after = function()
+      require("render-markdown").setup {
+        latex = {
+          enabled = false,
+        },
+      }
+    end,
+  },
 })
 
 return M

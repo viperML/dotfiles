@@ -181,3 +181,8 @@ passthru.opt = "true"
 [trouble-nvim]
 fetch.github = "folke/trouble.nvim"
 src.github = "folke/trouble.nvim"
+
+[render-markdown-nvim]
+fetch.github = "MeanderingProgrammer/render-markdown.nvim"
+src.github = "MeanderingProgrammer/render-markdown.nvim"
+passthru.opt = "true"
