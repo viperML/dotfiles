@@ -133,6 +133,8 @@
                 inherit inputs';
               };
 
+              hpc-env = callPackage ./hpc-env { };
+
               am = inputs.activation-manager.lib.homeBundle {
                 pkgs = (pkgs // self);
                 modules = [ ../modules/activation-manager/main.nix ];

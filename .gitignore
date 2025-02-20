@@ -35,3 +35,5 @@ var
 .cache
 projectile-bookmarks.eld
 recentf
+*.tar
+*.sif
