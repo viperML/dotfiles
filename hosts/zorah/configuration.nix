@@ -22,7 +22,7 @@ in
     drawio
     thunderbird-latest
     self'.packages.emacs
-    aichat
+    sshfs
   ];
 
   environment.sessionVariables = {
