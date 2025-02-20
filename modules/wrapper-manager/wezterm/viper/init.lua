@@ -218,41 +218,42 @@ M.apply_to_config = function(config)
   config.mouse_wheel_scrolls_tabs = false
   config.hide_mouse_cursor_when_typing = false
   config.hyperlink_rules = {
-    -- https://wezfurlong.org/wezterm/config/lua/config/hyperlink_rules.html
     -- Matches: a URL in parens: (URL)
+    -- Markdown: [text](URL title)
     {
-      regex = "\\((\\w+://\\S+)\\)",
+      regex = "\\((\\w+://\\S+?)(?:\\s+.+)?\\)",
       format = "$1",
       highlight = 1,
     },
     -- Matches: a URL in brackets: [URL]
     {
-      regex = "\\[(\\w+://\\S+)\\]",
+      regex = "\\[(\\w+://\\S+?)\\]",
       format = "$1",
       highlight = 1,
     },
     -- Matches: a URL in curly braces: {URL}
     {
-      regex = "\\{(\\w+://\\S+)\\}",
+      regex = "\\{(\\w+://\\S+?)\\}",
       format = "$1",
       highlight = 1,
     },
     -- Matches: a URL in angle brackets: <URL>
     {
-      regex = "<(\\w+://\\S+)>",
+      regex = "<(\\w+://\\S+?)>",
       format = "$1",
       highlight = 1,
     },
     -- Then handle URLs not wrapped in brackets
+    -- regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
     {
-      regex = "\\b\\w+://\\S+[)/a-zA-Z0-9-]+",
+      regex = "(?<![\\(\\{\\[<])\\b\\w+://\\S+",
       format = "$0",
     },
     -- implicit mailto link
-    -- {
-    --   regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
-    --   format = "mailto:$0",
-    -- },
+    {
+      regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+      format = "mailto:$0",
+    },
   }
 
   apply_keybindings(config)
