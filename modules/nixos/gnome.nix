@@ -13,7 +13,7 @@
   environment.systemPackages = with pkgs; [
     adw-gtk3
     gnome-tweaks
-    wl-clipboard-rs
+    wl-clipboard
     vanilla-dmz
     gnomeExtensions.appindicator
   ];
