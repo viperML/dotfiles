@@ -77,6 +77,7 @@ require("lualine").setup {
       "neo-tree",
     },
   },
+  extensions = { "neo-tree", "trouble", "oil" },
   winbar = {
     lualine_c = {
       "filename",
@@ -94,22 +95,32 @@ require("lualine").setup {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch", "diff" },
-    lualine_c = { "diagnostics" },
+    lualine_b = {},
+    lualine_c = { {
+      "filename",
+      path = 1,
+      file_status = false,
+    }, "location" },
+
     lualine_x = {
       {
         "fileformat",
         symbols = {
-          unix = "unix",
-          dos = "dos",
-          mac = "mac",
+          unix = "",
+          dos = "CRLF",
+          mac = "MAC",
         },
       },
       "encoding",
-      "filesize",
+      "filetype",
+      "branch",
+      -- "filesize",
     },
-    lualine_y = { "filetype" },
-    lualine_z = { "location" },
+    lualine_y = { {
+      "diagnostics",
+      always_visible = true,
+    } },
+    lualine_z = {},
   },
 }
 

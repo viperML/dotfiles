@@ -1,3 +1,8 @@
+;;; My Emacs configuration
+;;; Commentary:
+;;; -
+;;; Code:
+
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
@@ -7,21 +12,21 @@
 
 ;; (setq package-user-dir "~/.config/emacs/elpa")
 
-(eval-and-compile
-  (require 'package)
-  (setq package-archives '(
-                           ;; ("elpa" . "https://elpa.gnu.org/packages/")
-                           ;; ("marmalade" . "https://marmalade-repo.org/packages/")
-                           ;; ("melpa" . "https://melpa.org/packages/")
-                           ))
-  (package-initialize)
-  ;; i always fetch the archive contents on startup and during compilation, which is slow
-  (package-refresh-contents)
-  (unless (package-installed-p 'use-package)
-    (package-install 'use-package))
-  (require 'use-package)
-  ;; i don't really know why this isn't the default...
-  (setf use-package-always-ensure t))
+;; (eval-and-compile
+;;   (require 'package)
+;;   (setq package-archives '(
+;;                            ;; ("elpa" . "https://elpa.gnu.org/packages/")
+;;                            ;; ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                            ;; ("melpa" . "https://melpa.org/packages/")
+;;                            ))
+;;   (package-initialize)
+;;   ;; i always fetch the archive contents on startup and during compilation, which is slow
+;;   (package-refresh-contents)
+;;   (unless (package-installed-p 'use-package)
+;;     (package-install 'use-package))
+;;   (require 'use-package)
+;;   ;; i don't really know why this isn't the default...
+;;   (setf use-package-always-ensure t))
 
 (eval-when-compile
   (require 'use-package))
@@ -31,7 +36,8 @@
 (setq
  make-backup-files nil
  inhibit-startup-screen t
- create-lockfiles nil)
+ create-lockfiles nil
+ ring-bell-function 'silent)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -126,9 +132,6 @@
              :mode ("\\.md\\'" . gfm-mode)
              :init (setq markdown-command "multimarkdown"))
 
-(setq pixel-scroll-precision-large-scroll-height 20.0
-      scroll-conservatively 101)
-
 (use-package ivy)
 (use-package projectile)
 ;; (setq projectile-cache-file "~/.config/emacs/projectile.cache")
@@ -157,7 +160,7 @@
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-items '((recents . 10)
-                          ;; (projects .5)
+                          (projects . 5)
                           (bookmarks . 5)
                           ))
   (setq dashboard-set-footer nil)
@@ -183,7 +186,8 @@
 
 
 (use-package doom-modeline
-  :init (doom-modeline-mode 1))
+  :init
+  (doom-modeline-mode 1))
 
 (use-package treemacs
   :defer t)

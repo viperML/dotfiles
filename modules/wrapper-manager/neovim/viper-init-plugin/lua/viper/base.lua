@@ -61,6 +61,8 @@ vim.opt.showmode = false
 vim.opt.modeline = true
 vim.opt.signcolumn = "yes:2"
 
+-- vim.opt.mousemoveevent = true
+
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 

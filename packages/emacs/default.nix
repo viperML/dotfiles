@@ -2,13 +2,18 @@
   symlinkJoin,
   emacsWithPackagesFromUsePackage,
   emacs-pgtk,
+  runCommandLocal,
   makeWrapper,
 }:
 let
   pkg = emacsWithPackagesFromUsePackage {
     config = ./init.el;
-    package = emacs-pgtk;
+    # package = emacs-pgtk;
     alwaysEnsure = true;
+    # defaultInitFile = runCommandLocal "default.el" { } ''
+    #   cp ${./init.el} $out
+    # '';
+    defaultInitFile = true;
   };
 in
 symlinkJoin {
