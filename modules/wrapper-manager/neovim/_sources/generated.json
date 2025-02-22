@@ -1,4 +1,25 @@
 {
+    "blink-cmp": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "blink-cmp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Saghen",
+            "repo": "blink.cmp",
+            "rev": "v0.12.4",
+            "sha256": "sha256-ybzEQHvZIiF+B2SIdFX8HJGai50PUw5QRgrL7qJ0sUk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.12.4"
+    },
     "bufferline-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -327,7 +348,7 @@
     },
     "neo-tree-nvim": {
         "cargoLocks": null,
-        "date": "2025-02-15",
+        "date": "2025-02-20",
         "extract": null,
         "name": "neo-tree-nvim",
         "passthru": {
@@ -341,12 +362,12 @@
             "name": null,
             "owner": "nvim-neo-tree",
             "repo": "neo-tree.nvim",
-            "rev": "0ead8aaa301347b3555a1453ba3d36231cfff749",
-            "sha256": "sha256-HDDk+VpwWd637USmusWQnyLiwQQItJ0MS4EMYqJvB8M=",
+            "rev": "94c8ec36da52af0ea0128012e12abe05c26ef840",
+            "sha256": "sha256-IgEW55fwV3prifCng4R3QtWF3HN8pycVNN5U5ZCPI7E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0ead8aaa301347b3555a1453ba3d36231cfff749"
+        "version": "94c8ec36da52af0ea0128012e12abe05c26ef840"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
@@ -689,12 +710,12 @@
             "name": null,
             "owner": "nvim-orgmode",
             "repo": "orgmode",
-            "rev": "0.4.2",
-            "sha256": "sha256-WorNuZGx4Ln3fRbEayWMI7nklNuWbKDXeJYwnVqJOQc=",
+            "rev": "0.4.31",
+            "sha256": "sha256-Al1A9D8wO0SS0AXIyhLeNBPoWA8oxJ7jjAl23Qt2BVM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0.4.2"
+        "version": "0.4.31"
     },
     "plenary-nvim": {
         "cargoLocks": null,
@@ -777,12 +798,12 @@
             "name": null,
             "owner": "folke",
             "repo": "snacks.nvim",
-            "rev": "v2.20.0",
-            "sha256": "sha256-YUjTuY47fWnHd9/z6WqFD0biW+wn9zLLsOVJibwpgKw=",
+            "rev": "v2.21.0",
+            "sha256": "sha256-COvKNofUMiNV9MZvP18dtmkNSMXeTlumN2sIeBl4VqE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.20.0"
+        "version": "v2.21.0"
     },
     "telescope-fzf-native-nvim": {
         "cargoLocks": null,

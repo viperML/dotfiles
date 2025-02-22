@@ -191,3 +191,7 @@ passthru.opt = "true"
 # fetch.github = "yetone/avante.nvim"
 # src.github = "yetone/avante.nvim"
 # passthru.opt = "true"
+
+# [blink-cmp]
+# fetch.github = "Saghen/blink.cmp"
+# src.github = "Saghen/blink.cmp"

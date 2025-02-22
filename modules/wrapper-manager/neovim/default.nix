@@ -57,6 +57,7 @@
       nvPlugins' = nvPlugins // {
         # inherit (pkgs.vimPlugins) avante-nvim;
         avante-nvim = makeOpt pkgs.vimPlugins.avante-nvim;
+        inherit (pkgs.vimPlugins) blink-cmp;
 
         telescope-fzf-native-nvim =
           let
