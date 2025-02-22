@@ -62,8 +62,8 @@
     google-chrome
     # self'.packages.ungoogled-chromium
     # ptyxis
-    self'.packages.zellij
-    self'.packages.alacritty
+    # self'.packages.zellij
+    # self'.packages.alacritty
     self'.packages.wezterm
     self'.packages.vscode
     libcgroup
