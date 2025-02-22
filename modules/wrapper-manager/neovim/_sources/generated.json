@@ -1,25 +1,4 @@
 {
-    "blink-cmp": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "blink-cmp",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Saghen",
-            "repo": "blink.cmp",
-            "rev": "v0.12.4",
-            "sha256": "sha256-ybzEQHvZIiF+B2SIdFX8HJGai50PUw5QRgrL7qJ0sUk=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.12.4"
-    },
     "bufferline-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -439,7 +418,9 @@
         "date": "2025-02-14",
         "extract": null,
         "name": "nvim-autopairs",
-        "passthru": null,
+        "passthru": {
+            "opt": "true"
+        },
         "pinned": false,
         "src": {
             "deepClone": false,
@@ -934,11 +915,11 @@
             "name": null,
             "owner": "folke",
             "repo": "which-key.nvim",
-            "rev": "v3.16.0",
-            "sha256": "sha256-CNnRQjGLOH+Ol+cVgnfpKbJByD3kLPGAbKefvnHjzRg=",
+            "rev": "v3.17.0",
+            "sha256": "sha256-kYpiw2Syu54B/nNVqTZeUHJIPNzAv3JpFaMWR9Ai3p4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v3.16.0"
+        "version": "v3.17.0"
     }
 }

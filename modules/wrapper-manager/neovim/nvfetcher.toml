@@ -21,6 +21,7 @@ src.git = "https://github.com/nvim-tree/nvim-web-devicons"
 [nvim-autopairs]
 fetch.github = "windwp/nvim-autopairs"
 src.git = "https://github.com/windwp/nvim-autopairs"
+passthru.opt = "true"
 
 [neo-tree-nvim]
 fetch.github = "nvim-neo-tree/neo-tree.nvim"
@@ -186,12 +187,3 @@ src.github = "folke/trouble.nvim"
 fetch.github = "MeanderingProgrammer/render-markdown.nvim"
 src.github = "MeanderingProgrammer/render-markdown.nvim"
 passthru.opt = "true"
-
-# [avante-nvim]
-# fetch.github = "yetone/avante.nvim"
-# src.github = "yetone/avante.nvim"
-# passthru.opt = "true"
-
-# [blink-cmp]
-# fetch.github = "Saghen/blink.cmp"
-# src.github = "Saghen/blink.cmp"
