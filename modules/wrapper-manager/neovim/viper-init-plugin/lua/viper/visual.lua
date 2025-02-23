@@ -61,7 +61,7 @@ require("bufferline").setup {
     indicator = {
       style = " ",
     },
-    mode = "tabs",
+    -- mode = "tabs",
   },
 }
 

@@ -191,3 +191,8 @@ passthru.opt = "true"
 [codecompanion-nvim]
 fetch.github = "olimorris/codecompanion.nvim"
 src.github = "olimorris/codecompanion.nvim"
+passthru.opt = "true"
+
+[mini-nvim]
+fetch.github = "echasnovski/mini.nvim"
+src.github = "echasnovski/mini.nvim"

@@ -150,3 +150,19 @@ vim.api.nvim_create_user_command("Date", function()
     end)
   end)
 end, { desc = "Insert current date" })
+
+require("mini.move").setup {
+  mappings = {
+    left = "",
+    right = "",
+    down = "<M-Down>",
+    up = "<M-Up>",
+    line_left = "",
+    line_right = "",
+    line_down = "<M-Down>",
+    line_up = "<M-Up>",
+  },
+  options = {
+    reindent_linewise = false,
+  },
+}

@@ -52,14 +52,15 @@
   };
   codecompanion-nvim = {
     pname = "codecompanion-nvim";
-    version = "v12.7.1";
+    version = "v12.7.2";
     src = fetchFromGitHub {
       owner = "olimorris";
       repo = "codecompanion.nvim";
-      rev = "v12.7.1";
+      rev = "v12.7.2";
       fetchSubmodules = false;
-      sha256 = "sha256-+0nfaFle7nzwTY+J6A+NsMD7nlUCfDYZSH71prpUi5M=";
+      sha256 = "sha256-RAQx4l92P6Lq0tmP6nFXFbffX2TEezImota6XPPm6n8=";
     };
+    opt = "true";
   };
   comment-nvim = {
     pname = "comment-nvim";
@@ -194,6 +195,17 @@
     };
     date = "2025-01-04";
   };
+  mini-nvim = {
+    pname = "mini-nvim";
+    version = "v0.15.0";
+    src = fetchFromGitHub {
+      owner = "echasnovski";
+      repo = "mini.nvim";
+      rev = "v0.15.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-YzCqe1Z1LLs/E1AJ+I577RHzbaOMoxsZodwg9foVpYI=";
+    };
+  };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
     version = "94c8ec36da52af0ea0128012e12abe05c26ef840";
@@ -257,15 +269,15 @@
   };
   nvim-cmp = {
     pname = "nvim-cmp";
-    version = "12509903a5723a876abd65953109f926f4634c30";
+    version = "5a11682453ac6b13dbf32cd403da4ee9c07ef1c3";
     src = fetchFromGitHub {
       owner = "hrsh7th";
       repo = "nvim-cmp";
-      rev = "12509903a5723a876abd65953109f926f4634c30";
+      rev = "5a11682453ac6b13dbf32cd403da4ee9c07ef1c3";
       fetchSubmodules = false;
-      sha256 = "sha256-a45FPHLtM1AnBlvJZ/ka5m7gOz84rpVk8GH75fYWqSg=";
+      sha256 = "sha256-dBAYadxdnl0j5e8VnnyGxx2AE6GgCDyIBxEgmrNawxo=";
     };
-    date = "2025-01-23";
+    date = "2025-02-23";
   };
   nvim-dap = {
     pname = "nvim-dap";
@@ -294,13 +306,13 @@
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
-    version = "v1.6.0";
+    version = "v1.7.0";
     src = fetchFromGitHub {
       owner = "neovim";
       repo = "nvim-lspconfig";
-      rev = "v1.6.0";
+      rev = "v1.7.0";
       fetchSubmodules = false;
-      sha256 = "sha256-wXe1cUnsiOLegeYvL2Tvn4H3p9/b9Qi9rDzX+jjhZ+Q=";
+      sha256 = "sha256-f6c/1Vj0nBgQ2Vs9+23bVBpur6+eIF/ljIQ0hSdnIHk=";
     };
   };
   nvim-navic = {
@@ -390,13 +402,13 @@
   };
   orgmode = {
     pname = "orgmode";
-    version = "0.4.31";
+    version = "0.4.32";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "orgmode";
-      rev = "0.4.31";
+      rev = "0.4.32";
       fetchSubmodules = false;
-      sha256 = "sha256-Al1A9D8wO0SS0AXIyhLeNBPoWA8oxJ7jjAl23Qt2BVM=";
+      sha256 = "sha256-rsA77JziDWmVrNBA9jzNTSiwGKRuz82Lr1cnTd4Vm2M=";
     };
     opt = "true";
   };
