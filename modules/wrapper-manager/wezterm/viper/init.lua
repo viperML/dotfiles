@@ -214,7 +214,7 @@ M.apply_to_config = function(config)
   config.pane_focus_follows_mouse = true
   config.warn_about_missing_glyphs = false
   config.enable_tab_bar = true
-  config.selection_word_boundary = " \t\n{}[]()\"'`«»‘’,="
+  config.selection_word_boundary = " \t\n{}[]()\"'`«»‘’,=:"
   config.mouse_wheel_scrolls_tabs = false
   config.hide_mouse_cursor_when_typing = false
 
