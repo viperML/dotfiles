@@ -59,8 +59,8 @@
 
     # GUI
     warp
-    google-chrome
-    # self'.packages.ungoogled-chromium
+    # google-chrome
+    self'.packages.google-chrome
     # ptyxis
     # self'.packages.zellij
     # self'.packages.alacritty
