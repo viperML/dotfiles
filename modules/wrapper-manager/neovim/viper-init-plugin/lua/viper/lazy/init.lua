@@ -25,4 +25,9 @@ M.load_once = function(name)
   end
 end
 
+---@param specs lz.n.Spec[]
+M.add_specs = function(specs)
+  vim.list_extend(require("viper.lazy.specs"), specs)
+end
+
 return M

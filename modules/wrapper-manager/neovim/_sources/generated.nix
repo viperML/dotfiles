@@ -50,6 +50,17 @@
     };
     date = "2024-12-10";
   };
+  codecompanion-nvim = {
+    pname = "codecompanion-nvim";
+    version = "v12.7.1";
+    src = fetchFromGitHub {
+      owner = "olimorris";
+      repo = "codecompanion.nvim";
+      rev = "v12.7.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-+0nfaFle7nzwTY+J6A+NsMD7nlUCfDYZSH71prpUi5M=";
+    };
+  };
   comment-nvim = {
     pname = "comment-nvim";
     version = "e30b7f2008e52442154b66f7c519bfd2f1e32acb";

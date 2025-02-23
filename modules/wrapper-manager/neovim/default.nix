@@ -84,6 +84,7 @@
       luaPackages = lp: [
         lp.luassert
         lp.luaposix
+        lp.lyaml
       ];
 
       luaEnv = basePackage.lua.withPackages luaPackages;

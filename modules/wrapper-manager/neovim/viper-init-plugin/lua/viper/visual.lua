@@ -120,7 +120,16 @@ require("lualine").setup {
       "diagnostics",
       always_visible = true,
     } },
-    lualine_z = {},
+    lualine_z = {
+      {
+        function()
+          return "󰂜"
+        end,
+        on_click = function()
+          require("noice").cmd("history")
+        end,
+      },
+    },
   },
 }
 

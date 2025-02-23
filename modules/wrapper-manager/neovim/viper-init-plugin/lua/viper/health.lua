@@ -7,6 +7,8 @@ local externals = {
   "direnv",
 }
 
+M.aichat_config = false
+
 M.check = function()
   vim.health.start("Configuration")
   if M.loaded then
@@ -22,6 +24,13 @@ M.check = function()
     else
       vim.health.error(external .. " not found")
     end
+  end
+
+  vim.health.start("CodeCompanion")
+  if M.aichat_config then
+    vim.health.ok("Using ~/.config/aichat/config.yaml")
+  else
+    vim.health.error("Didn't find ~/.config/aichat/config.yaml")
   end
 end
 

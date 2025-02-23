@@ -187,3 +187,7 @@ src.github = "folke/trouble.nvim"
 fetch.github = "MeanderingProgrammer/render-markdown.nvim"
 src.github = "MeanderingProgrammer/render-markdown.nvim"
 passthru.opt = "true"
+
+[codecompanion-nvim]
+fetch.github = "olimorris/codecompanion.nvim"
+src.github = "olimorris/codecompanion.nvim"

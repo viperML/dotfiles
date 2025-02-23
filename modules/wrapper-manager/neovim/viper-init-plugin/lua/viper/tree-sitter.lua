@@ -25,7 +25,8 @@ vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 
-vim.opt.smartindent = true
+-- Conflicts with treesitter
+vim.opt.smartindent = false
 
 -- Don't acidentally run these
 vim.api.nvim_del_user_command("TSUpdate")

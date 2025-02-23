@@ -82,6 +82,27 @@
         },
         "version": "99290b3ec1322070bcfb9e846450a46f6efa50f0"
     },
+    "codecompanion-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "codecompanion-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "olimorris",
+            "repo": "codecompanion.nvim",
+            "rev": "v12.7.1",
+            "sha256": "sha256-+0nfaFle7nzwTY+J6A+NsMD7nlUCfDYZSH71prpUi5M=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v12.7.1"
+    },
     "comment-nvim": {
         "cargoLocks": null,
         "date": "2024-06-09",
