@@ -319,9 +319,10 @@ require("viper.lazy").add_specs {
   },
   {
     "render-markdown.nvim",
-    ft = { "markdown" },
+    ft = { "markdown", "codecompanion" },
     after = function()
       require("render-markdown").setup {
+        file_types = { "markdown", "codecompanion" },
         latex = {
           enabled = false,
         },
