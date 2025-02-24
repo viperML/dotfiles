@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+set -eux
+
+workdir="$HOME/.cache/spack-cont"
+mkdir -p "$workdir"
+
+podman run -it --rm \
+    -v /nix:/nix:ro \
+    -v /run/current-system:/run/current-system:ro \
+    -v "$workdir:/home/ubuntu:U" \
+    -v "$SSH_AUTH_SOCK:/ssh-auth-sock" \
+    -v "$FLAKE:/flake:ro" \
+    -w "/home/ubuntu" \
+    -u ubuntu \
+    -e HOME=/home/ubuntu \
+    -e FLAKE="/flake" \
+    -e EDITOR="$EDITOR" \
+    -e TERM="$TERM" \
+    -e STARSHIP_CONFIG="$STARSHIP_CONFIG" \
+    -e SSH_AUTH_SOCK=/ssh-auth-sock \
+    --userns=keep-id:uid=1000,gid=1000 \
+    localhost/spack-cooked \
+    bash -c '
+export PATH="$PATH:/run/current-system/sw/bin"
+ln -vsfT $FLAKE/bin/.bash_profile ~/.bash_profile
+exec -l bash
+'

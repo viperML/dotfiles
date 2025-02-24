@@ -86,7 +86,7 @@ return {
         },
         schemas = {
           ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
-          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+          ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
           ["https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json"] = "user-data.{yaml,yml}",
           ["https://json.schemastore.org/hugo.json"] = "hugo.{yaml,yml}",
         },
