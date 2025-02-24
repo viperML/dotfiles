@@ -138,11 +138,17 @@ vim.opt.splitright = true
 vim.keymap.set("n", "<Leader>sv", "<cmd>vnew<cr>", { desc = "Split vertically" })
 vim.keymap.set("n", "<Leader>sh", "<cmd>new<cr>", { desc = "Split horizontally" })
 
-vim.list_extend(require("viper.lazy.specs"), {
+require("viper.lazy").add_specs {
   {
     "neo-tree.nvim",
     cmd = "Neotree",
-    keys = { "<leader>b" },
+    keys = {
+      {
+        "<leader>b",
+        "<cmd>Neotree show toggle<cr>",
+        { desc = "Neotree toggle" },
+      },
+    },
     after = function()
       require("neo-tree").setup {
         default_component_configs = {
@@ -165,7 +171,6 @@ vim.list_extend(require("viper.lazy.specs"), {
           },
         },
       }
-      vim.keymap.set("n", "<leader>b", "<cmd>Neotree show toggle<cr>", { desc = "Neotree toggle" })
     end,
   },
   {
@@ -323,6 +328,6 @@ vim.list_extend(require("viper.lazy.specs"), {
       }
     end,
   },
-})
+}
 
 return M
