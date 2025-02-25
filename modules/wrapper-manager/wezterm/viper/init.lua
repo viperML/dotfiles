@@ -217,6 +217,7 @@ M.apply_to_config = function(config)
   config.selection_word_boundary = " \t\n{}[]()\"'`«»‘’,=:"
   config.mouse_wheel_scrolls_tabs = false
   config.hide_mouse_cursor_when_typing = false
+  config.mux_enable_ssh_agent = false
 
   apply_keybindings(config)
   apply_colorscheme(config)
