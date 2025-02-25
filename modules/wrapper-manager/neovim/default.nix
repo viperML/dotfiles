@@ -138,6 +138,7 @@
             "cmake"
             "cpp"
             "elixir"
+            "fish"
             "git_config"
             "glsl"
             "go"

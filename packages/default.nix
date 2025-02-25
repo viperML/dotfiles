@@ -91,7 +91,6 @@
                 databaseDate = config.flake.lib.mkDate inputs.nix-index-database.lastModifiedDate;
               };
               # preventing infrec
-              fish = callPackage ./fish { inherit (pkgs) fish; };
               guix = callPackage ./guix {
                 inherit (pkgs) guix;
               };
