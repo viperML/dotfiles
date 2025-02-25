@@ -168,26 +168,6 @@
         "type": "github"
       }
     },
-    "git-args": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1732269251,
-        "narHash": "sha256-HZO2NvCSEDLF+jc6yoL90AkBecaDAMwB4L/9HmtU2tM=",
-        "owner": "viperML",
-        "repo": "git-args",
-        "rev": "bfbac14419d8ecc6378256a7c82b3dc5419d41e6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "git-args",
-        "type": "github"
-      }
-    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -250,26 +230,6 @@
         "type": "github"
       }
     },
-    "in-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1726662586,
-        "narHash": "sha256-6yyYuAkeHHNrpfv+Tq6IeVnrka1twk5IZyVl4s1Xoh4=",
-        "owner": "viperML",
-        "repo": "in-nix",
-        "rev": "66982d6a83ab1a7f0b674cc5d335b2141a43f811",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "in-nix",
-        "type": "github"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -316,31 +276,6 @@
         "type": "github"
       }
     },
-    "nil": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay_2"
-      },
-      "locked": {
-        "lastModified": 1732053863,
-        "narHash": "sha256-DCIVdlb81Fct2uwzbtnawLBC/U03U2hqx8trqTJB7WA=",
-        "owner": "oxalica",
-        "repo": "nil",
-        "rev": "2e24c9834e3bb5aa2a3701d3713b43a6fb106362",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "ref": "main",
-        "repo": "nil",
-        "type": "github"
-      }
-    },
     "nix-common": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_2"
@@ -374,21 +309,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "type": "github"
-      }
-    },
-    "nixos-hardware": {
-      "locked": {
-        "lastModified": 1738816619,
-        "narHash": "sha256-5yRlg48XmpcX5b5HesdGMOte+YuCy9rzQkJz+imcu6I=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "2eccff41bab80839b1d25b303b53d339fbb07087",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
         "type": "github"
       }
     },
@@ -540,19 +460,14 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
-        "git-args": "git-args",
         "guix-search": "guix-search",
         "hover-rs": "hover-rs",
-        "in-nix": "in-nix",
         "lanzaboote": "lanzaboote",
         "nh": "nh",
-        "nil": "nil",
         "nix-common": "nix-common",
         "nix-index-database": "nix-index-database",
-        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "noshell": "noshell",
-        "sops-nix": "sops-nix",
         "tree-sitter": "tree-sitter",
         "wrapper-manager": "wrapper-manager"
       }
@@ -576,47 +491,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nil",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731983527,
-        "narHash": "sha256-JECaBgC0pQ91Hq3W4unH6K9to8s2Zl2sPNu7bLOv4ek=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "71287228d96e9568e1e70c6bbfa3f992d145947b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sops-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1739262228,
-        "narHash": "sha256-7JAGezJ0Dn5qIyA2+T4Dt/xQgAbhCglh6lzCekTVMeU=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "07af005bb7d60c7f118d9d9f5530485da5d1e975",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
         "type": "github"
       }
     },

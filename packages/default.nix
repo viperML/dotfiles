@@ -1,4 +1,4 @@
-{
+flake@{
   lib,
   config,
   inputs,
@@ -83,7 +83,7 @@
             in
             auto
             // {
-              nix = inputs'.in-nix.packages.default.patchNix pkgs.nixVersions.nix_2_26;
+              nix = flake.self.lib.versionGate pkgs.nixVersions.nix_2_26 pkgs.nix;
 
               # manual overrides to auto callPackage
               nix-index = callPackage ./nix-index {

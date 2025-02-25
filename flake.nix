@@ -63,16 +63,8 @@
       url = "github:viperML/noshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    in-nix = {
-      url = "github:viperML/in-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     wrapper-manager = {
       url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    git-args = {
-      url = "github:viperML/git-args";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     guix-search = {
@@ -98,20 +90,6 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
-    };
-    nil = {
-      url = "github:oxalica/nil?ref=main";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
