@@ -65,6 +65,13 @@
 (if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode -1))
 
+(setq scroll-conservatively 101)
+
+(use-package smooth-scrolling
+    :config
+    (smooth-scrolling-mode 1)
+    (setq smooth-scroll-margin 3))
+
 ;; use asynchronous processes wherever possible
 ;;(use-package async
 ;;  :init (dired-async-mode 1))
