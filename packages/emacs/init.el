@@ -53,7 +53,7 @@
 
 (add-hook 'after-init-hook #'(lambda ()
            ;; restore after startup
-           (setq gc-cons-threshold 800000)))
+                              (setq gc-cons-threshold 800000)))
 
 (setq initial-scratch-message "")         ; Make *scratch* buffer blank
 (fset 'yes-or-no-p 'y-or-n-p)             ; y-or-n-p makes answering questions faster
@@ -94,6 +94,8 @@
 
 
 (recentf-mode 1)
+(unless (display-graphic-p)
+    (xterm-mouse-mode 1))
 
 ;; (defun synchronize-theme ()
 ;;   (let* ((light-theme 'doom-one-light)
@@ -122,6 +124,11 @@
 ;; Pkgs
 (use-package evil
              :config (evil-mode 1))
+
+(use-package evil-terminal-cursor-changer
+    :config
+    (unless (display-graphic-p)
+        (evil-terminal-cursor-changer-activate)))
 
 (use-package direnv
   :config (direnv-mode))
@@ -153,7 +160,7 @@
              :init
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (load-theme 'doom-tomorrow-night	t)
+             (load-theme 'doom-tomorrow-night                                                                                                                                                  	t)
              (doom-themes-org-config))
 
 (use-package solaire-mode
@@ -168,8 +175,8 @@
   (setq dashboard-set-file-icons t)
   (setq dashboard-items '((recents . 10)
                           (projects . 5)
-                          (bookmarks . 5)
-                          ))
+                          (bookmarks . 5)))
+                          
   (setq dashboard-set-footer nil)
   (setq dashboard-center-content t)
   (setq dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name))
@@ -186,10 +193,10 @@
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
-   "SPC" '(counsel-find-file :which-key "Find file")
+   "SPC" '(counsel-file-jump :which-key "Jump to file")
    "p" '(:keymap projectile-command-map :package counsel-projectile :which-key "Projectile")
-   "b" '(treemacs :package treemacs)
-   ))
+   "b" '(treemacs :package treemacs)))
+   
 
 
 (use-package doom-modeline
@@ -259,9 +266,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages nil))
-(custom-set-faces
+(custom-set-faces)
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ 
