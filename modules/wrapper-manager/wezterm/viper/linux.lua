@@ -13,6 +13,8 @@ M.apply_to_config = function(config)
 
   local session = os.getenv("XDG_SESSION_TYPE")
 
+  config.default_prog = { "fish" }
+
   if session == "gnome" then
     config.enable_wayland = false
     -- config.front_end = "WebGpu"
