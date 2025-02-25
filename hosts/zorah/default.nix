@@ -16,15 +16,16 @@ in
       #-- Topology
       ./configuration.nix
       ./novidia.nix
-      {
-        specialisation.nvidia = {
-          inheritParentConfig = true;
-          configuration = {
-            imports = [ ./nvidia.nix ];
-            disabledModules = [ ./novidia.nix ];
-          };
-        };
-      }
+      # {
+      #   specialisation.nvidia = {
+      #     inheritParentConfig = true;
+      #     configuration = {
+      #       environment.etc."specialisation".text = "nvidia";
+      #       imports = [ ./nvidia.nix ];
+      #       disabledModules = [ ./novidia.nix ];
+      #     };
+      #   };
+      # }
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.printing
       nixosModules.tmpfs
@@ -32,8 +33,6 @@ in
       nixosModules.user-ayats
       nixosModules.user-soch
       nixosModules.yubikey
-
-      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
