@@ -37,7 +37,7 @@
         inputs.nix-common.nixosModules.default
 
         inputs.noshell.nixosModules.default
-        { programs.noshell.enable = true; }
+        # { programs.noshell.enable = true; }
 
         inputs.activation-manager.nixosModules.home
 
