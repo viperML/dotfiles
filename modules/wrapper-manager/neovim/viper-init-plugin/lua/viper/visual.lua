@@ -138,6 +138,8 @@ vim.opt.splitright = true
 vim.keymap.set("n", "<Leader>sv", "<cmd>vnew<cr>", { desc = "Split vertically" })
 vim.keymap.set("n", "<Leader>sh", "<cmd>new<cr>", { desc = "Split horizontally" })
 
+local render_markodwn_fts = { "markdown", "codecompanion" }
+
 require("viper.lazy").add_specs {
   {
     "neo-tree.nvim",
@@ -319,12 +321,16 @@ require("viper.lazy").add_specs {
   },
   {
     "render-markdown.nvim",
-    ft = { "markdown", "codecompanion" },
+    ft = render_markodwn_fts,
     after = function()
       require("render-markdown").setup {
-        file_types = { "markdown", "codecompanion" },
+        file_types = render_markodwn_fts,
+        render_modes = { "n", "i", "c", "t" },
         latex = {
           enabled = false,
+        },
+        bullet = {
+          icons = { "•", "◦" },
         },
       }
     end,
