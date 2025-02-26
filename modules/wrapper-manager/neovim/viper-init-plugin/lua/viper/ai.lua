@@ -58,7 +58,6 @@ local config_codecompanion = function(aichat_config_raw)
   }
 
   local default_adapter = models[1].name
-  vim.notify(vim.inspect(default_adapter))
 
   require("codecompanion").setup {
     adapters = adapters,
