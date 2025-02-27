@@ -215,6 +215,11 @@
 (use-package treemacs
   :defer t)
 
+(use-package treemacs-nerd-icons
+  :after treemacs
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
 (use-package treemacs-projectile
   :after (treemacs projectile))
 
