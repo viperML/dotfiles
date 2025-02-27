@@ -178,4 +178,5 @@ repeat_offset = 1
 
 [spack]
 format = "[$symbol$environment]($style) "
+symbol = " "
 
