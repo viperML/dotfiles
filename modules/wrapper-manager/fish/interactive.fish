@@ -77,3 +77,11 @@ end
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo -e >&2 "\e[31m$argv[1]: command not found\e[0m"
 end
+
+function ,
+    if test (count $argv) -lt 1
+        echo "Usage: , <name>"
+        return
+    end
+    nix-locate --top-level --at-root -w /bin/$argv[1]
+end

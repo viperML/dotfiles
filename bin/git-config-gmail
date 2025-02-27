@@ -1,0 +1,55 @@
+#! /usr/bin/env bash
+
+# Define usage function to display help information
+usage() {
+    echo "Usage: $0 <EMAIL_ADDRESS>"
+    exit 1
+}
+
+# Parse options with getopts for any flags (like help)
+while getopts "h" opt; do
+    case ${opt} in
+        h)
+            usage
+            ;;
+        \?)
+            echo "Invalid option: $OPTARG" 1>&2
+            usage
+            ;;
+    esac
+done
+
+# Shift past the optional arguments
+shift $((OPTIND-1))
+
+# Check if email was provided as a positional argument
+if [ $# -eq 0 ]; then
+    echo "Error: Email address is required as a positional argument."
+    usage
+fi
+
+email="$1"
+
+gitconfig_path=~/.config/git/local
+echo ":: Configuring git at $gitconfig_path"
+mkdir -p "$(dirname $gitconfig_path)"
+
+_gitconfig() {
+    git config --file $gitconfig_path "$@"
+}
+
+_gitconfig sendemail.smtpserver smtp.googlemail.com
+_gitconfig sendemail.smtpencryption tls
+_gitconfig sendemail.smtpserverport 587
+_gitconfig sendemail.smtpuser "$email"
+
+echo ":: Saving password to libsecret"
+secret-tool store --label='gmail send-email' \
+            server smtp.googlemail.com \
+            port 587 \
+            protocol smtp \
+            user "$email" \
+            xdg:schema org.gnome.keyring.NetworkPassword
+
+
+# vim: ft=bash
