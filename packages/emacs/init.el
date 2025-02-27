@@ -37,27 +37,25 @@
  make-backup-files nil
  inhibit-startup-screen t
  create-lockfiles nil
- ring-bell-function 'silent
+ ring-bell-function 'ignore
  confirm-kill-processes nil
- confirm-kill-emacs nil)
+ confirm-kill-emacs nil
+    ;; Sane defaults
+    ;; increase garbage collection during startup
+    gc-cons-threshold 100000000
+    read-process-output-max (* 1024 1024) ;; 1mb
+    initial-scratch-message ""         ; Make *scratch* buffer blank
+
+    scroll-conservatively 101)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; (setq custom-file "~/.config/emacs/custom.el")
-;; (load custom-file)
 
-
-
-;; Sane defaults
-;; increase garbage collection during startup
-(setq gc-cons-threshold 100000000)
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (add-hook 'after-init-hook #'(lambda ()
            ;; restore after startup
-                              (setq gc-cons-threshold 800000)))
+                                (setq gc-cons-threshold 800000)))
 
-(setq initial-scratch-message "")         ; Make *scratch* buffer blank
 (fset 'yes-or-no-p 'y-or-n-p)             ; y-or-n-p makes answering questions faster
 (global-auto-revert-mode t)               ; Auto-update buffer if file has changed on disk
 
@@ -67,12 +65,11 @@
 (if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode -1))
 
-(setq scroll-conservatively 101)
 
-(use-package smooth-scrolling
-    :config
-    (smooth-scrolling-mode 1)
-    (setq smooth-scroll-margin 3))
+;; (use-package smooth-scrolling
+;;     :config
+;;     (smooth-scrolling-mode 1)
+;;     (setq smooth-scroll-margin 3))
 
 ;; use asynchronous processes wherever possible
 ;;(use-package async
@@ -125,9 +122,19 @@
 
 ;; Pkgs
 (use-package evil
-             :config (evil-mode 1))
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 (use-package evil-terminal-cursor-changer
+    :after evil
     :config
     (unless (display-graphic-p)
         (evil-terminal-cursor-changer-activate)))
@@ -136,7 +143,7 @@
   :config (direnv-mode))
 
 (use-package mixed-pitch
-             :hook (text-mode . mixed-pitch-mode))
+    :hook (text-mode . mixed-pitch-mode))
 
 (use-package which-key
              :diminish which-key-mode
