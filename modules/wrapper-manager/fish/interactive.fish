@@ -85,3 +85,12 @@ function ,
     end
     nix-locate --top-level --at-root -w /bin/$argv[1]
 end
+
+function yazi
+	set tmp (mktemp -t -p "$XDG_RUNTIME_DIR" "yazi-cwd.XXXXXX")
+	command yazi $argv --cwd-file="$tmp"
+	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end

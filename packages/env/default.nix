@@ -31,6 +31,7 @@
   nixfmt-rfc-style,
   psmisc,
   nil,
+  yazi,
 }@args:
 symlinkJoin {
   name = "env";

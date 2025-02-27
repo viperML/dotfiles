@@ -77,7 +77,7 @@ require("lualine").setup {
       "neo-tree",
     },
   },
-  extensions = { "neo-tree", "trouble", "oil" },
+  extensions = { "neo-tree", "trouble" },
   winbar = {
     lualine_c = {
       "filename",
@@ -287,28 +287,6 @@ require("viper.lazy").add_specs {
     end,
   },
   {
-    "oil.nvim",
-    event = "DeferredUIEnter",
-    after = function()
-      require("oil").setup {
-        keymaps = {
-          [""] = "actions.close",
-        },
-        float = {
-          padding = 4,
-        },
-        skip_confirm_for_simple_edits = true,
-        prompt_save_on_select_new_entry = false,
-        view_options = {
-          show_hidden = true,
-        },
-      }
-      vim.keymap.set("n", "<leader>o", function()
-        require("oil").open_float()
-      end, { desc = "Oil: open" })
-    end,
-  },
-  {
     "marks.nvim",
     event = "DeferredUIEnter",
     after = function()
@@ -333,6 +311,20 @@ require("viper.lazy").add_specs {
           icons = { "•", "◦" },
         },
       }
+    end,
+  },
+  {
+    "yazi.nvim",
+    cmd = { "Yazi" },
+    keys = {
+      {
+        "<leader>o",
+        "<cmd>Yazi toggle<cr>",
+        desc = "Open Yazi",
+      },
+    },
+    after = function()
+      require("yazi").setup {}
     end,
   },
 }

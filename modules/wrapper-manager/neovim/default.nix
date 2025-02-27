@@ -42,6 +42,8 @@
                 baseNameOf original.src.git
               else if original ? src.github then
                 baseNameOf original.src.github
+              else if original ? src.github_tag then
+                baseNameOf original.src.github_tag
               else
                 builtins.trace original throw "src wasn't git or github";
             version = if builtins.hasAttr "date" value then value.date else lib.removePrefix "v" value.version;

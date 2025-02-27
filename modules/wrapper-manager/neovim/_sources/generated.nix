@@ -52,13 +52,13 @@
   };
   codecompanion-nvim = {
     pname = "codecompanion-nvim";
-    version = "v12.7.2";
+    version = "v12.13.1";
     src = fetchFromGitHub {
       owner = "olimorris";
       repo = "codecompanion.nvim";
-      rev = "v12.7.2";
+      rev = "v12.13.1";
       fetchSubmodules = false;
-      sha256 = "sha256-RAQx4l92P6Lq0tmP6nFXFbffX2TEezImota6XPPm6n8=";
+      sha256 = "sha256-OGL7wkQVUPPrczeT9ft2m+84EP15hRHgnLad2+dqbfM=";
     };
     opt = "true";
   };
@@ -137,15 +137,15 @@
   };
   kaganawa-nvim = {
     pname = "kaganawa-nvim";
-    version = "2de175482f215c69a1d12ab10a8bf2a7a2e44ff2";
+    version = "cfd67b0e1eeaa04302b8c7eb072253d24bf22d84";
     src = fetchFromGitHub {
       owner = "rebelot";
       repo = "kanagawa.nvim";
-      rev = "2de175482f215c69a1d12ab10a8bf2a7a2e44ff2";
+      rev = "cfd67b0e1eeaa04302b8c7eb072253d24bf22d84";
       fetchSubmodules = false;
-      sha256 = "sha256-5ee5TqTcCA+2F0zrshhbDvrrTkZ0dQYzhqq+t5KnTpI=";
+      sha256 = "sha256-oQkYwjq7pDbJ2Cjy9m9f+slpMAciysyoM4nkHYjFFeI=";
     };
-    date = "2025-02-14";
+    date = "2025-02-24";
   };
   lualine-nvim = {
     pname = "lualine-nvim";
@@ -208,16 +208,16 @@
   };
   neo-tree-nvim = {
     pname = "neo-tree-nvim";
-    version = "94c8ec36da52af0ea0128012e12abe05c26ef840";
+    version = "e6f5b5e044ba9f380e82fc942212e0679d83b6f6";
     src = fetchFromGitHub {
       owner = "nvim-neo-tree";
       repo = "neo-tree.nvim";
-      rev = "94c8ec36da52af0ea0128012e12abe05c26ef840";
+      rev = "e6f5b5e044ba9f380e82fc942212e0679d83b6f6";
       fetchSubmodules = false;
-      sha256 = "sha256-IgEW55fwV3prifCng4R3QtWF3HN8pycVNN5U5ZCPI7E=";
+      sha256 = "sha256-HQcIzP8T5YHo+w0/GPgg8C1zZ7kC8yEGT4dQBuHaeh8=";
     };
     opt = "true";
-    date = "2025-02-20";
+    date = "2025-02-25";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
@@ -341,15 +341,15 @@
   };
   nvim-treesitter-textobjects = {
     pname = "nvim-treesitter-textobjects";
-    version = "ad8f0a472148c3e0ae9851e26a722ee4e29b1595";
+    version = "88fce4e6496950dab867a7c63a819df0ead56751";
     src = fetchFromGitHub {
       owner = "nvim-treesitter";
       repo = "nvim-treesitter-textobjects";
-      rev = "ad8f0a472148c3e0ae9851e26a722ee4e29b1595";
+      rev = "88fce4e6496950dab867a7c63a819df0ead56751";
       fetchSubmodules = false;
-      sha256 = "sha256-b/7Bz7L83KL+uZC1bRJ4PrzPVK/NaCKSx4VCHlPcdCM=";
+      sha256 = "sha256-qXbGTWoI9EGaObkxZjzfZxfSqNhPUg/+2BQEjlh1PY8=";
     };
-    date = "2024-11-22";
+    date = "2025-02-27";
   };
   nvim-ts-autotag = {
     pname = "nvim-ts-autotag";
@@ -374,18 +374,6 @@
       sha256 = "sha256-WOFtHvNlPP1JRLdCfFRXEOUx+1z5d5ncm+pS0wpDjAg=";
     };
     date = "2025-02-11";
-  };
-  oil-nvim = {
-    pname = "oil-nvim";
-    version = "v2.15.0";
-    src = fetchFromGitHub {
-      owner = "stevearc";
-      repo = "oil.nvim";
-      rev = "v2.15.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-jCuOwTd6QIy3USuE7X/rHYUbriW6+2WaK9JxCx4/O2c=";
-    };
-    opt = "true";
   };
   org-bullets-nvim = {
     pname = "org-bullets-nvim";
@@ -450,13 +438,13 @@
   };
   snacks-nvim = {
     pname = "snacks-nvim";
-    version = "v2.21.0";
+    version = "v2.22.0";
     src = fetchFromGitHub {
       owner = "folke";
       repo = "snacks.nvim";
-      rev = "v2.21.0";
+      rev = "v2.22.0";
       fetchSubmodules = false;
-      sha256 = "sha256-COvKNofUMiNV9MZvP18dtmkNSMXeTlumN2sIeBl4VqE=";
+      sha256 = "sha256-iXfOTmeTm8/BbYafoU6ZAstu9+rMDfQtuA2Hwq0jdcE=";
     };
   };
   telescope-fzf-native-nvim = {
@@ -530,6 +518,18 @@
       rev = "v3.17.0";
       fetchSubmodules = false;
       sha256 = "sha256-kYpiw2Syu54B/nNVqTZeUHJIPNzAv3JpFaMWR9Ai3p4=";
+    };
+    opt = "true";
+  };
+  yazi-nvim = {
+    pname = "yazi-nvim";
+    version = "v9.0.1";
+    src = fetchFromGitHub {
+      owner = "mikavilpas";
+      repo = "yazi.nvim";
+      rev = "v9.0.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-UuID7uG04NRPuR90gD4i3pCNmcxls7EwwjmUwqzz5VI=";
     };
     opt = "true";
   };
