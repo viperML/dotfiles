@@ -1,6 +1,5 @@
 ;;; My Emacs configuration
 ;;; Commentary:
-;;; -
 ;;; Code:
 
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
@@ -94,8 +93,8 @@
 
 
 (recentf-mode 1)
-(unless (display-graphic-p)
-    (xterm-mouse-mode 1))
+;; (unless (display-graphic-p)
+;;     (xterm-mouse-mode 1))
 
 ;; (defun synchronize-theme ()
 ;;   (let* ((light-theme 'doom-one-light)
@@ -160,7 +159,7 @@
              :init
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (load-theme 'doom-tomorrow-night                                                                                                                                                  	t)
+             (load-theme 'doom-tomorrow-night                                                                                                                                                                                                                                                                	t)
              (doom-themes-org-config))
 
 (use-package solaire-mode
@@ -220,13 +219,33 @@
   (setq centaur-tabs-height 30)
   (centaur-tabs-mode t))
 
-(use-package smartparens-config
-  :ensure smartparens
+;; (use-package smartparens-config
+;;   :ensure smartparens
+;;   :config
+;;   (progn
+;;     (show-smartparens-global-mode t)
+;;     (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+;;     (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)))
+
+(use-package paredit
+  :init
+  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook #'enable-paredit-mode)
   :config
-  (progn
-    (show-smartparens-global-mode t)
-    (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-    (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)))
+  (show-paren-mode t)
+  :bind (("M-[" . paredit-wrap-square)
+         ("M-{" . paredit-wrap-curly))
+  :diminish nil)
+
+(use-package evil-cleverparens
+  :config
+  (add-hook 'paredit-mode-hook #'evil-cleverparens-mode))
 
 
 ;; LSP

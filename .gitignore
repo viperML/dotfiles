@@ -37,3 +37,4 @@ projectile-bookmarks.eld
 recentf
 *.tar
 *.sif
+*.elc
