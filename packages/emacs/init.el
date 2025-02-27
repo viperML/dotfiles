@@ -1,5 +1,6 @@
 ;;; My Emacs configuration
 ;;; Commentary:
+;;; -
 ;;; Code:
 
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
@@ -93,8 +94,8 @@
 
 
 (recentf-mode 1)
-;; (unless (display-graphic-p)
-;;     (xterm-mouse-mode 1))
+(unless (display-graphic-p)
+    (xterm-mouse-mode 1))
 
 ;; (defun synchronize-theme ()
 ;;   (let* ((light-theme 'doom-one-light)
@@ -159,7 +160,7 @@
              :init
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (load-theme 'doom-tomorrow-night                                                                                                                                                                                                                                                                	t)
+             (load-theme 'doom-tomorrow-night                                                                                                                                                                                                                                                                                            	t)
              (doom-themes-org-config))
 
 (use-package solaire-mode
@@ -239,8 +240,8 @@
   (add-hook 'scheme-mode-hook #'enable-paredit-mode)
   :config
   (show-paren-mode t)
-  :bind (("M-[" . paredit-wrap-square)
-         ("M-{" . paredit-wrap-curly))
+  ;; :bind (("M-[" . paredit-wrap-square)
+  ;;        ("M-{" . paredit-wrap-curly))
   :diminish nil)
 
 (use-package evil-cleverparens
