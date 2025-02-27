@@ -27,10 +27,6 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript",
 }
 
-vim.diagnostic.config {
-  virtual_text = false,
-}
-
 lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
   config.cmd[1] = vim.fs.basename(config.cmd[1]) -- motherfuckers, who resolved the absolute path
 
@@ -88,8 +84,12 @@ vim.diagnostic.config {
     ---@param diagnostic vim.Diagnostic
     ---@return string?
     format = function(diagnostic)
-      local it = vim.gsplit(diagnostic.message, "\n")
-      return it()
+      if diagnostic.severity >= vim.diagnostic.severity.INFO then
+        return nil
+      else
+        local it = vim.gsplit(diagnostic.message, "\n")
+        return it()
+      end
     end,
   },
   jump = {
