@@ -37,7 +37,9 @@
  make-backup-files nil
  inhibit-startup-screen t
  create-lockfiles nil
- ring-bell-function 'silent)
+ ring-bell-function 'silent
+ confirm-kill-processes nil
+ confirm-kill-emacs nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -269,8 +271,6 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-;; (use-package geiser-guile)
-
 ;; Last to override keybinds
 (use-package ergoemacs-mode
   :config
@@ -292,3 +292,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  
+
+(use-package geiser-guile)
+(setq geiser-active-implementations '(guile))
+(use-package geiser)
+(use-package guix
+  :config
+  (add-hook 'scheme-mode-hook 'guix-devel-mode))
