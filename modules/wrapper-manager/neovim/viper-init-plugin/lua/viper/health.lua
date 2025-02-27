@@ -26,7 +26,7 @@ M.check = function()
     end
   end
 
-  vim.health.start("CodeCompanion")
+  vim.health.start("AiChat")
   if M.aichat_config then
     vim.health.ok("Using ~/.config/aichat/config.yaml")
   else

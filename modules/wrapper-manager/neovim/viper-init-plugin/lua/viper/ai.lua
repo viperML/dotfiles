@@ -22,7 +22,7 @@ end
 ---@field name string
 
 ---@param aichat_config_raw string
-local config_codecompanion = function(aichat_config_raw)
+local load_aichat_config = function(aichat_config_raw)
   local lyaml = require("lyaml")
   local aichat_config = lyaml.load(aichat_config_raw)
 
@@ -84,7 +84,6 @@ require("viper.lazy").add_specs {
     after = function()
       ---@diagnostic disable-next-line: missing-parameter
       a.run(function()
-        vim.health.start("CodeCompanion")
         local err, ret = pcall(function()
           return read_file(vim.fn.expand("~/.config/aichat/config.yaml"))
         end)
@@ -92,7 +91,7 @@ require("viper.lazy").add_specs {
         vim.schedule(function()
           if err then
             require("viper.health").aichat_config = true
-            config_codecompanion(ret)
+            load_aichat_config(ret)
           end
         end)
       end)
