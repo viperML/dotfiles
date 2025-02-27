@@ -162,7 +162,7 @@
              :init
              (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                    doom-themes-enable-italic t) ; if nil, italics is universally disabled
-             (load-theme 'doom-tomorrow-night                                                                                                                                                                                                                                                                                            	t)
+             (load-theme 'doom-tomorrow-night t)
              (doom-themes-org-config))
 
 (use-package solaire-mode
@@ -178,7 +178,7 @@
   (setq dashboard-items '((recents . 10)
                           (projects . 5)
                           (bookmarks . 5)))
-                          
+
   (setq dashboard-set-footer nil)
   (setq dashboard-center-content t)
   (setq dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name))
@@ -198,7 +198,7 @@
    "SPC" '(counsel-file-jump :which-key "Jump to file")
    "p" '(:keymap projectile-command-map :package counsel-projectile :which-key "Projectile")
    "b" '(treemacs :package treemacs)))
-   
+
 
 
 (use-package doom-modeline
@@ -291,7 +291,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- 
+
 
 (use-package geiser-guile)
 (setq geiser-active-implementations '(guile))
