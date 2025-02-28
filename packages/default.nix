@@ -84,6 +84,7 @@ flake@{
             auto
             // {
               nix = flake.self.lib.versionGate pkgs.nixVersions.nix_2_26 pkgs.nix;
+              nil = inputs'.nil.packages.default;
 
               # manual overrides to auto callPackage
               nix-index = callPackage ./nix-index {

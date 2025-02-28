@@ -9,79 +9,30 @@
 {
   wrappers.neovim =
     let
-      inherit (lib)
-        traceVal
-        traceValFn
-        concatMapStringsSep
-        flatten
-        ;
-
       inherit (builtins)
         typeOf
         mapAttrs
-        attrValues
-        readFile
         ;
 
       basePackage = pkgs.neovim-unwrapped;
 
       packName = "viper-pack";
 
-      nv = fromTOML (readFile ./nvfetcher.toml);
-
       nvGenerated = pkgs.callPackages ./_sources/generated.nix { };
 
-      nvPlugins = mapAttrs (
-        name: value:
-        (value.src.overrideAttrs (
-          old:
-          let
-            original = nv.${name};
-            pname =
-              if original ? src.git then
-                baseNameOf original.src.git
-              else if original ? src.github then
-                baseNameOf original.src.github
-              else if original ? src.github_tag then
-                baseNameOf original.src.github_tag
-              else
-                builtins.trace original throw "src wasn't git or github";
-            version = if builtins.hasAttr "date" value then value.date else lib.removePrefix "v" value.version;
-          in
-          {
-            inherit pname version;
-            name = "${pname}-${version}";
-            passthru.opt = (if (value ? opt) then builtins.fromJSON value.opt else false);
-          }
-        ))
-      ) nvGenerated;
-
-      nvPlugins' = nvPlugins // {
-        # inherit (pkgs.vimPlugins) avante-nvim;
-        avante-nvim = makeOpt pkgs.vimPlugins.avante-nvim;
-        inherit (pkgs.vimPlugins) blink-cmp;
-
-        telescope-fzf-native-nvim =
-          let
-            base = nvGenerated.telescope-fzf-native-nvim;
-          in
-          with pkgs;
-          stdenv.mkDerivation {
-            inherit (base) pname src;
-            version = base.date;
-            nativeBuildInputs = [ cmake ];
-            cmakeFlags = [
-              # "-B build"
-            ];
-            # crimes against humanity
-            installPhase = ''
-              mkdir -p $out
-              cp -vr ${base.src}/{*,.*} $out
-              mkdir -p $out/build
-              cp -vr ./*.so $out/build/
-            '';
-          };
-      };
+      nvPlugins =
+        nvGenerated
+        |> (mapAttrs (
+          name: value:
+          value.src.overrideAttrs (
+            finalAttrs: prevAttrs: {
+              pname =
+                if builtins.hasAttr "repo" value.src then value.src.repo else builtins.baseNameOf value.src.url;
+              version = lib.removePrefix "v" value.version;
+              name = with finalAttrs; "${pname}-${version}";
+            }
+          )
+        ));
 
       luaPackages = lp: [
         lp.luassert
@@ -92,46 +43,47 @@
       luaEnv = basePackage.lua.withPackages luaPackages;
       inherit (basePackage.lua.pkgs.luaLib) genLuaPathAbsStr genLuaCPathAbsStr;
 
-      viper-pre-init-plugin =
-        pkgs.runCommandLocal "viper-pre-init-plugin"
+      plugins = lib.fix (p: {
+        start =
           {
-            passthru.opt = false;
+            inherit (pkgs.vimPlugins)
+              lz-n
+              plenary-nvim
+              nui-nvim
+              bufferline-nvim
+              lualine-nvim
+              nvim-web-devicons
+              snacks-nvim
+              noice-nvim
+              mini-nvim
+              kanagawa-nvim
+              blink-cmp
+              nvim-lspconfig
+              trouble-nvim
+              nvim-ts-autotag
+              nvim-treesitter-context
+              ;
+
+            viper-init-plugin = ./viper-init-plugin;
+            viper-pre-init-plugin = pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
+              mkdir -p $out/plugin
+
+              tee $out/plugin/init.lua <<EOF
+              -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
+              package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
+              package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
+
+              -- No remote plugins
+              vim.g.loaded_node_provider = 0
+              vim.g.loaded_perl_provider = 0
+              vim.g.loaded_python_provider = 0
+              vim.g.loaded_python3_provider = 0
+              vim.g.loaded_ruby_provider = 0
+              EOF
+            '';
+            inherit (inputs'.tree-sitter.packages) nvim-treesitter;
           }
-          # bash
-          ''
-            mkdir -p $out/plugin
-
-            tee $out/plugin/init.lua <<EOF
-            -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
-            package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
-            package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
-
-            -- No remote plugins
-            vim.g.loaded_node_provider = 0
-            vim.g.loaded_perl_provider = 0
-            vim.g.loaded_python_provider = 0
-            vim.g.loaded_python3_provider = 0
-            vim.g.loaded_ruby_provider = 0
-            EOF
-          '';
-
-      makeOpt =
-        drv:
-        drv.overrideAttrs (old: {
-          passthru = (old.passthru or { }) // {
-            opt = true;
-          };
-        });
-
-      allPlugins = flatten [
-        viper-pre-init-plugin
-        (attrValues nvPlugins')
-
-        # (makeOpt inputs'.tree-sitter.packages.nvim-treesitter)
-        inputs'.tree-sitter.packages.nvim-treesitter
-
-        (builtins.attrValues (
-          lib.getAttrs (map (n: "tree-sitter-${n}") [
+          // (lib.getAttrs (map (name: "tree-sitter-${name}") [
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
             "asm"
             "astro"
@@ -160,36 +112,84 @@
             "typescript"
             "typst"
             "yaml" # for frontmatter injections
-          ]) inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered
-        ))
+          ]) inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered);
 
-        (makeOpt pkgs.vimPlugins.parinfer-rust)
-      ];
+        opt = (builtins.removeAttrs nvPlugins (builtins.attrNames p.start)) // {
+          inherit (pkgs.vimPlugins)
+            parinfer-rust
+            nvim-autopairs
+            neo-tree-nvim
+            which-key-nvim
+            conform-nvim
+            telescope-nvim
+            vim-nix
+            indent-blankline-nvim
+            gitsigns-nvim
+            git-conflict-nvim
+            telescope-fzf-native-nvim
+            vim-better-whitespace
+            nvim-navic
+            smart-splits-nvim
+            nvim-treesitter-textobjects
+            comment-nvim
+            haskell-tools-nvim
+            nvim-treesitter-context
+            marks-nvim
+            render-markdown-nvim
+            codecompanion-nvim
+            yazi-nvim
+            ;
+        };
+      });
 
-      packDir =
-        pkgs.runCommandLocal "pack-dir" { }
-          # bash
-          ''
-            mkdir -pv $out/pack/${packName}/{start,opt}
+      linkPlugin =
+        { plugin, startOpt }:
+        let
+          name =
+            if typeOf plugin == "path" then
+              baseNameOf plugin
+            else if plugin ? pname then
+              plugin.pname
+            else
+              plugin.name;
+          name' = if name == "source" then throw "Plugin ${plugin} is doesn't have a proper pname" else name;
+        in
+        ''
+          ln -vsfT ${plugin} $out/pack/${packName}/${startOpt}/${name'}
+        '';
 
-            ${concatMapStringsSep "\n" (p: ''
-              ln -vsfT ${p} $out/pack/${packName}/${
-                if p ? passthru.opt && p.passthru.opt then "opt" else "start"
-              }/${
-                if typeOf p == "path" then
-                  baseNameOf p
-                else if p ? pname then
-                  p.pname
-                else
-                  p.name
-              }
-            '') allPlugins}
+      packDir = pkgs.runCommandLocal "pack-dir" { } ''
+        mkdir -pv $out/pack/${packName}/{start,opt}
 
-            ln -vsfT ${./viper-init-plugin} $out/pack/${packName}/start/viper-init-plugin
-          '';
+        ${
+          plugins.start
+          |> builtins.attrValues
+          |> (map (
+            plugin:
+            linkPlugin {
+              inherit plugin;
+              startOpt = "start";
+            }
+          ))
+          |> (lib.concatStringsSep "\n")
+        }
+
+        ${
+          plugins.opt
+          |> builtins.attrValues
+          |> (map (
+            plugin:
+            linkPlugin {
+              inherit plugin;
+              startOpt = "opt";
+            }
+          ))
+          |> (lib.concatStringsSep "\n")
+        }
+      '';
     in
     {
-      basePackage = pkgs.neovim-unwrapped;
+      inherit basePackage;
       env = {
         NVIM_SYSTEM_RPLUGIN_MANIFEST = {
           value =

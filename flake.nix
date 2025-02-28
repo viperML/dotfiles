@@ -1,40 +1,47 @@
 {
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({
-      lib,
-      config,
-      ...
-    }: {
-      imports = [
-        ./packages
-        ./misc/lib
-        ./hosts
-      ];
-
-      flake = {
-        nixosModules = config.flake.lib.dirToAttrs ./modules/nixos;
-      };
-
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
-      perSystem = {
-        pkgs,
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      {
+        lib,
         config,
         ...
-      }: {
-        devShells.default = with pkgs;
-          mkShellNoCC {
-            packages = [
-              lua-language-server
-              config.packages.stylua
-              taplo
-            ];
+      }:
+      {
+        imports = [
+          ./packages
+          ./misc/lib
+          ./hosts
+        ];
+
+        flake = {
+          nixosModules = config.flake.lib.dirToAttrs ./modules/nixos;
+        };
+
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+
+        perSystem =
+          {
+            pkgs,
+            config,
+            ...
+          }:
+          {
+            devShells.default =
+              with pkgs;
+              mkShellNoCC {
+                packages = [
+                  lua-language-server
+                  config.packages.stylua
+                  taplo
+                ];
+              };
           };
-      };
-    });
+      }
+    );
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -95,6 +102,10 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

@@ -4,7 +4,7 @@ local levels = vim.log.levels
 
 local capabilities = lspconfig.util.default_config.capabilities
 
-capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+local capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
   on_attach = function(client, bufnr)

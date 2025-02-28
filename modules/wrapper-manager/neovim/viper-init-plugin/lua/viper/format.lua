@@ -114,7 +114,7 @@ vim.list_extend(require("viper.lazy.specs"), {
     ft = { "scheme", "lisp", "elisp" },
   },
   {
-    "Comment.nvim",
+    "comment.nvim",
     event = "DeferredUIEnter",
     after = function()
       require("Comment").setup {}

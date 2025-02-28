@@ -38,7 +38,7 @@ vim.api.nvim_del_user_command("TSUninstall")
 
 require("nvim-ts-autotag").setup {}
 
-require("mdx").setup {}
+-- require("mdx").setup {}
 
 require("treesitter-context").setup {
   enable = true,
