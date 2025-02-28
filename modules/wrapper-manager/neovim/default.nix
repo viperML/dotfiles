@@ -62,6 +62,7 @@
               trouble-nvim
               nvim-ts-autotag
               nvim-treesitter-context
+              telescope-fzf-native-nvim
               ;
 
             viper-init-plugin = ./viper-init-plugin;
@@ -126,7 +127,6 @@
             indent-blankline-nvim
             gitsigns-nvim
             git-conflict-nvim
-            telescope-fzf-native-nvim
             vim-better-whitespace
             nvim-navic
             smart-splits-nvim
