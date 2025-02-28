@@ -15,13 +15,13 @@ M.apply_to_config = function(config)
 
   config.default_prog = { "fish" }
 
-  if session == "gnome" then
-    config.enable_wayland = false
+  if session == "wayland" then
+    config.enable_wayland = true
     -- config.front_end = "WebGpu"
-    config.xcursor_theme = "DMZ-White"
-    config.xcursor_size = 24
   else
     config.enable_wayland = false
+    config.xcursor_theme = "DMZ-White"
+    config.xcursor_size = 24
   end
 end
 

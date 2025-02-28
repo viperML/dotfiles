@@ -103,7 +103,7 @@
             "javascript"
             "lua"
             "markdown"
-            "meson"
+            # "meson"
             "nix"
             "org"
             "regex"
