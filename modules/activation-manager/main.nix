@@ -1,6 +1,8 @@
 {
   dconf.settings = {
     "/org/gnome/desktop/interface/color-scheme" = "prefer-dark";
+    "/org/gnome/desktop/interface/cursor-size" = "24";
+    "/org/gnome/desktop/interface/cursor-theme" = "DMZ-White";
     "/org/gnome/desktop/interface/document-font-name" = "Roboto 11";
     "/org/gnome/desktop/interface/enable-hot-corners" = "false";
     "/org/gnome/desktop/interface/font-name" = "Roboto 11";
@@ -10,8 +12,7 @@
     "/org/gnome/desktop/lockdown/disable-lock-screen" = "true";
     "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
     "/org/gnome/mutter/experimental-features" = "['scale-monitor-framebuffer', 'xwayland-native-scaling']";
-    "/org/gnome/desktop/interface/cursor-theme" = "DMZ-White";
-    "/org/gnome/desktop/interface/cursor-size" = "24";
+    "/org/gnome/shell/window-switcher/current-workspace-only" = "true";
 
     "/org/gnome/desktop/wm/preferences/titlebar-font" = "Roboto Bold 11";
 
