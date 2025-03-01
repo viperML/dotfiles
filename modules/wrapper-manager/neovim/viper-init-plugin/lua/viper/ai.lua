@@ -1,8 +1,7 @@
-local a = require("plenary.async")
-
 ---@param path string
 ---@return string
 local read_file = function(path)
+  local a = require("plenary.async")
   local err, fd = a.uv.fs_open(path, "r", 438)
   assert(not err, err)
 
@@ -82,6 +81,8 @@ require("viper.lazy").add_specs {
     "codecompanion.nvim",
     event = "DeferredUIEnter",
     after = function()
+      require("viper.lazy").packadd("plenary.nvim")
+      local a = require("plenary.async")
       ---@diagnostic disable-next-line: missing-parameter
       a.run(function()
         local err, ret = pcall(function()

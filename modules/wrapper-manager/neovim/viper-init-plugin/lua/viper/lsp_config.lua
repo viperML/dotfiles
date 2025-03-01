@@ -8,11 +8,6 @@ vim.filetype.add {
   },
 }
 
--- don't show parse errors in a separate window
-vim.g.zig_fmt_parse_errors = 0
--- disable format-on-save from `ziglang/zig.vim`
-vim.g.zig_fmt_autosave = 0
-
 return {
   ["rnix"] = {
     cmd = { "nil" },
@@ -47,24 +42,9 @@ return {
     },
   },
   -- JS
-  -- tsconfig.json in both, but should be fine with direnv+not having both on PATH at the same time
-  ["ts_ls"] = {
-    root_dir = root_pattern("package.json", "tsconfig.json"),
-    -- single_file_support = false,
-  },
-  -- ["denols"] = {
-  --   root_dir = root_pattern("deno.json", "deno.jsonc", "tsconfig.json"),
-  -- },
-  ["html"] = {},
-  ["cssls"] = {},
-  ["astro"] = {},
-  ["eslint"] = {},
-  ["tailwindcss"] = {},
-  ["mdx_analyzer"] = {},
   -- C
   ["clangd"] = {},
   ["mesonlsp"] = {},
-  ["autotools_ls"] = {},
   ["neocmake"] = {},
   -- Python
   ["ruff"] = {},
@@ -104,15 +84,10 @@ return {
       "typst",
     },
   },
-  -- ["hls"] = {
-  --   filetypes = { "haskell", "lhaskell", "cabal" },
-  -- },
   ["gopls"] = {},
   ["tinymist"] = {
     offset_encoding = "utf-8",
   },
-  ["texlab"] = {},
-  ["zls"] = {},
   ["lua_ls"] = {
     on_init = function(client)
       if os.getenv("NVIM_VIPER_DEBUG") ~= nil then
@@ -137,10 +112,5 @@ return {
       Lua = {},
     },
   },
-  ["elixirls"] = {
-    cmd = { "elixir-ls" },
-  },
-  ["asm_lsp"] = {},
   ["terraformls"] = {},
-  ["glslls"] = {},
 }

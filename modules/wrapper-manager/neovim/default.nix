@@ -48,21 +48,12 @@
           {
             inherit (pkgs.vimPlugins)
               lz-n
-              plenary-nvim
-              nui-nvim
-              bufferline-nvim
-              lualine-nvim
               nvim-web-devicons
               snacks-nvim
-              noice-nvim
               mini-nvim
               kanagawa-nvim
-              blink-cmp
-              nvim-lspconfig
-              trouble-nvim
-              nvim-ts-autotag
-              nvim-treesitter-context
-              telescope-fzf-native-nvim
+              bufferline-nvim
+              lualine-nvim
               ;
 
             viper-init-plugin = ./viper-init-plugin;
@@ -82,7 +73,6 @@
               vim.g.loaded_ruby_provider = 0
               EOF
             '';
-            inherit (inputs'.tree-sitter.packages) nvim-treesitter;
           }
           // (lib.getAttrs (map (name: "tree-sitter-${name}") [
             # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
@@ -116,27 +106,37 @@
           ]) inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered);
 
         opt = (builtins.removeAttrs nvPlugins (builtins.attrNames p.start)) // {
+          inherit (inputs'.tree-sitter.packages) nvim-treesitter;
           inherit (pkgs.vimPlugins)
-            parinfer-rust
-            nvim-autopairs
-            neo-tree-nvim
-            which-key-nvim
-            conform-nvim
-            telescope-nvim
-            vim-nix
-            indent-blankline-nvim
-            gitsigns-nvim
-            git-conflict-nvim
-            vim-better-whitespace
-            nvim-navic
-            smart-splits-nvim
-            nvim-treesitter-textobjects
-            comment-nvim
-            haskell-tools-nvim
+            nvim-ts-autotag
             nvim-treesitter-context
-            marks-nvim
-            render-markdown-nvim
+            nvim-treesitter-textobjects
+
             codecompanion-nvim
+            comment-nvim
+            conform-nvim
+            git-conflict-nvim
+            gitsigns-nvim
+            haskell-tools-nvim
+            indent-blankline-nvim
+            marks-nvim
+            neo-tree-nvim
+            noice-nvim
+            nui-nvim
+            nvim-autopairs
+            nvim-lspconfig
+            blink-cmp
+            nvim-navic
+            parinfer-rust
+            plenary-nvim
+            render-markdown-nvim
+            smart-splits-nvim
+            telescope-fzf-native-nvim
+            telescope-nvim
+            trouble-nvim
+            vim-better-whitespace
+            vim-nix
+            which-key-nvim
             yazi-nvim
             ;
         };

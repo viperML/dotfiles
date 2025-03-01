@@ -1,10 +1,8 @@
 require("viper.base")
 require("viper.visual")
-require("viper.completion")
 require("viper.lsp")
 require("viper.tree-sitter")
 require("viper.format")
--- require("viper.org")
 require("viper.ai")
 
 vim.opt.sessionoptions:append("globals")

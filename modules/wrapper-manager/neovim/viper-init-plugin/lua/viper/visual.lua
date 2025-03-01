@@ -13,6 +13,7 @@ M.ignored = {
 vim.opt.termguicolors = true
 
 require("kanagawa").setup {
+  compile = true,
   -- transparent = true,
   theme = "dragon",
   colors = {
@@ -55,13 +56,12 @@ vim.api.nvim_set_hl(0, "@markup.strong", {
 
 require("bufferline").setup {
   options = {
-    -- always_show_bufferline = false,
     right_mouse_command = nil,
     middle_mouse_command = "bdelete! %d",
     indicator = {
       style = " ",
     },
-    -- mode = "tabs",
+    numbers = "buffer_id",
   },
 }
 
@@ -91,16 +91,34 @@ require("lualine").setup {
   inactive_winbar = {
     lualine_c = {
       "filename",
+      {
+        "navic",
+        color_correction = nil,
+        navic_opts = {},
+      },
     },
   },
   sections = {
-    lualine_a = { "mode" },
+    lualine_a = { {
+      "mode",
+      fmt = function(str)
+        return " " .. str
+      end,
+    } },
     lualine_b = {},
-    lualine_c = { {
-      "filename",
-      path = 1,
-      file_status = false,
-    }, "location" },
+    lualine_c = {
+      {
+        "filename",
+        path = 1,
+        file_status = false,
+      },
+      {
+        "location",
+        fmt = function(str)
+          return string.gsub(str, "^%s*(.-)%s*$", "%1")
+        end,
+      },
+    },
 
     lualine_x = {
       {
@@ -120,16 +138,7 @@ require("lualine").setup {
       "diagnostics",
       always_visible = true,
     } },
-    lualine_z = {
-      {
-        function()
-          return "󰂜"
-        end,
-        on_click = function()
-          require("noice").cmd("history")
-        end,
-      },
-    },
+    lualine_z = {},
   },
 }
 
@@ -194,6 +203,7 @@ require("viper.lazy").add_specs {
     cmd = "Telescope",
     keys = { "<leader><leader>", "<leader>f", "", "<C-S-F>" },
     after = function()
+      require("viper.lazy").packadd("telescope-fzf-native.nvim")
       require("telescope").setup {
         extensions = {
           fzf = {
@@ -266,8 +276,15 @@ require("viper.lazy").add_specs {
       local blend = require("snacks.util").blend
       local rgbToHex = require("viper.util").rgbToHex
 
-      vim.g.better_whitespace_guicolor =
-        blend("#121212", rgbToHex(vim.api.nvim_get_hl(0, { name = "DiagnosticSignError" }).fg), 0.5)
+      local base = vim.api.nvim_get_hl(0, { name = "DiagnosticSignError" }).fg
+      local color
+      if base ~= nil then
+        color = rgbToHex(base)
+      else
+        color = "#FF0000"
+      end
+
+      vim.g.better_whitespace_guicolor = blend("#121212", color, 0.5)
     end,
   },
   {
@@ -324,7 +341,10 @@ require("viper.lazy").add_specs {
       },
     },
     after = function()
-      require("yazi").setup {}
+      require("viper.lazy").packadd("plenary.nvim")
+      require("yazi").setup {
+        -- open_for_directories = true,
+      }
     end,
   },
 }
