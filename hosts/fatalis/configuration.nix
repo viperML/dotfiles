@@ -57,6 +57,10 @@ in
       # pkiBundle = "/etc/secureboot";
     };
 
+    plymouth = {
+      enable = true;
+    };
+
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
@@ -74,17 +78,27 @@ in
       # "vm.swappiness" = 100;
     };
 
-    kernelParams = [ ];
+    kernelParams = [
+      "quiet"
+      # Send logs to tty2
+      "fbcon=vc:2-6"
+      "console=tty0"
+      "plymouth.use-simpledrm"
+    ];
 
     loader = {
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot = {
+        enable = lib.mkForce false;
+        consoleMode = "max";
+        editor = false;
+      };
       # systemd-boot.enable = true;
       grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      # timeout = 1;
+      timeout = 0;
     };
 
     tmp.useTmpfs = true;
