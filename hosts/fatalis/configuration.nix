@@ -64,6 +64,7 @@ in
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
+      # kernelModules = ["amdgpu"];
       systemd.enable = true;
       availableKernelModules = [ ];
 
@@ -89,7 +90,7 @@ in
     loader = {
       systemd-boot = {
         enable = lib.mkForce false;
-        consoleMode = "max";
+        # consoleMode = "auto";
         editor = false;
       };
       # systemd-boot.enable = true;
@@ -140,4 +141,6 @@ in
   programs.steam = {
     enable = true;
   };
+
+  services.fwupd.enable = true;
 }
