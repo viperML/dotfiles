@@ -29,56 +29,22 @@ local load_aichat_config = function(aichat_config_raw)
   ---@type Model[]
   local models = aichat_client.models
 
-  ---@param model string
-  local function mkAdapter(model)
-    return function()
-      return require("codecompanion.adapters").extend("openai_compatible", {
-        env = {
-          url = aichat_client.api_base,
-          api_key = aichat_client.api_key,
-          chat_url = "/chat/completions",
-        },
-        schema = {
-          model = {
-            default = model,
-          },
-        },
-      })
-    end
-  end
+  require("posix.stdlib").setenv("OPENAI_API_KEY", aichat_client.api_key)
 
-  local adapters = {}
-  for _, model in ipairs(models) do
-    adapters[model.name] = mkAdapter(model.name)
-  end
-
-  adapters.opts = {
-    show_defaults = false,
-  }
-
-  local default_adapter = models[1].name
-
-  require("codecompanion").setup {
-    adapters = adapters,
-
-    strategies = {
-      chat = {
-        adapter = default_adapter,
-      },
-      inline = {
-        adapter = default_adapter,
-      },
-    },
-
-    opts = {
-      log_level = "DEBUG",
+  require("avante_lib").load()
+  require("avante").setup {
+    provider = "openai",
+    openai = {
+      endpoint = aichat_client.api_base,
+      model = "codellama:70b",
+      disable_tools = true, -- disable tools!
     },
   }
 end
 
 require("viper.lazy").add_specs {
   {
-    "codecompanion.nvim",
+    "avante.nvim",
     event = "DeferredUIEnter",
     after = function()
       local a = require("plenary.async")

@@ -147,7 +147,7 @@ vim.opt.splitright = true
 vim.keymap.set("n", "<Leader>sv", "<cmd>vnew<cr>", { desc = "Split vertically" })
 vim.keymap.set("n", "<Leader>sh", "<cmd>new<cr>", { desc = "Split horizontally" })
 
-local render_markodwn_fts = { "markdown", "codecompanion" }
+local render_markodwn_fts = { "markdown", "codecompanion", "Avante" }
 
 require("viper.lazy").add_specs {
   {

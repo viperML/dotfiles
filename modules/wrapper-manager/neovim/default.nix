@@ -113,7 +113,8 @@
             nvim-treesitter-context
             nvim-treesitter-textobjects
 
-            codecompanion-nvim
+            # codecompanion-nvim
+            avante-nvim
             comment-nvim
             conform-nvim
             git-conflict-nvim
