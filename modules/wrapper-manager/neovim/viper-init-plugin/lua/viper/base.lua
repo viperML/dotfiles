@@ -33,6 +33,12 @@ require("viper.lazy").add_specs {
     after = function()
       require("viper.lazy").packadd("nui.nvim")
       require("noice").setup {
+        routes = {
+          {
+            view = "notify",
+            filter = { event = "msg_showmode" },
+          },
+        },
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
