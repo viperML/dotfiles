@@ -36,7 +36,7 @@ local load_aichat_config = function(aichat_config_raw)
     provider = "openai",
     openai = {
       endpoint = aichat_client.api_base,
-      model = "codellama:70b",
+      model = models[1].name,
       disable_tools = true, -- disable tools!
     },
   }
