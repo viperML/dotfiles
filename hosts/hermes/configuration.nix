@@ -81,7 +81,6 @@ in {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      timeout = 1;
     };
 
     tmp.useTmpfs = true;

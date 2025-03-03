@@ -32,6 +32,7 @@ in
       # nixosModules.docker
       # nixosModules.incus
       nixosModules.podman
+      nixosModules.silent-boot
     ]
   );
 }
