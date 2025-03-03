@@ -340,10 +340,10 @@ require("viper.lazy").add_specs {
         desc = "Open Yazi",
       },
     },
+    lazy = false,
     after = function()
-      require("viper.lazy").packadd("plenary.nvim")
       require("yazi").setup {
-        -- open_for_directories = true,
+        open_for_directories = true,
       }
     end,
   },

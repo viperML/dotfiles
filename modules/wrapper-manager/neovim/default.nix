@@ -50,6 +50,7 @@
               lz-n
               nvim-web-devicons
               snacks-nvim
+              plenary-nvim
               mini-nvim
               kanagawa-nvim
               bufferline-nvim
@@ -128,7 +129,6 @@
             blink-cmp
             nvim-navic
             parinfer-rust
-            plenary-nvim
             render-markdown-nvim
             smart-splits-nvim
             telescope-fzf-native-nvim

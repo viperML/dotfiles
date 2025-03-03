@@ -81,7 +81,6 @@ require("viper.lazy").add_specs {
     "codecompanion.nvim",
     event = "DeferredUIEnter",
     after = function()
-      require("viper.lazy").packadd("plenary.nvim")
       local a = require("plenary.async")
       ---@diagnostic disable-next-line: missing-parameter
       a.run(function()

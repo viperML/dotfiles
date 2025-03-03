@@ -95,6 +95,7 @@ flake@{
               guix = callPackage ./guix {
                 inherit (pkgs) guix;
               };
+              yazi = callPackage ./yazi {inherit (pkgs) yazi;};
             }
           );
 

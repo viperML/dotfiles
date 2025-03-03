@@ -23,6 +23,7 @@ in
     thunderbird-latest
     self'.packages.emacs
     sshfs
+    unzip
   ];
 
   environment.sessionVariables = {
