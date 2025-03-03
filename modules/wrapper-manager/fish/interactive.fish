@@ -20,6 +20,7 @@ alias bat="bat --theme=base16 --style=changes,header --plain"
 # Abbreviations
 abbr -a -g p python3
 abbr -a -g n nvim
+abbr -a -g y yazi
 
 # Admin
 abbr -a -g ss sudo systemctl

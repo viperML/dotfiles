@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+set -eu
+
+accounts=$(busctl --user call --json=pretty org.gnome.OnlineAccounts /org/gnome/OnlineAccounts org.freedesktop.DBus.ObjectManager GetManagedObjects)
+
+google_account_path=$(echo "$accounts" | fq -r '.data[0] | keys[] | select(. != "/org/gnome/OnlineAccounts/Manager") | select(contains("account"))' | head -n 1)
+
+if [ -z "$google_account_path" ]; then
+    echo "No Google accounts found."
+    exit 1
+fi
+
+busctl --user call --json=pretty org.gnome.OnlineAccounts "$google_account_path" org.gnome.OnlineAccounts.OAuth2Based GetAccessToken | fq -r '.data[0]'
+

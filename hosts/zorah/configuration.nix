@@ -13,7 +13,7 @@ in
     powertop
     openconnect
 
-    onlyoffice-bin
+    libreoffice-qt6-fresh
 
     # global dev
     ltex-ls-plus
@@ -165,5 +165,9 @@ in
   programs.singularity = {
     enable = true;
     enableSuid = true;
+  };
+
+  programs.msmtp = {
+    enable = true;
   };
 }
