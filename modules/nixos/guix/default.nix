@@ -53,11 +53,17 @@ in
       export GUIX_LOCPATH="/var/guix/profiles/per-user/$USER/guix-home/profile/lib/locale:$GUIX_LOCPATH"
     '';
 
-  # guix apps can't find these
-  environment.sessionVariables = {
-    SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
-    SSL_CERT_DIR = "/etc/ssl/certs";
-  };
+  # https://guix.gnu.org/manual/en/html_node/X_002e509-Certificates.html
+  environment.sessionVariables =
+    let
+      inherit (config.environment.sessionVariables) SSL_CERT_FILE;
+    in
+    {
+      SSL_CERT_DIR = "/etc/ssl/certs";
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
+      GIT_SSL_CAINFO = SSL_CERT_FILE;
+      CURL_CA_BUNDLE = SSL_CERT_FILE;
+    };
 
   systemd.services."guix-daemon" = {
     environment = {
