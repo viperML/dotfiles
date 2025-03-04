@@ -56,11 +56,11 @@ in
   # https://guix.gnu.org/manual/en/html_node/X_002e509-Certificates.html
   environment.sessionVariables =
     let
-      inherit (config.environment.sessionVariables) SSL_CERT_FILE;
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     in
     {
       SSL_CERT_DIR = "/etc/ssl/certs";
-      SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
+      inherit SSL_CERT_FILE;
       GIT_SSL_CAINFO = SSL_CERT_FILE;
       CURL_CA_BUNDLE = SSL_CERT_FILE;
     };

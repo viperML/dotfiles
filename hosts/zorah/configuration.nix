@@ -13,7 +13,6 @@ in
     powertop
     openconnect
 
-    libreoffice-qt6-fresh
 
     # global dev
     ltex-ls-plus
