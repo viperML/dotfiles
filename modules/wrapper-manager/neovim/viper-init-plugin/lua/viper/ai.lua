@@ -34,6 +34,9 @@ local load_aichat_config = function(aichat_config_raw)
   require("avante_lib").load()
   require("avante").setup {
     provider = "openai",
+    hints = {
+      enabled = false,
+    },
     openai = {
       endpoint = aichat_client.api_base,
       model = models[1].name,

@@ -153,9 +153,17 @@ vim.api.nvim_create_user_command("ToggleAutoSave", function(args)
   end
 end, {})
 
--- Alt+Movement like in fish
-vim.keymap.set({ "n", "v" }, "<M-Right>", "e")
-vim.keymap.set({ "n", "v" }, "<M-Left>", "b")
+-- Ctrl movement
+-- vim.opt.keymodel = "startsel,stopsel"
+vim.keymap.set({ "n", "v" }, "<C-Right>", "e", { desc = "Jump to next word" })
+vim.keymap.set({ "n", "v" }, "<C-Left>", "b", { desc = "Jump to previous word" })
+vim.keymap.set("n", "<C-S-Right>", "ve", { desc = "Select to next word" })
+vim.keymap.set("n", "<C-S-Left>", "vb", { desc = "Selecto to previous word" })
+
+vim.keymap.set({ "n", "v", "i" }, "", "/", { desc = "Search in file" })
+
+vim.keymap.set("i", "", "<esc>xdbi")
+vim.keymap.set("i", "<C-Del>", "<esc><Right>ce")
 
 vim.api.nvim_create_user_command("Date", function()
   vim.system({ "date", "--utc", "+%Y-%m-%dT%H:%M:%SZ" }, { text = true }, function(obj)
@@ -166,18 +174,18 @@ vim.api.nvim_create_user_command("Date", function()
   end)
 end, { desc = "Insert current date" })
 
-require("mini.move").setup {
-  mappings = {
-    left = "",
-    right = "",
-    down = "<M-Down>",
-    up = "<M-Up>",
-    line_left = "",
-    line_right = "",
-    line_down = "<M-Down>",
-    line_up = "<M-Up>",
-  },
-  options = {
-    reindent_linewise = false,
-  },
-}
+-- require("mini.move").setup {
+--   mappings = {
+--     left = "",
+--     right = "",
+--     down = "<C-M-Down>",
+--     up = "<C-M-Up>",
+--     line_left = "",
+--     line_right = "",
+--     line_down = "<C-M-Down>",
+--     line_up = "<C-M-Up>",
+--   },
+--   options = {
+--     reindent_linewise = false,
+--   },
+-- }

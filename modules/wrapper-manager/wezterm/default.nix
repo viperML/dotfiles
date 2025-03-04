@@ -17,10 +17,11 @@
           dofile("${./viper/linux.lua}").apply_to_config(config)
 
           dofile("${pkgs.vimPlugins.smart-splits-nvim}/plugin/init.lua").apply_to_config(config, {
+            -- direction_keys = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
             direction_keys = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
             modifiers = {
-              move = "CTRL",
-              resize = "SHIFT|CTRL",
+              move = "ALT",
+              resize = "SHIFT|ALT",
             },
           })
 

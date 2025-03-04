@@ -201,7 +201,7 @@ require("viper.lazy").add_specs {
   {
     "telescope.nvim",
     cmd = "Telescope",
-    keys = { "<leader><leader>", "<leader>f", "", "<C-S-F>" },
+    keys = { "<leader><leader>", "<leader>f", "<C-S-F>" },
     after = function()
       require("viper.lazy").packadd("telescope-fzf-native.nvim")
       require("telescope").setup {
@@ -233,12 +233,12 @@ require("viper.lazy").add_specs {
       end, { desc = "Telescope: find files" })
 
       vim.keymap.set({ "n", "i" }, "<C-S-F>", function()
-        require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown {})
+        require("telescope.builtin").live_grep(require("telescope.themes").get_ivy {})
       end, { desc = "Telescope: find in all files" })
-
-      vim.keymap.set({ "n", "i" }, "", function()
-        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {})
-      end, { desc = "Telescope: find in file" })
+      --
+      -- vim.keymap.set({ "n", "i" }, "", function()
+      --   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {})
+      -- end, { desc = "Telescope: find in file" })
     end,
   },
   {
@@ -292,15 +292,15 @@ require("viper.lazy").add_specs {
     event = "DeferredUIEnter",
     after = function()
       require("smart-splits").setup {}
-      vim.keymap.set("n", "<C-Left>", require("smart-splits").move_cursor_left, { desc = "Move left" })
-      vim.keymap.set("n", "<C-Down>", require("smart-splits").move_cursor_down, { desc = "Move down" })
-      vim.keymap.set("n", "<C-Up>", require("smart-splits").move_cursor_up, { desc = "Move up" })
-      vim.keymap.set("n", "<C-Right>", require("smart-splits").move_cursor_right, { desc = "Move right" })
+      vim.keymap.set("n", "<M-Left>", require("smart-splits").move_cursor_left, { desc = "Select panel left" })
+      vim.keymap.set("n", "<M-Down>", require("smart-splits").move_cursor_down, { desc = "Select panel down" })
+      vim.keymap.set("n", "<M-Up>", require("smart-splits").move_cursor_up, { desc = "Select panel up" })
+      vim.keymap.set("n", "<M-Right>", require("smart-splits").move_cursor_right, { desc = "Select panel right" })
 
-      vim.keymap.set("n", "<C-S-Left>", require("smart-splits").resize_left, { desc = "Resize left" })
-      vim.keymap.set("n", "<C-S-Down>", require("smart-splits").resize_down, { desc = "Resize down" })
-      vim.keymap.set("n", "<C-S-Up>", require("smart-splits").resize_up, { desc = "Resize up" })
-      vim.keymap.set("n", "<C-S-Right>", require("smart-splits").resize_right, { desc = "Resize right" })
+      vim.keymap.set("n", "<M-S-Left>", require("smart-splits").resize_left, { desc = "Resize left" })
+      vim.keymap.set("n", "<M-S-Down>", require("smart-splits").resize_down, { desc = "Resize down" })
+      vim.keymap.set("n", "<M-S-Up>", require("smart-splits").resize_up, { desc = "Resize up" })
+      vim.keymap.set("n", "<M-S-Right>", require("smart-splits").resize_right, { desc = "Resize right" })
     end,
   },
   {

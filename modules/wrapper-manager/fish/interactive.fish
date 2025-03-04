@@ -2,7 +2,13 @@ set -gx fish_greeting
 
 # Bindings
 bind \cH backward-kill-path-component
-bind \e\[3\;5~ kill-word
+bind  \e\[3\;5~ kill-word
+
+bind \e\[1\;5C forward-word
+bind \e\[1\;5D backward-word
+
+# bind --preset ctrl-up history-token-search-backward
+# bind --preset ctrl-down history-token-search-forward
 
 
 # EXA
