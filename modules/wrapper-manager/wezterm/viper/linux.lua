@@ -13,7 +13,8 @@ M.apply_to_config = function(config)
 
   local session = os.getenv("XDG_SESSION_TYPE")
 
-  config.default_prog = { "fish" }
+  local shell = os.getenv("SHELL")
+  config.default_prog = { shell }
 
   if session == "wayland" then
     config.enable_wayland = true

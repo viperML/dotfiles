@@ -2,6 +2,7 @@ name:
 {
   lib,
   config,
+  self',
   ...
 }:
 let
@@ -9,6 +10,10 @@ let
 in
 {
   _file = ./_mkUser.nix;
+
+  environment.shells = [
+    self'.packages.fish
+  ];
 
   users.users.${name} = {
     inherit name;
@@ -28,6 +33,7 @@ in
     ];
     openssh.authorizedKeys.keys = [ ];
     hashedPasswordFile = "/var/lib/secrets/users.passwd";
+    shell = "/run/current-system/sw/bin/fish";
   };
 
   systemd.tmpfiles.rules =

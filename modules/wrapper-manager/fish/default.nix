@@ -48,9 +48,9 @@ let
           |> (lib.concatStringsSep "\n")
         }
 
-        if status is-login
-          fenv source /etc/profile
-        end
+        # NixOS's /etc/profile already exits early with __ETC_PROFILE_SOURCED
+        # For some reason, status is-login doesn't work consistently
+        fenv source /etc/profile
 
         if status is-interactive
           source ${./interactive.fish}

@@ -13,6 +13,7 @@ in
     powertop
     openconnect
 
+    microsoft-edge
 
     # global dev
     ltex-ls-plus

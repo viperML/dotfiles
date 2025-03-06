@@ -48,6 +48,7 @@ flake@{
                 "drawio"
                 "google-chrome"
                 "hplip"
+                "microsoft-edge"
                 "nvidia-settings"
                 "nvidia-x11"
                 "samsung-UnifiedLinuxDriver"
