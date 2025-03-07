@@ -1,8 +1,6 @@
-# Many things stolen from https://github.com/Gerg-L/mnw :)
 {
   pkgs,
   lib,
-  inputs',
   config,
   ...
 }:
@@ -44,71 +42,43 @@
       inherit (basePackage.lua.pkgs.luaLib) genLuaPathAbsStr genLuaCPathAbsStr;
 
       plugins = lib.fix (p: {
-        start =
-          {
-            inherit (pkgs.vimPlugins)
-              lz-n
-              nvim-web-devicons
-              snacks-nvim
-              plenary-nvim
-              mini-nvim
-              kanagawa-nvim
-              bufferline-nvim
-              lualine-nvim
-              ;
+        start = {
+          inherit (pkgs.vimPlugins)
+            lz-n
+            nvim-web-devicons
+            snacks-nvim
+            plenary-nvim
+            mini-nvim
+            kanagawa-nvim
+            bufferline-nvim
+            lualine-nvim
+            ;
 
-            viper-init-plugin = ./viper-init-plugin;
-            viper-pre-init-plugin = pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
-              mkdir -p $out/plugin
+          ts-grammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
 
-              tee $out/plugin/init.lua <<EOF
-              -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
-              package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
-              package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
+          viper-init-plugin = ./viper-init-plugin;
+          viper-pre-init-plugin = pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
+            mkdir -p $out/plugin
 
-              -- No remote plugins
-              vim.g.loaded_node_provider = 0
-              vim.g.loaded_perl_provider = 0
-              vim.g.loaded_python_provider = 0
-              vim.g.loaded_python3_provider = 0
-              vim.g.loaded_ruby_provider = 0
-              EOF
-            '';
-          }
-          // (lib.getAttrs (map (name: "tree-sitter-${name}") [
-            # grammars are slow AF, so don't pull the grammars for potentially big files like JSON
-            "asm"
-            "astro"
-            "bash"
-            "c"
-            "cmake"
-            "cpp"
-            "elixir"
-            "fish"
-            "git_config"
-            "glsl"
-            "go"
-            "haskell"
-            "hcl"
-            "html"
-            "javascript"
-            "lua"
-            "markdown"
-            # "meson"
-            "nix"
-            "org"
-            "regex"
-            "rust"
-            "scheme"
-            "tsx"
-            "typescript"
-            "typst"
-            "yaml" # for frontmatter injections
-          ]) inputs'.tree-sitter.legacyPackages.nvim-grammars.filtered);
+            tee $out/plugin/init.lua <<EOF
+            -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
+            package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
+            package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
+
+            -- No remote plugins
+            vim.g.loaded_node_provider = 0
+            vim.g.loaded_perl_provider = 0
+            vim.g.loaded_python_provider = 0
+            vim.g.loaded_python3_provider = 0
+            vim.g.loaded_ruby_provider = 0
+            EOF
+          '';
+        };
 
         opt = (builtins.removeAttrs nvPlugins (builtins.attrNames p.start)) // {
-          inherit (inputs'.tree-sitter.packages) nvim-treesitter;
           inherit (pkgs.vimPlugins)
+            nvim-treesitter
+
             nvim-ts-autotag
             nvim-treesitter-context
             nvim-treesitter-textobjects

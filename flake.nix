@@ -53,11 +53,6 @@
     nix-common = {
       url = "github:viperML/nix-common";
     };
-    tree-sitter = {
-      url = "github:viperML/tree-sitter";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";

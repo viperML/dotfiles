@@ -472,7 +472,6 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "noshell": "noshell",
-        "tree-sitter": "tree-sitter",
         "wrapper-manager": "wrapper-manager"
       }
     },
@@ -545,29 +544,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tree-sitter": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1724948040,
-        "narHash": "sha256-AaAPPNbxr3WTp13ZOpf7+RGJcKuMtfMUHsYp/I2vBhE=",
-        "owner": "viperML",
-        "repo": "tree-sitter",
-        "rev": "4c1e9ac76d967af0f67adfb89d58edcf7607d9ef",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "tree-sitter",
         "type": "github"
       }
     },
