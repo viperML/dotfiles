@@ -52,6 +52,8 @@
             kanagawa-nvim
             bufferline-nvim
             lualine-nvim
+            # No autostart
+            blink-cmp-copilot
             ;
 
           ts-grammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
@@ -85,6 +87,7 @@
 
             # codecompanion-nvim
             avante-nvim
+            copilot-lua
             comment-nvim
             conform-nvim
             git-conflict-nvim
@@ -174,6 +177,7 @@
         NVIM_APPNAME = {
           value = "nvim-viper";
         };
+        NVIM_NODE.value = lib.getExe (pkgs.nodejs.override { enableNpm = false; });
       };
       flags = [
         "-u"

@@ -53,6 +53,17 @@ require("viper.lazy").add_specs {
           preset = "super-tab",
           ["<C-Space>"] = { "show", "fallback" },
         },
+        sources = {
+          default = { "lsp", "path", "snippets", "buffer", "copilot" },
+          providers = {
+            copilot = {
+              name = "copilot",
+              module = "blink-cmp-copilot",
+              score_offset = 100,
+              async = true,
+            },
+          },
+        },
       }
 
       local capabilities = require("blink.cmp").get_lsp_capabilities()
