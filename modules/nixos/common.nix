@@ -61,11 +61,13 @@
     warp
     # google-chrome
     self'.packages.google-chrome
+    self'.packages.microsoft-edge
     # ptyxis
     # self'.packages.zellij
     # self'.packages.alacritty
     self'.packages.wezterm
     self'.packages.vscode
+    self'.packages.ghostty
     libcgroup
     wl-color-picker
   ];

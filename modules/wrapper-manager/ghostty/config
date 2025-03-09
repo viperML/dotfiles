@@ -1,10 +1,20 @@
 font-family = iosevka-normal
 font-variation = wght=500
-font-size = 12
+font-size = 13
 
-background = #121212
+background = #1D1D1D
 
 window-padding-x = 10
 window-padding-y = 10
 
 keybind = ctrl+t=new_tab
+keybind = alt+enter=new_split:right
+keybind = alt+shift+enter=new_split:down
+
+keybind = alt+left=goto_split:left
+keybind = alt+right=goto_split:right
+keybind = alt+up=goto_split:up
+keybind = alt+down=goto_split:down
+
+keybind = alt+shift+left=resize_split:left,50
+keybind = alt+shift+right=resize_split:right,50

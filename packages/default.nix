@@ -56,6 +56,7 @@ flake@{
                 "steam"
                 "steam-original"
                 "steam-unwrapped"
+                "vivaldi"
                 "vscode"
               ];
               byLicense = builtins.elem pkg.meta.license.shortName [

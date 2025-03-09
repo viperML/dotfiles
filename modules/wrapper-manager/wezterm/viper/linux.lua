@@ -19,6 +19,8 @@ M.apply_to_config = function(config)
   if session == "wayland" then
     config.enable_wayland = true
     -- config.front_end = "WebGpu"
+    config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+    -- config.integrated_title_button_style = "Gnome"
   else
     config.enable_wayland = false
     config.xcursor_theme = "DMZ-White"

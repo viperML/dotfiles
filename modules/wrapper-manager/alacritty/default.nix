@@ -5,15 +5,20 @@ let
   config = recursiveUpdateFold [
     (lib.importTOML ./alacritty.toml)
     (lib.importTOML ./theme.toml)
-    {
-      terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
-        if [[ $(type -P zellij) ]]; then
-          exec zellij
-        else
-          exec "$SHELL"
-        fi
-      '';
-    }
+    (
+      let
+        multiplexer = "tmux";
+      in
+      {
+        terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
+          if [[ $(type -P ${multiplexer}) ]]; then
+            exec ${multiplexer}
+          else
+            exec "$SHELL"
+          fi
+        '';
+      }
+    )
   ];
 in
 {
@@ -21,7 +26,7 @@ in
     basePackage = pkgs.alacritty;
     flags = [
       "--config-file"
-      ((pkgs.formats.toml {}).generate "alacritty.toml" config)
+      ((pkgs.formats.toml { }).generate "alacritty.toml" config)
     ];
   };
 }
