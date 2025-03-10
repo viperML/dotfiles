@@ -52,9 +52,20 @@ require("viper.lazy").add_specs {
         keymap = {
           preset = "super-tab",
           ["<C-Space>"] = { "show", "fallback" },
+          ["<C-s>"] = {
+            function(cmp)
+              cmp.show { providers = { "copilot" } }
+            end,
+          },
         },
         sources = {
-          default = { "lsp", "path", "snippets", "buffer", "copilot" },
+          default = {
+            "lsp",
+            "path",
+            -- "snippets",
+            -- "buffer",
+            -- "copilot",
+          },
           providers = {
             copilot = {
               name = "copilot",

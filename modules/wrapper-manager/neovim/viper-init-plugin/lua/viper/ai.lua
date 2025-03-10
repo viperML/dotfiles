@@ -41,11 +41,11 @@ local load_aichat_config = function(aichat_config_raw)
         enabled = false,
       },
       suggestion = {
-        enabled = true,
+        enabled = false,
       },
     }
-    vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
-    vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
+    -- vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
+    -- vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
   end
 
   require("avante_lib").load()
