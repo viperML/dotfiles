@@ -1,3 +1,4 @@
+# vim ft=gitconfig
 [core]
   eol=lf
   autocrlf=input
@@ -31,7 +32,8 @@
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
 [pager]
-  difftool = true
+  diff = false
+  difftool = false
 [include]
   path = ~/.config/git/local
 [rerere]

@@ -1,29 +1,22 @@
 set -gx fish_greeting
 
+# Use this function to get keys
+# fish_key_reader
+
 # Bindings
-bind \cH backward-kill-path-component
-bind  \e\[3\;5~ kill-word
+bind \b backward-kill-word
+bind \e\x7F backward-delete-char
 
 bind \e\[1\;5C forward-word
 bind \e\[1\;5D backward-word
 
-# bind --preset ctrl-up history-token-search-backward
-# bind --preset ctrl-down history-token-search-forward
+
+bind \e\[1\;5A history-token-search-backward
+bind \e\[1\;5B history-token-search-forward
 
 
-# EXA
-# alias ls="eza --icons"
-# alias la="eza --icons --all"
-# alias ll="eza --icons --long --header --group"
-# alias lla="eza --icons --all --long --header --group"
-# alias lal="eza --icons --all --long --header --group"
-# alias lt="eza --sort modified -1"
+# Abbrs
 abbr -a -g e eza
-
-# Bat
-alias bat="bat --theme=base16 --style=changes,header --plain"
-
-# Abbreviations
 abbr -a -g p python3
 abbr -a -g n nvim
 abbr -a -g y yazi
