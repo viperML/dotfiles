@@ -20,6 +20,16 @@ key = "V"
 mods = "Control | Shift"
 action = "Paste"
 
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control"
+chars = "\u001b[9;5u"
+
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control | Shift"
+chars = "\u001b[1;5Z"
+
 [colors]
 draw_bold_text_with_bright_colors = false
 

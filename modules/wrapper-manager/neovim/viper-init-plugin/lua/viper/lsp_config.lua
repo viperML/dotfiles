@@ -85,6 +85,7 @@ return {
     },
   },
   ["gopls"] = {},
+  ["zls"] = {},
   ["tinymist"] = {
     offset_encoding = "utf-8",
   },
