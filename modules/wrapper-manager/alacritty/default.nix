@@ -5,20 +5,15 @@ let
   config = recursiveUpdateFold [
     (lib.importTOML ./alacritty.toml)
     (lib.importTOML ./theme.toml)
-    (
-      let
-        multiplexer = "tmux";
-      in
-      {
-        terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
-          if [[ $(type -P ${multiplexer}) ]]; then
-            exec ${multiplexer}
-          else
-            exec "$SHELL"
-          fi
-        '';
-      }
-    )
+    ({
+      terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
+        if [[ $(type -P tmux) ]]; then
+          exec tmux new-session -A -s main
+        else
+          exec "$SHELL"
+        fi
+      '';
+    })
   ];
 in
 {
