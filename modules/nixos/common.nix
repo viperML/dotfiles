@@ -60,14 +60,17 @@
     # GUI
     warp
     # google-chrome
-    self'.packages.google-chrome
-    self'.packages.microsoft-edge
+    # self'.packages.google-chrome
+    # self'.packages.microsoft-edge
+    pkgs.brave
     # ptyxis
     # self'.packages.zellij
     # self'.packages.alacritty
-    self'.packages.wezterm
+    # self'.packages.wezterm
     self'.packages.vscode
-    self'.packages.ghostty
+    # self'.packages.ghostty
+    self'.packages.alacritty
+    self'.packages.tmux
     libcgroup
     wl-color-picker
   ];

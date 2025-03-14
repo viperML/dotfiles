@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  self',
   ...
 }:
 let
@@ -16,9 +15,6 @@ in
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
-    self'.packages.alacritty
-    self'.packages.tmux
-    pkgs.brave
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
