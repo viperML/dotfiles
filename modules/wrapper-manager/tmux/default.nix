@@ -16,5 +16,8 @@ in
         ${plugins |> (map (plugin: "run-shell ${plugin.rtp}")) |> (lib.concatStringsSep "\n")}
       '')
     ];
+    extraWrapperFlags = ''
+      --run 'export TMUX_TMPDIR="''${XDG_RUNTIME_DIR}"'
+    '';
   };
 }
