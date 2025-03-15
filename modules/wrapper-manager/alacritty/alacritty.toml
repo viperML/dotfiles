@@ -2,6 +2,10 @@
 normal = { family = "iosevka-normal", style = "Medium" }
 size = 13
 
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+
 [terminal]
 osc52 = "CopyPaste"
 
@@ -13,7 +17,8 @@ action = "ReceiveChar"
 [[keyboard.bindings]]
 key = "C"
 mods = "Control | Shift"
-action = "Copy"
+# passthru as <C-PageUp>
+chars = "\u001b[5;5~"
 
 [[keyboard.bindings]]
 key = "V"

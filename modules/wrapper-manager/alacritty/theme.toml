@@ -21,12 +21,12 @@ white = '0xc5c8c6'
 
 # Bright colors
 [colors.bright]
-black = '0x969896'
-red = '0xde935f'
-green = '0x282a2e'
-yellow = '0x373b41'
-blue = '0xb4b7b4'
-magenta = '0xe0e0e0'
-cyan = '0xa3685a'
-white = '0xffffff'
+black = '0x696969'
+red = '0xCC6666'
+green = '0xB5BD68'
+yellow = '0xF0C674'
+blue = '0x81A2BE'
+magenta = '0xB294BB'
+cyan = '0x8ABEB7'
+white = '0xFFFFFF'
 

@@ -158,7 +158,7 @@ end, {})
 vim.keymap.set({ "n", "v" }, "<C-Right>", "e", { desc = "Jump to next word" })
 vim.keymap.set({ "n", "v" }, "<C-Left>", "b", { desc = "Jump to previous word" })
 vim.keymap.set("n", "<C-S-Right>", "ve", { desc = "Select to next word" })
-vim.keymap.set("n", "<C-S-Left>", "vb", { desc = "Selecto to previous word" })
+vim.keymap.set("n", "<C-S-Left>", "vb", { desc = "Select to previous word" })
 
 vim.keymap.set({ "n", "v", "i" }, "", "/", { desc = "Search in file" })
 
@@ -189,3 +189,5 @@ end, { desc = "Insert current date" })
 --     reindent_linewise = false,
 --   },
 -- }
+
+vim.keymap.set("v", "<C-PageUp>", '"+y', { desc = "Copy to system's clipboard" })
