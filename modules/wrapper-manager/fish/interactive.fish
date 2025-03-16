@@ -28,7 +28,7 @@ abbr -a -g sf journalctl -xefu
 abbr -a -g uf journalctl -xef --user-unit
 
 # Image cat
-abbr -a -g wat "wezterm imgcat --height 50%"
+# abbr -a -g wat "wezterm imgcat --height 50%"
 
 set self (builtin realpath /proc/self/exe)
 
@@ -71,7 +71,7 @@ fzf_configure_bindings --directory=\cf
 
 # Print newline after a command
 function postexec_test --on-event fish_postexec
-    echo
+    echo -e '\e[5 q\e[?12h'
 end
 
 function __fish_command_not_found_handler --on-event fish_command_not_found

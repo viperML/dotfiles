@@ -32,6 +32,7 @@
   psmisc,
   nil,
   yazi,
+  httpie,
 }@args:
 symlinkJoin {
   name = "env";

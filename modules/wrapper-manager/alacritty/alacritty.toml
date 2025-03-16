@@ -39,4 +39,7 @@ chars = "\u001b[1;5Z"
 draw_bold_text_with_bright_colors = false
 
 [cursor]
-style = { shape = "Beam", blinking = "Off" }
+style = { shape = "Beam", blinking = "On" }
+
+[env]
+TERM = "xterm-256color"
