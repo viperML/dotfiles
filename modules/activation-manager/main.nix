@@ -11,7 +11,8 @@
     "/org/gnome/desktop/interface/icon-theme" = "Adwaita";
     "/org/gnome/desktop/lockdown/disable-lock-screen" = "true";
     "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
-    "/org/gnome/mutter/experimental-features" = "['scale-monitor-framebuffer', 'xwayland-native-scaling']";
+    "/org/gnome/mutter/experimental-features" =
+      "['scale-monitor-framebuffer', 'xwayland-native-scaling']";
     "/org/gnome/shell/window-switcher/current-workspace-only" = "true";
 
     "/org/gnome/desktop/wm/preferences/titlebar-font" = "Roboto Bold 11";
@@ -36,7 +37,11 @@
 
     "/org/gnome/desktop/search-providers/disabled" =
       "['org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Nautilus.desktop']";
-    "/org/gnome/shell/enabled-extensions" = "['appindicatorsupport@rgcjonas.gmail.com']";
+    # "/org/gnome/shell/enabled-extensions" = "['appindicatorsupport@rgcjonas.gmail.com']";
+    "/org/gnome/shell/enabled-extensions" =
+      "['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-panel@jderose9.github.com']";
 
+    # Dash to panel config
+    # "/org/gnome/shell/extensions/dash-to-panel/panel-positions" = ''{"0":"TOP"}'';
   };
 }

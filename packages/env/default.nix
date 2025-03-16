@@ -27,6 +27,7 @@
   elfutils-cli,
   lurk,
   fq,
+  jq,
   alejandra,
   nixfmt-rfc-style,
   psmisc,

@@ -16,6 +16,7 @@
     wl-clipboard
     vanilla-dmz
     gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-panel
   ];
 
   environment.gnome.excludePackages = with pkgs; [
