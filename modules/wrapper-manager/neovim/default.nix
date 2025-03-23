@@ -54,6 +54,8 @@
             lualine-nvim
             # No autostart
             blink-cmp-copilot
+            lsp-progress-nvim
+            nui-nvim
             ;
 
           ts-grammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
@@ -97,7 +99,6 @@
             marks-nvim
             neo-tree-nvim
             noice-nvim
-            nui-nvim
             nvim-autopairs
             nvim-lspconfig
             blink-cmp

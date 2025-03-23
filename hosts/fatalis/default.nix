@@ -12,6 +12,7 @@ in {
     mkNixos system [
       #-- Topology
       ./configuration.nix
+      nixosModules.es
       inputs.lanzaboote.nixosModules.lanzaboote
       nixosModules.tmpfs
       nixosModules.tpm2

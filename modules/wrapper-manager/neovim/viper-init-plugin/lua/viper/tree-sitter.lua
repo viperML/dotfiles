@@ -10,7 +10,7 @@ require("viper.lazy").add_specs {
         -- ignore_install = { "all" },
         highlight = {
           enable = true,
-          -- disable = {},
+          disable = { "bigfile" },
           -- additional_vim_regex_highlighting = false,
         },
         indent = {

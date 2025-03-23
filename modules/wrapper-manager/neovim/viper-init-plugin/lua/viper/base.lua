@@ -27,37 +27,37 @@ vim.notify = function(msg, level, opts)
 end
 
 require("viper.lazy").add_specs {
-  {
-    "noice.nvim",
-    event = "DeferredUIEnter",
-    after = function()
-      require("viper.lazy").packadd("nui.nvim")
-      require("noice").setup {
-        routes = {
-          {
-            view = "notify",
-            filter = { event = "msg_showmode" },
-          },
-        },
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-          },
-        },
-        -- you can enable a preset for easier configuration
-        presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          -- long_message_to_split = true, -- long messages will be sent to a split
-          -- inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          -- lsp_doc_border = false, -- add a border to hover docs and signature help
-        },
-      }
-    end,
-  },
+  -- {
+  --   "noice.nvim",
+  --   event = "DeferredUIEnter",
+  --   after = function()
+  --     require("viper.lazy").packadd("nui.nvim")
+  --     require("noice").setup {
+  --       routes = {
+  --         {
+  --           view = "notify",
+  --           filter = { event = "msg_showmode" },
+  --         },
+  --       },
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = true, -- use a classic bottom cmdline for search
+  --         command_palette = true, -- position the cmdline and popupmenu together
+  --         -- long_message_to_split = true, -- long messages will be sent to a split
+  --         -- inc_rename = false, -- enables an input dialog for inc-rename.nvim
+  --         -- lsp_doc_border = false, -- add a border to hover docs and signature help
+  --       },
+  --     }
+  --   end,
+  -- },
 }
 
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
@@ -193,5 +193,5 @@ end, { desc = "Insert current date" })
 vim.keymap.set("v", "<C-PageUp>", '"+y', { desc = "Copy to system's clipboard" })
 
 -- Move through wrapped lines
-vim.keymap.set({ "n", "v", "i" }, "<Up>", "g<Up>", { noremap = true, expr = true, silent = true })
-vim.keymap.set({ "n", "v", "i" }, "<Down>", "g<Down>", { noremap = true, expr = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Up>", "g<Up>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Down>", "g<Down>", { noremap = true, silent = true })
