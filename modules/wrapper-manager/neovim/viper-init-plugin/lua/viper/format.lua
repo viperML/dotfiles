@@ -30,11 +30,10 @@ for _, lang in ipairs(two_tabs_default) do
 end
 
 local cc = {
-  ["rust"] = 100,
-  ["scheme"] = 100,
-  ["lua"] = 100,
-
-  ["python"] = 80,
+  -- ["rust"] = 100,
+  -- ["scheme"] = 100,
+  -- ["lua"] = 100,
+  -- ["python"] = 80,
 }
 
 for lang, col in pairs(cc) do
