@@ -17,6 +17,7 @@ in
     ltex-ls-plus
 
     mattermost-desktop
+    slack
     drawio
     thunderbird-latest
     self'.packages.emacs
