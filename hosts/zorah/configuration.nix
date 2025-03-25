@@ -23,6 +23,8 @@ in
     self'.packages.emacs
     sshfs
     unzip
+
+    self'.packages.tym
   ];
 
   environment.sessionVariables = {
