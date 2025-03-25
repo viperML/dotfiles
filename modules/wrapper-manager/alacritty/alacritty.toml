@@ -10,11 +10,6 @@ dynamic_padding = true
 osc52 = "CopyPaste"
 
 [[keyboard.bindings]]
-key = "F"
-mods = "Control | Shift"
-action = "ReceiveChar"
-
-[[keyboard.bindings]]
 key = "C"
 mods = "Control | Shift"
 # passthru as <C-PageUp>
