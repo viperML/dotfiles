@@ -9,28 +9,27 @@
     let
       inherit (builtins)
         typeOf
-        mapAttrs
         ;
 
       basePackage = pkgs.neovim-unwrapped;
 
       packName = "viper-pack";
 
-      nvGenerated = pkgs.callPackages ./_sources/generated.nix { };
-
-      nvPlugins =
-        nvGenerated
-        |> (mapAttrs (
-          name: value:
-          value.src.overrideAttrs (
-            finalAttrs: prevAttrs: {
-              pname =
-                if builtins.hasAttr "repo" value.src then value.src.repo else builtins.baseNameOf value.src.url;
-              version = lib.removePrefix "v" value.version;
-              name = with finalAttrs; "${pname}-${version}";
-            }
-          )
-        ));
+      # nvGenerated = pkgs.callPackages ./_sources/generated.nix { };
+      #
+      # nvPlugins =
+      #   nvGenerated
+      #   |> (mapAttrs (
+      #     name: value:
+      #     value.src.overrideAttrs (
+      #       finalAttrs: prevAttrs: {
+      #         pname =
+      #           if builtins.hasAttr "repo" value.src then value.src.repo else builtins.baseNameOf value.src.url;
+      #         version = lib.removePrefix "v" value.version;
+      #         name = with finalAttrs; "${pname}-${version}";
+      #       }
+      #     )
+      #   ));
 
       luaPackages = lp: [
         lp.luassert
@@ -41,9 +40,19 @@
       luaEnv = basePackage.lua.withPackages luaPackages;
       inherit (basePackage.lua.pkgs.luaLib) genLuaPathAbsStr genLuaCPathAbsStr;
 
+      foldPlugins = builtins.foldl' (
+        acc: next:
+        acc
+        ++ [
+          next
+        ]
+        ++ (foldPlugins (next.dependencies or [ ]))
+      ) [ ];
+
       plugins = lib.fix (p: {
-        start = {
-          inherit (pkgs.vimPlugins)
+        start =
+          with pkgs.vimPlugins;
+          foldPlugins [
             lz-n
             nvim-web-devicons
             snacks-nvim
@@ -56,64 +65,61 @@
             blink-cmp-copilot
             lsp-progress-nvim
             nui-nvim
-            ;
 
-          ts-grammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+            nvim-treesitter.withAllGrammars
 
-          viper-init-plugin = ./viper-init-plugin;
-          viper-pre-init-plugin = pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
-            mkdir -p $out/plugin
+            ./viper-init-plugin
+            (pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
+              mkdir -p $out/plugin
 
-            tee $out/plugin/init.lua <<EOF
-            -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
-            package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
-            package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
+              tee $out/plugin/init.lua <<EOF
+              -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
+              package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
+              package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
 
-            -- No remote plugins
-            vim.g.loaded_node_provider = 0
-            vim.g.loaded_perl_provider = 0
-            vim.g.loaded_python_provider = 0
-            vim.g.loaded_python3_provider = 0
-            vim.g.loaded_ruby_provider = 0
-            EOF
-          '';
-        };
+              -- No remote plugins
+              vim.g.loaded_node_provider = 0
+              vim.g.loaded_perl_provider = 0
+              vim.g.loaded_python_provider = 0
+              vim.g.loaded_python3_provider = 0
+              vim.g.loaded_ruby_provider = 0
+              EOF
+            '')
+          ];
 
-        opt = (builtins.removeAttrs nvPlugins (builtins.attrNames p.start)) // {
-          inherit (pkgs.vimPlugins)
-            nvim-treesitter
+        opt = with pkgs.vimPlugins; [
+          nvim-treesitter
 
-            nvim-ts-autotag
-            nvim-treesitter-context
-            nvim-treesitter-textobjects
+          nvim-ts-autotag
+          nvim-treesitter-context
+          nvim-treesitter-textobjects
 
-            # codecompanion-nvim
-            avante-nvim
-            copilot-lua
-            comment-nvim
-            conform-nvim
-            git-conflict-nvim
-            gitsigns-nvim
-            haskell-tools-nvim
-            indent-blankline-nvim
-            marks-nvim
-            neo-tree-nvim
-            noice-nvim
-            nvim-autopairs
-            nvim-lspconfig
-            blink-cmp
-            nvim-navic
-            parinfer-rust
-            smart-splits-nvim
-            telescope-fzf-native-nvim
-            telescope-nvim
-            trouble-nvim
-            vim-better-whitespace
-            vim-nix
-            which-key-nvim
-            yazi-nvim
-            ;
-        };
+          # codecompanion-nvim
+          avante-nvim
+          copilot-lua
+          comment-nvim
+          conform-nvim
+          git-conflict-nvim
+          gitsigns-nvim
+          haskell-tools-nvim
+          indent-blankline-nvim
+          marks-nvim
+          neo-tree-nvim
+          noice-nvim
+          nvim-autopairs
+          nvim-lspconfig
+          blink-cmp
+          nvim-navic
+          parinfer-rust
+          smart-splits-nvim
+          telescope-fzf-native-nvim
+          telescope-nvim
+          trouble-nvim
+          vim-better-whitespace
+          vim-nix
+          which-key-nvim
+          yazi-nvim
+        ];
       });
 
       linkPlugin =
@@ -137,7 +143,6 @@
 
         ${
           plugins.start
-          |> builtins.attrValues
           |> (map (
             plugin:
             linkPlugin {
@@ -150,7 +155,6 @@
 
         ${
           plugins.opt
-          |> builtins.attrValues
           |> (map (
             plugin:
             linkPlugin {
