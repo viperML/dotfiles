@@ -104,7 +104,6 @@
             blink-cmp
             nvim-navic
             parinfer-rust
-            render-markdown-nvim
             smart-splits-nvim
             telescope-fzf-native-nvim
             telescope-nvim

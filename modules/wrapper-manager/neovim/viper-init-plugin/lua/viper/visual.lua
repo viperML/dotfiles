@@ -316,22 +316,6 @@ require("viper.lazy").add_specs {
     end,
   },
   {
-    "render-markdown.nvim",
-    ft = render_markodwn_fts,
-    after = function()
-      require("render-markdown").setup {
-        file_types = render_markodwn_fts,
-        render_modes = { "n", "i", "c", "t" },
-        latex = {
-          enabled = false,
-        },
-        bullet = {
-          icons = { "•", "◦" },
-        },
-      }
-    end,
-  },
-  {
     "yazi.nvim",
     cmd = { "Yazi" },
     keys = {

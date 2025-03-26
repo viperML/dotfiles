@@ -17,6 +17,7 @@
     vanilla-dmz
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.astra-monitor
   ];
 
   environment.gnome.excludePackages = with pkgs; [
