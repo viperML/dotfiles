@@ -52,40 +52,47 @@
       plugins = lib.fix (p: {
         start =
           with pkgs.vimPlugins;
-          foldPlugins [
-            lz-n
-            nvim-web-devicons
-            snacks-nvim
-            plenary-nvim
-            mini-nvim
-            kanagawa-nvim
-            bufferline-nvim
-            lualine-nvim
-            # No autostart
-            blink-cmp-copilot
-            lsp-progress-nvim
-            nui-nvim
+          foldPlugins (
+            [
+              lz-n
+              nvim-web-devicons
+              snacks-nvim
+              plenary-nvim
+              mini-nvim
+              kanagawa-nvim
+              bufferline-nvim
+              lualine-nvim
+              # No autostart
+              blink-cmp-copilot
+              lsp-progress-nvim
+              nui-nvim
 
-            nvim-treesitter.withAllGrammars
+              nvim-treesitter
 
-            ./viper-init-plugin
-            (pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
-              mkdir -p $out/plugin
+              ./viper-init-plugin
+              (pkgs.runCommandLocal "viper-pre-init-plugin" { } ''
+                mkdir -p $out/plugin
 
-              tee $out/plugin/init.lua <<EOF
-              -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
-              package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
-              package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
+                tee $out/plugin/init.lua <<EOF
+                -- Don't use LUA_PATH or LUA_CPATH because they leak into the LSP
+                package.path = "${genLuaPathAbsStr luaEnv};" .. package.path
+                package.cpath = "${genLuaCPathAbsStr luaEnv};" .. package.cpath
 
-              -- No remote plugins
-              vim.g.loaded_node_provider = 0
-              vim.g.loaded_perl_provider = 0
-              vim.g.loaded_python_provider = 0
-              vim.g.loaded_python3_provider = 0
-              vim.g.loaded_ruby_provider = 0
-              EOF
-            '')
-          ];
+                -- No remote plugins
+                vim.g.loaded_node_provider = 0
+                vim.g.loaded_perl_provider = 0
+                vim.g.loaded_python_provider = 0
+                vim.g.loaded_python3_provider = 0
+                vim.g.loaded_ruby_provider = 0
+                EOF
+              '')
+            ]
+            ++ (
+              pkgs.vimPlugins.nvim-treesitter.grammarPlugins
+              |> lib.filterAttrs (n: _: !(builtins.elem n [ "comment" ]))
+              |> builtins.attrValues
+            )
+          );
 
         opt = with pkgs.vimPlugins; [
           nvim-treesitter
