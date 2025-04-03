@@ -44,6 +44,7 @@ flake@{
               pname = lib.getName pkg;
               byName = builtins.elem pname [
                 "corefonts"
+                "cursor"
                 "cnijfilter2"
                 "drawio"
                 "google-chrome"
@@ -52,6 +53,7 @@ flake@{
                 "nvidia-settings"
                 "nvidia-x11"
                 "samsung-UnifiedLinuxDriver"
+                "samsung-unified-linux-driver"
                 "slack"
                 "steam"
                 "steam-original"

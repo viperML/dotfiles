@@ -172,4 +172,6 @@ in
   programs.msmtp = {
     enable = true;
   };
+
+  services.xserver.wacom.enable = true;
 }

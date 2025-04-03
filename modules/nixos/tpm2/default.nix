@@ -3,14 +3,21 @@
   pkgs,
   config,
   ...
-}: let
-  pkcs11pkg = pkgs.tpm2-pkcs11.override {fapiSupport = false;};
+}:
+let
+  # pkcs11pkg = pkgs.tpm2-pkcs11.override {fapiSupport = false;};
+  pkcs11pkg = pkgs.tpm2-pkcs11.overrideAttrs (old: {
+    configureFlags = old.configureFlags ++ [
+      "--with-fapi=no"
+    ];
+  });
   cmdname = "git-key-command";
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     sbctl
     dmidecode
-    (pkgs.runCommandLocal cmdname {} ''
+    (pkgs.runCommandLocal cmdname { } ''
       mkdir -p $out/bin
       cp -v ${./git-key-command.sh} $out/bin/${cmdname}
       patchShebangs --host $out/bin/*
@@ -26,11 +33,13 @@ in {
     };
     tctiEnvironment = {
       enable = true;
-      interface = "tabrmd";
+      # interface = "tabrmd";
     };
   };
 
-  programs.ssh = {agentPKCS11Whitelist = "${pkcs11pkg}/lib/*";};
+  programs.ssh = {
+    agentPKCS11Whitelist = "${pkcs11pkg}/lib/*";
+  };
 
   users.groups."tss".members = config.users.groups."wheel".members;
 

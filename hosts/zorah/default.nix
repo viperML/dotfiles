@@ -33,6 +33,7 @@ in
       nixosModules.user-ayats
       nixosModules.user-soch
       nixosModules.yubikey
+      nixosModules.silent-boot
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
