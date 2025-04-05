@@ -1,4 +1,6 @@
-pkgs: {
+pkgs: let 
+  inherit (pkgs) lib;
+in {
   appName = "nvim-viper-mnw";
   desktopEntry = false;
   providers.python3.enable = false;
@@ -20,24 +22,31 @@ pkgs: {
 
   plugins =
     let
-      start = with pkgs.vimPlugins; [
-        lz-n
-        nvim-web-devicons
-        snacks-nvim
-        plenary-nvim
-        mini-nvim
-        kanagawa-nvim
-        bufferline-nvim
-        lualine-nvim
-        # No autostart
-        blink-cmp-copilot
-        lsp-progress-nvim
-        nui-nvim
+      start =
+        with pkgs.vimPlugins;
+        [
+          lz-n
+          nvim-web-devicons
+          snacks-nvim
+          plenary-nvim
+          mini-nvim
+          kanagawa-nvim
+          bufferline-nvim
+          lualine-nvim
+          # No autostart
+          blink-cmp-copilot
+          lsp-progress-nvim
+          nui-nvim
 
-        nvim-treesitter
+          nvim-treesitter
 
-        ./viper-init-plugin
-      ];
+          ./viper-init-plugin
+        ]
+        ++ (
+          pkgs.vimPlugins.nvim-treesitter.grammarPlugins
+          |> lib.filterAttrs (n: _: !(builtins.elem n [ "comment" ]))
+          |> builtins.attrValues
+        );
 
       opt = with pkgs.vimPlugins; [
         nvim-treesitter
