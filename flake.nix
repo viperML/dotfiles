@@ -37,6 +37,7 @@
                   lua-language-server
                   config.packages.stylua
                   taplo
+                  config.packages.neovim-unchecked.devMode
                 ];
               };
           };
@@ -101,6 +102,9 @@
     nil = {
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mnw = {
+      url = "github:Gerg-L/mnw";
     };
   };
 }

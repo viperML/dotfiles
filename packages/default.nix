@@ -90,6 +90,15 @@ flake@{
               nix = flake.self.lib.versionGate pkgs.nixVersions.nix_2_26 pkgs.nix;
               nil = inputs'.nil.packages.default;
 
+              neovim-unchecked = inputs.mnw.lib.wrap pkgs (import ./neovim/module.nix pkgs);
+              neovim = self'.neovim-unchecked.overrideAttrs (old: {
+                postInstall = ''
+                  export HOME="$(mktemp -d)"
+                  export NVIM_SILENT=1
+                  $out/bin/nvim --headless '+lua =require("viper.health").loaded_exit()' '+q'
+                '';
+              });
+
               # manual overrides to auto callPackage
               nix-index = callPackage ./nix-index {
                 database = inputs'.nix-index-database.packages.nix-index-database;
@@ -99,7 +108,7 @@ flake@{
               guix = callPackage ./guix {
                 inherit (pkgs) guix;
               };
-              yazi = callPackage ./yazi {inherit (pkgs) yazi;};
+              yazi = callPackage ./yazi { inherit (pkgs) yazi; };
             }
           );
 

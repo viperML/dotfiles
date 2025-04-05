@@ -253,6 +253,21 @@
         "type": "github"
       }
     },
+    "mnw": {
+      "locked": {
+        "lastModified": 1743864343,
+        "narHash": "sha256-mPtQxLpA3ZU9QAi1q7nt9G20YXmvL8YA5YB2LH4QjiU=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "5f6dcc9f567e42aaced80a7079e4a4f8ac48066f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
     "nh": {
       "inputs": {
         "nixpkgs": [
@@ -469,6 +484,7 @@
         "guix-search": "guix-search",
         "hover-rs": "hover-rs",
         "lanzaboote": "lanzaboote",
+        "mnw": "mnw",
         "nh": "nh",
         "nil": "nil",
         "nix-common": "nix-common",
