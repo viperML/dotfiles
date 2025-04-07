@@ -73,7 +73,7 @@
     self'.packages.tmux
     libcgroup
     wl-color-picker
-    code-cursor
+    self'.packages.code-cursor
   ];
 
   # i18n = let
