@@ -47,6 +47,9 @@
           # Fine to not lazy-load
           lz-n
           nvim-treesitter
+          nvim-treesitter-context
+          nvim-treesitter-textobjects
+          nvim-ts-autotag
 
           ./viper-init-plugin
         ]
@@ -57,11 +60,6 @@
         );
 
       opt = with pkgs.vimPlugins; [
-        nvim-treesitter
-
-        nvim-ts-autotag
-        nvim-treesitter-context
-        nvim-treesitter-textobjects
 
         # codecompanion-nvim
         avante-nvim
