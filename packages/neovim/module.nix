@@ -1,6 +1,5 @@
-pkgs: let 
-  inherit (pkgs) lib;
-in {
+{ pkgs, lib, ... }:
+{
   appName = "nvim-viper-mnw";
   desktopEntry = false;
   providers.python3.enable = false;
@@ -20,24 +19,33 @@ in {
     "~/Documents/dotfiles/packages/neovim/viper-init-plugin"
   ];
 
+  wrapperArgs = [
+    "--set-default"
+    "NVIM_NODE"
+    (lib.getExe (pkgs.nodejs.override { enableNpm = false; }))
+  ];
+
   plugins =
     let
       start =
         with pkgs.vimPlugins;
         [
-          lz-n
           nvim-web-devicons
           snacks-nvim
           plenary-nvim
           mini-nvim
           kanagawa-nvim
+          catppuccin-nvim
           bufferline-nvim
           lualine-nvim
+
           # No autostart
           blink-cmp-copilot
           lsp-progress-nvim
           nui-nvim
 
+          # Fine to not lazy-load
+          lz-n
           nvim-treesitter
 
           ./viper-init-plugin
@@ -57,7 +65,6 @@ in {
 
         # codecompanion-nvim
         avante-nvim
-        copilot-lua
         comment-nvim
         conform-nvim
         git-conflict-nvim
@@ -80,6 +87,9 @@ in {
         vim-nix
         which-key-nvim
         yazi-nvim
+
+        # Check of having some autostart
+        copilot-lua
       ];
     in
     start ++ (map (p: p // { optional = true; }) opt);

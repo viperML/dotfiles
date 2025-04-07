@@ -31,22 +31,7 @@ local load_aichat_config = function(aichat_config_raw)
 
   require("posix.stdlib").setenv("OPENAI_API_KEY", aichat_client.api_key)
 
-  local node = os.getenv("NVIM_NODE")
-  if node ~= nil then
-    require("viper.lazy").packadd("copilot.lua")
-    ---@diagnostic disable-next-line: redundant-parameter
-    require("copilot").setup {
-      copilot_node_command = node,
-      panel = {
-        enabled = false,
-      },
-      suggestion = {
-        enabled = false,
-      },
-    }
-    -- vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
-    -- vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
-  end
+  require("lz.n").trigger_load("copilot.lua")
 
   require("avante_lib").load()
   require("avante").setup {
@@ -81,6 +66,29 @@ require("viper.lazy").add_specs {
           end
         end)
       end)
+    end,
+  },
+  {
+    "copilot.lua",
+    lazy = false,
+    after = function()
+      local node = os.getenv("NVIM_NODE")
+      if node ~= nil then
+        ---@diagnostic disable-next-line: redundant-parameter
+        require("copilot").setup {
+          copilot_node_command = node,
+          panel = {
+            enabled = false,
+          },
+          suggestion = {
+            enabled = false,
+          },
+        }
+      -- vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
+      -- vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
+      else
+        vim.notify("NVIM_NODE not set")
+      end
     end,
   },
 }

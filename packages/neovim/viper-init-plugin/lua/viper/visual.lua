@@ -12,33 +12,37 @@ M.ignored = {
 
 vim.opt.termguicolors = true
 
-require("kanagawa").setup {
-  compile = true,
-  -- transparent = true,
-  theme = "dragon",
-  colors = {
-    theme = {
-      all = {
-        ui = {
-          bg_gutter = "none",
-        },
-      },
-    },
-    palette = {
-      -- dragonBlack3 = "#121212",
-      dragonBlack3 = "#1D1D1D",
-    },
-  },
-  -- override = function()
-  --   return {
-  --     NormalFloat = { bg = "none" },
-  --     FloatBorder = { bg = "none" },
-  --     FloatTitle = { bg = "none" },
-  --   }
-  -- end,
+-- require("kanagawa").setup {
+--   compile = true,
+--   -- transparent = true,
+--   theme = "dragon",
+--   colors = {
+--     theme = {
+--       all = {
+--         ui = {
+--           bg_gutter = "none",
+--         },
+--       },
+--     },
+--     palette = {
+--       -- dragonBlack3 = "#121212",
+--       dragonBlack3 = "#1D1D1D",
+--     },
+--   },
+--   -- override = function()
+--   --   return {
+--   --     NormalFloat = { bg = "none" },
+--   --     FloatBorder = { bg = "none" },
+--   --     FloatTitle = { bg = "none" },
+--   --   }
+--   -- end,
+-- }
+require("catppuccin").setup {
+  flavour = "macchiato",
 }
 
-vim.cmd([[ colorscheme kanagawa-dragon ]])
+-- vim.cmd([[ colorscheme kanagawa-dragon ]])
+vim.cmd([[ colorscheme catppuccin ]])
 
 local highlights = {
   constant = vim.api.nvim_get_hl(0, {
@@ -68,7 +72,8 @@ require("bufferline").setup {
 require("lualine").setup {
   options = {
     globalstatus = true,
-    theme = "kanagawa",
+    -- theme = "kanagawa",
+    theme = "catppuccin",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {

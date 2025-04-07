@@ -43,6 +43,7 @@ require("viper.lazy").add_specs {
       local lspconfig = require("lspconfig")
       require("viper.lazy").packadd("blink.cmp")
       require("viper.lazy").packadd("nvim-navic")
+      require("lz.n").trigger_load("copilot.lua")
 
       require("blink.cmp").setup {
         completion = {
