@@ -52,6 +52,20 @@
           nvim-ts-autotag
 
           ./viper-init-plugin
+
+          (pkgs.writeTextDir "after/plugin/init.lua" # lua
+            ''
+              if vim.opt.exrc:get() then
+                local path = vim.fn.getcwd() .. "/.nvim.lua"
+                if vim.uv.fs_stat(path) then
+                  local read = vim.secure.read(path)
+                  if read ~= nil then
+                    load(read)()
+                  end
+                end
+              end
+            ''
+          )
         ]
         ++ (
           pkgs.vimPlugins.nvim-treesitter.grammarPlugins

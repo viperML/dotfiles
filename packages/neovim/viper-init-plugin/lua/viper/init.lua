@@ -14,4 +14,6 @@ vim.keymap.set({ "n", "i", "v" }, "<C-Down>", "<Down>")
 
 require("viper.lazy").finish()
 
+vim.opt.exrc = true
+
 require("viper.health").loaded = true
