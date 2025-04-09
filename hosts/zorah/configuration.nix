@@ -15,6 +15,7 @@ in
 
     # global dev
     ltex-ls-plus
+    neocmakelsp
 
     mattermost-desktop
     slack

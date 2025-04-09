@@ -17,12 +17,12 @@ in
       ./configuration.nix
       ./novidia.nix
       # {
-      #   specialisation.nvidia = {
+      #   specialisation.cosmic = {
       #     inheritParentConfig = true;
       #     configuration = {
-      #       environment.etc."specialisation".text = "nvidia";
-      #       imports = [ ./nvidia.nix ];
-      #       disabledModules = [ ./novidia.nix ];
+      #       environment.etc."specialisation".text = "cosmic";
+      #       # disabledModules = [nixosModules.gnome];
+      #       services.desktopManager.cosmic.enable = true;
       #     };
       #   };
       # }
