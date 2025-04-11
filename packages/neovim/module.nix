@@ -2,8 +2,8 @@
 {
   appName = "nvim-viper-mnw";
   desktopEntry = false;
-  # providers.python3.enable = false;
-  # providers.ruby.enable = false;
+  providers.python3.enable = false;
+  providers.ruby.enable = false;
 
   extraLuaPackages = lp: [
     lp.luassert
