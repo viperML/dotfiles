@@ -42,6 +42,12 @@ return {
     },
   },
   -- JS
+  ["astro"] = {},
+  ["ts_ls"] = {},
+  ["html"] = {},
+  ["tailwindcss"] = {},
+  ["cssls"] = {},
+  ["volar"] = {},
   -- C
   ["clangd"] = {},
   ["mesonlsp"] = {},
@@ -51,6 +57,19 @@ return {
   ["pylsp"] = {},
   -- Schemas
   ["taplo"] = {},
+  ["jsonls"] = {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas {
+          select = {
+            "package.json",
+            "tsconfig.json",
+          },
+        },
+        -- validate = { enable = true },
+      },
+    },
+  },
   ["yamlls"] = {
     settings = {
       redhat = {

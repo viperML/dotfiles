@@ -11,6 +11,11 @@
     lp.lyaml
   ];
 
+  extraBinPath = with pkgs; [
+    vscode-langservers-extracted
+    yaml-language-server
+  ];
+
   devExcludedPlugins = [
     ./viper-init-plugin
   ];
@@ -50,6 +55,7 @@
           blink-cmp-copilot
           lsp-progress-nvim
           nui-nvim
+          SchemaStore-nvim
 
           # Fine to not lazy-load
           lz-n
