@@ -34,6 +34,7 @@
   initLua =
     #lua
     ''
+      vim.loader.enable(true)
       require("viper")
       vim.opt.exrc = true
     '';

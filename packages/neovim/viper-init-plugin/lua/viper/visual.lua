@@ -139,10 +139,17 @@ require("lualine").setup {
       "branch",
       -- "filesize",
     },
-    lualine_y = { {
-      "diagnostics",
-      always_visible = true,
-    } },
+    lualine_y = {
+      {
+        "lsp_status",
+        ignore_lsp = { "copilot" },
+        icon = '',
+      },
+      {
+        "diagnostics",
+        always_visible = true,
+      },
+    },
     lualine_z = {},
   },
 }
