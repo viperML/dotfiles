@@ -1,30 +1,3 @@
--- local function direnv()
---   vim.notify("Loading direnv")
---
---   if vim.fn.executable("direnv") ~= 1 then
---     vim.notify("Direnv executable not found!")
---   end
---
---   vim.api.nvim_clear_autocmds { group = "lspconfig" }
---   pcall(function()
---     vim.lsp.stop_client(vim.lsp.get_clients(), true)
---   end)
---
---   vim.system({ "direnv", "export", "vim" }, {}, function(obj)
---     vim.schedule(function()
---       vim.fn.execute(obj.stdout)
---       setup_all()
---       vim.notify("Finished loading direnv")
---     end)
---   end)
--- end
---
--- vim.api.nvim_create_user_command("Direnv", direnv, {})
---
--- vim.api.nvim_create_autocmd({ "DirChanged" }, {
---   callback = direnv,
--- })
-
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -38,7 +11,9 @@ require("viper.lazy").add_specs {
   },
   {
     "nvim-lspconfig",
-    event = "DeferredUIEnter",
+    -- FIXME
+    -- event = "DeferredUIEnter",
+    -- lazy = false,
     after = function()
       local lspconfig = require("lspconfig")
       require("viper.lazy").packadd("blink.cmp")
