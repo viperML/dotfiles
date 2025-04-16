@@ -10,7 +10,7 @@ M.ignored = {
   "dist-newstyle",
 }
 
-vim.opt.winborder = "rounded"
+-- vim.opt.winborder = "rounded" -- Some plugins don't work properly
 vim.opt.termguicolors = true
 
 -- require("kanagawa").setup {
@@ -144,7 +144,7 @@ require("lualine").setup {
       {
         "lsp_status",
         ignore_lsp = { "copilot" },
-        icon = '',
+        icon = "",
       },
       {
         "diagnostics",
