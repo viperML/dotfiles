@@ -10,6 +10,7 @@ M.ignored = {
   "dist-newstyle",
 }
 
+vim.opt.winborder = "rounded"
 vim.opt.termguicolors = true
 
 -- require("kanagawa").setup {

@@ -24,6 +24,8 @@ in
     self'.packages.emacs
     sshfs
     unzip
+    gitlab-ci-local
+    rsync # fixme: https://github.com/NixOS/nixpkgs/pull/399084
 
     self'.packages.tym
   ];
