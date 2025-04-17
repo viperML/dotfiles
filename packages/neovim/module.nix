@@ -65,6 +65,7 @@
           nvim-treesitter-context
           nvim-treesitter-textobjects
           nvim-ts-autotag
+          fidget-nvim
 
           ./viper-init-plugin
         ]

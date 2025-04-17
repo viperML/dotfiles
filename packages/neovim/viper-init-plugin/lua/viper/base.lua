@@ -6,7 +6,7 @@ local snacks_opts = {
   -- indent = { enabled = true },
   input = { enabled = true },
   picker = { enabled = true },
-  notifier = { enabled = true },
+  -- notifier = { enabled = true },
   quickfile = { enabled = true },
   -- scope = { enabled = true },
   -- scroll = { enabled = true },
@@ -15,6 +15,8 @@ local snacks_opts = {
 }
 
 require("snacks").setup(snacks_opts)
+
+require("fidget").setup {}
 
 local default_notify = vim.notify
 vim.notify = function(msg, level, opts)
