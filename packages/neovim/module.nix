@@ -15,6 +15,7 @@
     vscode-langservers-extracted
     yaml-language-server
     taplo
+    nodePackages.bash-language-server
   ];
 
   devExcludedPlugins = [
