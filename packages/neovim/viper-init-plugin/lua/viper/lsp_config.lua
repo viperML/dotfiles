@@ -54,7 +54,9 @@ return {
   ["neocmake"] = {},
   -- Python
   ["ruff"] = {},
-  ["pylsp"] = {},
+  -- ["pylsp"] = {},
+  -- ["jedi_language_server"] = {},
+  ["basedpyright"] = {},
   -- Schemas
   ["taplo"] = {},
   ["jsonls"] = {
