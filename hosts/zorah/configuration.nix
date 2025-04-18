@@ -26,6 +26,7 @@ in
     unzip
     gitlab-ci-local
     rsync # fixme: https://github.com/NixOS/nixpkgs/pull/399084
+    dockerfile-language-server-nodejs
 
     self'.packages.tym
   ];

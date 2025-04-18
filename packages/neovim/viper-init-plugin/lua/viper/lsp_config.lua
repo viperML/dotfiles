@@ -55,7 +55,6 @@ return {
   -- Python
   ["ruff"] = {},
   -- ["pylsp"] = {},
-  -- ["jedi_language_server"] = {},
   ["basedpyright"] = {},
   -- Schemas
   ["taplo"] = {},
@@ -120,4 +119,5 @@ return {
   },
   -- ["lua_ls"] = {},
   ["terraformls"] = {},
+  ["dockerls"] = {},
 }
