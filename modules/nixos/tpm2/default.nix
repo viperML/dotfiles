@@ -5,12 +5,12 @@
   ...
 }:
 let
-  # pkcs11pkg = pkgs.tpm2-pkcs11.override {fapiSupport = false;};
   pkcs11pkg = pkgs.tpm2-pkcs11.overrideAttrs (old: {
     configureFlags = old.configureFlags ++ [
       "--with-fapi=no"
     ];
   });
+  # pkcs11pkg = pkgs.tpm2-pkcs11-esapi;
   cmdname = "git-key-command";
 in
 {
