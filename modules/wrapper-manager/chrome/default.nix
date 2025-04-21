@@ -5,6 +5,7 @@ let
       lib.concatStringsSep "," [
         "WebUIDarkMode"
         "TouchpadOverscrollHistoryNavigation"
+        "WaylandTextInputV3"
       ]
     }"
     "--force-dark-mode"
