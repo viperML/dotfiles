@@ -5,6 +5,6 @@
 {
   wrappers.zellij = {
     basePackage = pkgs.zellij;
-    env.ZELLIJ_CONFIG_FILE.value = ./config.kdl;
+    env.ZELLIJ_CONFIG_DIR.value = ./.;
   };
 }

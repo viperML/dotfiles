@@ -20,6 +20,7 @@ keybinds clear-defaults=true {
         // bind "Ctrl p" { SwitchToMode "pane"; }
     }
     shared_except "locked" {
+        bind "Ctrl Shift C" { Copy; }
         bind "Ctrl t" { NewTab; SwitchToMode "Normal"; }
         // bind "Ctrl t" { NewTab; }
         bind "Ctrl Tab" { GoToNextTab; }
