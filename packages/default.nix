@@ -87,7 +87,8 @@ flake@{
             in
             auto
             // {
-              nix = flake.self.lib.versionGate pkgs.nixVersions.nix_2_26 pkgs.nix;
+              # nix = flake.self.lib.versionGate pkgs.nixVersions.nix_2_26 pkgs.nix;
+              nix = pkgs.nix;
               nil = inputs'.nil.packages.default;
 
               # neovim-unchecked = inputs.mnw.lib.wrap pkgs (import ./neovim/module.nix pkgs);
