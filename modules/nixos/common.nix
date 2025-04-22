@@ -64,7 +64,7 @@
     # self'.packages.microsoft-edge
     self'.packages.brave
     # ptyxis
-    # self'.packages.zellij
+    self'.packages.zellij
     # self'.packages.alacritty
     # self'.packages.wezterm
     self'.packages.vscode

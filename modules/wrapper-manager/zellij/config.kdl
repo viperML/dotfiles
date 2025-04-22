@@ -4,7 +4,8 @@
 session_serialization false
 default_layout "compact"
 copy_on_select false
-mouse_mode false
+mouse_mode true
+show_startup_tips false
 
 ui {
     pane_frames {
@@ -23,14 +24,14 @@ keybinds clear-defaults=true {
         // bind "Ctrl t" { NewTab; }
         bind "Ctrl Tab" { GoToNextTab; }
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
-        bind "Ctrl Enter" { NewPane "Right"; SwitchToMode "Normal"; }
-        bind "Ctrl Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "Ctrl Left" { MoveFocus "Left"; }
-        bind "Ctrl Right" { MoveFocus "Right"; }
-        bind "Ctrl Down" { MoveFocus "Down"; }
-        bind "Ctrl Up" { MoveFocus "Up"; }
-        bind "Ctrl Shift Left" { Resize "Increase Left"; }
-        bind "Ctrl Shift Right" { Resize "Increase Right"; }
+        bind "Alt Enter" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "Alt Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "Alt Left" { MoveFocus "Left"; }
+        bind "Alt Right" { MoveFocus "Right"; }
+        bind "Alt Down" { MoveFocus "Down"; }
+        bind "Alt Up" { MoveFocus "Up"; }
+        bind "Alt Shift Left" { Resize "Increase Left"; }
+        bind "Alt Shift Right" { Resize "Increase Right"; }
     }
 }
 

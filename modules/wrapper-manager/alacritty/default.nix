@@ -27,9 +27,16 @@ in
       # (lib.importTOML ./theme.toml)
       (lib.importTOML ./macchiato.toml)
       {
+        # terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
+        #   if [[ $(type -P tmux) ]]; then
+        #     exec tmux new-session -A -s main
+        #   else
+        #     exec "$SHELL"
+        #   fi
+        # '';
         terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
-          if [[ $(type -P tmux) ]]; then
-            exec tmux new-session -A -s main
+          if [[ $(type -P zellij) ]]; then
+            exec zellij attach -c main
           else
             exec "$SHELL"
           fi
