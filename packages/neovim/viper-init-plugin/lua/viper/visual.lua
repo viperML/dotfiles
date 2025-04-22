@@ -45,18 +45,21 @@ require("catppuccin").setup {
 -- vim.cmd([[ colorscheme kanagawa-dragon ]])
 vim.cmd([[ colorscheme catppuccin ]])
 
-local highlights = {
-  constant = vim.api.nvim_get_hl(0, {
-    name = "Constant",
-  }),
-}
+local hl_constant = vim.api.nvim_get_hl(0, {
+  name = "Constant",
+})
 
 vim.api.nvim_set_hl(0, "@markup.strong", {
   cterm = {
     bold = true,
   },
-  -- gui = "bold",
-  fg = highlights.constant.fg,
+  fg = hl_constant.fg,
+})
+
+vim.api.nvim_set_hl(0, "EndOfBuffer", {
+  fg = vim.api.nvim_get_hl(0, {
+    name = "Delimiter",
+  }).fg,
 })
 
 require("bufferline").setup {
@@ -346,5 +349,7 @@ require("viper.lazy").add_specs {
     end,
   },
 }
+
+vim.o.fillchars = "eob:~"
 
 return M
