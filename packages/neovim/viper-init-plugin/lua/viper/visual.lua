@@ -58,7 +58,7 @@ vim.api.nvim_set_hl(0, "@markup.strong", {
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {
   fg = vim.api.nvim_get_hl(0, {
-    name = "Delimiter",
+    name = "LineNr",
   }).fg,
 })
 
