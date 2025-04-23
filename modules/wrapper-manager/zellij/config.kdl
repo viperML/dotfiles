@@ -15,11 +15,27 @@ ui {
 
 theme "ansi"
 
+plugins {
+    autolock location="nix:zellij-autolock" {
+        is_enabled true
+        triggers "nvim|vim|fzf|git"
+        // watch_triggers "fzf|zoxide|atuin|atac"
+        // watch_interval "1.0"
+        // reaction_seconds "0.8"
+    }
+
+    zjstatus location="nix:zjstatus"
+}
+
+load_plugins {
+    autolock
+}
+
 keybinds clear-defaults=true {
     normal {
         // bind "Ctrl p" { SwitchToMode "pane"; }
     }
-    shared_except "locked" {
+    shared {
         bind "Ctrl Shift C" { Copy; }
         bind "Ctrl t" { NewTab; SwitchToMode "Normal"; }
         // bind "Ctrl t" { NewTab; }
@@ -27,12 +43,16 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
         bind "Alt Enter" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Alt Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
+    }
+    shared_except "locked" {
         bind "Alt Left" { MoveFocus "Left"; }
         bind "Alt Right" { MoveFocus "Right"; }
         bind "Alt Down" { MoveFocus "Down"; }
         bind "Alt Up" { MoveFocus "Up"; }
         bind "Alt Shift Left" { Resize "Increase Left"; }
         bind "Alt Shift Right" { Resize "Increase Right"; }
+        bind "Alt Shift Up" { Resize "Increase Up"; }
+        bind "Alt Shift Down" { Resize "Increase Down"; }
     }
 }
 

@@ -95,6 +95,7 @@
         nvim-navic
         parinfer-rust
         smart-splits-nvim
+        # zellij-nav-nvim
         telescope-fzf-native-nvim
         telescope-nvim
         trouble-nvim

@@ -1,0 +1,32 @@
+{
+    "zellij-autolock": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "zellij-autolock",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-aclWB7/ZfgddZ2KkT9vHA6gqPEkJ27vkOVLwIEh7jqQ=",
+            "type": "url",
+            "url": "https://github.com/fresh2dev/zellij-autolock/releases/download/0.2.2/zellij-autolock.wasm"
+        },
+        "version": "0.2.2"
+    },
+    "zjstatus": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "zjstatus",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OSg7Q1AWKW32Y9sHWJbWOXWF1YI5mt0N4Vsa2fcvuNg=",
+            "type": "url",
+            "url": "https://github.com/dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm"
+        },
+        "version": "v0.20.2"
+    }
+}

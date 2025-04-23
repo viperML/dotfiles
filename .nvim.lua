@@ -1,4 +1,4 @@
-vim.notify("Hello from dotfiles!")
+-- vim.notify("Hello from dotfiles!")
 
 local rt = vim.api.nvim_get_runtime_file("", true)
 

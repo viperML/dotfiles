@@ -1,0 +1,7 @@
+[zjstatus]
+src.github = "dj95/zjstatus"
+fetch.url = "https://github.com/dj95/zjstatus/releases/download/$ver/zjstatus.wasm"
+
+[zellij-autolock]
+fetch.url = "https://github.com/fresh2dev/zellij-autolock/releases/download/$ver/zellij-autolock.wasm"
+src.github = "fresh2dev/zellij-autolock"
