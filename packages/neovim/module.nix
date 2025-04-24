@@ -1,4 +1,7 @@
 { pkgs, lib, ... }:
+let
+  fs = lib.fileset;
+in
 {
   appName = "nvim-viper-mnw";
   desktopEntry = false;
@@ -19,7 +22,11 @@
   ];
 
   devExcludedPlugins = [
-    ./viper-init-plugin
+    # ./viper-init-plugin
+    (fs.toSource {
+      root = ./viper-init-plugin;
+      fileset = lib.fileset.fromSource (lib.sources.cleanSource ./viper-init-plugin);
+    })
   ];
 
   devPluginPaths = [

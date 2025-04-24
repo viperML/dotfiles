@@ -44,7 +44,13 @@ in
 
         keyboard.bindings =
           (lib.range 65 90)
-          |> (builtins.filter (n: !(builtins.elem n [ 67 86 ])))
+          |> (builtins.filter (
+            n:
+            !(builtins.elem n [
+              # 67 # C
+              86 # V
+            ])
+          ))
           |> (map (n: {
             key = builtins.getAttr (builtins.toString n) ascii-table';
             mods = "Control | Shift";

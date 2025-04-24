@@ -9,11 +9,11 @@ dynamic_padding = true
 [terminal]
 osc52 = "CopyPaste"
 
-[[keyboard.bindings]]
-key = "C"
-mods = "Control | Shift"
-# passthru as <C-PageUp>
-chars = "\u001b[5;5~"
+# [[keyboard.bindings]]
+# key = "C"
+# mods = "Control | Shift"
+# # passthru as <C-PageUp>
+# chars = "\u001b[5;5~"
 
 [[keyboard.bindings]]
 key = "V"

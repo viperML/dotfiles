@@ -192,7 +192,9 @@ end, { desc = "Insert current date" })
 --   },
 -- }
 
-vim.keymap.set("v", "<C-PageUp>", '"+y', { desc = "Copy to system's clipboard" })
+for _, key in ipairs { "<C-PageUp>", "<C-S-C>" } do
+  vim.keymap.set("v", key, '"+y', { desc = "Copy to system's clipboard" })
+end
 
 -- Move through wrapped lines
 vim.keymap.set({ "n", "v" }, "<Up>", "g<Up>", { noremap = true, silent = true })

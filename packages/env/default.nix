@@ -34,6 +34,7 @@
   nil,
   yazi,
   httpie,
+  osc,
 }@args:
 symlinkJoin {
   name = "env";

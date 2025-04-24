@@ -3,7 +3,9 @@
 
 session_serialization false
 default_layout "compact"
-copy_on_select false
+// copy_on_select true
+// copy_command: "wl-copy"
+copy_command: "osc copy"
 mouse_mode true
 show_startup_tips false
 
@@ -36,15 +38,16 @@ keybinds clear-defaults=true {
         // bind "Ctrl p" { SwitchToMode "pane"; }
     }
     shared {
-        bind "Ctrl Shift C" { Copy; }
         bind "Ctrl t" { NewTab; SwitchToMode "Normal"; }
-        // bind "Ctrl t" { NewTab; }
         bind "Ctrl Tab" { GoToNextTab; }
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
         bind "Alt Enter" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Alt Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
+        bind "Ctrl Shift C" { Copy; }
+        // bind "Alt C" { Copy; }
+
         bind "Alt Left" { MoveFocus "Left"; }
         bind "Alt Right" { MoveFocus "Right"; }
         bind "Alt Down" { MoveFocus "Down"; }
