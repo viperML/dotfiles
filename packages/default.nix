@@ -38,36 +38,7 @@ flake@{
             in
             if byName then lib.warn "Allowing insecure package: ${pname}" true else false;
 
-          allowUnfreePredicate =
-            pkg:
-            let
-              pname = lib.getName pkg;
-              byName = builtins.elem pname [
-                "corefonts"
-                "cursor"
-                "cnijfilter2"
-                "drawio"
-                "google-chrome"
-                "hplip"
-                "microsoft-edge"
-                "nvidia-settings"
-                "nvidia-x11"
-                "samsung-UnifiedLinuxDriver"
-                "samsung-unified-linux-driver"
-                "slack"
-                "steam"
-                "steam-original"
-                "steam-unwrapped"
-                "vivaldi"
-                "vscode"
-              ];
-              byLicense = builtins.elem pkg.meta.license.shortName [
-                "CUDA EULA"
-                "bsl11"
-                "obsidian"
-              ];
-            in
-            if byName || byLicense then lib.warn "Allowing unfree package: ${pname}" true else false;
+          allowUnfreePredicate = pkg: lib.warn "Allowing unfree package: ${lib.getName pkg}" true;
         };
       };
 
@@ -92,7 +63,7 @@ flake@{
               nil = inputs'.nil.packages.default;
 
               # neovim-unchecked = inputs.mnw.lib.wrap pkgs (import ./neovim/module.nix pkgs);
-              neovim-unchecked = inputs.mnw.lib.wrap pkgs { imports = [./neovim/module.nix]; };
+              neovim-unchecked = inputs.mnw.lib.wrap pkgs { imports = [ ./neovim/module.nix ]; };
               neovim = self'.neovim-unchecked.overrideAttrs (old: {
                 postInstall = ''
                   export HOME="$(mktemp -d)"

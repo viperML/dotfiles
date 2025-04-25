@@ -10,25 +10,22 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    powertop
-    openconnect
-
     # global dev
+    openconnect
     ltex-ls-plus
     neocmakelsp
+    sshfs
+    unzip
+    gitlab-ci-local
+    dockerfile-language-server-nodejs
 
+    # GUI
     mattermost-desktop
     slack
     drawio
     thunderbird-latest
     self'.packages.emacs
-    sshfs
-    unzip
-    gitlab-ci-local
-    rsync # fixme: https://github.com/NixOS/nixpkgs/pull/399084
-    dockerfile-language-server-nodejs
-
-    self'.packages.tym
+    zoom-us
   ];
 
   environment.sessionVariables = {

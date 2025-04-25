@@ -3,8 +3,8 @@ normal = { family = "iosevka-normal", style = "Medium" }
 size = 13
 
 [window]
-padding = { x = 10, y = 10 }
-dynamic_padding = true
+# padding = { x = 10, y = 10 }
+# dynamic_padding = true
 
 [terminal]
 osc52 = "CopyPaste"
