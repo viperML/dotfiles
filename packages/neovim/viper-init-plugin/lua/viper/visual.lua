@@ -39,7 +39,7 @@ vim.opt.termguicolors = true
 --   -- end,
 -- }
 require("catppuccin").setup {
-  flavour = "macchiato",
+  flavour = "mocha",
 }
 
 -- vim.cmd([[ colorscheme kanagawa-dragon ]])

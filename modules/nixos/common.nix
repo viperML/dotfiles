@@ -40,7 +40,6 @@
     # CLI base tools
     usbutils
     pciutils
-    vim
     file
     pax-utils
     efibootmgr
@@ -120,19 +119,6 @@
       services."kmsconvt@tty7".enable = false;
     };
 
-  # home-manager = {
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  #   backupFileExtension = "old";
-  #   verbose = true;
-  #   sharedModules = [
-  #     {
-  #       home.stateVersion = lib.mkForce config.system.stateVersion;
-  #       nix.package = lib.mkForce config.nix.package;
-  #     }
-  #   ];
-  # };
-
   programs.ssh = {
     startAgent = true;
     agentTimeout = "8h";
@@ -192,8 +178,4 @@
   };
 
   hardware.steam-hardware.enable = true;
-
-  system.switch = {
-    enableNg = false;
-  };
 }

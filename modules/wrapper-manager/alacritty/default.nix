@@ -25,7 +25,7 @@ in
     alacrittyConfig = lib.mkMerge [
       (lib.importTOML ./alacritty.toml)
       # (lib.importTOML ./theme.toml)
-      (lib.importTOML ./macchiato.toml)
+      (lib.importTOML ./mocha.toml)
       {
         # terminal.shell.program = pkgs.writeShellScript "alacritty-start" ''
         #   if [[ $(type -P tmux) ]]; then
