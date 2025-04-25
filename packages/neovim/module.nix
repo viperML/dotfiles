@@ -74,6 +74,7 @@ in
           nvim-treesitter-textobjects
           nvim-ts-autotag
           fidget-nvim
+          haskell-tools-nvim
 
           ./viper-init-plugin
         ]
@@ -91,7 +92,6 @@ in
         conform-nvim
         git-conflict-nvim
         gitsigns-nvim
-        haskell-tools-nvim
         indent-blankline-nvim
         marks-nvim
         neo-tree-nvim
