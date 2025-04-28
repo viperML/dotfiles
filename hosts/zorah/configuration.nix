@@ -26,10 +26,12 @@ in
     thunderbird-latest
     self'.packages.emacs
     zoom-us
+    self'.packages.ungoogled-chromium
   ];
 
-  environment.sessionVariables = {
+  environment.sessionVariables = rec {
     FLAKE = "/var/home/ayats/Documents/dotfiles";
+    NH_OS_FLAKE = FLAKE;
   };
 
   networking = {
