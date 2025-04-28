@@ -1,18 +1,26 @@
-{ pkgs, inputs', ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 let
   myGit = pkgs.gitFull;
+  gitconfig =
+    (builtins.readFile ../../../misc/gitconfig)
+    +
+      # gitconfig
+      ''
+        [commit]
+          template = ${../../../misc/git_template}
+      '';
 in
 {
   wrappers.git = {
-    # basePackage = inputs'.git-args.packages.default.override {
-    #   git = myGit;
-    # };
     basePackage = myGit;
     extraPackages = [
       pkgs.git-extras
       myGit
     ];
-    env.GIT_CONFIG_GLOBAL.value = ../../../misc/gitconfig;
-    env.GIT_CLONE_FLAGS.value = "--recursive --filter=blob:none";
+    env.GIT_CONFIG_GLOBAL.value = builtins.toFile "gitconfig" gitconfig;
   };
 }

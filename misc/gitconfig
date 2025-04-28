@@ -4,6 +4,8 @@
   autocrlf=input
   untrackedcache = true
   fsmonitor = true
+[advice]
+  addEmptyPathspec = false
 [credential]
 	helper = libsecret
 [credential "https://github.com"]
@@ -60,3 +62,7 @@
   filterSubmodules = true
 [checkout]
   workers = 0
+[url "git@github.com:"]
+  insteadOf = "github:"
+[commit]
+  verbose = true
