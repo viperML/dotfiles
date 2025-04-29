@@ -10,7 +10,7 @@ M.ignored = {
   "dist-newstyle",
 }
 
--- vim.opt.winborder = "rounded" -- Some plugins don't work properly
+vim.opt.winborder = "rounded" -- Some plugins don't work properly
 vim.opt.termguicolors = true
 
 -- require("kanagawa").setup {

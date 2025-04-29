@@ -14,6 +14,10 @@ bind \e\[1\;5D backward-word
 bind \e\[1\;5A history-token-search-backward
 bind \e\[1\;5B history-token-search-forward
 
+# Env vars
+set -gx LS_COLORS "di=34:ln=36:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+set -gx FZF_DEFAULT_OPTS "--color=16 --ansi"
+
 
 # Abbrs
 abbr -a -g e eza

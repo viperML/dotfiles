@@ -114,7 +114,9 @@ return {
     },
   },
   ["gopls"] = {},
-  ["zls"] = {},
+  ["zls"] = {
+    enable_build_on_save = true,
+  },
   ["tinymist"] = {
     offset_encoding = "utf-8",
   },
