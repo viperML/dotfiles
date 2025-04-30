@@ -21,6 +21,7 @@
   rebase=false
 [push]
   default = current
+  autoSetupRemote = true
 [user]
   email=ayatsfer@gmail.com
   name=Fernando Ayats
