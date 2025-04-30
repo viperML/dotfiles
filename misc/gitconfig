@@ -20,7 +20,7 @@
   ff=only
   rebase=false
 [push]
-  default=simple
+  default = current
 [user]
   email=ayatsfer@gmail.com
   name=Fernando Ayats
