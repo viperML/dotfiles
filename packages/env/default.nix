@@ -30,6 +30,7 @@
   jq,
   alejandra,
   nixfmt-rfc-style,
+  npins,
   psmisc,
   nil,
   yazi,

@@ -21,18 +21,6 @@ in
     nodePackages.bash-language-server
   ];
 
-  devExcludedPlugins = [
-    # ./viper-init-plugin
-    (fs.toSource {
-      root = ./viper-init-plugin;
-      fileset = lib.fileset.fromSource (lib.sources.cleanSource ./viper-init-plugin);
-    })
-  ];
-
-  devPluginPaths = [
-    "~/Documents/dotfiles/packages/neovim/viper-init-plugin"
-  ];
-
   wrapperArgs = [
     "--set-default"
     "NVIM_NODE"
@@ -47,73 +35,80 @@ in
       vim.opt.exrc = true
     '';
 
-  plugins =
-    let
-      start =
-        with pkgs.vimPlugins;
-        [
-          nvim-web-devicons
-          snacks-nvim
-          plenary-nvim
-          mini-nvim
-          kanagawa-nvim
-          catppuccin-nvim
-          bufferline-nvim
-          lualine-nvim
+  plugins = {
+    dev.main = {
+      pure =
 
-          # No autostart
-          blink-cmp-copilot
-          lsp-progress-nvim
-          nui-nvim
-          SchemaStore-nvim
-
-          # Fine to not lazy-load
-          lz-n
-          nvim-treesitter
-          nvim-treesitter-context
-          nvim-treesitter-textobjects
-          nvim-ts-autotag
-          fidget-nvim
-          haskell-tools-nvim
-
-          ./viper-init-plugin
-        ]
-        ++ (
-          pkgs.vimPlugins.nvim-treesitter.grammarPlugins
-          |> lib.filterAttrs (n: _: !(builtins.elem n [ "comment" ]))
-          |> builtins.attrValues
+        (
+          fs.toSource {
+            root = ./viper-init-plugin;
+            fileset = lib.fileset.fromSource (lib.sources.cleanSource ./viper-init-plugin);
+          }
         );
+      impure = "~/Documents/dotfiles/packages/neovim/viper-init-plugin";
+    };
+    start = lib.mkMerge [
+      (
+        pkgs.vimPlugins.nvim-treesitter.grammarPlugins
+        |> lib.filterAttrs (n: _: !(builtins.elem n [ "comment" ]))
+        |> builtins.attrValues
+      )
+      (with pkgs.vimPlugins; [
+        nvim-web-devicons
+        snacks-nvim
+        plenary-nvim
+        mini-nvim
+        kanagawa-nvim
+        catppuccin-nvim
+        bufferline-nvim
+        lualine-nvim
 
-      opt = with pkgs.vimPlugins; [
+        # No autostart
+        blink-cmp-copilot
+        lsp-progress-nvim
+        nui-nvim
+        SchemaStore-nvim
 
-        # codecompanion-nvim
-        avante-nvim
-        comment-nvim
-        conform-nvim
-        git-conflict-nvim
-        gitsigns-nvim
-        indent-blankline-nvim
-        marks-nvim
-        neo-tree-nvim
-        noice-nvim
-        nvim-autopairs
-        nvim-lspconfig
-        blink-cmp
-        nvim-navic
-        parinfer-rust
-        smart-splits-nvim
-        # zellij-nav-nvim
-        telescope-fzf-native-nvim
-        telescope-nvim
-        trouble-nvim
-        vim-better-whitespace
-        vim-nix
-        which-key-nvim
-        yazi-nvim
+        # Fine to not lazy-load
+        lz-n
+        nvim-treesitter
+        nvim-treesitter-context
+        nvim-treesitter-textobjects
+        nvim-ts-autotag
+        fidget-nvim
+        haskell-tools-nvim
 
-        # Check of having some autostart
-        copilot-lua
-      ];
-    in
-    start ++ (map (p: p // { optional = true; }) opt);
+        ./viper-init-plugin
+      ])
+    ];
+    opt = with pkgs.vimPlugins; [
+      # codecompanion-nvim
+      avante-nvim
+      comment-nvim
+      conform-nvim
+      git-conflict-nvim
+      gitsigns-nvim
+      indent-blankline-nvim
+      marks-nvim
+      neo-tree-nvim
+      noice-nvim
+      nvim-autopairs
+      nvim-lspconfig
+      blink-cmp
+      nvim-navic
+      parinfer-rust
+      smart-splits-nvim
+      # zellij-nav-nvim
+      telescope-fzf-native-nvim
+      telescope-nvim
+      trouble-nvim
+      vim-better-whitespace
+      vim-nix
+      which-key-nvim
+      yazi-nvim
+
+      # Check of having some autostart
+      copilot-lua
+    ];
+  };
 }
