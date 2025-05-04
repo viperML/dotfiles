@@ -38,17 +38,6 @@
 
         inputs.noshell.nixosModules.default
         # { programs.noshell.enable = true; }
-
-        inputs.activation-manager.nixosModules.home
-
-        (
-          { config, ... }:
-          {
-            users.users.ayats.packages = [
-              (config.activation-manager.mkHome ../modules/activation-manager/main.nix)
-            ];
-          }
-        )
       ] ++ extraModules;
     };
 }

@@ -74,9 +74,8 @@
       url = "github:viperML/guix-search";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    activation-manager = {
-      url = "github:viperML/activation-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nix-maid = {
+      url = "github:viperML/nix-maid";
     };
 
     flake-compat = {

@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "activation-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1741448150,
-        "narHash": "sha256-BNxzEzDG1Yhc7DOHnGuBJElzWa5S96+HFiIOM14QDUY=",
-        "owner": "viperML",
-        "repo": "activation-manager",
-        "rev": "c8346f4a4dad7393ea749bb18d19e2278c75955d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "activation-manager",
-        "type": "github"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1731098351,
@@ -346,6 +326,21 @@
         "type": "github"
       }
     },
+    "nix-maid": {
+      "locked": {
+        "lastModified": 1746383945,
+        "narHash": "sha256-StzzX4igbM/tevFpZmR0Yl0k6O1S6afegXUOq3yK2cI=",
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "rev": "49599f1fd430f7e37546808e13421532c4349aa9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1744932701,
@@ -476,7 +471,6 @@
     },
     "root": {
       "inputs": {
-        "activation-manager": "activation-manager",
         "emacs-overlay": "emacs-overlay",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -489,6 +483,7 @@
         "nil": "nil",
         "nix-common": "nix-common",
         "nix-index-database": "nix-index-database",
+        "nix-maid": "nix-maid",
         "nixpkgs": "nixpkgs_2",
         "noshell": "noshell",
         "wrapper-manager": "wrapper-manager"
