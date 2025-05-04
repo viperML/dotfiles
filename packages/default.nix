@@ -103,16 +103,8 @@ flake@{
           # packages that depend of wrappers
           stage3 =
             let
-              callPackage = lib.callPackageWith (pkgs // self);
-              callPackageScopedWith =
-                autoArgs: f: args:
-                let
-                  res = builtins.scopedImport (autoArgs // args) f;
-                  override = newArgs: callPackageScopedWith (autoArgs // newArgs) f;
-                in
-                res // { inherit override; };
-
-              callPackageScoped = callPackageScopedWith (pkgs // self);
+              p = pkgs // self;
+              callPackage = lib.callPackageWith p;
             in
             stage2
             // {
@@ -121,6 +113,8 @@ flake@{
               };
 
               hpc-env = callPackage ./hpc-env { };
+
+              maid = inputs.nix-maid p ../modules/maid;
             };
         in
         stage3
