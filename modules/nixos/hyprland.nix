@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     vanilla-dmz
     wofi
+    wdisplays
   ];
 
   environment.sessionVariables = {

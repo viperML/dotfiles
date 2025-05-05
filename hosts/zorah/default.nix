@@ -37,7 +37,22 @@ in
 
       #-- Environment
       # {services.displayManager.autoLogin.user = "ayats";}
-      nixosModules.gnome
+      ../../modules/nixos/hyprland.nix
+      {
+        specialisation.gnome = {
+          inheritParentConfig = true;
+          configuration = {
+            environment.etc."specialisation".text = "gnome";
+            disabledModules = [
+              ../../modules/nixos/hyprland.nix
+            ];
+            imports = [
+              ../../modules/nixos/gnome.nix
+
+            ];
+          };
+        };
+      }
 
       #-- Other
       nixosModules.tailscale

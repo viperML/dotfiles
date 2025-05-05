@@ -6,6 +6,7 @@
   #
   fzf,
   starship,
+  carapace,
   direnv,
   nix-index,
   eza,
