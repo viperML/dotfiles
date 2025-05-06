@@ -13,6 +13,8 @@
 
   imports = [
     ./waybar
+    ./dunst
+    ./clipman
   ];
 
   config = {

@@ -7,7 +7,6 @@
 
   programs.hyprland = {
     enable = true;
-    # package = inputs'.hyprland.packages.default;
   };
 
   home-manager.sharedModules = [
@@ -19,4 +18,7 @@
   #   XDG_SESSION_TYPE = "wayland";
   #   XDG_SESSION_DESKTOP = "Hyprland";
   # };
+
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 }
