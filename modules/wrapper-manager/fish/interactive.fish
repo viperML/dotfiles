@@ -47,6 +47,7 @@ abbr -a -g gl "git logs"
 abbr -a -g glt "git logtags"
 abbr -a -g gr "cd (git-root)"
 abbr -a -g gcm "git commit -m"
+abbr -a -g gf "git forgor"
 
 set -gx fish_color_normal brwhite
 set -gx fish_color_command green

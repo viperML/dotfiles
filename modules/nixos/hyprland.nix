@@ -12,6 +12,9 @@
     vanilla-dmz
     wofi
     wdisplays
+    seahorse
+    xdg-utils
+    libsecret
   ];
 
   environment.sessionVariables = {
@@ -20,4 +23,7 @@
     # XCURSOR_THEME = "DMZ-White";
     # XCURSOR_SIZE = "24";
   };
+
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 }
