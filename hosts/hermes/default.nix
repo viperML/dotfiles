@@ -24,7 +24,7 @@ in
 
       #-- Environment
       { services.displayManager.autoLogin.user = "ayats"; }
-      nixosModules.plasma6
+      ../../modules/nixos/hyprland.nix
 
       #-- Other
       # nixosModules.guix

@@ -132,5 +132,6 @@ in
     self'.packages.wezterm
     pkgs.sbctl
     pkgs.prismlauncher
+    pkgs.bruno
   ];
 }

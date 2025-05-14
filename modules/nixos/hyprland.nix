@@ -15,6 +15,7 @@
     seahorse
     xdg-utils
     libsecret
+    nwg-displays
   ];
 
   environment.sessionVariables = {
