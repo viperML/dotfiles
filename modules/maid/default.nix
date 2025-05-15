@@ -15,6 +15,7 @@
     ./waybar
     ./dunst
     ./clipman
+    ./wallpaper
   ];
 
   config = {
