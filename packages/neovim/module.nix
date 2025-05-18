@@ -111,4 +111,12 @@ in
       copilot-lua
     ];
   };
+  extraBuilderArgs = {
+    doInstallCheck = true;
+    installCheckPhase = ''
+      export HOME="$(mktemp -d)"
+      export NVIM_SILENT=1
+      "$out/bin/nvim" --headless '+lua =require("viper.health").loaded_exit()' '+q'
+    '';
+  };
 }
