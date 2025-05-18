@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  self',
   pkgs,
   options,
   ...
@@ -12,7 +11,7 @@ in
 {
   services.guix = {
     enable = true;
-    package = self'.packages.guix;
+    # package = self'.packages.guix;
     gc = {
       enable = true;
       dates = "weekly";
@@ -31,7 +30,7 @@ in
   systemd.services.guix-daemon = {
     # use the system guix for the daemon
     script = lib.mkForce ''
-      exec ${lib.getExe' self'.packages.guix "guix-daemon"} \
+      exec ${lib.getExe' config.services.guix.package "guix-daemon"} \
         --build-users-group=${cfg.group} \
         ${
           lib.optionalString (

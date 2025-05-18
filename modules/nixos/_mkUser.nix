@@ -2,7 +2,7 @@ name:
 {
   lib,
   config,
-  self',
+  pkgs,
   ...
 }:
 let
@@ -12,7 +12,7 @@ in
   _file = ./_mkUser.nix;
 
   environment.shells = [
-    self'.packages.fish
+    pkgs.fish-viper
   ];
 
   users.users.${name} = {

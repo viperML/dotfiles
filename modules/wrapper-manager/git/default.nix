@@ -1,10 +1,9 @@
 {
   pkgs,
-  lib,
   ...
 }:
 let
-  myGit = pkgs.gitFull;
+  # myGit = pkgs.gitFull;
   gitconfig =
     (builtins.readFile ../../../misc/gitconfig)
     +
@@ -15,11 +14,11 @@ let
       '';
 in
 {
-  wrappers.git = {
-    basePackage = myGit;
+  wrappers.git-viper = {
+    basePackage = pkgs.git;
     extraPackages = [
       pkgs.git-extras
-      myGit
+      # myGit
     ];
     env.GIT_CONFIG_GLOBAL.value = builtins.toFile "gitconfig" gitconfig;
   };

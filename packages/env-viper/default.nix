@@ -1,8 +1,6 @@
 {
-  inputs',
-  #
   lib,
-  symlinkJoin,
+  buildEnv,
   #
   fzf,
   starship,
@@ -11,7 +9,7 @@
   nix-index,
   eza,
   bat,
-  fish,
+  fish-viper,
   neovim,
   elf-info,
   gh,
@@ -23,7 +21,7 @@
   ripgrep,
   libarchive,
   dogdns,
-  git,
+  git-viper,
   difftastic,
   elfutils-cli,
   lurk,
@@ -38,11 +36,8 @@
   httpie,
   osc,
 }@args:
-symlinkJoin {
+buildEnv {
   name = "env";
-  paths = (builtins.filter lib.isDerivation (builtins.attrValues args)) ++ [
-    inputs'.nh.packages.default
-    inputs'.hover-rs.packages.default
-    inputs'.guix-search.packages.default
-  ];
+  paths = args |> builtins.attrValues |> builtins.filter lib.isDerivation;
+  extraOutputsToInstall = ["out" "man"];
 }

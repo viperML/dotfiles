@@ -1,10 +1,130 @@
 {
   "pins": {
+    "guix-search": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "guix-search"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "ba2bd8bfb46eed4359cc592098a0ea5e666d727e",
+      "url": "https://github.com/viperML/guix-search/archive/ba2bd8bfb46eed4359cc592098a0ea5e666d727e.tar.gz",
+      "hash": "0s24dxdv9fza8ripc39mxyylnfyr7b5s9ssr49k9nzsmdj1ynvbs"
+    },
+    "hover-rs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "hover-rs"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "7a699b1e8a52c416e6d113a000b500752a6c3371",
+      "url": "https://github.com/viperML/hover-rs/archive/7a699b1e8a52c416e6d113a000b500752a6c3371.tar.gz",
+      "hash": "1jc1vl3c3misi6lq0j08vp991w0yly4szjgznsnjqvnpgpni973n"
+    },
+    "lanzaboote": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "lanzaboote"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.4.2",
+      "revision": "f0212638a2ec787a7841882f4477d40ae24f0a5d",
+      "url": "https://api.github.com/repos/nix-community/lanzaboote/tarball/v0.4.2",
+      "hash": "0xc1wawnb0297h5khxblmf9pd1fry950xkcm7mwlck19s2906h80"
+    },
+    "mnw": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Gerg-L",
+        "repo": "mnw"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "74bb7dcc52df51337fde52c695216b64b2270a06",
+      "url": "https://github.com/Gerg-L/mnw/archive/74bb7dcc52df51337fde52c695216b64b2270a06.tar.gz",
+      "hash": "1h9j48rpil2ibnw4m497bhn6abm73jgqbdlqv2mqv0bacch5wv4q"
+    },
+    "nh": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nh"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "9bbd96385f5534ccc2ba7f0b3c29192d7f0eb68c",
+      "url": "https://github.com/nix-community/nh/archive/9bbd96385f5534ccc2ba7f0b3c29192d7f0eb68c.tar.gz",
+      "hash": "072iyzg5ahdibi4wi9qxr2x40qmymhlfsh1i87n8jx167nyakk93"
+    },
+    "nix-common": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "nix-common"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "cfc4a69045bd8d858319875c572d52ce2a53a533",
+      "url": "https://github.com/viperML/nix-common/archive/cfc4a69045bd8d858319875c572d52ce2a53a533.tar.gz",
+      "hash": "1hkj2f4iq8qf157qklzp59qny2j4yh8i9f5cmgrsn3ny9wyxf62y"
+    },
+    "nix-index-database": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nix-index-database"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "e9b21b01e4307176b9718a29ac514838e7f6f4ff",
+      "url": "https://github.com/nix-community/nix-index-database/archive/e9b21b01e4307176b9718a29ac514838e7f6f4ff.tar.gz",
+      "hash": "085414ygbi9pnv8qmx7mpjklcdiwx5881vqnjaih831cbpwa4zny"
+    },
+    "nix-maid": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "nix-maid"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "333bec47b70ccbce55ac6a9ce41c393e9a8c35f4",
+      "url": "https://github.com/viperML/nix-maid/archive/333bec47b70ccbce55ac6a9ce41c393e9a8c35f4.tar.gz",
+      "hash": "04iyhi0g3k4si9x8nrzyxga6q3xp99hjhrcrm2n2a2c68gjqf3fd"
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre788066.507b63021ada/nixexprs.tar.xz",
       "hash": "1mx9ls3i1j4ydvi2pili1b68akr3i2zgdkddpsxnr2ql5l4ys9hl"
+    },
+    "wrapper-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "wrapper-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "f2b0bec5140403cf24cae96f6764d97b5d59b0e2",
+      "url": "https://github.com/viperML/wrapper-manager/archive/f2b0bec5140403cf24cae96f6764d97b5d59b0e2.tar.gz",
+      "hash": "003rl9myjkxz1r08lnbhjhc87b43m3pnz39108fb0ng873kpxwax"
     }
   },
   "version": 5

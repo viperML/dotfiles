@@ -1,4 +1,4 @@
 { yazi }:
-yazi.override (final: {
+yazi.override {
   settings.keymap = builtins.readFile ./keymap.toml |> builtins.fromTOML;
-})
+}

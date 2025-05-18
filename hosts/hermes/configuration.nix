@@ -2,7 +2,7 @@
   lib,
   pkgs,
   config,
-  self',
+  # self',
   ...
 }:
 let
@@ -10,8 +10,8 @@ let
 in
 {
   environment.sessionVariables = rec {
-    FLAKE = "/var/home/ayats/Documents/dotfiles";
-    NH_OS_FLAKE = FLAKE;
+    d = "/var/home/ayats/Documents/dotfiles";
+    NH_FILE = "${d}/hosts/hermes";
   };
 
   networking = {
@@ -129,7 +129,8 @@ in
 
   environment.systemPackages = [
     pkgs.vault
-    self'.packages.wezterm
+    # self'.packages.wezterm
+    pkgs.wezterm
     pkgs.sbctl
     pkgs.prismlauncher
     pkgs.bruno

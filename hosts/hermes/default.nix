@@ -1,38 +1,19 @@
-{
-  config,
-  withSystem,
-  mkNixos,
-  inputs,
-  ...
-}:
-let
-  system = "x86_64-linux";
-  inherit (config.flake) nixosModules;
-in
-{
-  flake.nixosConfigurations.hermes = withSystem system (
-    { pkgs, ... }:
-    mkNixos system [
-      #-- Topology
-      ./configuration.nix
-      inputs.lanzaboote.nixosModules.lanzaboote
-      nixosModules.tmpfs
-      nixosModules.tpm2
-      nixosModules.user-ayats
-      nixosModules.user-soch
-      nixosModules.yubikey
+import ../. {
+  modules = [
 
-      #-- Environment
-      { services.displayManager.autoLogin.user = "ayats"; }
-      ../../modules/nixos/hyprland.nix
+    ./configuration.nix
+    ../../modules/nixos/tmpfs.nix
+    ../../modules/nixos/tpm2
+    ../../modules/nixos/user-ayats.nix
+    ../../modules/nixos/user-soch.nix
+    ../../modules/nixos/yubikey
 
-      #-- Other
-      # nixosModules.guix
-      nixosModules.tailscale
-      # nixosModules.docker
-      # nixosModules.incus
-      nixosModules.podman
-      nixosModules.silent-boot
-    ]
-  );
+    { services.displayManager.autoLogin.user = "ayats"; }
+    ../../modules/nixos/hyprland.nix
+
+    ../../modules/nixos/tailscale.nix
+
+    ../../modules/nixos/podman.nix
+    ../../modules/nixos/silent-boot.nix
+  ];
 }

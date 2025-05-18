@@ -69,7 +69,7 @@ let
       '';
 in
 {
-  wrappers.fish = {
+  wrappers.fish-viper = {
     basePackage = pkgs.fish;
     extraWrapperFlags = ''
       --prefix XDG_DATA_DIRS : "${

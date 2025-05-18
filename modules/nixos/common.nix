@@ -2,8 +2,7 @@
   config,
   pkgs,
   lib,
-  self',
-  inputs',
+  # inputs',
   ...
 }:
 {
@@ -16,17 +15,22 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 1w --keep 3";
-    package = inputs'.nh.packages.default;
+    # package = inputs'.nh.packages.default;
   };
 
   nix = {
-    package = self'.packages.nix;
+    # package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
     settings = lib.mkMerge [
       (import ../../misc/nix-conf.nix)
       (import ../../misc/nix-conf-privileged.nix)
+      { "flake-registry" = "/etc/nix/registry.json"; }
     ];
+    channel.enable = false;
+    nixPath = ["nixpkgs=/etc/nixpkgs"];
   };
+
+  environment.etc.nixpkgs.source = pkgs.path;
 
   users.mutableUsers = false;
 
@@ -34,7 +38,10 @@
 
   environment.defaultPackages = [ ];
 
-  environment.sessionVariables.EDITOR = "nvim";
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    # NIXPKGS_CONFIG = lib.mkForce "";
+  };
 
   environment.systemPackages = with pkgs; [
     # CLI base tools
@@ -47,7 +54,8 @@
     android-tools
 
     # Global dev, not part of env
-    self'.packages.env
+    # self'.packages.env
+    env-viper
     nixpkgs-fmt
     nix-output-monitor
     shellcheck
@@ -61,18 +69,18 @@
     # google-chrome
     # self'.packages.google-chrome
     # self'.packages.microsoft-edge
-    self'.packages.brave
+    brave
     # ptyxis
-    self'.packages.zellij
+    zellij
     # self'.packages.alacritty
     # self'.packages.wezterm
-    self'.packages.vscode
+    vscode
     # self'.packages.ghostty
-    self'.packages.alacritty
-    self'.packages.tmux
+    alacritty
+    # self'.packages.tmux
     libcgroup
     wl-color-picker
-    self'.packages.code-cursor
+    # self'.packages.code-cursor
   ];
 
   # i18n = let
@@ -126,7 +134,8 @@
 
   fonts.packages = [
     pkgs.roboto
-    self'.packages.iosevka
+    # self'.packages.iosevka
+    pkgs.iosevka-normal
     # (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
@@ -163,7 +172,7 @@
     fonts = [
       {
         name = "iosevka-normal Semibold";
-        package = self'.packages.iosevka;
+        package = pkgs.iosevka-normal;
       }
       {
         name = "Symbols Nerd Font";
