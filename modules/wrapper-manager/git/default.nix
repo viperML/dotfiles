@@ -3,7 +3,6 @@
   ...
 }:
 let
-  # myGit = pkgs.gitFull;
   gitconfig =
     (builtins.readFile ../../../misc/gitconfig)
     +
