@@ -1,10 +1,14 @@
 with import <nixpkgs> { };
 mkShell {
   packages = [
-    nodejs
-    ags
-    glib
+    # nodejs
+    # ags
+    # glib
     gobject-introspection
+    ags
+    astal.hyprland
+    # astal.astal4
+    # wrapGAppsHook
     gtk4
   ];
 

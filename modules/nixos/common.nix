@@ -81,6 +81,8 @@
     libcgroup
     wl-color-picker
     # self'.packages.code-cursor
+
+    maid
   ];
 
   # i18n = let

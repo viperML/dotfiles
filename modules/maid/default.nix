@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -16,13 +17,18 @@
     ./dunst
     ./clipman
     ./wallpaper
+    ./ags
   ];
 
   config = {
+    packages = with pkgs; [
+      hyprshot
+    ];
+
     file.xdg_config."hypr/hyprland.conf".source =
       "${config.impureDotfilesPath}/modules/maid/hyprland/hyprland.conf";
 
-    systemd.tmpfiles.dynamicRules = [ 
+    systemd.tmpfiles.dynamicRules = [
       "f {{xdg_config_home}}/hypr/monitors.conf 0644 {{user}} {{group}} - -"
     ];
 

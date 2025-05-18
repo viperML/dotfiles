@@ -14,7 +14,13 @@ window.Bar {
     }
 
     button {
-        border-radius: 8px;
+        border-radius: 0px;
         margin: 2px;
+    }
+}
+
+.Workspaces {
+    .focused {
+        background: red;
     }
 }
