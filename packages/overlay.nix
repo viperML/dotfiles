@@ -42,15 +42,7 @@ let
       in
       imported.nix-index-with-db;
 
-    neovim-unchecked = (import sources.mnw).lib.wrap final { imports = [ ./neovim/module.nix ]; };
-
-    neovim = final.neovim-unchecked.overrideAttrs (old: {
-      postInstall = ''
-        export HOME="$(mktemp -d)"
-        export NVIM_SILENT=1
-        $out/bin/nvim --headless '+lua =require("viper.health").loaded_exit()' '+q'
-      '';
-    });
+    neovim = (import sources.mnw).lib.wrap final { imports = [ ./neovim/module.nix ]; };
 
     nh = final.callPackage "${sources.nh}/package.nix" {
       rev = sources.nh.revision;
