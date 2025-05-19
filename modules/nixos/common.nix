@@ -28,6 +28,7 @@
     ];
     channel.enable = false;
     nixPath = [ "nixpkgs=/etc/nixpkgs" ];
+    # FIXME: Should use a `path` entry using the narHash from npins
     registry.nixpkgs.to = {
       type = "github";
       owner = "NixOS";
