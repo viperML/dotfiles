@@ -9,8 +9,11 @@ let
 
   overlayPatches = final: prev: {
     gnome-keyring = prev.gnome-keyring.overrideAttrs (old: {
-      configureFlags = (lib.remove "--enable-ssh-agent" old.configureFlags) ++ [
-        "--disable-ssh-agent"
+      # configureFlags = (lib.remove "--enable-ssh-agent" old.configureFlags) ++ [
+      #   "--disable-ssh-agent"
+      # ];
+      mesonFlags = (lib.remove "-Dssh-agent=true" old.mesonFlags) ++ [
+        "-Dssh-agent=false"
       ];
     });
   };

@@ -27,7 +27,13 @@
       { "flake-registry" = "/etc/nix/registry.json"; }
     ];
     channel.enable = false;
-    nixPath = ["nixpkgs=/etc/nixpkgs"];
+    nixPath = [ "nixpkgs=/etc/nixpkgs" ];
+    registry.nixpkgs.to = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixpkgs";
+      ref = (import ../../npins).nixpkgs.revision;
+    };
   };
 
   environment.etc.nixpkgs.source = pkgs.path;
