@@ -16,6 +16,7 @@
     xdg-utils
     libsecret
     nwg-displays
+    brightnessctl
   ];
 
   environment.sessionVariables = {
