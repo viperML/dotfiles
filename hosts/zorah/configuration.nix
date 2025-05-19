@@ -2,7 +2,7 @@
   lib,
   pkgs,
   config,
-  self',
+  # self',
   ...
 }:
 let
@@ -24,14 +24,14 @@ in
     slack
     drawio
     thunderbird-latest
-    self'.packages.emacs
+    # self'.packages.emacs
     zoom-us
-    self'.packages.ungoogled-chromium
+    ungoogled-chromium
   ];
 
   environment.sessionVariables = rec {
-    FLAKE = "/var/home/ayats/Documents/dotfiles";
-    NH_OS_FLAKE = FLAKE;
+    d = "/var/home/ayats/Documents/dotfiles";
+    NH_FILE = "${d}/hosts/zorah";
   };
 
   networking = {
