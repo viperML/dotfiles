@@ -44,6 +44,7 @@
 [fetch]
   writeCommitGraph = true
   showForcedUpdates = true
+  parallel = 0
 [rebase]
   updateRegs = true
 [safe]
