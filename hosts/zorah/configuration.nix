@@ -27,6 +27,7 @@ in
     # self'.packages.emacs
     zoom-us
     ungoogled-chromium
+    distrobox
   ];
 
   environment.sessionVariables = rec {
