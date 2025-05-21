@@ -20,5 +20,7 @@
     # ./ags
   ];
 
-  config = {};
+  config = {
+    file.home.".gitconfig".source = pkgs.git-viper.gitconfig;
+  };
 }
