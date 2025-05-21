@@ -130,5 +130,6 @@ in
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.distrobox
+    pkgs.nvtopPackages.amd
   ];
 }
