@@ -128,11 +128,7 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.vault
-    # self'.packages.wezterm
-    pkgs.wezterm
     pkgs.sbctl
-    pkgs.prismlauncher
-    pkgs.bruno
+    pkgs.distrobox
   ];
 }
