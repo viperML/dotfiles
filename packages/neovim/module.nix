@@ -78,7 +78,7 @@ in
         fidget-nvim
         haskell-tools-nvim
 
-        ./viper-init-plugin
+        # ./viper-init-plugin
       ])
     ];
     opt = with pkgs.vimPlugins; [
