@@ -45,7 +45,7 @@ in
             fileset = lib.fileset.fromSource (lib.sources.cleanSource ./viper-init-plugin);
           }
         );
-      impure = "~/Documents/dotfiles/packages/neovim/viper-init-plugin";
+      impure = ./viper-init-plugin;
     };
     start = lib.mkMerge [
       (

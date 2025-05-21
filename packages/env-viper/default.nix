@@ -27,7 +27,6 @@
   lurk,
   fq,
   jq,
-  alejandra,
   nixfmt-rfc-style,
   npins,
   psmisc,
@@ -39,5 +38,8 @@
 buildEnv {
   name = "env";
   paths = args |> builtins.attrValues |> builtins.filter lib.isDerivation;
-  extraOutputsToInstall = ["out" "man"];
+  extraOutputsToInstall = [
+    "out"
+    "man"
+  ];
 }
