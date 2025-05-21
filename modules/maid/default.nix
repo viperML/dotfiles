@@ -49,6 +49,7 @@
       "/org/gnome/shell/enabled-extensions" = [
         "appindicatorsupport@rgcjonas.gmail.com"
         "dash-to-panel@jderose9.github.com"
+        "monitor@astraext.github.io"
       ];
       "/org/gnome/shell/keybindings/switch-to-application-1" = [ ];
       "/org/gnome/shell/keybindings/switch-to-application-2" = [ ];
