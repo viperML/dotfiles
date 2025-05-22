@@ -9,6 +9,10 @@ let
   cfg = config.services.guix;
 in
 {
+  environment.systemPackages = [
+    pkgs.guix-search
+  ];
+
   services.guix = {
     enable = true;
     # package = self'.packages.guix;

@@ -52,7 +52,7 @@ let
     };
 
     hover-rs = final.callPackage "${sources.hover-rs}/package.nix" { };
-    guix-search = final.callPackage "${sources.guix-search}/package.nix" { };
+    guix-search = final.python3.pkgs.callPackage "${sources.guix-search}/package.nix" { };
 
     maid = (import sources.nix-maid) final ../modules/maid;
   };

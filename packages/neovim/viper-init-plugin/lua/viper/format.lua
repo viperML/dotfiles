@@ -108,10 +108,10 @@ vim.list_extend(require("viper.lazy.specs"), {
       end, { range = true })
     end,
   },
-  {
-    "parinfer-rust",
-    ft = { "scheme", "lisp", "elisp" },
-  },
+  -- {
+  --   "parinfer-rust",
+  --   ft = { "scheme", "lisp", "elisp" },
+  -- },
   {
     "comment.nvim",
     event = "DeferredUIEnter",
