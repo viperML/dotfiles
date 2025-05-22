@@ -56,7 +56,6 @@ let
           source ${./interactive.fish}
           source ${./pushd_mod.fish}
           set -gx STARSHIP_CONFIG ${../../../misc/starship.toml}
-          ${lib.getExe pkgs.carapace} _carapace fish | source
           function starship_transient_prompt_func
             ${lib.getExe pkgs.starship} module character
           end
