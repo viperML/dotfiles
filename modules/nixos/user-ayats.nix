@@ -6,6 +6,8 @@
   users.users.ayats = {
     uid = 10000;
     home = "/var/home/ayats";
+
+    maid = ../maid;
   };
 
   systemd.tmpfiles.rules = [

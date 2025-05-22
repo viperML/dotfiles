@@ -18,6 +18,7 @@ in
         ];
       }
       (import sources.lanzaboote).nixosModules.lanzaboote
+      (import sources.nix-maid).nixosModules.default
     ] ++ modules;
   }
 )

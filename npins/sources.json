@@ -103,9 +103,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "d81a89cef3bc19d4e90d216ee9c34b9229940553",
-      "url": "https://github.com/viperML/nix-maid/archive/d81a89cef3bc19d4e90d216ee9c34b9229940553.tar.gz",
-      "hash": "136lksshkl67im053d01fbgh3w6jmcvw5wkl35s0xrxz6yvfibjw"
+      "revision": "569c749c0b6c1f1b12f1485e982db567796a2c2c",
+      "url": "https://github.com/viperML/nix-maid/archive/569c749c0b6c1f1b12f1485e982db567796a2c2c.tar.gz",
+      "hash": "09zpyacvk5v06dishi8y61f2sd1f38mgkqy7kksp4py8612k1y6l"
     },
     "nixpkgs": {
       "type": "Git",
