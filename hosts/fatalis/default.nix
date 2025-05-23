@@ -1,49 +1,24 @@
-{
-  config,
-  withSystem,
-  mkNixos,
-  inputs,
-  ...
-}:
-let
-  system = "x86_64-linux";
-  inherit (config.flake) nixosModules;
-in
-{
-  flake.nixosConfigurations.fatalis = withSystem system (
-    { pkgs, ... }:
-    mkNixos system [
-      #-- Topology
-      ./configuration.nix
-      nixosModules.es
-      inputs.lanzaboote.nixosModules.lanzaboote
-      nixosModules.tmpfs
-      nixosModules.tpm2
-      nixosModules.user-ayats
-      nixosModules.user-soch
-      nixosModules.yubikey
+import ../. {
+  modules = [
+    #-- Topology
+    ./configuration.nix
+    ../../modules/nixos/es.nix
+    ../../modules/nixos/tmpfs.nix
+    ../../modules/nixos/tpm2
+    ../../modules/nixos/user-ayats.nix
+    ../../modules/nixos/user-soch.nix
+    ../../modules/nixos/yubikey
 
-      #-- Environment
-      { services.displayManager.autoLogin.user = "ayats"; }
-      # nixosModules.plasma6
-      ../../modules/nixos/gnome.nix
-      {
-        specialisation."hypr" = {
-          inheritParentConfig = true;
-          configuration = {
-            disabledModules = [ ../../modules/nixos/gnome.nix ];
-            imports = [ ../../modules/nixos/hyprland.nix ];
-          };
-        };
-      }
+    #-- Environment
+    { services.displayManager.autoLogin.user = "ayats"; }
+    # nixosModules.plasma6
+    ../../modules/nixos/gnome.nix
 
-      #-- Other
-      nixosModules.tailscale
-      nixosModules.guix
-      # nixosModules.docker
-      nixosModules.printing
-      # nixosModules.incus
-      nixosModules.podman
-    ]
-  );
+    #-- Other
+    ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/guix
+    ../../modules/nixos/printing.nix
+    ../../modules/nixos/podman.nix
+    ../../modules/nixos/silent-boot.nix
+  ];
 }

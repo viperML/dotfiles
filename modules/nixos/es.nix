@@ -1,5 +1,5 @@
-{
+{lib, ...}: {
   i18n = {
-    defaultLocale = "es_ES.UTF-8";
+    defaultLocale = lib.mkForce "es_ES.UTF-8";
   };
 }

@@ -9,7 +9,7 @@ let
 in
 {
   system.stateVersion = "24.05";
-  environment.sessionVariables.FLAKE = "/var/home/ayats/Documents/dotfiles";
+  environment.sessionVariables.D = "/var/home/ayats/Documents/dotfiles";
 
   environment.systemPackages = [
     pkgs.sbctl
