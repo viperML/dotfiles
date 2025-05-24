@@ -2,6 +2,9 @@ local lspconfig = require("lspconfig")
 local root_pattern = lspconfig.util.root_pattern
 
 vim.filetype.add {
+  extension = {
+    ["nomad"] = "hcl"
+  },
   filename = {
     [".envrc"] = "bash",
     ["gitconfig"] = "gitconfig",
