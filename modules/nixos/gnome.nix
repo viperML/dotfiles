@@ -18,6 +18,8 @@
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.astra-monitor
+    # gnomeExtensions.user-themes
+    yaru-theme
   ];
 
   environment.gnome.excludePackages = with pkgs; [

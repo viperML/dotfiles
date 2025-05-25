@@ -25,16 +25,16 @@
     dconf.settings = {
       "/org/gnome/desktop/interface/color-scheme" = "prefer-dark";
       "/org/gnome/desktop/interface/cursor-size" = 24;
-      "/org/gnome/desktop/interface/cursor-theme" = "DMZ-White";
-      "/org/gnome/desktop/interface/document-font-name" = "Roboto 11";
+      "/org/gnome/desktop/interface/cursor-theme" = "Yaru";
+      "/org/gnome/desktop/interface/document-font-name" = "Inter 11";
       "/org/gnome/desktop/interface/enable-hot-corners" = false;
-      "/org/gnome/desktop/interface/font-name" = "Roboto 11";
+      "/org/gnome/desktop/interface/font-name" = "Inter 11";
       "/org/gnome/desktop/interface/gtk-enable-primary-paste" = false;
-      "/org/gnome/desktop/interface/gtk-theme" = "adw-gtk3-dark";
-      "/org/gnome/desktop/interface/icon-theme" = "Adwaita";
+      "/org/gnome/desktop/interface/gtk-theme" = "Yaru";
+      "/org/gnome/desktop/interface/icon-theme" = "Yaru";
       "/org/gnome/desktop/lockdown/disable-lock-screen" = true;
       "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
-      "/org/gnome/desktop/wm/preferences/titlebar-font" = "Roboto Bold 11";
+      "/org/gnome/desktop/wm/preferences/titlebar-font" = "Inter Bold 11";
       "/org/gnome/desktop/peripherals/touchpad/click-method" = "areas";
       "/org/gnome/desktop/interface/show-battery-percentage" = true;
       "/org/gnome/desktop/interface/clock-format" = "12h";
@@ -44,6 +44,7 @@
         "org.gnome.clocks.desktop"
         "org.gnome.seahorse.Application.desktop"
         "org.gnome.Nautilus.desktop"
+        # "user-theme@gnome-shell-extensions.gcampax.github.com"
       ];
       "/org/gnome/shell/disable-user-extensions" = false;
       "/org/gnome/shell/enabled-extensions" = [
@@ -67,6 +68,7 @@
       "/org/gnome/mutter/dynamic-workspaces" = false;
       "/org/gnome/desktop/wm/preferences/num-workspaces" = 4;
       "/org/gnome/mutter/workspaces-only-on-primary" = false;
+      # "/org/gnome/shell/extensions/user-theme/name" = "Yaru-dark";
     };
   };
 }

@@ -142,13 +142,14 @@
   };
 
   fonts.packages = [
-    pkgs.roboto
+    # pkgs.roboto
+    pkgs.inter
     # self'.packages.iosevka
     pkgs.iosevka-normal
     # (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
-    config.services.desktopManager.plasma6.notoPackage
+    # config.services.desktopManager.plasma6.notoPackage
   ];
 
   time.timeZone = "Europe/Madrid";

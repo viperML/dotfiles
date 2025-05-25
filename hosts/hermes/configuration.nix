@@ -10,8 +10,8 @@ let
 in
 {
   environment.sessionVariables = rec {
-    d = "/var/home/ayats/Documents/dotfiles";
-    NH_FILE = "${d}/hosts/hermes";
+    D = "/var/home/ayats/Documents/dotfiles";
+    NH_FILE = "${D}/hosts/hermes";
   };
 
   networking = {
