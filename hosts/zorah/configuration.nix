@@ -31,8 +31,8 @@ in
   ];
 
   environment.sessionVariables = rec {
-    d = "/var/home/ayats/Documents/dotfiles";
-    NH_FILE = "${d}/hosts/zorah";
+    D = "/var/home/ayats/Documents/dotfiles";
+    NH_FILE = "${D}/hosts/zorah";
   };
 
   networking = {

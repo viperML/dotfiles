@@ -70,11 +70,20 @@ let
       };
     in
     mapAttrs (_: value: value.wrapped) evald.config.wrappers;
+  
+  overlayVersion = final: prev: {
+    lib = prev.lib.extend (finalLib: prevLib: {
+      trivial = prevLib.trivial // {
+        versionSuffix = ".${finalLib.substring 0 7 sources.nixpkgs.revision}";
+      };
+    });
+  };
 in
 lib.composeManyExtensions [
   overlayPatches
   overlayAuto
   overlayMisc
   overlayWrapperManager
-  # (import sources.lanzaboote).overlays.default
+    # (import sources.lanzaboote).overlays.default
+  overlayVersion
 ]
