@@ -22,6 +22,7 @@ in
     });
     extraPackages = [
       pkgs.git-extras
+      pkgs.git-graph
       # myGit
     ];
     env.GIT_CONFIG_GLOBAL.value = gitconfig;

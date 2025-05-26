@@ -11,14 +11,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-    adw-gtk3
+    # adw-gtk3
     gnome-tweaks
-    wl-clipboard
-    vanilla-dmz
+    # wl-clipboard
+    # vanilla-dmz
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.astra-monitor
     # gnomeExtensions.user-themes
+    gnomeExtensions.clipboard-history
     yaru-theme
   ];
 
