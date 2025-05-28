@@ -14,7 +14,7 @@
     "/org/gnome/desktop/interface/enable-hot-corners" = false;
     "/org/gnome/desktop/interface/font-name" = "Inter 11";
     "/org/gnome/desktop/interface/gtk-enable-primary-paste" = false;
-    "/org/gnome/desktop/interface/gtk-theme" = "Yaru";
+    "/org/gnome/desktop/interface/gtk-theme" = "adw-gtk3-dark";
     "/org/gnome/desktop/interface/icon-theme" = "Yaru";
     "/org/gnome/desktop/lockdown/disable-lock-screen" = true;
     "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
@@ -52,6 +52,5 @@
     "/org/gnome/mutter/dynamic-workspaces" = false;
     "/org/gnome/desktop/wm/preferences/num-workspaces" = 4;
     "/org/gnome/mutter/workspaces-only-on-primary" = false;
-    # "/org/gnome/shell/extensions/user-theme/name" = "Yaru-dark";
   };
 }

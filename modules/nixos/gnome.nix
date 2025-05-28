@@ -21,6 +21,7 @@
     # gnomeExtensions.user-themes
     gnomeExtensions.clipboard-history
     yaru-theme
+    adw-gtk3
   ];
 
   environment.gnome.excludePackages = with pkgs; [
