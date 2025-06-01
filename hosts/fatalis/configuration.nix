@@ -9,7 +9,10 @@ let
 in
 {
   system.stateVersion = "24.05";
-  environment.sessionVariables.D = "/var/home/ayats/Documents/dotfiles";
+  environment.sessionVariables = rec {
+    D = "/var/home/ayats/Documents/dotfiles";
+    NH_OS_FILE = "${D}/hosts/fatalis";
+  };
 
   environment.systemPackages = [
     pkgs.sbctl
