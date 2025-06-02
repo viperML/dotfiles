@@ -18,5 +18,6 @@
 
   config = {
     file.home.".gitconfig".source = pkgs.git-viper.gitconfig;
+    file.home.".spack".source = "/var/empty";
   };
 }
