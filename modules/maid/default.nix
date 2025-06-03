@@ -18,6 +18,8 @@
 
   config = {
     file.home.".gitconfig".source = pkgs.git-viper.gitconfig;
-    file.home.".spack".source = "/var/empty";
+    systemd.tmpfiles.dynamicRules = [
+      "D {{home}}/.spack 0755 {{user}} {{group}} 0 -"
+    ];
   };
 }
