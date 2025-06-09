@@ -39,10 +39,12 @@ local load_aichat_config = function(aichat_config_raw)
     hints = {
       enabled = false,
     },
-    openai = {
-      endpoint = aichat_client.api_base,
-      model = models[1].name,
-      disable_tools = true, -- disable tools!
+    providers = {
+      openai = {
+        endpoint = aichat_client.api_base,
+        model = models[1].name,
+        disable_tools = true, -- disable tools!
+      },
     },
   }
 end
@@ -84,8 +86,8 @@ require("viper.lazy").add_specs {
             enabled = false,
           },
         }
-      -- vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
-      -- vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
+        -- vim.keymap.set({"n", "i"}, "", require("copilot.suggestion").next, { desc = "Copilot: next suggestion" })
+        -- vim.keymap.set({"n", "i"}, "<C-S-S>", require("copilot.suggestion").prev, { desc = "Copilot: previous suggestion" })
       else
         vim.notify("NVIM_NODE not set")
       end

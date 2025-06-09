@@ -18,10 +18,12 @@
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.astra-monitor
+    gnomeExtensions.rounded-window-corners-reborn
     # gnomeExtensions.user-themes
     gnomeExtensions.clipboard-history
     yaru-theme
     adw-gtk3
+    celluloid
   ];
 
   environment.gnome.excludePackages = with pkgs; [

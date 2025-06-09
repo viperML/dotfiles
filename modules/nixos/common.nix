@@ -82,6 +82,7 @@
     # self'.packages.alacritty
     # self'.packages.wezterm
     vscode
+    code-cursor
     # self'.packages.ghostty
     alacritty
     # self'.packages.tmux
