@@ -11,7 +11,7 @@ in
   system.stateVersion = "24.05";
   environment.sessionVariables = rec {
     D = "/var/home/ayats/Documents/dotfiles";
-    NH_OS_FILE = "${D}/hosts/fatalis";
+    NH_FILE = "${D}/hosts/fatalis";
   };
 
   environment.systemPackages = [
