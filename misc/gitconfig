@@ -14,8 +14,6 @@
 [credential "https://gist.github.com"]
   helper=
   helper=!gh auth git-credential
-[init]
-  defaultbranch=master
 [pull]
   ff=only
   rebase=false
