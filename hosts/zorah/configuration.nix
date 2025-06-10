@@ -18,6 +18,7 @@ in
     unzip
     gitlab-ci-local
     dockerfile-language-server-nodejs
+    distrobox
 
     # GUI
     mattermost-desktop
@@ -27,7 +28,7 @@ in
     # self'.packages.emacs
     zoom-us
     ungoogled-chromium
-    distrobox
+    # gnomeExtensions.cloudflare-warp-toggle
   ];
 
   environment.sessionVariables = rec {
@@ -178,4 +179,6 @@ in
   };
 
   services.xserver.wacom.enable = true;
+
+  services.cloudflare-warp.enable = true;
 }
