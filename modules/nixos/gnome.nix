@@ -21,9 +21,9 @@
     gnomeExtensions.rounded-window-corners-reborn
     # gnomeExtensions.user-themes
     gnomeExtensions.clipboard-history
-    yaru-theme
     adw-gtk3
     celluloid
+    vanilla-dmz
   ];
 
   environment.gnome.excludePackages = with pkgs; [
