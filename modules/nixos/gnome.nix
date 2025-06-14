@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  services.xserver = {
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
       enable = true;
@@ -8,7 +8,10 @@
         mutter
       ];
     };
+    gnome.gcr-ssh-agent.enable = false;
   };
+
+  programs.ssh.startAgent = true;
 
   environment.systemPackages = with pkgs; [
     # adw-gtk3

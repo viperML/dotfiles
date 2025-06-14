@@ -137,10 +137,10 @@
       services."kmsconvt@tty7".enable = false;
     };
 
-  programs.ssh = {
-    startAgent = true;
-    agentTimeout = "8h";
-  };
+  # programs.ssh = {
+  #   startAgent = true;
+  #   agentTimeout = "8h";
+  # };
 
   fonts.packages = [
     # pkgs.roboto
