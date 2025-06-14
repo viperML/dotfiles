@@ -5,8 +5,7 @@ import ../. {
     ../../modules/nixos/es.nix
     ../../modules/nixos/tmpfs.nix
     ../../modules/nixos/tpm2
-    ../../modules/nixos/user-ayats.nix
-    ../../modules/nixos/user-soch.nix
+    ../../modules/nixos/users.nix
     ../../modules/nixos/yubikey
 
     #-- Environment

@@ -11,13 +11,8 @@ in
 {
   _file = ./_mkUser.nix;
 
-  environment.shells = [
-    pkgs.fish-viper
-  ];
-
   users.users.${name} = {
     inherit name;
-    home = lib.mkDefault "/home/${name}";
     createHome = true;
     description = name;
     isNormalUser = true;

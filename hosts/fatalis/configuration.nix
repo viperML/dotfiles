@@ -10,9 +10,11 @@ in
 {
   system.stateVersion = "24.05";
   environment.sessionVariables = rec {
-    D = "/var/home/ayats/Documents/dotfiles";
+    D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/fatalis";
   };
+
+  users.users.ayats.home = "/x";
 
   environment.systemPackages = [
     pkgs.sbctl
