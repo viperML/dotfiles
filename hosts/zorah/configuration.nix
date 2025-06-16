@@ -181,4 +181,6 @@ in
   services.xserver.wacom.enable = true;
 
   services.cloudflare-warp.enable = true;
+
+  services.hardware.bolt.enable = true;
 }
