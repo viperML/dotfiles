@@ -8,4 +8,4 @@ tpm2_ptool init
 
 tpm2_ptool addtoken --pid 1 --label ssh --userpin "" --sopin ""
 
-tpm2_ptool addkey --label ssh --userpin "" --algorithm rsa2048 --key-label "$USER $(hostname) tpm2"
+tpm2_ptool addkey --label ssh --userpin "" --algorithm ecc256 --key-label "$USER $(hostname) tpm2"
