@@ -126,7 +126,9 @@ in
       # timeout = 1;
     };
 
-    tmp.useTmpfs = true;
+    tmp = {
+      useTmpfs = false;
+    };
   };
 
   fileSystems = {

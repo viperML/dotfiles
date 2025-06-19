@@ -26,7 +26,7 @@ in
     basePackage = pkgs.zellij;
     # env.ZELLIJ_CONFIG_DIR.value = ./.;
     # env.ZELLIJ_CONFIG_DIR.value = "${configDir}/etc/zellij";
-    flags = [
+    prependFlags = [
       "--config"
       "${configDir}/etc/zellij/config.kdl"
       # FIXME doesn't pick it by default

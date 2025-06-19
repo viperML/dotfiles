@@ -14,12 +14,12 @@ in
 {
   wrappers.google-chrome = {
     basePackage = pkgs.google-chrome;
-    flags = commonFlags;
+    prependFlags = commonFlags;
   };
 
   wrappers.ungoogled-chromium = {
     basePackage = pkgs.ungoogled-chromium;
-    flags = commonFlags ++ [
+    prependFlags = commonFlags ++ [
       "--enable-features=${
         lib.concatStringsSep "," [
           "ClearDataOnExit"
@@ -30,11 +30,11 @@ in
 
   wrappers.microsoft-edge = {
     basePackage = pkgs.microsoft-edge;
-    flags = commonFlags;
+    prependFlags = commonFlags;
   };
 
   wrappers.brave = {
     basePackage = pkgs.brave;
-    flags = commonFlags;
+    prependFlags = commonFlags;
   };
 }

@@ -127,11 +127,11 @@
         "owner": "viperML",
         "repo": "wrapper-manager"
       },
-      "branch": "master",
+      "branch": "next",
       "submodules": false,
-      "revision": "f2b0bec5140403cf24cae96f6764d97b5d59b0e2",
-      "url": "https://github.com/viperML/wrapper-manager/archive/f2b0bec5140403cf24cae96f6764d97b5d59b0e2.tar.gz",
-      "hash": "003rl9myjkxz1r08lnbhjhc87b43m3pnz39108fb0ng873kpxwax"
+      "revision": "1d29cc21aab142dc4092167c7056578f87ff1f1c",
+      "url": "https://github.com/viperML/wrapper-manager/archive/1d29cc21aab142dc4092167c7056578f87ff1f1c.tar.gz",
+      "hash": "1j57xqn4mp63spwwqpkcc4hhcv0j6jxkpk396q472jzpm055ajh8"
     }
   },
   "version": 5

@@ -60,8 +60,8 @@ let
   overlayWrapperManager =
     final: prev:
     let
-      wrapper-manager = import sources.wrapper-manager { inherit lib; };
-      evald = wrapper-manager.lib {
+      wrapper-manager = import sources.wrapper-manager;
+      evald = wrapper-manager.v2 {
         pkgs = prev;
         modules =
           builtins.readDir ../modules/wrapper-manager
@@ -70,7 +70,7 @@ let
       };
     in
     mapAttrs (_: value: value.wrapped) evald.config.wrappers;
-  
+
   overlayVersion = final: prev: {
     lib = prev.lib.extend (finalLib: prevLib: {
       trivial = prevLib.trivial // {

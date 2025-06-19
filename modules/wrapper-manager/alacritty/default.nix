@@ -61,7 +61,7 @@ in
 
     wrappers.alacritty = {
       basePackage = pkgs.alacritty;
-      flags = [
+      prependFlags = [
         "--config-file"
         ((pkgs.formats.toml { }).generate "alacritty.toml" config.alacrittyConfig)
       ];
