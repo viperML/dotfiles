@@ -61,7 +61,7 @@ let
     final: prev:
     let
       wrapper-manager = import sources.wrapper-manager;
-      evald = wrapper-manager.v2 {
+      evald = wrapper-manager.lib {
         pkgs = prev;
         modules =
           builtins.readDir ../modules/wrapper-manager
