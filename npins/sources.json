@@ -129,9 +129,9 @@
       },
       "branch": "next",
       "submodules": false,
-      "revision": "548aa2079e442e52d39423268deac7ab2304b9b3",
-      "url": "https://github.com/viperML/wrapper-manager/archive/548aa2079e442e52d39423268deac7ab2304b9b3.tar.gz",
-      "hash": "1d2n6l30zkxwazk8pm3qac11xm9ihi1gdkkjwrcnps8q8ig56wxh"
+      "revision": "bb57881fb6fce082afd035d63d5441f31acacd10",
+      "url": "https://github.com/viperML/wrapper-manager/archive/bb57881fb6fce082afd035d63d5441f31acacd10.tar.gz",
+      "hash": "1qhzvrb1frfrsahxdf7h96j009r3ciqn2n0zpz9h6c6fayjskqg3"
     },
     "zen-browser-flake": {
       "type": "Git",
