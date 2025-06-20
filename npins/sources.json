@@ -132,6 +132,19 @@
       "revision": "548aa2079e442e52d39423268deac7ab2304b9b3",
       "url": "https://github.com/viperML/wrapper-manager/archive/548aa2079e442e52d39423268deac7ab2304b9b3.tar.gz",
       "hash": "1d2n6l30zkxwazk8pm3qac11xm9ihi1gdkkjwrcnps8q8ig56wxh"
+    },
+    "zen-browser-flake": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "18d6cd2f5a9cd1527d478d4f716e9b9ee6fb6cbb",
+      "url": "https://github.com/youwen5/zen-browser-flake/archive/18d6cd2f5a9cd1527d478d4f716e9b9ee6fb6cbb.tar.gz",
+      "hash": "0m1z31z0ll1nx2lx5dfd5ymri4pkc61fhrmjljq6w1h3nrxbxiy1"
     }
   },
   "version": 5

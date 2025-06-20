@@ -29,6 +29,7 @@ in
     zoom-us
     ungoogled-chromium
     # gnomeExtensions.cloudflare-warp-toggle
+    zen-browser
   ];
 
   environment.sessionVariables = rec {

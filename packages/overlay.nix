@@ -55,6 +55,8 @@ let
     guix-search = final.python3.pkgs.callPackage "${sources.guix-search}/package.nix" { };
 
     maid = (import sources.nix-maid) final ../modules/maid;
+
+    zen-browser = ((import sources.zen-browser-flake) { pkgs = final; }).zen-browser;
   };
 
   overlayWrapperManager =
@@ -72,11 +74,13 @@ let
     mapAttrs (_: value: value.wrapped) evald.config.wrappers;
 
   overlayVersion = final: prev: {
-    lib = prev.lib.extend (finalLib: prevLib: {
-      trivial = prevLib.trivial // {
-        versionSuffix = ".${finalLib.substring 0 7 sources.nixpkgs.revision}";
-      };
-    });
+    lib = prev.lib.extend (
+      finalLib: prevLib: {
+        trivial = prevLib.trivial // {
+          versionSuffix = ".${finalLib.substring 0 7 sources.nixpkgs.revision}";
+        };
+      }
+    );
   };
 in
 lib.composeManyExtensions [
@@ -84,6 +88,6 @@ lib.composeManyExtensions [
   overlayAuto
   overlayMisc
   overlayWrapperManager
-    # (import sources.lanzaboote).overlays.default
+  # (import sources.lanzaboote).overlays.default
   overlayVersion
 ]
