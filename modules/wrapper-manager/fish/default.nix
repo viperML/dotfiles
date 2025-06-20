@@ -70,14 +70,17 @@ in
 {
   wrappers.fish-viper = {
     basePackage = pkgs.fish;
-    extraWrapperFlags = ''
-      --prefix XDG_DATA_DIRS : "${
-        lib.makeSearchPathOutput "out" "share" [
+    programs.fish = {
+      wrapFlags = [
+        "--prefix"
+        "XDG_DATA_DIRS"
+        ":"
+        (lib.makeSearchPathOutput "out" "share" [
           # order matters
           loadPlugin
           config
-        ]
-      }"
-    '';
+        ])
+      ];
+    };
   };
 }

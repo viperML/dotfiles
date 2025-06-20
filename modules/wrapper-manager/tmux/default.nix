@@ -6,7 +6,7 @@ in
 {
   wrappers.tmux = {
     basePackage = pkgs.tmux;
-    flags = [
+    prependFlags = [
       "-f"
       (pkgs.writeText "tmux-conf" ''
         run-shell ${pkgs.tmuxPlugins.sensible.rtp}
@@ -16,8 +16,11 @@ in
         ${plugins |> (map (plugin: "run-shell ${plugin.rtp}")) |> (lib.concatStringsSep "\n")}
       '')
     ];
-    extraWrapperFlags = ''
-      --run 'export TMUX_TMPDIR="''${XDG_RUNTIME_DIR}"'
-    '';
+    wrapperType = "shell";
+    wrapFlags = [
+      "--run"
+      (throw "FIXME")
+      "export TMUX_TMPDIR=$XDG_RUNTIME_DIR"
+    ];
   };
 }
