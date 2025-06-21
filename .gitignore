@@ -38,3 +38,4 @@ recentf
 *.tar
 *.sif
 *.elc
+sync.lock
