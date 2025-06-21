@@ -49,12 +49,12 @@ in
           ".cache"
           ".ssh"
 
-          "Desktop"
-          "Documents"
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Videos"
+          # "Desktop"
+          # "Documents"
+          # "Downloads"
+          # "Music"
+          # "Pictures"
+          # "Videos"
         ]
     ));
 }
