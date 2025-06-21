@@ -20,6 +20,7 @@ in
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
+    pkgs.zen-browser
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
