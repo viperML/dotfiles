@@ -1,0 +1,630 @@
+{
+  "window.commandCenter": true,
+  "debug.disassemblyView.showSourceCode": false,
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "editor.autoClosingQuotes": "always",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorStyle": "line",
+  "editor.inlineSuggest.enabled": false,
+  "editor.insertSpaces": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fill",
+  "editor.quickSuggestionsDelay": 0,
+  "editor.scrollbar.horizontal": "auto",
+  "editor.scrollbar.horizontalScrollbarSize": 20,
+  "editor.scrollbar.vertical": "visible",
+  "editor.scrollbar.verticalScrollbarSize": 20,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggest.preview": true,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 4,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.autoCheckUpdates": true,
+  "extensions.ignoreRecommendations": true,
+  "files.autoSaveDelay": 500,
+  "files.trimTrailingWhitespace": true,
+  "security.workspace.trust.enabled": false,
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.shellIntegration.enabled": false,
+  "update.mode": "none",
+  "window.title": "${dirty}${activeEditorShort} @ ${activeFolderLong}${separator}",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "**/*result*": true,
+    "**/result": true,
+    "**/target": true,
+    "**/dist": true,
+    "**/.direnv": true,
+    "**/pnpm-lock.yaml": true,
+    "**/package-lock.json": true
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreWindowsGit27Warning": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "scm.diffDecorations": "gutter",
+  "material-icon-theme.opacity": 1,
+  "editor.fontSize": 15,
+  "editor.fontFamily": "'iosevka-normal', 'Noto Color Emoji', 'Symbols Nerd Font',  monospace",
+  "debug.console.fontFamily": "iosevka-normal, 'Symbols Nerd Font', monospace",
+  "editor.fontWeight": "500",
+  "terminal.integrated.fontWeight": "600",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 15,
+  "material-icon-theme.activeIconPack": "none",
+  "material-icon-theme.folders.color": "#555555",
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "entity.name.type.class",
+          "keyword",
+          "storage.modifier"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      },
+      {
+        "scope": "markup.heading.markdown punctuation.definition.heading.markdown",
+        "settings": {
+          "foreground": "#8a8888"
+        }
+      },
+      {
+        "scope": "heading.1.markdown entity.name.section",
+        "settings": {
+          "foreground": "#8be9fd"
+        }
+      },
+      {
+        "scope": "heading.2.markdown entity.name.section",
+        "settings": {
+          "foreground": "#50fa7b"
+        }
+      },
+      {
+        "scope": "heading.3.markdown entity.name.section",
+        "settings": {
+          "foreground": "#f1fa8c"
+        }
+      },
+      {
+        "scope": "heading.4.markdown entity.name.section",
+        "settings": {
+          "foreground": "#bd93f9"
+        }
+      },
+      {
+        "scope": "heading.5.markdown entity.name.section",
+        "settings": {
+          "foreground": "#ff5555"
+        }
+      },
+      {
+        "scope": "heading.6.markdown entity.name.section",
+        "settings": {
+          "foreground": "#ffb86c"
+        }
+      }
+    ]
+  },
+  "workbench.colorCustomizations": {},
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.outDir": "%DIR%/builddir",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.tools": [],
+  "latex-workshop.latex.recipes": [],
+  "files.associations": {
+    "*.m": "matlab",
+    "*.nomad": "hcl",
+    "*.tf": "terraform",
+    ".envrc": "shellscript",
+    "poetry.lock": "toml",
+    ".prettierrc": "json",
+    "flake.lock": "json",
+    "*.ts.snap": "typescript",
+    "*.js.snap": "javascript",
+    "typescript": "plaintext"
+  },
+  "[json,javascript,typescript,css,html,jsonc,astro]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[javascript,typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[xml]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[nix]": {
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "[diff,plaintext]": {
+    "files.insertFinalNewline": false,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "[hcl,packer,nomad]": {
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "[c]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[meson]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "[nushell]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "[dhall]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "[haskell]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "[latex]": {
+    "rewrap.autoWrap.enabled": true,
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "[markdown]": {
+    "rewrap.autoWrap.enabled": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.autoClosingQuotes": "never",
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[r]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "customLocalFormatters.formatters": [
+    {
+      "command": "typstyle",
+      "languages": [
+        "typst"
+      ]
+    },
+    {
+      "command": "stylua -",
+      "languages": [
+        "lua"
+      ]
+    },
+    {
+      "command": "hclfmt",
+      "languages": [
+        "hcl"
+      ]
+    },
+    {
+      "languages": [
+        "shellscript"
+      ],
+      "command": "shfmt"
+    },
+    {
+      "command": "nixfmt",
+      "languages": [
+        "nix"
+      ]
+    },
+    {
+      "command": "cabal-fmt",
+      "languages": [
+        "cabal"
+      ]
+    },
+    {
+      "command": "fourmolu --no-cabal",
+      "languages": [
+        "haskell"
+      ]
+    },
+    {
+      "command": "latexindent",
+      "languages": [
+        "latex"
+      ]
+    },
+    {
+      "languages": [
+        "python"
+      ],
+      "command": "black -"
+    }
+  ],
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length 79"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "python.analysis.autoImportCompletions": false,
+  "vim.leader": "<Space>",
+  "vim.showMarksInGutter": true,
+  "vim.statusBarColorControl": false,
+  "vim.statusBarColors.commandlineinprogress": "#2e2e2e",
+  "vim.statusBarColors.insert": "#2e2e2e",
+  "vim.statusBarColors.normal": "#141414",
+  "vim.statusBarColors.searchinprogressmode": "#2e2e2e",
+  "vim.statusBarColors.visual": "#a8a8e0",
+  "vim.statusBarColors.visualblock": "#a8a8e0",
+  "vim.statusBarColors.visualline": "#a8a8e0",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<esc>"
+      ]
+    }
+  ],
+  "cSpell.enabledLanguageIds": [
+    "markdown",
+    "latex"
+  ],
+  "cSpell.showStatus": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "insertDateString.format": "iso",
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nil",
+  "nix.serverSettings": {
+    "nil": {}
+  },
+  "remote.SSH.remotePlatform": {
+    "gen6": "linux",
+    "gen6.ayatsfer.gmail.com.beta.tailscale.net": "linux",
+    "chandra": "linux",
+    "shiva": "linux"
+  },
+  "remote.SSH.serverInstallPath": {
+    "gen6": "/home/ayats/.local/share/code-server",
+    "gen6.ayatsfer.gmail.com.beta.tailscale.net": "/home/ayats/.local/share/code-server"
+  },
+  "vim.neovimPath": "/etc/profiles/per-user/ayats/bin/nvim-mini",
+  "editor.lineNumbers": "off",
+  "cSpell.language": "en,en-US,es-ES",
+  "evenBetterToml.formatter.allowedBlankLines": 2,
+  "evenBetterToml.formatter.arrayAutoExpand": true,
+  "evenBetterToml.formatter.columnWidth": 1,
+  "remote.SSH.localServerDownload": "off",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "CLANG64 / MSYS2": {
+      "path": "C:\\msys64\\msys2_shell.cmd",
+      "args": [
+        "-defterm",
+        "-here",
+        "-no-start",
+        "-clang64"
+      ],
+      "icon": "terminal-cmd"
+    },
+    "MINGW64 / MSYS2": {
+      "path": "C:\\msys64\\msys2_shell.cmd",
+      "args": [
+        "-defterm",
+        "-here",
+        "-no-start",
+        "-mingw64"
+      ],
+      "icon": "terminal-cmd"
+    },
+    "nu": {
+      "path": "nu",
+      "args": []
+    }
+  },
+  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.reborrowHints.enable": "always",
+  "calva.paredit.defaultKeyMap": "strict",
+  "cmake.configureOnOpen": false,
+  "debug.javascript.automaticallyTunnelRemoteServer": false,
+  "clangd.detectExtensionConflicts": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "python.terminal.activateEnvironment": false,
+  "remote.SSH.enableAgentForwarding": false,
+  "remote.SSH.enableX11Forwarding": false,
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.cursorBlinking": false,
+  "calva.prettyPrintingOptions": {
+    "printEngine": "pprint",
+    "enabled": false,
+    "width": 120,
+    "maxLength": 50
+  },
+  "python.languageServer": "Pylance",
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "reborrow",
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
+  ],
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": false,
+  "errorLens.padding": "5",
+  "errorLens.removeLinebreaks": false,
+  "files.trimFinalNewlines": false,
+  "files.insertFinalNewline": false,
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/ayats/result/bin/nvim",
+  "zig.zls.path": "zls",
+  "zig.zls.checkForUpdate": false,
+  "editor.inlayHints.padding": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.hideOutsideUnsafe": true,
+  "typst-lsp.serverPath": "typst-lsp",
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.closureStyle": "rust_analyzer",
+  "rust-analyzer.inlayHints.maxLength": 15,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "Lua.hint.enable": true,
+  "typst-lsp.exportPdf": "never",
+  "git.openRepositoryInParentFolders": "never",
+  "cSpell.enableFiletypes": [
+    "!r",
+    "typst"
+  ],
+  "files.eol": "\n",
+  "direnv.restart.automatic": true,
+  "Lua.addonManager.enable": false,
+  "Lua.misc.executablePath": "lua-language-server",
+  "dart.checkForSdkUpdates": false,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "helium-icon-theme.hidesExplorerArrows": true,
+  "helium-icon-theme.folders.theme": "specific",
+  "helium-icon-theme.saturation": 1,
+  "helium-icon-theme.folders.color": "#121212",
+  "material-icon-theme.saturation": 1,
+  "terminal.integrated.defaultProfile.linux": null,
+  "rewrap.autoWrap.notification": "text",
+  "rewrap.wrappingColumn": 80,
+  "cSpell.userWords": [
+    "Hasher",
+    "heaviliy",
+    "struct",
+    "visualisation"
+  ],
+  "editor.accessibilitySupport": "off",
+  "editor.minimap.enabled": false,
+  "go.inlayHints.assignVariableTypes": true,
+  "haskell.manageHLS": "PATH",
+  "metals.serverVersion": "1.2.2",
+  "rust-analyzer.inlayHints.renderColons": false,
+  "workbench.editor.tabSizing": "fixed",
+  "workbench.editor.tabSizingFixedMaxWidth": 130,
+  "dance.modes": {
+    "insert": {},
+    "normal": {
+      "cursorStyle": "block",
+      "selectionBehavior": "character"
+    }
+  },
+  "window.titleBarStyle": "custom",
+  "workbench.editor.empty.hint": "hidden",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "strict",
+  "ltex.enabled": [
+    "latex",
+    "markdown",
+    "org"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "languageToolLinter.serviceType": "public",
+  "languageToolLinter.languageTool.ignoredWordsGlobal": [
+    "callpackage",
+    "devshell",
+    "devshells",
+    "libc",
+    "nixpkgs",
+    "pkgs",
+    "pkgscross",
+    "qemu",
+    "repl"
+  ],
+  "languageToolLinter.languageTool.language": "en-US",
+  "languageToolLinter.plainText.languageIds": [],
+  "perl.enable": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "glspc.languageId": "lisp",
+  "glspc.serverCommand": "/home/ayats/.guix-home/profile/bin/guix",
+  "cmake.showOptionsMovedNotification": false,
+  "[cabal]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "errorLens.excludeBySource": [
+    "shellcheck",
+    "LTeX"
+  ],
+  "accessibility.signals.onDebugBreak": {
+    "sound": "on"
+  },
+  "mesonbuild.downloadLanguageServer": true,
+  "explorer.confirmPasteNative": false,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "yaml.schemas": {
+    "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
+      "/.gitlab-ci.yaml"
+    ],
+    "https://json.schemastore.org/github-workflow.json": [
+      "/.github/workflows/*.yaml"
+    ]
+  },
+  "Lua.workspace.userThirdParty": [
+    "C:\\Users\\ayats\\Documents\\CC-Tweaked"
+  ],
+  "Lua.workspace.checkThirdParty": true,
+  "[mdx]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "jupyter.askForKernelRestart": false,
+  "glsl-analyzer.path": "/var/home/ayats/.config/Code/User/globalStorage/nolanderc.glsl-analyzer/glsl_analyzer_install/bin/glsl_analyzer",
+  "webgl-glsl-editor.codeInjectionSource": [
+    "precision mediump float;",
+    "uniform vec3 cameraPosition;",
+    "uniform vec3 position;",
+    "uniform vec3 normal;",
+    "uniform vec2 uv;",
+    "uniform mat4 projectionMatrix;",
+    "uniform mat4 modelViewMatrix;"
+  ],
+  "webgl-glsl-editor.codeInjection": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "github.copilot.renameSuggestions.triggerAutomatically": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.gpuAcceleration": "on",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "<leader>"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ],
+      "silent": true
+    }
+  ],
+  "inlineChat.lineNaturalLanguageHint": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "html.autoClosingTags": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.agent.enabled": true,
+  "chat.editing.confirmEditRequestRemoval": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "zig.buildOnSave": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "dev.containers.dockerPath": "podman",
+  "workbench.iconTheme": "symbols",
+  "remote.defaultExtensionsIfInstalledLocally": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.vscode-pull-request-github"
+  ]
+}

@@ -186,4 +186,10 @@ in
   services.cloudflare-warp.enable = true;
 
   services.hardware.bolt.enable = true;
+
+  users.users.ayats.maid = {
+    systemd.tmpfiles.dynamicRules = [
+      "L /tmp/cursor-settings - - - - {{home}}/Documents/dotfiles/misc/cursor-settings"
+    ];
+  };
 }

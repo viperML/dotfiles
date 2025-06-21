@@ -14,7 +14,15 @@ in
     NH_FILE = "${D}/hosts/fatalis";
   };
 
-  users.users.ayats.home = "/x";
+  users.users.ayats = {
+    home = "/x";
+    maid = {
+      systemd.tmpfiles.dynamicRules = [
+        "L /tmp/cursor-settings - - - - {{home}}/src/dotfiles/misc/cursor-settings"
+      ];
+    };
+
+  };
 
   environment.systemPackages = [
     pkgs.sbctl
