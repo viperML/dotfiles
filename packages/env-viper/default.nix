@@ -23,7 +23,6 @@
   git-viper,
   difftastic,
   elfutils-cli,
-  lurk,
   fq,
   jq,
   nixfmt-rfc-style,
@@ -31,8 +30,19 @@
   psmisc,
   nil,
   yazi,
+curl,
+wget,
   httpie,
   osc,
+    file,
+    pax-utils,
+    # e2fsprogs.bin,
+    nixpkgs-fmt,
+    nix-output-monitor,
+    shellcheck,
+    sops,
+    age,
+    aichat,
 }@args:
 buildEnv {
   name = "env";

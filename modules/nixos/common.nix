@@ -6,92 +6,19 @@
   ...
 }:
 {
-  imports = [ ./swap.nix ];
+  imports = [ 
+    ./swap.nix
+    ./wsl.nix
+  ];
 
   # broken
   services.envfs.enable = lib.mkForce false;
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 1w --keep 3";
-    # package = inputs'.nh.packages.default;
-  };
-
-  nix = {
-    # package = self'.packages.nix;
-    daemonCPUSchedPolicy = "idle";
-    settings = lib.mkMerge [
-      (import ../../misc/nix-conf.nix)
-      (import ../../misc/nix-conf-privileged.nix)
-      { "flake-registry" = "/etc/nix/registry.json"; }
-    ];
-    channel.enable = false;
-    nixPath = [ "nixpkgs=/etc/nixpkgs" ];
-    # FIXME: Should use a `path` entry using the narHash from npins
-    registry.nixpkgs.to = {
-      type = "github";
-      owner = "NixOS";
-      repo = "nixpkgs";
-      ref = (import ../../npins).nixpkgs.revision;
-    };
-  };
-
-  environment.etc.nixpkgs.source = pkgs.path;
 
   users.mutableUsers = false;
 
   services.udev.packages = with pkgs; [ android-udev-rules ];
 
-  environment.defaultPackages = [ ];
 
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-    # NIXPKGS_CONFIG = lib.mkForce "";
-  };
-
-  environment.systemPackages = with pkgs; [
-    # CLI base tools
-    usbutils
-    pciutils
-    file
-    pax-utils
-    efibootmgr
-    e2fsprogs.bin
-    android-tools
-
-    # Global dev, not part of env
-    # self'.packages.env
-    env-viper
-    nixpkgs-fmt
-    nix-output-monitor
-    shellcheck
-    # inputs'.tree-sitter.packages.tree-sitter-cat
-    sops
-    age
-    aichat
-
-    # GUI
-    warp
-    # google-chrome
-    # self'.packages.google-chrome
-    # self'.packages.microsoft-edge
-    # brave
-    # ptyxis
-    zellij
-    # self'.packages.alacritty
-    # self'.packages.wezterm
-    vscode
-    code-cursor
-    # self'.packages.ghostty
-    alacritty
-    # self'.packages.tmux
-    libcgroup
-    wl-color-picker
-    # self'.packages.code-cursor
-
-    maid
-  ];
 
   # i18n = let
   #   # defaultLocale = "en_US.UTF-8";
@@ -116,6 +43,23 @@
   #     LC_TIME = es;
   #   };
   # };
+  environment.systemPackages = with pkgs; [
+    # CLI base tools
+    usbutils
+    pciutils
+    efibootmgr
+    android-tools
+
+
+    # GUI
+    warp
+    zellij
+    vscode
+    code-cursor
+    alacritty
+    libcgroup
+    wl-color-picker
+  ];
 
   systemd =
     let
@@ -153,8 +97,6 @@
     # config.services.desktopManager.plasma6.notoPackage
   ];
 
-  time.timeZone = "Europe/Madrid";
-
   services.xserver = {
     enable = true;
     xkb = {
@@ -190,11 +132,6 @@
         package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
       }
     ];
-  };
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
   };
 
   hardware.steam-hardware.enable = true;
