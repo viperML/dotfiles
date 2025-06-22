@@ -152,9 +152,9 @@ in
 
   programs.kde-pim.enable = false;
 
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   services.fwupd.enable = true;
 
