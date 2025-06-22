@@ -13,7 +13,7 @@
   users.users.nixos = {
     shell = pkgs.fish-viper;
     maid = {
-
+      file.xdg_config."git/local".source = ./local.gitconfig;
     };
   };
 

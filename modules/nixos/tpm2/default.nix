@@ -45,6 +45,7 @@ in
 
   programs.git.config = {
     commit.gpgsign = true;
+    tag.gpgsign = true;
     gpg = {
       format = "ssh";
       ssh.defaultKeyCommand = cmdname;
