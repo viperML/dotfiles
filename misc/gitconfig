@@ -66,3 +66,5 @@
   insteadOf = "github:"
 [commit]
   verbose = true
+[init]
+  defaultBranch = main

@@ -626,5 +626,8 @@
     "GitHub.copilot",
     "GitHub.copilot-chat",
     "GitHub.vscode-pull-request-github"
-  ]
+  ],
+  "[go]": {
+    "editor.formatOnSave": false
+  }
 }
