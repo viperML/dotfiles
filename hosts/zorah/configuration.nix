@@ -30,6 +30,8 @@ in
     ungoogled-chromium
     # gnomeExtensions.cloudflare-warp-toggle
     zen-browser
+
+    opencode
   ];
 
   environment.sessionVariables = rec {
