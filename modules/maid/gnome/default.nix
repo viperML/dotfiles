@@ -11,6 +11,7 @@
     "/org/gnome/desktop/interface/cursor-size" = 24;
     "/org/gnome/desktop/interface/cursor-theme" = "DMZ-White";
     "/org/gnome/desktop/interface/document-font-name" = "Inter 11";
+    "/org/gnome/desktop/interface/monospace-font-name" = "iosevka-normal Medium 11";
     "/org/gnome/desktop/interface/enable-hot-corners" = false;
     "/org/gnome/desktop/interface/font-name" = "Inter 11";
     "/org/gnome/desktop/interface/gtk-enable-primary-paste" = false;
