@@ -54,7 +54,7 @@
     # GUI
     warp
     zellij
-    vscode
+    # vscode
     code-cursor
     alacritty
     libcgroup

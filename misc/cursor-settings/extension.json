@@ -3,6 +3,7 @@
   "anweber.local-sync",
   "anysphere.remote-ssh",
   "astro-build.astro-vscode",
+  "bazelbuild.vscode-bazel",
   "bradlc.vscode-tailwindcss",
   "catppuccin.catppuccin-vsc",
   "chrislajoie.vscode-modelines",
