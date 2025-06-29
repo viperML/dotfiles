@@ -183,6 +183,9 @@
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
+  "[go]": {
+    "editor.formatOnSave": false
+  },
   "[diff,plaintext]": {
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": false,
@@ -424,7 +427,7 @@
     "width": 120,
     "maxLength": 50
   },
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "reborrow",
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
   "terminal.integrated.commandsToSkipShell": [
@@ -627,7 +630,9 @@
     "GitHub.copilot-chat",
     "GitHub.vscode-pull-request-github"
   ],
-  "[go]": {
-    "editor.formatOnSave": false
-  }
+  "cursorpyright.analysis.autoImportCompletions": false,
+  "cursorpyright.analysis.diagnosticMode": "workspace",
+  "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
+  "cursorpyright.analysis.inlayHints.variableTypes": true,
+  "cursorpyright.analysis.typeCheckingMode": "strict"
 }
