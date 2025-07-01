@@ -29,6 +29,7 @@ in
     pkgs.powertop
     pkgs.sysfsutils
     pkgs.zen-browser
+    pkgs.webcord
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
