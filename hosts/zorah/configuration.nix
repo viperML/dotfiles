@@ -30,6 +30,7 @@ in
     ungoogled-chromium
     # gnomeExtensions.cloudflare-warp-toggle
     zen-browser
+    webcord
 
     opencode
   ];

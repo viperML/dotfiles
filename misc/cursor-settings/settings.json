@@ -352,7 +352,8 @@
     "gen6": "linux",
     "gen6.ayatsfer.gmail.com.beta.tailscale.net": "linux",
     "chandra": "linux",
-    "shiva": "linux"
+    "shiva": "linux",
+    "dahu-27.grenoble.g5k": "linux"
   },
   "remote.SSH.serverInstallPath": {
     "gen6": "/home/ayats/.local/share/code-server",
@@ -634,5 +635,9 @@
   "cursorpyright.analysis.diagnosticMode": "workspace",
   "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
   "cursorpyright.analysis.inlayHints.variableTypes": true,
-  "cursorpyright.analysis.typeCheckingMode": "strict"
+  "cursorpyright.analysis.typeCheckingMode": "strict",
+  "[go]": {
+    "editor.formatOnSave": false
+  },
+  "remote.autoForwardPortsSource": "hybrid"
 }
