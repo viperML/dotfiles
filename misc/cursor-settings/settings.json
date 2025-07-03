@@ -639,5 +639,6 @@
   "[go]": {
     "editor.formatOnSave": false
   },
-  "remote.autoForwardPortsSource": "hybrid"
+  "remote.autoForwardPortsSource": "hybrid",
+  "cursor.cpp.enablePartialAccepts": true
 }
