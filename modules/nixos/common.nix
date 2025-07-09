@@ -54,8 +54,8 @@
     # GUI
     warp
     zellij
-    # vscode
-    code-cursor
+    vscode
+    # code-cursor
     alacritty
     libcgroup
     wl-color-picker

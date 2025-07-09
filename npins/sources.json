@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "917af390377c573932d84b5e31dd9f2c1b5c0f09",
-      "url": "https://github.com/nix-community/NixOS-WSL/archive/917af390377c573932d84b5e31dd9f2c1b5c0f09.tar.gz",
-      "hash": "0fsp2q17saxkz18bc8959p5wrpsfwlqbcmbk0b4gnqnflgqbyvby"
+      "revision": "d5bf05234f5246294047dd10cb8c6e89cca0e884",
+      "url": "https://github.com/nix-community/NixOS-WSL/archive/d5bf05234f5246294047dd10cb8c6e89cca0e884.tar.gz",
+      "hash": "0y3bawd30b6vaylkmadm2d3ip9pm6rf05m5l5qlh22pc326xlh12"
     },
     "guix-search": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "003dd72d3234361c93d5be7ec9766c88e0dd1052",
-      "url": "https://github.com/nix-community/nh/archive/003dd72d3234361c93d5be7ec9766c88e0dd1052.tar.gz",
-      "hash": "1ak0cq3x3fawhqnlacnvas8djpqvmcf0nv4wmg7krxvwksqqskdz"
+      "revision": "d0abb8eebe32f79ce4659e68dd777cf497a5d3d2",
+      "url": "https://github.com/nix-community/nh/archive/d0abb8eebe32f79ce4659e68dd777cf497a5d3d2.tar.gz",
+      "hash": "0n68zvqpfyp6a2pxi19m1355z922r2w53wq3m9qxamj3hzmmcggp"
     },
     "nix-common": {
       "type": "Git",
@@ -103,9 +103,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "40a6e15e44b11fbf8f2b1df9d64dbfc117625e94",
-      "url": "https://github.com/nix-community/nix-index-database/archive/40a6e15e44b11fbf8f2b1df9d64dbfc117625e94.tar.gz",
-      "hash": "15y2ibnnxhg9gpgvipnw95avddsx1d249qz10i1g3yq3jdsc4pig"
+      "revision": "85686025ba6d18df31cc651a91d5adef63378978",
+      "url": "https://github.com/nix-community/nix-index-database/archive/85686025ba6d18df31cc651a91d5adef63378978.tar.gz",
+      "hash": "0nvpiisr96cp8mbzyzl2xpjl6imbljjvnm7sjj91fcv0cyfb7qqf"
     },
     "nix-maid": {
       "type": "Git",
@@ -116,9 +116,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "534317bfd2d8279d1aa35ad8dee276c975e0efe2",
-      "url": "https://github.com/viperML/nix-maid/archive/534317bfd2d8279d1aa35ad8dee276c975e0efe2.tar.gz",
-      "hash": "1d0pmmh14rkwx7zhkpg8nr3yjaz13nlgzvxdz5b3rahh5lmps8sj"
+      "revision": "dfb47763ee7daaf2d7935844f21f9733f5b7ec9b",
+      "url": "https://github.com/viperML/nix-maid/archive/dfb47763ee7daaf2d7935844f21f9733f5b7ec9b.tar.gz",
+      "hash": "0fyxzi8954jmragfi3kqd0iz397rn721fiv5nbqsa5gwd7qqh9g1"
     },
     "nixpkgs": {
       "type": "Git",
@@ -129,9 +129,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "ba48a1f6ce571455cb631dee840c6cd401ea4adb",
-      "url": "https://github.com/nixos/nixpkgs/archive/ba48a1f6ce571455cb631dee840c6cd401ea4adb.tar.gz",
-      "hash": "0000zx4qpnf7z6w61xkpigyrij85117dlp5mrpsjm0v8j14jdq7b"
+      "revision": "1fd8bada0b6117e6c7eb54aad5813023eed37ccb",
+      "url": "https://github.com/NixOS/nixpkgs/archive/1fd8bada0b6117e6c7eb54aad5813023eed37ccb.tar.gz",
+      "hash": "0jki9azscc2ys89g4qjd61jhsgs3l46rcma7w0395nr3h3m0hn97"
     },
     "wrapper-manager": {
       "type": "Git",
@@ -142,9 +142,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "754ed625186e67f588d6dd664afbbfda8128a7e3",
-      "url": "https://github.com/viperML/wrapper-manager/archive/754ed625186e67f588d6dd664afbbfda8128a7e3.tar.gz",
-      "hash": "08hqrfdppwsknq35nvzwfjgsihxwplal7vibpqpyfcymr8aqww7q"
+      "revision": "8ad2484b485acad0632cb0af15b5eb704e3c1d0a",
+      "url": "https://github.com/viperML/wrapper-manager/archive/8ad2484b485acad0632cb0af15b5eb704e3c1d0a.tar.gz",
+      "hash": "11kcrkrnajzbhbyg5w2jhy5h5dw3ffn604pm37ikyird5z2r37cy"
     },
     "zen-browser-flake": {
       "type": "Git",
@@ -155,9 +155,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "18d6cd2f5a9cd1527d478d4f716e9b9ee6fb6cbb",
-      "url": "https://github.com/youwen5/zen-browser-flake/archive/18d6cd2f5a9cd1527d478d4f716e9b9ee6fb6cbb.tar.gz",
-      "hash": "0m1z31z0ll1nx2lx5dfd5ymri4pkc61fhrmjljq6w1h3nrxbxiy1"
+      "revision": "b5d422dc2b28eb77a21fbdf60aca9a6e63d5a1ab",
+      "url": "https://github.com/youwen5/zen-browser-flake/archive/b5d422dc2b28eb77a21fbdf60aca9a6e63d5a1ab.tar.gz",
+      "hash": "11lm16ilfv22a773gk8kbrc12jl3n6scsx8m0c3zn3nqikm1wipa"
     }
   },
   "version": 5

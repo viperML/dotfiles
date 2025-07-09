@@ -1,7 +1,5 @@
 [
   "anweber.local-sync",
-  "anysphere.cursorpyright",
-  "anysphere.remote-ssh",
   "astro-build.astro-vscode",
   "bazelbuild.vscode-bazel",
   "bradlc.vscode-tailwindcss",
@@ -10,6 +8,8 @@
   "dbaeumer.vscode-eslint",
   "decodetalkers.neocmakelsp-vscode",
   "esbenp.prettier-vscode",
+  "github.copilot",
+  "github.copilot-chat",
   "golang.go",
   "hashicorp.hcl",
   "haskell.haskell",
