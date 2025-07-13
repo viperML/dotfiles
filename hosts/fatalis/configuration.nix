@@ -30,6 +30,7 @@ in
     pkgs.sysfsutils
     pkgs.zen-browser
     pkgs.webcord
+    pkgs.distrobox
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
