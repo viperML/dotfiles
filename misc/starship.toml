@@ -129,20 +129,6 @@ variable = "IN_NIX_SHELL"
 default = ""
 symbol = "󱄅"
 
-[env_var.GUIX_ENVIRONMENT]
-style = "yellow dimmed bold"
-format = "([$symbol $env_value]($style) )"
-variable = "GUIX_ENVIRONMENT"
-default = ""
-symbol = " "
-
-[env_var.GUIX_PACKAGE_PATH]
-style = "yellow dimmed bold"
-format = "([$symbol $env_value]($style) )"
-variable = "GUIX_PACKAGE_PATH"
-default = ""
-symbol = " "
-
 [env_var.SLURM_JOB_UID]
 style = "blue bold"
 format = "([$symbol $env_value]($style) )"

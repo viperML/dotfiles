@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   wrappers.ghostty = {
     basePackage = pkgs.ghostty;
-    flags = [
+    prependFlags = [
       "--config-file=${./config}"
     ];
   };

@@ -528,8 +528,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "glspc.languageId": "lisp",
-  "glspc.serverCommand": "/home/ayats/.guix-home/profile/bin/guix",
   "cmake.showOptionsMovedNotification": false,
   "[cabal]": {
     "editor.defaultFormatter": "jkillian.custom-local-formatters"

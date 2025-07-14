@@ -98,7 +98,6 @@ require("viper.lazy").add_specs {
     event = "InsertEnter",
     after = function()
       require("nvim-autopairs").setup {
-        disable_filetype = { "scheme", "elisp" },
       }
     end,
   },

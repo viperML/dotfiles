@@ -8,7 +8,6 @@ vim.filetype.add {
   filename = {
     [".envrc"] = "bash",
     ["gitconfig"] = "gitconfig",
-    [".guix-channel"] = "scheme",
   },
 }
 
@@ -127,7 +126,4 @@ return {
   -- ["lua_ls"] = {},
   ["terraformls"] = {},
   ["dockerls"] = {},
-  ["guile_ls"] = {
-    filetypes = { "scheme" },
-  },
 }

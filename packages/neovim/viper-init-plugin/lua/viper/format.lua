@@ -14,7 +14,6 @@ local two_tabs_default = {
   "meson",
   "nix",
   "r",
-  "scheme",
   "terraform",
   "typescript",
   "typst",
@@ -75,13 +74,6 @@ vim.list_extend(require("viper.lazy.specs"), {
     keys = { "gq" },
     after = function()
       require("conform").setup {
-        formatters = {
-          guix = {
-            command = "guix",
-            args = { "style", "-f", "$FILENAME" },
-            stdin = false,
-          },
-        },
         formatters_by_ft = {
           lua = { "stylua" },
           nix = { "nixfmt" },
@@ -89,7 +81,6 @@ vim.list_extend(require("viper.lazy.specs"), {
           typst = { "typstyle" },
           rust = { "rustfmt" },
           haskell = { "fourmolu" },
-          scheme = { "guix" },
         },
       }
 

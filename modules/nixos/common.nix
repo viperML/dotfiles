@@ -135,4 +135,6 @@
   };
 
   hardware.steam-hardware.enable = true;
+
+  services.hardware.bolt.enable = true;
 }
