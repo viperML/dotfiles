@@ -1,11 +1,18 @@
 font-family = iosevka-normal
-font-variation = wght=500
-font-size = 13
+font-style = Medium
+font-style-bold = Bold
+font-style-italic = Medium Italic
+font-style-bold-italic = Bold Italic
+# font-variation = wght=500
+font-size = 11
+adjust-cell-width = -1
+# adjust-cell-height = 1
+grapheme-width-method = legacy
 
-background = #1D1D1D
+# background = #1D1D1D
 
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 6
+window-padding-y = 6
 
 keybind = ctrl+t=new_tab
 keybind = alt+enter=new_split:right
