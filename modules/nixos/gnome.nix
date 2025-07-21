@@ -34,7 +34,7 @@
     gnome-maps
     gnome-logs
     simple-scan
-    gnome-calculator
+    # gnome-calculator
     epiphany
     gnome-music
     gnome-tour
