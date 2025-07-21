@@ -7,12 +7,15 @@ set -gx fish_greeting
 bind \b backward-kill-word
 bind \e\x7F backward-delete-char
 
-bind \e\[1\;5C forward-word
-bind \e\[1\;5D backward-word
+# bind \e\[1\;5C forward-word
+# bind \e\[1\;5D backward-word
+bind ctrl-right forward-word
+bind ctrl-left backward-word
 
-
-bind \e\[1\;5A history-token-search-backward
-bind \e\[1\;5B history-token-search-forward
+# bind \e\[1\;5A history-token-search-backward
+# bind \e\[1\;5B history-token-search-forward
+bind ctrl-up history-token-search-backward
+bind ctrl-down history-token-search-forward
 
 # Env vars
 set -gx LS_COLORS "di=34:ln=36:so=32:pi=33:ex=1;32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"

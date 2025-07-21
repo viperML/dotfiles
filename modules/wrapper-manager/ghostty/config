@@ -25,3 +25,8 @@ keybind = alt+down=goto_split:down
 
 keybind = alt+shift+left=resize_split:left,50
 keybind = alt+shift+right=resize_split:right,50
+
+keybind = ctrl+up=unbind
+keybind = ctrl+down=unbind
+keybind = ctrl+left=unbind
+keybind = ctrl+right=unbind
