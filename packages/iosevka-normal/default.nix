@@ -4,7 +4,7 @@
   stdenvNoCC,
   unzip,
 }: let
-  nv = (callPackages ./generated.nix {}).iosevka;
+  nv = (callPackages ./_sources/generated.nix {}).iosevka;
 in
   stdenvNoCC.mkDerivation {
     inherit (nv) pname src;
