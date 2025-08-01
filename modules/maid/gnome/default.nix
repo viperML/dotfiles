@@ -1,10 +1,12 @@
-{
+{pkgs, ... }: {
   gsettings.settings = {
     org.gnome.mutter.experimental-features = [
       "scale-monitor-framebuffer"
       "xwayland-native-scaling"
     ];
   };
+
+  file.home.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/DMZ-White";
 
   dconf.settings = {
     "/org/gnome/desktop/interface/color-scheme" = "prefer-dark";

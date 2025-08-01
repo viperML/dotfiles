@@ -49,7 +49,7 @@
     # SSH_ASKPASS_REQUIRE = "prefer";
     NIXOS_OZONE_WL = "1";
     XCURSOR_THEME = "DMZ-White";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "128";
   };
 
   # programs.git.config = {
