@@ -99,11 +99,7 @@ in
 
     loader = {
       systemd-boot = {
-        # enable = lib.mkForce false;
-        enable = true;
-        # editor = false;
-        # configurationLimit = 10;
-        # consoleMode = "max";
+        enable = lib.mkForce (!config.boot.lanzaboote.enable);
       };
       efi = {
         canTouchEfiVariables = true;
@@ -114,8 +110,8 @@ in
     tmp.useTmpfs = true;
 
     lanzaboote = {
-      enable = false;
-      pkiBundle = "/var/lib/secrets/secureboot";
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
   };
 
