@@ -10,7 +10,7 @@ let
 in
 {
   environment.sessionVariables = rec {
-    D = "/var/home/ayats/Documents/dotfiles";
+    D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/hermes";
   };
 
@@ -23,6 +23,15 @@ in
     nftables.enable = true;
   };
 
+  users.users.ayats = {
+    home = "/x";
+    maid = {
+      # systemd.tmpfiles.dynamicRules = [
+      #   "L /tmp/cursor-settings - - - - {{home}}/src/dotfiles/misc/cursor-settings"
+      # ];
+    };
+  };
+
   services.resolved = {
     enable = true;
   };
@@ -31,7 +40,7 @@ in
 
   security.sudo.wheelNeedsPassword = false;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "25.05";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
@@ -73,7 +82,7 @@ in
       ];
       luks = {
         devices.${luksDevice} = {
-          device = "/dev/disk/by-partlabel/LINUX_LUKS";
+          device = "/dev/disk/by-partlabel/LINUX_ROOT";
         };
       };
     };
@@ -82,15 +91,16 @@ in
       "aarch64-linux"
     ];
 
-    kernel.sysctl = {
-      "vm.swappiness" = 10;
-    };
+    # kernel.sysctl = {
+    #   "vm.swappiness" = 10;
+    # };
 
     kernelParams = [ ];
 
     loader = {
       systemd-boot = {
-        enable = lib.mkForce false;
+        # enable = lib.mkForce false;
+        enable = true;
         # editor = false;
         # configurationLimit = 10;
         # consoleMode = "max";
@@ -104,7 +114,7 @@ in
     tmp.useTmpfs = true;
 
     lanzaboote = {
-      enable = true;
+      enable = false;
       pkiBundle = "/var/lib/secrets/secureboot";
     };
   };
@@ -112,12 +122,15 @@ in
   fileSystems = {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
-      fsType = "xfs";
-      options = [ "noatime" ];
+      fsType = "btrfs";
+      options = [
+        "relatime"
+        "lazytime"
+      ];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-partlabel/LINUX_ESP";
+      device = "/dev/disk/by-partlabel/LINUX_EFI";
       fsType = "vfat";
       options = [
         "x-systemd.automount"
@@ -129,7 +142,13 @@ in
 
   environment.systemPackages = [
     pkgs.sbctl
-    pkgs.distrobox
-    pkgs.nvtopPackages.amd
+    # pkgs.distrobox
+    # pkgs.nvtopPackages.amd
+    # pkgs.powertop
+    # pkgs.sysfsutils
+    pkgs.zen-browser
+    # pkgs.webcord
+    # pkgs.distrobox
+    pkgs.ghostty
   ];
 }

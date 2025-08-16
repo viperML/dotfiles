@@ -1,20 +1,22 @@
 import ../. {
   modules = [
-
+    #-- Topology
     ./configuration.nix
+    ../../modules/nixos/es.nix
     ../../modules/nixos/tmpfs.nix
     ../../modules/nixos/tpm2
-    ../../modules/nixos/user-ayats.nix
-    ../../modules/nixos/user-soch.nix
+    ../../modules/nixos/users.nix
     ../../modules/nixos/yubikey
 
+    #-- Environment
     { services.displayManager.autoLogin.user = "ayats"; }
-    # ../../modules/nixos/hyprland.nix
+    # nixosModules.plasma6
     ../../modules/nixos/gnome.nix
 
-    ../../modules/nixos/tailscale.nix
-
-    ../../modules/nixos/podman.nix
-    ../../modules/nixos/silent-boot.nix
+    #-- Other
+    # ../../modules/nixos/tailscale.nix
+    # ../../modules/nixos/printing.nix
+    # ../../modules/nixos/podman.nix
+    # ../../modules/nixos/silent-boot.nix
   ];
 }

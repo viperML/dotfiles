@@ -21,7 +21,6 @@ in
         "L /tmp/cursor-settings - - - - {{home}}/src/dotfiles/misc/cursor-settings"
       ];
     };
-
   };
 
   environment.systemPackages = [
