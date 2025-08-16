@@ -144,7 +144,9 @@ in
     # pkgs.sysfsutils
     pkgs.zen-browser
     # pkgs.webcord
-    # pkgs.distrobox
+    pkgs.distrobox
     pkgs.ghostty
   ];
+
+  services.cloudflare-warp.enable = true;
 }

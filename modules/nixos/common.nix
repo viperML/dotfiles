@@ -14,6 +14,9 @@
   # broken
   services.envfs.enable = lib.mkForce false;
 
+  # Sane default to at least have a static hostId
+  networking.hostId = "deadbeef";
+
   users.mutableUsers = false;
 
   services.udev.packages = with pkgs; [ android-udev-rules ];
