@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ 
+  imports = [
     ./swap.nix
     ./wsl.nix
   ];
@@ -17,8 +17,6 @@
   users.mutableUsers = false;
 
   services.udev.packages = with pkgs; [ android-udev-rules ];
-
-
 
   # i18n = let
   #   # defaultLocale = "en_US.UTF-8";
@@ -50,7 +48,6 @@
     efibootmgr
     android-tools
 
-
     # GUI
     warp
     zellij
@@ -62,17 +59,15 @@
   ];
 
   systemd =
-    let
-      extraConfig = ''
-        DefaultTimeoutStartSec=15s
-        DefaultTimeoutStopSec=15s
-        DefaultTimeoutAbortSec=15s
-        DefaultDeviceTimeoutSec=15s
-      '';
-    in
+    # let
+    #   extraConfig = ''
+    #     DefaultTimeoutStartSec=15s
+    #     DefaultTimeoutStopSec=15s
+    #     DefaultTimeoutAbortSec=15s
+    #     DefaultDeviceTimeoutSec=15s
+    #   '';
+    # in
     {
-      inherit extraConfig;
-      user = { inherit extraConfig; };
       services."getty@tty1".enable = false;
       services."autovt@tty1".enable = false;
       services."getty@tty7".enable = false;
