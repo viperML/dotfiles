@@ -31,6 +31,7 @@ in
     pkgs.webcord
     pkgs.distrobox
     pkgs.ghostty
+    pkgs.windsurf
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -138,7 +139,10 @@ in
     "/" = {
       device = "/dev/mapper/${luksDevice}";
       fsType = "btrfs";
-      options = [ "noatime" ];
+      options = [
+        "relatime"
+        "lazytime"
+      ];
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
