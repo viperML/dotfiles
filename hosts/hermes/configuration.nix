@@ -147,6 +147,4 @@ in
     pkgs.distrobox
     pkgs.ghostty
   ];
-
-  services.cloudflare-warp.enable = true;
 }

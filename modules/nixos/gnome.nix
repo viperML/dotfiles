@@ -24,6 +24,7 @@
     gnomeExtensions.rounded-window-corners-reborn
     # gnomeExtensions.user-themes
     gnomeExtensions.clipboard-history
+    gnomeExtensions.warp-toggle
     adw-gtk3
     celluloid
     vanilla-dmz
@@ -43,6 +44,8 @@
   ];
 
   programs.geary.enable = false;
+
+  services.cloudflare-warp.enable = true;
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";

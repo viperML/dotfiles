@@ -1,4 +1,5 @@
-{pkgs, ... }: {
+{ pkgs, ... }:
+{
   gsettings.settings = {
     org.gnome.mutter.experimental-features = [
       "scale-monitor-framebuffer"
@@ -31,6 +32,7 @@
       "org.gnome.clocks.desktop"
       "org.gnome.seahorse.Application.desktop"
       "org.gnome.Nautilus.desktop"
+      "warptoggle@mrvladus.github.io"
       # "user-theme@gnome-shell-extensions.gcampax.github.com"
     ];
     "/org/gnome/shell/disable-user-extensions" = false;
