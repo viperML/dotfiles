@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -17,6 +16,10 @@
       # "--ip6tables=false"
     ];
     enableNvidia = lib.mkIf (builtins.any (v: v == "nvidia") config.services.xserver.videoDrivers) true;
+    autoPrune = {
+      enable = true;
+      flags = [ "--all" ];
+    };
   };
 
   virtualisation.oci-containers = {
@@ -24,22 +27,4 @@
   };
 
   users.groups.docker.members = config.users.groups.wheel.members;
-
-  systemd = {
-    timers.docker-prune = {
-      wantedBy = [ "timers.target" ];
-      partOf = [ "docker-prune.service" ];
-      timerConfig = {
-        OnCalendar = "weekly";
-        Persistent = true;
-      };
-    };
-    services.docker-prune = {
-      serviceConfig.Type = "oneshot";
-      script = ''
-        ${config.virtualisation.docker.package}/bin/docker system prune --all --force
-      '';
-      requires = [ "docker.service" ];
-    };
-  };
 }
