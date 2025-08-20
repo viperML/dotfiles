@@ -14,21 +14,21 @@
   users.users.ayats = {
     home = "/x";
     maid = {
+      file.xdg_config."autostart/rocketchat-desktop.desktop".source =
+        "/run/current-system/sw/share/applications/rocketchat-desktop.desktop";
     };
   };
 
   environment.systemPackages = [
-    # pkgs.sbctl
-    # pkgs.powertop
-    # pkgs.sysfsutils
     pkgs.zen-browser
-    # pkgs.webcord
-    # pkgs.distrobox
+    pkgs.webcord
+    pkgs.distrobox
     pkgs.ghostty
-    # pkgs.windsurf
+    pkgs.windsurf
     pkgs.thunderbird
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
+    pkgs.zoom-us
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -40,6 +40,7 @@
       # dns = "systemd-resolved";
       plugins = with pkgs; [
         networkmanager-fortisslvpn
+        networkmanager-openconnect
       ];
     };
     nftables.enable = true;
@@ -165,5 +166,5 @@
 
   services.fwupd.enable = true;
 
-  # services.flatpak.enable = true;
+  services.flatpak.enable = true;
 }

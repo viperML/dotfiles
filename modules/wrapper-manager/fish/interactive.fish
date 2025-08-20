@@ -91,7 +91,7 @@ function ,
         echo "Usage: , <name>"
         return
     end
-    nix-locate --top-level --at-root -w /bin/$argv[1]
+    nix-locate --at-root --whole-name /bin/$argv[1]
 end
 
 function yazi
