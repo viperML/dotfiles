@@ -9,6 +9,7 @@
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/BSC-8488104251";
+    BUILDAH_FORMAT = "docker";
   };
 
   users.users.ayats = {
@@ -29,6 +30,7 @@
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
     pkgs.zoom-us
+    pkgs.buildah
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -167,4 +169,9 @@
   services.fwupd.enable = true;
 
   services.flatpak.enable = true;
+
+  programs.singularity = {
+    enable = true;
+    package = pkgs.apptainer;
+  };
 }
