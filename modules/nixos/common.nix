@@ -55,8 +55,7 @@
     warp
     zellij
     vscode
-    # code-cursor
-    alacritty
+    ghostty
     libcgroup
     wl-color-picker
   ];

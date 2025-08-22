@@ -24,7 +24,6 @@
     pkgs.zen-browser
     pkgs.webcord
     pkgs.distrobox
-    pkgs.ghostty
     pkgs.windsurf
     pkgs.thunderbird
     pkgs.rocketchat-desktop

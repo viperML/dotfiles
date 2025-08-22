@@ -145,6 +145,5 @@ in
     pkgs.zen-browser
     # pkgs.webcord
     pkgs.distrobox
-    pkgs.ghostty
   ];
 }
