@@ -19,7 +19,10 @@
 
   users.mutableUsers = false;
 
-  services.udev.packages = with pkgs; [ android-udev-rules ];
+  services.udev.packages = with pkgs; [
+    android-udev-rules
+    qmk-udev-rules
+  ];
 
   # i18n = let
   #   # defaultLocale = "en_US.UTF-8";
@@ -58,6 +61,7 @@
     ghostty
     libcgroup
     wl-color-picker
+    vial
   ];
 
   systemd =
