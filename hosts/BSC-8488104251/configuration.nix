@@ -30,6 +30,8 @@
     pkgs.openfortivpn
     pkgs.zoom-us
     pkgs.buildah
+    pkgs.skopeo
+    pkgs.glab
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
