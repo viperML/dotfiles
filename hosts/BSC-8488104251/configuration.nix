@@ -32,6 +32,7 @@
     pkgs.buildah
     pkgs.skopeo
     pkgs.glab
+    pkgs.polychromatic
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -175,4 +176,7 @@
     enable = true;
     package = pkgs.apptainer;
   };
+
+  hardware.openrazer.enable = true;
+  users.groups.openrazer.members = config.users.groups.wheel.members;
 }
