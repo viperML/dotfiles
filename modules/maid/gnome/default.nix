@@ -32,9 +32,6 @@
       "org.gnome.clocks.desktop"
       "org.gnome.seahorse.Application.desktop"
       "org.gnome.Nautilus.desktop"
-      "warptoggle@mrvladus.github.io"
-      "auto-power-profile@dmy3k.github.io"
-      # "user-theme@gnome-shell-extensions.gcampax.github.com"
     ];
     "/org/gnome/shell/disable-user-extensions" = false;
     "/org/gnome/shell/enabled-extensions" = [
@@ -43,6 +40,8 @@
       "monitor@astraext.github.io"
       "clipboard-history@alexsaveau.dev"
       "rounded-window-corners@fxgn"
+      # "warptoggle@mrvladus.github.io"
+      "auto-power-profile@dmy3k.github.io"
     ];
     "/org/gnome/shell/keybindings/switch-to-application-1" = [ ];
     "/org/gnome/shell/keybindings/switch-to-application-2" = [ ];

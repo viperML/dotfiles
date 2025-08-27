@@ -55,7 +55,7 @@
     android-tools
 
     # GUI
-    warp
+    # warp
     zellij
     vscode
     ghostty
