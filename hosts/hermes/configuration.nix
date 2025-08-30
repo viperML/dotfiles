@@ -143,7 +143,7 @@ in
     # pkgs.powertop
     # pkgs.sysfsutils
     pkgs.zen-browser
-    # pkgs.webcord
+    pkgs.vesktop
     pkgs.distrobox
   ];
 }
