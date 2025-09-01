@@ -33,6 +33,8 @@
     pkgs.skopeo
     pkgs.glab
     pkgs.polychromatic
+    pkgs.kaniko
+    pkgs.rsync
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
