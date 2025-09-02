@@ -182,9 +182,4 @@
 
   hardware.openrazer.enable = true;
   users.groups.openrazer.members = config.users.groups.wheel.members;
-
-  services.keyd = {
-    enable = true;
-  };
-  users.groups.keyd.members = config.users.groups.wheel.members;
 }
