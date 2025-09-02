@@ -64,6 +64,9 @@
   workers = 0
 [url "git@github.com:"]
   insteadOf = "github:"
+  insteadOf = "https://github.com/"
+[url "git@gitlab-internal.bsc.es:"]
+  insteadOf = "https://gitlab.bsc.es/"
 [commit]
   verbose = true
 [init]

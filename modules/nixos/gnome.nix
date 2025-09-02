@@ -29,6 +29,8 @@
     adw-gtk3
     celluloid
     vanilla-dmz
+    lssecret
+    libsecret
   ];
 
   environment.gnome.excludePackages = with pkgs; [

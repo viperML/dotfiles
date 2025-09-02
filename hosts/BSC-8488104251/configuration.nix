@@ -22,7 +22,7 @@
 
   environment.systemPackages = [
     pkgs.zen-browser
-    pkgs.webcord
+    pkgs.vesktop
     pkgs.distrobox
     pkgs.windsurf
     pkgs.thunderbird
@@ -35,6 +35,7 @@
     pkgs.polychromatic
     pkgs.kaniko
     pkgs.rsync
+    pkgs.keyd
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
@@ -181,4 +182,9 @@
 
   hardware.openrazer.enable = true;
   users.groups.openrazer.members = config.users.groups.wheel.members;
+
+  services.keyd = {
+    enable = true;
+  };
+  users.groups.keyd.members = config.users.groups.wheel.members;
 }
