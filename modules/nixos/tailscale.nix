@@ -26,5 +26,8 @@ in {
     (lib.mkIf config.services.desktopManager.plasma6.enable [
       pkgs.ktailctl
     ])
+    (lib.mkIf config.services.desktopManager.gnome.enable [
+      pkgs.gnomeExtensions.tailscale-qs
+    ])
   ];
 }

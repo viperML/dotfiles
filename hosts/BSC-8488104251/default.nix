@@ -14,7 +14,7 @@ import ../. {
     ../../modules/nixos/gnome.nix
 
     #-- Other
-    # ../../modules/nixos/tailscale.nix
+    ../../modules/nixos/tailscale.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/podman.nix
     # ../../modules/nixos/silent-boot.nix

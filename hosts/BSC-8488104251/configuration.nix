@@ -37,6 +37,7 @@
     pkgs.kaniko
     pkgs.rsync
     pkgs.keyd
+    pkgs.kdiskmark
   ];
 
   networking = {

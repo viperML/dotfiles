@@ -42,6 +42,7 @@
       "rounded-window-corners@fxgn"
       # "warptoggle@mrvladus.github.io"
       "auto-power-profile@dmy3k.github.io"
+      "tailscale@joaophi.github.com"
     ];
     "/org/gnome/shell/keybindings/switch-to-application-1" = [ ];
     "/org/gnome/shell/keybindings/switch-to-application-2" = [ ];

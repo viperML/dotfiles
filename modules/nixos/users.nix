@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   defaultUserHome = "/var/home";
 in
@@ -29,4 +34,18 @@ in
   systemd.tmpfiles.rules = [
     "z ${defaultUserHome} 0755 root root - -"
   ];
+
+  systemd.services.tailscale-operator = lib.mkIf config.services.tailscale.enable rec {
+    path = [
+      config.services.tailscale.package
+    ];
+    wantedBy = [
+      "tailscale.service"
+    ];
+    after = wantedBy;
+    script = ''
+      set -x
+      exec tailscale set --operator ayats
+    '';
+  };
 }
