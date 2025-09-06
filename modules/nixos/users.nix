@@ -40,7 +40,7 @@ in
       config.services.tailscale.package
     ];
     wantedBy = [
-      "tailscale.service"
+      "tailscaled.service"
     ];
     after = wantedBy;
     script = ''
