@@ -46,6 +46,9 @@
 
   networking = {
     hostName = "BSC-8488104251";
+    hosts = {
+      "192.168.10.63" = [ "bsc-grafana" ];
+    };
     networkmanager = {
       enable = true;
       # dns = "systemd-resolved";
@@ -87,8 +90,6 @@
       systemd.enable = true;
       availableKernelModules = [ ];
     };
-
-
 
     kernelParams = [
       # "quiet"
