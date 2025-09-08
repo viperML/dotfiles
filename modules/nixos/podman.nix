@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 let
@@ -15,6 +16,8 @@ in
       flags = [ "--all" ];
       dates = "weekly";
     };
+
+    dockerSocket.enable = true;
   };
 
   virtualisation.oci-containers = {
@@ -35,4 +38,6 @@ in
         ];
       };
   };
+
+  users.groups.podman.members = config.users.groups.wheel.members;
 }
