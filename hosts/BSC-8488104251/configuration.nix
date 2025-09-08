@@ -18,6 +18,9 @@
     maid = {
       file.xdg_config."autostart/rocketchat-desktop.desktop".source =
         "/run/current-system/sw/share/applications/rocketchat-desktop.desktop";
+
+      file.xdg_config."autostart/Mailspring.desktop".source =
+        "/run/current-system/sw/share/applications/Mailspring.desktop";
     };
   };
 
@@ -38,6 +41,7 @@
     pkgs.rsync
     pkgs.keyd
     pkgs.kdiskmark
+    pkgs.mailspring
   ];
 
   networking = {
