@@ -34,6 +34,7 @@ abbr -a -g us systemctl --user
 abbr -a -g sf journalctl -xefu
 abbr -a -g uf journalctl -xef --user-unit
 abbr -a -g pr podman run -it --rm
+abbr -a -g dr docker run -it --rm
 
 # Image cat
 # abbr -a -g wat "wezterm imgcat --height 50%"

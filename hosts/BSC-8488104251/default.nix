@@ -19,5 +19,6 @@ import ../. {
     ../../modules/nixos/docker.nix
     # ../../modules/nixos/silent-boot.nix
     ./gitlab-runner.nix
+    ./sourcebot.nix
   ];
 }

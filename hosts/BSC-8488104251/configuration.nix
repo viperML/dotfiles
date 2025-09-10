@@ -11,6 +11,7 @@
     NH_FILE = "${D}/hosts/BSC-8488104251";
     BUILDAH_FORMAT = "docker";
     LIBVA_DRIVER_NAME = "iHD";
+    DOCKER_BUILDKIT = "1";
   };
 
   users.users.ayats = {

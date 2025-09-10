@@ -1,0 +1,18 @@
+// vim: set ft=jsonc
+{
+    "$schema": "https://raw.githubusercontent.com/sourcebot-dev/sourcebot/main/schemas/v3/index.json",
+    "connections": {
+        "bsc": {
+            "type": "gitlab",
+            "token": {
+                "secret": "gitlab-token"
+            },
+            "projects": [
+            ],
+            "groups": [
+                "hwdesign"
+            ],
+            "url": "https://gitlab.bsc.es"
+        }
+    }
+}
