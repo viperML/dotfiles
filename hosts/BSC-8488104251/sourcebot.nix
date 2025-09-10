@@ -1,10 +1,4 @@
-{ config, pkgs, ... }:
-let
-
-  json = pkgs.formats.json { };
-in
 {
-
   virtualisation.oci-containers.containers.sourcebot = {
     image = "ghcr.io/sourcebot-dev/sourcebot:latest";
     ports = [
