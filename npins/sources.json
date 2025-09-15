@@ -77,9 +77,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "cfc4a69045bd8d858319875c572d52ce2a53a533",
-      "url": "https://github.com/viperML/nix-common/archive/cfc4a69045bd8d858319875c572d52ce2a53a533.tar.gz",
-      "hash": "1hkj2f4iq8qf157qklzp59qny2j4yh8i9f5cmgrsn3ny9wyxf62y"
+      "revision": "13294e0c7e8d8610d517c36bba3fea070c8dd9d5",
+      "url": "https://github.com/viperML/nix-common/archive/13294e0c7e8d8610d517c36bba3fea070c8dd9d5.tar.gz",
+      "hash": "0r99wlwlhsb2k8n9p7hg1df8lax50v39ksmr9mnm967pxcf3b2dx"
     },
     "nix-index-database": {
       "type": "Git",
