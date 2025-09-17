@@ -45,7 +45,8 @@ in
 
   programs.git.config = {
     commit.gpgsign = true;
-    tag.gpgsign = true;
+    # Lightweight tags are not signed
+    # tag.gpgsign = true;
     gpg = {
       format = "ssh";
       ssh.defaultKeyCommand = cmdname;
