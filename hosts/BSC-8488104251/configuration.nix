@@ -29,7 +29,6 @@
     pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
-    pkgs.windsurf
     pkgs.thunderbird
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
