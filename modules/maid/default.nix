@@ -6,6 +6,7 @@
   imports = [
     ./containers
     ./gnome
+    ./ghostty
   ];
 
   file.home.".gitconfig".source = pkgs.git-viper.gitconfig;

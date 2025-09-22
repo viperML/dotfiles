@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 let
-
   config = pkgs.writeText "ghostty-config" (
     [
       ./config
@@ -11,13 +10,9 @@ let
   );
 in
 {
-  wrappers.ghostty = {
-    basePackage = pkgs.ghostty;
-    prependFlags = [
-      "--config-file=${config}"
-    ];
-    programs.ghostty-unwrapped = {
-      target = "ghostty";
-    };
-  };
+  file.xdg_config."ghostty/config".source = config;
+
+  packages = [
+    pkgs.ghostty
+  ];
 }

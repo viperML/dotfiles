@@ -58,7 +58,6 @@
     # warp
     zellij
     vscode
-    ghostty
     libcgroup
     wl-color-picker
     vial
