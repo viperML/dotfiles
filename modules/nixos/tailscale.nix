@@ -3,16 +3,19 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (config.services.tailscale) interfaceName;
-in {
-  services.tailscale.enable = true;
+in
+{
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
 
   networking.firewall = {
-    # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
-    checkReversePath = "loose";
     interfaces.${interfaceName} = {
-      allowedTCPPorts = [22];
+      allowedTCPPorts = [ 22 ];
       allowedTCPPortRanges = [
         {
           from = 8000;
