@@ -25,18 +25,7 @@ in
 
   users.users.ayats = {
     home = "/x";
-    maid = {
-      # systemd.tmpfiles.dynamicRules = [
-      #   "L /tmp/cursor-settings - - - - {{home}}/src/dotfiles/misc/cursor-settings"
-      # ];
-      dconf.settings = {
-        "/org/gnome/shell/enabled-extensions" = [
-
-          "warptoggle@mrvladus.github.io"
-
-        ];
-      };
-    };
+    maid = {};
   };
 
   services.resolved = {
@@ -152,8 +141,5 @@ in
     pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
-    pkgs.gnomeExtensions.warp-toggle
   ];
-
-  services.cloudflare-warp.enable = true;
 }
