@@ -58,4 +58,8 @@
   # programs.git.config = {
   #   credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
   # };
+
+  maid.sharedModules = [
+    ../maid/gnome
+  ];
 }

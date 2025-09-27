@@ -5,7 +5,6 @@
 {
   imports = [
     ./containers
-    ./gnome
     ./ghostty
   ];
 

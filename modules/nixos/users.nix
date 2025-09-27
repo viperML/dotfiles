@@ -13,7 +13,7 @@ in
 
     users.ayats = {
       uid = 10000;
-      maid = ../maid;
+      maid = ../maid/common.nix;
     };
 
     users.tmp = {
