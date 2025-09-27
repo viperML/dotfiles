@@ -55,7 +55,6 @@
     android-tools
 
     # GUI
-    # warp
     zellij
     vscode
     libcgroup

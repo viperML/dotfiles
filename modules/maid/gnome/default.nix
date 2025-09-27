@@ -40,7 +40,6 @@
       "monitor@astraext.github.io"
       "clipboard-history@alexsaveau.dev"
       "rounded-window-corners@fxgn"
-      # "warptoggle@mrvladus.github.io"
       "auto-power-profile@dmy3k.github.io"
       "tailscale@joaophi.github.com"
     ];
