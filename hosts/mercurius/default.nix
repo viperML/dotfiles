@@ -1,4 +1,4 @@
-let 
+let
   sources = import ../../npins;
   pkgs = import ../../packages;
 in
@@ -12,11 +12,10 @@ in
       ./configuration.nix
       (import "${sources.NixOS-WSL}/modules")
 
-      ../../modules/nixos/wsl.nix
+      ../../modules/nixos/common-console.nix
       "${sources.nix-common}/nixos"
       {
         disabledModules = [
-          "${sources.nix-common}/nixos/channels-to-flakes.nix"
           "${sources.nix-common}/nixos/network.nix"
         ];
       }

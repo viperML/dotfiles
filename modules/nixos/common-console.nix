@@ -1,8 +1,20 @@
 {
-  config,
-  pkgs, lib,
+  pkgs,
+  lib,
   ...
-}: {
+}:
+{
+  environment.systemPackages = with pkgs; [
+    env-viper
+    net-tools
+    tcpdump
+    libcgroup
+  ];
+
+  # Sane default to at least have a static hostId
+  networking.hostId = "deadbeef";
+
+  users.mutableUsers = false;
 
   programs.nh = {
     enable = true;
@@ -12,12 +24,17 @@
   };
 
   nix = {
+    package = pkgs.lixPackageSets.latest.lix;
     # package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
     settings = lib.mkMerge [
-      (import ../../misc/nix-conf.nix)
+      {
+        extra-experimental-features = [
+          "pipe-operator"
+        ];
+        flake-registry = "/etc/nix/registry.json";
+      }
       (import ../../misc/nix-conf-privileged.nix)
-      { "flake-registry" = "/etc/nix/registry.json"; }
     ];
     channel.enable = false;
     nixPath = [ "nixpkgs=/etc/nixpkgs" ];
@@ -38,10 +55,6 @@
     EDITOR = "nvim";
     # NIXPKGS_CONFIG = lib.mkForce "";
   };
-
-  environment.systemPackages = with pkgs; [
-    env-viper
-  ];
 
   time.timeZone = "Europe/Madrid";
 

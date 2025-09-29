@@ -8,16 +8,8 @@
 {
   imports = [
     ./swap.nix
-    ./wsl.nix
+    ./common-console.nix
   ];
-
-  # broken
-  services.envfs.enable = lib.mkForce false;
-
-  # Sane default to at least have a static hostId
-  networking.hostId = "deadbeef";
-
-  users.mutableUsers = false;
 
   services.udev.packages = with pkgs; [
     android-udev-rules
@@ -48,32 +40,20 @@
   #   };
   # };
   environment.systemPackages = with pkgs; [
-    # CLI base tools
+    # CLI desktop tools
     usbutils
     pciutils
     efibootmgr
     android-tools
-    net-tools
-    tcpdump
 
     # GUI
     zellij
     vscode
-    libcgroup
     wl-color-picker
     vial
   ];
 
-  systemd =
-    # let
-    #   extraConfig = ''
-    #     DefaultTimeoutStartSec=15s
-    #     DefaultTimeoutStopSec=15s
-    #     DefaultTimeoutAbortSec=15s
-    #     DefaultDeviceTimeoutSec=15s
-    #   '';
-    # in
-    {
+  systemd = {
       services."getty@tty1".enable = false;
       services."autovt@tty1".enable = false;
       services."getty@tty7".enable = false;

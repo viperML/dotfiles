@@ -10,13 +10,8 @@ in
       {
         config.nixpkgs.pkgs = pkgs;
       }
-      ../modules/nixos/common.nix
+      ../modules/nixos/common-gui.nix
       "${sources.nix-common}/nixos"
-      {
-        disabledModules = [
-          "${sources.nix-common}/nixos/channels-to-flakes.nix"
-        ];
-      }
       (import sources.lanzaboote).nixosModules.lanzaboote
       (import sources.nix-maid).nixosModules.default
     ] ++ modules;
