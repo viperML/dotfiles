@@ -53,6 +53,8 @@
     pciutils
     efibootmgr
     android-tools
+    net-tools
+    tcpdump
 
     # GUI
     zellij

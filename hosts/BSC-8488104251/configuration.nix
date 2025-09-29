@@ -14,6 +14,10 @@
     DOCKER_BUILDKIT = "1";
   };
 
+  nix.settings = {
+    cores = 6;
+  };
+
   users.users.ayats = {
     home = "/x";
     maid = {
@@ -98,6 +102,10 @@
       # "console=tty0"
       # "plymouth.use-simpledrm"
     ];
+
+    kernel.sysctl = {
+      "net.ipv4.conf.all.mc_forwarding" = true;
+    };
 
     loader = {
       systemd-boot = {
