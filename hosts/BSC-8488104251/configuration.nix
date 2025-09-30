@@ -33,7 +33,6 @@
     pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
-    pkgs.thunderbird
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
     pkgs.zoom-us
@@ -44,7 +43,6 @@
     pkgs.kaniko
     pkgs.rsync
     pkgs.keyd
-    pkgs.kdiskmark
     pkgs.mailspring
   ];
 
