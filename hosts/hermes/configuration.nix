@@ -25,7 +25,9 @@ in
 
   users.users.ayats = {
     home = "/x";
-    maid = {};
+    maid = {
+      gsettings.settings.org.gnome.desktop.interface.accent-color = "blue";
+    };
   };
 
   services.resolved = {
@@ -141,5 +143,6 @@ in
     pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
+    pkgs.glib # gsettings
   ];
 }
