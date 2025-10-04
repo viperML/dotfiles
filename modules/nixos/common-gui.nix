@@ -54,18 +54,13 @@
   ];
 
   systemd = {
-      services."getty@tty1".enable = false;
-      services."autovt@tty1".enable = false;
-      services."getty@tty7".enable = false;
-      services."autovt@tty7".enable = false;
-      services."kmsconvt@tty1".enable = false;
-      services."kmsconvt@tty7".enable = false;
-    };
-
-  # programs.ssh = {
-  #   startAgent = true;
-  #   agentTimeout = "8h";
-  # };
+    services."getty@tty1".enable = false;
+    services."autovt@tty1".enable = false;
+    services."getty@tty7".enable = false;
+    services."autovt@tty7".enable = false;
+    services."kmsconvt@tty1".enable = false;
+    services."kmsconvt@tty7".enable = false;
+  };
 
   fonts.packages = [
     # pkgs.roboto

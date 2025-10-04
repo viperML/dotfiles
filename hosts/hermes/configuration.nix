@@ -144,5 +144,6 @@ in
     pkgs.vesktop
     pkgs.distrobox
     pkgs.glib # gsettings
+    pkgs.prismlauncher
   ];
 }

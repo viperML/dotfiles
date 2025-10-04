@@ -10,9 +10,8 @@ import ../. {
 
     #-- Environment
     { services.displayManager.autoLogin.user = "ayats"; }
-    # nixosModules.plasma6
     # ../../modules/nixos/gnome.nix
-    ../../modules/nixos/kde.nix
+    ../../modules/nixos/plasma6.nix
 
     #-- Other
     ../../modules/nixos/tailscale.nix
