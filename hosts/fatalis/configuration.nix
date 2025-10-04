@@ -16,11 +16,7 @@ in
 
   users.users.ayats = {
     home = "/x";
-    maid = {
-      systemd.tmpfiles.dynamicRules = [
-        "L /tmp/cursor-settings - - - - {{home}}/src/dotfiles/misc/cursor-settings"
-      ];
-    };
+    maid = { };
   };
 
   environment.systemPackages = [
@@ -153,8 +149,6 @@ in
       ];
     };
   };
-
-  programs.kde-pim.enable = false;
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;

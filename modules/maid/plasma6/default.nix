@@ -5,10 +5,10 @@
       Desktops.Rows = 1;
       Effect-overview.BorderActivate = 9;
       Effect-fadedesktop.AnimationDuration = 100;
-      Plugins = {
-        fadedesktopEnabled = true;
-        slideEnabled = false;
-      };
+      # Plugins = {
+      #   fadedesktopEnabled = true;
+      #   slideEnabled = false;
+      # };
     };
     kglobalshortcutsrc = {
       kwin = {
@@ -40,6 +40,7 @@
     kcminputrc = {
       Libinput.Defaults = {
         PointerAccelerationProfile = 1;
+        NaturalScroll = true;
       };
     };
     baloofilerc = {
