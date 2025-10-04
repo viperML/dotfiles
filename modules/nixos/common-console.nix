@@ -24,13 +24,13 @@
   };
 
   nix = {
-    package = pkgs.lixPackageSets.latest.lix;
+    package = pkgs.nixVersions.latest;
     # package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
     settings = lib.mkMerge [
       {
         extra-experimental-features = [
-          "pipe-operator"
+          "pipe-operators"
         ];
         flake-registry = "/etc/nix/registry.json";
       }
