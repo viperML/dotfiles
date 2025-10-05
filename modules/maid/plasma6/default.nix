@@ -1,3 +1,7 @@
+{ lib, ... }:
+let
+  numbers = builtins.genList (x: toString (x + 1)) 9;
+in
 {
   kconfig.settings = {
     kwinrc = {
@@ -11,18 +15,22 @@
       # };
     };
     kglobalshortcutsrc = {
-      kwin = {
-        "Switch to Desktop 1" = "Meta+1,Ctrl+F1,Cambiar al escritorio 1";
-        "Switch to Desktop 2" = "Meta+2,Ctrl+F2,Cambiar al escritorio 2";
-        "Switch to Desktop 3" = "Meta+3,Ctrl+F3,Cambiar al escritorio 3";
-        "Switch to Desktop 4" = "Meta+4,Ctrl+F4,Cambiar al escritorio 4";
-      };
-      plasmashell = {
-        "activate task manager entry 1" = "none,Meta+1,Activar la entrada 1 del gestor de tareas";
-        "activate task manager entry 2" = "none,Meta+2,Activar la entrada 2 del gestor de tareas";
-        "activate task manager entry 3" = "none,Meta+3,Activar la entrada 3 del gestor de tareas";
-        "activate task manager entry 4" = "none,Meta+4,Activar la entrada 4 del gestor de tareas";
-      };
+      kwin = lib.mkMerge [
+        (lib.genAttrs' numbers (
+          n: lib.nameValuePair "Switch to Desktop ${n}" "Meta+${n},Ctrl+F${n},Cambiar al escritorio ${n}"
+        ))
+        # FIXME
+        (lib.genAttrs' numbers (
+          n: lib.nameValuePair "Window to Desktop ${n}" "Meta+Shift+${n},,Ventana al escritorio ${n}"
+        ))
+      ];
+
+      plasmashell = lib.mkMerge [
+        (lib.genAttrs' numbers (
+          n:
+          lib.nameValuePair "activate task manager entry ${n}" "none,Meta+${n},Activar la entrada ${n} del gestor de tareas"
+        ))
+      ];
     };
     kscreenlockerrc = {
       Daemon.Autolock = false;
