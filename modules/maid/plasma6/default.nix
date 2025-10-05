@@ -13,6 +13,9 @@ in
       #   fadedesktopEnabled = true;
       #   slideEnabled = false;
       # };
+      ModifierOnlyShortcuts = {
+        Meta = "";
+      };
     };
     kglobalshortcutsrc = {
       kwin = lib.mkMerge [
@@ -23,6 +26,9 @@ in
         (lib.genAttrs' numbers (
           n: lib.nameValuePair "Window to Desktop ${n}" "Meta+Shift+${n},,Ventana al escritorio ${n}"
         ))
+        {
+          "Window Close" = "Meta+Q\tAlt+F4,Alt+F4,Cerrar la ventana";
+        }
       ];
 
       plasmashell = lib.mkMerge [
@@ -30,6 +36,10 @@ in
           n:
           lib.nameValuePair "activate task manager entry ${n}" "none,Meta+${n},Activar la entrada ${n} del gestor de tareas"
         ))
+        {
+          "activate application launcher" = "none,Meta\tAlt+F1,Activar el lanzador de aplicaciones";
+          "manage activities" = "none,Meta+Q,Mostrar el selector de actividad";
+        }
       ];
     };
     kscreenlockerrc = {
@@ -53,6 +63,10 @@ in
     };
     baloofilerc = {
       "Basic Settings".Indexing-Enabled = false;
+    };
+    krunnerrc = {
+      ActivateWhenTypingOnDesktop = false;
+      FreeFloating = true;
     };
   };
 }
