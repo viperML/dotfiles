@@ -37,7 +37,7 @@ in
           lib.nameValuePair "activate task manager entry ${n}" "none,Meta+${n},Activar la entrada ${n} del gestor de tareas"
         ))
         {
-          "activate application launcher" = "none,Meta\tAlt+F1,Activar el lanzador de aplicaciones";
+          "activate application launcher" = "Meta,Meta\tAlt+F1,Activar el lanzador de aplicaciones";
           "manage activities" = "none,Meta+Q,Mostrar el selector de actividad";
         }
       ];
@@ -57,8 +57,8 @@ in
     };
     kcminputrc = {
       Libinput.Defaults = {
-        PointerAccelerationProfile = 1;
-        NaturalScroll = true;
+        # PointerAccelerationProfile = 1;
+        # NaturalScroll = true;
       };
     };
     baloofilerc = {

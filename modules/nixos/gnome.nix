@@ -21,7 +21,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.astra-monitor
-    gnomeExtensions.rounded-window-corners-reborn
+    # gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.auto-power-profile
     # gnomeExtensions.user-themes
     gnomeExtensions.clipboard-history

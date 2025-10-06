@@ -39,7 +39,7 @@
       "dash-to-panel@jderose9.github.com"
       "monitor@astraext.github.io"
       "clipboard-history@alexsaveau.dev"
-      "rounded-window-corners@fxgn"
+      # "rounded-window-corners@fxgn"
       "auto-power-profile@dmy3k.github.io"
       "tailscale@joaophi.github.com"
     ];
