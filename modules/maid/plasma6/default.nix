@@ -9,6 +9,10 @@ in
       Desktops.Rows = 1;
       Effect-overview.BorderActivate = 9;
       Effect-fadedesktop.AnimationDuration = 100;
+      EdgeBarrier = {
+        CornerBarrier = false;
+        EdgeBarrier = 0;
+      };
       # Plugins = {
       #   fadedesktopEnabled = true;
       #   slideEnabled = false;
