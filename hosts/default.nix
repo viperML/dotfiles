@@ -2,7 +2,7 @@ let
   sources = import ../npins;
   pkgs = import ../packages;
 in
-{ modules }:
+modules:
 pkgs.nixos (
   [
     ../modules/nixos/common-gui.nix
