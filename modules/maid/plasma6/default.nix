@@ -47,7 +47,11 @@ in
       ];
     };
     kscreenlockerrc = {
-      Daemon.Autolock = false;
+      Daemon = {
+        Autolock = false;
+        LockOnResume = false;
+        Timeout = 0;
+      };
       Timeout = 0;
     };
     kdeglobals = {
