@@ -13,10 +13,12 @@ in
         CornerBarrier = false;
         EdgeBarrier = 0;
       };
-      # Plugins = {
-      #   fadedesktopEnabled = true;
-      #   slideEnabled = false;
-      # };
+      Plugins = {
+        zoomEnabled = false;
+        contrastEnabled = false;
+        # fadedesktopEnabled = true;
+        # slideEnabled = false;
+      };
       ModifierOnlyShortcuts = {
         Meta = "";
       };
