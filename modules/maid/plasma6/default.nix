@@ -76,5 +76,8 @@ in
       ActivateWhenTypingOnDesktop = false;
       FreeFloating = true;
     };
+    spectaclerc = {
+      General.clipboardGroup = "PostScreenshotCopyImage";
+    };
   };
 }
