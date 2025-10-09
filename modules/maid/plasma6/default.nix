@@ -81,5 +81,9 @@ in
     spectaclerc = {
       General.clipboardGroup = "PostScreenshotCopyImage";
     };
+    powerdevilrc = {
+      AC.Performance.PowerProfile = "performance";
+      Battery.Performance.PowerProfile = "power-saver";
+    };
   };
 }
