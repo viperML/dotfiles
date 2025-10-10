@@ -30,3 +30,6 @@ keybind = ctrl+up=unbind
 keybind = ctrl+down=unbind
 keybind = ctrl+left=unbind
 keybind = ctrl+right=unbind
+
+shell-integration-features = ssh-env
+confirm-close-surface = false
