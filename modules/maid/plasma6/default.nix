@@ -28,10 +28,6 @@ in
         (lib.genAttrs' numbers (
           n: lib.nameValuePair "Switch to Desktop ${n}" "Meta+${n},Ctrl+F${n},Cambiar al escritorio ${n}"
         ))
-        # FIXME
-        (lib.genAttrs' numbers (
-          n: lib.nameValuePair "Window to Desktop ${n}" "Meta+Shift+${n},,Ventana al escritorio ${n}"
-        ))
         {
           "Window Close" = "Meta+Q\tAlt+F4,Alt+F4,Cerrar la ventana";
 
