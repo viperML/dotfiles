@@ -34,6 +34,12 @@ in
         ))
         {
           "Window Close" = "Meta+Q\tAlt+F4,Alt+F4,Cerrar la ventana";
+
+          "Window to Desktop 1" = "Meta+!,,Ventana al escritorio 1";
+          "Window to Desktop 2" = "Meta+@,,Ventana al escritorio 2";
+          "Window to Desktop 3" = "Meta+#,,Ventana al escritorio 3";
+          "Window to Desktop 4" = "Meta+$,,Ventana al escritorio 4";
+          "Window to Desktop 5" = "Meta+%,,Ventana al escritorio 5";
         }
       ];
 
