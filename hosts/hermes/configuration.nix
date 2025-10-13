@@ -17,10 +17,8 @@ in
   networking = {
     hostName = "hermes";
     networkmanager = {
-      enable = true;
       dns = "systemd-resolved";
     };
-    nftables.enable = true;
   };
 
   users.users.ayats = {

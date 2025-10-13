@@ -113,4 +113,15 @@
   hardware.steam-hardware.enable = true;
 
   services.hardware.bolt.enable = true;
+
+  networking = {
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-fortisslvpn
+        networkmanager-openconnect
+      ];
+    };
+    nftables.enable = true;
+  };
 }

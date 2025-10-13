@@ -46,21 +46,7 @@
     pkgs.mailspring
   ];
 
-  networking = {
-    hostName = "BSC-8488104251";
-    hosts = {
-      # "192.168.10.63" = [ "bsc-grafana" ];
-    };
-    networkmanager = {
-      enable = true;
-      # dns = "systemd-resolved";
-      plugins = with pkgs; [
-        networkmanager-fortisslvpn
-        networkmanager-openconnect
-      ];
-    };
-    nftables.enable = true;
-  };
+  networking.hostName = "BSC-8488104251";
 
   security.sudo.wheelNeedsPassword = false;
 
