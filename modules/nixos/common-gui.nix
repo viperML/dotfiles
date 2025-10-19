@@ -73,7 +73,6 @@
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
     # config.services.desktopManager.plasma6.notoPackage
-    pkgs.cozette
   ];
 
   services.xserver = {

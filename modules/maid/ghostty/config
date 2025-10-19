@@ -1,13 +1,13 @@
-font-family = Cozette
-#font-style = Medium
-#font-style-bold = Bold
-#font-style-italic = Medium Italic
-#font-style-bold-italic = Bold Italic
+font-family = iosevka-normal
+font-style = Medium
+font-style-bold = Bold
+font-style-italic = Medium Italic
+font-style-bold-italic = Bold Italic
 # font-variation = wght=500
-font-size = 13
-# adjust-cell-width = -1
+font-size = 11
+adjust-cell-width = -1
 # adjust-cell-height = 1
-#grapheme-width-method = legacy
+grapheme-width-method = legacy
 
 # background = #1D1D1D
 
