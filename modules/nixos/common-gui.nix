@@ -14,6 +14,8 @@
   services.udev.packages = with pkgs; [
     android-udev-rules
     qmk-udev-rules
+    platformio-core
+    openocd
   ];
 
   # i18n = let
@@ -71,6 +73,7 @@
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
     # config.services.desktopManager.plasma6.notoPackage
+    pkgs.cozette
   ];
 
   services.xserver = {
