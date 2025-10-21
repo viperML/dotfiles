@@ -22,6 +22,8 @@
   environment.systemPackages = [
     pkgs.vanilla-dmz
     pkgs.kdePackages.ksshaskpass
+    pkgs.kara
+    pkgs.plasma-panel-colorizer
   ];
 
   maid.sharedModules = [

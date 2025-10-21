@@ -9,6 +9,8 @@
     net-tools
     tcpdump
     libcgroup
+    nodejs
+    pnpm
   ];
 
   # Sane default to at least have a static hostId
