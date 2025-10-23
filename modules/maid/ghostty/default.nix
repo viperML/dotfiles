@@ -3,8 +3,8 @@ let
   config = pkgs.writeText "ghostty-config" (
     [
       ./config
-      # ./catpuccin-mocha.conf
-      ./vesper.conf
+      ./catpuccin-mocha.conf
+      # ./vesper.conf
     ]
     |> (map builtins.readFile)
     |> (lib.concatStringsSep "\n")
