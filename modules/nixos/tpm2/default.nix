@@ -2,6 +2,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 let
@@ -12,16 +13,17 @@ let
   });
   # pkcs11pkg = pkgs.tpm2-pkcs11-esapi;
   cmdname = "git-key-command";
+  cmd = pkgs.runCommandLocal cmdname { } ''
+    mkdir -p $out/bin
+    cp -v ${./git-key-command.sh} $out/bin/${cmdname}
+    patchShebangs --host $out/bin/*
+  '';
 in
 {
-  environment.systemPackages = with pkgs; [
-    sbctl
-    dmidecode
-    (pkgs.runCommandLocal cmdname { } ''
-      mkdir -p $out/bin
-      cp -v ${./git-key-command.sh} $out/bin/${cmdname}
-      patchShebangs --host $out/bin/*
-    '')
+  environment.systemPackages = [
+    pkgs.sbctl
+    pkgs.dmidecode
+    cmd
   ];
 
   security.tpm2 = {
@@ -50,6 +52,28 @@ in
     gpg = {
       format = "ssh";
       ssh.defaultKeyCommand = cmdname;
+    };
+  };
+
+  systemd.user.services."ssh-reconfigure" = {
+    wantedBy = [ "ssh-agent.service" ];
+    after = [ "ssh-agent.service" ];
+    path = [
+      config.programs.ssh.package
+    ];
+    script = ''
+      if [[ ! -d ~/.local/share/tpm2-pkcs11 ]]; then
+        # TODO
+        echo ":: Reconfiguring SSH-TPM2"
+      else
+        echo ":: SSH-TPM2 already configured"
+      fi
+
+      ${lib.getExe cmd}
+    '';
+    serviceConfig = {
+      Type = "simple";
+      RemainAfterExit = true;
     };
   };
 }
