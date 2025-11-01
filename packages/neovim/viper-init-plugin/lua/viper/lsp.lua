@@ -15,8 +15,6 @@ require("viper.lazy").add_specs {
     -- event = "DeferredUIEnter",
     -- lazy = false,
     after = function()
-      -- local lspconfig = require("lspconfig")
-      local lspconfig = vim.lsp.config
       require("viper.lazy").packadd("blink.cmp")
       require("lz.n").trigger_load("copilot.lua")
 
@@ -74,7 +72,7 @@ require("viper.lazy").add_specs {
       -- end
 
       for k, v in pairs(require("viper.lsp_config")) do
-        lspconfig[k].setup(v)
+        vim.lsp.config(k, v)
       end
 
       vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
