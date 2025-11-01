@@ -95,7 +95,6 @@ in
       nvim-autopairs
       nvim-lspconfig
       blink-cmp
-      nvim-navic
       parinfer-rust
       smart-splits-nvim
       # zellij-nav-nvim

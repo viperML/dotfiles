@@ -87,26 +87,6 @@ require("lualine").setup {
     },
   },
   extensions = { "neo-tree", "trouble" },
-  winbar = {
-    lualine_c = {
-      "filename",
-      {
-        "navic",
-        color_correction = nil,
-        navic_opts = {},
-      },
-    },
-  },
-  inactive_winbar = {
-    lualine_c = {
-      "filename",
-      {
-        "navic",
-        color_correction = nil,
-        navic_opts = {},
-      },
-    },
-  },
   sections = {
     lualine_a = { {
       "mode",

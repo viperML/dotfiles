@@ -15,9 +15,9 @@ require("viper.lazy").add_specs {
     -- event = "DeferredUIEnter",
     -- lazy = false,
     after = function()
-      local lspconfig = require("lspconfig")
+      -- local lspconfig = require("lspconfig")
+      local lspconfig = vim.lsp.config
       require("viper.lazy").packadd("blink.cmp")
-      require("viper.lazy").packadd("nvim-navic")
       require("lz.n").trigger_load("copilot.lua")
 
       require("blink.cmp").setup {
@@ -55,30 +55,23 @@ require("viper.lazy").add_specs {
 
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-        on_attach = function(client, bufnr)
-          if client.server_capabilities.documentSymbolProvider then
-            require("nvim-navic").attach(client, bufnr)
-          end
-        end,
-        capabilities = capabilities,
-      })
-
-      lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
-        config.cmd[1] = vim.fs.basename(config.cmd[1]) -- motherfuckers, who resolved the absolute path
-
-        local bin_name = config.cmd[1]
-
-        local bin_exists = vim.fn.executable(bin_name)
-
-        if bin_exists == 1 then
-          config.autostart = true
-        -- vim.notify("Enabling " .. config.name, levels.TRACE)
-        else
-          config.autostart = false
-          -- vim.notify("Disabling " .. config.name, levels.TRACE)
-        end
-      end)
+      -- lspconfig.util.on_setup = function(config)
+      --   config.cmd[1] = vim.fs.basename(config.cmd[1]) -- motherfuckers, who resolved the absolute path
+      --
+      --   local bin_name = config.cmd[1]
+      --
+      --   local bin_exists = vim.fn.executable(bin_name)
+      --
+      --   if bin_exists == 1 then
+      --     config.autostart = true
+      --   -- vim.notify("Enabling " .. config.name, levels.TRACE)
+      --   else
+      --     config.autostart = false
+      --     -- vim.notify("Disabling " .. config.name, levels.TRACE)
+      --   end
+      --
+      --   lspconfig.util.on_setup(config)
+      -- end
 
       for k, v in pairs(require("viper.lsp_config")) do
         lspconfig[k].setup(v)

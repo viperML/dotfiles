@@ -1,5 +1,6 @@
-local lspconfig = require("lspconfig")
-local root_pattern = lspconfig.util.root_pattern
+-- local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
+-- local root_pattern = lspconfig.util.root_pattern
 
 vim.filetype.add {
   extension = {
