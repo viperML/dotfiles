@@ -13,11 +13,16 @@ let
   });
   # pkcs11pkg = pkgs.tpm2-pkcs11-esapi;
   cmdname = "git-key-command";
-  cmd = pkgs.runCommandLocal cmdname { } ''
-    mkdir -p $out/bin
-    cp -v ${./git-key-command.sh} $out/bin/${cmdname}
-    patchShebangs --host $out/bin/*
-  '';
+  cmd =
+    pkgs.runCommandLocal cmdname
+      {
+        meta.mainProgram = cmdname;
+      }
+      ''
+        mkdir -p $out/bin
+        cp -v ${./git-key-command.sh} $out/bin/${cmdname}
+        patchShebangs --host $out/bin/*
+      '';
 in
 {
   environment.systemPackages = [
