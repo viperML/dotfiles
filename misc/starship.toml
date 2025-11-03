@@ -10,7 +10,6 @@ $container\
 $terraform\
 $env_var\
 $singularity\
-$spack\
 [\\]](fg:8)
 )\
 ([\\[](fg:8) $direnv$git_branch$git_commit$git_state$git_status$git_metrics[\\]](fg:8)
@@ -161,8 +160,3 @@ disabled = false
 symbol = "↕"
 format ="[$symbol]($style)  "
 repeat_offset = 1
-
-[spack]
-format = "[$symbol$environment]($style) "
-symbol = " "
-
