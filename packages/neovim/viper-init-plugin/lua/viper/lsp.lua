@@ -73,6 +73,7 @@ require("viper.lazy").add_specs {
 
       for k, v in pairs(require("viper.lsp_config")) do
         vim.lsp.config(k, v)
+        vim.lsp.enable(k)
       end
 
       vim.keymap.set("n", "<leader>.", vim.lsp.buf.hover, { desc = "LSP hover" })
