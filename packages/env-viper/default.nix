@@ -10,7 +10,6 @@
   bat,
   fish-viper,
   neovim,
-  elf-info,
   gh,
   unar,
   hexyl,
@@ -32,7 +31,6 @@
   yazi,
   curl,
   wget,
-  httpie,
   osc,
   file,
   pax-utils,
@@ -42,7 +40,6 @@
   shellcheck,
   sops,
   age,
-  aichat,
   hover-rs,
 }@args:
 buildEnv {

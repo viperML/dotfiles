@@ -45,21 +45,8 @@ return {
       },
     },
   },
-  -- JS
-  ["astro"] = {},
-  ["ts_ls"] = {},
-  ["html"] = {},
-  ["tailwindcss"] = {},
-  ["cssls"] = {},
-  ["volar"] = {},
   -- C
   ["clangd"] = {},
-  ["mesonlsp"] = {},
-  ["neocmake"] = {},
-  -- Python
-  ["ruff"] = {},
-  -- ["pylsp"] = {},
-  ["basedpyright"] = {},
   -- Schemas
   ["taplo"] = {},
   ["jsonls"] = {
@@ -89,11 +76,10 @@ return {
           url = "",
         },
         schemas = {
-          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
+          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.yml",
           ["https://json.schemastore.org/github-action.json"] = "action.{yaml,yml}",
           ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
           ["https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json"] = "user-data.{yaml,yml}",
-          ["https://json.schemastore.org/hugo.json"] = "hugo.{yaml,yml}",
         },
       },
     },
@@ -110,9 +96,6 @@ return {
     },
   },
   ["gopls"] = {},
-  ["zls"] = {
-    enable_build_on_save = true,
-  },
   ["tinymist"] = {
     offset_encoding = "utf-8",
   },

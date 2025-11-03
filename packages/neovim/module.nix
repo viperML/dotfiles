@@ -19,6 +19,7 @@ in
     yaml-language-server
     taplo
     nodePackages.bash-language-server
+    dockerfile-language-server
   ];
 
   wrapperArgs = [
