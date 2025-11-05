@@ -10,6 +10,12 @@ let
       ''
         [commit]
           template = ${../../../misc/git_template}
+
+        [core]
+          excludesfile = ${builtins.toFile "excludes" ''
+            .cajon.js
+            .cajon.mjs
+          ''}
       ''
   );
 in
