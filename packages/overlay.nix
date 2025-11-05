@@ -8,14 +8,7 @@ let
   sources = import ../npins;
 
   overlayPatches = final: prev: {
-    # gnome-keyring = prev.gnome-keyring.overrideAttrs (old: {
-    #   # configureFlags = (lib.remove "--enable-ssh-agent" old.configureFlags) ++ [
-    #   #   "--disable-ssh-agent"
-    #   # ];
-    #   mesonFlags = (lib.remove "-Dssh-agent=true" old.mesonFlags) ++ [
-    #     "-Dssh-agent=false"
-    #   ];
-    # });
+
   };
 
   overlayAuto =
@@ -50,8 +43,6 @@ let
       rev = sources.nh.revision;
     };
 
-    hover-rs = final.callPackage "${sources.hover-rs}/package.nix" { };
-
     maid = (import sources.nix-maid) final ../modules/maid;
 
     zen-browser = ((import sources.zen-browser-flake) { pkgs = final; }).zen-browser;
@@ -85,6 +76,8 @@ lib.composeManyExtensions [
   overlayPatches
   overlayAuto
   overlayMisc
+  (import "${sources.hover-rs}/overlay.nix")
+  (import "${sources.cajon}/overlay.nix")
   overlayWrapperManager
   # (import sources.lanzaboote).overlays.default
   overlayVersion

@@ -13,6 +13,19 @@
       "url": "https://github.com/nix-community/NixOS-WSL/archive/f98ee1de1fa36eca63c67b600f5d617e184e82ea.tar.gz",
       "hash": "1n0hyn7wadz2a4ip5y9ggskg17z1kd62xkrqdgawz7m0x2vsmxf1"
     },
+    "cajon": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "cajon"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6457d4ae9db0ca1b2d9146809d979b3aacded0bd",
+      "url": "https://github.com/viperML/cajon/archive/6457d4ae9db0ca1b2d9146809d979b3aacded0bd.tar.gz",
+      "hash": "133qmj8z13ckzzm8nnq6maplp37y15crrh1dybx67wm92a0mkjmy"
+    },
     "hover-rs": {
       "type": "Git",
       "repository": {
@@ -77,9 +90,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f6e19233df072de00ce92dd79ec663ba98f97054",
-      "url": "https://github.com/viperML/nix-common/archive/f6e19233df072de00ce92dd79ec663ba98f97054.tar.gz",
-      "hash": "0y77lj06f017jhbm8nsxbihsk8fc614814v62w234v9fyqsm1vj4"
+      "revision": "c37ff96816b9fe67a9fc8bfcaf66ad697c21493d",
+      "url": "https://github.com/viperML/nix-common/archive/c37ff96816b9fe67a9fc8bfcaf66ad697c21493d.tar.gz",
+      "hash": "1mhvmi9fw8lqm4kcikpjvqf2xwinf6gqh3pfr0l7bf5mliwk96sx"
     },
     "nix-index-database": {
       "type": "Git",

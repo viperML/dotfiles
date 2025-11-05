@@ -83,8 +83,6 @@ in
       ])
     ];
     opt = with pkgs.vimPlugins; [
-      # codecompanion-nvim
-      avante-nvim
       comment-nvim
       conform-nvim
       git-conflict-nvim
@@ -96,7 +94,6 @@ in
       nvim-autopairs
       nvim-lspconfig
       blink-cmp
-      parinfer-rust
       smart-splits-nvim
       # zellij-nav-nvim
       telescope-fzf-native-nvim
@@ -106,9 +103,6 @@ in
       vim-nix
       which-key-nvim
       yazi-nvim
-
-      # Check of having some autostart
-      copilot-lua
     ];
   };
   extraBuilderArgs = {

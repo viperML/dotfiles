@@ -41,6 +41,7 @@
   sops,
   age,
   hover-rs,
+  cajon,
 }@args:
 buildEnv {
   name = "env";
