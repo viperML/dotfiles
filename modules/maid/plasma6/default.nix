@@ -120,5 +120,9 @@ in
       AC.Performance.PowerProfile = "performance";
       Battery.Performance.PowerProfile = "power-saver";
     };
+
+    ksmserverrc = {
+      General.loginMode = "emptySession";
+    };
   };
 }

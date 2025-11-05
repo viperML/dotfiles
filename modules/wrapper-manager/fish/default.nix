@@ -20,7 +20,7 @@ let
             set -p fish_complete_path $__plugin_dir/vendor_completions.d
           end
           if test -d $__plugin_dir/vendor_conf.d
-            for f in $plugin_dir/vendor_conf.d/*.fish
+            for f in $__plugin_dir/vendor_conf.d/*.fish
               source $f
             end
           end
