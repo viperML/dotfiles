@@ -15,7 +15,7 @@ import ../. [
   #-- Other
   ../../modules/nixos/tailscale.nix
   ../../modules/nixos/printing.nix
-  ../../modules/nixos/docker-rootless.nix
+  ../../modules/nixos/podman.nix
   # ../../modules/nixos/silent-boot.nix
   # ./gitlab-runner.nix
   # ./sourcebot.nix
