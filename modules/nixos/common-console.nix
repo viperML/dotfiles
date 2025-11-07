@@ -55,7 +55,8 @@
 
   environment.sessionVariables = {
     EDITOR = "nvim";
-    # NIXPKGS_CONFIG = lib.mkForce "";
+    npm_config_audit = "false";
+    npm_config_fund = "false";
   };
 
   time.timeZone = "Europe/Madrid";

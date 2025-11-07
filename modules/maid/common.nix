@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ./containers
+    # ./containers
     ./ghostty
   ];
 

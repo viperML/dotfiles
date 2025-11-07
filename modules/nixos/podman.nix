@@ -18,6 +18,7 @@ in
     };
 
     dockerSocket.enable = true;
+    dockerCompat = true;
   };
 
   virtualisation.oci-containers = {
@@ -32,8 +33,10 @@ in
         registry = [
           {
             prefix = "docker.io";
-            location = "mirror.gcr.io";
-            insecure = false;
+            location = "docker.io";
+            mirror = [
+              { location = "mirror.gcr.io"; }
+            ];
           }
         ];
       };
