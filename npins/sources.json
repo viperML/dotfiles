@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "838b416a12bc5e03d0e30c182a5814f7fe72c59b",
-      "url": "https://github.com/viperML/cajon/archive/838b416a12bc5e03d0e30c182a5814f7fe72c59b.tar.gz",
-      "hash": "0qjx2iwfl4sbsfynnycy88a9x1mqvqm3fsli709qwhrhlladvc18"
+      "revision": "0491100645bfab4f61fe52a08c93b697e1a9fb61",
+      "url": "https://github.com/viperML/cajon/archive/0491100645bfab4f61fe52a08c93b697e1a9fb61.tar.gz",
+      "hash": "1cfd6988nyh82dxlqxsxkdvzdnrrjkg4r8d1v0ap7xna6ngh1kc8"
     },
     "hover-rs": {
       "type": "Git",
