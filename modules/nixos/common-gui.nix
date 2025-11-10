@@ -14,8 +14,7 @@
   services.udev.packages = with pkgs; [
     android-udev-rules
     qmk-udev-rules
-    platformio-core
-    openocd
+    geteduroam-cli
   ];
 
   # i18n = let
