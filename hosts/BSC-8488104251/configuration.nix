@@ -105,8 +105,10 @@
 
     tmp.useTmpfs = true;
 
+    binfmt.preferStaticEmulators = true;
     binfmt.emulatedSystems = [
       "aarch64-linux"
+      "riscv64-linux"
     ];
   };
 
