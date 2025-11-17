@@ -53,6 +53,7 @@
   rewind = !git restore --staged `git-root` && git restore `git-root` && git clean -df
   forgor = !git commit --amend --date=now --no-edit
   pul = !git merge --ff-only
+  blamee = !git blame -wCCC
 [feature]
   manyFiles = true
 [submodule]

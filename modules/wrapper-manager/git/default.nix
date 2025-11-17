@@ -1,15 +1,19 @@
 {
   pkgs,
+  lib,
   ...
 }:
 let
-  gitconfig = builtins.toFile "gitconfig" (
+  gitconfig = pkgs.writeText "gitconfig" (
     (builtins.readFile ../../../misc/gitconfig)
     +
       # gitconfig
       ''
         [commit]
           template = ${../../../misc/git_template}
+
+        [pager]
+          blame = ${lib.getExe pkgs.delta} --syntax-theme ansi
 
         [core]
           excludesfile = ${builtins.toFile "excludes" ''
@@ -29,6 +33,7 @@ in
     extraPackages = [
       pkgs.git-extras
       pkgs.git-graph
+      pkgs.delta
       # myGit
     ];
     env.GIT_CONFIG_GLOBAL.value = gitconfig;
