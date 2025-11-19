@@ -24,6 +24,7 @@
     pkgs.kdePackages.ksshaskpass
     pkgs.kara
     pkgs.plasma-panel-colorizer
+    pkgs.kdePackages.kcolorchooser
   ];
 
   maid.sharedModules = [

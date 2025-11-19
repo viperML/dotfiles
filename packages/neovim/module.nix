@@ -79,7 +79,9 @@ in
         fidget-nvim
         haskell-tools-nvim
 
-        # ./viper-init-plugin
+        # Some package before requires them
+        telescope-fzf-native-nvim
+        telescope-nvim
       ])
     ];
     opt = with pkgs.vimPlugins; [
@@ -96,8 +98,6 @@ in
       blink-cmp
       smart-splits-nvim
       # zellij-nav-nvim
-      telescope-fzf-native-nvim
-      telescope-nvim
       trouble-nvim
       vim-better-whitespace
       vim-nix

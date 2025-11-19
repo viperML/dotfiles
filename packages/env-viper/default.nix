@@ -13,7 +13,7 @@
   gh,
   unar,
   hexyl,
-  du-dust,
+  dust,
   magic-wormhole-rs,
   fd,
   ripgrep,
