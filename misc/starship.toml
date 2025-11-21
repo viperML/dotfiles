@@ -6,6 +6,8 @@ $shlvl\
 $custom\
 $python\
 $package\
+$username\
+$hostname\
 $container\
 $terraform\
 $env_var\
@@ -15,8 +17,6 @@ $singularity\
 ([\\[](fg:8) $direnv$git_branch$git_commit$git_state$git_status$git_metrics[\\]](fg:8)
 )\
 ([\\[](fg:8) \
-$username\
-$hostname\
 $status\
 $cmd_duration\
 [\\]](fg:8)
@@ -35,7 +35,7 @@ error_symbol = "[\\$](bold)"
 
 [username]
 show_always = false
-format = "[$user@](fg:8)"
+format = "[$user@](fg:8) "
 
 [hostname]
 ssh_only = true
