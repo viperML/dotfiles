@@ -71,6 +71,9 @@ return {
       },
       yaml = {
         validate = true,
+        customTags = {
+          "!reference sequence"
+        },
         schemaStore = {
           enable = false,
           url = "",
