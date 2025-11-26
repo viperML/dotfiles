@@ -5,7 +5,7 @@
         "bsc": {
             "type": "gitlab",
             "token": {
-                "secret": "gitlab-token"
+                "env": "GITLAB_TOKEN"
             },
             "projects": [
             ],

@@ -18,6 +18,7 @@ __pycache__
 history.txt
 *sqlite3*
 /*.patch
+secret.env
 
 flake.json
 

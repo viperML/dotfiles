@@ -18,5 +18,5 @@ import ../. [
   ../../modules/nixos/podman.nix
   # ../../modules/nixos/silent-boot.nix
   # ./gitlab-runner.nix
-  # ./sourcebot.nix
+  ./sourcebot.nix
 ]

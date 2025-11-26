@@ -12,6 +12,9 @@
     environment = {
       CONFIG_PATH = "/data/config.json";
     };
-    autoStart = true;
+    environmentFiles = [
+      ./secret.env
+    ];
+    autoStart = false;
   };
 }
