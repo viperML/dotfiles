@@ -46,7 +46,8 @@ return {
     },
   },
   -- C
-  ["clangd"] = {},
+  -- ["clangd"] = {},
+  ["ccls"] = {},
   -- Schemas
   ["taplo"] = {},
   ["jsonls"] = {
