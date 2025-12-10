@@ -146,4 +146,6 @@
 
   hardware.openrazer.enable = true;
   users.groups.openrazer.members = config.users.groups.wheel.members;
+
+  systemd.services.tailscaled.serviceConfig.WantedBy = lib.mkForce [];
 }

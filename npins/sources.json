@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "0faabba791da82059f78dd49c26ccebd9eff28ee",
-      "url": "https://github.com/viperML/cajon/archive/0faabba791da82059f78dd49c26ccebd9eff28ee.tar.gz",
-      "hash": "0n0h6922a8fq9fnhwiaf1qi173nv9y9byrr8adqrywasd66m2km7"
+      "revision": "4daa4c7f1825b4a0001218038a472ce37b3cf494",
+      "url": "https://github.com/viperML/cajon/archive/4daa4c7f1825b4a0001218038a472ce37b3cf494.tar.gz",
+      "hash": "1irh5bkbz3043jafyi1y7c2kxx7ybaa6fvf47yqcrk0b4hhi09gb"
     },
     "hover-rs": {
       "type": "Git",
@@ -35,9 +35,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "244e08d959867fe70d2a4db7d02be2e86e304843",
-      "url": "https://github.com/viperML/hover-rs/archive/244e08d959867fe70d2a4db7d02be2e86e304843.tar.gz",
-      "hash": "1xkhla3xskqrhrm03blbchk0m3gsvwjqyablyv42yhmyimis7pvc"
+      "revision": "466763c745e729e0b5275f9c29b19fa9633f89a2",
+      "url": "https://github.com/viperML/hover-rs/archive/466763c745e729e0b5275f9c29b19fa9633f89a2.tar.gz",
+      "hash": "005nfpga02zcm0lms8qsjnss5p1ji99fzyrd1dp9rp11qgbp5z94"
     },
     "lanzaboote": {
       "type": "GitRelease",
@@ -155,9 +155,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5d002fcacbc5423090f2bba19818adda471fe0c8",
-      "url": "https://github.com/youwen5/zen-browser-flake/archive/5d002fcacbc5423090f2bba19818adda471fe0c8.tar.gz",
-      "hash": "0gxgnyif60rfzfh9mqr1w1fbq4s0sjmxqifs231wkmigdmgffcl7"
+      "revision": "897df2f2ad4880563ce801fa29f348a4e98f0a20",
+      "url": "https://github.com/youwen5/zen-browser-flake/archive/897df2f2ad4880563ce801fa29f348a4e98f0a20.tar.gz",
+      "hash": "02iim8j9zqn6k4fylqs5vkz5sdf4abkrcgbvsmwzzrvv09mydy87"
     }
   },
   "version": 5

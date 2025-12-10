@@ -54,6 +54,7 @@
   forgor = !git commit --amend --date=now --no-edit
   pul = !git merge --ff-only
   blamee = !git blame -wCCC
+  offpull = !git reset --hard $(git rev-parse --abbrev-ref HEAD@{upstream})
 [feature]
   manyFiles = true
 [submodule]
