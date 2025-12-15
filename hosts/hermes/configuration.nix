@@ -132,13 +132,14 @@ in
     };
   };
 
+  programs.firefox.enable = true;
+
   environment.systemPackages = [
     pkgs.sbctl
     # pkgs.distrobox
     # pkgs.nvtopPackages.amd
     # pkgs.powertop
     # pkgs.sysfsutils
-    pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
     pkgs.glib # gsettings

@@ -44,8 +44,6 @@ let
     };
 
     maid = (import sources.nix-maid) final ../modules/maid;
-
-    zen-browser = ((import sources.zen-browser-flake) { pkgs = final; }).zen-browser;
   };
 
   overlayWrapperManager =

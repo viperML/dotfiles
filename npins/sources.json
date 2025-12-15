@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "cd9eb5225fc91eb67629966844d2ff371824abb1",
-      "url": "https://github.com/nix-community/NixOS-WSL/archive/cd9eb5225fc91eb67629966844d2ff371824abb1.tar.gz",
-      "hash": "12ssa750nqrijm97351nz2p4rfg5yaw2780mqyk2zx44lxr6lr7x"
+      "revision": "b160ef46075d8ddc73f026909282d47c0eabb836",
+      "url": "https://github.com/nix-community/NixOS-WSL/archive/b160ef46075d8ddc73f026909282d47c0eabb836.tar.gz",
+      "hash": "1bqw1jm1d77y5k740wy0s8wjq8zrjg8ry57yg00hf0sywfiqy13n"
     },
     "cajon": {
       "type": "Git",
@@ -50,10 +50,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v0.4.3",
-      "revision": "65a4aa3d4dccf50f22c0190c7ee660de51c586f2",
-      "url": "https://api.github.com/repos/nix-community/lanzaboote/tarball/v0.4.3",
-      "hash": "016pgbh27zjwbzq1li1d4r40b37vwmnz8khh04vspd5gw91szzi1"
+      "version": "v1.0.0",
+      "revision": "2fe211d9c0e2320ce23dc995a3f93666ca149d9a",
+      "url": "https://api.github.com/repos/nix-community/lanzaboote/tarball/v1.0.0",
+      "hash": "17srvx92f0xymayfislm5d87bjd6n1p80s350my8si737iaa16a4"
     },
     "mnw": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055",
-      "url": "https://github.com/Gerg-L/mnw/archive/5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055.tar.gz",
-      "hash": "03r239fwfxspljgpaaw8pqynsgd03kqadwq78zilxbkxhig33and"
+      "revision": "68a22f62ca7623fcb700d4ebf225bd91125c773e",
+      "url": "https://github.com/Gerg-L/mnw/archive/68a22f62ca7623fcb700d4ebf225bd91125c773e.tar.gz",
+      "hash": "0lcsrd8x3585xsl94mnz3k6s2vhsbwb4fynwawlh6ajp2qh3j3l9"
     },
     "nh": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f5f343456fcf42e28b9fdaa116e95b60097446e1",
-      "url": "https://github.com/nix-community/nh/archive/f5f343456fcf42e28b9fdaa116e95b60097446e1.tar.gz",
-      "hash": "12x8qgnq8dm9h6cz0sm7709mcmayf5bq322ix4rkbgdnic2vdcfw"
+      "revision": "ef8d8c4cc6904bcd8046eccad9005136abedb19a",
+      "url": "https://github.com/nix-community/nh/archive/ef8d8c4cc6904bcd8046eccad9005136abedb19a.tar.gz",
+      "hash": "0fni22z2h2y1sz553jasyfilra4xff0ka7qyhns5mg5sza753fap"
     },
     "nix-common": {
       "type": "Git",
@@ -103,9 +103,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "469ef53571ea80890c9497952787920c79c1ee6e",
-      "url": "https://github.com/nix-community/nix-index-database/archive/469ef53571ea80890c9497952787920c79c1ee6e.tar.gz",
-      "hash": "1msiy0rlm170vrn0djrvgb4y4cqanxsfykswsg3xm2a0frvm3pq1"
+      "revision": "82befcf7dc77c909b0f2a09f5da910ec95c5b78f",
+      "url": "https://github.com/nix-community/nix-index-database/archive/82befcf7dc77c909b0f2a09f5da910ec95c5b78f.tar.gz",
+      "hash": "02qka3cav73cacl2jfkrnj5ydd4gjqd4q9sk4jv1pd64vh1l2wvp"
     },
     "nix-maid": {
       "type": "Git",
@@ -129,9 +129,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "89c2b2330e733d6cdb5eae7b899326930c2c0648",
-      "url": "https://github.com/NixOS/nixpkgs/archive/89c2b2330e733d6cdb5eae7b899326930c2c0648.tar.gz",
-      "hash": "0z423v1f4pyllhqz68jichams2vrgnmply12lzkvj6k4hijkvnaa"
+      "revision": "2fbfb1d73d239d2402a8fe03963e37aab15abe8b",
+      "url": "https://github.com/NixOS/nixpkgs/archive/2fbfb1d73d239d2402a8fe03963e37aab15abe8b.tar.gz",
+      "hash": "1bb0hgqd54v9p7y4r46w50iw6v18k32w3c6731gcjgn98gdw4nzm"
     },
     "wrapper-manager": {
       "type": "Git",
@@ -145,19 +145,6 @@
       "revision": "801dd9c876fcada046af45543e8c7e0bbccf20ea",
       "url": "https://github.com/viperML/wrapper-manager/archive/801dd9c876fcada046af45543e8c7e0bbccf20ea.tar.gz",
       "hash": "05hg8bnb3jjc95a83c0v59hjnjwf5w1kpfpj2ni12nk39r6fqr9q"
-    },
-    "zen-browser-flake": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "youwen5",
-        "repo": "zen-browser-flake"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "897df2f2ad4880563ce801fa29f348a4e98f0a20",
-      "url": "https://github.com/youwen5/zen-browser-flake/archive/897df2f2ad4880563ce801fa29f348a4e98f0a20.tar.gz",
-      "hash": "02iim8j9zqn6k4fylqs5vkz5sdf4abkrcgbvsmwzzrvv09mydy87"
     }
   },
   "version": 5

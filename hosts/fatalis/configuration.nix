@@ -19,11 +19,12 @@ in
     maid = { };
   };
 
+  programs.firefox.enable = true;
+
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
-    pkgs.zen-browser
     pkgs.distrobox
   ];
 

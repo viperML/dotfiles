@@ -8,6 +8,10 @@ let
   toml = pkgs.formats.toml { };
 in
 {
+  environment.systemPackages = [
+    pkgs.crane
+  ];
+
   virtualisation.podman = {
     enable = true;
 

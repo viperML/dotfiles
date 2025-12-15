@@ -29,8 +29,9 @@
     };
   };
 
+  programs.firefox.enable = true;
+
   environment.systemPackages = [
-    pkgs.zen-browser
     pkgs.vesktop
     pkgs.distrobox
     pkgs.rocketchat-desktop
