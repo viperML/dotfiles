@@ -33,16 +33,11 @@
 
   environment.systemPackages = [
     pkgs.vesktop
-    pkgs.distrobox
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
     pkgs.zoom-us
-    pkgs.buildah
-    pkgs.skopeo
     pkgs.glab
-    pkgs.polychromatic
     pkgs.kaniko
-    pkgs.rsync
     pkgs.keyd
     pkgs.mailspring
   ];

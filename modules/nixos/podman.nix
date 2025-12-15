@@ -9,6 +9,8 @@ let
 in
 {
   environment.systemPackages = [
+    pkgs.skopeo
+    pkgs.buildah
     pkgs.crane
   ];
 
