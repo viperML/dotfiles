@@ -12,6 +12,7 @@ in
     pkgs.skopeo
     pkgs.buildah
     pkgs.crane
+    pkgs.podman-compose
   ];
 
   virtualisation.podman = {
