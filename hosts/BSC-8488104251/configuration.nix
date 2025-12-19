@@ -40,6 +40,9 @@
     pkgs.kaniko
     pkgs.keyd
     pkgs.mailspring
+
+    pkgs.foot
+    pkgs.zellij
   ];
 
   networking.hostName = "BSC-8488104251";
