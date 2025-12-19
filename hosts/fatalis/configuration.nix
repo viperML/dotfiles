@@ -56,11 +56,6 @@ in
     };
   };
 
-  # services.fwupd.enable = true;
-
-  # services.cpupower-gui.enable = true;
-  # services.flatpak.enable = true;
-
   boot = {
     lanzaboote = {
       enable = true;
@@ -155,6 +150,4 @@ in
   programs.gamemode.enable = true;
 
   services.fwupd.enable = true;
-
-  services.flatpak.enable = true;
 }
