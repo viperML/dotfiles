@@ -11,6 +11,7 @@
     libcgroup
     nodejs
     pnpm
+    zellij
   ];
 
   # Sane default to at least have a static hostId

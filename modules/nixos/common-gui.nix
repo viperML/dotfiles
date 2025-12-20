@@ -47,10 +47,10 @@
     android-tools
 
     # GUI
-    zellij
     vscode
     wl-color-picker
     vial
+    foot
   ];
 
   systemd = {

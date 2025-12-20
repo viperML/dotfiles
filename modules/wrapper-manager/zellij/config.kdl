@@ -2,7 +2,7 @@
 // https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/config/default.kdl
 
 session_serialization false
-default_layout "compact"
+default_layout "viper"
 // copy_on_select true
 // copy_command: "wl-copy"
 copy_command: "osc copy"
@@ -23,7 +23,7 @@ plugins {
         triggers "nvim|vim|fzf|git"
         // watch_triggers "fzf|zoxide|atuin|atac"
         // watch_interval "1.0"
-        // reaction_seconds "0.8"
+        reaction_seconds "0.3"
     }
 
     zjstatus location="nix:zjstatus"
@@ -58,4 +58,3 @@ keybinds clear-defaults=true {
         bind "Alt Shift Down" { Resize "Increase Down"; }
     }
 }
-
