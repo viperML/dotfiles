@@ -9,7 +9,6 @@ pkgs.nixos (
     "${sources.nix-common}/nixos"
     (import sources.lanzaboote {
       inherit pkgs;
-      inherit (pkgs.stdenv.targetPlatform) system;
     }).nixosModules.lanzaboote
     (import sources.nix-maid).nixosModules.default
   ]
