@@ -18,7 +18,7 @@
   fd,
   ripgrep,
   libarchive,
-  dogdns,
+  doggo,
   git-viper,
   difftastic,
   elfutils-cli,

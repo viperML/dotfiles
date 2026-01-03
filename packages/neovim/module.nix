@@ -73,8 +73,10 @@ in
         # Fine to not lazy-load
         lz-n
         nvim-treesitter
-        nvim-treesitter-context
-        nvim-treesitter-textobjects
+        # nvim-treesitter-context
+        # (nvim-treesitter-textobjects.overrideAttrs {
+        #   doCheck = false;
+        # })
         nvim-ts-autotag
         fidget-nvim
         haskell-tools-nvim
