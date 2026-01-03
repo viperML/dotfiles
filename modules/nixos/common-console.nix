@@ -11,6 +11,8 @@
     libcgroup
     nodejs
     pnpm
+    litecli
+    serve
     zellij
   ];
 
