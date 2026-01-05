@@ -32,7 +32,6 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = [
-    pkgs.vesktop
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
     pkgs.zoom-us
@@ -141,9 +140,6 @@
     enable = true;
     package = pkgs.apptainer;
   };
-
-  hardware.openrazer.enable = true;
-  users.groups.openrazer.members = config.users.groups.wheel.members;
 
   systemd.services.tailscaled.serviceConfig.WantedBy = lib.mkForce [];
 }
