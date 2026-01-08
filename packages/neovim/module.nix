@@ -48,44 +48,49 @@ in
         );
       impure = ./viper-init-plugin;
     };
-    start = lib.mkMerge [
-      (
-        pkgs.vimPlugins.nvim-treesitter.grammarPlugins
-        |> lib.filterAttrs (n: _: !(builtins.elem n [ "comment" ]))
+    start = with pkgs.vimPlugins; [
+      nvim-web-devicons
+      snacks-nvim
+      plenary-nvim
+      mini-nvim
+      kanagawa-nvim
+      catppuccin-nvim
+      bufferline-nvim
+      lualine-nvim
+
+      # No autostart
+      blink-cmp-copilot
+      lsp-progress-nvim
+      nui-nvim
+      SchemaStore-nvim
+
+      # Fine to not lazy-load
+      lz-n
+      (nvim-treesitter.withPlugins (
+        allPlugins:
+        allPlugins
+        |> lib.filterAttrs (
+          n: _:
+          !(builtins.elem n [
+            # Disabled grammars
+            "comment"
+          ])
+        )
         |> builtins.attrValues
-      )
-      (with pkgs.vimPlugins; [
-        nvim-web-devicons
-        snacks-nvim
-        plenary-nvim
-        mini-nvim
-        kanagawa-nvim
-        catppuccin-nvim
-        bufferline-nvim
-        lualine-nvim
+      ))
+      # nvim-treesitter-context
+      # (nvim-treesitter-textobjects.overrideAttrs {
+      #   doCheck = false;
+      # })
+      nvim-ts-autotag
+      fidget-nvim
+      haskell-tools-nvim
 
-        # No autostart
-        blink-cmp-copilot
-        lsp-progress-nvim
-        nui-nvim
-        SchemaStore-nvim
-
-        # Fine to not lazy-load
-        lz-n
-        nvim-treesitter
-        # nvim-treesitter-context
-        # (nvim-treesitter-textobjects.overrideAttrs {
-        #   doCheck = false;
-        # })
-        nvim-ts-autotag
-        fidget-nvim
-        haskell-tools-nvim
-
-        # Some package before requires them
-        telescope-fzf-native-nvim
-        telescope-nvim
-      ])
+      # Some package before requires them
+      telescope-fzf-native-nvim
+      telescope-nvim
     ];
+
     opt = with pkgs.vimPlugins; [
       comment-nvim
       conform-nvim
