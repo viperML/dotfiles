@@ -12,7 +12,6 @@
   ];
 
   services.udev.packages = with pkgs; [
-    qmk-udev-rules
     geteduroam-cli
   ];
 
@@ -111,6 +110,7 @@
   };
 
   hardware.steam-hardware.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   services.hardware.bolt.enable = true;
 
