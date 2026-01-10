@@ -25,7 +25,7 @@ in
     pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
-    pkgs.distrobox
+    pkgs.prismlauncher
   ];
 
   # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
