@@ -140,9 +140,6 @@ in
     # pkgs.nvtopPackages.amd
     # pkgs.powertop
     # pkgs.sysfsutils
-    pkgs.vesktop
-    pkgs.distrobox
-    pkgs.glib # gsettings
     pkgs.prismlauncher
   ];
 }
