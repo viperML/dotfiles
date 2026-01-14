@@ -39,8 +39,9 @@
     pkgs.kaniko
     pkgs.keyd
     pkgs.mailspring
-
+    pkgs.google-chrome
     pkgs.foot
+    (pkgs.python3.withPackages (pp: [ ]))
   ];
 
   networking.hostName = "BSC-8488104251";
@@ -141,5 +142,5 @@
     package = pkgs.apptainer;
   };
 
-  systemd.services.tailscaled.serviceConfig.WantedBy = lib.mkForce [];
+  systemd.services.tailscaled.serviceConfig.WantedBy = lib.mkForce [ ];
 }
