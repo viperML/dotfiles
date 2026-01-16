@@ -36,6 +36,8 @@ in
           "Window to Desktop 3" = "Meta+#,,Ventana al escritorio 3";
           "Window to Desktop 4" = "Meta+$,,Ventana al escritorio 4";
           "Window to Desktop 5" = "Meta+%,,Ventana al escritorio 5";
+
+          "Window On All Desktops" = "Meta+P,,Mantener la ventana en todos los escritorios";
         }
       ];
 
@@ -49,6 +51,11 @@ in
           "manage activities" = "none,Meta+Q,Mostrar el selector de actividad";
         }
       ];
+
+      services."org.kde.kscreen.desktop" = {
+        # Disables Ctrl+P
+        "ShowOSD" = "Display";
+      };
     };
     kscreenlockerrc = {
       Daemon = {

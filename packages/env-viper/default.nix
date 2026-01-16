@@ -42,6 +42,7 @@
   age,
   hover-rs,
   cajon,
+  jujutsu,
 }@args:
 buildEnv {
   name = "env";
