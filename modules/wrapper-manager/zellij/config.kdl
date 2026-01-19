@@ -18,19 +18,19 @@ ui {
 theme "ansi"
 
 plugins {
-    autolock location="nix:zellij-autolock" {
-        is_enabled true
-        triggers "nvim|vim|fzf|git"
-        // watch_triggers "fzf|zoxide|atuin|atac"
-        // watch_interval "1.0"
-        reaction_seconds "0.3"
-    }
+    // autolock location="nix:zellij-autolock" {
+    //     is_enabled true
+    //     triggers "nvim|vim|fzf|git"
+    //     // watch_triggers "fzf|zoxide|atuin|atac"
+    //     // watch_interval "1.0"
+    //     reaction_seconds "0.3"
+    // }
 
     zjstatus location="nix:zjstatus"
 }
 
 load_plugins {
-    autolock
+    // autolock
 }
 
 keybinds clear-defaults=true {
@@ -41,8 +41,12 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { NewTab; SwitchToMode "Normal"; }
         bind "Ctrl Tab" { GoToNextTab; }
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
+        bind "Ctrl w" { CloseTab; SwitchToMode "Normal"; }
         bind "Alt Enter" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Alt Shift Enter" { NewPane "Down"; SwitchToMode "Normal"; }
+    }
+    locked {
+        bind "Alt l" { SwitchToMode "Normal"; }
     }
     shared_except "locked" {
         bind "Ctrl Shift C" { Copy; }
