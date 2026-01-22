@@ -74,11 +74,14 @@ in
         echo ":: SSH-TPM2 already configured"
       fi
 
+      export SSH_AUTH_SOCK=/run/user/$(id -u)/ssh-agent
       ${lib.getExe cmd}
     '';
     serviceConfig = {
       Type = "simple";
       RemainAfterExit = true;
+      Restart = "on-failure";
+      RestartSec = "1s";
     };
   };
 }
