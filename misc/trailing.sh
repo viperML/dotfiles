@@ -5,8 +5,11 @@ dir="$(git rev-parse --git-dir)"
 root="$(git root)"
 
 echo ".vscode" >> "$dir/info/exclude"
-mkdir -v "$root/.vscode"
-tee "$root/.vscode/settings.json" <<EOF
+mkdir -pv "$root/.vscode"
+if [[ ! -f "$root/.vscode/settings.json" ]]; then
+    echo '{}' > "$root/.vscode/settings.json"
+fi
+jq -s 'add' "$root/.vscode/settings.json" - > "$root/.vscode/settings.tmp.json" <<EOF
 {
     "files.trimTrailingWhitespace": false,
     "files.trimFinalNewlines": false,
@@ -14,3 +17,4 @@ tee "$root/.vscode/settings.json" <<EOF
 }
 EOF
 
+mv -v "$root/.vscode/settings.tmp.json" "$root/.vscode/settings.json"
