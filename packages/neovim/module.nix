@@ -33,7 +33,7 @@ in
 
   plugins = {
     dev.main = {
-      pure = pkgs.nix-gitignore.gitignoreSource [ ../../.gitignore ] ./viper-init-plugin;
+      pure = pkgs.nix-gitignore.gitignoreSourcePure [ ../../.gitignore ] ./viper-init-plugin;
       impure = ./viper-init-plugin;
     };
     start = with pkgs.vimPlugins; [
