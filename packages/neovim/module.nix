@@ -5,13 +5,8 @@ in
 {
   appName = "nvim-viper-mnw";
   desktopEntry = false;
-  providers.python3.enable = false;
-  providers.ruby.enable = false;
 
   extraLuaPackages = lp: [
-    lp.luassert
-    lp.luaposix
-    lp.lyaml
   ];
 
   extraBinPath = with pkgs; [
@@ -22,11 +17,11 @@ in
     dockerfile-language-server
   ];
 
-  wrapperArgs = [
-    "--set-default"
-    "NVIM_NODE"
-    (lib.getExe (pkgs.nodejs.override { enableNpm = false; }))
-  ];
+  # wrapperArgs = [
+  #   "--set-default"
+  #   "NVIM_NODE"
+  #   (lib.getExe (pkgs.nodejs.override { enableNpm = false; }))
+  # ];
 
   initLua =
     #lua
@@ -38,78 +33,19 @@ in
 
   plugins = {
     dev.main = {
-      pure =
-
-        (
-          fs.toSource {
-            root = ./viper-init-plugin;
-            fileset = lib.fileset.fromSource (lib.sources.cleanSource ./viper-init-plugin);
-          }
-        );
+      pure = pkgs.nix-gitignore.gitignoreSource [ ../../.gitignore ] ./viper-init-plugin;
       impure = ./viper-init-plugin;
     };
     start = with pkgs.vimPlugins; [
-      nvim-web-devicons
-      snacks-nvim
-      plenary-nvim
-      mini-nvim
-      kanagawa-nvim
-      catppuccin-nvim
-      bufferline-nvim
-      lualine-nvim
-
-      # No autostart
-      blink-cmp-copilot
-      lsp-progress-nvim
-      nui-nvim
-      SchemaStore-nvim
-
-      # Fine to not lazy-load
       lz-n
-      (nvim-treesitter.withPlugins (
-        allPlugins:
-        allPlugins
-        |> lib.filterAttrs (
-          n: _:
-          !(builtins.elem n [
-            # Disabled grammars
-            "comment"
-          ])
-        )
-        |> builtins.attrValues
-      ))
-      # nvim-treesitter-context
-      # (nvim-treesitter-textobjects.overrideAttrs {
-      #   doCheck = false;
-      # })
-      nvim-ts-autotag
-      fidget-nvim
-      haskell-tools-nvim
 
-      # Some package before requires them
-      telescope-fzf-native-nvim
-      telescope-nvim
+      # lsp.lua
+      nvim-lspconfig
+      SchemaStore-nvim
+      blink-cmp
     ];
 
     opt = with pkgs.vimPlugins; [
-      comment-nvim
-      conform-nvim
-      git-conflict-nvim
-      gitsigns-nvim
-      indent-blankline-nvim
-      marks-nvim
-      neo-tree-nvim
-      noice-nvim
-      nvim-autopairs
-      nvim-lspconfig
-      blink-cmp
-      smart-splits-nvim
-      # zellij-nav-nvim
-      trouble-nvim
-      vim-better-whitespace
-      vim-nix
-      which-key-nvim
-      yazi-nvim
     ];
   };
   extraBuilderArgs = {
