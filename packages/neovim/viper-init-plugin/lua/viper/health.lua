@@ -7,8 +7,6 @@ local externals = {
   "direnv",
 }
 
-M.aichat_config = false
-
 
 M.check = function()
   vim.health.start("Configuration")
