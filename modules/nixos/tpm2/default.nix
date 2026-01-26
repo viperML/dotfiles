@@ -12,7 +12,7 @@ let
     ];
   });
   # pkcs11pkg = pkgs.tpm2-pkcs11-esapi;
-  cmdname = "git-key-command";
+  cmdname = "tpm-add";
   cmd =
     pkgs.runCommandLocal cmdname
       {
@@ -20,7 +20,7 @@ let
       }
       ''
         mkdir -p $out/bin
-        cp -v ${./git-key-command.sh} $out/bin/${cmdname}
+        cp -v ${./tpm-add.sh} $out/bin/${cmdname}
         patchShebangs --host $out/bin/*
       '';
 in
