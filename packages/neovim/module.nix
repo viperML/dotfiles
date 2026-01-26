@@ -1,13 +1,7 @@
-{ pkgs, lib, ... }:
-let
-  fs = lib.fileset;
-in
+{ pkgs, ... }:
 {
   appName = "nvim-viper-mnw";
   desktopEntry = false;
-
-  extraLuaPackages = lp: [
-  ];
 
   extraBinPath = with pkgs; [
     vscode-langservers-extracted
@@ -16,12 +10,6 @@ in
     nodePackages.bash-language-server
     dockerfile-language-server
   ];
-
-  # wrapperArgs = [
-  #   "--set-default"
-  #   "NVIM_NODE"
-  #   (lib.getExe (pkgs.nodejs.override { enableNpm = false; }))
-  # ];
 
   initLua =
     #lua
@@ -57,7 +45,6 @@ in
     doInstallCheck = true;
     installCheckPhase = ''
       export HOME="$(mktemp -d)"
-      export NVIM_SILENT=1
       "$out/bin/nvim" --headless '+lua =require("viper.health").loaded_exit()' '+q'
     '';
   };
