@@ -1,4 +1,5 @@
 require("viper.base")
+require("viper.visual")
 require("viper.lsp")
 require("viper.format")
 

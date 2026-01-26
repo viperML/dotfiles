@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   wrappers.stylua = {
     basePackage = pkgs.stylua;
-    flags = [
+    prependFlags = [
       "--config-path"
       ./stylua.toml
     ];

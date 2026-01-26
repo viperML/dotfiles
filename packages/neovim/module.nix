@@ -43,9 +43,14 @@ in
       nvim-lspconfig
       SchemaStore-nvim
       blink-cmp
+
+      # visual.lua
+      mini-icons
     ];
 
     opt = with pkgs.vimPlugins; [
+      # visual.lua
+      which-key-nvim
     ];
   };
   extraBuilderArgs = {

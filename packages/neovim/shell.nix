@@ -5,5 +5,6 @@ in
     packages = [
       lua-language-server
       neovim.devMode
+      stylua
     ];
   }
