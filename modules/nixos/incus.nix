@@ -38,8 +38,6 @@ in
     "nf_nat"
     "overlay"
     "br_netfilter"
-    "iptable_nat"
-    "iptable_filter"
   ];
 
   virtualisation.incus = {
@@ -121,11 +119,6 @@ in
               path = "/proc/sys/net/netfilter/nf_conntrack_max";
               source = "/proc/sys/net/netfilter/nf_conntrack_max";
             };
-            disable5 = {
-              type = "unix-block";
-              path = "/dev/dm-0";
-              source = "/dev/dm-0";
-            };
           };
         }
       ];
@@ -141,6 +134,7 @@ in
     };
   };
 
+  users.groups."incus".members = config.users.groups."wheel".members;
   users.groups."incus-admin".members = config.users.groups."wheel".members;
 
   networking.firewall.trustedInterfaces = [ bridge ];
