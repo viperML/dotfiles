@@ -73,3 +73,5 @@
   verbose = true
 [init]
   defaultBranch = main
+[lfs "https://gitlab-internal.bsc.es"]
+  locksverify = true
