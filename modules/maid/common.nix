@@ -5,7 +5,7 @@
 {
   imports = [
     # ./containers
-    # ./ghostty
+    ./ghostty
   ];
 
   file.home.".gitconfig".source = pkgs.git-viper.gitconfig;
