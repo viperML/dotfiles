@@ -27,6 +27,7 @@ plugins {
     // }
 
     zjstatus location="nix:zjstatus"
+    status-bar location="zellij:status-bar"
 }
 
 load_plugins {
@@ -60,5 +61,21 @@ keybinds clear-defaults=true {
         bind "Alt Shift Right" { Resize "Increase Right"; }
         bind "Alt Shift Up" { Resize "Increase Up"; }
         bind "Alt Shift Down" { Resize "Increase Down"; }
+    }
+    shared_except "normal" "locked" {
+        bind "Esc"{ SwitchToMode "Normal"; }
+    }
+    shared_except "session" "locked" {
+        bind "Ctrl o" { SwitchToMode "Session"; }
+    }
+    session {
+        bind "Ctrl o" { SwitchToMode "Normal"; }
+        bind "s" {
+            LaunchOrFocusPlugin "zellij:share" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
 }

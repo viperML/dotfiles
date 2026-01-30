@@ -34,6 +34,7 @@
 
       # visual.lua
       mini-icons
+      gruvbox-nvim
     ];
 
     opt = with pkgs.vimPlugins; [
