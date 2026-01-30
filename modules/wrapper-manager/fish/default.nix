@@ -37,7 +37,7 @@ let
         buildInputs = [ pkgs.zoxide ];
       }
       ''
-        zoxide init fish > $out
+        zoxide init fish --cmd cd > $out
       '';
 
   starshipInit = pkgs.runCommand "starship-init.fish" { buildInputs = [ pkgs.starship ]; } ''

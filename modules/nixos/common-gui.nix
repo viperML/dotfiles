@@ -50,6 +50,7 @@
     wl-color-picker
     vial
     foot
+    alacritty
   ];
 
   systemd = {
