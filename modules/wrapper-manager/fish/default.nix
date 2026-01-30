@@ -31,6 +31,19 @@ let
     source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc
   '';
 
+  zoxideInit =
+    pkgs.runCommand "zoxide-init.fish"
+      {
+        buildInputs = [ pkgs.zoxide ];
+      }
+      ''
+        zoxide init fish > $out
+      '';
+
+  starshipInit = pkgs.runCommand "starship-init.fish" { buildInputs = [ pkgs.starship ]; } ''
+    starship init fish > $out
+  '';
+
   # ${lib.concatMapStringsSep "\n" initPlugin plugins}
   config =
     writeTextDir "${vendorConf}/viper_config.fish"
@@ -59,17 +72,19 @@ let
           function starship_transient_prompt_func
             ${lib.getExe pkgs.starship} module character
           end
-          ${lib.getExe pkgs.starship} init fish | source
+          source ${starshipInit}
           enable_transience
           set -gx DIRENV_LOG_FORMAT ""
           set -gx direnv_config_dir ${direnvConfig}
           ${lib.getExe pkgs.direnv} hook fish | source
+          source ${zoxideInit}
         end
       '';
 in
 {
   wrappers.fish-viper = {
     basePackage = pkgs.fish;
+    extraPackages = [ pkgs.zoxide ];
     programs.fish = {
       wrapFlags = [
         "--prefix"
