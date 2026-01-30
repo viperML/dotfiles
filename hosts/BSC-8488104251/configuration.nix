@@ -42,6 +42,7 @@
     pkgs.google-chrome
     pkgs.foot
     (pkgs.python3.withPackages (pp: [ ]))
+    pkgs.gocryptfs
   ];
 
   networking.hostName = "BSC-8488104251";
