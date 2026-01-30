@@ -131,3 +131,17 @@ vim.opt.splitright = true
 
 -- Character to fill empty lines below end of buffer
 vim.o.fillchars = "eob:~"
+
+
+require("viper.lazy").add_specs {
+  {
+    "mini.pick",
+    cmd = "Pick",
+    keys = {
+      { "<leader><leader>", "<CMD>Pick files<cr>", desc = "Pick files" },
+    },
+    after = function()
+      require('mini.pick').setup {}
+    end,
+  },
+}

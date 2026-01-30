@@ -5,6 +5,7 @@ M.loaded = false
 local externals = {
   "date",
   "direnv",
+  "rg",
 }
 
 

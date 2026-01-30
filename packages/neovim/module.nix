@@ -40,6 +40,9 @@
     opt = with pkgs.vimPlugins; [
       # visual.lua
       which-key-nvim
+
+      # base.lua
+      mini-pick
     ];
   };
   extraBuilderArgs = {
