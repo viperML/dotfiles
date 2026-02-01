@@ -29,7 +29,7 @@
   psmisc,
   nil,
   yazi,
-  curl,
+  curlFull,
   wget,
   osc,
   file,
