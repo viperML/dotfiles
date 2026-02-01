@@ -29,8 +29,6 @@
     };
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = [
     pkgs.rocketchat-desktop
     pkgs.openfortivpn

@@ -132,8 +132,6 @@ in
     };
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = [
     pkgs.sbctl
     # pkgs.distrobox

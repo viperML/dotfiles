@@ -19,8 +19,6 @@ in
     maid = { };
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.powertop

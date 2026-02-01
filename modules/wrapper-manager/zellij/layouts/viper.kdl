@@ -1,6 +1,10 @@
 
 layout {
     pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+
+    pane size=1 borderless=true {
         plugin location="zjstatus" {
             format_left  "#[fg=white] {session} {mode} {tabs}"
             format_right "#[bg=#8A8A8A,fg=#000000,bold]{swap_layout}"
@@ -21,9 +25,5 @@ layout {
 
     pane split_direction="vertical" {
         pane
-    }
-
-    pane size=1 borderless=true {
-        plugin location="status-bar"
     }
 }
