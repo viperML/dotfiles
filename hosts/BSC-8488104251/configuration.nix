@@ -41,6 +41,7 @@
     pkgs.foot
     (pkgs.python3.withPackages (pp: [ ]))
     pkgs.gocryptfs
+    pkgs.oras
   ];
 
   networking.hostName = "BSC-8488104251";
