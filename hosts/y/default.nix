@@ -13,11 +13,11 @@ import ../. [
   ../../modules/nixos/plasma6.nix
 
   #-- Other
-  ../../modules/nixos/tailscale.nix
+  # ../../modules/nixos/tailscale.nix
   # ../../modules/nixos/printing.nix
   ../../modules/nixos/podman.nix
   # ../../modules/nixos/silent-boot.nix
   # ./gitlab-runner.nix
-  ./sourcebot.nix
+  # ./sourcebot.nix
   ../../modules/nixos/firefox.nix
 ]

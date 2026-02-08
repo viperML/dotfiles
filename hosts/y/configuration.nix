@@ -8,7 +8,7 @@
   system.stateVersion = "25.05";
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";
-    NH_FILE = "${D}/hosts/BSC-8488104251";
+    NH_FILE = "${D}/hosts/y";
     BUILDAH_FORMAT = "docker";
     LIBVA_DRIVER_NAME = "iHD";
     DOCKER_BUILDKIT = "1";
@@ -44,7 +44,7 @@
     pkgs.oras
   ];
 
-  networking.hostName = "BSC-8488104251";
+  networking.hostName = "y";
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -74,7 +74,16 @@
 
     initrd = {
       systemd.enable = true;
-      availableKernelModules = [ ];
+      luks.devices."luksroot".device = "/dev/disk/by-partlabel/LINUX_LUKS";
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+
+      ];
     };
 
     kernelParams = [
@@ -96,7 +105,7 @@
       grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
+        efiSysMountPoint = "/efi";
       };
       timeout = 0;
     };
@@ -106,13 +115,13 @@
     binfmt.preferStaticEmulators = true;
     binfmt.emulatedSystems = [
       "aarch64-linux"
-      "riscv64-linux"
+      # "riscv64-linux"
     ];
   };
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-partlabel/LINUX_ROOT";
+      device = "/dev/mapper/luksroot";
       fsType = "btrfs";
       options = [
         "relatime"
