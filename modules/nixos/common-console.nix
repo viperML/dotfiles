@@ -70,4 +70,8 @@
     enable = true;
     lfs.enable = true;
   };
+
+  boot.kernel.sysctl = {
+    "kernel.yama.ptrace_scope" = 0;
+  };
 }

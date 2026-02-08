@@ -35,7 +35,7 @@
   file,
   pax-utils,
   # e2fsprogs.bin,
-  nixpkgs-fmt,
+  shfmt,
   nix-output-monitor,
   shellcheck,
   sops,
