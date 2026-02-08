@@ -44,7 +44,10 @@
     pkgs.oras
   ];
 
-  networking.hostName = "y";
+  networking = {
+    hostName = "y";
+    # networkmanager.wifi.backend = "iwd";
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -82,7 +85,11 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-
+        # "iwlwifi"
+      ];
+      extraFirmwarePaths = [
+        "iwlwifi-gl-c0-fm-c0-101.ucode.zst"
+        "iwlwifi-gl-c0-fm-c0-100.ucode.zst"
       ];
     };
 
