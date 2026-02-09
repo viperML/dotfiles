@@ -27,4 +27,8 @@
   };
 
   users.groups.docker.members = config.users.groups.wheel.members;
+
+  environment.sessionVariables = {
+    DOCKER_BUILDKIT = "1";
+  };
 }

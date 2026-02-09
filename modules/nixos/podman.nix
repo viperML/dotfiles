@@ -15,6 +15,10 @@ in
     pkgs.podman-compose
   ];
 
+  environment.sessionVariables = {
+    BUILDAH_FORMAT = "oci";
+  };
+
   virtualisation.podman = {
     enable = true;
 

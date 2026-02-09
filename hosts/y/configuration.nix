@@ -9,9 +9,7 @@
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/y";
-    BUILDAH_FORMAT = "docker";
     LIBVA_DRIVER_NAME = "iHD";
-    DOCKER_BUILDKIT = "1";
   };
 
   nix.settings = {
@@ -33,9 +31,7 @@
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
     pkgs.zoom-us
-    pkgs.glab
     pkgs.kaniko
-    pkgs.keyd
     pkgs.mailspring
     pkgs.google-chrome
     pkgs.foot
@@ -46,7 +42,6 @@
 
   networking = {
     hostName = "y";
-    # networkmanager.wifi.backend = "iwd";
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -63,16 +58,7 @@
     };
   };
 
-  # services.fwupd.enable = true;
-
-  # services.cpupower-gui.enable = true;
-  # services.flatpak.enable = true;
-
   boot = {
-    # plymouth = {
-    #   enable = true;
-    # };
-
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
@@ -85,21 +71,12 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-        # "iwlwifi"
       ];
       extraFirmwarePaths = [
         "iwlwifi-gl-c0-fm-c0-101.ucode.zst"
         "iwlwifi-gl-c0-fm-c0-100.ucode.zst"
       ];
     };
-
-    kernelParams = [
-      # "quiet"
-      # # Send logs to tty2
-      # "fbcon=vc:2-6"
-      # "console=tty0"
-      # "plymouth.use-simpledrm"
-    ];
 
     kernel.sysctl = {
       "net.ipv4.conf.all.mc_forwarding" = true;
@@ -122,7 +99,6 @@
     binfmt.preferStaticEmulators = true;
     binfmt.emulatedSystems = [
       "aarch64-linux"
-      # "riscv64-linux"
     ];
   };
 
