@@ -24,7 +24,7 @@
   elfutils-cli,
   fq,
   jq,
-  nixfmt-rfc-style,
+  nixfmt,
   npins,
   psmisc,
   nil,
