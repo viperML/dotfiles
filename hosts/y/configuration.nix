@@ -24,6 +24,11 @@
 
       file.xdg_config."autostart/Mailspring.desktop".source =
         "/run/current-system/sw/share/applications/Mailspring.desktop";
+
+      systemd.tmpfiles.dynamicRules = [
+        "D {{xdg_runtime_dir}}/gitlab-runner 0755 {{user}} {{group}} - -"
+        "L {{home}}/.gitlab-runner - - - - {{xdg_runtime_dir}}/gitlab-runner"
+      ];
     };
   };
 
