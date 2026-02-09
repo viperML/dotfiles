@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "be4af8042e7a61fa12fda58fe9a3b3babdefe17b",
-      "url": "https://github.com/nix-community/NixOS-WSL/archive/be4af8042e7a61fa12fda58fe9a3b3babdefe17b.tar.gz",
-      "hash": "sha256-55V0AJ36V5Egh4kMhWtDh117eE3GOjwq5LhwxDn9eHg="
+      "revision": "7cfb408f6a5cd243a727aa3397f4c04f5bfccf28",
+      "url": "https://github.com/nix-community/NixOS-WSL/archive/7cfb408f6a5cd243a727aa3397f4c04f5bfccf28.tar.gz",
+      "hash": "sha256-j19Q1HZNfMxoG1WOGFUF1HPZ/wHkVlLDqjvNhrq5frA="
     },
     "cajon": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "75bb637454b0fbbb5ed652375a4bf7ffd28bcf6f",
-      "url": "https://github.com/Gerg-L/mnw/archive/75bb637454b0fbbb5ed652375a4bf7ffd28bcf6f.tar.gz",
-      "hash": "sha256-kSvWF3Xt2HW9hmV5V7i8PqeWJIBUKmuKoHhOgj3Znzs="
+      "revision": "2aaffa8030d0b262176146adbb6b0e6374ce2957",
+      "url": "https://github.com/Gerg-L/mnw/archive/2aaffa8030d0b262176146adbb6b0e6374ce2957.tar.gz",
+      "hash": "sha256-b1XqsH7AtVf2dXmq2iyRr2NC1yG7skY7Z6N2MpWHlK4="
     },
     "nh": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "97eaee12ece18a3833b4509ae44df6ed9e7f1ff6",
-      "url": "https://github.com/nix-community/nh/archive/97eaee12ece18a3833b4509ae44df6ed9e7f1ff6.tar.gz",
-      "hash": "sha256-BA0U9M5279iigdVrFrf9GnmC3LpXr0nShIuzFd3SBXE="
+      "revision": "347c71b43705a2efcc6e4ebb94e14894bb5d3147",
+      "url": "https://github.com/nix-community/nh/archive/347c71b43705a2efcc6e4ebb94e14894bb5d3147.tar.gz",
+      "hash": "sha256-sLRCTKKt7FsxR/rKrJp5BN++3p8tfuShzIKLMNTh7DA="
     },
     "nix-common": {
       "type": "Git",
@@ -90,9 +90,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "11b04082a857c926db144e6ca9656c1e26a78ad8",
-      "url": "https://github.com/viperML/nix-common/archive/11b04082a857c926db144e6ca9656c1e26a78ad8.tar.gz",
-      "hash": "sha256-11mnJ/6zHvk2VeBlW/5uSaULKTbGwaik2Z4HDgBBvaM="
+      "revision": "0086ec8ef89752ccfd983e60af52d57a156c069f",
+      "url": "https://github.com/viperML/nix-common/archive/0086ec8ef89752ccfd983e60af52d57a156c069f.tar.gz",
+      "hash": "sha256-cUTD10stmdXrbVmAcIVZHFJmTf2Z++2tb5QS5TQ4La0="
     },
     "nix-index-database": {
       "type": "Git",
@@ -103,9 +103,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "82befcf7dc77c909b0f2a09f5da910ec95c5b78f",
-      "url": "https://github.com/nix-community/nix-index-database/archive/82befcf7dc77c909b0f2a09f5da910ec95c5b78f.tar.gz",
-      "hash": "sha256-d3NBA9zEtBu2JFMnTBqWj7Tmi7R5OikoU2ycrdhQEws="
+      "revision": "2684bb8080a6f2ca5f9d494de5ef875bc1c4ecdb",
+      "url": "https://github.com/nix-community/nix-index-database/archive/2684bb8080a6f2ca5f9d494de5ef875bc1c4ecdb.tar.gz",
+      "hash": "sha256-hy0gcAgAcxrnSWKGuNO+Ob0x6jQ2xkR6hoaR0qJBHYs="
     },
     "nix-maid": {
       "type": "Git",
@@ -129,9 +129,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "fb7944c166a3b630f177938e478f0378e64ce108",
-      "url": "https://github.com/NixOS/nixpkgs/archive/fb7944c166a3b630f177938e478f0378e64ce108.tar.gz",
-      "hash": "sha256-EgE0pxsrW9jp9YFMkHL9JMXxcqi/OoumPJYwf+Okucw="
+      "revision": "d6c71932130818840fc8fe9509cf50be8c64634f",
+      "url": "https://github.com/NixOS/nixpkgs/archive/d6c71932130818840fc8fe9509cf50be8c64634f.tar.gz",
+      "hash": "sha256-ub1gpAONMFsT/GU2hV6ZWJjur8rJ6kKxdm9IlCT0j84="
     },
     "wrapper-manager": {
       "type": "Git",

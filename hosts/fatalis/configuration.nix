@@ -37,16 +37,11 @@ in
     nftables.enable = true;
   };
 
-  security.sudo.wheelNeedsPassword = false;
-
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
     cpu.amd.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    bluetooth.enable = true;
     graphics = {
-      enable = true;
       extraPackages = with pkgs.rocmPackages; [
         clr
         clr.icd
@@ -64,8 +59,6 @@ in
     plymouth = {
       enable = true;
     };
-
-    kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
       # kernelModules = ["amdgpu"];
@@ -106,8 +99,6 @@ in
       timeout = 0;
     };
 
-    tmp.useTmpfs = true;
-
     # https://github.com/lwfinger/rtw89/blob/main/70-rtw89.conf
     # https://github.com/lwfinger/rtw89/tree/main?tab=readme-ov-file#option-configuration
     extraModprobeConfig = ''
@@ -147,5 +138,4 @@ in
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-  services.fwupd.enable = true;
 }

@@ -74,4 +74,6 @@
   boot.kernel.sysctl = {
     "kernel.yama.ptrace_scope" = 0;
   };
+
+  security.sudo.wheelNeedsPassword = false;
 }

@@ -43,19 +43,15 @@
     (pkgs.python3.withPackages (pp: [ ]))
     pkgs.gocryptfs
     pkgs.oras
+    pkgs.antigravity
   ];
 
   networking = {
     hostName = "y";
   };
 
-  security.sudo.wheelNeedsPassword = false;
-
   hardware = {
-    enableRedistributableFirmware = true;
-    bluetooth.enable = true;
     graphics = {
-      enable = true;
       extraPackages = [
         pkgs.intel-media-driver
         pkgs.vpl-gpu-rt
@@ -64,7 +60,6 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
       systemd.enable = true;
@@ -99,8 +94,6 @@
       timeout = 0;
     };
 
-    tmp.useTmpfs = true;
-
     binfmt.preferStaticEmulators = true;
     binfmt.emulatedSystems = [
       "aarch64-linux"
@@ -129,8 +122,6 @@
   };
 
   programs.kde-pim.enable = false;
-
-  services.fwupd.enable = true;
 
   services.flatpak.enable = true;
 

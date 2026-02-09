@@ -15,6 +15,16 @@
     geteduroam-cli
   ];
 
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+
+  services.fwupd.enable = true;
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    bluetooth.enable = true;
+    graphics.enable = true;
+  };
+
   # i18n = let
   #   # defaultLocale = "en_US.UTF-8";
   #   inherit (config.i18n) defaultLocale; # set in nix-common

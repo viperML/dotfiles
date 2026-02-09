@@ -34,26 +34,19 @@ in
 
   users.mutableUsers = lib.mkForce true;
 
-  security.sudo.wheelNeedsPassword = false;
-
   system.stateVersion = "25.05";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    bluetooth.enable = true;
     graphics = {
-      enable = true;
       extraPackages = with pkgs.rocmPackages; [
         clr
         clr.icd
       ];
     };
   };
-
-  services.fwupd.enable = true;
 
   security.pam.services = {
     login.u2fAuth = true;
@@ -65,7 +58,6 @@ in
   services.cpupower-gui.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
       systemd.enable = true;
@@ -102,8 +94,6 @@ in
         efiSysMountPoint = "/boot";
       };
     };
-
-    tmp.useTmpfs = true;
 
     lanzaboote = {
       enable = true;
