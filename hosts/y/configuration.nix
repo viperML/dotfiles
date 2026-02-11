@@ -10,6 +10,7 @@
     D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/y";
     LIBVA_DRIVER_NAME = "iHD";
+    MESA_LOG_LEVEL = "error";
   };
 
   nix.settings = {
@@ -44,6 +45,8 @@
     pkgs.gocryptfs
     pkgs.oras
     pkgs.antigravity
+    pkgs.geteduroam-cli
+    pkgs.jetbrains.goland
   ];
 
   networking = {
@@ -54,12 +57,22 @@
     graphics = {
       extraPackages = [
         pkgs.intel-media-driver
+        pkgs.intel-compute-runtime
         pkgs.vpl-gpu-rt
       ];
+    };
+
+    ipu6 = {
+      enable = true;
+      platform = "ipu6epmtl";
     };
   };
 
   boot = {
+    kernelParams = [
+      "i915.force_probe=!7d45"
+      "xe.force_probe=7d45"
+    ];
 
     initrd = {
       systemd.enable = true;

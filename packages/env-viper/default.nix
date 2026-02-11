@@ -43,6 +43,7 @@
   hover-rs,
   cajon,
   jujutsu,
+  imagemagick,
 }@args:
 buildEnv {
   name = "env";

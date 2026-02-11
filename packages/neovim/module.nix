@@ -43,6 +43,10 @@
 
       # base.lua
       mini-pick
+
+      # format.lua
+      conform-nvim
+      comment-nvim
     ];
   };
   extraBuilderArgs = {
