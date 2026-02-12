@@ -5,6 +5,10 @@
   ...
 }:
 {
+  imports = [
+    ./dell.nix
+  ];
+
   system.stateVersion = "25.05";
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";
@@ -46,34 +50,14 @@
     pkgs.oras
     pkgs.antigravity
     pkgs.geteduroam-cli
-    pkgs.jetbrains.goland
+    pkgs.rsync
   ];
 
   networking = {
     hostName = "y";
   };
 
-  hardware = {
-    graphics = {
-      extraPackages = [
-        pkgs.intel-media-driver
-        pkgs.intel-compute-runtime
-        pkgs.vpl-gpu-rt
-      ];
-    };
-
-    ipu6 = {
-      enable = true;
-      platform = "ipu6epmtl";
-    };
-  };
-
   boot = {
-    kernelParams = [
-      "i915.force_probe=!7d45"
-      "xe.force_probe=7d45"
-    ];
-
     initrd = {
       systemd.enable = true;
       luks.devices."luksroot".device = "/dev/disk/by-partlabel/LINUX_LUKS";
@@ -85,10 +69,7 @@
         "usbhid"
         "sd_mod"
       ];
-      extraFirmwarePaths = [
-        "iwlwifi-gl-c0-fm-c0-101.ucode.zst"
-        "iwlwifi-gl-c0-fm-c0-100.ucode.zst"
-      ];
+
     };
 
     kernel.sysctl = {
