@@ -2,6 +2,11 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+    MESA_LOG_LEVEL = "error";
+  };
+
   hardware = {
     graphics.extraPackages = [
       pkgs.intel-media-driver

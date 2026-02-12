@@ -13,8 +13,6 @@
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";
     NH_FILE = "${D}/hosts/y";
-    LIBVA_DRIVER_NAME = "iHD";
-    MESA_LOG_LEVEL = "error";
   };
 
   nix.settings = {
