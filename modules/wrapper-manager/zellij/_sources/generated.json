@@ -1,6 +1,6 @@
 {
     "zellij-autolock": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "zellij-autolock",
@@ -15,7 +15,7 @@
         "version": "0.2.2"
     },
     "zjstatus": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "zjstatus",
