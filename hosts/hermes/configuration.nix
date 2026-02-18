@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  # self',
   ...
 }:
 let
@@ -60,7 +59,6 @@ in
   boot = {
 
     initrd = {
-      systemd.enable = true;
       availableKernelModules = [
         "xhci_pci"
         "ahci"
@@ -68,10 +66,8 @@ in
         "usbhid"
         "kvm-intel"
       ];
-      luks = {
-        devices.${luksDevice} = {
-          device = "/dev/disk/by-partlabel/LINUX_ROOT";
-        };
+      luks.devices.${luksDevice} = {
+        device = "/dev/disk/by-partlabel/LINUX_ROOT";
       };
     };
 

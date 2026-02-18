@@ -42,10 +42,7 @@
     pkgs.kaniko
     pkgs.mailspring
     pkgs.google-chrome
-    pkgs.foot
     (pkgs.python3.withPackages (pp: [ ]))
-    pkgs.gocryptfs
-    pkgs.oras
     pkgs.antigravity
     pkgs.geteduroam-cli
     pkgs.rsync
@@ -57,7 +54,6 @@
 
   boot = {
     initrd = {
-      systemd.enable = true;
       luks.devices."luksroot".device = "/dev/disk/by-partlabel/LINUX_LUKS";
       availableKernelModules = [
         "xhci_pci"
@@ -67,17 +63,10 @@
         "usbhid"
         "sd_mod"
       ];
-
-    };
-
-    kernel.sysctl = {
-      "net.ipv4.conf.all.mc_forwarding" = true;
     };
 
     loader = {
-      systemd-boot = {
-        enable = true;
-      };
+      systemd-boot.enable = true;
       grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
@@ -86,7 +75,6 @@
       timeout = 0;
     };
 
-    binfmt.preferStaticEmulators = true;
     binfmt.emulatedSystems = [
       "aarch64-linux"
     ];
@@ -112,10 +100,6 @@
       ];
     };
   };
-
-  programs.kde-pim.enable = false;
-
-  services.flatpak.enable = true;
 
   programs.singularity = {
     enable = true;

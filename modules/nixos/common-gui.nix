@@ -15,7 +15,10 @@
     geteduroam-cli
   ];
 
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  boot = {
+    initrd.systemd.enable = true;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  };
 
   services.fwupd.enable = true;
 

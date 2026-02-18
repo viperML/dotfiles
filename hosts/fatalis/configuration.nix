@@ -61,8 +61,6 @@ in
     };
 
     initrd = {
-      # kernelModules = ["amdgpu"];
-      systemd.enable = true;
       availableKernelModules = [ ];
 
       luks = {
