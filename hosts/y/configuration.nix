@@ -68,7 +68,6 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/efi";
       };
-      timeout = 0;
     };
 
     binfmt.emulatedSystems = [
