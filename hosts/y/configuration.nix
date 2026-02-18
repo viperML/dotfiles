@@ -5,10 +5,6 @@
   ...
 }:
 {
-  imports = [
-    ./dell.nix
-  ];
-
   system.stateVersion = "25.05";
   environment.sessionVariables = rec {
     D = "/x/src/dotfiles";

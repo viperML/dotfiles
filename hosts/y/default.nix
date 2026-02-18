@@ -1,6 +1,7 @@
 import ../. [
   #-- Topology
   ./configuration.nix
+  ./dell.nix
   ../../modules/nixos/es.nix
   ../../modules/nixos/tmpfs.nix
   ../../modules/nixos/tpm2

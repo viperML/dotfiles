@@ -20,24 +20,14 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.sbctl
     pkgs.powertop
     pkgs.sysfsutils
     pkgs.prismlauncher
   ];
 
-  # environment.sessionVariables = {NIXOS_OZONE_WL = "1";};
-
   networking = {
     hostName = "fatalis";
-    networkmanager = {
-      enable = true;
-      # dns = "systemd-resolved";
-    };
-    nftables.enable = true;
   };
-
-  # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   hardware = {
     cpu.amd.updateMicrocode = true;
@@ -60,41 +50,20 @@ in
       enable = true;
     };
 
-    initrd = {
-      availableKernelModules = [ ];
-
-      luks = {
-        devices.${luksDevice} = {
-          device = "/dev/disk/by-partlabel/LINUX_LUKS";
-        };
-      };
+    initrd.luks.devices.${luksDevice} = {
+      device = "/dev/disk/by-partlabel/LINUX_LUKS";
     };
-
-    kernel.sysctl = {
-      # "vm.swappiness" = 100;
-    };
-
-    kernelParams = [
-      "quiet"
-      # Send logs to tty2
-      "fbcon=vc:2-6"
-      "console=tty0"
-      "plymouth.use-simpledrm"
-    ];
 
     loader = {
       systemd-boot = {
         enable = lib.mkForce false;
-        # consoleMode = "auto";
         editor = false;
       };
-      # systemd-boot.enable = true;
       grub.enable = lib.mkForce false;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      timeout = 0;
     };
 
     # https://github.com/lwfinger/rtw89/blob/main/70-rtw89.conf
@@ -135,5 +104,4 @@ in
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
-
 }

@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 {
@@ -34,7 +35,5 @@
 
   programs.ssh.startAgent = true;
 
-  # programs.git.config = {
-  #   credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
-  # };
+  programs.kde-pim.enable = false;
 }
