@@ -2,8 +2,8 @@
 {
   wrappers.rocketchat-desktop = {
     basePackage = pkgs.rocketchat-desktop;
-    prependFlags = [
-      "--start-hidden"
-    ];
+    # prependFlags = [
+    #   "--start-hidden"
+    # ];
   };
 }
