@@ -102,4 +102,11 @@
   };
 
   systemd.services.tailscaled.serviceConfig.WantedBy = lib.mkForce [ ];
+
+  programs.kde-pim = {
+    enable = lib.mkForce true;
+    kmail = false;
+    kontact = true;
+    merkuro = true;
+  };
 }

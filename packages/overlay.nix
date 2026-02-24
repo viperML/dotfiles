@@ -44,6 +44,10 @@ let
     };
 
     maid = (import sources.nix-maid) final ../modules/maid;
+
+    akonadi = prev.akonadi.override {
+      backend = "sqlite";
+    };
   };
 
   overlayWrapperManager =
