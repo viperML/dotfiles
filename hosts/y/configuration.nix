@@ -40,8 +40,6 @@
     pkgs.google-chrome
     (pkgs.python3.withPackages (pp: [ ]))
     pkgs.antigravity
-    pkgs.geteduroam-cli
-    pkgs.rsync
   ];
 
   networking = {

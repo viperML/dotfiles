@@ -6,14 +6,14 @@
 {
   environment.systemPackages = with pkgs; [
     env-viper
-    net-tools
+    net-tools # netstat
     tcpdump
-    libcgroup
     nodejs
     pnpm
     prettier
     litecli
     serve
+    rsync
     zellij
   ];
 
@@ -26,12 +26,10 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 1w --keep 3";
-    # package = inputs'.nh.packages.default;
   };
 
   nix = {
     package = pkgs.nixVersions.latest;
-    # package = self'.packages.nix;
     daemonCPUSchedPolicy = "idle";
     settings = lib.mkMerge [
       {

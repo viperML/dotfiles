@@ -39,17 +39,10 @@ in
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    graphics = {
-      extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
-    };
-  };
-
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
+    graphics.extraPackages = [
+      pkgs.rocmPackages.clr
+      pkgs.rocmPackages.clr.icd
+    ];
   };
 
   services.thermald.enable = true;

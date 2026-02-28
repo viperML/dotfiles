@@ -20,8 +20,6 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.powertop
-    pkgs.sysfsutils
     pkgs.prismlauncher
   ];
 
@@ -31,23 +29,16 @@ in
 
   hardware = {
     cpu.amd.updateMicrocode = true;
-    graphics = {
-      extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
-    };
+    graphics.extraPackages = [
+      pkgs.rocmPackages.clr
+      pkgs.rocmPackages.clr.icd
+    ];
   };
 
   boot = {
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/secrets/secureboot";
-      # pkiBundle = "/etc/secureboot";
-    };
-
-    plymouth = {
-      enable = true;
     };
 
     initrd.luks.devices.${luksDevice} = {
@@ -101,7 +92,10 @@ in
     };
   };
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
   programs.gamemode.enable = true;
 }

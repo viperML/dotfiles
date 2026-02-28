@@ -5,7 +5,6 @@ import ../. [
   ../../modules/nixos/tmpfs.nix
   ../../modules/nixos/tpm2
   ../../modules/nixos/users.nix
-  ../../modules/nixos/yubikey
 
   #-- Environment
   { services.displayManager.autoLogin.user = "ayats"; }
@@ -17,5 +16,5 @@ import ../. [
   # ../../modules/nixos/printing.nix
   ../../modules/nixos/podman.nix
   ../../modules/nixos/silent-boot.nix
-  ../../modules/nixos/firefox.nix
+  ../../modules/nixos/firefox
 ]

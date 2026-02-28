@@ -1,8 +1,6 @@
 {
-  config,
   pkgs,
   lib,
-  # inputs',
   ...
 }:
 {
@@ -28,42 +26,20 @@
     graphics.enable = true;
   };
 
-  # i18n = let
-  #   # defaultLocale = "en_US.UTF-8";
-  #   inherit (config.i18n) defaultLocale; # set in nix-common
-  #   es = "es_ES.UTF-8";
-  # in {
-  #   inherit defaultLocale;
-  #   extraLocaleSettings = {
-  #     LANG = defaultLocale;
-  #     LC_COLLATE = defaultLocale;
-  #     LC_CTYPE = defaultLocale;
-  #     LC_MESSAGES = defaultLocale;
-  #
-  #     LC_ADDRESS = es;
-  #     LC_IDENTIFICATION = es;
-  #     LC_MEASUREMENT = es;
-  #     LC_MONETARY = es;
-  #     LC_NAME = es;
-  #     LC_NUMERIC = es;
-  #     LC_PAPER = es;
-  #     LC_TELEPHONE = es;
-  #     LC_TIME = es;
-  #   };
-  # };
   environment.systemPackages = with pkgs; [
     # CLI desktop tools
-    usbutils
-    pciutils
+    usbutils # lsusb
+    pciutils # lspci
     efibootmgr
     android-tools
+    geteduroam-cli
 
     # GUI
     vscode
     wl-color-picker
     vial
-    foot
     alacritty
+    obsidian
   ];
 
   systemd = {
@@ -76,14 +52,10 @@
   };
 
   fonts.packages = [
-    # pkgs.roboto
     pkgs.inter
-    # self'.packages.iosevka
     pkgs.iosevka-normal
-    # (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
-    # config.services.desktopManager.plasma6.notoPackage
   ];
 
   services.xserver = {
@@ -104,25 +76,6 @@
 
   console.useXkbConfig = true;
 
-  services.kmscon = {
-    # enable = true;
-    extraConfig = ''
-      font-size=14
-      xkb-layout=${config.services.xserver.layout}
-    '';
-    hwRender = true;
-    fonts = [
-      {
-        name = "iosevka-normal Semibold";
-        package = pkgs.iosevka-normal;
-      }
-      {
-        name = "Symbols Nerd Font";
-        package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
-      }
-    ];
-  };
-
   hardware.steam-hardware.enable = true;
   hardware.keyboard.qmk.enable = true;
 
@@ -131,9 +84,8 @@
   networking = {
     networkmanager = {
       enable = true;
-      plugins = with pkgs; [
-        networkmanager-fortisslvpn
-        networkmanager-openconnect
+      plugins = [
+        pkgs.networkmanager-openconnect
       ];
     };
     nftables.enable = true;

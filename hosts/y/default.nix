@@ -20,5 +20,5 @@ import ../. [
   ../../modules/nixos/silent-boot.nix
   # ./gitlab-runner.nix
   ./sourcebot.nix
-  ../../modules/nixos/firefox.nix
+  ../../modules/nixos/firefox
 ]

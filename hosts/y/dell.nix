@@ -8,6 +8,11 @@
   };
 
   hardware = {
+    bluetooth.enable = true;
+
+    enableRedistributableFirmware = true;
+    cpu.intel.updateMicrocode = true;
+
     graphics.extraPackages = [
       pkgs.intel-media-driver
       pkgs.intel-compute-runtime
@@ -31,4 +36,6 @@
       "iwlwifi-gl-c0-fm-c0-100.ucode.zst"
     ];
   };
+
+  services.hardware.bolt.enable = true;
 }
