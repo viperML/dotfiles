@@ -4,17 +4,8 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    env-viper
-    net-tools # netstat
-    tcpdump
-    nodejs
-    pnpm
-    prettier
-    litecli
-    serve
-    rsync
-    zellij
+  environment.systemPackages = [
+    pkgs.env-viper
   ];
 
   # Sane default to at least have a static hostId

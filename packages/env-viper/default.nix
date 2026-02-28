@@ -1,55 +1,79 @@
 {
+  stdenv,
   lib,
-  buildEnv,
-  #
-  fzf,
-  starship,
-  direnv,
-  nix-index,
-  eza,
-  bat,
+  # shell environment
   fish-viper,
+  starship,
+  fzf,
+  direnv,
+  zellij,
+  osc,
   neovim,
-  gh,
-  unar,
-  hexyl,
-  dust,
-  magic-wormhole-rs,
+  # file navigation
+  eza,
+  yazi,
   fd,
   ripgrep,
-  libarchive,
-  doggo,
-  git-viper,
-  difftastic,
-  elfutils-cli,
-  fq,
-  jq,
-  nixfmt,
-  npins,
-  psmisc,
-  nil,
-  yazi,
-  curlFull,
-  wget,
-  osc,
+  dust,
+  # file analysis
   file,
   pax-utils,
-  # e2fsprogs.bin,
-  shfmt,
+  unar,
+  libarchive,
+  fq,
+  jq,
+  hexyl,
+  imagemagick,
+  litecli,
+  elfutils-cli,
+  # git & vcs
+  git-viper,
+  difftastic,
+  jujutsu,
+  gh,
+  # network
+  rsync,
+  serve,
+  curlFull,
+  wget,
+  doggo,
+  magic-wormhole-rs,
+  net-tools,
+  tcpdump,
+  # nix tooling
+  nix-index,
+  nixfmt,
+  npins,
+  nil,
   nix-output-monitor,
+  # shell
+  shfmt,
   shellcheck,
+  # secrets
   sops,
   age,
+  # nodejs
+  nodejs,
+  pnpm,
+  prettier,
+  # other
   hover-rs,
   cajon,
-  jujutsu,
-  imagemagick,
+  psmisc,
 }@args:
-buildEnv {
-  name = "env";
-  paths = args |> builtins.attrValues |> builtins.filter lib.isDerivation;
-  extraOutputsToInstall = [
-    "out"
-    "man"
-  ];
+stdenv.mkDerivation {
+  name = "env-viper";
+  propagatedUserEnvPkgs =
+    args
+    |> lib.filterAttrs (
+      name: value:
+      !(builtins.elem name [
+        "lib"
+        "stdenv"
+      ])
+    )
+    |> builtins.attrValues;
+
+  dontUnpack = true;
+  buildPhase = "mkdir $out";
 }
