@@ -76,4 +76,6 @@ stdenv.mkDerivation {
 
   dontUnpack = true;
   buildPhase = "mkdir $out";
+
+  meta.mainProgram = "fish";
 }

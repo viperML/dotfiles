@@ -36,6 +36,10 @@ in
   };
 
   boot = {
+    kernelModules = [
+      "rtw89_8852ce"
+    ];
+
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/secrets/secureboot";
