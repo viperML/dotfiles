@@ -102,4 +102,8 @@ in
   };
 
   programs.gamemode.enable = true;
+
+  systemd.services.tailscaled = lib.mkIf config.services.tailscale.enable {
+    serviceConfig.WantedBy = lib.mkForce [ ];
+  };
 }
