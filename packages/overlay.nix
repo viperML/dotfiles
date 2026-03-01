@@ -48,6 +48,8 @@ let
     akonadi = prev.akonadi.override {
       backend = "sqlite";
     };
+
+    nixMaidWith = (import sources.nix-maid) final;
   };
 
   overlayWrapperManager =
