@@ -104,6 +104,7 @@ in
   programs.gamemode.enable = true;
 
   systemd.services.tailscaled = lib.mkIf config.services.tailscale.enable {
+    wantedBy = lib.mkForce [ ];
     serviceConfig.WantedBy = lib.mkForce [ ];
   };
 }

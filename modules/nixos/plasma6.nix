@@ -26,6 +26,7 @@
     pkgs.plasma-panel-colorizer
     pkgs.kdePackages.kcolorchooser
     pkgs.ocs-url
+    pkgs.kurve
   ];
 
   maid.sharedModules = [

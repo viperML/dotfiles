@@ -56,6 +56,11 @@ in
         # Disables Ctrl+P
         "ShowOSD" = "Display";
       };
+
+      mediacontrol = {
+        mediavolumedown = "PgDown,,Bajar el volumen multimedia";
+        mediavolumeup = "PgUp,,Subir el volumen multimedia";
+      };
     };
     kscreenlockerrc = {
       Daemon = {
