@@ -13,6 +13,7 @@ in
     pkgs.buildah
     pkgs.crane
     pkgs.podman-compose
+    pkgs.docker-credential-helpers
   ];
 
   environment.sessionVariables = {
@@ -54,4 +55,23 @@ in
   };
 
   users.groups.podman.members = config.users.groups.wheel.members;
+
+  systemd.user.services."podman-reconfigure" = {
+    wantedBy = [ "basic.target" ];
+    after = [ "basic.target" ];
+    path = [
+      pkgs.coreutils
+      pkgs.jq
+      pkgs.moreutils
+    ];
+    script = ''
+      set -x
+      mkdir -p ~/.docker
+      if [[ ! -f ~/.docker/config.json ]]; then
+        echo "{}" > ~/.docker/config.json
+      fi
+
+      jq '.credsStore = "secretservice"' < ~/.docker/config.json | sponge ~/.docker/config.json
+    '';
+  };
 }
