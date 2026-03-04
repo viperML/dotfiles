@@ -38,8 +38,9 @@
     pkgs.kaniko
     pkgs.mailspring
     pkgs.google-chrome
-    (pkgs.python3.withPackages (pp: [ ]))
+    (pkgs.python3.withPackages (pp: [ pp.pyyaml ]))
     pkgs.antigravity
+    pkgs.pandoc
   ];
 
   networking = {

@@ -67,7 +67,8 @@ local configs = {
 
 vim.filetype.add {
   extension = {
-    ["nomad"] = "hcl"
+    ["nomad"] = "hcl",
+    ["base"] = "yaml",
   },
   filename = {
     [".envrc"] = "bash",
