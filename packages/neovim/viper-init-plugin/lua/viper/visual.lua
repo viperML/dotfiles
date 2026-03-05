@@ -20,4 +20,11 @@ require("viper.lazy").add_specs {
       }
     end,
   },
+  {
+    "mini.trailspace",
+    event = "DeferredUIEnter",
+    after = function()
+      require("mini.trailspace").setup { }
+    end,
+  },
 }

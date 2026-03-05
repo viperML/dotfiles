@@ -40,6 +40,7 @@
     opt = with pkgs.vimPlugins; [
       # visual.lua
       which-key-nvim
+      mini-trailspace
 
       # base.lua
       mini-pick
