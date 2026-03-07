@@ -15,23 +15,11 @@ in
 
   networking = {
     hostName = "hermes";
-    networkmanager = {
-      dns = "systemd-resolved";
-    };
   };
 
   users.users.ayats = {
     home = "/x";
-    maid = {
-      # gsettings.settings.org.gnome.desktop.interface.accent-color = "blue";
-    };
   };
-
-  services.resolved = {
-    enable = true;
-  };
-
-  users.mutableUsers = lib.mkForce true;
 
   system.stateVersion = "25.05";
 
@@ -45,34 +33,14 @@ in
     ];
   };
 
-  services.thermald.enable = true;
-
-  services.cpupower-gui.enable = true;
-
   boot = {
-
     initrd = {
-      availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "nvme"
-        "usbhid"
-        "kvm-intel"
-      ];
-      luks.devices.${luksDevice} = {
-        device = "/dev/disk/by-partlabel/LINUX_ROOT";
-      };
+      luks.devices.${luksDevice}.device = "/dev/disk/by-partlabel/LINUX_ROOT";
     };
 
     binfmt.emulatedSystems = [
       "aarch64-linux"
     ];
-
-    # kernel.sysctl = {
-    #   "vm.swappiness" = 10;
-    # };
-
-    kernelParams = [ ];
 
     loader = {
       systemd-boot = {
@@ -112,7 +80,6 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.sbctl
     pkgs.prismlauncher
   ];
 
@@ -120,6 +87,4 @@ in
     enable = true;
     gamescopeSession.enable = true;
   };
-
-  services.flatpak.enable = true;
 }
