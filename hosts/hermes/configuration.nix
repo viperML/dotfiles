@@ -23,7 +23,7 @@ in
   users.users.ayats = {
     home = "/x";
     maid = {
-      gsettings.settings.org.gnome.desktop.interface.accent-color = "blue";
+      # gsettings.settings.org.gnome.desktop.interface.accent-color = "blue";
     };
   };
 
@@ -113,10 +113,13 @@ in
 
   environment.systemPackages = [
     pkgs.sbctl
-    # pkgs.distrobox
-    # pkgs.nvtopPackages.amd
-    # pkgs.powertop
-    # pkgs.sysfsutils
     pkgs.prismlauncher
   ];
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  services.flatpak.enable = true;
 }
