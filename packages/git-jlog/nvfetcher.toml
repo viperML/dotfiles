@@ -1,0 +1,3 @@
+[git-jlog]
+src.git = "https://gitlab.com/viperML/git-jlog"
+fetch.git = "https://gitlab.com/viperML/git-jlog"

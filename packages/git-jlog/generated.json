@@ -1,0 +1,22 @@
+{
+    "git-jlog": {
+        "cargoLock": null,
+        "date": "2026-03-08",
+        "extract": null,
+        "name": "git-jlog",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "0ab76e6749de1f8c3859ee20e277c7fe2b1c44d7",
+            "sha256": "sha256-AtGTkd0++uPPESS/YyQ3yP8sbWs6YpWo7TNkpYxDOqs=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://gitlab.com/viperML/git-jlog"
+        },
+        "version": "0ab76e6749de1f8c3859ee20e277c7fe2b1c44d7"
+    }
+}

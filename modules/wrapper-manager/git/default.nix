@@ -35,6 +35,7 @@ in
       pkgs.git-graph
       pkgs.delta
       # myGit
+      pkgs.git-jlog
     ];
     env.GIT_CONFIG_GLOBAL.value = gitconfig;
   };
