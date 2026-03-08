@@ -3,7 +3,7 @@
   callPackages,
 }:
 let
-  nv = (callPackages ./generated.nix { }).git-jlog;
+  nv = (callPackages ./_sources/generated.nix { }).git-jlog;
 in
 buildGoModule {
   inherit (nv) pname src;

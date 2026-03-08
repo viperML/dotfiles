@@ -8,15 +8,15 @@
 {
   git-jlog = {
     pname = "git-jlog";
-    version = "0ab76e6749de1f8c3859ee20e277c7fe2b1c44d7";
+    version = "fffc2dbe8e51ee21fa323345a278d82725c59f78";
     src = fetchgit {
       url = "https://gitlab.com/viperML/git-jlog";
-      rev = "0ab76e6749de1f8c3859ee20e277c7fe2b1c44d7";
+      rev = "fffc2dbe8e51ee21fa323345a278d82725c59f78";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-AtGTkd0++uPPESS/YyQ3yP8sbWs6YpWo7TNkpYxDOqs=";
+      sha256 = "sha256-kiv55dTmIH+kEK5Eo1qktk0dWkpafYGAsR8NWR9i3Yw=";
     };
     date = "2026-03-08";
   };
