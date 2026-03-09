@@ -90,9 +90,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "2e87fa1be39183019e2fd67d4b7b5c3662800e7a",
-      "url": "https://github.com/viperML/nix-common/archive/2e87fa1be39183019e2fd67d4b7b5c3662800e7a.tar.gz",
-      "hash": "sha256-NwUeuJgN/LExNziqHnYEQGPQ6SAX3kmvlcnYC12/54k="
+      "revision": "54656ad739c2acd6a10a3c93316c24d34e66b1d3",
+      "url": "https://github.com/viperML/nix-common/archive/54656ad739c2acd6a10a3c93316c24d34e66b1d3.tar.gz",
+      "hash": "sha256-EVV24IvPNAQhDSU9kgcvGmkcbapbx0Vd9RbjoLYWneo="
     },
     "nix-index-database": {
       "type": "Git",
