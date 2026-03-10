@@ -65,4 +65,9 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/secrets 0700 root root -"
+    "z /var/lib/secrets 0700 root root -"
+  ];
 }
