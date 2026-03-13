@@ -28,6 +28,7 @@ in
   environment.systemPackages = [
     pkgs.sbctl
     pkgs.dmidecode
+    pkgs.tpm2-tools
     cmd
   ];
 
