@@ -16,5 +16,4 @@ import ../. [
   # ../../modules/nixos/printing.nix
   ../../modules/nixos/podman.nix
   ../../modules/nixos/silent-boot.nix
-  ../../modules/nixos/firefox
 ]
