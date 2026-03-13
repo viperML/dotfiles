@@ -41,6 +41,7 @@
     (pkgs.python3.withPackages (pp: [ pp.pyyaml ]))
     pkgs.antigravity
     pkgs.pandoc
+    pkgs.qemu_kvm
   ];
 
   networking = {

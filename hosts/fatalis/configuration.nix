@@ -21,6 +21,7 @@ in
 
   environment.systemPackages = [
     pkgs.prismlauncher
+    pkgs.google-chrome
   ];
 
   networking = {
