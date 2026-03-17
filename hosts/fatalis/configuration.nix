@@ -22,6 +22,7 @@ in
   environment.systemPackages = [
     pkgs.prismlauncher
     pkgs.google-chrome
+    pkgs.moonlight-qt
   ];
 
   networking = {
