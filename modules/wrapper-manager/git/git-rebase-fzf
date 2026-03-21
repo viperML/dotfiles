@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+set -e
+
+commit="$(git log -n 20 $'--format=%H\xC0%h %s' \
+  | fzf $'--delimiter=\xC0' --with-nth=2  --no-input \
+  | cut $'-d\xC0' -f1)"
+
+set -x
+exec git rebase -i "$@" "$commit"

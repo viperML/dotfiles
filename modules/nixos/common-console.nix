@@ -48,6 +48,7 @@
 
   environment.sessionVariables = {
     EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
     npm_config_audit = "false";
     npm_config_fund = "false";
     npm_config_update_notifier = "false";

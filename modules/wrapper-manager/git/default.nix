@@ -36,6 +36,7 @@ in
       pkgs.delta
       # myGit
       pkgs.git-jlog
+      (pkgs.writeShellScriptBin "git-rebase-fzf" (lib.fileContents ./git-rebase-fzf))
     ];
     env.GIT_CONFIG_GLOBAL.value = gitconfig;
   };
