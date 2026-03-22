@@ -30,7 +30,7 @@ abbr -a -g y yazi
 abbr -a -g ns nix shell -f "'<nixpkgs>'"
 
 # Admin
-abbr -a -g ss sudo systemctl
+# abbr -a -g ss sudo systemctl
 abbr -a -g us systemctl --user
 abbr -a -g sf journalctl -xefu
 abbr -a -g uf journalctl -xef --user-unit

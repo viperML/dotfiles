@@ -1,8 +1,16 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   numbers = builtins.genList (x: toString (x + 1)) 9;
+
+  f = "org.fkoehler.KTailctl.desktop";
 in
 {
+  packages = [
+    pkgs.ktailctl
+  ];
+
+  file.xdg_config."autostart/${f}".source = "${pkgs.ktailctl}/share/applications/${f}";
+
   kconfig.settings = {
     kwinrc = {
       Desktops.Number = 4;
@@ -145,6 +153,10 @@ in
     klaunchrc = {
       BusyCursorSettings.Bouncing = false;
       FeedbackStyle.BusyCursor = false;
+    };
+
+    KTailctlrc = {
+      Interface.startMinimized = true;
     };
   };
 }

@@ -101,11 +101,6 @@
     package = pkgs.apptainer;
   };
 
-  systemd.services.tailscaled = lib.mkIf config.services.tailscale.enable {
-    wantedBy = lib.mkForce [ ];
-    serviceConfig.WantedBy = lib.mkForce [ ];
-  };
-
   programs.kde-pim = {
     enable = lib.mkForce true;
     kmail = false;
