@@ -85,9 +85,11 @@ in
         # NaturalScroll = true;
       };
     };
+
     baloofilerc = {
       "Basic Settings".Indexing-Enabled = false;
     };
+
     krunnerrc = {
       General = {
         ActivateWhenTypingOnDesktop = false;
@@ -125,16 +127,24 @@ in
         windowsEnabled = false;
       };
     };
+
     spectaclerc = {
       General.clipboardGroup = "PostScreenshotCopyImage";
     };
+
     powerdevilrc = {
       AC.Performance.PowerProfile = "performance";
-      Battery.Performance.PowerProfile = "power-saver";
+      Battery.Performance.PowerProfile = "balanced";
+      LowBattery.Performance.PowerProfile = "power-saver";
     };
 
     ksmserverrc = {
       General.loginMode = "emptySession";
+    };
+
+    klaunchrc = {
+      BusyCursorSettings.Bouncing = false;
+      FeedbackStyle.BusyCursor = false;
     };
   };
 }

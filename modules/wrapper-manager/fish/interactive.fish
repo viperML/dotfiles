@@ -27,6 +27,7 @@ abbr -a -g e eza
 abbr -a -g p python3
 abbr -a -g n nvim
 abbr -a -g y yazi
+abbr -a -g ns nix shell -f '<nixpkgs>'
 
 # Admin
 abbr -a -g ss sudo systemctl
