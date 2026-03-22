@@ -52,6 +52,7 @@
     npm_config_audit = "false";
     npm_config_fund = "false";
     npm_config_update_notifier = "false";
+    SYSTEMD_TINT_BACKGROUND = "false";
   };
 
   time.timeZone = "Europe/Madrid";
@@ -65,7 +66,17 @@
     "kernel.yama.ptrace_scope" = 0;
   };
 
+  security.sudo.enable = false;
   security.sudo.wheelNeedsPassword = false;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units") {
+        if (subject.isInGroup("wheel")) {
+            return polkit.Result.YES;
+        }
+      }
+    });
+  '';
 
   systemd.tmpfiles.rules = [
     "d /var/lib/secrets 0700 root root -"
