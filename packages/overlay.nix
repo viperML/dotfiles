@@ -39,10 +39,6 @@ let
 
     neovim = (import sources.mnw).lib.wrap final { imports = [ ./neovim/module.nix ]; };
 
-    nh = final.callPackage "${sources.nh}/package.nix" {
-      rev = sources.nh.revision;
-    };
-
     maid = (import sources.nix-maid) final ../modules/maid;
 
     akonadi = prev.akonadi.override {

@@ -40,6 +40,10 @@
     vial
     alacritty
     obsidian
+
+    # AI
+    gemini-cli
+    antigravity
   ];
 
   systemd = {

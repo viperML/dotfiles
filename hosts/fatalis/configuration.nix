@@ -23,6 +23,7 @@ in
     pkgs.prismlauncher
     pkgs.google-chrome
     pkgs.moonlight-qt
+    pkgs.mailspring
   ];
 
   networking = {
