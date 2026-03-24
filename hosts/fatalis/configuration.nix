@@ -24,6 +24,11 @@ in
     pkgs.google-chrome
     pkgs.moonlight-qt
     pkgs.mailspring
+    (pkgs.retroarch.withCores (c: [
+      c.mesen
+      c.snes9x
+      c.mupen64plus
+    ]))
   ];
 
   networking = {
@@ -105,4 +110,11 @@ in
   };
 
   programs.gamemode.enable = true;
+
+  programs.kde-pim = {
+    enable = lib.mkForce true;
+    kmail = false;
+    kontact = true;
+    merkuro = true;
+  };
 }
