@@ -69,6 +69,9 @@
 [url "git@github.com:"]
   insteadOf = "github:"
   insteadOf = "https://github.com/"
+[url "git@gitlab.com:"]
+  insteadOf = "gitlab:"
+  insteadOf = "https://gitlab.com/"
 [url "git@gitlab-internal.bsc.es:"]
   insteadOf = "https://gitlab.bsc.es/"
 [commit]
