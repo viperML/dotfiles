@@ -17,8 +17,7 @@ let
 
         [core]
           excludesfile = ${builtins.toFile "excludes" ''
-            .cajon.js
-            .cajon.mjs
+            .cajon.lua
           ''}
       ''
   );

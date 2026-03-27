@@ -16,6 +16,7 @@
   boot = {
     initrd.systemd.enable = true;
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    binfmt.preferStaticEmulators = true;
   };
 
   services.fwupd.enable = true;
