@@ -22,13 +22,6 @@ in
   environment.systemPackages = [
     pkgs.prismlauncher
     pkgs.google-chrome
-    pkgs.moonlight-qt
-    pkgs.mailspring
-    (pkgs.retroarch.withCores (c: [
-      c.mesen
-      c.snes9x
-      c.mupen64plus
-    ]))
   ];
 
   networking = {
