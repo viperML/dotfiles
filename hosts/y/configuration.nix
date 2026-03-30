@@ -34,13 +34,11 @@
   environment.systemPackages = [
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
-    pkgs.zoom-us
     pkgs.kaniko
     pkgs.mailspring
     pkgs.google-chrome
     (pkgs.python3.withPackages (pp: [ pp.pyyaml ]))
     pkgs.antigravity
-    pkgs.pandoc
     pkgs.qemu_kvm
   ];
 
