@@ -56,22 +56,53 @@ in
 
   users.groups.podman.members = config.users.groups.wheel.members;
 
-  systemd.user.services."podman-reconfigure" = {
-    wantedBy = [ "basic.target" ];
-    after = [ "basic.target" ];
-    path = [
-      pkgs.coreutils
-      pkgs.jq
-      pkgs.moreutils
-    ];
-    script = ''
-      set -x
-      mkdir -p ~/.docker
-      if [[ ! -f ~/.docker/config.json ]]; then
-        echo "{}" > ~/.docker/config.json
-      fi
+  maid.sharedModules = [
+    {
+      systemd.tmpfiles.dynamicRules = [
+        "d {{home}}/.docker 0700 {{user}} {{group}} - -"
+        "d {{xdg_config_home}}/containers 0755 {{user}} {{group}} - -"
+      ];
 
-      jq '.credsStore = "secretservice"' < ~/.docker/config.json | sponge ~/.docker/config.json
-    '';
-  };
+      systemd.services."containers-auth-reconfigure" = {
+        wantedBy = [ "basic.target" ];
+        after = [ "basic.target" ];
+        path = [
+          pkgs.coreutils
+          pkgs.jq
+          pkgs.moreutils
+        ];
+        restartIfChanged = true;
+        serviceConfig = {
+          RemainAfterExit = true;
+          Type = "oneshot";
+        };
+
+        script =
+          let
+            knownRegistries = [
+              "registry.gitlab.bsc.es"
+              "regitry.gitlab.com"
+              "docker.io"
+              "ghcr.io"
+            ];
+          in
+          ''
+            set -x
+            if [[ ! -f ~/.docker/config.json ]]; then
+              echo "{}" > ~/.docker/config.json
+            fi
+
+            jq '.credsStore = "secretservice"' < ~/.docker/config.json | sponge ~/.docker/config.json
+            ${
+              knownRegistries
+              |> builtins.map (reg: ''
+                jq '.credHelpers["${reg}"] = "secretservice"' < ~/.docker/config.json | sponge ~/.docker/config.json
+              '')
+              |> builtins.concatStringsSep "\n"
+            }
+          '';
+      };
+
+    }
+  ];
 }
