@@ -43,6 +43,7 @@
     pkgs.cloud-utils
     pkgs.glab
     pkgs.oras
+    pkgs.virt-viewer
   ];
 
   networking = {

@@ -43,7 +43,7 @@
     obsidian
 
     # AI
-    gemini-cli
+    opencode
     antigravity
   ];
 
