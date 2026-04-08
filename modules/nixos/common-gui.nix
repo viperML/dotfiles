@@ -36,6 +36,7 @@
     geteduroam-cli
 
     # GUI
+    mpv
     vscode
     wl-color-picker
     vial
