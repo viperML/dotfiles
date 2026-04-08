@@ -90,11 +90,11 @@
     virtualisation = {
       qemu.options = [
         "-vga qxl"
-        "-display spice-app"
-        "-device virtio-serial-pci"
-        "-spice port=5930,disable-ticketing=on"
-        "-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0"
-        "-chardev spicevmc,id=spicechannel0,name=vdagent"
+        # "-display spice-app"
+        # "-device virtio-serial-pci"
+        # "-spice port=5930,disable-ticketing=on"
+        # "-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0"
+        # "-chardev spicevmc,id=spicechannel0,name=vdagent"
       ];
       cores = 4;
       memorySize = 1024 * 4;

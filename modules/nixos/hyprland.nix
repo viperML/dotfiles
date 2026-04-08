@@ -9,14 +9,14 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vanilla-dmz
-    wofi
-    wdisplays
-    seahorse
-    xdg-utils
-    libsecret
-    nwg-displays
-    brightnessctl
+    # vanilla-dmz
+    # wofi
+    # wdisplays
+    # seahorse
+    # xdg-utils
+    # libsecret
+    # nwg-displays
+    # brightnessctl
   ];
 
   environment.sessionVariables = {
@@ -26,6 +26,10 @@
     # XCURSOR_SIZE = "24";
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
   services.gnome.at-spi2-core.enable = true;
+
+  maid.sharedModules = [
+    ../maid/hyprland
+  ];
 }
