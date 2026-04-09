@@ -42,6 +42,7 @@
     vial
     alacritty
     obsidian
+    mpv
 
     # AI
     opencode

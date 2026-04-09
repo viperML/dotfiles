@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 {
-  services.xserver = {
-    displayManager.gdm.enable = true;
-  };
+  services.displayManager.gdm.enable = true;
 
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -17,7 +16,27 @@
     # libsecret
     # nwg-displays
     # brightnessctl
+    kitty
+    wofi
+
+    kdePackages.kwallet
+    kdePackages.kwallet-pam
+    kdePackages.kwalletmanager
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.kdePackages.kwallet
+    ];
+  };
+
+  security.pam.services = {
+    login.kwallet = {
+      enable = true;
+      package = pkgs.kdePackages.kwallet-pam;
+    };
+  };
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";

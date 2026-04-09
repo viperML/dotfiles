@@ -1,4 +1,8 @@
 { pkgs, ... }:
 {
-  file.xdg_config."hypr".source = ./.;
+  imports = [
+    ../noctalia
+  ];
+
+  file.xdg_config."hypr".source = builtins.toString ./.;
 }
