@@ -16,4 +16,5 @@ import ../. [
   ../../modules/nixos/podman.nix
   ../../modules/nixos/silent-boot.nix
   ./sourcebot.nix
+  ../../modules/nixos/singularity.nix
 ]

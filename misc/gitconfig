@@ -44,6 +44,7 @@
   showForcedUpdates = true
   parallel = 0
 [rebase]
+  autoSquash = true
   updateRegs = true
 [safe]
   directory=*

@@ -98,11 +98,6 @@
     };
   };
 
-  programs.singularity = {
-    enable = true;
-    package = pkgs.apptainer;
-  };
-
   programs.kde-pim = {
     enable = lib.mkForce true;
     kmail = false;
