@@ -97,6 +97,7 @@ in
               knownRegistries
               |> builtins.map (reg: ''
                 jq '.credHelpers["${reg}"] = "secretservice"' < ~/.docker/config.json | sponge ~/.docker/config.json
+                jq '.auths["${reg}"] = {}' < ~/.docker/config.json | sponge ~/.docker/config.json
               '')
               |> builtins.concatStringsSep "\n"
             }
