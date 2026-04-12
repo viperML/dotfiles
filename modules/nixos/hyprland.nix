@@ -12,7 +12,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # vanilla-dmz
+    vanilla-dmz
     # wdisplays
     # xdg-utils
     libsecret
@@ -25,11 +25,13 @@
     enable = true;
   };
 
-  environment.sessionVariables = {
+  environment.sessionVariables = rec {
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-    # XCURSOR_THEME = "DMZ-White";
-    # XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "DMZ-White";
+    XCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = XCURSOR_THEME;
+    HYPRCURSOR_SIZE = XCURSOR_SIZE;
   };
 
   services.gnome.at-spi2-core.enable = true;
