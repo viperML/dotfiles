@@ -18,6 +18,14 @@
     kitty
     # networkmanagerapplet
     wl-clipboard
+    kdePackages.dolphin
+    kdePackages.baloo-widgets # baloo information in Dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ark
+    kdePackages.okular
+    kdePackages.gwenview
+    kdePackages.kservice
+    adw-gtk3
   ];
 
   xdg.portal = {
@@ -36,10 +44,14 @@
   services.gnome.at-spi2-core.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
+  services.accounts-daemon.enable = true;
+  systemd.services.accounts-daemon.serviceConfig.PrivateTmp = false;
+  services.udisks2.enable = true;
   programs.ssh.startAgent = true;
   services.tuned = {
     enable = true;
   };
+  services.upower.enable = true;
 
   programs.seahorse.enable = true;
 
@@ -47,4 +59,14 @@
     ../maid/hyprland
   ];
 
+  qt = {
+    enable = true;
+    style = "breeze";
+  };
+
+  environment.etc."xdg/menus/applications.menu".source =
+    pkgs.runCommandLocal "plasma-applications" { }
+      ''
+        cp -v ${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu $out
+      '';
 }

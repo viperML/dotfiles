@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -eu
+
+pictures="$(xdg-user-dir PICTURES)"
+screenshots="$pictures/Screenshots"
+mkdir -p "$screenshots"
+
+filename="$screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png"
+
+region="$(slurp || true)"
+
+if [[ -z "$region" ]]; then
+    exit 0
+fi
+
+grim -g "$region" - | satty --filename - \
+    --output-filename "$filename" \
+    --early-exit \
+    --actions-on-enter save-to-clipboard \
+    --copy-command 'wl-copy'
