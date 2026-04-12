@@ -175,6 +175,15 @@
                     "textColor": "none"
                 },
                 {
+                    "defaultSettings": {
+                        "connectedColor": "primary",
+                        "disableToastNotifications": false,
+                        "disconnectedColor": "none",
+                        "displayMode": "onhover"
+                    },
+                    "id": "plugin:network-manager-vpn"
+                },
+                {
                     "displayMode": "forceOpen",
                     "iconColor": "none",
                     "id": "KeyboardLayout",
