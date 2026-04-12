@@ -13,12 +13,11 @@
 
   environment.systemPackages = with pkgs; [
     vanilla-dmz
-    # wdisplays
-    # xdg-utils
     libsecret
     nwg-displays
-    # brightnessctl
     kitty
+    # networkmanagerapplet
+    wl-clipboard
   ];
 
   xdg.portal = {

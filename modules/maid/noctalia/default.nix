@@ -1,4 +1,7 @@
 { pkgs, lib, ... }:
+let
+  targets = [ "graphical-session.target" ];
+in
 {
   packages = [
     pkgs.noctalia-shell
@@ -13,7 +16,8 @@
       ${lib.getExe pkgs.noctalia-shell}
     '';
 
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    partOf = targets;
+    after = targets;
+    wantedBy = targets;
   };
 }
