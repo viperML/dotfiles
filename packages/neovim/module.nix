@@ -7,7 +7,7 @@
     vscode-langservers-extracted
     yaml-language-server
     taplo
-    nodePackages.bash-language-server
+    bash-language-server
     dockerfile-language-server
   ];
 

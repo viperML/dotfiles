@@ -8,8 +8,8 @@ import ../. [
 
   #-- Environment
   { services.displayManager.autoLogin.user = "ayats"; }
-  # ../../modules/nixos/hyprland.nix
-  ../../modules/nixos/plasma6.nix
+  ../../modules/nixos/hyprland.nix
+  # ../../modules/nixos/plasma6.nix
 
   #-- Other
   ../../modules/nixos/tailscale.nix
