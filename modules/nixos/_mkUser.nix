@@ -25,6 +25,7 @@ in
       "video"
       "wheel"
       "dialout"
+      config.hardware.i2c.group
     ];
     openssh.authorizedKeys.keys = [ ];
     hashedPasswordFile = "/var/lib/secrets/users.passwd";

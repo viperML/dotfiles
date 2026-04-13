@@ -11,6 +11,7 @@
 
   services.udev.packages = with pkgs; [
     geteduroam-cli
+    ddcutil
   ];
 
   boot = {
@@ -25,6 +26,7 @@
     enableRedistributableFirmware = true;
     bluetooth.enable = true;
     graphics.enable = true;
+    i2c.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -34,6 +36,7 @@
     efibootmgr
     android-tools
     geteduroam-cli
+    ddcutil
 
     # GUI
     mpv
