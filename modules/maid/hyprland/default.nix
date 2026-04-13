@@ -30,7 +30,7 @@ in
     ../noctalia
   ];
 
-  file.xdg_config."hypr".source = builtins.toString ./.;
+  file.xdg_config."hypr/hyprland.conf".source = builtins.toString ./hyprland.conf;
 
   packages = [
     pkgs.wl-clip-persist
@@ -61,4 +61,8 @@ in
     "/org/gnome/desktop/interface/monospace-font-name" = "iosevka-normal Medium 11";
     "/org/gnome/desktop/interface/show-battery-percentage" = true;
   };
+
+  systemd.tmpfiles.dynamicRules = [
+    "f {{xdg_config_home}}/hypr/monitors.conf 0644 {{user}} {{group}} - -"
+  ];
 }

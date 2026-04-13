@@ -675,7 +675,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/x/Imágenes",
+        "directory": "/x/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -708,17 +708,17 @@
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
-        "useWallhaven": false,
+        "useWallhaven": true,
         "viewMode": "recursive",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "moon",
+        "wallhavenQuery": "mars",
         "wallhavenRatios": "",
-        "wallhavenResolutionHeight": "",
+        "wallhavenResolutionHeight": "1080",
         "wallhavenResolutionMode": "atleast",
-        "wallhavenResolutionWidth": "",
+        "wallhavenResolutionWidth": "1920",
         "wallhavenSorting": "relevance",
         "wallpaperChangeMode": "random"
     }

@@ -9,7 +9,7 @@ import ../. [
 
   #-- Environment
   { services.displayManager.autoLogin.user = "ayats"; }
-  ../../modules/nixos/plasma6.nix
+  ../../modules/nixos/hyprland.nix
 
   #-- Other
   ../../modules/nixos/tailscale.nix
