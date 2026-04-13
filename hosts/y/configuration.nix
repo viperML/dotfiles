@@ -44,6 +44,7 @@
     pkgs.glab
     pkgs.oras
     pkgs.virt-viewer
+    pkgs.x2goclient
   ];
 
   networking = {

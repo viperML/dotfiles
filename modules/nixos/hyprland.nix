@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./auto-pp.nix
+  ];
+
   services.displayManager = {
     gdm.enable = true;
     defaultSession = "hyprland-uwsm";

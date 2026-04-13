@@ -2,6 +2,9 @@
 {
   wrappers.mailspring = {
     basePackage = pkgs.mailspring;
-    prependFlags = [ "--background" ];
+    prependFlags = [
+      "--background"
+      "--password-store=gnome-libsecret"
+    ];
   };
 }
