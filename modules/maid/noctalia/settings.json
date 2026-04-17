@@ -184,6 +184,9 @@
                     "id": "plugin:network-manager-vpn"
                 },
                 {
+                    "id": "plugin:tailscale"
+                },
+                {
                     "displayMode": "forceOpen",
                     "iconColor": "none",
                     "id": "KeyboardLayout",
@@ -552,7 +555,7 @@
     },
     "plugins": {
         "autoUpdate": false,
-        "notifyUpdates": true
+        "notifyUpdates": false
     },
     "sessionMenu": {
         "countdownDuration": 10000,

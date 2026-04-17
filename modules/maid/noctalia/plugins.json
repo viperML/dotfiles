@@ -10,6 +10,9 @@
         "network-manager-vpn": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        "tailscale": {
+            "enabled": true
         }
     },
     "version": 2

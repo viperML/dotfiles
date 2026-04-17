@@ -22,6 +22,12 @@ in
   environment.systemPackages = [
     pkgs.prismlauncher
     pkgs.google-chrome
+    (pkgs.anki.withAddons (
+      with pkgs.ankiAddons;
+      [
+        anki-connect
+      ]
+    ))
   ];
 
   networking = {

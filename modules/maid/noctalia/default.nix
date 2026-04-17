@@ -29,6 +29,8 @@ in
 
       file.xdg_config."noctalia/plugins/network-manager-vpn".source =
         "${sources.noctalia-plugins}/network-manager-vpn";
+
+      file.xdg_config."noctalia/plugins/tailscale".source = "${sources.noctalia-plugins}/tailscale";
     }
     (mkLink "colors.json")
     (mkLink "plugins.json")
