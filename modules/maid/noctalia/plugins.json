@@ -12,7 +12,8 @@
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
         "tailscale": {
-            "enabled": true
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         }
     },
     "version": 2
