@@ -25,7 +25,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
@@ -334,24 +334,25 @@
         }
     },
     "desktopWidgets": {
-        "enabled": false,
-        "gridSnap": false,
-        "gridSnapScale": false,
+        "enabled": true,
+        "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
             {
                 "name": "eDP-1",
                 "widgets": [
                     {
-                        "clockColor": "none",
-                        "clockStyle": "analog",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
                         "roundedCorners": true,
+                        "scale": 0.8868629150101524,
+                        "showAlbumArt": true,
                         "showBackground": true,
-                        "useCustomFont": false,
-                        "x": 50,
-                        "y": 50
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 600,
+                        "y": 840
                     }
                 ]
             }
@@ -723,7 +724,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "mars",
+        "wallhavenQuery": "hades",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "1080",
         "wallhavenResolutionMode": "atleast",
