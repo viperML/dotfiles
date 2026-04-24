@@ -83,6 +83,12 @@
     "z /var/lib/secrets 0700 root root -"
   ];
 
+  systemd.user.services.ssh-agent = {
+    serviceConfig = {
+      SuccessExitStatus = lib.mkForce "0";
+    };
+  };
+
   virtualisation.vmVariant = {
     services.qemuGuest.enable = true;
     services.xserver.videoDrivers = [ "qxl" ];
