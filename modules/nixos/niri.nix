@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
 {
   imports = [
     ./wayland-compositors.nix
   ];
 
   maid.sharedModules = [
-    ../maid/hyprland
+    ../maid/niri
   ];
 
   programs.niri = {

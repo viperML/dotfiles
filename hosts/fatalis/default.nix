@@ -7,8 +7,9 @@ import ../. [
   ../../modules/nixos/users.nix
 
   #-- Environment
-  { services.displayManager.autoLogin.user = "ayats"; }
-  ../../modules/nixos/hyprland.nix
+  # { services.displayManager.autoLogin.user = "ayats"; }
+  ../../modules/nixos/niri.nix
+  # ../../modules/nixos/hyprland.nix
   # ../../modules/nixos/plasma6.nix
 
   #-- Other
