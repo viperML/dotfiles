@@ -36,6 +36,7 @@ in
       # myGit
       pkgs.git-jlog
       (pkgs.writeShellScriptBin "git-rebase-fzf" (lib.fileContents ./git-rebase-fzf))
+      (pkgs.writeShellScriptBin "git-fixup-fzf" (lib.fileContents ./git-fixup-fzf))
     ];
     env.GIT_CONFIG_GLOBAL.value = gitconfig;
   };
