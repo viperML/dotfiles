@@ -45,6 +45,14 @@
     pkgs.oras
     pkgs.virt-viewer
     pkgs.x2goclient
+    pkgs.wireguard-tools
+    pkgs.socat
+    pkgs.passt
+
+    # Dev
+    pkgs.go
+    pkgs.gopls
+    pkgs.golangci-lint
   ];
 
   networking = {
