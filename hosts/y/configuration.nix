@@ -48,6 +48,7 @@
     pkgs.wireguard-tools
     pkgs.socat
     pkgs.passt
+    pkgs.zoom-us
 
     # Dev
     pkgs.go
