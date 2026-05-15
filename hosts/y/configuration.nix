@@ -53,6 +53,7 @@
     pkgs.go
     pkgs.gopls
     pkgs.golangci-lint
+    pkgs.android-studio
   ];
 
   networking = {

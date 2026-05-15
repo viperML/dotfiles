@@ -472,7 +472,7 @@
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
         "lockTimeout": 660,
@@ -529,7 +529,7 @@
         "criticalUrgencyDuration": 15,
         "density": "default",
         "enableBatteryToast": true,
-        "enableKeyboardLayoutToast": true,
+        "enableKeyboardLayoutToast": false,
         "enableMarkdown": false,
         "enableMediaToast": false,
         "enabled": true,

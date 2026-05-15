@@ -4,7 +4,7 @@ set -eux
 dir="$(git rev-parse --git-dir)"
 root="$(git root)"
 
-echo ".vscode" >> "$dir/info/exclude"
+echo -e "\n.vscode\n" >> "$dir/info/exclude"
 mkdir -pv "$root/.vscode"
 if [[ ! -f "$root/.vscode/settings.json" ]]; then
     echo '{}' > "$root/.vscode/settings.json"

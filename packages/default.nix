@@ -15,6 +15,8 @@ import sources.nixpkgs {
       if byName then lib.warn "Allowing insecure package: ${pname}" true else false;
 
     allowUnfreePredicate = pkg: lib.warn "Allowing unfree package: ${lib.getName pkg}" true;
+
+    android_sdk.accept_license = true;
   };
 
   overlays = [
