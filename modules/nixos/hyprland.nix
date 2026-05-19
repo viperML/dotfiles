@@ -1,4 +1,4 @@
-{config, pkgs,...}: {
+{
   imports = [
     ./wayland-compositors.nix
   ];

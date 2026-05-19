@@ -32,6 +32,7 @@ in
   ];
 
   systemd.tmpfiles.rules = [
+    "d ${defaultUserHome} 0755 root root - -"
     "z ${defaultUserHome} 0755 root root - -"
   ];
 
