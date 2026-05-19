@@ -115,4 +115,7 @@
     kontact = true;
     merkuro = true;
   };
+
+  # Keep awake with lid closed on ac
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 }

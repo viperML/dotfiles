@@ -17,4 +17,5 @@ import ../. [
   ../../modules/nixos/silent-boot.nix
   ./sourcebot.nix
   ../../modules/nixos/singularity.nix
+  ../../modules/nixos/ssh-server.nix
 ]
