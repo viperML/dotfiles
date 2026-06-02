@@ -5,7 +5,8 @@
   ];
 
   services.displayManager = {
-    gdm.enable = true;
+    # gdm.enable = true;
+    sddm.enable = true;
   };
 
   programs.uwsm.enable = true;

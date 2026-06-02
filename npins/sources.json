@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5482f113fd31ebac131d1ebeb2ae90bf0d5e41f5",
-      "url": "https://github.com/nix-community/NixOS-WSL/archive/5482f113fd31ebac131d1ebeb2ae90bf0d5e41f5.tar.gz",
-      "hash": "sha256-2uX/XtOWZ/oy2rerRynVhqVA//ZXZ3Fo60PikLHEPQc="
+      "revision": "998b2821c30b2938637230916904ceb8757c79e8",
+      "url": "https://github.com/nix-community/NixOS-WSL/archive/998b2821c30b2938637230916904ceb8757c79e8.tar.gz",
+      "hash": "sha256-3HBYDfBgZ+ph52HS6Ks/bMMwuh2uONIT72sZ1CtLE/s="
     },
     "cajon": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "1a3573fc9d2486738fe0b2cacc5cd10dd5f3a445",
-      "url": "https://github.com/Gerg-L/mnw/archive/1a3573fc9d2486738fe0b2cacc5cd10dd5f3a445.tar.gz",
-      "hash": "sha256-n0twkzWexzjsoDycOTvvQNuGEdg62UiNHYcFCduYpKI="
+      "revision": "8e71691ad38b1efa7d7488c75ab115db33e046fd",
+      "url": "https://github.com/Gerg-L/mnw/archive/8e71691ad38b1efa7d7488c75ab115db33e046fd.tar.gz",
+      "hash": "sha256-3c/aliHq9oXfmMSN5MZo8sk0znw9Zp+mDT3arj3xuiU="
     },
     "nix-common": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "4545d2dbc1e8f2bc5c72041e70f2d0579650012f",
-      "url": "https://github.com/viperML/nix-common/archive/4545d2dbc1e8f2bc5c72041e70f2d0579650012f.tar.gz",
-      "hash": "sha256-IcJV/MHQ8rlMERFtpODEVnL0SCfb0zNT8tEy0EM+0cE="
+      "revision": "8a35f0d6ff98059af7f5f669599fda3076288a50",
+      "url": "https://github.com/viperML/nix-common/archive/8a35f0d6ff98059af7f5f669599fda3076288a50.tar.gz",
+      "hash": "sha256-2BTGcezVE4OqbnZq9pSaawXZGbw01U0yK8ZUWj9m7b8="
     },
     "nix-index-database": {
       "type": "Git",
@@ -90,9 +90,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "01466c414c7357ae2ce32be4a272a7c69e94ab5f",
-      "url": "https://github.com/nix-community/nix-index-database/archive/01466c414c7357ae2ce32be4a272a7c69e94ab5f.tar.gz",
-      "hash": "sha256-mOtQxUjtKaPHLeoLOY/YEDctmud1X9KwJr4kE1MJ3Wc="
+      "revision": "97df9dc0b7c924344b793a15c1e8e4522ebb854e",
+      "url": "https://github.com/nix-community/nix-index-database/archive/97df9dc0b7c924344b793a15c1e8e4522ebb854e.tar.gz",
+      "hash": "sha256-4axz3OBPTKa6LIkXV8n0lc63MQU+et2CB5DGobEAi6k="
     },
     "nix-maid": {
       "type": "Git",
@@ -116,9 +116,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "da5ad661ba4e5ef59ba743f0d112cbc30e474f32",
-      "url": "https://github.com/NixOS/nixpkgs/archive/da5ad661ba4e5ef59ba743f0d112cbc30e474f32.tar.gz",
-      "hash": "sha256-zi7/fsqM/kFdNuED//4WOCUtezGtKKqRNORjMvfwjnA="
+      "revision": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+      "url": "https://github.com/NixOS/nixpkgs/archive/64c08a7ca051951c8eae34e3e3cb1e202fe36786.tar.gz",
+      "hash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o="
     },
     "noctalia-plugins": {
       "type": "Git",
@@ -129,9 +129,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "358191e407d01e29d85b2d545b43d254d270ea4e",
-      "url": "https://github.com/noctalia-dev/noctalia-plugins/archive/358191e407d01e29d85b2d545b43d254d270ea4e.tar.gz",
-      "hash": "sha256-d7sINJTwc3Wv2OzdTlO9qjYLTs4OKOMIkrp5nTn1nGU="
+      "revision": "b6e958313944bebe5d45b68396f532345f241f15",
+      "url": "https://github.com/noctalia-dev/noctalia-plugins/archive/b6e958313944bebe5d45b68396f532345f241f15.tar.gz",
+      "hash": "sha256-8BI95aE/7e0Ftr7l4XC+95A7BeUouvofjrVJEawA9eE="
     },
     "wrapper-manager": {
       "type": "Git",
