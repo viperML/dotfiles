@@ -109,13 +109,6 @@
     };
   };
 
-  programs.kde-pim = {
-    enable = lib.mkForce true;
-    kmail = false;
-    kontact = true;
-    merkuro = true;
-  };
-
   # Keep awake with lid closed on ac
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 }

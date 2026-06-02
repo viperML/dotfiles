@@ -109,11 +109,4 @@ in
   };
 
   programs.gamemode.enable = true;
-
-  programs.kde-pim = {
-    enable = lib.mkForce true;
-    kmail = false;
-    kontact = true;
-    merkuro = true;
-  };
 }
