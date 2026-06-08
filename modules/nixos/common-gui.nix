@@ -41,6 +41,7 @@
     # GUI
     mpv
     vscode
+    emacs-viper
     wl-color-picker
     vial
     alacritty

@@ -78,6 +78,7 @@ lib.composeManyExtensions [
   overlayMisc
   (import "${sources.hover-rs}/overlay.nix")
   (import "${sources.cajon}/overlay.nix")
+  (import sources.emacs-overlay)
   overlayWrapperManager
   # (import sources.lanzaboote).overlays.default
   overlayVersion

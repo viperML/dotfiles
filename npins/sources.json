@@ -26,6 +26,19 @@
       "url": "https://github.com/viperML/cajon/archive/7458e405f9848ad34ca1aaa8ac1d2c3ba2cc0084.tar.gz",
       "hash": "sha256-xXm1r2cKdm9cOre/NW34AwUHaTJgER/7TVzGqjyXF4U="
     },
+    "emacs-overlay": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "emacs-overlay"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "6b07e29dee15448341df2fa82e1a2bbb13f23fd4",
+      "url": "https://github.com/nix-community/emacs-overlay/archive/6b07e29dee15448341df2fa82e1a2bbb13f23fd4.tar.gz",
+      "hash": "sha256-xTHAAjiu7x3l/YXytkJ+25Ez7fbffCMif4o+Kh9RNZQ="
+    },
     "hover-rs": {
       "type": "Git",
       "repository": {
