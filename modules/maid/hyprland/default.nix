@@ -27,6 +27,6 @@ in
   ];
 
   systemd.tmpfiles.dynamicRules = [
-    "f {{xdg_config_home}}/hypr/monitors.conf 0644 {{user}} {{group}} - -"
+    "f ${builtins.toString ./monitors.lua} 0644 {{user}} {{group}} - -"
   ];
 }
