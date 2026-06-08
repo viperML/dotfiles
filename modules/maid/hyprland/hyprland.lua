@@ -177,6 +177,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(launch .. " " .. fileManager))
 hl.bind(mainMod .. " + Z", hl.dsp.window.float { action = "toggle" })
 hl.bind(mainMod .. " + Space", noctalia("launcher toggle"))
+hl.bind("XF86Explorer", noctalia("launcher toggle"))
 hl.bind(mainMod .. " + SHIFT + S", run("screenshot"))
 
 -- Move focus with mainMod + arrow keys
