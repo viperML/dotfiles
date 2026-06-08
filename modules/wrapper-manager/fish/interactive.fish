@@ -55,6 +55,10 @@ abbr -a -g gr "cd (git-root)"
 abbr -a -g gcm "git commit -m"
 abbr -a -g gf "git forgor"
 
+function r --wraps rsync --description "rsync with default flags"
+    rsync --archive --partial --progress --info=progress2 $argv
+end
+
 set -gx fish_color_normal brwhite
 set -gx fish_color_command green
 set -gx fish_color_keyword brblue
