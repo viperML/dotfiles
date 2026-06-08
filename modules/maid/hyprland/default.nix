@@ -24,6 +24,7 @@ in
   packages = [
     screenshot
     pkgs.satty
+    pkgs.stylua
   ];
 
   systemd.tmpfiles.dynamicRules = [
