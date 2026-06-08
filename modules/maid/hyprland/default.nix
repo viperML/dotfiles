@@ -17,7 +17,9 @@ in
     ../wayland-compositors
   ];
 
-  file.xdg_config."hypr/hyprland.conf".source = builtins.toString ./hyprland.conf;
+  # file.xdg_config."hypr/hyprland.conf".source = builtins.toString ./hyprland.conf;
+  file.xdg_config."hypr/hyprland.lua".source = builtins.toString ./hyprland.lua;
+  file.xdg_config."hypr/monitors.lua".source = builtins.toString ./monitors.lua;
 
   packages = [
     screenshot

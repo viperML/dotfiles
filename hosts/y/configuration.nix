@@ -38,7 +38,6 @@
     pkgs.mailspring
     pkgs.google-chrome
     (pkgs.python3.withPackages (pp: [ pp.pyyaml ]))
-    pkgs.antigravity
     pkgs.qemu_kvm
     pkgs.cloud-utils
     pkgs.glab

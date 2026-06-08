@@ -49,7 +49,6 @@
 
     # AI
     opencode
-    antigravity
   ];
 
   systemd = {
