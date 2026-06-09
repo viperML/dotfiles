@@ -37,6 +37,12 @@ in
     backend = "podman";
   };
 
+  virtualisation.containers = {
+    storage.settings = lib.mkForce {
+      storage.driver = "overlay";
+    };
+  };
+
   environment.etc = {
     "containers/registries.conf".source =
       lib.mkForce
