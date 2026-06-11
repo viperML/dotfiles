@@ -47,9 +47,6 @@
     alacritty
     obsidian
     mpv
-
-    # AI
-    opencode
   ];
 
   systemd = {

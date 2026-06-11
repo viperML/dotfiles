@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   wrappers.emacs-viper = {
     basePackage = pkgs.emacsWithPackagesFromUsePackage {
+      package = pkgs.emacs-pgtk;
       config = ./init.el;
       defaultInitFile = true;
       alwaysEnsure = true;
