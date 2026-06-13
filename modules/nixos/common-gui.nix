@@ -62,6 +62,7 @@
     pkgs.iosevka-normal
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
+    pkgs.emacs-all-the-icons-fonts
   ];
 
   services.xserver = {

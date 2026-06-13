@@ -38,11 +38,12 @@
 
 ;; Visual style
 (set-face-attribute 'default nil :font "iosevka-normal-11" :weight 'medium)
+(use-package all-the-icons)
 (use-package doom-themes
   :custom
   (doom-themes-enable-bold t)
   (doom-themes-enable-italic t)
-  ;; (doom-themes-treemacs-theme "doom-gruvbox")
+  ; (doom-themes-treemacs-theme "doom-gruvbox")
   :config
   (let ((inhibit-redisplay t))
     ;; Disable all active themes
@@ -50,24 +51,34 @@
     ;; Load the built-in theme
     (load-theme 'doom-gruvbox t))
   ;; or for treemacs users
-  ;; (doom-themes-treemacs-config)
+    ; (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   ;; (doom-themes-org-config)
+  )
+
+;; Tabs
+(use-package centaur-tabs
+  :hook (after-init . centaur-tabs-mode)
+  :config
+  (setq centaur-tabs-style "chamfer")
+  (setq centaur-tabs-icon-type 'all-the-icons)
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-height 30)
   )
 
 ;; Modeline
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode))
 
-;; Projectile
-(use-package projectile
-  :init
-  ;; (require 'tramp)
-  ;; (projectile-mode +1)
+;; Project.el
+(use-package project
+  :config
+  (setq project-switch-commands 'project-or-external-find-file)
   )
 
 ;; Nix support
 (use-package nix-mode
+  :hook (nix-mode . eglot-ensure)
   :mode ("\\.nix\\'" . nix-mode))
 
 ;; Cancel minibuffer prompts with ESC or C-c
@@ -84,14 +95,18 @@
   (general-define-key
    :states '(normal emacs)
    :prefix "SPC"
+   "SPC" 'project-or-external-find-file
   ;;  "SPC" '(counsel-file-jump :which-key "Jump to file")
-  ;;  "p" '(:keymap projectile-command-map :package counsel-projectile :which-key "Projectile")
-  ;;  "b" '(treemacs :package treemacs)
+   ; "p" 'project-prefix-map
+   "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
+   "b" '(treemacs :package treemacs)
   )
 )
 
 ;; LSP Support
 (use-package eglot
+  :config
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   :defer t)
 
 ;; Completions
@@ -107,9 +122,30 @@
               ("<escape>" . (lambda () (interactive) (company-abort) (evil-normal-state)))
               ("ESC" . (lambda () (interactive) (company-abort) (evil-normal-state)))))
 
-;; (use-package company-box
-;;   :ensure t
-;;   :hook (company-mode . company-box-mode))
+;; Vertical complete replacement
+(use-package vertico
+  :hook (after-init . vertico-mode))
+
+;; Fuzzy algo for vertico
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+
+(use-package treemacs
+  :commands (treemacs
+             treemacs-select-window
+             treemacs-delete-other-windows
+             treemacs-select-directory
+             treemacs-bookmark
+             treemacs-find-file
+             treemacs-find-tag
+             treemacs-add-and-display-current-project-exclusively)
+  :custom
+  (treemacs-project-follow-mode 1)
+  (treemacs-follow-mode t)
+  )
 
 ;; Golang support
 (use-package go-mode
