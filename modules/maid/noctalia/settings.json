@@ -335,7 +335,7 @@
         }
     },
     "desktopWidgets": {
-        "enabled": true,
+        "enabled": false,
         "gridSnap": true,
         "gridSnapScale": true,
         "monitorWidgets": [
