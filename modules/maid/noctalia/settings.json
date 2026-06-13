@@ -686,7 +686,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/x/Pictures/Wallpapers",
+        "directory": "/x/Imágenes",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -719,8 +719,8 @@
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
-        "useWallhaven": true,
-        "viewMode": "recursive",
+        "useWallhaven": false,
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",

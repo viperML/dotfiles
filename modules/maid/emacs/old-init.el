@@ -1,7 +1,7 @@
-;;; My Emacs configuration
-;;; Commentary:
-;;; -
-;;; Code:
+; My Emacs configuration
+; Commentary:
+; -
+; Code:
 
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
@@ -10,28 +10,19 @@
 (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
 
-;; (setq package-user-dir "~/.config/emacs/elpa")
+(setq package-user-dir "~/.config/emacs/elpa")
 
-;; (eval-and-compile
-;;   (require 'package)
-;;   (setq package-archives '(
-;;                            ;; ("elpa" . "https://elpa.gnu.org/packages/")
-;;                            ;; ("marmalade" . "https://marmalade-repo.org/packages/")
-;;                            ;; ("melpa" . "https://melpa.org/packages/")
-;;                            ))
-;;   (package-initialize)
-;;   ;; i always fetch the archive contents on startup and during compilation, which is slow
-;;   (package-refresh-contents)
-;;   (unless (package-installed-p 'use-package)
-;;     (package-install 'use-package))
-;;   (require 'use-package)
-;;   ;; i don't really know why this isn't the default...
-;;   (setf use-package-always-ensure t))
 
-(eval-when-compile
-  (require 'use-package))
+
 
 (use-package no-littering)
+
+(use-package ultra-scroll
+  :init
+  (setq scroll-conservatively 3 ; or whatever value you prefer, since v0.4
+        scroll-margin 0)        ; important: scroll-margin>0 not yet supported
+  :config
+  (ultra-scroll-mode 1))
 
 (setq
  make-backup-files nil
@@ -178,7 +169,7 @@
   (setq dashboard-items '((recents . 10)
                           (projects . 5)
                           (bookmarks . 5)))
-                          
+
   (setq dashboard-set-footer nil)
   (setq dashboard-center-content t)
   (setq dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name))
@@ -198,7 +189,7 @@
    "SPC" '(counsel-file-jump :which-key "Jump to file")
    "p" '(:keymap projectile-command-map :package counsel-projectile :which-key "Projectile")
    "b" '(treemacs :package treemacs)))
-   
+
 
 
 (use-package doom-modeline

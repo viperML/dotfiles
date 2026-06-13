@@ -6,6 +6,7 @@
   imports = [
     # ./containers
     # ./ghostty
+    ./emacs
   ];
 
   file.home.".gitconfig".source = pkgs.git-viper.gitconfig;
