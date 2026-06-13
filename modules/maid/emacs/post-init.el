@@ -59,9 +59,20 @@
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode))
 
+;; Projectile
+(use-package projectile
+  :init
+  ;; (require 'tramp)
+  ;; (projectile-mode +1)
+  )
+
 ;; Nix support
 (use-package nix-mode
   :mode ("\\.nix\\'" . nix-mode))
+
+;; Cancel minibuffer prompts with ESC or C-c
+(define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
+(define-key minibuffer-local-map (kbd "C-c") 'abort-minibuffers)
 
 (use-package general
   :after (evil)
