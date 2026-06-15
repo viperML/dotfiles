@@ -38,6 +38,9 @@ in
       config = ./post-init.el;
       defaultInitFile = false;
       alwaysEnsure = true;
+      # extraEmacsPackages = epkgs: [
+      #   epkgs.treesit-grammars.with-all-grammars
+      # ];
     };
 
     packages = [

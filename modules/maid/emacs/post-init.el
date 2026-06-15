@@ -1,4 +1,10 @@
 ;; Misc
+(defun open-config ()
+  "Open post-init.el"
+  (interactive)
+  (let ((project-switch-commands 'ignore))
+    (project-switch-project "~/src/dotfiles/"))
+  (find-file "~/src/dotfiles/modules/maid/emacs/post-init.el"))
 
 ;; Smooth scrolling
 (use-package ultra-scroll
@@ -23,7 +29,10 @@
   :hook (after-init . evil-mode)
   :init
   (setq evil-want-integration t)
-  (setq evil-want-keybinding t))
+  (setq evil-want-keybinding t)
+  :config
+  (define-key evil-normal-state-map (kbd "M-.") nil)
+  (define-key evil-normal-state-map (kbd "C-.") nil))
 
 ;; Print keys being pressed
 (use-package which-key
@@ -84,6 +93,8 @@
 ;; Cancel minibuffer prompts with ESC or C-c
 (define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
 (define-key minibuffer-local-map (kbd "C-c") 'abort-minibuffers)
+;;; esc always quits
+(global-set-key [escape] 'keyboard-quit)
 
 (use-package general
   :after (evil)
@@ -104,15 +115,24 @@
 )
 
 ;; LSP Support
+; (global-unset-key (kbd "C-."))
 (use-package eglot
+  :commands (eglot
+             eglot-rename
+             eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
+  (global-set-key [f2] 'eglot-rename)
+  (global-set-key (kbd "C-.") 'eglot-code-actions)
   :defer t)
+
+;; Non-lsp checking
+;(use-package flycheck
+;  :hook (after-init . global-flycheck-mode))
 
 ;; Completions
 (use-package company
-  :ensure t
-  :hook ((prog-mode . company-mode))
+  :hook ((after-init . global-company-mode))
   :bind (("C-SPC" . company-complete)
          :map company-active-map
               ("<return>" . company-complete-selection)
@@ -133,19 +153,14 @@
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
 
-(use-package treemacs
-  :commands (treemacs
-             treemacs-select-window
-             treemacs-delete-other-windows
-             treemacs-select-directory
-             treemacs-bookmark
-             treemacs-find-file
-             treemacs-find-tag
-             treemacs-add-and-display-current-project-exclusively)
-  :custom
-  (treemacs-project-follow-mode 1)
-  (treemacs-follow-mode t)
-  )
+;; Dired settings
+(setq dired-hide-details-hide-symlink-targets nil)
+(add-hook 'dired-mode-hook #'dired-hide-details-mode)
+
+;; Tramp settings
+;; For some reason, tramp doesn't use PATH set by bash -l by default.
+(with-eval-after-load 'tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 ;; Golang support
 (use-package go-mode
@@ -153,3 +168,29 @@
   :hook
   (go-mode . eglot-ensure)
   (before-save . gofmt-before-save))
+
+;; YAML support
+(use-package yaml-mode
+  :commands yaml-mode
+  :hook (yaml-mode . eglot-ensure)
+  :mode (("\\.yaml\\'" . yaml-mode)
+         ("\\.yml\\'" . yaml-mode)))
+
+;; Dockerfile support
+(use-package dockerfile-mode
+  :commands dockerfile-mode
+  :hook (dockerfile-mode . eglot-ensure)
+  :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
+
+;; Markdown support
+(use-package markdown-mode
+  :commands (markdown-mode
+             gfm-mode)
+  :mode ("\\.md\\'" . gfm-mode))
+
+;; Tree-sitter
+;; (use-package treesit-auto
+;;   :hook
+;;   (after-init . global-treesit-auto-mode)
+;;   :init
+;;   (setq treesit-auto-install 'prompt))

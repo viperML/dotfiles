@@ -1,2 +1,4 @@
 /.lsp-session*
 /tramp
+/custom.el
+/projects

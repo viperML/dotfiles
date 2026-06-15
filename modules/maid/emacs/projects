@@ -1,3 +1,0 @@
-;;; -*- lisp-data -*-
-(("/x/src/rl9-hlib/") ("/x/src/registry2sif/") ("/x/src/dotfiles/")
- ("/x/src/rsync/"))

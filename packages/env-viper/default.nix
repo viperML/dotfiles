@@ -45,6 +45,8 @@
   nixfmt,
   npins,
   nil,
+  yaml-language-server,
+  dockerfile-language-server,
   nix-output-monitor,
   # shell
   shfmt,
