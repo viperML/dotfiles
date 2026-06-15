@@ -1,0 +1,3 @@
+[project_x]
+fetch.github = "vmargb/project-x"
+src.git = "https://github.com/vmargb/project-x"

@@ -1,0 +1,23 @@
+{
+    "project_x": {
+        "cargoLock": null,
+        "date": "2026-06-12",
+        "extract": null,
+        "name": "project_x",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "vmargb",
+            "repo": "project-x",
+            "rev": "31917eb0e8744d73e2cf3c57aa24a83a0692f830",
+            "sha256": "sha256-oU0NSTZ+FwFR4tAcxXK4r4T+B1EeIGX1owIdwPiTlIc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "31917eb0e8744d73e2cf3c57aa24a83a0692f830"
+    }
+}

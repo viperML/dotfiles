@@ -7,6 +7,8 @@
 let
   cfg = config.emacs;
 
+  nv = pkgs.callPackages ./_sources/generated.nix {};
+
   # readDir =
   #   root:
   #   builtins.readDir root
@@ -41,6 +43,14 @@ in
       # extraEmacsPackages = epkgs: [
       #   epkgs.treesit-grammars.with-all-grammars
       # ];
+      override = epkgs: epkgs // {
+        project-x = epkgs.melpaBuild {
+          pname = "projext-x";
+          version = nv.project_x.date;
+          src = nv.project_x.src;
+          commit = nv.project_x.version;
+        };
+      };
     };
 
     packages = [

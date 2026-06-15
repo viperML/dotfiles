@@ -194,3 +194,6 @@
 ;;   (after-init . global-treesit-auto-mode)
 ;;   :init
 ;;   (setq treesit-auto-install 'prompt))
+
+;; (use-package project-x
+;;   :after (project))
