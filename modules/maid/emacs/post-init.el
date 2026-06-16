@@ -56,8 +56,8 @@
   (which-key-max-description-length 40))
 
 ;; Visual style
-; (set-face-attribute 'default nil :font "Ioskeley Mono Medium Condensed 11")
 (set-face-attribute 'default nil :font "Iosevka Viper Medium 11")
+(set-face-attribute 'variable-pitch nil :family "Inter")
 (use-package all-the-icons)
 (use-package doom-themes
   :custom
@@ -199,7 +199,91 @@
              gfm-mode)
   :mode ("\\.md\\'" . gfm-mode))
 
+;; Auto-close parenthesis
 (use-package smartparens
   :hook ((prog-mode text-mode config-mode) . smartparens-mode)
   :config
   (require 'smartparens-config))
+
+;; Treemacs
+(use-package treemacs
+  :config
+  (treemacs-resize-icons 16)
+  ;; (set-face-attribute 'treemacs-directory-face nil :family "Inter")
+  ;; Use the variable-pitch (sans-serif) font in the treemacs buffer.
+  ;; buffer-face-mode applies the face remapping buffer-locally so it
+  ;; does not affect the rest of Emacs.
+  (add-hook 'treemacs-mode-hook #'variable-pitch-mode))
+
+;; Synchronise treemacs workspaces with project.el.
+;;
+;; Each project gets its own named treemacs workspace (named after the
+;; project's root directory).  Switching projects via project.el
+;; automatically creates the workspace when needed and switches to it.
+;;
+;; The project is added to the workspace *before* switching so that
+;; treemacs never renders an empty workspace, which would otherwise
+;; trigger an interactive prompt asking for a project root.
+(defun my/treemacs-sync-workspace (dir)
+  "Switch to a per-project treemacs workspace for the project at DIR.
+
+Called as :after advice on `project-switch-project'.  DIR is the
+project root directory passed by project.el.
+
+Looks up an existing workspace whose name matches the directory
+basename.  Creates one if it does not exist.  Ensures the path is
+present as a project in the workspace, then switches treemacs to it."
+  (when (featurep 'treemacs)
+    (require 'treemacs)
+    (let* ((path (directory-file-name (expand-file-name dir)))
+           (name (file-name-nondirectory path))
+           ;; Reuse an existing workspace or create a fresh one.
+           (ws (or (treemacs--find-workspace-by-name name)
+                   (pcase (treemacs-do-create-workspace name)
+                     (`(success ,w) w)))))
+      (when ws
+        ;; Add the project to the workspace while it is not yet the active
+        ;; one.  Temporarily override the current workspace so that
+        ;; `treemacs-do-add-project-to-workspace' writes into the right
+        ;; workspace without touching the treemacs buffer.
+        (unless (treemacs-is-path path :in-workspace ws)
+          (let ((prev-ws (treemacs-current-workspace)))
+            (unwind-protect
+                (progn
+                  (setf (treemacs-current-workspace) ws)
+                  (treemacs-do-add-project-to-workspace path name))
+              (setf (treemacs-current-workspace) prev-ws))))
+        ;; Workspace is non-empty now; switch without triggering a prompt.
+        (treemacs-do-switch-workspace ws)))))
+
+;; Kill file-visiting buffers that do not belong to the incoming project.
+;;
+;; Only buffers with an associated file path are considered; scratch
+;; buffers, REPLs, compilation windows and the like are left untouched.
+;; Buffers whose file falls under DIR (i.e. the new project root) are
+;; kept.  Everything else is killed.
+(defun my/project-kill-foreign-buffers (dir)
+  "Kill file-visiting buffers whose file is not under DIR.
+
+Called as :after advice on `project-switch-project'.  DIR is the
+project root directory of the project being switched to."
+  (let ((root (expand-file-name dir)))
+    (dolist (buf (buffer-list))
+      (when-let ((file (buffer-file-name buf)))
+        (unless (string-prefix-p root (expand-file-name file))
+          (kill-buffer buf))))))
+
+;; Ensure the treemacs window is visible after switching projects so the
+;; new workspace is immediately shown, without stealing focus from the
+;; current window.
+(defun my/project-open-treemacs (&rest _)
+  "Show the treemacs window after switching projects without stealing focus.
+Does nothing if treemacs is already visible."
+  (unless (eq (treemacs-current-visibility) 'visible)
+    (save-selected-window
+      (treemacs))))
+
+(with-eval-after-load 'project
+  (advice-add 'project-switch-project :after #'my/treemacs-sync-workspace)
+  (advice-add 'project-switch-project :after #'my/project-kill-foreign-buffers)
+  (advice-add 'project-switch-project :after #'my/project-open-treemacs))
