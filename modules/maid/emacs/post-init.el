@@ -6,6 +6,9 @@
     (project-switch-project "~/src/dotfiles/"))
   (find-file "~/src/dotfiles/modules/maid/emacs/post-init.el"))
 
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
 ;; Smooth scrolling
 (use-package ultra-scroll
   :init
@@ -18,6 +21,8 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 (setq mode-line-position-column-line-format '("%l:%C"))
+(dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
+  (add-hook hook #'display-line-numbers-mode))
 
 ;; Show line numbers in buffers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -46,7 +51,7 @@
   (which-key-max-description-length 40))
 
 ;; Visual style
-(set-face-attribute 'default nil :font "iosevka-normal-11" :weight 'medium)
+(set-face-attribute 'default nil :weight 'medium :font "iosevka-normal-12")
 (use-package all-the-icons)
 (use-package doom-themes
   :custom
@@ -188,12 +193,7 @@
              gfm-mode)
   :mode ("\\.md\\'" . gfm-mode))
 
-;; Tree-sitter
-;; (use-package treesit-auto
-;;   :hook
-;;   (after-init . global-treesit-auto-mode)
-;;   :init
-;;   (setq treesit-auto-install 'prompt))
-
-;; (use-package project-x
-;;   :after (project))
+(use-package smartparens
+  :hook ((prog-mode text-mode config-mode) . smartparens-mode)
+  :config
+  (require 'smartparens-config))
