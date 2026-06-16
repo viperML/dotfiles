@@ -12,8 +12,8 @@
 ;; Smooth scrolling
 (use-package ultra-scroll
   :init
-  (setq scroll-conservatively 3 ; or whatever value you prefer, since v0.4
-        scroll-margin 0)        ; important: scroll-margin>0 not yet supported
+  (setq scroll-conservatively 5 ; or whatever value you prefer, since v0.4
+        scroll-margin 0) ;; Must be 0
   :config
   (ultra-scroll-mode 1))
 
@@ -205,8 +205,31 @@
   :config
   (require 'smartparens-config))
 
+(use-package dashboard
+  :init
+  (setq dashboard-items '((recents   . 5)
+                        (projects  . 5)
+                        (bookmarks . 5)))
+  (setq dashboard-startupify-list '(dashboard-insert-banner
+                                    dashboard-insert-navigator
+                                    dashboard-insert-items
+                                    ;; dashboard-insert-newline
+                                    dashboard-insert-init-info
+                                    ))
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-icon-type 'all-the-icons)
+  (setq dashboard-icon-file-height 0.75)
+  (setq dashboard-heading-icon-height 0.75)
+  (setq dashboard-center-content t)
+  :config
+  (dashboard-setup-startup-hook))
+
 ;; Treemacs
 (use-package treemacs
+  :after (project)
+  ;; :hook (after-init . treemacs-start-on-boot)
   :config
   (treemacs-resize-icons 16)
   ;; (set-face-attribute 'treemacs-directory-face nil :family "Inter")
@@ -214,6 +237,12 @@
   ;; buffer-face-mode applies the face remapping buffer-locally so it
   ;; does not affect the rest of Emacs.
   (add-hook 'treemacs-mode-hook #'variable-pitch-mode))
+
+(use-package treemacs-evil
+  :after (treemacs evil))
+
+(use-package treemacs-icons-dired
+  :hook (dired-mode . treemacs-icons-dired-enable-once))
 
 ;; Synchronise treemacs workspaces with project.el.
 ;;
