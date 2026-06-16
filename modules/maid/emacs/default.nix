@@ -37,6 +37,7 @@ in
   config = {
     emacs.package = pkgs.emacsWithPackagesFromUsePackage {
       package = pkgs.emacs-pgtk;
+      # package = pkgs.emacs;
       config = ./post-init.el;
       defaultInitFile = false;
       alwaysEnsure = true;

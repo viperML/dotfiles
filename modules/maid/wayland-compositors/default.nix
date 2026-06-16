@@ -38,7 +38,7 @@ in
     "/org/gnome/desktop/interface/gtk-enable-primary-paste" = false;
     "/org/gnome/desktop/interface/gtk-theme" = "adw-gtk3-dark";
     "/org/gnome/desktop/interface/icon-theme" = "Adwaita";
-    "/org/gnome/desktop/interface/monospace-font-name" = "iosevka-normal Medium 11";
+    "/org/gnome/desktop/interface/monospace-font-name" = "Iosevka Fixed Medium 11";
     "/org/gnome/desktop/interface/show-battery-percentage" = true;
   };
 }

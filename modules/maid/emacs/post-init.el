@@ -39,6 +39,11 @@
   (define-key evil-normal-state-map (kbd "M-.") nil)
   (define-key evil-normal-state-map (kbd "C-.") nil))
 
+(use-package evil-terminal-cursor-changer
+    :config
+    (unless (display-graphic-p)
+        (evil-terminal-cursor-changer-activate)))
+
 ;; Print keys being pressed
 (use-package which-key
   :ensure nil ; builtin
@@ -51,7 +56,8 @@
   (which-key-max-description-length 40))
 
 ;; Visual style
-(set-face-attribute 'default nil :weight 'medium :font "iosevka-normal-12")
+; (set-face-attribute 'default nil :font "Ioskeley Mono Medium Condensed 11")
+(set-face-attribute 'default nil :font "Iosevka Viper Medium 11")
 (use-package all-the-icons)
 (use-package doom-themes
   :custom

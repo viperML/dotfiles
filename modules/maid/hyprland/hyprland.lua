@@ -131,6 +131,10 @@ hl.device {
   name = "pixart-imaging--inc.-incott-8k-wireless-mouse-1",
   accel_profile = "flat",
 }
+hl.device {
+  name = "pixart-incott-esports-g23-pro-mouse-mouse",
+  accel_profile = "flat",
+}
 
 hl.device {
   name = "squalius-cephalus-silakka54",

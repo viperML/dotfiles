@@ -59,7 +59,11 @@
 
   fonts.packages = [
     pkgs.inter
-    pkgs.iosevka-normal
+    pkgs.iosevka-viper
+    pkgs.iosevka-bin
+    # pkgs.ioskeley-mono.normal
+    # pkgs.ioskeley-mono.semiCondensed
+    # pkgs.ioskeley-mono.condensed
     pkgs.nerd-fonts.symbols-only
     pkgs.corefonts
     pkgs.emacs-all-the-icons-fonts

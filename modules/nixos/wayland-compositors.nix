@@ -26,6 +26,7 @@
     kdePackages.gwenview
     kdePackages.kservice
     adw-gtk3
+    font-manager
   ];
 
   xdg.portal = {

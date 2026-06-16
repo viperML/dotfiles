@@ -81,7 +81,7 @@ in
     kdeglobals = {
       General = {
         font = "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-        fixed = "iosevka-normal,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+        fixed = "Iosevka Viper,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         menuFont = "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         smallestReadableFont = "Inter,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         toolBarFont = "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
