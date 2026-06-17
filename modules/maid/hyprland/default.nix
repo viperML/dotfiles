@@ -20,14 +20,11 @@ in
   # file.xdg_config."hypr/hyprland.conf".source = builtins.toString ./hyprland.conf;
   file.xdg_config."hypr/hyprland.lua".source = builtins.toString ./hyprland.lua;
   file.xdg_config."hypr/monitors.lua".source = builtins.toString ./monitors.lua;
+  file.xdg_config."hypr/monitors".source = builtins.toString ./monitors;
 
   packages = [
     screenshot
     pkgs.satty
     pkgs.stylua
-  ];
-
-  systemd.tmpfiles.dynamicRules = [
-    "f ${builtins.toString ./monitors.lua} 0644 {{user}} {{group}} - -"
   ];
 }

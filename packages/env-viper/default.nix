@@ -46,6 +46,9 @@
   npins,
   nil,
   yaml-language-server,
+  vscode-langservers-extracted,
+  taplo,
+  bash-language-server,
   dockerfile-language-server,
   nix-output-monitor,
   # shell

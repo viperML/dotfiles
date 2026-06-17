@@ -26,7 +26,6 @@
 
 ;; Show line numbers in buffers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-;; (global-display-line-numbers-mode 1)
 
 ;; Vim emulation
 (use-package evil
@@ -39,10 +38,17 @@
   (define-key evil-normal-state-map (kbd "M-.") nil)
   (define-key evil-normal-state-map (kbd "C-.") nil))
 
+;; Fix broken cursor on emacs -nw
 (use-package evil-terminal-cursor-changer
-    :config
-    (unless (display-graphic-p)
-        (evil-terminal-cursor-changer-activate)))
+  :after (evil)
+:config
+(unless (display-graphic-p)
+    (evil-terminal-cursor-changer-activate)))
+
+;; Toggle comment blocks
+(use-package evil-commentary
+  :after (evil)
+  :config (evil-commentary-mode))
 
 ;; Print keys being pressed
 (use-package which-key
@@ -63,18 +69,12 @@
   :custom
   (doom-themes-enable-bold t)
   (doom-themes-enable-italic t)
-  ; (doom-themes-treemacs-theme "doom-gruvbox")
   :config
   (let ((inhibit-redisplay t))
     ;; Disable all active themes
     (mapc #'disable-theme custom-enabled-themes)
     ;; Load the built-in theme
-    (load-theme 'doom-gruvbox t))
-  ;; or for treemacs users
-    ; (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  ;; (doom-themes-org-config)
-  )
+    (load-theme 'doom-gruvbox t)))
 
 ;; Tabs
 (use-package centaur-tabs
@@ -83,8 +83,7 @@
   (setq centaur-tabs-style "chamfer")
   (setq centaur-tabs-icon-type 'all-the-icons)
   (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-height 30)
-  )
+  (setq centaur-tabs-height 30))
 
 ;; Modeline
 (use-package doom-modeline
@@ -95,11 +94,6 @@
   :config
   (setq project-switch-commands 'project-or-external-find-file)
   )
-
-;; Nix support
-(use-package nix-mode
-  :hook (nix-mode . eglot-ensure)
-  :mode ("\\.nix\\'" . nix-mode))
 
 ;; Cancel minibuffer prompts with ESC or C-c
 (define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
@@ -125,33 +119,21 @@
   )
 )
 
-;; LSP Support
-; (global-unset-key (kbd "C-."))
-(use-package eglot
-  :commands (eglot
-             eglot-rename
-             eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
-  (global-set-key [f2] 'eglot-rename)
-  (global-set-key (kbd "C-.") 'eglot-code-actions)
-  :defer t)
-
-;; Non-lsp checking
-;(use-package flycheck
-;  :hook (after-init . global-flycheck-mode))
-
 ;; Completions
-(use-package company
-  :hook ((after-init . global-company-mode))
-  :bind (("C-SPC" . company-complete)
-         :map company-active-map
-              ("<return>" . company-complete-selection)
-              ("RET" . company-complete-selection)
-              ("TAB" . company-complete-selection)
-              ("<tab>" . company-complete-selection)
-              ("<escape>" . (lambda () (interactive) (company-abort) (evil-normal-state)))
-              ("ESC" . (lambda () (interactive) (company-abort) (evil-normal-state)))))
+(use-package corfu
+  :hook
+  (after-init . global-corfu-mode)
+  :bind (("C-SPC" . completion-at-point)
+         :map corfu-map
+              ("<return>" . corfu-insert)
+              ("RET" . corfu-insert)
+              ("TAB" . corfu-insert)
+              ("<tab>" . corfu-insert)
+              ("<escape>" . (lambda () (interactive) (corfu-quit) (evil-normal-state)))
+              ("ESC" . (lambda () (interactive) (corfu-quit) (evil-normal-state)))))
+(setq tab-always-indent 'complete
+      text-mode-ispell-word-completion nil)
+
 
 ;; Vertical complete replacement
 (use-package vertico
@@ -196,32 +178,6 @@
 ;; For some reason, tramp doesn't use PATH set by bash -l by default.
 (with-eval-after-load 'tramp
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
-
-;; Golang support
-(use-package go-mode
-  :mode ("\\.go\\'" . go-mode)
-  :hook
-  (go-mode . eglot-ensure)
-  (before-save . gofmt-before-save))
-
-;; YAML support
-(use-package yaml-mode
-  :commands yaml-mode
-  :hook (yaml-mode . eglot-ensure)
-  :mode (("\\.yaml\\'" . yaml-mode)
-         ("\\.yml\\'" . yaml-mode)))
-
-;; Dockerfile support
-(use-package dockerfile-mode
-  :commands dockerfile-mode
-  :hook (dockerfile-mode . eglot-ensure)
-  :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
-
-;; Markdown support
-(use-package markdown-mode
-  :commands (markdown-mode
-             gfm-mode)
-  :mode ("\\.md\\'" . gfm-mode))
 
 ;; Auto-close parenthesis
 (use-package smartparens
@@ -354,3 +310,58 @@ Does nothing if treemacs is already visible."
   (advice-add 'project-switch-project :after #'my/treemacs-sync-workspace)
   (advice-add 'project-switch-project :after #'my/project-kill-foreign-buffers)
   (advice-add 'project-switch-project :after #'my/project-open-treemacs))
+
+;; LSP Support
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
+  (setq lsp-auto-guess-root t)
+  :config
+  (require 'lsp-mode)
+  (require 'lsp-lens)
+  (require 'lsp-modeline)
+  (require 'lsp-headerline)
+  (require 'lsp-diagnostics)
+  (require 'lsp-completion)
+  (require 'lsp-semantic-tokens))
+
+(use-package lsp-ui
+  :after (lsp-mode)
+  :commands (lsp-ui-mode)
+  :hook (lsp-mode . lsp-ui-mode))
+
+;; Nix support
+(use-package nix-mode
+  ;; :hook (nix-mode . (lambda () (lsp-deferred)))
+  ;; :hook (nix-mode . #'lsp-deferred)
+  :hook (nix-mode . lsp-deferred)
+  :mode ("\\.nix\\'" . nix-mode))
+
+;; Golang support
+(use-package go-mode
+  :mode ("\\.go\\'" . go-mode)
+  :hook (go-mode . lsp-deferred)
+  (before-save . gofmt-before-save))
+
+;; YAML support
+(use-package yaml-mode
+  :commands yaml-mode
+  :hook (yaml-mode . lsp-deferred)
+  :mode (("\\.yaml\\'" . yaml-mode)
+         ("\\.yml\\'" . yaml-mode)))
+
+;; Dockerfile support
+(use-package dockerfile-mode
+  :commands dockerfile-mode
+  :hook (dockerfile-mode . lsp-deferred)
+  :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
+
+;; Shell script support
+(add-hook 'sh-mode-hook #'lsp-deferred)
+
+;; Markdown support
+(use-package markdown-mode
+  :commands (markdown-mode
+             gfm-mode)
+  :mode ("\\.md\\'" . gfm-mode))

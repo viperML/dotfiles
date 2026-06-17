@@ -4,11 +4,6 @@
   desktopEntry = false;
 
   extraBinPath = with pkgs; [
-    vscode-langservers-extracted
-    yaml-language-server
-    taplo
-    bash-language-server
-    dockerfile-language-server
   ];
 
   initLua =
