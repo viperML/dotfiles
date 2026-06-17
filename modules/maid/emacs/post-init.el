@@ -14,7 +14,7 @@
   (xterm-mouse-mode 1))
 
 ;; Size of fringe
-(set-fringe-mode 3)
+(set-fringe-mode 4)
 
 ;; Smooth scrolling
 (use-package ultra-scroll
@@ -280,7 +280,8 @@
   ;; Use the variable-pitch (sans-serif) font in the treemacs buffer.
   ;; buffer-face-mode applies the face remapping buffer-locally so it
   ;; does not affect the rest of Emacs.
-  (add-hook 'treemacs-mode-hook #'variable-pitch-mode))
+  (add-hook 'treemacs-mode-hook #'variable-pitch-mode)
+  (require 'treemacs-mouse-interface))
 
 (use-package treemacs-evil
   :after (treemacs evil))
@@ -386,13 +387,16 @@ Does nothing if treemacs is already visible."
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
   :config
+  ;; For some reason these are not loaded with emacs-overlay
   (require 'lsp-mode)
   (require 'lsp-lens)
   (require 'lsp-modeline)
   (require 'lsp-headerline)
   (require 'lsp-diagnostics)
   (require 'lsp-completion)
-  (require 'lsp-semantic-tokens))
+  (require 'lsp-semantic-tokens)
+  ;; YAML Config
+  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"]))
 
 (use-package lsp-ui
   :after (lsp-mode)
