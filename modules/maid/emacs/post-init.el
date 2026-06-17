@@ -9,6 +9,9 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; Size of fringe
+(set-fringe-mode 3)
+
 ;; Smooth scrolling
 (use-package ultra-scroll
   :init
@@ -115,7 +118,35 @@
   ;;  "SPC" '(counsel-file-jump :which-key "Jump to file")
    ; "p" 'project-prefix-map
    "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
-   "b" '(treemacs :package treemacs)
+   ;; Buffers
+   "b"  '(:ignore t :which-key "Buffer")
+   "bb" '(consult-buffer :which-key "Switch buffer")
+   "bd" '(kill-current-buffer :which-key "Kill buffer")
+   "bn" '(next-buffer :which-key "Next buffer")
+   "bp" '(previous-buffer :which-key "Previous buffer")
+   "bs" '(save-buffer :which-key "Save buffer")
+   "br" '(revert-buffer :which-key "Revert buffer")
+   "bN" '(evil-buffer-new :which-key "New empty buffer")
+   "b[" '(previous-buffer :which-key "Previous buffer")
+   "b]" '(next-buffer :which-key "Next buffer")
+   ;; Windows
+   "w"  '(:ignore t :which-key "Window")
+   "ww" '(other-window :which-key "Other window")
+   "wd" '(delete-window :which-key "Delete window")
+   "wD" '(delete-other-windows :which-key "Delete other windows")
+   "ws" '(split-window-below :which-key "Split below")
+   "wv" '(split-window-right :which-key "Split right")
+   "w=" '(balance-windows :which-key "Balance windows")
+   "wh" '(evil-window-left :which-key "Window left")
+   "wj" '(evil-window-down :which-key "Window down")
+   "wk" '(evil-window-up :which-key "Window up")
+   "wl" '(evil-window-right :which-key "Window right")
+   "wH" '(evil-window-move-far-left :which-key "Move window left")
+   "wJ" '(evil-window-move-very-bottom :which-key "Move window down")
+   "wK" '(evil-window-move-very-top :which-key "Move window up")
+   "wL" '(evil-window-move-far-right :which-key "Move window right")
+   ;; Treemacs (moved from "b")
+   "e"  '(treemacs :package treemacs :which-key "Explorer")
   )
 )
 
@@ -134,10 +165,15 @@
 (setq tab-always-indent 'complete
       text-mode-ispell-word-completion nil)
 
-
 ;; Vertical complete replacement
 (use-package vertico
   :hook (after-init . vertico-mode))
+
+(use-package vertico-mouse
+  :ensure nil
+  :after vertico
+  :config
+  (vertico-mouse-mode))
 
 ;; Fuzzy algo for vertico
 (use-package orderless
@@ -145,6 +181,12 @@
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+
+;; Search more stuff
+(use-package consult
+  :bind (("C-S-f" . consult-ripgrep))
+  :commands (consult-ripgrep
+             consult-buffer))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
@@ -310,6 +352,24 @@ Does nothing if treemacs is already visible."
   (advice-add 'project-switch-project :after #'my/treemacs-sync-workspace)
   (advice-add 'project-switch-project :after #'my/project-kill-foreign-buffers)
   (advice-add 'project-switch-project :after #'my/project-open-treemacs))
+
+;; Git support
+(use-package magit
+  :after (diff-hl)
+  :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
+  :config
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+
+;; Git diffs in gutter
+(use-package diff-hl
+  :commands (diff-hl-mode
+             global-diff-hl-mode)
+  :hook (prog-mode . diff-hl-mode)
+  :init
+  (setq diff-hl-flydiff-delay 0.4)  ; Faster
+  (setq diff-hl-show-staged-changes nil)  ; Realtime feedback
+  (setq diff-hl-update-async t)  ; Do not block Emacs
+  (setq diff-hl-global-modes '(not pdf-view-mode image-mode)))
 
 ;; LSP Support
 (use-package lsp-mode
