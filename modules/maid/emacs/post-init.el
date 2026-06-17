@@ -117,7 +117,15 @@
    "C-S-v" 'clipboard-yank
    "C-S-c" 'clipboard-kill-ring-save
    "C-S-f" 'consult-ripgrep
-   "C-f" 'consult-line)
+   "C-f" 'consult-line
+   "M-<left>" 'evil-window-left
+   "M-<right>" 'evil-window-right
+   "M-<up>" 'evil-window-up
+   "M-<down>" 'evil-window-down
+   "M-S-<right>" 'shrink-window-horizontally
+   "M-S-<left>" 'enlarge-window-horizontally
+   "M-S-<down>" 'enlarge-window
+   "M-S-<up>" 'shrink-window)
   (general-define-key
    :states '(normal emacs)
    :prefix "SPC"
@@ -364,10 +372,10 @@ Does nothing if treemacs is already visible."
 
 ;; Git support
 (use-package magit
-  :after (diff-hl)
   :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
   :config
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+  (with-eval-after-load 'diff-hl
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 ;; Git diffs in gutter
 (use-package diff-hl
