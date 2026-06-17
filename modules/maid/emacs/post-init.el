@@ -9,6 +9,10 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; Enable mouse support for -nw
+(unless (display-graphic-p)
+  (xterm-mouse-mode 1))
+
 ;; Size of fringe
 (set-fringe-mode 3)
 
@@ -39,13 +43,14 @@
   (setq evil-want-keybinding t)
   :config
   (define-key evil-normal-state-map (kbd "M-.") nil)
-  (define-key evil-normal-state-map (kbd "C-.") nil))
+  (define-key evil-normal-state-map (kbd "C-.") nil)
+  (define-key evil-motion-state-map (kbd "C-f") nil))
 
 ;; Fix broken cursor on emacs -nw
 (use-package evil-terminal-cursor-changer
   :after (evil)
-:config
-(unless (display-graphic-p)
+  :config
+  (unless (display-graphic-p)
     (evil-terminal-cursor-changer-activate)))
 
 ;; Toggle comment blocks
@@ -110,7 +115,9 @@
   (general-define-key
    :keymaps 'global
    "C-S-v" 'clipboard-yank
-   "C-S-c" 'clipboard-kill-ring-save)
+   "C-S-c" 'clipboard-kill-ring-save
+   "C-S-f" 'consult-ripgrep
+   "C-f" 'consult-line)
   (general-define-key
    :states '(normal emacs)
    :prefix "SPC"
@@ -184,9 +191,10 @@
 
 ;; Search more stuff
 (use-package consult
-  :bind (("C-S-f" . consult-ripgrep))
+  ;; :bind (("C-S-f" . consult-ripgrep))
   :commands (consult-ripgrep
-             consult-buffer))
+             consult-buffer
+             consult-line))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
