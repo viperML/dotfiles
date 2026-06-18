@@ -383,11 +383,30 @@ Does nothing if treemacs is already visible."
   (advice-add 'project-switch-project :after #'my/project-open-treemacs))
 
 ;; Git support
+(defun my/magit-push-force-with-lease ()
+  "Push current branch to its pushremote with --force-with-lease."
+  (interactive)
+  (magit-push-current-to-pushremote '("--force-with-lease")))
+
+(defun my/magit-commit-or-stage-all ()
+  "If nothing is staged, stage all changes. Otherwise open the commit transient."
+  (interactive)
+  (if (magit-staged-files)
+      (magit-commit)
+    (magit-stage-modified)))
+
 (use-package magit
   :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
   :config
   (with-eval-after-load 'diff-hl
-    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+  (transient-append-suffix 'magit-commit "a"
+    '("A" "Amend (no edit)" magit-commit-extend))
+  (transient-append-suffix 'magit-push "p"
+    '("P" "Force push with lease to pushremote" my/magit-push-force-with-lease))
+  (define-key magit-mode-map (kbd "p") 'magit-push)
+  (define-key magit-mode-map (kbd "P") nil)
+  (define-key magit-status-mode-map (kbd "c") 'my/magit-commit-or-stage-all))
 
 ;; Git diffs in gutter
 (use-package diff-hl
