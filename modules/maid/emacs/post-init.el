@@ -393,7 +393,8 @@ Does nothing if treemacs is already visible."
   (interactive)
   (if (magit-staged-files)
       (magit-commit)
-    (magit-stage-modified)))
+    (magit-stage-modified)
+    (magit-commit)))
 
 (use-package magit
   :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
