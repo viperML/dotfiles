@@ -133,6 +133,7 @@
   ;;  "SPC" '(counsel-file-jump :which-key "Jump to file")
    ; "p" 'project-prefix-map
    "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
+   "g" '(magit-status :package magit)
    ;; Buffers
    "b"  '(:ignore t :which-key "Buffer")
    "bb" '(consult-buffer :which-key "Switch buffer")
@@ -445,3 +446,9 @@ Does nothing if treemacs is already visible."
   :commands (markdown-mode
              gfm-mode)
   :mode ("\\.md\\'" . gfm-mode))
+
+;; Terraform support
+(use-package terraform-mode
+  :commands terraform-mode
+  :hook (terraform-mode . lsp-deferred)
+  :mode ("\\.tf\\'" . terraform-mode))
