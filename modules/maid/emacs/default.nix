@@ -9,25 +9,8 @@ let
 
   nv = pkgs.callPackages ./_sources/generated.nix {};
 
-  # readDir =
-  #   root:
-  #   builtins.readDir root
-  #   |> builtins.mapAttrs (
-  #     basename: type:
-  #     let
-  #       p = lib.path.append root basename;
-  #     in
-  #     if type == "regular" then
-  #       p
-  #     else if type == "directory" then
-  #       readDir (p)
-  #     else
-  #       null
-  #   )
-  #   |> lib.attrsets.collect builtins.isPath
-  #   |> builtins.filter (lib.hasSuffix ".el")
-  #   |> map builtins.readFile
-  #   |> builtins.concatStringsSep "\n";
+  myLib = import ../../../misc/lib { inherit lib; };
+  inherit (myLib) versionGate;
 in
 {
   options.emacs = {
@@ -36,14 +19,14 @@ in
 
   config = {
     emacs.package = pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacs-pgtk;
-      # package = pkgs.emacs;
+      # package = pkgs.emacs-pgtk;
+      package = versionGate pkgs.emacs31-pgtk pkgs.emacs-pgtk;
       config = ./post-init.el;
       defaultInitFile = false;
       alwaysEnsure = true;
-      # extraEmacsPackages = epkgs: [
-      #   epkgs.treesit-grammars.with-all-grammars
-      # ];
+      extraEmacsPackages = epkgs: [
+        epkgs.treesit-grammars.with-all-grammars
+      ];
       override = epkgs: epkgs // {
         project-x = epkgs.melpaBuild {
           pname = "projext-x";
