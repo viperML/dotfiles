@@ -1,3 +1,5 @@
+;;; post-init.el --- DESCRIPTION -*- no-byte-compile: t; lexical-binding: t; -*-
+
 ;; Misc
 (defun open-config ()
   "Open post-init.el"
@@ -114,6 +116,8 @@
   :config
   (general-define-key
    :keymaps 'global
+   "C-x g" '(magit-status :package magit)
+   "C-x c" '(open-config :which-key "Open post-init.el")
    "C-S-v" 'clipboard-yank
    "C-S-c" 'clipboard-kill-ring-save
    "C-S-f" 'consult-ripgrep
@@ -134,6 +138,8 @@
    ; "p" 'project-prefix-map
    "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
    "g" '(magit-status :package magit)
+   "l" '(:keymap lsp-command-map :package lsp-mode :which-key "LSP Commands")
+   "f" '(lsp-format-buffer :package lsp-mode :which-key "LSP format buffer")
    ;; Buffers
    "b"  '(:ignore t :which-key "Buffer")
    "bb" '(consult-buffer :which-key "Switch buffer")
@@ -190,6 +196,11 @@
   :after vertico
   :config
   (vertico-mouse-mode))
+
+(use-package marginalia
+  :after vertico
+  :config
+  (marginalia-mode))
 
 ;; Fuzzy algo for vertico
 (use-package orderless
@@ -391,7 +402,7 @@ Does nothing if treemacs is already visible."
 
 ;; LSP Support
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
+  :commands (lsp lsp-deferred lsp-format-buffer)
   :init
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
@@ -452,3 +463,8 @@ Does nothing if treemacs is already visible."
   :commands terraform-mode
   :hook (terraform-mode . lsp-deferred)
   :mode ("\\.tf\\'" . terraform-mode))
+
+
+;; Direnv support, must be the last
+(use-package envrc
+  :hook (after-init . envrc-global-mode))
