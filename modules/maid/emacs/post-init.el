@@ -1,13 +1,16 @@
 ;;; post-init.el --- DESCRIPTION -*- no-byte-compile: t; lexical-binding: t; -*-
 
-(setq treesit-enabled-modes t)
+;; Tree-sitter configuration
+;; Maybe remove this after emacs>=31 ?
+(use-package treesit-auto
+  :init (setq treesit-auto-install nil)
+  :config (global-treesit-auto-mode))
 
 (defun treesit-show-parser-used-at-point ()
   "Shows treesit parser used at point."
   (interactive)
-  (if (and (fboundp 'treesit-available-p)
-           (treesit-available-p))
-      (message (format "%s" (treesit-language-at (point))))
+  (if (and (fboundp 'treesit-available-p) (treesit-available-p))
+    (message (format "%s" (treesit-language-at (point))))
     (message "treesit is not available")))
 
 ;; Misc
@@ -21,7 +24,34 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
-;; Enable mouse support for -nw
+;;; Wayland clipboard support
+(when
+  (and (string= (getenv "XDG_SESSION_TYPE") "wayland")
+    (executable-find "wl-copy")
+    (executable-find "wl-paste"))
+  (defun my-wl-copy (text)
+    "Copy with wl-copy if in terminal, otherwise use the original value of `interprogram-cut-function'."
+    (interactive)
+    (if (display-graphic-p)
+      (gui-select-text text)
+      (let ((wl-copy-process
+             (make-process
+              :name "wl-copy"
+              :buffer nil
+              :command '("wl-copy")
+              :connection-type 'pipe)))
+        (process-send-string wl-copy-process text)
+        (process-send-eof wl-copy-process))))
+
+  (defun my-wl-paste ()
+    "Paste with wl-paste if in terminal, otherwise use the original value of `interprogram-paste-function'."
+    (interactive)
+    (shell-command-to-string "wl-paste --no-newline"))
+
+(setq interprogram-cut-function #'my-wl-copy)
+(setq interprogram-paste-function #'my-wl-paste))
+
+;; Mouse support for -nw
 (unless (display-graphic-p)
   (xterm-mouse-mode 1))
 
@@ -32,7 +62,7 @@
 (use-package ultra-scroll
   :init
   (setq scroll-conservatively 5 ; or whatever value you prefer, since v0.4
-        scroll-margin 0) ;; Must be 0
+        scroll-margin 0) ; Must be 0
   :config
   (ultra-scroll-mode 1))
 
@@ -86,9 +116,7 @@
 (set-face-attribute 'variable-pitch nil :family "Inter")
 (use-package all-the-icons)
 (use-package doom-themes
-  :custom
-  (doom-themes-enable-bold t)
-  (doom-themes-enable-italic t)
+  :custom (doom-themes-enable-bold t) (doom-themes-enable-italic t)
   :config
   (let ((inhibit-redisplay t))
     ;; Disable all active themes
@@ -112,8 +140,7 @@
 ;; Project.el
 (use-package project
   :config
-  (setq project-switch-commands 'project-or-external-find-file)
-  )
+  (setq project-switch-commands 'project-or-external-find-file))
 
 ;; Cancel minibuffer prompts with ESC or C-c
 (define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
@@ -125,75 +152,106 @@
   :after (evil)
   :config
   (general-define-key
-   :keymaps 'global
-   "C-x g" '(magit-status :package magit)
-   "C-x c" '(open-config :which-key "Open post-init.el")
-   "C-S-v" 'clipboard-yank
-   "C-S-c" 'clipboard-kill-ring-save
-   "C-S-f" 'consult-ripgrep
-   "C-f" 'consult-line
-   "M-<left>" 'evil-window-left
-   "M-<right>" 'evil-window-right
-   "M-<up>" 'evil-window-up
-   "M-<down>" 'evil-window-down
-   "M-S-<right>" 'shrink-window-horizontally
-   "M-S-<left>" 'enlarge-window-horizontally
-   "M-S-<down>" 'enlarge-window
-   "M-S-<up>" 'shrink-window)
+    :keymaps 'global
+    "C-x g" '(magit-status :package magit)
+    "C-x c" '(open-config :which-key "Open post-init.el")
+    "C-S-v" 'clipboard-yank
+    "C-S-c" 'clipboard-kill-ring-save
+    "C-S-f" 'consult-ripgrep
+    "C-f" 'consult-line
+    "M-<left>" 'evil-window-left
+    "M-<right>" 'evil-window-right
+    "M-<up>" 'evil-window-up
+    "M-<down>" 'evil-window-down
+    "M-S-<right>" 'shrink-window-horizontally
+    "M-S-<left>" 'enlarge-window-horizontally
+    "M-S-<down>" 'enlarge-window
+    "M-S-<up>" 'shrink-window)
   (general-define-key
-   :states '(normal emacs)
-   :prefix "SPC"
-   "SPC" 'project-or-external-find-file
-  ;;  "SPC" '(counsel-file-jump :which-key "Jump to file")
-   ; "p" 'project-prefix-map
-   "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
-   "g" '(magit-status :package magit)
-   "l" '(:keymap lsp-command-map :package lsp-mode :which-key "LSP Commands")
-   "f" '(lsp-format-buffer :package lsp-mode :which-key "LSP format buffer")
-   ;; Buffers
-   "b"  '(:ignore t :which-key "Buffer")
-   "bb" '(consult-buffer :which-key "Switch buffer")
-   "bd" '(kill-current-buffer :which-key "Kill buffer")
-   "bn" '(next-buffer :which-key "Next buffer")
-   "bp" '(previous-buffer :which-key "Previous buffer")
-   "bs" '(save-buffer :which-key "Save buffer")
-   "br" '(revert-buffer :which-key "Revert buffer")
-   "bN" '(evil-buffer-new :which-key "New empty buffer")
-   "b[" '(previous-buffer :which-key "Previous buffer")
-   "b]" '(next-buffer :which-key "Next buffer")
-   ;; Windows
-   "w"  '(:ignore t :which-key "Window")
-   "ww" '(other-window :which-key "Other window")
-   "wd" '(delete-window :which-key "Delete window")
-   "wD" '(delete-other-windows :which-key "Delete other windows")
-   "ws" '(split-window-below :which-key "Split below")
-   "wv" '(split-window-right :which-key "Split right")
-   "w=" '(balance-windows :which-key "Balance windows")
-   "wh" '(evil-window-left :which-key "Window left")
-   "wj" '(evil-window-down :which-key "Window down")
-   "wk" '(evil-window-up :which-key "Window up")
-   "wl" '(evil-window-right :which-key "Window right")
-   "wH" '(evil-window-move-far-left :which-key "Move window left")
-   "wJ" '(evil-window-move-very-bottom :which-key "Move window down")
-   "wK" '(evil-window-move-very-top :which-key "Move window up")
-   "wL" '(evil-window-move-far-right :which-key "Move window right")
-   ;; Treemacs (moved from "b")
-   "e"  '(treemacs :package treemacs :which-key "Explorer")
-  )
-)
+    :states '(normal emacs)
+    :prefix "SPC"
+    "SPC" 'project-or-external-find-file
+    "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
+    "g" '(magit-status :package magit)
+    "l" '(:keymap lsp-command-map :package lsp-mode :which-key "LSP Commands")
+    "f" '(lsp-format-buffer :package lsp-mode :which-key "LSP format buffer")
+    ;; Buffers
+    "b" '(:ignore t :which-key "Buffer")
+    "bb"
+    '(consult-buffer :which-key "Switch buffer")
+    "bd"
+    '(kill-current-buffer :which-key "Kill buffer")
+    "bn"
+    '(next-buffer :which-key "Next buffer")
+    "bp"
+    '(previous-buffer :which-key "Previous buffer")
+    "bs"
+    '(save-buffer :which-key "Save buffer")
+    "br"
+    '(revert-buffer :which-key "Revert buffer")
+    "bN"
+    '(evil-buffer-new :which-key "New empty buffer")
+    "b["
+    '(previous-buffer :which-key "Previous buffer")
+    "b]"
+    '(next-buffer :which-key "Next buffer")
+    ;; Windows
+    "w"
+    '(:ignore t :which-key "Window")
+    "ww"
+    '(other-window :which-key "Other window")
+    "wd"
+    '(delete-window :which-key "Delete window")
+    "wD"
+    '(delete-other-windows :which-key "Delete other windows")
+    "ws"
+    '(split-window-below :which-key "Split below")
+    "wv"
+    '(split-window-right :which-key "Split right")
+    "w="
+    '(balance-windows :which-key "Balance windows")
+    "wh"
+    '(evil-window-left :which-key "Window left")
+    "wj"
+    '(evil-window-down :which-key "Window down")
+    "wk"
+    '(evil-window-up :which-key "Window up")
+    "wl"
+    '(evil-window-right :which-key "Window right")
+    "wH"
+    '(evil-window-move-far-left :which-key "Move window left")
+    "wJ"
+    '(evil-window-move-very-bottom :which-key "Move window down")
+    "wK"
+    '(evil-window-move-very-top :which-key "Move window up")
+    "wL"
+    '(evil-window-move-far-right :which-key "Move window right")
+    ;; Treemacs (moved from "b")
+    "e"
+    '(treemacs :package treemacs :which-key "Explorer")))
 
 ;; Completions
-(use-package corfu
-  :hook
-  (after-init . global-corfu-mode)
-  :bind (("C-SPC" . completion-at-point)
-         :map corfu-map
-              ("<return>" . corfu-insert)
-              ("RET" . corfu-insert)
-              ("TAB" . corfu-insert)
-              ("<tab>" . corfu-insert)
-              ("<escape>" . (lambda () (interactive) (corfu-quit) (evil-normal-state)))
-              ("ESC" . (lambda () (interactive) (corfu-quit) (evil-normal-state)))))
+(use-package
+  corfu
+  :hook (after-init . global-corfu-mode)
+  :bind
+  (("C-SPC" . completion-at-point)
+    :map
+    corfu-map
+    ("<return>" . corfu-insert)
+    ("RET" . corfu-insert)
+    ("TAB" . corfu-insert)
+    ("<tab>" . corfu-insert)
+    ("<escape>" .
+      (lambda ()
+        (interactive)
+        (corfu-quit)
+        (evil-normal-state)))
+    ("ESC" .
+      (lambda ()
+        (interactive)
+        (corfu-quit)
+        (evil-normal-state)))))
 (setq tab-always-indent 'complete
       text-mode-ispell-word-completion nil)
 
@@ -204,27 +262,23 @@
 (use-package vertico-mouse
   :ensure nil
   :after vertico
-  :config
-  (vertico-mouse-mode))
+  :config (vertico-mouse-mode))
 
 (use-package marginalia
   :after vertico
-  :config
-  (marginalia-mode))
+  :config (marginalia-mode))
 
 ;; Fuzzy algo for vertico
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles partial-completion))))
-  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+  (completion-pcm-leading-wildcard t)) ; Emacs 31: partial-completion behaves like substring
 
 ;; Search more stuff
 (use-package consult
   ;; :bind (("C-S-f" . consult-ripgrep))
-  :commands (consult-ripgrep
-             consult-buffer
-             consult-line))
+  :commands (consult-ripgrep consult-buffer consult-line))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
@@ -233,8 +287,7 @@
 (use-package savehist
   :ensure nil
   :commands (savehist-mode savehist-save)
-  :hook
-  (after-init . savehist-mode)
+  :hook (after-init . savehist-mode)
   :init
   (setq history-length 300)
   (setq savehist-autosave-interval 600))
@@ -245,10 +298,8 @@
 (use-package saveplace
   :ensure nil
   :commands (save-place-mode save-place-local-mode)
-  :hook
-  (after-init . save-place-mode)
-  :init
-  (setq save-place-limit 400))
+  :hook (after-init . save-place-mode)
+  :init (setq save-place-limit 400))
 
 ;; Dired settings
 (setq dired-hide-details-hide-symlink-targets nil)
@@ -262,20 +313,37 @@
 ;; Auto-close parenthesis
 (use-package smartparens
   :hook ((prog-mode text-mode config-mode) . smartparens-mode)
-  :config
-  (require 'smartparens-config))
+  :config (require 'smartparens-config))
 
+;;; Code folding
+(use-package kirigami
+  :init (setq kirigami-show-menu-bar t) (setq kirigami-show-context-menu t)
+  :config (kirigami-global-mode 1)
+  (with-eval-after-load 'evil
+    (define-key evil-normal-state-map "zo" #'kirigami-open-fold)
+    (define-key evil-normal-state-map "zO" #'kirigami-open-fold-rec)
+    (define-key evil-normal-state-map "zc" #'kirigami-close-fold)
+    (define-key evil-normal-state-map "za" #'kirigami-toggle-fold)
+    (define-key evil-normal-state-map "zr" #'kirigami-open-folds)
+    (define-key evil-normal-state-map "zm" #'kirigami-close-folds)))
+
+(add-hook 'emacs-lisp-mode-hook #'outline-minor-mode)
+(add-hook 'lisp-interaction-mode-hook #'hs-minor-mode) ; scratch
+(add-hook 'lisp-mode-hook #'outline-minor-mode)
+(add-hook 'conf-mode-hook #'outline-minor-mode)
+(add-hook 'markdown-mode-hook #'outline-minor-mode)
+(add-hook 'diff-mode-hook #'outline-minor-mode)
+
+;;; Dashboard
 (use-package dashboard
   :init
-  (setq dashboard-items '((recents   . 5)
-                        (projects  . 5)
-                        (bookmarks . 5)))
-  (setq dashboard-startupify-list '(dashboard-insert-banner
-                                    dashboard-insert-navigator
-                                    dashboard-insert-items
-                                    ;; dashboard-insert-newline
-                                    dashboard-insert-init-info
-                                    ))
+  (setq dashboard-items '((recents . 5) (projects . 5) (bookmarks . 5)))
+  (setq dashboard-startupify-list
+    '
+    (dashboard-insert-banner
+      dashboard-insert-navigator dashboard-insert-items
+      ;; dashboard-insert-newline
+      dashboard-insert-init-info))
   (setq dashboard-startup-banner 'logo)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
@@ -283,8 +351,7 @@
   (setq dashboard-icon-file-height 0.75)
   (setq dashboard-heading-icon-height 0.75)
   (setq dashboard-center-content t)
-  :config
-  (dashboard-setup-startup-hook))
+  :config (dashboard-setup-startup-hook))
 
 ;; Auto-revert in Emacs is a feature that automatically updates the
 ;; contents of a buffer to reflect changes made to the underlying file
@@ -292,8 +359,7 @@
 (use-package autorevert
   :ensure nil
   :commands (auto-revert-mode global-auto-revert-mode)
-  :hook
-  (after-init . global-auto-revert-mode)
+  :hook (after-init . global-auto-revert-mode)
   :init
   (setq auto-revert-interval 3)
   (setq auto-revert-remote-files nil)
@@ -304,8 +370,7 @@
 (use-package treemacs
   :after (project)
   ;; :hook (after-init . treemacs-start-on-boot)
-  :config
-  (treemacs-resize-icons 16)
+  :config (treemacs-resize-icons 16)
   ;; (set-face-attribute 'treemacs-directory-face nil :family "Inter")
   ;; Use the variable-pitch (sans-serif) font in the treemacs buffer.
   ;; buffer-face-mode applies the face remapping buffer-locally so it
@@ -339,12 +404,15 @@ basename.  Creates one if it does not exist.  Ensures the path is
 present as a project in the workspace, then switches treemacs to it."
   (when (featurep 'treemacs)
     (require 'treemacs)
-    (let* ((path (directory-file-name (expand-file-name dir)))
-           (name (file-name-nondirectory path))
-           ;; Reuse an existing workspace or create a fresh one.
-           (ws (or (treemacs--find-workspace-by-name name)
-                   (pcase (treemacs-do-create-workspace name)
-                     (`(success ,w) w)))))
+    (let*
+      (
+        (path (directory-file-name (expand-file-name dir)))
+        (name (file-name-nondirectory path))
+        ;; Reuse an existing workspace or create a fresh one.
+        (ws
+          (or (treemacs--find-workspace-by-name name)
+            (pcase (treemacs-do-create-workspace name)
+              (`(success ,w) w)))))
       (when ws
         ;; Add the project to the workspace while it is not yet the active
         ;; one.  Temporarily override the current workspace so that
@@ -353,9 +421,9 @@ present as a project in the workspace, then switches treemacs to it."
         (unless (treemacs-is-path path :in-workspace ws)
           (let ((prev-ws (treemacs-current-workspace)))
             (unwind-protect
-                (progn
-                  (setf (treemacs-current-workspace) ws)
-                  (treemacs-do-add-project-to-workspace path name))
+              (progn
+                (setf (treemacs-current-workspace) ws)
+                (treemacs-do-add-project-to-workspace path name))
               (setf (treemacs-current-workspace) prev-ws))))
         ;; Workspace is non-empty now; switch without triggering a prompt.
         (treemacs-do-switch-workspace ws)))))
@@ -373,7 +441,7 @@ Called as :after advice on `project-switch-project'.  DIR is the
 project root directory of the project being switched to."
   (let ((root (expand-file-name dir)))
     (dolist (buf (buffer-list))
-      (when-let ((file (buffer-file-name buf)))
+      (when-let* ((file (buffer-file-name buf)))
         (unless (string-prefix-p root (expand-file-name file))
           (kill-buffer buf))))))
 
@@ -402,18 +470,23 @@ Does nothing if treemacs is already visible."
   "If nothing is staged, stage all changes. Otherwise open the commit transient."
   (interactive)
   (if (magit-staged-files)
-      (magit-commit)
+    (magit-commit)
     (magit-stage-modified)
     (magit-commit)))
 
-(use-package magit
+(use-package
+  magit
   :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
   :config
   (with-eval-after-load 'diff-hl
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
-  (transient-append-suffix 'magit-commit "a"
+  (transient-append-suffix
+    'magit-commit
+    "a"
     '("A" "Amend (no edit)" magit-commit-extend))
-  (transient-append-suffix 'magit-push "p"
+  (transient-append-suffix
+    'magit-push
+    "p"
     '("P" "Force push with lease to pushremote" my/magit-push-force-with-lease))
   (define-key magit-mode-map (kbd "p") 'magit-push)
   (define-key magit-mode-map (kbd "P") nil)
@@ -421,13 +494,12 @@ Does nothing if treemacs is already visible."
 
 ;; Git diffs in gutter
 (use-package diff-hl
-  :commands (diff-hl-mode
-             global-diff-hl-mode)
+  :commands (diff-hl-mode global-diff-hl-mode)
   :hook (prog-mode . diff-hl-mode)
   :init
-  (setq diff-hl-flydiff-delay 0.4)  ; Faster
-  (setq diff-hl-show-staged-changes nil)  ; Realtime feedback
-  (setq diff-hl-update-async t)  ; Do not block Emacs
+  (setq diff-hl-flydiff-delay 0.4) ; Faster
+  (setq diff-hl-show-staged-changes nil) ; Realtime feedback
+  (setq diff-hl-update-async t) ; Do not block Emacs
   (setq diff-hl-global-modes '(not pdf-view-mode image-mode)))
 
 ;; LSP Support
@@ -436,6 +508,15 @@ Does nothing if treemacs is already visible."
   :init
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
+
+  ;; Elixir config
+  (setq lsp-elixir-local-server-command "elixir-ls")
+  (setq lsp-elixir-server-command "elixir-ls")
+  (setq lsp-elixir-ls-version "v0.30.0")
+  (setq lsp-elixir-download-url nil)
+  ;; YAML Config
+  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"])
+
   :config
   ;; For some reason these are not loaded with emacs-overlay
   (require 'lsp-mode)
@@ -444,9 +525,7 @@ Does nothing if treemacs is already visible."
   (require 'lsp-headerline)
   (require 'lsp-diagnostics)
   (require 'lsp-completion)
-  (require 'lsp-semantic-tokens)
-  ;; YAML Config
-  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"]))
+  (require 'lsp-semantic-tokens))
 
 (use-package lsp-ui
   :after (lsp-mode)
@@ -454,7 +533,8 @@ Does nothing if treemacs is already visible."
   :hook (lsp-mode . lsp-ui-mode))
 
 ;; Nix support
-(use-package nix-mode
+(use-package
+  nix-mode
   ;; :hook (nix-mode . (lambda () (lsp-deferred)))
   ;; :hook (nix-mode . #'lsp-deferred)
   :hook (nix-mode . lsp-deferred)
@@ -463,15 +543,15 @@ Does nothing if treemacs is already visible."
 ;; Golang support
 (use-package go-mode
   :mode ("\\.go\\'" . go-mode)
-  :hook (go-mode . lsp-deferred)
+  :hook
+  (go-mode . lsp-deferred)
   (before-save . gofmt-before-save))
 
 ;; YAML support
 (use-package yaml-mode
   :commands yaml-mode
   :hook (yaml-mode . lsp-deferred)
-  :mode (("\\.yaml\\'" . yaml-mode)
-         ("\\.yml\\'" . yaml-mode)))
+  :mode (("\\.yaml\\'" . yaml-mode) ("\\.yml\\'" . yaml-mode)))
 
 ;; Dockerfile support
 (use-package dockerfile-mode
@@ -484,8 +564,7 @@ Does nothing if treemacs is already visible."
 
 ;; Markdown support
 (use-package markdown-mode
-  :commands (markdown-mode
-             gfm-mode)
+  :commands (markdown-mode gfm-mode)
   :mode ("\\.md\\'" . gfm-mode))
 
 ;; Terraform support
@@ -494,7 +573,5 @@ Does nothing if treemacs is already visible."
   :hook (terraform-mode . lsp-deferred)
   :mode ("\\.tf\\'" . terraform-mode))
 
-
 ;; Direnv support, must be the last
-(use-package envrc
-  :hook (after-init . envrc-global-mode))
+(use-package envrc :hook (after-init . envrc-global-mode))
