@@ -48,6 +48,7 @@
     pkgs.socat
     pkgs.passt
     pkgs.zoom-us
+    pkgs.d-spy
 
     # Dev
     pkgs.go

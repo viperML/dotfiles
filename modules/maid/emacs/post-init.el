@@ -474,6 +474,12 @@ Does nothing if treemacs is already visible."
     (magit-stage-modified)
     (magit-commit)))
 
+(defun my/magit-kill-buffers (&optional _kill-buffer)
+  "Restore window configuration and kill all Magit buffers."
+  (let ((buffers (magit-mode-get-buffers)))
+    (magit-restore-window-configuration)
+    (mapc #'kill-buffer buffers)))
+
 (use-package
   magit
   :commands (magit-status magit-dispatch magit-file-dispatch magit-blame)
@@ -490,7 +496,8 @@ Does nothing if treemacs is already visible."
     '("P" "Force push with lease to pushremote" my/magit-push-force-with-lease))
   (define-key magit-mode-map (kbd "p") 'magit-push)
   (define-key magit-mode-map (kbd "P") nil)
-  (define-key magit-status-mode-map (kbd "c") 'my/magit-commit-or-stage-all))
+  (define-key magit-status-mode-map (kbd "c") 'my/magit-commit-or-stage-all)
+  (setq magit-bury-buffer-function #'my/magit-kill-buffers))
 
 ;; Git diffs in gutter
 (use-package diff-hl
