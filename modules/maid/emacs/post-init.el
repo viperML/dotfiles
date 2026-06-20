@@ -173,8 +173,8 @@
     "SPC" 'project-or-external-find-file
     "p" '(:keymap project-prefix-map :package counsel-projectile :which-key "Project")
     "g" '(magit-status :package magit)
-    ;; "l" '(:keymap lsp-command-map :package lsp-mode :which-key "LSP Commands")
-    "f" '(eglot-format-buffer :package lsp-mode :which-key "LSP format buffer")
+    "l" '(:keymap lsp-command-map :package lsp-mode :which-key "LSP Commands")
+    "f" '(lsp-format-buffer :package lsp-mode :which-key "LSP format buffer")
     ;; Buffers
     "b" '(:ignore t :which-key "Buffer")
     "bb"
@@ -510,39 +510,72 @@ Does nothing if treemacs is already visible."
   (setq diff-hl-global-modes '(not pdf-view-mode image-mode)))
 
 ;; LSP Support
-(use-package eglot
-  :ensure nil
+(use-package lsp-mode
+  :commands
+  (lsp lsp-deferred lsp-format-buffer)
+  :init
+  (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
+  (setq lsp-auto-guess-root t)
+
+  ;; Elixir config
+  (setq lsp-elixir-local-server-command "elixir-ls")
+  (setq lsp-elixir-server-command "elixir-ls")
+  (setq lsp-elixir-download-url nil)
+  ;; YAML Config
+  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"])
+  ;; Disable semgrep-ls
+  (setq lsp-semgrep-languages '())
+
   :config
-  (setq eglot-autoshutdown t)
-  (setq eglot-extend-to-xref nil))
+  ;; For some reason these are not loaded with emacs-overlay
+  (require 'lsp-mode)
+  (require 'lsp-mode-autoloads)
+  (require 'lsp-lens)
+  (require 'lsp-modeline)
+  (require 'lsp-headerline)
+  (require 'lsp-diagnostics)
+  (require 'lsp-completion)
+  (require 'lsp-semantic-tokens)
+
+  ;; Elixir config
+  (add-to-list 'lsp-language-id-configuration '(elixir-ts-mode . "elixir"))
+  (add-to-list 'lsp-language-id-configuration '("\\.ex$" . "elixir"))
+  )
+
+(use-package lsp-ui
+  :after (lsp-mode)
+  :commands (lsp-ui-mode)
+  :hook (lsp-mode . lsp-ui-mode))
 
 ;; Nix support
 (use-package
   nix-mode
-  :hook (nix-mode . eglot-ensure)
+  ;; :hook (nix-mode . (lambda () (lsp-deferred)))
+  ;; :hook (nix-mode . #'lsp-deferred)
+  :hook (nix-mode . lsp-deferred)
   :mode ("\\.nix\\'" . nix-mode))
 
 ;; Golang support
 (use-package go-mode
   :mode ("\\.go\\'" . go-mode)
   :hook
-  (go-mode . eglot-ensure)
+  (go-mode . lsp-deferred)
   (before-save . gofmt-before-save))
 
 ;; YAML support
 (use-package yaml-mode
   :commands yaml-mode
-  :hook (yaml-mode . eglot-ensure)
+  :hook (yaml-mode . lsp-deferred)
   :mode (("\\.yaml\\'" . yaml-mode) ("\\.yml\\'" . yaml-mode)))
 
 ;; Dockerfile support
 (use-package dockerfile-mode
   :commands dockerfile-mode
-  :hook (dockerfile-mode . eglot-ensure)
+  :hook (dockerfile-mode . lsp-deferred)
   :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
 
 ;; Shell script support
-(add-hook 'sh-mode-hook #'eglot-ensure)
+(add-hook 'sh-mode-hook #'lsp-deferred)
 
 ;; Markdown support
 (use-package markdown-mode
@@ -552,17 +585,20 @@ Does nothing if treemacs is already visible."
 ;; Terraform support
 (use-package terraform-mode
   :commands terraform-mode
-  :hook (terraform-mode . eglot-ensure)
+  :hook (terraform-mode . lsp-deferred)
   :mode ("\\.tf\\'" . terraform-mode))
 
 ;;; Elixir support
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
+(add-hook 'elixir-ts-mode-hook #'lsp-deferred)
 
 ;; Direnv support, must be the last
 (use-package envrc
+  ;; :init
+  ;; (envrc-global-mode)
   :config
-  (setq envrc-supported-tramp-methods '("sshx" "ssh"))
-  (setq envrc-remote 't)
-  :hook
-  (after-init . envrc-global-mode))
+  (envrc-global-mode)
+  ;; :hook
+  ;; (after-init . envrc-global-mode)
+  )
