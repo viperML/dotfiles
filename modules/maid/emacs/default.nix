@@ -25,7 +25,7 @@ in
       defaultInitFile = false;
       alwaysEnsure = true;
       extraEmacsPackages = epkgs: [
-        # epkgs.treesit-grammars.with-all-grammars
+        epkgs.treesit-grammars.with-all-grammars
       ];
       override = epkgs: epkgs // {
         project-x = epkgs.melpaBuild {

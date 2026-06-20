@@ -2,9 +2,9 @@
 
 ;; Tree-sitter configuration
 ;; Maybe remove this after emacs>=31 ?
-;; (use-package treesit-auto
-;;   :init (setq treesit-auto-install nil)
-;;   :config (global-treesit-auto-mode))
+(use-package treesit-auto
+  :init (setq treesit-auto-install nil)
+  :config (global-treesit-auto-mode))
 
 (defun treesit-show-parser-used-at-point ()
   "Shows treesit parser used at point."
