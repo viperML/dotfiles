@@ -2,9 +2,9 @@
 
 ;; Tree-sitter configuration
 ;; Maybe remove this after emacs>=31 ?
-(use-package treesit-auto
-  :init (setq treesit-auto-install nil)
-  :config (global-treesit-auto-mode))
+; (use-package treesit-auto
+;   :init (setq treesit-auto-install nil)
+;   :config (global-treesit-auto-mode))
 
 (defun treesit-show-parser-used-at-point ()
   "Shows treesit parser used at point."
@@ -511,7 +511,8 @@ Does nothing if treemacs is already visible."
 
 ;; LSP Support
 (use-package lsp-mode
-  :commands (lsp lsp-deferred lsp-format-buffer)
+  :commands
+  (lsp lsp-deferred lsp-format-buffer)
   :init
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
@@ -519,20 +520,27 @@ Does nothing if treemacs is already visible."
   ;; Elixir config
   (setq lsp-elixir-local-server-command "elixir-ls")
   (setq lsp-elixir-server-command "elixir-ls")
-  (setq lsp-elixir-ls-version "v0.30.0")
   (setq lsp-elixir-download-url nil)
   ;; YAML Config
   (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"])
+  ;; Disable semgrep-ls
+  (setq lsp-semgrep-languages '())
 
   :config
   ;; For some reason these are not loaded with emacs-overlay
   (require 'lsp-mode)
+  (require 'lsp-mode-autoloads)
   (require 'lsp-lens)
   (require 'lsp-modeline)
   (require 'lsp-headerline)
   (require 'lsp-diagnostics)
   (require 'lsp-completion)
-  (require 'lsp-semantic-tokens))
+  (require 'lsp-semantic-tokens)
+
+  ;; Elixir config
+  (add-to-list 'lsp-language-id-configuration '(elixir-ts-mode . "elixir"))
+  (add-to-list 'lsp-language-id-configuration '("\\.ex$" . "elixir"))
+  )
 
 (use-package lsp-ui
   :after (lsp-mode)
@@ -580,5 +588,17 @@ Does nothing if treemacs is already visible."
   :hook (terraform-mode . lsp-deferred)
   :mode ("\\.tf\\'" . terraform-mode))
 
+;;; Elixir support
+(add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
+(add-hook 'elixir-ts-mode-hook #'lsp-deferred)
+
 ;; Direnv support, must be the last
-(use-package envrc :hook (after-init . envrc-global-mode))
+(use-package envrc
+  ;; :init
+  ;; (envrc-global-mode)
+  :config
+  (envrc-global-mode)
+  ;; :hook
+  ;; (after-init . envrc-global-mode)
+  )

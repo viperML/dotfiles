@@ -28,6 +28,11 @@ in
         anki-connect
       ]
     ))
+
+    # pkgs.go
+    # pkgs.gopls
+    # pkgs.golangci-lint
+    # pkgs.golangci-lint-langserver
   ];
 
   networking = {
