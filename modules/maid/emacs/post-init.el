@@ -511,20 +511,11 @@ Does nothing if treemacs is already visible."
 
 ;; LSP Support
 (use-package lsp-mode
-  :commands
-  (lsp lsp-deferred lsp-format-buffer)
+  ;; :commands
+  ;; (lsp lsp-deferred lsp-format-buffer)
   :init
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
-
-  ;; Elixir config
-  (setq lsp-elixir-local-server-command "elixir-ls")
-  (setq lsp-elixir-server-command "elixir-ls")
-  (setq lsp-elixir-download-url nil)
-  ;; YAML Config
-  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"])
-  ;; Disable semgrep-ls
-  (setq lsp-semgrep-languages '())
 
   :config
   ;; For some reason these are not loaded with emacs-overlay
@@ -538,8 +529,20 @@ Does nothing if treemacs is already visible."
   (require 'lsp-semantic-tokens)
 
   ;; Elixir config
+  (setq lsp-elixir-local-server-command "elixir-ls")
+  (setq lsp-elixir-server-command "elixir-ls")
+  (setq lsp-elixir-download-url nil)
+  ;; YAML Config
+  (setq lsp-yaml-custom-tags ["!reference sequence" "!vault scalar"])
+  ;; Disable semgrep-ls
+  (setq lsp-semgrep-languages '())
+
+
+  ;; Elixir config
   (add-to-list 'lsp-language-id-configuration '(elixir-ts-mode . "elixir"))
   (add-to-list 'lsp-language-id-configuration '("\\.ex$" . "elixir"))
+
+  ;; Go config
   )
 
 (use-package lsp-ui
@@ -561,6 +564,7 @@ Does nothing if treemacs is already visible."
   :hook
   (go-mode . lsp-deferred)
   (before-save . gofmt-before-save))
+
 
 ;; YAML support
 (use-package yaml-mode
@@ -593,12 +597,7 @@ Does nothing if treemacs is already visible."
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-hook 'elixir-ts-mode-hook #'lsp-deferred)
 
-;; Direnv support, must be the last
-(use-package envrc
-  ;; :init
-  ;; (envrc-global-mode)
+;;; Direnv support, must be the last
+(use-package direnv
   :config
-  (envrc-global-mode)
-  ;; :hook
-  ;; (after-init . envrc-global-mode)
-  )
+  (direnv-mode))

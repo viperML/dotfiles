@@ -1,0 +1,33 @@
+From d4d338710f27c30f48a4ce3591d90f3f313fd7fa Mon Sep 17 00:00:00 2001
+From: Fernando Ayats <ayatsfer@gmail.com>
+Date: Sat, 20 Jun 2026 19:36:10 +0200
+Subject: [PATCH] Simplify elixir-ls call
+
+---
+ clients/lsp-elixir.el | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/clients/lsp-elixir.el b/clients/lsp-elixir.el
+index 754d447..4c9082b 100644
+--- a/clients/lsp-elixir.el
++++ b/clients/lsp-elixir.el
+@@ -224,15 +224,7 @@ be available here: https://github.com/elixir-lsp/elixir-ls/releases/"
+    ("elixirLS.mcpPort" lsp-elixir-mcp-port)))
+ 
+ (lsp-register-client
+- (make-lsp-client :new-connection (lsp-stdio-connection
+-                                   (lambda ()
+-                                     `(,(or (when (f-exists? lsp-elixir-local-server-command)
+-                                              lsp-elixir-local-server-command)
+-                                            (or (executable-find
+-                                                 (cl-first lsp-elixir-server-command))
+-                                                (lsp-package-path 'elixir-ls))
+-                                            "language_server.bat")
+-                                       ,@(cl-rest lsp-elixir-server-command))))
++ (make-lsp-client :new-connection (lsp-stdio-connection "elixir-ls")
+                   :activation-fn (lsp-activate-on "elixir")
+                   :priority -1
+                   :server-id 'elixir-ls
+-- 
+2.54.0
+

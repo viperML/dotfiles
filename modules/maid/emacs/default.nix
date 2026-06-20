@@ -7,7 +7,7 @@
 let
   cfg = config.emacs;
 
-  nv = pkgs.callPackages ./_sources/generated.nix {};
+  nv = pkgs.callPackages ./_sources/generated.nix { };
 
   myLib = import ../../../misc/lib { inherit lib; };
   inherit (myLib) versionGate;
@@ -27,14 +27,23 @@ in
       extraEmacsPackages = epkgs: [
         epkgs.treesit-grammars.with-all-grammars
       ];
-      override = epkgs: epkgs // {
-        project-x = epkgs.melpaBuild {
-          pname = "projext-x";
-          version = nv.project_x.date;
-          src = nv.project_x.src;
-          commit = nv.project_x.version;
+      override =
+        epkgs:
+        epkgs
+        // {
+          project-x = epkgs.melpaBuild {
+            pname = "projext-x";
+            version = nv.project_x.date;
+            src = nv.project_x.src;
+            commit = nv.project_x.version;
+          };
+          lsp-mode = epkgs.lsp-mode.overrideAttrs (old: {
+            patches = (old.patches or [ ]) ++ [
+              ./lsp-mode/0001-Simplify-elixir-ls-call.patch
+            ];
+            # src = pkgs.nix-gitignore.gitignoreSource [ ] /x/src/lsp-mode;
+          });
         };
-      };
     };
 
     packages = [
