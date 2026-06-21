@@ -55,6 +55,9 @@ abbr -a -g gr "cd (git-root)"
 abbr -a -g gcm "git commit -m"
 abbr -a -g gf "git forgor"
 
+# Jujutsu abbreviations
+abbr -a -g j "jujutsu"
+
 function r --wraps rsync --description "rsync with default flags"
     rsync --archive --partial --progress --info=progress2 $argv
 end
