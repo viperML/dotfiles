@@ -719,7 +719,7 @@
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
-        "useWallhaven": true,
+        "useWallhaven": false,
         "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
