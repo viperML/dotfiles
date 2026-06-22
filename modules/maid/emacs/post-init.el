@@ -502,7 +502,7 @@ Does nothing if treemacs is already visible."
 ;; Git diffs in gutter
 (use-package diff-hl
   :commands (diff-hl-mode global-diff-hl-mode)
-  :hook (prog-mode . diff-hl-mode)
+  :hook ((prog-mode text-mode config-mode) . diff-hl-mode)
   :init
   (setq diff-hl-flydiff-delay 0.4) ; Faster
   (setq diff-hl-show-staged-changes nil) ; Realtime feedback

@@ -15,7 +15,6 @@ import ../. [
   ../../modules/nixos/tailscale.nix
   ../../modules/nixos/podman.nix
   ../../modules/nixos/silent-boot.nix
-  ./sourcebot.nix
   ../../modules/nixos/singularity.nix
   ../../modules/nixos/ssh-server.nix
 ]

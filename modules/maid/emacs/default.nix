@@ -50,10 +50,10 @@ in
       cfg.package
     ];
 
-    file.xdg_config."emacs/post-init.el".source = ./post-init.el;
-    file.xdg_config."emacs/pre-init.el".source = ./pre-init.el;
-    file.xdg_config."emacs/pre-early-init.el".source = ./pre-early-init.el;
-    file.xdg_config."emacs/post-early-init.el".source = ./post-early-init.el;
+    file.xdg_config."emacs/post-init.el".source = builtins.toString ./post-init.el;
+    file.xdg_config."emacs/pre-init.el".source = builtins.toString ./pre-init.el;
+    file.xdg_config."emacs/pre-early-init.el".source = builtins.toString ./pre-early-init.el;
+    file.xdg_config."emacs/post-early-init.el".source = builtins.toString ./post-early-init.el;
     file.xdg_config."emacs/init.el".source = "${nv.minimal-emacs-d.src}/init.el";
     file.xdg_config."emacs/early-init.el".source = "${nv.minimal-emacs-d.src}/early-init.el";
 
