@@ -1,4 +1,4 @@
-;;; post-init.el --- DESCRIPTION -*- no-byte-compile: t; lexical-binding: t; -*-
+;;; post-init.el --- Post Init -*- no-byte-compile: t; lexical-binding: t; -*-
 
 ;; Tree-sitter configuration
 ;; Maybe remove this after emacs>=31 ?

@@ -6,16 +6,16 @@
   dockerTools,
 }:
 {
-  project_x = {
-    pname = "project_x";
-    version = "31917eb0e8744d73e2cf3c57aa24a83a0692f830";
+  minimal-emacs-d = {
+    pname = "minimal-emacs-d";
+    version = "a5569d57918676a0787bdecb5e7ab5bf4b9f4c75";
     src = fetchFromGitHub {
-      owner = "vmargb";
-      repo = "project-x";
-      rev = "31917eb0e8744d73e2cf3c57aa24a83a0692f830";
+      owner = "jamescherti";
+      repo = "minimal-emacs.d";
+      rev = "a5569d57918676a0787bdecb5e7ab5bf4b9f4c75";
       fetchSubmodules = false;
-      sha256 = "sha256-oU0NSTZ+FwFR4tAcxXK4r4T+B1EeIGX1owIdwPiTlIc=";
+      sha256 = "sha256-q9i55pwwOjvL7ki9EcGswwZATVJbonme0kMv57zta54=";
     };
-    date = "2026-06-12";
+    date = "2026-06-16";
   };
 }

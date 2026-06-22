@@ -1,1 +1,1 @@
-;;; post-early-init.el --- DESCRIPTION -*- no-byte-compile: t; lexical-binding: t; -*-
+;;; post-early-init.el --- Post Early Init -*- no-byte-compile: t; lexical-binding: t; -*-
