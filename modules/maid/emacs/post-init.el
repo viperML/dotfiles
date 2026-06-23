@@ -562,9 +562,9 @@ Does nothing if treemacs is already visible."
 
 ;; Golang support
 (use-package go-mode
-  :mode ("\\.go\\'" . go-mode)
+  :mode ("\\.go\\'" . go-ts-mode)
   :hook
-  (go-mode . lsp-deferred)
+  (go-ts-mode . lsp-deferred)
   (before-save . gofmt-before-save))
 
 
