@@ -56,6 +56,7 @@
     pkgs.golangci-lint-langserver
     pkgs.golangci-lint
     pkgs.terraform-ls
+    pkgs.ansible-language-server
   ];
 
   networking = {

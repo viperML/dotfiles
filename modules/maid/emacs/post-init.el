@@ -528,6 +528,8 @@ Does nothing if treemacs is already visible."
   (require 'lsp-completion)
   (require 'lsp-semantic-tokens)
 
+  (setq lsp-log-io t)
+
   ;; Elixir config
   (setq lsp-elixir-local-server-command "elixir-ls")
   (setq lsp-elixir-server-command "elixir-ls")
@@ -567,10 +569,22 @@ Does nothing if treemacs is already visible."
 
 
 ;; YAML support
-(use-package yaml-mode
-  :commands yaml-mode
-  :hook (yaml-mode . lsp-deferred)
-  :mode (("\\.yaml\\'" . yaml-mode) ("\\.yml\\'" . yaml-mode)))
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+
+;;; Ansible support
+(defun my/ansible-maybe-enable ()
+  "Enable `ansible-mode' if the current file looks like an Ansible playbook."
+  (when (and buffer-file-name
+             (or (string-match-p "playbook_[^/]*\\.ya?ml\\'" buffer-file-name)
+                 (string-match-p "[^/]*_playbook\\.ya?ml\\'" buffer-file-name)
+                 (string-match-p "/roles/[^/]*\\.ya?ml\\'" buffer-file-name)))
+    (ansible-mode 1)))
+
+(use-package ansible
+  :commands ansible-mode
+  :after yaml-ts-mode
+  :hook (yaml-ts-mode . my/ansible-maybe-enable)
+  :hook (ansible-mode . lsp-deferred))
 
 ;; Dockerfile support
 (use-package dockerfile-mode
