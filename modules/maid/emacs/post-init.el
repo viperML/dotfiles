@@ -140,7 +140,8 @@
 ;; Project.el
 (use-package project
   :config
-  (setq project-switch-commands 'project-or-external-find-file))
+  (setq project-switch-commands 'project-or-external-find-file)
+  (setq project-vc-extra-root-markers (list ".envrc" "shell.nix")))
 
 ;; Cancel minibuffer prompts with ESC or C-c
 (define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
