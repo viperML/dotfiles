@@ -44,9 +44,13 @@
         (process-send-eof wl-copy-process))))
 
   (defun my-wl-paste ()
-    "Paste with wl-paste if in terminal, otherwise use the original value of `interprogram-paste-function'."
+    "Paste with wl-paste if in terminal, otherwise use the original value of `interprogram-paste-function'.
+Returns nil when the clipboard matches the current kill ring top, so that
+`current-kill' reuses the existing entry with its yank-handler (e.g. evil line type)."
     (interactive)
-    (shell-command-to-string "wl-paste --no-newline"))
+    (let ((clip (shell-command-to-string "wl-paste --no-newline")))
+      (unless (string= clip (substring-no-properties (or (car kill-ring) "")))
+        clip)))
 
 (setq interprogram-cut-function #'my-wl-copy)
 (setq interprogram-paste-function #'my-wl-paste))
