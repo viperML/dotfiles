@@ -17,4 +17,5 @@ import ../. [
   ../../modules/nixos/silent-boot.nix
   ../../modules/nixos/singularity.nix
   ../../modules/nixos/ssh-server.nix
+  ./grafana.nix
 ]
