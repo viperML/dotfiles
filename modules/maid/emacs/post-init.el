@@ -128,6 +128,14 @@ Returns nil when the clipboard matches the current kill ring top, so that
     ;; Load the built-in theme
     (load-theme 'doom-gruvbox t)))
 
+;;; Terminal emulator
+(use-package ghostel
+  :commands (ghostel ghostel-project))
+
+(use-package evil-ghostel
+  :after (ghostel evil)
+  :hook (ghostel-mode . evil-ghostel-mode))
+
 ;; Tabs
 (use-package centaur-tabs
   :hook (after-init . centaur-tabs-mode)
