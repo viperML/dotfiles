@@ -58,7 +58,7 @@ in
     file.xdg_config."emacs/early-init.el".source = "${nv.minimal-emacs-d.src}/early-init.el";
 
     systemd.tmpfiles.dynamicRules = [
-      "d {{xdg_config}}/emacs 0755 {{user}} {{group}} - -"
+      # "d {{xdg_config}}/emacs 0755 {{user}} {{group}} - -"
       "R {{home}}/.emacs.d - - - - -"
     ];
   };

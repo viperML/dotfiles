@@ -63,10 +63,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v1.0.0",
-      "revision": "2fe211d9c0e2320ce23dc995a3f93666ca149d9a",
-      "url": "https://api.github.com/repos/nix-community/lanzaboote/tarball/v1.0.0",
-      "hash": "sha256-RJmgVDzjRI18BWVogG6wpsl1UCuV6ui8qr4DJ1LfWZ8="
+      "version": "v1.1.0",
+      "revision": "7c9a54a7f87b4539ddbd8bda09a8a5f5f9361aa9",
+      "url": "https://api.github.com/repos/nix-community/lanzaboote/tarball/refs/tags/v1.1.0",
+      "hash": "sha256-hqijVSEETttmo8Okql9/LG0Ua34hdciKW1a5zzlj8mU="
     },
     "mnw": {
       "type": "Git",

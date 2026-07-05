@@ -21,7 +21,7 @@ in
     home = "/x";
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
@@ -55,17 +55,15 @@ in
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
+      autoGenerateKeys.enable = true;
+      autoEnrollKeys.enable = true;
     };
   };
 
   fileSystems = {
     "/" = {
       device = "/dev/mapper/${luksDevice}";
-      fsType = "btrfs";
-      options = [
-        "relatime"
-        "lazytime"
-      ];
+      fsType = "xfs";
     };
 
     ${config.boot.loader.efi.efiSysMountPoint} = {
@@ -80,7 +78,7 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.prismlauncher
+
   ];
 
   programs.steam = {
