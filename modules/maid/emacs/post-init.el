@@ -560,6 +560,13 @@ Does nothing if treemacs is already visible."
   ;; Go config
   )
 
+(use-package lsp-pyright
+  :init
+  (setq lsp-pyright-langserver-command "basedpyright")
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred))))
+
 (use-package lsp-ui
   :after (lsp-mode)
   :commands (lsp-ui-mode)
