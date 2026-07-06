@@ -16,10 +16,10 @@
   };
   zjstatus = {
     pname = "zjstatus";
-    version = "v0.22.0";
+    version = "v0.23.0";
     src = fetchurl {
-      url = "https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm";
-      sha256 = "sha256-TeQm0gscv4YScuknrutbSdksF/Diu50XP4W/fwFU3VM=";
+      url = "https://github.com/dj95/zjstatus/releases/download/v0.23.0/zjstatus.wasm";
+      sha256 = "sha256-4AaQEiNSQjnbYYAh5MxdF/gtxL+uVDKJW6QfA/E4Yf8=";
     };
   };
 }

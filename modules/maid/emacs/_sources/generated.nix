@@ -8,14 +8,14 @@
 {
   minimal-emacs-d = {
     pname = "minimal-emacs-d";
-    version = "a5569d57918676a0787bdecb5e7ab5bf4b9f4c75";
+    version = "dba843433ed0619161ca569a442a84120cf7d8f2";
     src = fetchFromGitHub {
       owner = "jamescherti";
       repo = "minimal-emacs.d";
-      rev = "a5569d57918676a0787bdecb5e7ab5bf4b9f4c75";
+      rev = "dba843433ed0619161ca569a442a84120cf7d8f2";
       fetchSubmodules = false;
-      sha256 = "sha256-q9i55pwwOjvL7ki9EcGswwZATVJbonme0kMv57zta54=";
+      sha256 = "sha256-9399WOQDtIdCAqFYfq+EJN0/1Ntf3y5GtHgKLtjVUXo=";
     };
-    date = "2026-06-16";
+    date = "2026-06-29";
   };
 }

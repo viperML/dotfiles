@@ -23,10 +23,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-TeQm0gscv4YScuknrutbSdksF/Diu50XP4W/fwFU3VM=",
+            "sha256": "sha256-4AaQEiNSQjnbYYAh5MxdF/gtxL+uVDKJW6QfA/E4Yf8=",
             "type": "url",
-            "url": "https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm"
+            "url": "https://github.com/dj95/zjstatus/releases/download/v0.23.0/zjstatus.wasm"
         },
-        "version": "v0.22.0"
+        "version": "v0.23.0"
     }
 }

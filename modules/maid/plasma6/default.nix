@@ -25,7 +25,7 @@ in
         zoomEnabled = false;
         contrastEnabled = false;
         # fadedesktopEnabled = true;
-        # slideEnabled = false;
+        slideEnabled = true;
       };
       ModifierOnlyShortcuts = {
         Meta = "";

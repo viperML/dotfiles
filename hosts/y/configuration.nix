@@ -34,19 +34,11 @@
   environment.systemPackages = [
     pkgs.rocketchat-desktop
     pkgs.openfortivpn
-    pkgs.kaniko
     pkgs.mailspring
     pkgs.google-chrome
     (pkgs.python3.withPackages (pp: [ pp.pyyaml ]))
     pkgs.qemu_kvm
     pkgs.cloud-utils
-    pkgs.glab
-    pkgs.oras
-    pkgs.virt-viewer
-    pkgs.x2goclient
-    pkgs.wireguard-tools
-    pkgs.socat
-    pkgs.passt
     pkgs.zoom-us
     pkgs.d-spy
 
