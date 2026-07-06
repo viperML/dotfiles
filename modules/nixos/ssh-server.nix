@@ -72,7 +72,7 @@ in
   assertions = [
     {
       assertion = config.services.tailscale.enable;
-      description = "ssh-server.nix requires tailscale";
+      message = "ssh-server.nix requires tailscale";
     }
   ];
 }

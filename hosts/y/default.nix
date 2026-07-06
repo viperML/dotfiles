@@ -13,10 +13,10 @@ import ../. [
   ../../modules/nixos/plasma6.nix
 
   #-- Other
-  ../../modules/nixos/tailscale.nix
+  # ../../modules/nixos/tailscale.nix
   ../../modules/nixos/podman.nix
   ../../modules/nixos/silent-boot.nix
   ../../modules/nixos/singularity.nix
-  ../../modules/nixos/ssh-server.nix
+  # ../../modules/nixos/ssh-server.nix
   ./grafana.nix
 ]
