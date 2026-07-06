@@ -55,7 +55,7 @@ in
           lib.nameValuePair "activate task manager entry ${n}" "none,Meta+${n},Activar la entrada ${n} del gestor de tareas"
         ))
         {
-          "activate application launcher" = "Meta,Meta\tAlt+F1,Activar el lanzador de aplicaciones";
+          "activate application launcher" = "none,Meta\tAlt+F1,Activar el lanzador de aplicaciones";
           "manage activities" = "none,Meta+Q,Mostrar el selector de actividad";
         }
       ];
@@ -63,6 +63,10 @@ in
       services."org.kde.kscreen.desktop" = {
         # Disables Ctrl+P
         "ShowOSD" = "Display";
+      };
+
+      services."org.kde.krunner.desktop" = {
+        _launch = "Browser\tAlt+Space\tAlt+F2\tSearch";
       };
 
       mediacontrol = {
