@@ -30,7 +30,12 @@ in
       ModifierOnlyShortcuts = {
         Meta = "";
       };
+      Windows = {
+        DelayFocusInterval = 0;
+        FocusPolicy = "FocusFollowsMouse";
+      };
     };
+
     kglobalshortcutsrc = {
       kwin = lib.mkMerge [
         (lib.genAttrs' numbers (
@@ -46,6 +51,18 @@ in
           "Window to Desktop 5" = "Meta+%,,Ventana al escritorio 5";
 
           "Window On All Desktops" = "Meta+P,,Mantener la ventana en todos los escritorios";
+
+          "Window Quick Tile Bottom" = "none,Meta+Down,Situar la ventana en mosaico en la parte inferior";
+          "Window Quick Tile Left" = "none,Meta+Left,Situar la ventana en mosaico a la izquierda";
+          "Window Quick Tile Right" = "none,Meta+Right,Situar la ventana en mosaico a la derecha";
+          "Window Quick Tile Top" = "none,Meta+Up,Situar la ventana en mosaico en la parte superior";
+
+          "Switch Window Down" = "Meta+Down,Meta+Alt+Down,Cambiar a la ventana anterior";
+          "Switch Window Left" = "Meta+Left,Meta+Alt+Left,Cambiar a la ventana a la izquierda";
+          "Switch Window Right" = "Meta+Right,Meta+Alt+Right,Cambiar a la ventana a la derecha";
+          "Switch Window Up" = "Meta+Up,Meta+Alt+Up,Cambiar a la ventana superior";
+
+          "Window Maximize" = "Meta+F\tMeta+PgUp,Meta+PgUp,Maximizar la ventana";
         }
       ];
 
@@ -67,6 +84,10 @@ in
 
       services."org.kde.krunner.desktop" = {
         _launch = "Browser\tAlt+Space\tAlt+F2\tSearch";
+      };
+
+      services."Alacritty.desktop" = {
+        _launch = "Meta+Return";
       };
 
       mediacontrol = {
@@ -94,6 +115,9 @@ in
         menuFont = "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         smallestReadableFont = "Inter,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
         toolBarFont = "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+      };
+      KDE = {
+        AnimationDurationFactor = "0.5";
       };
     };
     kcminputrc = {
