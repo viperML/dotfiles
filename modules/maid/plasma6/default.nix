@@ -1,15 +1,15 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 let
   numbers = builtins.genList (x: toString (x + 1)) 9;
 
   f = "org.fkoehler.KTailctl.desktop";
 in
 {
-  packages = [
-    pkgs.ktailctl
-  ];
-
-  file.xdg_config."autostart/${f}".source = "${pkgs.ktailctl}/share/applications/${f}";
+  # packages = [
+  #   pkgs.ktailctl
+  # ];
+  #
+  # file.xdg_config."autostart/${f}".source = "${pkgs.ktailctl}/share/applications/${f}";
 
   kconfig.settings = {
     kwinrc = {
@@ -70,8 +70,13 @@ in
       };
 
       mediacontrol = {
-        mediavolumedown = "PgDown,,Bajar el volumen multimedia";
-        mediavolumeup = "PgUp,,Subir el volumen multimedia";
+        mediavolumedown = "none,none,Bajar el volumen multimedia";
+        mediavolumeup = "none,none,Subir el volumen multimedia";
+      };
+
+      kmix = {
+        decrease_volume = "PgDown\tVolume Down,Volume Down,Bajar el volumen";
+        increase_volume = "PgUp\tVolume Up,Volume Up,Subir el volumen";
       };
     };
     kscreenlockerrc = {
