@@ -155,9 +155,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "51ad0422b925d830bf4af36979fed51209f79c0a",
-      "url": "https://github.com/viperML/wrapper-manager/archive/51ad0422b925d830bf4af36979fed51209f79c0a.tar.gz",
-      "hash": "sha256-fCm4sOeTDf3kBtYMmU4OHsviI/oF8rMbPkUMcQf6lw4="
+      "revision": "531d7752716f5097f05c709d6727299d70c69b62",
+      "url": "https://github.com/viperML/wrapper-manager/archive/531d7752716f5097f05c709d6727299d70c69b62.tar.gz",
+      "hash": "sha256-LqqlRrZVLdCr/fmfXj/j7bUpvv02Ct3TVInWRxs20a8="
     }
   },
   "version": 8
