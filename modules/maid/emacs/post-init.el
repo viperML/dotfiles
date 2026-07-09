@@ -6,12 +6,12 @@
 ;   :init (setq treesit-auto-install nil)
 ;   :config (global-treesit-auto-mode))
 
-(defun treesit-show-parser-used-at-point ()
-  "Shows treesit parser used at point."
-  (interactive)
-  (if (and (fboundp 'treesit-available-p) (treesit-available-p))
-    (message (format "%s" (treesit-language-at (point))))
-    (message "treesit is not available")))
+;; (defun treesit-show-parser-used-at-point ()
+;;   "Shows treesit parser used at point."
+;;   (interactive)
+;;   (if (and (fboundp 'treesit-available-p) (treesit-available-p))
+;;     (message (format "%s" (treesit-language-at (point))))
+;;     (message "treesit is not available")))
 
 ;; Misc
 (defun open-config ()
@@ -146,8 +146,8 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (setq centaur-tabs-height 30))
 
 ;; Modeline
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+;; (use-package doom-modeline
+;;   :hook (after-init . doom-modeline-mode))
 
 ;; Project.el
 (use-package project
@@ -180,6 +180,12 @@ Returns nil when the clipboard matches the current kill ring top, so that
     "M-S-<left>" 'enlarge-window-horizontally
     "M-S-<down>" 'enlarge-window
     "M-S-<up>" 'shrink-window)
+  (general-define-key
+   :states '(normal emacs treemacs)
+   :keymaps 'global
+   "C-e"
+   '(treemacs :package treemacs :which-key "Treemacs")
+   )
   (general-define-key
     :states '(normal emacs)
     :prefix "SPC"
@@ -240,8 +246,9 @@ Returns nil when the clipboard matches the current kill ring top, so that
     "wL"
     '(evil-window-move-far-right :which-key "Move window right")
     ;; Treemacs (moved from "b")
-    "e"
-    '(treemacs :package treemacs :which-key "Explorer")))
+    ;; "e"
+    ;; '(treemacs :package treemacs :which-key "Explorer")
+    ))
 
 ;; Completions
 (use-package
@@ -291,7 +298,10 @@ Returns nil when the clipboard matches the current kill ring top, so that
 ;; Search more stuff
 (use-package consult
   ;; :bind (("C-S-f" . consult-ripgrep))
-  :commands (consult-ripgrep consult-buffer consult-line))
+  :commands (consult-ripgrep consult-buffer consult-line)
+  :config
+  ;; Search hidden files by default
+  (setq consult-ripgrep-args (concat consult-ripgrep-args " -.")))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
@@ -511,6 +521,9 @@ Does nothing if treemacs is already visible."
   (define-key magit-mode-map (kbd "P") nil)
   (define-key magit-status-mode-map (kbd "c") 'my/magit-commit-or-stage-all)
   (setq magit-bury-buffer-function #'my/magit-kill-buffers))
+;; (use-package direnv
+;;   :config
+;;   (direnv-mode))
 
 ;; Git diffs in gutter
 (use-package diff-hl
@@ -524,13 +537,11 @@ Does nothing if treemacs is already visible."
 
 ;; LSP Support
 (use-package lsp-mode
-  ;; :commands
-  ;; (lsp lsp-deferred lsp-format-buffer)
+  :commands
+  (lsp lsp-deferred lsp-format-buffer)
   :init
   (setq lsp-completion-provider :none) ;; Use corfu via capf instead of company
   (setq lsp-auto-guess-root t)
-
-  :config
   ;; For some reason these are not loaded with emacs-overlay
   (require 'lsp-mode)
   (require 'lsp-mode-autoloads)
@@ -540,8 +551,8 @@ Does nothing if treemacs is already visible."
   (require 'lsp-diagnostics)
   (require 'lsp-completion)
   (require 'lsp-semantic-tokens)
-
-  (setq lsp-log-io t)
+  :config
+  ;; (setq lsp-log-io t)
 
   ;; Elixir config
   (setq lsp-elixir-local-server-command "elixir-ls")
@@ -580,11 +591,11 @@ Does nothing if treemacs is already visible."
   :hook (nix-mode . lsp-deferred)
   :mode ("\\.nix\\'" . nix-mode))
 
-;; Golang support
+;;; Golang support
 (use-package go-mode
-  :mode ("\\.go\\'" . go-ts-mode)
+  :mode ("\\.go\\'" . go-mode)
   :hook
-  (go-ts-mode . lsp-deferred)
+  (go-mode . lsp-deferred)
   (before-save . gofmt-before-save))
 
 
@@ -604,16 +615,17 @@ Does nothing if treemacs is already visible."
   :commands ansible-mode
   :after yaml-ts-mode
   :hook (yaml-ts-mode . my/ansible-maybe-enable)
-  :hook (ansible-mode . lsp-deferred))
+  ;; :hook (ansible-mode . lsp-deferred)
+  )
 
 ;; Dockerfile support
 (use-package dockerfile-mode
   :commands dockerfile-mode
-  :hook (dockerfile-mode . lsp-deferred)
+  ;; :hook (dockerfile-mode . lsp-deferred)
   :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
 
 ;; Shell script support
-(add-hook 'sh-mode-hook #'lsp-deferred)
+;; (add-hook 'sh-mode-hook #'lsp-deferred)
 
 ;; Markdown support
 (use-package markdown-mode
@@ -632,6 +644,13 @@ Does nothing if treemacs is already visible."
 (add-hook 'elixir-ts-mode-hook #'lsp-deferred)
 
 ;;; Direnv support, must be the last
-(use-package direnv
-  :config
-  (direnv-mode))
+(use-package envrc
+  :after (lsp-mode)
+  :hook (after-init . envrc-global-mode))
+
+;; Maximize on init
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
+;;; Show trailing whitespaces using whitespace-mode
+(setq-default whitespace-style '(face trailing))
+(global-whitespace-mode +1)

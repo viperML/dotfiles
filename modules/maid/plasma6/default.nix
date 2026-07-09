@@ -2,7 +2,55 @@
 let
   numbers = builtins.genList (x: toString (x + 1)) 9;
 
-  f = "org.fkoehler.KTailctl.desktop";
+  genUUID =
+    s:
+    let
+      inherit (lib) substring;
+      r = builtins.hashString "sha256" s;
+      # variant nibble must start with bits '10', i.e. be one of 8/9/a/b.
+      # map every possible hex digit down to the correct variant digit.
+      variantMap = {
+        "0" = "8";
+        "1" = "9";
+        "2" = "a";
+        "3" = "b";
+        "4" = "8";
+        "5" = "9";
+        "6" = "a";
+        "7" = "b";
+        "8" = "8";
+        "9" = "9";
+        "a" = "a";
+        "b" = "b";
+        "c" = "8";
+        "d" = "9";
+        "e" = "a";
+        "f" = "b";
+      };
+      variant = variantMap.${substring 16 1 r};
+    in
+    "${substring 0 8 r}-${substring 8 4 r}-4${substring 13 3 r}-${variant}${substring 17 3 r}-${substring 20 12 r}";
+
+  mkwinrule =
+    attrs:
+    let
+      h = genUUID attrs.Description;
+    in
+    {
+      ${h} = attrs;
+    };
+
+  mkMaximize =
+    wmclass:
+    (mkwinrule {
+      "Description" = "Maximize ${wmclass}";
+      "wmclass" = wmclass;
+      "maximizehoriz" = "true";
+      "maximizehorizrule" = "3";
+      "maximizevert" = "true";
+      "maximizevertrule" = "3";
+      "wmclassmatch" = "1";
+    });
 in
 {
   # packages = [
@@ -83,7 +131,7 @@ in
       };
 
       services."org.kde.krunner.desktop" = {
-        _launch = "Browser\tAlt+Space\tAlt+F2\tSearch";
+        _launch = "Search\tAlt+Space\tAlt+F2\tMeta+Space";
       };
 
       services."Alacritty.desktop" = {
@@ -191,5 +239,28 @@ in
     KTailctlrc = {
       Interface.startMinimized = true;
     };
+
+    kwinrulesrc =
+      let
+        rules = lib.mergeAttrsList [
+          (mkMaximize "Alacritty")
+
+          (mkwinrule {
+            "Description" = "Zoom";
+            "fsplevel" = "4";
+            "fsplevelrule" = "2";
+            "wmclass" = "zoom zoom";
+            "wmclasscomplete" = "true";
+            "wmclassmatch" = "1";
+          })
+        ];
+      in
+      rules
+      // {
+        General = {
+          count = builtins.attrNames rules |> builtins.length;
+          rules = builtins.attrNames rules |> lib.concatStringsSep ",";
+        };
+      };
   };
 }
