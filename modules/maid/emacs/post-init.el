@@ -600,7 +600,10 @@ Does nothing if treemacs is already visible."
 
 
 ;; YAML support
-(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+(use-package yaml-mode
+  :mode ("\\.ya?ml\\'" . yaml-mode)
+  :hook (yaml-mode . lsp-deferred))
 
 ;;; Ansible support
 (defun my/ansible-maybe-enable ()

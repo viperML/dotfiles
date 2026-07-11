@@ -6,6 +6,8 @@
 {
   environment.systemPackages = [
     pkgs.env-viper
+    pkgs.libsecret
+    pkgs.lssecret
   ];
 
   # Sane default to at least have a static hostId

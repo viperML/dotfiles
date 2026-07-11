@@ -44,11 +44,14 @@
 
     # Dev
     pkgs.go
-    # pkgs.gopls
-    # pkgs.golangci-lint-langserver
-    # pkgs.golangci-lint
+    pkgs.gopls
+    pkgs.golangci-lint-langserver
+    pkgs.golangci-lint
     pkgs.terraform-ls
     pkgs.ansible-language-server
+
+    # Email
+    pkgs.notmuch
   ];
 
   networking = {
