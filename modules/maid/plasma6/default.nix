@@ -131,7 +131,7 @@ in
       };
 
       services."org.kde.krunner.desktop" = {
-        _launch = "Search\tAlt+Space\tAlt+F2\tMeta+Space";
+        _launch = "Search\tBrowser\tAlt+Space\tAlt+F2\tMeta+Space";
       };
 
       services."Alacritty.desktop" = {
