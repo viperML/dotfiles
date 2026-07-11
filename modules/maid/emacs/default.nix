@@ -25,7 +25,19 @@ in
       defaultInitFile = false;
       alwaysEnsure = true;
       extraEmacsPackages = epkgs: [
-        # epkgs.treesit-grammars.with-all-grammars
+        epkgs.treesit-grammars.with-all-grammars
+        # (epkgs.treesit-grammars.with-grammars (grammars: [
+        #   grammars.tree-sitter-javascript
+        #   grammars.tree-sitter-typescript
+        #   grammars.tree-sitter-css
+        #   grammars.tree-sitter-svelte
+        #   grammars.tree-sitter-html
+        # ]))
+        (epkgs.trivialBuild {
+          pname = "svelte-ts-mode";
+          version = nv.svelte-ts-mode.date;
+          src = nv.svelte-ts-mode.src;
+        })
       ];
       override =
         epkgs:

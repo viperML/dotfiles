@@ -8,14 +8,26 @@
 {
   minimal-emacs-d = {
     pname = "minimal-emacs-d";
-    version = "dba843433ed0619161ca569a442a84120cf7d8f2";
+    version = "89955fdce8d33cad3aa0b4408301d717882082e5";
     src = fetchFromGitHub {
       owner = "jamescherti";
       repo = "minimal-emacs.d";
-      rev = "dba843433ed0619161ca569a442a84120cf7d8f2";
+      rev = "89955fdce8d33cad3aa0b4408301d717882082e5";
       fetchSubmodules = false;
-      sha256 = "sha256-9399WOQDtIdCAqFYfq+EJN0/1Ntf3y5GtHgKLtjVUXo=";
+      sha256 = "sha256-q/+IVZrKpeJu3RFH0q9rly+slgM35km7oAzfOZca8Bc=";
     };
-    date = "2026-06-29";
+    date = "2026-07-10";
+  };
+  svelte-ts-mode = {
+    pname = "svelte-ts-mode";
+    version = "b1b5b4a5b09493063394a51d0f0f022645a18444";
+    src = fetchFromGitHub {
+      owner = "leafOfTree";
+      repo = "svelte-ts-mode";
+      rev = "b1b5b4a5b09493063394a51d0f0f022645a18444";
+      fetchSubmodules = false;
+      sha256 = "sha256-fA1yV8eUEdRS/KgHe9EY5FSahS/rq3Ig3VJJfL9y4WM=";
+    };
+    date = "2026-06-30";
   };
 }

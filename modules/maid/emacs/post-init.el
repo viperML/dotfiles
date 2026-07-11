@@ -521,9 +521,9 @@ Does nothing if treemacs is already visible."
   (define-key magit-mode-map (kbd "P") nil)
   (define-key magit-status-mode-map (kbd "c") 'my/magit-commit-or-stage-all)
   (setq magit-bury-buffer-function #'my/magit-kill-buffers))
-;; (use-package direnv
-;;   :config
-;;   (direnv-mode))
+
+(use-package git-modes
+  :mode ((".gitignore" . gitignore-mode)))
 
 ;; Git diffs in gutter
 (use-package diff-hl
@@ -645,6 +645,18 @@ Does nothing if treemacs is already visible."
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-hook 'elixir-ts-mode-hook #'lsp-deferred)
+
+;;; JS Ecosystem support
+;; (add-hook 'javascript-ts-mode-hook #'lsp-deferred)
+(add-hook 'typescript-ts-mode-hook #'lsp-deferred)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
+(add-hook 'js-ts-mode-hook #'lsp-deferred)
+(add-to-list 'auto-mode-alist '("\\.css\\'" . css-ts-mode))
+
+(use-package svelte-ts-mode
+  :ensure nil
+  :hook (svelte-ts-mode . lsp-deferred)
+  :mode ("\\.svelte\\'" . svelte-ts-mode))
 
 ;;; Direnv support, must be the last
 (use-package envrc

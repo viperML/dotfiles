@@ -1,3 +1,7 @@
 [minimal-emacs-d]
 fetch.github = "jamescherti/minimal-emacs.d"
 src.git = "https://github.com/jamescherti/minimal-emacs.d"
+
+[svelte-ts-mode]
+fetch.github = "leafOfTree/svelte-ts-mode"
+src.git = "https://github.com/leafOfTree/svelte-ts-mode"

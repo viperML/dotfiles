@@ -69,9 +69,11 @@
   workers = 0
 [url "git@github.com:"]
   insteadOf = "github:"
+  insteadOf = "github.com:"
   insteadOf = "https://github.com/"
 [url "git@gitlab.com:"]
   insteadOf = "gitlab:"
+  insteadOf = "gitlab.com:"
   insteadOf = "https://gitlab.com/"
 [url "git@gitlab-internal.bsc.es:"]
   insteadOf = "https://gitlab.bsc.es/"
