@@ -553,6 +553,11 @@ Does nothing if treemacs is already visible."
   (setq mu4e-refile-folder "/Archives")
   (setq mu4e-trash-folder "/Trash")
   (setq mu4e-drafts-folder "/Drafts")
+  (setq sendmail-program "msmtp"
+      send-mail-function 'smtpmail-send-it
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      message-send-mail-function 'message-send-mail-with-sendmail)
   (with-eval-after-load "mm-decode"
     (add-to-list 'mm-discouraged-alternatives "text/html")
     (add-to-list 'mm-discouraged-alternatives "text/richtext")
