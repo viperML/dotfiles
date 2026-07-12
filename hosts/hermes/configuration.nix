@@ -78,7 +78,7 @@ in
   };
 
   environment.systemPackages = [
-
+    pkgs.discord
   ];
 
   programs.steam = {
