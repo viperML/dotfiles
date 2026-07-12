@@ -49,9 +49,6 @@
     pkgs.golangci-lint
     pkgs.terraform-ls
     pkgs.ansible-language-server
-
-    # Email
-    pkgs.notmuch
   ];
 
   networking = {

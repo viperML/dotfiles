@@ -13,6 +13,10 @@ let
   inherit (myLib) versionGate;
 in
 {
+  imports = [
+    ../mail
+  ];
+
   options.emacs = {
     package = (lib.mkPackageOption pkgs "emacs" { });
   };

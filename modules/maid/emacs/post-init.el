@@ -92,6 +92,9 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (define-key evil-normal-state-map (kbd "C-.") nil)
   (define-key evil-motion-state-map (kbd "C-f") nil))
 
+(use-package evil-collection
+  :after (evil))
+
 ;; Fix broken cursor on emacs -nw
 (use-package evil-terminal-cursor-changer
   :after (evil)
@@ -122,6 +125,9 @@ Returns nil when the clipboard matches the current kill ring top, so that
 (use-package doom-themes
   :custom (doom-themes-enable-bold t) (doom-themes-enable-italic t)
   :config
+  ;; Workaround for https://github.com/doomemacs/themes/issues/875
+  (setcdr (assoc 'gnus-group-news-low-empty doom-themes-base-faces)
+          '(:inherit 'gnus-group-mail-1-empty :weight 'normal))
   (let ((inhibit-redisplay t))
     ;; Disable all active themes
     (mapc #'disable-theme custom-enabled-themes)
@@ -535,6 +541,23 @@ Does nothing if treemacs is already visible."
   (setq diff-hl-update-async t) ; Do not block Emacs
   (setq diff-hl-global-modes '(not pdf-view-mode image-mode)))
 
+;;; Email
+(use-package mu4e
+  :commands (mu4e)
+  :config
+  (with-eval-after-load 'evil-collection
+    (evil-collection-mu4e-setup))
+  (setq mu4e-change-filenames-when-moving t)
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-sent-folder "/Sent")
+  (setq mu4e-refile-folder "/Archives")
+  (setq mu4e-trash-folder "/Trash")
+  (setq mu4e-drafts-folder "/Drafts")
+  (with-eval-after-load "mm-decode"
+    (add-to-list 'mm-discouraged-alternatives "text/html")
+    (add-to-list 'mm-discouraged-alternatives "text/richtext")
+    (add-to-list 'mm-discouraged-alternatives "multipart/related")))
+
 ;; LSP Support
 (use-package lsp-mode
   :commands
@@ -668,4 +691,4 @@ Does nothing if treemacs is already visible."
 
 ;;; Show trailing whitespaces using whitespace-mode
 (setq-default whitespace-style '(face trailing))
-(global-whitespace-mode +1)
+;; (global-whitespace-mode +1)
