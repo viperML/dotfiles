@@ -9,4 +9,6 @@ writeShellApplication {
     coreutils
     libsecret
   ];
+  text = builtins.readFile ./easy-secret.sh;
+  bashOptions = [];
 }

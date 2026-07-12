@@ -1,26 +1,40 @@
 #! /usr/bin/env bash
 set -uo pipefail
 
-usage() {
-    echo "Usage: $0 [name]"
-}
-
 if [[ "$#" != "1" ]]; then
-    usage
+    echo "Usage: $0 [name]" 1>&2
     exit 1
-    fi
+fi
+
+name="$1"
+
+if [[ "$name" != "$(printf "%q" "$name")" ]]; then
+    echo "Bad name: $name" 1>&2
+    exit 1
+fi
 
 declare -a kv
+kv+=("user" "$name")
 kv+=("server" "easy-secret")
 kv+=("type" "plaintext")
 kv+=("xdg:schema" "org.qt.keychain")
 
-kv+=("user" "$1")
+lookup() {
+    secret-tool lookup "${kv[@]}"
+}
 
-value="$(secret-tool lookup "${kv[@]}")"
+lookup 2>/dev/null 1>/dev/null
 _exit="$?"
+
 if [[ "$_exit" != 0 ]]; then
-    secret-tool store --label "easy-secret/$0" "${kv[@]}"
-else
-    printf "%s" "$value"
+    if [[ ! -t 1 ]]; then
+        echo "Secret is unset, but stdin is not a TTY!" 1>&2
+        exit 1
+    fi
+
+    secret-tool store --label "easy-secret/$name" "${kv[@]}"
 fi
+
+lookup
+_exit="$?"
+exit "$_exit"

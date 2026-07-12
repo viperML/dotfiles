@@ -19,6 +19,14 @@ in
 
   users.users.ayats = {
     home = "/x";
+
+    maid = {
+      file.xdg_config."autostart/discord.desktop".source =
+        "/run/current-system/sw/share/applications/discord.desktop";
+
+      file.xdg_config."autostart/steam.desktop".source =
+        "/run/current-system/sw/share/applications/steam.desktop";
+    };
   };
 
   system.stateVersion = "26.05";

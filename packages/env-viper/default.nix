@@ -65,6 +65,7 @@
   hover-rs,
   cajon,
   psmisc,
+  easy-secret,
 }@args:
 stdenv.mkDerivation {
   name = "env-viper";
