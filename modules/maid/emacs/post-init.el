@@ -691,4 +691,4 @@ Does nothing if treemacs is already visible."
 
 ;;; Show trailing whitespaces using whitespace-mode
 (setq-default whitespace-style '(face trailing))
-;; (global-whitespace-mode +1)
+(global-whitespace-mode +1)
