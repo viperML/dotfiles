@@ -1,6 +1,8 @@
-{ pkgs, config, ...}: let
+{ pkgs, config, ... }:
+let
   targets = [ config.maid.systemdTarget ];
-in {
+in
+{
   packages = with pkgs; [
     mu
     isync
@@ -10,6 +12,52 @@ in {
   systemd.tmpfiles.dynamicRules = [
     "d {{home}}/mail 0755 {{user}} {{group}} - -"
   ];
+
+  file.xdg_config = {
+    "isyncrc".text = ''
+      IMAPAccount BSC
+      Host mail.bsc.es
+      Port 993
+      User fayats@bsc.es
+      PassCmd "easy-secret bsc-password"
+      # One can use a command which returns the password
+      # Such as a password manager or a bash script
+      #PassCmd sh script/path
+      SSLType IMAPS
+
+      IMAPStore BSC
+      Account BSC
+
+      MaildirStore local
+      Subfolders Verbatim
+      Path ~/mail/
+      Inbox ~/mail/Inbox
+
+      Channel primary
+      Far :BSC:
+      Slave :local:
+      Patterns *
+      Expunge Both
+      Create Both
+      CopyArrivalDate yes
+      Sync All
+      SyncState *
+    '';
+
+    "msmtp/config".text = ''
+      account BSC
+      host mail.bsc.es
+      port 465
+      tls on
+      tls_starttls off
+      auth on
+      user fayats
+      from fayats@bsc.es
+      passwordeval "easy-secret bsc-password"
+
+      account default : BSC
+    '';
+  };
 
   systemd.services = {
     isync = {
