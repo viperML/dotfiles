@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   targets = [ config.maid.systemdTarget ];
 in
@@ -85,6 +90,7 @@ in
         Type = "oneshot";
         RemainAfterExit = true;
         Restart = "on-abnormal";
+        ExecCondition = "${lib.getExe pkgs.easy-secret} bsc-password";
       };
       path = [
         pkgs.imapfilter

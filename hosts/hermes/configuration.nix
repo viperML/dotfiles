@@ -87,6 +87,7 @@ in
 
   environment.systemPackages = [
     pkgs.discord
+    pkgs.xivlauncher
   ];
 
   programs.steam = {
