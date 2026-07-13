@@ -74,6 +74,7 @@ in
     isync = {
       script = ''
         if [[ -d "$HOME/mail" ]]; then
+          imapfilter
           mbsync -aV
           mu index
         else
@@ -86,6 +87,7 @@ in
         Restart = "on-abnormal";
       };
       path = [
+        pkgs.imapfilter
         pkgs.isync
         pkgs.mu
       ];
