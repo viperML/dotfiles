@@ -29,7 +29,7 @@ function print_messages(msgs)
 end
 
 local gitlab_msgs = acc_bsc.INBOX:contain_from("gitlab@gitlab.bsc.es")
-gitlab_msgs:mark_seen()
+-- gitlab_msgs:mark_seen()
 gitlab_msgs:move_messages(acc_bsc.GitLab)
 
 acc_bsc.INBOX:contain_subject("[Personal]"):move_messages(acc_bsc.Archives)
