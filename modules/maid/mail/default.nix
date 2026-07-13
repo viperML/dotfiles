@@ -7,11 +7,22 @@ in
     mu
     isync
     msmtp
+    imapfilter
+    (pkgs.writeShellScriptBin "fetch-mail" ''
+      set -ex
+      imapfilter
+      mbsync -a
+    '')
   ];
 
   systemd.tmpfiles.dynamicRules = [
     "d {{home}}/mail 0755 {{user}} {{group}} - -"
   ];
+
+  file.home = {
+    # FIXME don't .toString
+    ".imapfilter/config.lua".source = ./imapfilter.lua;
+  };
 
   file.xdg_config = {
     "isyncrc".text = ''
@@ -23,7 +34,7 @@ in
       # One can use a command which returns the password
       # Such as a password manager or a bash script
       #PassCmd sh script/path
-      SSLType IMAPS
+      TLSType IMAPS
 
       IMAPStore BSC
       Account BSC
@@ -35,7 +46,7 @@ in
 
       Channel primary
       Far :BSC:
-      Slave :local:
+      Near :local:
       Patterns *
       Expunge Both
       Create Both

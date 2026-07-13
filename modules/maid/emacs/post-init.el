@@ -307,7 +307,7 @@ Returns nil when the clipboard matches the current kill ring top, so that
   :commands (consult-ripgrep consult-buffer consult-line)
   :config
   ;; Search hidden files by default
-  (setq consult-ripgrep-args (concat consult-ripgrep-args " -.")))
+  (setq consult-ripgrep-args (concat consult-ripgrep-args " -. --iglob=!.git")))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
@@ -548,7 +548,7 @@ Does nothing if treemacs is already visible."
   (with-eval-after-load 'evil-collection
     (evil-collection-mu4e-setup))
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-get-mail-command "fetch-mail")
   (setq mu4e-sent-folder "/Sent")
   (setq mu4e-refile-folder "/Archives")
   (setq mu4e-trash-folder "/Trash")
