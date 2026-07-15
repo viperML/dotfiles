@@ -161,8 +161,13 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (setq project-switch-commands 'project-or-external-find-file)
   (setq project-vc-extra-root-markers (list ".envrc" "shell.nix")))
 
-;; Cancel minibuffer prompts with ESC or C-c
-(define-key minibuffer-local-map (kbd "<escape>") 'abort-minibuffers)
+;; Make ESC in minibuffer behave exactly like C-g.
+(dolist (map (list minibuffer-local-map
+                   minibuffer-local-ns-map
+                   minibuffer-local-completion-map
+                   minibuffer-local-must-match-map
+                   minibuffer-local-isearch-map))
+  (define-key map (kbd "<escape>") (lookup-key map (kbd "C-g"))))
 (define-key minibuffer-local-map (kbd "C-c") 'abort-minibuffers)
 ;;; esc always quits
 (global-set-key [escape] 'keyboard-quit)
@@ -185,7 +190,9 @@ Returns nil when the clipboard matches the current kill ring top, so that
     "M-S-<right>" 'shrink-window-horizontally
     "M-S-<left>" 'enlarge-window-horizontally
     "M-S-<down>" 'enlarge-window
-    "M-S-<up>" 'shrink-window)
+    "M-S-<up>" 'shrink-window
+    "C-<tab>" '(centaur-tabs-forward-tab :package centaur-tabs)
+    "C-<iso-lefttab>" '(centaur-tabs-backward-tab :package centaur-tabs))
   (general-define-key
    :states '(normal emacs treemacs)
    :keymaps 'global
@@ -265,6 +272,9 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (setq corfu-auto t)
   (setq corfu-auto-delay 0)
   (setq corfu-auto-prefix 0)
+  (add-hook 'minibuffer-setup-hook
+            (lambda ()
+              (setq-local corfu-auto nil)))
   :bind
   (("C-SPC" . completion-at-point)
     :map
@@ -655,6 +665,8 @@ Does nothing if treemacs is already visible."
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
                          (lsp-deferred))))
+(use-package lsp-haskell
+  :hook (haskell-ts-mode . lsp-deferred))
 
 (use-package lsp-ui
   :after (lsp-mode)
@@ -735,6 +747,10 @@ Does nothing if treemacs is already visible."
   :ensure nil
   :hook (svelte-ts-mode . lsp-deferred)
   :mode ("\\.svelte\\'" . svelte-ts-mode))
+
+;;; Haskell support
+(use-package haskell-ts-mode
+  :mode ("\\.hs\\'" . haskell-ts-mode))
 
 ;;; Direnv support, must be the last
 (use-package envrc
