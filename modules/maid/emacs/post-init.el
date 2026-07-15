@@ -256,10 +256,15 @@ Returns nil when the clipboard matches the current kill ring top, so that
     ;; '(treemacs :package treemacs :which-key "Explorer")
     ))
 
-;; Completions
-(use-package
-  corfu
+;;; Completions at point
+(use-package corfu
   :hook (after-init . global-corfu-mode)
+  :config
+  (setq corfu-cycle t)
+  (setq corfu-quit-no-match t)
+  (setq corfu-auto t)
+  (setq corfu-auto-delay 0)
+  (setq corfu-auto-prefix 0)
   :bind
   (("C-SPC" . completion-at-point)
     :map
@@ -278,12 +283,28 @@ Returns nil when the clipboard matches the current kill ring top, so that
         (interactive)
         (corfu-quit)
         (evil-normal-state)))))
+
+;;; Show icons in corfu
+(use-package kind-icon
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+;;; Extra completion sources
+;; (use-package cape
+;;   :after (corfu)
+;;   :config
+;;   (add-hook 'completion-at-point-functions #'cape-file))
+
+;; Fix indentation, otherwise complete
 (setq tab-always-indent 'complete
       text-mode-ispell-word-completion nil)
 
 ;; Vertical complete replacement
 (use-package vertico
-  :hook (after-init . vertico-mode))
+  :hook (after-init . vertico-mode)
+  :config
+  (setq vertico-cycle t))
 
 (use-package vertico-mouse
   :ensure nil
@@ -296,10 +317,10 @@ Returns nil when the clipboard matches the current kill ring top, so that
 
 ;; Fuzzy algo for vertico
 (use-package orderless
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles partial-completion))))
-  (completion-pcm-leading-wildcard t)) ; Emacs 31: partial-completion behaves like substring
+  :config
+  (setq completion-styles '(orderless basic))
+  (setq completion-category-overrides '((file (styles partial-completion))))
+  )
 
 ;; Search more stuff
 (use-package consult
@@ -541,18 +562,47 @@ Does nothing if treemacs is already visible."
   (setq diff-hl-update-async t) ; Do not block Emacs
   (setq diff-hl-global-modes '(not pdf-view-mode image-mode)))
 
+(defun my/mu4e-archive-now ()
+  "Move message to /Archives"
+  (interactive)
+  (mu4e-mark-set 'move "/Archives")
+  ;; (mu4e-mark-execute-all t)
+  )
+
 ;;; Email
 (use-package mu4e
+  :after (evil)
   :commands (mu4e)
+  :bind (("C-x m" . mu4e))
   :config
   (with-eval-after-load 'evil-collection
     (evil-collection-mu4e-setup))
+  (evil-define-key 'normal mu4e-headers-mode-map (kbd "a") #'my/mu4e-archive-now)
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-get-mail-command "fetch-mail")
   (setq mu4e-sent-folder "/Sent")
   (setq mu4e-refile-folder "/Archives")
   (setq mu4e-trash-folder "/Trash")
   (setq mu4e-drafts-folder "/Drafts")
+  (setq mu4e-bookmarks
+        '((:name "Inbox"
+                 :query "maildir:/Inbox"
+                 :key ?i)
+          (:name "Archives"
+                 :query "maildir:/GitLab"
+                 :key ?a)
+          (:name "Diffusion"
+                 :query "maildir:/Diffusion"
+                 :key ?d)
+          (:name "GitLab"
+                 :query "maildir:/GitLab"
+                 :key ?g)))
+  (setq user-mail-address "fayats@bsc.es")
+  (setq user-full-name "Fernando Ayats")
+  (setq mu4e-headers-fields
+        '((:from . 22) (:subject . 80) (:flags . 6) (:human-date . 12)))
+  ;; (define-key mu4e-headers-mode-map (kbd "a") #'my/mu4e-archive-now)
+  ;; (define-key mu4e-view-mode-map (kbd "a") #'my/mu4e-archive-now)
   (setq sendmail-program "msmtp"
       send-mail-function 'smtpmail-send-it
       message-sendmail-f-is-evil t
