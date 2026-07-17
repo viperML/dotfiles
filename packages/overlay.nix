@@ -25,6 +25,7 @@ let
     // {
       # Prevent infrec
       yazi = final.callPackage ./yazi { inherit (prev) yazi; };
+      glab = final.callPackage ./glab { inherit (prev) glab; };
     };
 
   overlayMisc = final: prev: {

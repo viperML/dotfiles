@@ -1,0 +1,4 @@
+[glab]
+src.git = "https://gitlab.com/gitlab-community/gitlab-org/cli"
+src.branch = "improve-token-handling"
+fetch.git = "https://gitlab.com/gitlab-community/gitlab-org/cli"

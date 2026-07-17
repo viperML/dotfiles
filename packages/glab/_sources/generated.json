@@ -1,0 +1,22 @@
+{
+    "glab": {
+        "cargoLock": null,
+        "date": "2026-03-30",
+        "extract": null,
+        "name": "glab",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "14eef951111b05173730909a25bf6d7d0b6091ef",
+            "sha256": "sha256-UL1EmmzsKQVMm95Xg5db82w9caVbihabj1r2Wb5+3lY=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://gitlab.com/gitlab-community/gitlab-org/cli"
+        },
+        "version": "14eef951111b05173730909a25bf6d7d0b6091ef"
+    }
+}
