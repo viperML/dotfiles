@@ -181,8 +181,6 @@ Returns nil when the clipboard matches the current kill ring top, so that
     "C-x c" '(open-config :which-key "Open post-init.el")
     "C-S-v" 'clipboard-yank
     "C-S-c" 'clipboard-kill-ring-save
-    "C-S-f" 'consult-ripgrep
-    "C-f" 'consult-line
     "M-<left>" 'evil-window-left
     "M-<right>" 'evil-window-right
     "M-<up>" 'evil-window-up
@@ -334,11 +332,24 @@ Returns nil when the clipboard matches the current kill ring top, so that
 
 ;; Search more stuff
 (use-package consult
-  ;; :bind (("C-S-f" . consult-ripgrep))
+  :init
+  (with-eval-after-load 'general
+    (general-define-key
+     :keymaps 'global
+     "C-S-f" 'consult-ripgrep
+     "C-f" 'consult-line))
   :commands (consult-ripgrep consult-buffer consult-line)
   :config
   ;; Search hidden files by default
   (setq consult-ripgrep-args (concat consult-ripgrep-args " -. --iglob=!.git")))
+
+(use-package wgrep)
+(use-package embark
+  :bind
+  (("M-;" . embark-act)))
+
+(use-package embark-consult
+  :after (embark consult))
 
 ;; savehist is an Emacs feature that preserves the minibuffer history between
 ;; sessions. It saves the history of inputs in the minibuffer, such as commands,
@@ -641,6 +652,11 @@ Does nothing if treemacs is already visible."
   (require 'lsp-semantic-tokens)
   :config
   ;; (setq lsp-log-io t)
+  (with-eval-after-load 'general
+    (general-define-key
+     :keymaps 'global
+     "C-c t" 'lsp-goto-type-definition
+     "C-c i" 'lsp-goto-implementation))
 
   ;; Elixir config
   (setq lsp-elixir-local-server-command "elixir-ls")
@@ -673,11 +689,9 @@ Does nothing if treemacs is already visible."
   :commands (lsp-ui-mode)
   :hook (lsp-mode . lsp-ui-mode))
 
-;; Nix support
+;;; Nix support
 (use-package
   nix-mode
-  ;; :hook (nix-mode . (lambda () (lsp-deferred)))
-  ;; :hook (nix-mode . #'lsp-deferred)
   :hook (nix-mode . lsp-deferred)
   :mode ("\\.nix\\'" . nix-mode))
 
@@ -714,7 +728,7 @@ Does nothing if treemacs is already visible."
 ;; Dockerfile support
 (use-package dockerfile-mode
   :commands dockerfile-mode
-  ;; :hook (dockerfile-mode . lsp-deferred)
+  :hook (dockerfile-mode . lsp-deferred)
   :mode ("Dockerfile[^/]*\\'" . dockerfile-mode))
 
 ;; Shell script support
@@ -752,14 +766,17 @@ Does nothing if treemacs is already visible."
 (use-package haskell-ts-mode
   :mode ("\\.hs\\'" . haskell-ts-mode))
 
-;;; Direnv support, must be the last
-(use-package envrc
-  :after (lsp-mode)
-  :hook (after-init . envrc-global-mode))
-
 ;; Maximize on init
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
 ;;; Show trailing whitespaces using whitespace-mode
 (setq-default whitespace-style '(face trailing))
 (global-whitespace-mode +1)
+
+;;; Direnv support, must be the last
+(use-package envrc
+  :init
+  (add-hook 'after-init-hook #'envrc-global-mode 99))
+;; (use-package ben
+;;   :init
+;;   (add-hook 'after-init-hook #'ben-global-mode 99))
