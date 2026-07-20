@@ -18,6 +18,7 @@ let
         [core]
           excludesfile = ${builtins.toFile "excludes" ''
             .cajon.lua
+            /.direnv
           ''}
       ''
   );

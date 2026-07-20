@@ -110,4 +110,16 @@
       resolution.y = 720;
     };
   };
+
+  # Direnv uses DIRENV_CONFIG, and it is hard to wrap
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    settings.global = {
+      disable_stdin = true;
+      strict_env = true;
+      warn_timeout = 0;
+      log_format = "";
+    };
+  };
 }

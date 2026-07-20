@@ -5,7 +5,6 @@
   fish-viper,
   starship,
   fzf,
-  direnv,
   zellij,
   osc,
   neovim,

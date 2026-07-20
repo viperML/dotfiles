@@ -207,8 +207,6 @@ Returns nil when the clipboard matches the current kill ring top, so that
     "f" '(lsp-format-buffer :package lsp-mode :which-key "LSP format buffer")
     ;; Buffers
     "b" '(:ignore t :which-key "Buffer")
-    "bb"
-    '(consult-buffer :which-key "Switch buffer")
     "bd"
     '(kill-current-buffer :which-key "Kill buffer")
     "bn"
@@ -269,7 +267,7 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (setq corfu-quit-no-match t)
   (setq corfu-auto t)
   (setq corfu-auto-delay 0)
-  (setq corfu-auto-prefix 0)
+  (setq corfu-auto-prefix 1)
   (add-hook 'minibuffer-setup-hook
             (lambda ()
               (setq-local corfu-auto nil)))
@@ -336,6 +334,7 @@ Returns nil when the clipboard matches the current kill ring top, so that
   (with-eval-after-load 'general
     (general-define-key
      :keymaps 'global
+     "C-c b" 'consult-buffer
      "C-S-f" 'consult-ripgrep
      "C-f" 'consult-line))
   :commands (consult-ripgrep consult-buffer consult-line)

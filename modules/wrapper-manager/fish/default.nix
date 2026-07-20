@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   inherit (pkgs) writeTextDir;
   vendorConf = "share/fish/vendor_conf.d";
@@ -27,10 +27,6 @@ let
         end
       '';
 
-  direnvConfig = writeTextDir "direnvrc" ''
-    source ${pkgs.nix-direnv}/share/nix-direnv/direnvrc
-  '';
-
   zoxideInit =
     pkgs.runCommand "zoxide-init.fish"
       {
@@ -45,7 +41,7 @@ let
   '';
 
   # ${lib.concatMapStringsSep "\n" initPlugin plugins}
-  config =
+  cfg =
     writeTextDir "${vendorConf}/viper_config.fish"
       # fish
       ''
@@ -74,9 +70,6 @@ let
           end
           source ${starshipInit}
           enable_transience
-          set -gx DIRENV_LOG_FORMAT ""
-          set -gx direnv_config_dir ${direnvConfig}
-          ${lib.getExe pkgs.direnv} hook fish | source
           source ${zoxideInit}
         end
       '';
@@ -93,7 +86,7 @@ in
         (lib.makeSearchPathOutput "out" "share" [
           # order matters
           loadPlugin
-          config
+          cfg
         ])
       ];
     };
